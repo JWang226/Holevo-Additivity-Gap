@@ -1,0 +1,15 @@
+.lake/
+.elan/
+__pycache__/
+*.pyc
+.DS_Store
+dist/
+*.olean
+*.ilean
+*.trace
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+

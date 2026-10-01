@@ -1,0 +1,41 @@
+# Third-party code notices
+
+## SLT: Statistical Learning Theory in Lean
+
+Two eigenbasis coordinate proof patterns in
+`Nonadditivity/GaussianQuadratic.lean` were adapted from
+[`SLT/HansonWright.lean`](https://github.com/YuanheZ/lean-stat-learning-theory/blob/d0f506f0a695018265dccb33bcb05e2f5ca1c876/SLT/HansonWright.lean)
+at commit `d0f506f0a695018265dccb33bcb05e2f5ca1c876` of
+`YuanheZ/lean-stat-learning-theory`:
+
+| Original declaration | Local declaration |
+| --- | --- |
+| `symmetric_inner_apply_eq_sum_eigenvalues_repr` | `Nonadditivity.GaussianQuadratic.quadratic_eq_eigen_sum` |
+| `orthonormalBasis_repr_sum_smul` | `Nonadditivity.GaussianQuadratic.basis_repr_sum` |
+
+Original source notice:
+
+> Copyright (c) 2026 Yuanhe Zhang. All rights reserved.
+> Released under Apache 2.0 license as described in the file LICENSE.
+> Authors: Yuanhe Zhang, Jason D. Lee, Fanghui Liu
+
+The adaptations change simplification arguments and proof steps for this
+project's pinned mathlib API. The local source file retains the copyright,
+license, and author attribution and identifies the adaptations.
+
+The complete repository license, including its contributor copyright notice,
+is reproduced unchanged in [`LICENSES/SLT-Apache-2.0.txt`](LICENSES/SLT-Apache-2.0.txt).
+It was retrieved from the pinned commit's
+[`LICENSE`](https://github.com/YuanheZ/lean-stat-learning-theory/blob/d0f506f0a695018265dccb33bcb05e2f5ca1c876/LICENSE).
+The downloaded file matches Git blob
+`ed749eb456f1a773072f76aaf4ceefeee3f9bce8`.
+The complete file tree at that commit contains no separate `NOTICE` file.
+
+The general SLT Hanson–Wright theorem and the SLT dependency tree are not
+imported. The Gaussian density calculation, centered quadratic moment
+generating function, concentration bounds, finite-net argument, and channel
+construction in this project are proved locally against the pinned mathlib.
+
+The Apache 2.0 terms apply to the adapted portions. This notice does not
+assign a license to unrelated project material or change the licenses of
+Lean and mathlib dependencies.

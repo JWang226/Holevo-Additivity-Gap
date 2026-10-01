@@ -1,0 +1,98 @@
+# Copyright (c) 2026 the Nonadditivity project contributors.
+# All rights reserved. See COPYRIGHT.md for licensing and attribution.
+# Follows the v0.3 field layout used by openai/ten-proofs.
+# Extended manuscript mapping and verification scope: metadata/results.json.
+
+
+version: v0.3
+project:
+  name: nonadditivity
+  authors:
+  - Nonadditivity project contributors
+  license: NOASSERTION
+sources:
+- title: Unbounded Holevo additivity gaps in finite dimensions
+  authors:
+  - Jinzhao Wang
+  id: paper/nonadditivity.tex
+  type: paper
+  author_contacted: not recorded
+  prior_work: Mathematical sources are recorded in the manuscript bibliography and docs/RESOURCE_NOTES.md.
+    Third-party Lean sources and licenses are documented in THIRD_PARTY_NOTICES.md. Repository organization
+    follows openai/ten-proofs; no authorship or license from that repository is attributed to this project.
+status:
+  scope: 'Principal finite-channel, operational coding, prescribed-dimension, and input-cost results are
+    proved without remaining analytic or coding hypotheses. The entire manuscript is not formalized: broader
+    Haar-convergence and background generalizations remain outside scope. Two intermediate counting estimates
+    have formal counterexamples and proved replacements; the preserved manuscript still needs those proof
+    corrections. See metadata/results.json and docs/FORMALIZATION_STATUS.md. The zero placeholder counts
+    refer to the proof library and solutions; six intentional expected-statement placeholders are isolated
+    in ComparatorChallenges and excluded from proof builds.'
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+  main_results:
+  - name: Prescribed finite dimensions and Holevo gap
+    declaration: Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound
+    file: Nonadditivity/HaarPrescribedBound.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: ComparatorChallenges/A_PrescribedDimensions.json
+  - name: Operational classical capacity equals regularized Holevo information
+    declaration: Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum
+    file: Nonadditivity/OperationalCodingTheorem.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: ComparatorChallenges/B_OperationalCoding.json
+  - name: Small positive single-use information with large capacity gain and two-use ratio
+    declaration: Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio
+    file: Nonadditivity/OperationalConsequences.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: ComparatorChallenges/C_SmallInformationSeparation.json
+  - name: Weyl-extension Holevo equality at every positive tensor power
+    declaration: Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits
+    file: Nonadditivity/WeylPowersEntropy.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: ComparatorChallenges/D_WeylAllUses.json
+  - name: Input-qubit cost of the growing-K separation
+    declaration: Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower
+    file: Nonadditivity/PrescribedCostCapacity.lean
+    sorry_count: 0
+    axioms:
+    - propext
+    - Classical.choice
+    - Quot.sound
+    comparator_config: ComparatorChallenges/E_InputCost.json
+automation:
+  methods:
+  - method: agent
+    models:
+    - Exact model name/version not recorded
+    framework: Codex
+    cost:
+      wall_time: not recorded
+  notes: AI-assisted development and agent review are documented in docs/AI_USAGE.md. Reliable total compute
+    cost is not recorded. This metadata does not assert independent human review or a completed external
+    Comparator run.
+review:
+  status: agent-reviewed
+acknowledgements: Uses Lean, mathlib, and the third-party sources identified in THIRD_PARTY_NOTICES.md.
+  Mathematical attribution remains in the manuscript bibliography. Project license selection is pending;
+  NOASSERTION does not grant an open-source license.

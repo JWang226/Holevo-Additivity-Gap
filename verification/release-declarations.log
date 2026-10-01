@@ -1,0 +1,329 @@
+Nonadditivity.ActualConsequences.FiniteQuantumChannel.normalizedPowerHolevo_tendsto_classicalCapacity : ∀
+  (T : Nonadditivity.ActualConsequences.FiniteQuantumChannel),
+  Filter.Tendsto (Nonadditivity.RegularizedHolevo.normalizedPowerHolevo T.channel) Filter.atTop
+    (nhds T.classicalCapacity)
+@Nonadditivity.BellOutput.complementary_bell_entropy_le : ∀ {ι : Type u_1} {κ : Type u_2} [inst : Fintype ι]
+  [inst_1 : DecidableEq ι] [inst_2 : Nonempty ι] [inst_3 : Fintype κ] [inst_4 : DecidableEq κ] [inst_5 : Nonempty κ]
+  (U : κ → ↥(unitary (Matrix ι ι ℂ))),
+  (((Nonadditivity.Channels.KrausChannel.uniformUnitary U).complementary.tensor
+            (Nonadditivity.Channels.KrausChannel.uniformUnitary U).complementary.conjugate).output
+        Nonadditivity.BellOutput.bellState).vonNeumann ≤
+    2 * Real.log ↑(Fintype.card κ) - Real.log ↑(Fintype.card κ) / ↑(Fintype.card κ)
+@Nonadditivity.BlockBell.block_complementary_bell_entropy_le : ∀ {ι : Type u_1} {κ : Type u_2} [inst : Fintype ι]
+  [inst_1 : DecidableEq ι] [Nonempty ι] [inst_3 : Fintype κ] [inst_4 : DecidableEq κ] [inst_5 : Nonempty κ]
+  (U : ℕ → κ → ↥(unitary (Matrix ι ι ℂ))) (n : ℕ),
+  ∃ ρ,
+    (((Nonadditivity.BlockBell.blockComplementary U n).tensor
+              (Nonadditivity.BlockBell.blockComplementary U n).conjugate).output
+          ρ).vonNeumann ≤
+      ↑n * (2 * Real.log ↑(Fintype.card κ) - Real.log ↑(Fintype.card κ) / ↑(Fintype.card κ))
+@Nonadditivity.Channels.KrausChannel.output_purity_and_entropy_of_certificate : ∀ {ι : Type u_1} {ο : Type u_2}
+  {κ : Type u_3} [inst : Fintype ι] [inst_1 : DecidableEq ι] [inst_2 : Fintype ο] [inst_3 : DecidableEq ο]
+  [inst_4 : Fintype κ] [Nonempty ο] (T : Nonadditivity.Channels.KrausChannel ι ο κ) {t : ℝ},
+  0 ≤ t →
+    (∀ (A : Matrix ο ο ℂ),
+        A.IsHermitian → A.trace = 0 → ‖T.adjointMap A‖ ≤ t * Nonadditivity.AdjointPurity.hsLength A) →
+      ∀ (ρ : Nonadditivity.Entropy.DensityMatrix ι),
+        (T.output ρ).purity ≤ 1 / ↑(Fintype.card ο) + t ^ 2 ∧
+          Real.log ↑(Fintype.card ο) - Real.log (1 + ↑(Fintype.card ο) * t ^ 2) ≤ (T.output ρ).vonNeumann
+@Nonadditivity.CollinsYounProduct.collinsYounBound : ∀ {K n : ℕ},
+  2 ≤ K → 1 ≤ n → Nonadditivity.FreeModel.CollinsYounBound K n
+@Nonadditivity.DeterministicConsequences.actual_small_large : ∀ {ε R : ℝ},
+  0 < ε → ∃ T, 0 < T.chi ∧ T.chi ≤ ε ∧ R ≤ T.chiTwo / 2
+Nonadditivity.DeterministicConsequences.actual_vanishing_diverging : Filter.Tendsto
+    (fun K => (Nonadditivity.DeterministicConsequences.separatingFamily K).chi) Filter.atTop (nhds 0) ∧
+  Filter.Tendsto (fun K => (Nonadditivity.DeterministicConsequences.separatingFamily K).chiTwo / 2) Filter.atTop
+    Filter.atTop
+@Nonadditivity.ExactQualitative.exists_actual_channel_bounds_with_dimensions : ∀ {K n : ℕ},
+  2 ≤ K →
+    1 ≤ n →
+      ∀ {η : ℝ},
+        0 < η →
+          ∃ T N,
+            0 < N ∧
+              Fintype.card T.Input = 2 * N ^ n * K ^ (2 * n) ∧
+                Fintype.card T.Output = K ^ n ∧
+                  0 < T.chi ∧
+                    T.chi ≤ ↑n * Nonadditivity.Scalar.aK ↑K + η ∧ ↑n * Nonadditivity.Scalar.log2 ↑K / ↑K ≤ T.chiTwo
+Nonadditivity.HaarConsequences.AllHaarStrongConvergence : Prop
+Nonadditivity.HaarIteratedMoments.iteratedExpectation_le : ∀ (N p : ℕ),
+  Even p →
+    2 ≤ p →
+      Nonadditivity.HaarIteratedMoments.OnePairTraceBound N p →
+        ∀ (j : ℕ) {ι : Type} [inst : Fintype ι] [inst_1 : DecidableEq ι] [Nonempty ι]
+          (f :
+            Nonadditivity.HaarWordExpansion.MatrixPolynomial (Nonadditivity.ProductHaagerupProduct.GroupIndex (Fin 2) j)
+              ι),
+          IsSelfAdjoint (Nonadditivity.HaarWordExpansion.regularEval f) →
+            (∀ w ∈ f.support, Nonadditivity.ProductHaagerupProduct.RadiusLe 1 w) →
+              Nonadditivity.HaarIteratedMoments.iteratedMoment N 1 j f ≤
+                ‖Nonadditivity.HaarWordExpansion.regularEval f‖ *
+                  Nonadditivity.HaarTensorConstants.replacementMultiplier (↑(Fintype.card ι)) (↑N + 1) p j ^ (1 / ↑p)
+@Nonadditivity.HaarMarkedCompositions.corrected_marked_sum_le : ∀ {l : List Bool} {e : ℕ},
+  l.head? = some true →
+    l.getLast? = some true →
+      List.count true l ≤ 2 * e →
+        ∀ (n : ℕ),
+          1 ≤ n →
+            ∑
+                times ∈
+                  Nonadditivity.HaarTimeCompositions.compositions
+                    ((Nonadditivity.HaarMarkedCompositions.blocks l).length - 1) n,
+                Nonadditivity.HaarMarkedCompositions.markedProduct (Nonadditivity.HaarMarkedCompositions.blocks l)
+                  times ≤
+              n ^ (6 * e - 2)
+Nonadditivity.HaarModel.HaarStrongConvergence : (K : ℕ) → ℕ → [NeZero K] → Prop
+@Nonadditivity.HaarOperatorPathBridge.coefficient_bound : ∀ {E : Type} [inst : NormedAddCommGroup E]
+  [inst_1 : InnerProductSpace ℂ E] [inst_2 : CompleteSpace E] {V : Type u_1} [inst_3 : Fintype V]
+  [inst_4 : DecidableEq V] {m : ℕ} (A : Nonadditivity.HaarOperatorPolynomial.Polynomial (FreeGroup (Fin 2)) E),
+  (∀ g ∈ A.support, g.toWord.length ≤ 1) →
+    ∀ (p : ℕ),
+      1 ≤ p →
+        ∀ (P : Nonadditivity.HaarPathGraph.Path V 2 m),
+          0 < m →
+            ‖Nonadditivity.HaarOperatorPathBridge.refinedCoefficientSum A p P‖ ≤
+              ↑(Fintype.card V) ^ P.vertices.card *
+                    2 ^ (Nonadditivity.HaarPathMultiplicity.singletonEdges P.edgeList).card *
+                  ↑p ^ (9 * P.defectTwice + 11) *
+                ‖Nonadditivity.HaarOperatorPolynomial.regular A‖ ^ p
+@Nonadditivity.HaarPathClasses.card_defectClass_weighted_le : ∀ {V : Type u_1} [inst : DecidableEq V] {m : ℕ}
+  [inst_1 : Fintype V] (hm : 0 < m) (δ : ℕ) {z : ℝ},
+  0 ≤ z →
+    z ≤ 1 →
+      ↑(Fintype.card (Nonadditivity.HaarPathClasses.DefectClass V m δ hm)) * z ^ (δ + 2) ≤ (1 + 64 * ↑m ^ 2 * z) ^ m
+Nonadditivity.HaarPathExplorationCounterexample.attains_corrected_important_bound : Nonadditivity.HaarPathExplorationCounterexample.path.importantTimes.card =
+  Nonadditivity.HaarPathExplorationCounterexample.path.defectTwice + 2
+Nonadditivity.HaarPathExplorationCounterexample.violates_uncorrected_important_bound : Nonadditivity.HaarPathExplorationCounterexample.path.defectTwice +
+    1 <
+  {i ∈ Nonadditivity.HaarPathExplorationCounterexample.path.importantTimes | ↑i + 1 < 6}.card
+@Nonadditivity.HaarPathGraph.Path.card_importantTimes_le : ∀ {V : Type u_1} {d m : ℕ} [inst : DecidableEq V]
+  (P : Nonadditivity.HaarPathGraph.Path V d m), 0 < m → P.importantTimes.card ≤ P.defectTwice + 2
+Nonadditivity.HaarPathRunCounterexample.violates_uncorrected_run_bound : 3 *
+    Nonadditivity.HaarPathRunCounterexample.path.unorientedChains.card <
+  Nonadditivity.HaarPathRuns.blockCount
+    (Nonadditivity.HaarPathRuns.endpointFlags Nonadditivity.HaarPathRunCounterexample.labels)
+Nonadditivity.HaarPathRuns.two_edge_run_counterexample : Nonadditivity.HaarPathRuns.blockCount
+      [true, false, false, true, false, true, false, true] =
+    7 ∧
+  3 * 2 < Nonadditivity.HaarPathRuns.blockCount [true, false, false, true, false, true, false, true]
+@Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound : ∀ {K n : ℕ},
+  2 ≤ K →
+    Nonadditivity.Quantitative.n₀ K ≤ n →
+      ∃ T,
+        Fintype.card T.Input = 2 * Nonadditivity.StructuredHaarConsequences.localDimension K n ^ n * K ^ (2 * n) ∧
+          Fintype.card T.Output = K ^ n ∧
+            0 < T.chi ∧
+              2 * ↑n / ↑K ≤ T.chi ∧
+                T.chi ≤
+                    ↑n * Nonadditivity.Scalar.aK ↑K +
+                      2 * Nonadditivity.Scalar.log2 (Nonadditivity.StructuredHaarConsequences.kappa n) ∧
+                  ↑n * Nonadditivity.Scalar.log2 ↑K / ↑K ≤ T.chiTwo ∧
+                    ↑n * Nonadditivity.Scalar.deltaK ↑K -
+                        4 * Nonadditivity.Scalar.log2 (Nonadditivity.StructuredHaarConsequences.kappa n) ≤
+                      T.gap
+@Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation : ∀ {K n : ℕ},
+  2 ≤ K → Nonadditivity.Quantitative.n₀ K ≤ n → Nonadditivity.StructuredHaarConsequences.ExplicitHaarExpectation K n
+@Nonadditivity.HaarPrescribedDimension.prescribedFamily_gap_linear_bounds : ∀ {K : ℕ} (hK : 2 ≤ K),
+  0 < Nonadditivity.Scalar.deltaK ↑K →
+    ∀ᶠ (n : ℕ) in Filter.atTop,
+      Nonadditivity.Scalar.deltaK ↑K / 2 * ↑n ≤ (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).gap ∧
+        (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).gap ≤ 2 * Nonadditivity.Scalar.log2 ↑K * ↑n
+@Nonadditivity.HaarPrescribedDimension.prescribedFamily_input_size_remainder_tendsto : ∀ {K : ℕ} (hK : 2 ≤ K),
+  Filter.Tendsto
+    (fun n =>
+      Nonadditivity.Scalar.log2 ↑(Fintype.card (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).Input) -
+        (Nonadditivity.Quantitative.dimensionExponent (Real.log ↑K) / Real.log 2 * ↑n ^ 2 +
+            2 * ↑n * Nonadditivity.Scalar.log2 ↑K +
+          1))
+    Filter.atTop (nhds 0)
+@Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_normalized_gap_liminf : ∀ {K : ℕ} (hK : 2 ≤ K),
+  Nonadditivity.Scalar.deltaK ↑K / Nonadditivity.Scalar.log2 ↑K ≤
+    Filter.liminf
+      (fun n =>
+        (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).gap /
+          Nonadditivity.Scalar.log2
+            ↑(Fintype.card (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).Output))
+      Filter.atTop
+@Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_qubits : ∀ {K n : ℕ} (hK : 2 ≤ K),
+  Nonadditivity.Quantitative.n₀ K ≤ n →
+    Nonadditivity.Scalar.log2 ↑(Fintype.card (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).Output) =
+      ↑n * Nonadditivity.Scalar.log2 ↑K
+@Nonadditivity.HaarPrescribedDimension.prescribedFamily_ratio_liminf_manuscript : ∀ {K : ℕ} (hK : 2 ≤ K),
+  1 + Nonadditivity.Scalar.deltaK ↑K / (2 * Nonadditivity.Scalar.aK ↑K) ≤
+      Filter.liminf (fun n => (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).twoUseRatio) Filter.atTop ∧
+    Real.log ↑K / 18 ≤ 1 + Nonadditivity.Scalar.deltaK ↑K / (2 * Nonadditivity.Scalar.aK ↑K)
+@Nonadditivity.HaarPrescribedDimension.prescribed_gap_sqrt_input_bounds : ∀ {K : ℕ} (hK : 2 ≤ K),
+  0 < Nonadditivity.Scalar.deltaK ↑K →
+    ∃ c C,
+      0 < c ∧
+        0 < C ∧
+          ∀ᶠ (n : ℕ) in Filter.atTop,
+            c *
+                  √(Nonadditivity.Scalar.log2
+                      ↑(Fintype.card (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).Input)) ≤
+                (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).gap ∧
+              (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).gap ≤
+                C *
+                  √(Nonadditivity.Scalar.log2
+                      ↑(Fintype.card (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).Input))
+@Nonadditivity.HaarPrescribedDimension.prescribed_polynomial_favorable_probability : ∀ {K n : ℕ},
+  2 ≤ K →
+    Nonadditivity.Quantitative.n₀ K ≤ n →
+      ∀ (H : Nonadditivity.PolynomialReduction.Polynomial (Nonadditivity.StructuredLinearization.G n)),
+        (∀ w ∈ H.support,
+            w = 1 ∨
+              ∃ x,
+                w = Nonadditivity.ProductPolynomialReduction.generator x ∨
+                  w = (Nonadditivity.ProductPolynomialReduction.generator x)⁻¹) →
+          (∀ (ν : Type) [inst : Fintype ν] [inst_1 : DecidableEq ν] [Nonempty ν]
+              (π : Nonadditivity.StructuredLinearization.G n →* ↥(unitary (Matrix ν ν ℂ))),
+              (H.finiteEval π).IsHermitian) →
+            Real.log (2 * ↑(Fintype.card H.Index)) ≤ 2 * ↑K ^ (2 * n) * Real.log (1 + 2 * ↑n) →
+              0 < ‖H.regularEval‖ →
+                Nonadditivity.Quantitative.tolerance (Real.log ↑K) ↑n /
+                    (2 * (1 + Nonadditivity.Quantitative.tolerance (Real.log ↑K) ↑n)) ≤
+                  (Nonadditivity.HaarModel.sampleMeasure 2 n
+                        (Nonadditivity.StructuredHaarConsequences.sampleSize K n)).real
+                    {ω |
+                      ‖H.finiteEval
+                            (Nonadditivity.StructuredHaarModel.sampleRepresentation n
+                              (Nonadditivity.StructuredHaarConsequences.sampleSize K n) ω)‖ ≤
+                        (1 + Nonadditivity.Quantitative.tolerance (Real.log ↑K) ↑n) * ‖H.regularEval‖}
+@Nonadditivity.HaarSharpBound.onePairTraceBound : ∀ {N p : ℕ},
+  2 ≤ p → 2 ^ 32 * ↑p ^ 80 ≤ ↑N + 1 → Nonadditivity.HaarIteratedMoments.OnePairTraceBound N p
+@Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum : ∀ {ι : Type u_1} {ο : Type u_2}
+  {κ : Type u_3} [inst : Fintype ι] [inst_1 : DecidableEq ι] [Nonempty ι] [inst_3 : Fintype ο] [inst_4 : DecidableEq ο]
+  [Nonempty ο] [inst_6 : Fintype κ] (T : Nonadditivity.Channels.KrausChannel ι ο κ),
+  Nonadditivity.Operational.operationalCapacity T =
+    sSup (Set.range (Nonadditivity.RegularizedHolevo.normalizedPowerHolevo T))
+Nonadditivity.OperationalConsequences.actual_vanishing_chi_diverging_capacity : Filter.Tendsto
+    (fun K => (Nonadditivity.DeterministicConsequences.separatingFamily K).chi) Filter.atTop (nhds 0) ∧
+  Filter.Tendsto (fun K => (Nonadditivity.DeterministicConsequences.separatingFamily K).classicalCapacity) Filter.atTop
+    Filter.atTop
+@Nonadditivity.OperationalConsequences.exists_prescribed_channel_with_capacity_gain : ∀ {K n : ℕ},
+  2 ≤ K →
+    Nonadditivity.Quantitative.n₀ K ≤ n →
+      ∃ T,
+        Fintype.card T.Input = 2 * Nonadditivity.StructuredHaarConsequences.localDimension K n ^ n * K ^ (2 * n) ∧
+          Fintype.card T.Output = K ^ n ∧
+            0 < T.chi ∧
+              2 * ↑n / ↑K ≤ T.chi ∧
+                T.chi ≤
+                    ↑n * Nonadditivity.Scalar.aK ↑K +
+                      2 * Nonadditivity.Scalar.log2 (Nonadditivity.StructuredHaarConsequences.kappa n) ∧
+                  ↑n * Nonadditivity.Scalar.deltaK ↑K / 2 -
+                      2 * Nonadditivity.Scalar.log2 (Nonadditivity.StructuredHaarConsequences.kappa n) ≤
+                    T.classicalCapacity - T.chi
+@Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio : ∀ {ε : ℝ},
+  0 < ε → ∀ (A R : ℝ), ∃ T, 0 < T.chi ∧ T.chi ≤ ε ∧ A ≤ T.classicalCapacity - T.chi ∧ R ≤ T.twoUseRatio
+@Nonadditivity.OperationalConsequences.prescribed_capacity_gain_tendsto_atTop : ∀ {K : ℕ} (hK : 2 ≤ K),
+  0 < Nonadditivity.Scalar.deltaK ↑K →
+    Filter.Tendsto
+      (fun n =>
+        (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).classicalCapacity -
+          (Nonadditivity.HaarPrescribedDimension.prescribedFamily hK n).chi)
+      Filter.atTop Filter.atTop
+Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds : ∀ᶠ (K : ℕ) in Filter.atTop,
+  Nonadditivity.PrescribedCost.inputLogScale / 2 ≤
+      (Nonadditivity.PrescribedCost.growingFamily K).chi *
+        √(Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)) ∧
+    (Nonadditivity.PrescribedCost.growingFamily K).chi *
+        √(Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)) ≤
+      (9 / Real.log 2 + 1) * (2 * Nonadditivity.PrescribedCost.inputLogScale)
+Nonadditivity.PrescribedCost.growingFamily_input_qubits_div_sq_tendsto : Filter.Tendsto
+  (fun K => Nonadditivity.Scalar.log2 ↑(Fintype.card (Nonadditivity.PrescribedCost.growingFamily K).Input) / ↑K ^ 2)
+  Filter.atTop (nhds (280 / Real.log 2))
+Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower : ∀ᶠ (K : ℕ) in Filter.atTop,
+  1 / (8 * Real.log 2 * Nonadditivity.PrescribedCost.inputLogScale) ≤
+      (Nonadditivity.PrescribedCost.growingFamily K).chiTwo / 2 /
+        √(Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)) ∧
+    1 / (8 * Real.log 2 * Nonadditivity.PrescribedCost.inputLogScale) ≤
+      (Nonadditivity.PrescribedCost.growingFamily K).classicalCapacity /
+        √(Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K))
+Nonadditivity.PrescribedCost.growingFamily_vanishing_diverging : Filter.Tendsto
+    (fun K => (Nonadditivity.PrescribedCost.growingFamily K).chi) Filter.atTop (nhds 0) ∧
+  Filter.Tendsto (fun K => (Nonadditivity.PrescribedCost.growingFamily K).chiTwo / 2) Filter.atTop Filter.atTop ∧
+    Filter.Tendsto (fun K => (Nonadditivity.PrescribedCost.growingFamily K).classicalCapacity) Filter.atTop Filter.atTop
+@Nonadditivity.Probability.favorable_realization_probability : ∀ {Ω : Type u_1} [inst : MeasurableSpace Ω]
+  {μ : MeasureTheory.Measure Ω} [MeasureTheory.IsProbabilityMeasure μ] {f : Ω → ℝ},
+  MeasureTheory.Integrable f μ →
+    0 ≤ᵐ[μ] f →
+      ∀ {ε ρ : ℝ},
+        0 < ε → 0 < ρ → ∫ (ω : Ω), f ω ∂μ ≤ (1 + ε / 2) * ρ → ε / (2 * (1 + ε)) ≤ μ.real {ω | f ω ≤ (1 + ε) * ρ}
+Nonadditivity.RegularizedHolevo.normalized_fixed_channel_gap_tendsto_zero : ∀
+  (T : Nonadditivity.ActualConsequences.FiniteQuantumChannel),
+  Filter.Tendsto
+    (fun n =>
+      (((Nonadditivity.RegularizedHolevo.positiveTensorPower T.channel n).tensor
+              (Nonadditivity.RegularizedHolevo.positiveTensorPower T.channel n)).holevoBits -
+          2 * (Nonadditivity.RegularizedHolevo.positiveTensorPower T.channel n).holevoBits) /
+        ↑(n + 1))
+    Filter.atTop (nhds 0)
+@Nonadditivity.Scalar.gap_fraction_explicit_remainder : ∀ {K : ℝ},
+  1 < K →
+    0 ≤ Nonadditivity.Scalar.deltaK K / Nonadditivity.Scalar.log2 K - (1 - 18 / Real.log K) / K ∧
+      Nonadditivity.Scalar.deltaK K / Nonadditivity.Scalar.log2 K - (1 - 18 / Real.log K) / K ≤
+        162 / (K ^ 2 * Real.log K)
+@Nonadditivity.Scalar.gap_fraction_identity : ∀ {K : ℝ},
+  1 < K → Nonadditivity.Scalar.deltaK K / Nonadditivity.Scalar.log2 K = 1 / K - 2 * Real.log (1 + 9 / K) / Real.log K
+@Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate : ∀ {K n : ℕ} [inst : NeZero K] (hK : 2 ≤ K),
+  Nonadditivity.Quantitative.n₀ K ≤ n →
+    Nonadditivity.StructuredHaarConsequences.ExplicitHaarExpectation K n →
+      ∃ ω,
+        ∀ (A : Matrix (ZMod (K ^ n)) (ZMod (K ^ n)) ℂ),
+          A.IsHermitian →
+            A.trace = 0 →
+              ‖(Nonadditivity.BlockConstruction.blockChannel
+                        (Nonadditivity.StructuredHaarModel.derivedUnitary K n
+                          (Nonadditivity.StructuredHaarConsequences.sampleSize K n) hK ω)
+                        n).adjointMap
+                    A‖ ≤
+                Nonadditivity.StructuredHaarConsequences.kappa n * Nonadditivity.FreeModel.c K n *
+                  Nonadditivity.AdjointPurity.hsLength A
+@Nonadditivity.UniversalFactorization.exists_universal_factorization : ∀ {G : Type u_2} {ι : Type u_3} [inst : Group G]
+  [inst_1 : DecidableEq G] [inst_2 : Fintype ι] [inst_3 : DecidableEq ι] [Nonempty ι] (S : Finset G),
+  1 ∈ S →
+    ∀ (a : G → Matrix ι ι ℂ),
+      ∃ θ b,
+        0 ≤ θ ∧
+          θ ≤
+              ↑S.card *
+                ‖Nonadditivity.RegularCoefficientEnergy.regularPolynomial
+                    (Nonadditivity.Linearization.differenceSupport S) a‖ ∧
+            ‖Nonadditivity.RegularCoefficientEnergy.regularPolynomial (Nonadditivity.Linearization.differenceSupport S)
+                    a‖ =
+                ‖∑ g, Nonadditivity.RegularFactorization.term (b g) ↑g‖ ^ 2 - θ ∧
+              ∀ (H : Type u_1) [inst_5 : NormedAddCommGroup H] [inst_6 : InnerProductSpace ℂ H]
+                [inst_7 : CompleteSpace H] [Nontrivial H] (π : G →* ↥(unitary (H →L[ℂ] H))),
+                ‖Nonadditivity.UniversalFactorization.polynomial π (Nonadditivity.Linearization.differenceSupport S)
+                      a‖ =
+                  ‖∑ g, Nonadditivity.UniversalFactorization.term π (b g) ↑g‖ ^ 2 - θ
+@Nonadditivity.UniversalFactorization.regular_error_transfer : ∀ {G : Type u_1} {ι : Type u_2} [inst : Group G]
+  [inst_1 : DecidableEq G] [inst_2 : Fintype ι] [inst_3 : DecidableEq ι] {E : Type u_3} [inst_4 : NormedAddCommGroup E]
+  [inst_5 : InnerProductSpace ℂ E] [inst_6 : CompleteSpace E] [Nontrivial E] [Nonempty ι]
+  (π : G →* ↥(unitary (E →L[ℂ] E))) (S : Finset G) (hS : 1 ∈ S) (a : G → Matrix ι ι ℂ) (ε : ℝ),
+  0 ≤ ε →
+    ε ≤ 1 →
+      ‖Nonadditivity.UniversalFactorization.padded π S hS
+              (Nonadditivity.FiniteSetFactorization.dilationCoefficient a)‖ ≤
+          (1 + ε) *
+            ‖Nonadditivity.RegularFactorization.padded S hS
+                (Nonadditivity.FiniteSetFactorization.dilationCoefficient a)‖ →
+        ‖Nonadditivity.UniversalFactorization.polynomial π (Nonadditivity.Linearization.differenceSupport S) a‖ ≤
+          (1 + 6 * ↑S.card * ε) *
+            ‖Nonadditivity.RegularCoefficientEnergy.regularPolynomial (Nonadditivity.Linearization.differenceSupport S)
+                a‖
+Nonadditivity.UpperHaarRealization.HaarTraceMomentControl : (K : ℕ) → ℕ → [NeZero K] → Prop
+Nonadditivity.UpperHaarRealization.HaarUpperConvergence : (K : ℕ) → ℕ → [NeZero K] → Prop
+@Nonadditivity.WeylPowers.operationalCapacity_weylExtension : ∀ {ι : Type u_1} {κ : Type u_2} [inst : Fintype ι]
+  [inst_1 : DecidableEq ι] [Nonempty ι] [inst_3 : Fintype κ] {d : ℕ} [inst_4 : NeZero d]
+  (T : Nonadditivity.Channels.KrausChannel ι (ZMod d) κ),
+  Nonadditivity.Operational.operationalCapacity T.weylExtension =
+    Nonadditivity.Scalar.log2 ↑d - sInf (Set.range (Nonadditivity.WeylPowers.normalizedMinimumEntropy T))
+@Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits : ∀ {ι : Type u_1} {κ : Type u_2}
+  [inst : Fintype ι] [inst_1 : DecidableEq ι] [Nonempty ι] [inst_3 : Fintype κ] {d : ℕ} [inst_4 : NeZero d]
+  (T : Nonadditivity.Channels.KrausChannel ι (ZMod d) κ) (n : ℕ),
+  (Nonadditivity.RegularizedHolevo.positiveTensorPower T.weylExtension n).holevoBits =
+    ↑(n + 1) * Nonadditivity.Scalar.log2 ↑d -
+      (Nonadditivity.RegularizedHolevo.positiveTensorPower T n).minimumEntropy / Real.log 2
+DECLARATIONS PASSED: 49 exact names, source modules, roles, and transitive axioms.

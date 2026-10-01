@@ -1,0 +1,14 @@
+{
+  "challenge_module": "ComparatorChallenges.E_InputCost",
+  "solution_module": "Nonadditivity.PrescribedCostCapacity",
+  "theorem_names": [
+    "Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds",
+    "Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

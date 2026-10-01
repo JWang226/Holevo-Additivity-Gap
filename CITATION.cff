@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: Please cite the manuscript and the specific formalization release or commit.
+title: 'Holevo Additivity Gap: Lean certificates'
+type: software
+version: 0.1.0
+authors:
+- name: Nonadditivity project contributors
+preferred-citation:
+  type: generic
+  title: Unbounded Holevo additivity gaps in finite dimensions
+  authors:
+  - given-names: Jinzhao
+    family-names: Wang
+url: https://github.com/JWang226/Holevo-Additivity-Gap

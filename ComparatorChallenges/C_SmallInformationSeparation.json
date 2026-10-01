@@ -1,0 +1,13 @@
+{
+  "challenge_module": "ComparatorChallenges.C_SmallInformationSeparation",
+  "solution_module": "Nonadditivity.OperationalConsequences",
+  "theorem_names": [
+    "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

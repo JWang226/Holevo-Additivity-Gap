@@ -1,0 +1,13 @@
+{
+  "challenge_module": "ComparatorChallenges.A_PrescribedDimensions",
+  "solution_module": "Nonadditivity.HaarPrescribedBound",
+  "theorem_names": [
+    "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

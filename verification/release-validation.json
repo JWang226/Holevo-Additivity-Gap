@@ -1,0 +1,18 @@
+{
+  "result_rows": 25,
+  "unique_mapped_declarations": 49,
+  "comparator_configurations": 5,
+  "comparator_targets": 6,
+  "baseline_proof_bodies_unchanged": 368,
+  "proof_modules_including_all": 369,
+  "manuscript_sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+  "schema_validation": "repository consistency schema for v0.3-style metadata",
+  "comparator_executed": false,
+  "lean_declaration_check": "passed",
+  "validated_at_utc": "2026-10-01T05:36:20.298759+00:00",
+  "metadata_sha256": {
+    "metadata/results.json": "1929549699633731a169c9724b371f84edb785c50f1cb67563129aa65053c923",
+    "formalization.yaml": "9ac68fea1dd8fd0bf6c7a3a021f6c577c90c6fdf58fa17d388d3ccc8de87a9e0"
+  },
+  "metadata_rechecked_at_utc": "2026-10-01T05:36:44.671237+00:00"
+}

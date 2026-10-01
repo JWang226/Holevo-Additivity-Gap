@@ -1,0 +1,2749 @@
+{
+  "verified_at_utc": "2026-10-01T04:10:05.782491+00:00",
+  "lean_version": "Lean (version 4.29.0-rc6, arm64-apple-darwin24.6.0, commit 00659f8e6071d7e46131ed643bf8003b99b044e9, Release)",
+  "mathlib_revision": "f156f7abd91ac67adb22bf999e5a71ba22e22e41",
+  "manuscript_sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+  "compiled_modules": 368,
+  "source_theorem_lemma_declarations": 3469,
+  "audited_project_declarations": 9107,
+  "audited_theorem_constants_including_generated_helpers": 7219,
+  "permitted_transitive_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "uses_sorry": false,
+  "custom_axioms": [],
+  "full_manuscript_formalized": false,
+  "base_two_theorem": "Nonadditivity.ExactQualitative.exists_actual_channel_bounds_with_dimensions",
+  "remaining_analytic_inputs": [
+    "No analytic or coding premise remains in the prescribed-dimension channel theorem, the qualitative separation theorem, the operational capacity identity, or their proved consequences.",
+    "Separate broader Haar convergence predicates remain unproved and unused by these unconditional endpoints."
+  ],
+  "proof_status": "PROOF_MAP.md",
+  "analytic_boundary": "ANALYTIC_INPUTS.md",
+  "file_sha256": {
+    "ANALYTIC_INPUTS.md": "91c5153ef02c32a3986dcb09337bd6584376f016c7f10aacb9b852cfb5163d79",
+    "Audit.lean": "423e3da52c5b76da895aa477fca7438a117545328f904cb8f558a4081492198a",
+    "HAAR_ENTRY_PROGRESS.md": "4ca888f92e74d21d449014055fdf978e14a0d5a781e34c120de337c1b2ff5017",
+    "HAAR_PATH_PROGRESS.md": "25fbd456d994ac85977d6f0adf56b273c27303d9d719dec81d7c573645515ae4",
+    "LICENSES/SLT-Apache-2.0.txt": "4de930b76b7b4c78953ea8e0783b7e54ee71d1275769896c6e4b124cff23ef70",
+    "Nonadditivity.lean": "da60e2c65e3cdf8947ed60cd80ba7b15605954b5269e0fb2508d9add98d899cf",
+    "Nonadditivity/ActualConsequences.lean": "c91ac6d85f966bdfb38fac38b259129b758e91970bedacde0117a0d242a45076",
+    "Nonadditivity/AdjointPurity.lean": "6b047581d5d39c7f4f35bd2681f474e910af4c4cff47d50537e548088bc8d370",
+    "Nonadditivity/Asymptotics.lean": "66a4b5f0673a54bd45a8ec6d0b59bc64a1f4ef4e4bf57ee42566263149d2a060",
+    "Nonadditivity/BellOutput.lean": "9e395e213296db7b7d950fe203a6b184753a8f92ada0b1fe4cf3139755fdcc66",
+    "Nonadditivity/BlockBell.lean": "a8b10dbdcd403251eb655078988adef50ae789b210bd3411d271e2a315e4104c",
+    "Nonadditivity/BlockConstruction.lean": "423f942a38a02ed02fffbd04ec8cd32157c1abd6ed9c4aac884f1a6e78ed0e82",
+    "Nonadditivity/BlockScalars.lean": "911cd54db91d5aa0c5335e42dbb7c178604b3b89de8ecdaf155803bc1b563aca",
+    "Nonadditivity/CanonicalBlockBell.lean": "5f8c3deab0c5c11047e09935efd9c54735e144c185459873754522c341e6c6e1",
+    "Nonadditivity/ChannelEntropy.lean": "8a43aa41545f213f837ada0cc37216a75dd5d922793bee51f5cb11a5c0f7edad",
+    "Nonadditivity/ChannelExtensions.lean": "fb914abd4d51f7019cf3b0468426e923af51c0ce6f3bd3567d45cb35ab863c8f",
+    "Nonadditivity/ChannelReindex.lean": "8f0bc77b10c94c50718edaa5a5a95586f48b0dfa4b46fe330bb1c0e6b920c96e",
+    "Nonadditivity/ChannelTensorControl.lean": "ff3a7c0702ba2aac129e31832299351073f1f624450753cd699d3dec97f2e0f4",
+    "Nonadditivity/Channels.lean": "b8bb79cf492c56f0af51d7c783761cfd13bc3f316efeec4cc55fe89b2d5e11b9",
+    "Nonadditivity/CollinsYoun.lean": "12daf76d1af1bc2c2229cc707d4468c2ee6e63995e65d2515c3c7f53e1d14436",
+    "Nonadditivity/CollinsYounOne.lean": "f00d679fb72b630b370857fdb620b329e975605a31d974e0a097c0caaec4bac7",
+    "Nonadditivity/CollinsYounProduct.lean": "3c2581b476b5963a540ab11f7e071e1916afc2e1b37fa2ae48c8163c728165eb",
+    "Nonadditivity/CollinsYounTensor.lean": "6958bae80e2bec4f081fb08213288c218f89ea08beaf24cfc1bb1227c2c5549e",
+    "Nonadditivity/ComplementaryAdjoint.lean": "0f618be63d1808a0fd636a9b118b4363ebd881b8c6f88b3552a55c8018f3e1bf",
+    "Nonadditivity/ComplexRealTrace.lean": "a36c53ae496ac7a294f08bce8036a3bd6c14d5eb72795fa4127552a2cbc9626a",
+    "Nonadditivity/ConditionalStates.lean": "80c8e4866ce4d25997d1e3a998fdcf889740d7231a4f91ada5ac244d064bb5db",
+    "Nonadditivity/ConjugateChannel.lean": "e613f9c760736748544ce5bfa17d7eff0f1d5dc9dcbf933b70361cbd62504e53",
+    "Nonadditivity/Conversion.lean": "b8a58b32f79ee6edc78a90a7c5a266a6fd61cefecae53051d593cbe51c28baa4",
+    "Nonadditivity/DampedBellStability.lean": "1af7efd32e641613abcf61e1a9c6d86ae362945867a26e291ef0fa4cd8ae845b",
+    "Nonadditivity/DampedChannel.lean": "e040950f063dcad178116f169c2683a97323604dc6250339998c61a33fd6ffbb",
+    "Nonadditivity/DampedPositivity.lean": "879d01ea480c1c8fc6bf07154a7cb597e9a6ade1cc279e00417695a44df71fe4",
+    "Nonadditivity/DampedRealization.lean": "61fb411084184be4b8e7bb882c36c59d64c2c4ea68ae946d236bef77208c75e3",
+    "Nonadditivity/DampingNet.lean": "12732ca3cb10b0a78c7b17cf13e1b68676ef3f15e1c1ffefc9c1128276d609b0",
+    "Nonadditivity/DeterministicConsequences.lean": "f6eb823fcf9ae4d2e1a66dcd82f0eadf076d29f866834805399577a8b823e9e3",
+    "Nonadditivity/DeterministicQualitative.lean": "2f0e5644c1e29ab6f8612311a392adc86211bc6b9b6688a71e231ec5c2e7293f",
+    "Nonadditivity/Dimensions.lean": "14570f53b01c10806417b8fdaedfaecc339ff0da9ccc3830fd19798f48510a7e",
+    "Nonadditivity/Entropy.lean": "f934d33972cdedf23b2389b955591b8621c00380bdbb5b2514325758e2519121",
+    "Nonadditivity/EntropyContinuity.lean": "e75a25b4d7b06c6785bcb84dfd6d5fab7742b14b7d17d80323f43fd52e0e6504",
+    "Nonadditivity/EntropyMixtures.lean": "939ae62245654ad99c41ce5d3fe06d363c9cf849ee73d14901379cd4d42b0629",
+    "Nonadditivity/EntropyProducts.lean": "9f9de1ac51c7b8fb4a79fa14498fb1418d261b6bcda01e20c90d85cd06af092d",
+    "Nonadditivity/EntropyStability.lean": "f7d8043cf7e0664ee2389bbee7b2f40e6c542684fd3e3307dfc796dbbc018335",
+    "Nonadditivity/ExactQualitative.lean": "2e79e74c74b9c908828947ab3c211ba0b217ba2e0c486ef6bb1c7c52dc6f9d5b",
+    "Nonadditivity/FiniteBlockModel.lean": "f574100f618e9130c16bb2312a8978790737ed09e718b9bd346553482cd85842",
+    "Nonadditivity/FiniteChannelRealization.lean": "7e81f04332b36cdb080a81c15690e2d0c2585d2b6479bcca531310f2a27b6637",
+    "Nonadditivity/FiniteFreeModel.lean": "b4eb442bbd11f817fcc00f4d086e33f9b3e78225657436ece719e451697ee9a6",
+    "Nonadditivity/FiniteMomentMatching.lean": "7add0bdc729a5457d18cc6b69db6cf9b7b0f9f75e02dab2eab61c6ed15e974b2",
+    "Nonadditivity/FiniteRealization.lean": "4280e6f6b239c8252e261d13a55e16ca6cf63eededefcba71cb5db72e865b3ea",
+    "Nonadditivity/FiniteRegularMatrix.lean": "a2544bf657742ca90c2c8878337bb4d26379b90369a24b9fb030a626ae0a347a",
+    "Nonadditivity/FiniteSetFactorization.lean": "26c2758c3bf751affb3a9ca34c964335e3655c16f9bf126db7dbcd26f4aaa470",
+    "Nonadditivity/FreeBridge.lean": "00231968739e3d124f7ca8237e3b3107fed2d2cd7e9399ed3a769e93defd9c52",
+    "Nonadditivity/FreeCreation.lean": "1d2d3dfd450fc9093c5bc6449cbf65d43091787fbc64e6f280c7a114b11036a9",
+    "Nonadditivity/FreeEmbedding.lean": "683b02e9baeb901b45ba174e4e07599a50f5b1a6ab6c781f7b0db265a82ba94f",
+    "Nonadditivity/FreeGroupCut.lean": "dd93c9393a4fac7e46f707d375bcc1b629825ab9a91243a33297af23c7dac609",
+    "Nonadditivity/FreeModel.lean": "23b856ceaa663bbc30dcfe4cf5e8965af701e7a983f266a9b64ed8381dc272b5",
+    "Nonadditivity/GapFractionAsymptotics.lean": "218dd704a985d73f0d183d7f4552055a9cbfa9abca2014cb12ae1f5b8b193a36",
+    "Nonadditivity/GaussianCertificates.lean": "fef5643f3b63166118701397f21138de854316184dc873184e63f76f26b85b81",
+    "Nonadditivity/GaussianChannelBounds.lean": "58f170ce14b4ab65916ae23c37ddc28a315c384f820e122f8ab7ce016081fa44",
+    "Nonadditivity/GaussianConsequences.lean": "7e94d5c3d56d51ddf2c1e41585280cd9f4d86d0da0d7015326bc61c3b17a4c08",
+    "Nonadditivity/GaussianConstruction.lean": "8708cc12bb3cf5e2f524e7ae4cb6dba985aa97ff42985d6a6d186092374fb02c",
+    "Nonadditivity/GaussianNetRealization.lean": "f86fe9a33a99e8f902ec7f9cd411280e52e7c0ad0939e21c5b8c979fb7ce6fcd",
+    "Nonadditivity/GaussianNormalization.lean": "8553483922da55b9d065dd7cdf58179603557e4b4801603dd571d14720d1f3b5",
+    "Nonadditivity/GaussianQuadratic.lean": "c28007a8f64ea85baaeef299864f884aeb8f992f8885be1e85cea84ab1e65d48",
+    "Nonadditivity/GaussianRectangular.lean": "b25f0c3e93ffc44d3f87c2a45a74f5c6fc050f54228120255ccaeee0b166de60",
+    "Nonadditivity/GaussianRectangularAlgebra.lean": "c448b4678dae244e5dda0813820542b100fa3b84a2709ca3aa209972223de0d0",
+    "Nonadditivity/GaussianSampleEvaluation.lean": "8cc5d58163c8f16e66a82aee2b5e8522207cdb755e21a4d53a39688b597b7275",
+    "Nonadditivity/GaussianScalar.lean": "e3796bec23e9234ab08c26fd362e1c0dd2f8db4f3287faaee054c63e08531cdd",
+    "Nonadditivity/GeneralBell.lean": "8651c76426ca51c7baa4e5633c8de2c25ddb795e74512c08ba2448bbb52b377c",
+    "Nonadditivity/HaarActualScanWords.lean": "8e77da99f0c98007ee649a67a1e53f4f51b0b446d9ad808c757f7dd43d7eb313",
+    "Nonadditivity/HaarAveraging.lean": "1ba96921daeef9fc51532e36a00ec112d1c7dc8acd9b9a1a6c9ef7923c5203cf",
+    "Nonadditivity/HaarBranchCoefficients.lean": "4e41798e4bf26249d0b403940c10239075851dd294c1a80e89b661280a824b40",
+    "Nonadditivity/HaarBranchContractions.lean": "e399cb5e986de11346a149a9c3e137dc0c07278ae31d5d3d7ebde99f3a62b394",
+    "Nonadditivity/HaarBranchGraphBudget.lean": "e24b3b6045e1fe7445f1c7c877425b4cb577097945ba39e611dbdb4563c1840a",
+    "Nonadditivity/HaarBranchTimeSum.lean": "c04af4e224cbc56280455a4e57fdeb01cb6f3a9b8285cbb717d5c113fed5725f",
+    "Nonadditivity/HaarCanonicalTransport.lean": "fb0b6ba799ef48709fd7931705117cb4c5d5a147ef4f2547a393c81e1dd3df23",
+    "Nonadditivity/HaarChainColoring.lean": "a4a1b560cf2a568e1f641b2ef62e47ceb35e3414ef410fada9b5e18b208b3365",
+    "Nonadditivity/HaarChainColoringFibre.lean": "8cefd6314a8d99638eec0d9b783f03d0407debaa09503ebd72e0f03ab85cabf5",
+    "Nonadditivity/HaarChainColoringPalettes.lean": "46339969cabae22b23e5e63b23dbaa63b5915ce24fc7bd549696178716356f00",
+    "Nonadditivity/HaarChainColoringPath.lean": "23f68dcd935b3b2d6c09ce1cd91d2e2565d46d30be7e4a5f78075694b489030c",
+    "Nonadditivity/HaarChainMultiplicity.lean": "7f95056955cfa3646fb9530cdd8558ac81f957c549b5a0ac986e97da69cdb774",
+    "Nonadditivity/HaarChainReindex.lean": "d478eec843a9d34e3b368c2da3e6ef6cbe20e7b2811b0fbe7a6150fb5e895362",
+    "Nonadditivity/HaarCoefficientBounds.lean": "80d16c00df872849b59c239d82cc26e07465c88b75b465c1a1991c704a1c306e",
+    "Nonadditivity/HaarCoefficientRows.lean": "040f9b3d0790d72498cb20512fe5e2cb9038393eff716773a4bd7668464311b1",
+    "Nonadditivity/HaarColumnMoments.lean": "703c8a7391337f0196ba7e84a7f81014e0edc5e21d53fef1a082db55dd2f6e2e",
+    "Nonadditivity/HaarConsequences.lean": "475d51cbe06786b55ef659404f870412a77e6cfe84034ecdd69a574165c6972c",
+    "Nonadditivity/HaarCoreChainAddress.lean": "608ab6ea1eae6a68430ef9a76607e33baff0c29f2bd7b0cade9333a37ce0530f",
+    "Nonadditivity/HaarCoreChainEndpoints.lean": "7294a23a6dc6e79f989c2f48092b8c3213c6579575659ab2ad139efd6ac30c6b",
+    "Nonadditivity/HaarCoreChainLabels.lean": "054d6cf09fde509f2dd15c17a24d0273e9d9f4e8a285ecc568a61d8f68b4ab87",
+    "Nonadditivity/HaarCoreChainMultiplicity.lean": "45ff10032a077284b6771b70be1e0967ffca80e7cb6e0f37e507bb0d15e78d75",
+    "Nonadditivity/HaarCoreChainReverseAddress.lean": "dbf72131f942c4854886f861e9c0529dc9ac6098ce555a119f7520b3779e03a2",
+    "Nonadditivity/HaarCoreChainWords.lean": "56040459d8d9b79c8cb59f542aed0728da9c1c6640a98a62da355ce890b3356f",
+    "Nonadditivity/HaarDecodedCoefficientBound.lean": "8a39a2489c268a829ef9bbb53bac6d5fd77942ea6b5d39c7e0d60a7010d36635",
+    "Nonadditivity/HaarEncodingSlack.lean": "3785cca0cb060eafe7842dca867b306ba9200983d6bae6346e2167abea5338a8",
+    "Nonadditivity/HaarEntryBound.lean": "30ca17d07d261712c8251286807b6d29e745c68be0ca4cace40da7c2ef731c96",
+    "Nonadditivity/HaarExpectationFromMoment.lean": "024e4c7ec4bbf559bc24f878c5f339aac933fd184622e12e24439daaacf7e997",
+    "Nonadditivity/HaarFiniteFaithfulness.lean": "7138a23c4b4864b3f6a4cf2bbd92555446837a3d32e5553daef372156d91f7a3",
+    "Nonadditivity/HaarFiniteSymmetry.lean": "e0ecaa3545dcc3fe0873e0a843690d800d2157cb71d38718a3f35026634833ab",
+    "Nonadditivity/HaarFourthMoments.lean": "4a38e65bf5feb4ff1a645c10dbc8d9ce933277a83f601ea6dd5bec0747f0573f",
+    "Nonadditivity/HaarHybridMoments.lean": "e2fceb4fc2bea20f8f10989457e0521e6b63748d168cfb418f18f6b375db0292",
+    "Nonadditivity/HaarInputScaling.lean": "0446c6d1ae7e6740090f54a1b78cb2b6759ab763d487f64943ef446e80df4b81",
+    "Nonadditivity/HaarInvariantCommutant.lean": "85c3e83b1eb22644bb1afd7f59a766ed2c35c3c4f327cc31c43a199e1f3bf53c",
+    "Nonadditivity/HaarInvariantSpanning.lean": "8e2277a702f5b8e079774c48f8782b4b0d59bcc9d1b9d2e2d399e0587d6788c9",
+    "Nonadditivity/HaarInvariantTensor.lean": "abb537f6947976831292da62571a707952be945d7fc068e47fea1a3fdbba0935",
+    "Nonadditivity/HaarIteratedExpectation.lean": "f7a8f94f447aaa611279d2284dcd4187ef4a5dbb14461a61e40851508b0aba9f",
+    "Nonadditivity/HaarIteratedMoments.lean": "35cab2da5a6a3e9473c3f6128a01c19355c661e9ba3fee1255f9adfa968dd82f",
+    "Nonadditivity/HaarMarkedCompositions.lean": "ed7d4a47c36bc35b6fa9c5ae8f8997cc166fe4b3a42fe426bae24a68b728730d",
+    "Nonadditivity/HaarMatchingCount.lean": "85f921638e1165eed003d896462438cab349fcf4c4ba3866cfeb1d6469da1b53",
+    "Nonadditivity/HaarMatchingFibers.lean": "c90d38f7c576d047d52db03981725941ab02bf1c5c0b7a8dea5acc6ecd3fba2d",
+    "Nonadditivity/HaarMatchingSharp.lean": "f238def40de879e5c15459f554d7c1ccf0042ded79ea3f7e02536ca6c517a6de",
+    "Nonadditivity/HaarMatchingSingletons.lean": "dab9a4fe455257748b459a4e8a8f465c1cd0dd3e933ad45f40ffa1b3903b649e",
+    "Nonadditivity/HaarMixedMoments.lean": "76d14c8bb7dd0c920a5fd25020161db2fbd7ad398c83df1f79bd6c8a5fde4e7b",
+    "Nonadditivity/HaarMixedWordExpansion.lean": "8abd8af8503d668c32ecb632eb1e4ffc7a106707ddecd151231e3c834ba3e1d1",
+    "Nonadditivity/HaarModel.lean": "dc58040595db3213a19bc86e34e074791aa2d40c69c8beb286ee88f0bd628407",
+    "Nonadditivity/HaarMomentConstants.lean": "02dc42db2d3add709de814efb3dbda31cd442c6873d5ab6c79d67b2e5cac445e",
+    "Nonadditivity/HaarMomentExpectation.lean": "f7d0cb2e0ce6b15bec4e5deeb645c9370a811a20714b0d9263d1476dcfca9ad1",
+    "Nonadditivity/HaarMomentSlack.lean": "cfbebd65966c8f457efcf0078163178e6f91cbd4f475e80f2637f57d887f5920",
+    "Nonadditivity/HaarMomentTail.lean": "8e45ee697bf26b2ed9ea0b38efdbbb1e276db68a85099ae0d2b7ee3a04a7a084",
+    "Nonadditivity/HaarMoments.lean": "f7def7542b42f2e8881cef60a283cfd98f458735916f75f553d2a9dabaff0bd7",
+    "Nonadditivity/HaarNonbacktracking.lean": "fc7de230735a929d8e32cabbd968ea3507e851b917a857f9bb470766a8a51b89",
+    "Nonadditivity/HaarNonbacktrackingFirstStep.lean": "2eb42963af60fc93728e274137f33044bca5a38ab1eaf930ba74416cdabb4e7a",
+    "Nonadditivity/HaarNonbacktrackingLastReturn.lean": "317710d802b5dedeaf5e4f8b918758e87fc67579dfe6a5829ff73dd0c6ff0d2c",
+    "Nonadditivity/HaarNonbacktrackingListSegmentation.lean": "57ae8fc3938ea7c530c68f9c470aa0774659e1e8c19e17e7aeed014c6065ea79",
+    "Nonadditivity/HaarNonbacktrackingRenewal.lean": "029f45d4f56063c6fe48ddc914ab47bef5cc01e48d7c515c3ce68360e91a4f6c",
+    "Nonadditivity/HaarNonbacktrackingSegmentation.lean": "cf25c283fea14835eb09ea8761b298b45d22f6b368e8315ffd670179eb9662e0",
+    "Nonadditivity/HaarNonbacktrackingSupport.lean": "101642475aa7138eab279bfaf58af3dacaa2258f27a6a313a98137dca170366d",
+    "Nonadditivity/HaarOnePairAssembly.lean": "d29f063932078a5c4bb730e9d2d2a2aeb9f1c1c676e45ea9d986c7e9d43f9cf2",
+    "Nonadditivity/HaarOperatorCoefficient.lean": "9debaf693cda015f6ce885684b1ba9fb582af33325521dda2dd63f9f25326ca3",
+    "Nonadditivity/HaarOperatorCurry.lean": "732b52799c8d3b6648f7b0fef1824d47fe054af1924a761215f604b8a4b825a1",
+    "Nonadditivity/HaarOperatorPathBridge.lean": "34c7a26c747ae250ab31c0a6a69531651c192ab4869eba085b47a302c5bb9c6a",
+    "Nonadditivity/HaarOperatorPathSum.lean": "e16936b138d842d564a1c3bed18228fcd8fab8efa966a5df9cacf6654199b88c",
+    "Nonadditivity/HaarOperatorPolynomial.lean": "6a452549a9e1377383c34bfa4dabb898198ffdaa10c9bb1e0a3fc4e85805513b",
+    "Nonadditivity/HaarPairEntryBound.lean": "904ca110c5133e070554545909d220361a421c0121c397e80bef5a78e6edbc4f",
+    "Nonadditivity/HaarPaletteDecoder.lean": "173f182534b72a33b72b8303908156ba07928fc4475ad291a72920b73b335280",
+    "Nonadditivity/HaarPathBalance.lean": "13713e342209ba73c6f66e497e3cae4a9b73c055865173e66876cd21d7db1a5b",
+    "Nonadditivity/HaarPathChainCount.lean": "2ef767859896619e5d58438eafcd99761dd2c1247e15a3cc2b4c572ee50fc68c",
+    "Nonadditivity/HaarPathChainPartition.lean": "7f2b9fd48a3737671ec551add781a3f00dd3731184f183e53701d87603b05bfd",
+    "Nonadditivity/HaarPathChainProfiles.lean": "408f74d41988a5176efadd3640618433667c0ed4dcc2d5fda825657540a3f4b8",
+    "Nonadditivity/HaarPathChains.lean": "06fadd864bf7f85c28647b6de754f0c66fcda1aefab1578e36cc877d2e1b7c21",
+    "Nonadditivity/HaarPathClassAssembly.lean": "3ad5cbc0afce35d0489b9c041dfba08cb2b8193456840a3bd443774316238e13",
+    "Nonadditivity/HaarPathClassData.lean": "12132bd34ac688a086aa082d808b8c31b2c3a51293c9cb10b9a8377a79faff1e",
+    "Nonadditivity/HaarPathClassStats.lean": "35bedb6f29f8816609e935b52a2202562764cdbc21c25600c07e6ee3c4b47107",
+    "Nonadditivity/HaarPathClassSums.lean": "59a5896e3dee7415bf8ecd7bbcc73a93be8b69758d20906e050cada2f50840f1",
+    "Nonadditivity/HaarPathClasses.lean": "57fd416d9ad0c6b47d278e74db4e8d925b67ba40ea9474030872cece21548901",
+    "Nonadditivity/HaarPathCodes.lean": "e0764261dcabbf2a806205880992aba9b01df003479501d84928079a51ef3b2b",
+    "Nonadditivity/HaarPathCoefficientWords.lean": "3e20c8c55d3f259d6ed6a36b4d7368048abd2a7f1a7b0ef6e7124dfaf7d6339b",
+    "Nonadditivity/HaarPathColorMarks.lean": "90b99507e53966608cd2757071fe417a9995659ac126157eea23a3b1ab174ee7",
+    "Nonadditivity/HaarPathColorNormalization.lean": "c1545e712950c5ce78112843a22c783d7b629770911ed129b2ce4ebf9767c97e",
+    "Nonadditivity/HaarPathColorRelabel.lean": "7df8e4f5121f5df0cd9b866c0948c9b6c35b3d8c5c5045db41267b354653c0a1",
+    "Nonadditivity/HaarPathCounting.lean": "50d653a23d8e454a81de90545babd5847c8f4b3e1efaada1f1ce0b787e1ca6c6",
+    "Nonadditivity/HaarPathDecomposition.lean": "6d21ee0df2b6fad6bca014c84552343e2d953aab50e9893fabb4e168d63b57d8",
+    "Nonadditivity/HaarPathExpansion.lean": "e21ff7b879dbc50a7351cb1502d0cdf2b3222c3a2b253176cc03d0fb88c19404",
+    "Nonadditivity/HaarPathExploration.lean": "75599d0edb7b825705412c2807f9220ffc068508f890e9c31e575cc0a12717c6",
+    "Nonadditivity/HaarPathExplorationBlocks.lean": "f551822f0a1c4d5d055a8842c86c7f7451afd236d778290654651137ddfe2142",
+    "Nonadditivity/HaarPathExplorationCounterexample.lean": "ce5486dfaf0beb1d3163c3a89be7211e485e237dcdaa4e9426b0e3b8f4b0dd99",
+    "Nonadditivity/HaarPathFreshRuns.lean": "b0ea9c1f97955c15c11e213894f0ed19ff2f081b97640bdb250e4d72628f87da",
+    "Nonadditivity/HaarPathGraph.lean": "9f251d044f4e0c694e43625ca4a11239a20908d9bef87c3fb7be92d5c54288a3",
+    "Nonadditivity/HaarPathInternalColors.lean": "aaa576578142137a7135420dae1ae6ba393dc619cb1e00993ba5ff3ee92a4703",
+    "Nonadditivity/HaarPathInvolution.lean": "b511a0421745299ef49e7be7a213ffc13123fc3d97108969c88eb7fa024d6272",
+    "Nonadditivity/HaarPathLocalPhase.lean": "48515566482d46836a387ef7ba4e5dbe2218be39b3d1792d84ab7a76f2a66953",
+    "Nonadditivity/HaarPathMarks.lean": "509691121d764cc321a262e2bff3dbcf61d134e105159e1034ba00128dd667c8",
+    "Nonadditivity/HaarPathMultiplicity.lean": "8e5f64e07b8cbfc08ca13f501965a3a8bdba3370599efc7c48d816a72dbd1436",
+    "Nonadditivity/HaarPathNormalizedFresh.lean": "0e27dbeb250335ced351ab6fafa424c8a16bc216ebde76c393cb36cc75bb2feb",
+    "Nonadditivity/HaarPathNormalizedTree.lean": "7efd3770b2f3fd5c4001fd78cdb21c53ff3fa937a9069d626793970faf54dbda",
+    "Nonadditivity/HaarPathNormalizedTreeColors.lean": "afdfb872bb6965eef80d6ab173069b688b85adc32788ab49758ddcc23cc3a121",
+    "Nonadditivity/HaarPathPrefixTree.lean": "016a4ff71e11691759f2e1c5b3445ac9ec6fb72771faf4dbc81909cadbb62bb3",
+    "Nonadditivity/HaarPathProfileReverse.lean": "313ed281eb40805b7567276cf291522e6a7e8f730e3d0d38df85be75c460cb3e",
+    "Nonadditivity/HaarPathProfiles.lean": "1d9c56bf14905d9f6f7e62026d5fa3ffd380b6fb3cf4a42d20469af12d029033",
+    "Nonadditivity/HaarPathRecoloring.lean": "57f075dca672ef907481a4af7af7806fbb93a740a520a3556101716e18cad266",
+    "Nonadditivity/HaarPathReconstruction.lean": "64620059a92afd7bf40d8e07c87c7f4fe62d16179c819df4a531629fe5383354",
+    "Nonadditivity/HaarPathReconstructionFresh.lean": "690a55ae1da48ddab657185038cd635986231e82c86a3458c1ccae5fcd029fc5",
+    "Nonadditivity/HaarPathReconstructionTree.lean": "46584ed56778306a16b78ec0edee40bdc1a5023824da4ee995e4a946062db942",
+    "Nonadditivity/HaarPathRefined.lean": "87baf871d719e3359c04bf6ae2fd626712212646f981fe83b2422c285db64b22",
+    "Nonadditivity/HaarPathRefinedCounting.lean": "209362f8acdace5302d51ba06c5b25ba5b26396acfa612fe1f232ac4d8cf5e34",
+    "Nonadditivity/HaarPathRelabel.lean": "0147be498f8f7d317cfc0379033dad6e960bd41037c5fd43bb4341177cd84e31",
+    "Nonadditivity/HaarPathRunCounterexample.lean": "9dfd7822d632695f4fc68717c72d9cbae002a4c3f6e6a53ca5c531838a364734",
+    "Nonadditivity/HaarPathRuns.lean": "63dd46a6d4035fe5ac932e82928a3560c915c2e194f93960d72e8374c62424da",
+    "Nonadditivity/HaarPathSample.lean": "ad635de43653b71fc64217df01a42f258d2c8cbd3b80e6b1a09c7976acd74999",
+    "Nonadditivity/HaarPathScalarSummation.lean": "58efe471c398a3f23e078f2736632ebee42481feb9821c346b519e09db544015",
+    "Nonadditivity/HaarPathSupport.lean": "ebfb7f84e54d9b256cf178f5a17701e8f75c2fa0d327db2b5b5fb5998ae4acf4",
+    "Nonadditivity/HaarPathTransport.lean": "b7e2658ecb70587c4c0214579d73ef9bc812d7f28f493be8cd9a7c2a9be9858d",
+    "Nonadditivity/HaarPathTree.lean": "d1a12ffcfffe154197565af2323592cebba206191b5c2bc134d9d9dbd46c47ac",
+    "Nonadditivity/HaarPathTreeSegment.lean": "c5a777a23c0fa262e866506d3d1bf7d4494fe72f3dc083b4e8d27512d7dda980",
+    "Nonadditivity/HaarPathVertexFibre.lean": "51aa84d3b912103a861471b530245c58d99962045992094e65b222ab0ecc823a",
+    "Nonadditivity/HaarPathVertexNames.lean": "33554d281ca80cc540b29d97f4c58be66b9aee67e78cbff95bb03a2fa4fac6cc",
+    "Nonadditivity/HaarPathWeightBudget.lean": "1b21c5f891fab557c91046473f6880697cec936df558e920832f029507712725",
+    "Nonadditivity/HaarPathWeightTransport.lean": "c10336b7e18fe146d7599a2cb6ba7e67bffd0118075241d02d2899e2f8c7ddc7",
+    "Nonadditivity/HaarPathWeights.lean": "d31bff3778ca1440fde355a38a41e9945f6d4807d701941b6a7dd91352fef04c",
+    "Nonadditivity/HaarPermutationSupport.lean": "225823b0e9b550f3b9c0dc785459c0985c1b868e946acf1bc7cd31ebd703d0aa",
+    "Nonadditivity/HaarPrescribedBound.lean": "c6d6193445935349b580cf5bb0343727a81ad0b2573b0c1618cddd7dd859703c",
+    "Nonadditivity/HaarPrescribedConsequences.lean": "2811fb37101c421555fa4ac65fb5bdd551828136e10e3094700e43395f04ceb1",
+    "Nonadditivity/HaarPrescribedDimension.lean": "dc1d9c29fdc7642b27e13873517ace62087be71e5261c11ea94b008ec7919fd6",
+    "Nonadditivity/HaarPrescribedProbability.lean": "83266d5dc9fbd4ab9db1687b6de1bf9cba34c81739a0c22393b8e9c35a7d3248",
+    "Nonadditivity/HaarPrescribedRatio.lean": "8d9bb6a1e596a2e5ecdf5b2f55847df34716f862e7690e0e674a894cc0c86bf3",
+    "Nonadditivity/HaarPrescribedScaling.lean": "9273ceb8bfcd1e41e25d188226ac15c8b19d182cd4a54b22f729f7e2dd1d9176",
+    "Nonadditivity/HaarProfileAssignmentBound.lean": "0c84504444a17b95955eea75a59904922a73ce27c2ae60115550fba9a4f1c949",
+    "Nonadditivity/HaarProfileBlockCoefficients.lean": "3904edfc17e66747f1c7b0fd66156d1b3f0aa0c02a09d22b2a1a664a9608f010",
+    "Nonadditivity/HaarProfileCoefficient.lean": "ecb2c4675ad7eedd716b14f11aec0681723a33766d9fbd3eeb8fc21a86195a19",
+    "Nonadditivity/HaarProfileCompositionBound.lean": "4b12d1daa9d31b081819b1af9f06a7ce4e144039a053380dabf776418ea2e37f",
+    "Nonadditivity/HaarProfileDecodedCoefficients.lean": "4b3428879b2f255cc430b0011eb63e6036e98cf5867ee5c0702a74b0a7e13122",
+    "Nonadditivity/HaarProfileOrientation.lean": "e2fb6b80b0c638be8c66cc73bfd3fe3cae2f3093630cfa93ff9cb7c83b123a7f",
+    "Nonadditivity/HaarProfilePadding.lean": "6834ad3db748e7c361d1e600006dd5e5b9baa262d7b1d5bbb77bfbb9ffe288e1",
+    "Nonadditivity/HaarProfilePatternBound.lean": "70baf167c6c15db400d06b906ca8e69555d92dc81078740ff75c2b501a0fe6a1",
+    "Nonadditivity/HaarProfilePermutations.lean": "cb011acefa8667a9b695415d9b168ffcb5503ac5e66114f5dcff60a0b67fe020",
+    "Nonadditivity/HaarProfileSingletonWeight.lean": "3b97b12b901789e0ea73d6f35b753b22a7a5c8aa1383c8448cedf05b49257a2a",
+    "Nonadditivity/HaarProfileWordReverse.lean": "f845ee0312c527da736ab1a4cdfbf4cbda97c1cbf9d60e1d59525afcb33e8d49",
+    "Nonadditivity/HaarRecursiveSample.lean": "28571fa0d032c9b4ce2f90ba77b87988663b09fac085c506e162e268ddceb6c4",
+    "Nonadditivity/HaarReducedChunks.lean": "0dd63f5b4830cf62e964870325bbcc66faa35db8d178697cd5e3cfea789425e4",
+    "Nonadditivity/HaarRefinedCoefficientBound.lean": "c484b65095690235cda9e54f46eb8df3696388181aebe3b51a2d485fd2301b8f",
+    "Nonadditivity/HaarRefinedCoefficientFibre.lean": "5d54eb4d9134913c71672b0253ae15bcb6fd4e1f76669f7c2035d53c9f4e706d",
+    "Nonadditivity/HaarRefinedPaletteFibre.lean": "d8be61034835bb89594fc690fb8995bb768c325b00ec75d6f92211071dcf1b14",
+    "Nonadditivity/HaarRefinedVertexFibre.lean": "e1c4c1a2ee370b5a44147c1c6e7746a157b882cc8bacb24f2514770c39fea66f",
+    "Nonadditivity/HaarRefinedWeight.lean": "e8621e6bd620f228e87acf160e84ff100970365e7cc8224972e77c197aad4b25",
+    "Nonadditivity/HaarRepresentativePositions.lean": "34146ccdf895c8203f65ce264a507466d1309300accae61661bff54f9fdc3a7a",
+    "Nonadditivity/HaarSharpBound.lean": "3e793450c85e802a8245f9ec05c4c5fba457a96a57906373df06a0a9216ce086",
+    "Nonadditivity/HaarSharpConstants.lean": "da964deb2d6ed8d3cead12fb9258fb6c87614841c43f7ef5864ae63643dfa31e",
+    "Nonadditivity/HaarSharpCounting.lean": "88a75298da517dbfe412a8c508029dc6d9c51f460fd97b9e6d9c4499e5a93cce",
+    "Nonadditivity/HaarSharpPathWeight.lean": "2d29f0b7f8574644b0a2f64edabe4f5814b66f141ce32ba23549b86bdde1f84c",
+    "Nonadditivity/HaarSharpSummation.lean": "8af6afda6b19cfbb52379e0551e44f3fdefb7a70ffb19b3ea2b1146257f2816f",
+    "Nonadditivity/HaarSkeletonSegmentation.lean": "1dfb206255af206b18a4b327ac095438a02e472c4539f6d2bab5605541d6dc6c",
+    "Nonadditivity/HaarStationaryCoefficients.lean": "3c15bf96b6a4762aee2c6d785dde42414eea457d1b0514847b2f04fc09ec70f8",
+    "Nonadditivity/HaarTensorConstants.lean": "d3633cb8d60e7979ebebd24820dba8083b85c388789196392cb0ff4d70de8c28",
+    "Nonadditivity/HaarTensorEvaluation.lean": "a04647ca33d30d62c7a65dbbd0fa913a9025c265d7e102a9e620e350119a3afb",
+    "Nonadditivity/HaarTensorReplacement.lean": "8bddc430d6a7cda2ccc3027411a7ce9b6b9089274f06e0c7bef05fa76f96e447",
+    "Nonadditivity/HaarTimeCompositionReverse.lean": "ae7dc9ec282f0ad9fc5bd8f645378e7eeb8efe2b57f3d97a26584c48c95b1a42",
+    "Nonadditivity/HaarTimeCompositions.lean": "44b4c3210bfdabcf780f8f63397eeb09db0ce7bc1c9b2919392ff042a236564f",
+    "Nonadditivity/HaarVacuumFunctional.lean": "e276a7c5af3bca9e49c2403205f6367a340c3e3d4e5bec87c3347cc377d36199",
+    "Nonadditivity/HaarWeingartenCounting.lean": "6fb59f62d02f14ee02d6ff693c41c9c31498f20a6003ca960a16444c11ec8f56",
+    "Nonadditivity/HaarWeingartenCycles.lean": "1a8e8e12113188e2107b50e48ca3086c1e16fc3fa65fa5728f95126c673f78ca",
+    "Nonadditivity/HaarWeingartenGram.lean": "c0a36d8a419614aaaf8eeb4abe1e616411ebbf8b238160633b90f2afe10ef7ad",
+    "Nonadditivity/HaarWeingartenInverse.lean": "184c1d75258abad946d8dc51cc3ad89bd742050c85ccb29c0cc4c832b97a8e2e",
+    "Nonadditivity/HaarWeingartenInverseSum.lean": "212072a67217f406545ba6732d8ccfb2d68a441b7a2edc3de41f6d0dbd4e603f",
+    "Nonadditivity/HaarWeingartenMomentBound.lean": "5aa84673d2f58ddaedc8ef3e133cbe88cc23eacc081bb87dc0a39b0d6974347b",
+    "Nonadditivity/HaarWeingartenSymmetry.lean": "ebd01cd11329e2391241943a4b0015426a076be411b1e6a2080ef561178263a4",
+    "Nonadditivity/HaarWordExpansion.lean": "0bf25abf1d48ea6f412aaf3e92d5fba58c53883fd251bae460bb9e7b6f77817b",
+    "Nonadditivity/HaarWordPhase.lean": "436f1d421309dea815e370beedeca79dbea7b6b8f3cb41909fa976856fda7b30",
+    "Nonadditivity/Holevo.lean": "4f6c9e6368e9614661a7b3c3333a6ef3b66941fac434186ff4304254376ba2be",
+    "Nonadditivity/HolevoBits.lean": "782fbe04fb52413a5085aae41564a3cb05d1eb32d4f85b9e30b9d31ba39b83e0",
+    "Nonadditivity/HolevoPowerGap.lean": "2424192b34175ebcf81d07b2a08a91a2edf51183feb2330291165fefc033fdb1",
+    "Nonadditivity/HolevoRateLimit.lean": "020c89d4353fd83751ebb0231b2caab813131039188ba838c55e3813cd9392d2",
+    "Nonadditivity/HolevoTensorSuperadditivity.lean": "a2f32a408fd5398ac102c352d7b3ff8ac2e39ede274b7947a9026ce50f95111b",
+    "Nonadditivity/InitialNetReduction.lean": "2e668a683eabf911f0c21c16d0f11139c4f8e4eb28e6cb35634e06c50cdcabd1",
+    "Nonadditivity/Linearization.lean": "dd82360af31d9941d9a36df2d8f8a934cc13ed7b060216ca317418a35a2ec5db",
+    "Nonadditivity/Main.lean": "170de1735251f969dc905e76d2004bc1979d219ca9e97c89110b4e61b0ce3742",
+    "Nonadditivity/MatrixNormReindex.lean": "f7c4066d52e392f2c717c0c1005136e00cc04025a3a413d1c1b0f4d80b7a0be9",
+    "Nonadditivity/MatrixRegularRestriction.lean": "093d9cc9d78ebda7b6f7496ebafa0e0b0557af6d5c8a5636f4146d9bc082cb90",
+    "Nonadditivity/MatrixShortEmbedding.lean": "381e428aaa1e360418b621825d0a45a97ccaf91a05586f0375f016ba67d72464",
+    "Nonadditivity/Net.lean": "069e2e79ddfa63227a889e3184c5d50d7a04633651dc389df48c74128e9bcb95",
+    "Nonadditivity/NetPolynomial.lean": "06562790928e572e3947c5c582860b18383f593602b2f21e9813671c2bf3406e",
+    "Nonadditivity/NetPolynomialSupport.lean": "98c4e47348e5140978d8745e1a18b517f010106a4b973cb24f608ee30f32cf12",
+    "Nonadditivity/NoncommutativeCS.lean": "0c1edf07f8b857dcef4b29f48480cc01ad96ad9b97f6ffd5285ead0e00631a2b",
+    "Nonadditivity/NoncommutativeCSAssignmentProducts.lean": "855ac105e74928e63ac6dc329ed5c5bbdffb9c0d9ae79e40b24ab7f85daf592c",
+    "Nonadditivity/NoncommutativeCSAssignments.lean": "fd701bdfac71b411684894d76411fdd31145b66b629bc59c7ace973d66298e0a",
+    "Nonadditivity/NoncommutativeCSBlocks.lean": "5b6cd358e59a38d0a45ad44887368dfb11e4fb45ac42c7cc37be8cfb7987db72",
+    "Nonadditivity/NoncommutativeCSCrossing.lean": "74d99720533fa775936d6775ba2b715b105195312971968a1105abbb5102ecd6",
+    "Nonadditivity/NoncommutativeCSEndpointSkeleton.lean": "609878c7d0b6baddc32463cdf895c5f12f460a25451e2f7613bb65abfc6c701a",
+    "Nonadditivity/NoncommutativeCSEndpointTrace.lean": "9098a1074f08f0dbdaca01b1856bb833e196895cd49ea0b2631919cc53b1f135",
+    "Nonadditivity/NoncommutativeCSMemory.lean": "d51cd7ff57fec0311e2b93394b80b62a3bf760992852ee09f073f64bb3b2bb34",
+    "Nonadditivity/NoncommutativeCSPaths.lean": "77757baa22d56c6f1e6273ac30a8859cab0baacfe6cac0ed0346b4ecc8106b2a",
+    "Nonadditivity/NoncommutativeCSSingletons.lean": "53b8ccd008a9af976ac6a878ba126206c12cb59b8d5969caa1bd021bb8660d7c",
+    "Nonadditivity/NoncommutativeCSSkeletonDecoration.lean": "6060b53908e401b1e94018880d7af300208e8dafa2ef14c7500bb85adb77b05b",
+    "Nonadditivity/ObservableDimension.lean": "dd747824dbb5c9abd0f2cf572d95e9b942e868f104e975d2e65d2be7c5a9b23d",
+    "Nonadditivity/OneBlockRealization.lean": "cda322e1abb957480a367d6e9ec482228047e160eaaea953a473e00c63217e8f",
+    "Nonadditivity/OperationalBlockRates.lean": "158142a8ea201a0953042957100a41e1c25fd831d521348ac61b562e779a38fd",
+    "Nonadditivity/OperationalBlocking.lean": "0b0cb817aec0b215817e7cad59a23b063bad80b272d005ffdaaeae76d5a6ef2f",
+    "Nonadditivity/OperationalBlockingCodes.lean": "1fd2838d34efd64c362983dc0ace05bef45155acc462316f4c988bf6cd3f323b",
+    "Nonadditivity/OperationalBlockingFlatten.lean": "0c37b3269eeb393151956c3ef19d4b7c00b9fc5832c59b87f336eb3f0b63b468",
+    "Nonadditivity/OperationalCapacity.lean": "4520a65e8335779722560e2cda223f9439c98faa49ae44758289a57f91f74870",
+    "Nonadditivity/OperationalCodingTheorem.lean": "910766087013080f16be3b2fd020fb9e0ed5acc6e9b215efdbb3171f7c88d154",
+    "Nonadditivity/OperationalConsequences.lean": "b60570626da69793bf37719eb25397082c9d37fb4690ca2ed28b3374b0f8ed1b",
+    "Nonadditivity/OperationalConverse.lean": "cf0f1870c7367892ee24456f4877e33a800b75c345472a5b2b84eaf13dd8dc61",
+    "Nonadditivity/OperationalFlaggedEntropy.lean": "f7ad276247a9cedbd413699c0658d287646627297fcc701117f62e8d876206d8",
+    "Nonadditivity/OperationalHolevoConverse.lean": "9d6563270b34cf758bfeba67de5df10d65b22289d1f1ec56785d24a0f6c562db",
+    "Nonadditivity/OperationalNaimark.lean": "adef769e06d8bf2df0689a7616069acb3a98d8f7d5127a1bc8d7fec8b3298195",
+    "Nonadditivity/OperationalProjectedCode.lean": "98105b50fccdd2492df3fe398b0fb438f30a60c9c997c82f515c07eb9b27a9c5",
+    "Nonadditivity/OperationalReindex.lean": "d4bf7d2b233f123c89101a9f4e129e98dc6b45d3924717ff878f97586452ed73",
+    "Nonadditivity/OperationalStrongConverse.lean": "e552e54fa67680c19690d117197e36b18e2f4c2501ddce59dced54df7808094e",
+    "Nonadditivity/OperationalWeakConverse.lean": "bbf89227f881fed5bc90711deeebb06042e51ccf921249c0a1d5ffca5f6463c3",
+    "Nonadditivity/PolynomialDilation.lean": "a6ddc943019087d6261d8a3b71165a32e29090a35193a3d0bf8e0bcbe1385992",
+    "Nonadditivity/PolynomialReduction.lean": "3d8b19ecf7d4c407b8712ea3c5da5b02a5225f01711956132b737c3023ba52dd",
+    "Nonadditivity/PositiveHolevo.lean": "0ade8662b20310ed3c5fc1ff85b514fd4002bb574b555658ddd82109d9554455",
+    "Nonadditivity/PositiveLinearization.lean": "26620f7e14fb15d43a560437390fee803e0671e667570439f461f65bb822fada",
+    "Nonadditivity/PrescribedCostCapacity.lean": "a2b8fe733122013cb049771397227b6b025d11983048b2b0250136ebcd9cea74",
+    "Nonadditivity/PrescribedCostDimensions.lean": "99bc789ac6351e12b68c6aeb61067ac9786976319139abb0c42e56069ad401d0",
+    "Nonadditivity/PrescribedCostInformation.lean": "3abe91ea7153a7ff23b1ff104a51f8dfd5f219c7c5bdd7b0fbacdcec11b9332a",
+    "Nonadditivity/PrescribedCostLogarithms.lean": "4fc925cf60f06e44e1e714c395005610b6d5d8c260f21a0e5cb18c0b2edde3bb",
+    "Nonadditivity/PrescribedCostScalars.lean": "b1958b538f5c133ac3bf0ecb4cb518b12c7dd3f250e5f33e048b8500227aa656",
+    "Nonadditivity/PrescribedCostScaling.lean": "b3522fb7b7b5b2cc4f16f6bd277f25e656eabd5f1386fadffc2668d2bb047fde",
+    "Nonadditivity/PrescribedTest.lean": "da00742e711ad84261e26641e231f33574e203eb564d52b0519163d837665d29",
+    "Nonadditivity/Probability.lean": "9d45e10712202947f2f2c41ba131e904251f0c3df42a69b1568298ad99d2d64d",
+    "Nonadditivity/ProbabilityQuantitative.lean": "dfaac2c8dab6d1124b6d84b941bf4180d02d6c59cbd1d21bc1d63caf03f4bbfd",
+    "Nonadditivity/ProductHaagerupBall.lean": "6fecfdfbed703231b1d6fd09c5fae8be01aa723099dd39e0a5aa902503e6465d",
+    "Nonadditivity/ProductHaagerupCreation.lean": "b064b02068bead46d42d9b35ae5e0d05923ae224d3c85d4b1d21100b4fc143de",
+    "Nonadditivity/ProductHaagerupHomogeneous.lean": "b7c654741689d23a2a72f0ed3c8f6df03da29838e2f890edcec164b95a00ee3f",
+    "Nonadditivity/ProductHaagerupIndex.lean": "1e234d2dd21fa185149e690b322fa26a116f947f525011be7d3e4032de32f8d4",
+    "Nonadditivity/ProductHaagerupProduct.lean": "3f4bbc82e865a5c9ca992e07a0fb800d8e05c2e7a708aa81cc5e636e91072bf9",
+    "Nonadditivity/ProductHaagerupReindex.lean": "c1239c8d50becdd3a6a3a4e8e4796a7167a1f600247ccc353f664b7ee59f1b10",
+    "Nonadditivity/ProductHaagerupWords.lean": "5f75f7c0f3d715cc9e8e02e9c1dab26d1fd21fe2f0a762f50662817646463b86",
+    "Nonadditivity/ProductMomentBridge.lean": "8c880e8eaa53484d10d036f3edb1836da4fe0c4e19218a37770b32b639b1636f",
+    "Nonadditivity/ProductPolynomialReduction.lean": "31556c43156b322b5c8f3c859454943f6a8d2c0d78f8bb4ff0b3ce6777b5f708",
+    "Nonadditivity/PureChannelEntropy.lean": "cb8e15d0522cd79faee877dc94618a8ae56cc2433b2a0a68e69c5ba9586cba6c",
+    "Nonadditivity/Purity.lean": "fa68e666489073528edfffdb10782580bda52ff2379b8df5bf64ddb1e942952c",
+    "Nonadditivity/QuadraticNet.lean": "5422f38617fd74cc32bf20d8de502b56ddd15351937e91f5771527435987bab4",
+    "Nonadditivity/Qualitative.lean": "3e488aa7f28a35f03b1e3dd5c8482db62d2d1b0a739d86783e6f326f96d1a734",
+    "Nonadditivity/Quantitative.lean": "fcab536ee587f2b279daba135e0487b95a955eef3266fb33cee572cbe8de20ea",
+    "Nonadditivity/QuantitativeNet.lean": "b562474fc22b6b732879e6d12282ca963df26f2008e790bac9160da4c275b6d6",
+    "Nonadditivity/QuantumCodingChannelWords.lean": "238b89fc23339f8ec9e6f5cf4432fd532145c0f126d8f566622e314f7c240e00",
+    "Nonadditivity/QuantumCodingConditionalTypicality.lean": "b1f4d737d4ad783f81186b9d387fd7d405888c22e9e58264c42fd9451a322dea",
+    "Nonadditivity/QuantumCodingContinuity.lean": "4ebc293095973f1e00ca8c8736c594e36988d935a877fae8ff27f9f72e690ff6",
+    "Nonadditivity/QuantumCodingDecoderBound.lean": "8696368d1be7a224573fbb844f66d894b5bfeeaba84eaa0306a20e5d1e89602d",
+    "Nonadditivity/QuantumCodingEnsembleTypicality.lean": "30f09c37766ee5173222ae6ee87217422520e20756f83a999e4e75dd52794699",
+    "Nonadditivity/QuantumCodingFamilySpectrum.lean": "2f9d0d16be5fe2a1c327175e9818ba0c789154a8bf466a8333e8f811ac285285",
+    "Nonadditivity/QuantumCodingGentle.lean": "761cdbb3e118980d7d34598ff96ac0fbd743bdfc96bc449604f50e412e8f83f9",
+    "Nonadditivity/QuantumCodingHSW.lean": "2a0d0653416798e4456f7998032ae9c1510202f0323c72677fa5ba7d644d74d4",
+    "Nonadditivity/QuantumCodingPacking.lean": "bcb7759edc9f01a24419d4d455e96496a52a9963d080ecb5e51dba5e13f3428b",
+    "Nonadditivity/QuantumCodingPackingAverages.lean": "7c218f85fbac774d4444de6e4fbfb4e1406ca0b82ca6ead28ecf5843bb78d625",
+    "Nonadditivity/QuantumCodingRates.lean": "dee40cb792f56f294a4b1e9712baa40d78c50e313c051061fd8d009aa6f590f1",
+    "Nonadditivity/QuantumCodingSampling.lean": "0066fad2a2bbbab493fac17eac1acbe5c8f022546890830e6010d5b03ba55a17",
+    "Nonadditivity/QuantumCodingSequential.lean": "3cf87b82598e3c9459ae264a9e24499c8e2e3878755b4156e7f882e59aa390a2",
+    "Nonadditivity/QuantumCodingSpectral.lean": "95f4d8738e61bb7a1caeb4417a7841d89786f40f3750adb818488ba9f7abb726",
+    "Nonadditivity/QuantumCodingTensorSpectrum.lean": "a1d52c3b9eca0e9dd9277b02a43ca588d9b49af3c52cb0798277bc46a7fa6755",
+    "Nonadditivity/QuantumCodingTraceDistance.lean": "a83bf4cb82131f4ab182d09cd3e356a556ae63d749308e6b5589c9f9badddee3",
+    "Nonadditivity/QuantumCodingTraceUnion.lean": "5e183d0c23d782c0e98d0dd69605e3b656c81f581331032012440b2410a2b24e",
+    "Nonadditivity/QuantumCodingTypicalProjectors.lean": "bd00530be119e64dfa6939cf5c7b5dc45f258cea76e593dda2aa7b9e866ccc9a",
+    "Nonadditivity/QuantumCodingTypicalTests.lean": "1691a682fd06ad7cee0462604bc91fd55c1609d48115b2bc2c662e016db66d49",
+    "Nonadditivity/QuantumCodingTypicality.lean": "ee2b32511d317cd519ab3e210fbe3b3b1ed37020e2892539e97a9ae00dcb8eec",
+    "Nonadditivity/QuantumCodingUnion.lean": "54112dad4528113ca9ec39da7274c4a0ccf22e4209171af83e196230afe9804d",
+    "Nonadditivity/QuantumHolevo.lean": "de5c465877e233708d2a5b640d7fc94f6ed6553f373ef528fb34819dd406c0ec",
+    "Nonadditivity/RegularCoefficientEnergy.lean": "c94e43136a76a7a687ac3da41194651c938688b3dfe7d6fea9ccd8ca1442b5f1",
+    "Nonadditivity/RegularDilation.lean": "8caf1ccb3748ecfea5aaaf2f83a88d94ee69b6dbae9044db1c1ce96e0d20435f",
+    "Nonadditivity/RegularFactorization.lean": "02df53d0def8706792d33a7eeb2fa6b4e5813d2b4805e1cb437d8d8b6d32558a",
+    "Nonadditivity/RegularFubini.lean": "a0d79f2c83c5e2eda7b54c2b4fe6d91402aa1c455defe1bc079519177b4ed891",
+    "Nonadditivity/RegularRestriction.lean": "2ffba1dd29a3de07d713af8c10e261efa402a5d1c469624d669229287bb59bed",
+    "Nonadditivity/RegularShiftedDilation.lean": "12c19fdae17a50df8234dde19c0b0a29def0a708b771b0b59c43753bdfd8eca7",
+    "Nonadditivity/RegularizedHolevo.lean": "6caf8fcb95a72dc2faa78a4f84d0e03b10641c30a63d74695370588e23e50dd5",
+    "Nonadditivity/Scalar.lean": "be324484d5c5d8ff418d68958602abfc2bfe0a19869b8ee0bc631f679da63d69",
+    "Nonadditivity/ShiftNorm.lean": "e15b5608ba81a4c3b892285d714733f9f233705beac4795857e48df01be3a373",
+    "Nonadditivity/ShortEmbeddingNorm.lean": "019c5c506ac36c74b3e0e3dd258a8a0562c941f9007fbb56072c17d8c463a134",
+    "Nonadditivity/SmallEnvironment.lean": "591918f7c829ac709ec10db69601a9c0476de7a00e08bb6382729d6f56dd82ce",
+    "Nonadditivity/SpectralDamping.lean": "90898ea0da4bc98e2bdf9048e4b7f3b605b872c4019830548eadbe8277900424",
+    "Nonadditivity/StateEnsembles.lean": "77cd27af9f718913cc93beee3b53ceb64de5b23aeff81478c1b6ccf2d06a2e4b",
+    "Nonadditivity/StrictEntropy.lean": "69e51dd636db4cda5de22148805f66c7ffbc0df5def4af09fc6fffff0b7fe191",
+    "Nonadditivity/StructuredCostBounds.lean": "68c4428025794bcdf94a32acb5b8280abf31dceff01b77fdc1e42fee8b6ef8c9",
+    "Nonadditivity/StructuredFiniteChannel.lean": "aa75322c71afe24aa083e7f450738dd1ba9efa4ed1febdfac7b7a9618fad30ad",
+    "Nonadditivity/StructuredHaarConsequences.lean": "b74d3afba84e7da171b2aea3191fb598f998987d6e65c5460cfd762663d1df91",
+    "Nonadditivity/StructuredHaarModel.lean": "7e3672332f57bf64bc6aa2a2ab0f180c0c0ba05403dbd582851d4efab5a30909",
+    "Nonadditivity/StructuredLinearization.lean": "ade47a180737d01c6688126a9f4315420d68da55675b81c724f06b7cf4aaa3d3",
+    "Nonadditivity/StructuredReductionCosts.lean": "4e0965000aff36a9b2c02264d2d3e719bcac9f4b2795509d7fdc4a8809bfff49",
+    "Nonadditivity/SwitchChannel.lean": "67f91b2e092c337a807ff45eaf8105e892a4d44856bc793d2d38957068d4da9b",
+    "Nonadditivity/TensorPartitionReduction.lean": "50f918878edbaaa35238724040c0380d1683e0a248a5b20c44e9eb5f27a4360a",
+    "Nonadditivity/TensorPowers.lean": "c0c3e29a10cf6db14d389cc031dc0289e46e444f439a80b972864ef649df77df",
+    "Nonadditivity/UniversalFactorization.lean": "0a56cc51cfb904c0765c3f78de102bf2599a1f7c5f73c77041a3d611cfbc66ec",
+    "Nonadditivity/UniversalFactorizationGram.lean": "f108c141e714666663d42aa771ffcce533e44d496a620aeeefd952c581aa8763",
+    "Nonadditivity/UniversalFactorizationOperators.lean": "5511f9efdbc425d95de52a0bf42d2dd5430ac32a29b4e52066cb8757027d33b7",
+    "Nonadditivity/UniversalFactorizationPolynomialDilation.lean": "f575b8c08c09e7be4eee2a922a1de37088512eadd4045e431d975a0e4d8b68b5",
+    "Nonadditivity/UniversalShiftedDilation.lean": "2d304454ed04c29b7da5657b30a4c3240f768e021d5c90632a2cf97b1504ea15",
+    "Nonadditivity/UpperHaarRealization.lean": "2358ce2000536527c8f4cfc38ec062899c3af349f73c4260363df3dc4cda146a",
+    "Nonadditivity/WeightedBell.lean": "aeb766b4338d5f0e2ed4d292ff39c122b1ca341a37fb9a7cb06f996f67b74cd8",
+    "Nonadditivity/WeightedBellScalar.lean": "23a9d6c7c59ce3b3e14b499aec7ba0fc77455a06ab900fb0e87b31ac1e80568a",
+    "Nonadditivity/WeightedBlock.lean": "7cbe86893d9dcdc27550115d1d3f6bf096d964f269021d55ef6085549ba87f6c",
+    "Nonadditivity/WeightedBlockBell.lean": "dcc1954f55c20854986a8034a1928db81ef469e148474cd4c5cfa2c7bf968715",
+    "Nonadditivity/WeightedCertificate.lean": "5b7154cd48ec50d7dac8abc8b5b093d259a5723e5f511e0b4f4b0759f26db46e",
+    "Nonadditivity/WeightedMatrixInverse.lean": "304308798de71754e6cd70a6470e480c852f744202af0e1f0c40cd71a7e47cbc",
+    "Nonadditivity/WeightedParameters.lean": "80cdbea612a3f1e4e470c09472536f8419f38aaaaa892ac9a6b82bf4a1db3acb",
+    "Nonadditivity/WeightedPositivity.lean": "fb83f857a31091a99ad02391fece8b6c37fd0573e2de8e56ff61a50174f53b3b",
+    "Nonadditivity/Weyl.lean": "8ebc57248e69627081f98208617f8bfe2f6fea12037969af3ce5037c7bc3b427",
+    "Nonadditivity/WeylPowersChannels.lean": "459067320fcacfdab6b91499890360a09c08bf12003ba61fc010b332f8b7f8e1",
+    "Nonadditivity/WeylPowersControl.lean": "2f63cd877340c0e02bc0fb6a59d7888974ce3e8f1442473d404766aea14510c7",
+    "Nonadditivity/WeylPowersEntropy.lean": "123432c5c336479f5daaa1fa332d5187a0cc62fb77b5a4585837797059b656ed",
+    "Nonadditivity/WeylPowersIndex.lean": "e2203da0bd0644b7a5591d50151f8cfbcb9c2de1a9fb1fededaefbbf3df209ac",
+    "Nonadditivity/WeylPowersRegularized.lean": "7db84c5ba09314557f8b68407713025da7faffd18e58295ed3afea58924435f0",
+    "Nonadditivity/WeylPowersTwirl.lean": "ac50cd67fb79f35be2568b64385694059cfd366b7ec474e6e1577feb7434d937",
+    "Nonadditivity/WeylTensor.lean": "af7f4706fab19ce417d8acdfa879a5d6d4a0448705eb7d2aa4a3fa21c66f4322",
+    "Nonadditivity/WordBallReduction.lean": "02c4663b628b5f6a7b76bb4db4fc38dcb71e7759be2c3e0df6645955769b366e",
+    "PROOF_MAP.md": "2c8d128cc661d8643f42576f98b5f631e00e561d35a7b31c58e820f5fd255a2c",
+    "README.md": "f9cc622eaf4fc5c7e6ec0ac021a976582fe9a6d575d1fbca0687dadb2f3d51f3",
+    "REPORT.md": "ce45684c4448c4312094920204a36c2626daa368bd25b0faab4765786e0fff14",
+    "RESOURCE_NOTES.md": "ff2b26ad95b6d1edca3590c342ead53ebf551114f2cfbec7ae6d8753db02c57e",
+    "THIRD_PARTY_NOTICES.md": "45bfe4c9f064db1eedc8720a8ab4b5e1aa95ad0bdbdcc0cbc50bce19763f6a2a",
+    "build.sh": "d4201f7eddad07363d224dad4dc49aeab09b4ca3088c9924fe8d6b5af23386b1",
+    "check.sh": "3049fe47a06b3c01aa6b6b6cd1a774168833e828685a099fab1dcaee448007c6",
+    "lake-manifest.json": "13da69282954657482ea29adbdb64fa2f7f0c6bbd5fc070c01dba750733c57a1",
+    "lakefile.toml": "e7a49baaf25cadac76a90d29f82bb92960f55e5a383e7392bb3db9411b9c8763",
+    "lean-toolchain": "dc6d65016fad3123d44bf17b5bf0598286284ab16ba75d5c17eb22ed11f47361",
+    "lean.sh": "1b7846d7772f43cae6ce1f2c6ece865cdccb1da0b8e46bac343ed47b5ad70f48",
+    "reference/nonadditivity.tex": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+    "scripts/compiler.py": "06ecf6cce8e5f00bc327ad2da197d22ee6565a322e97b43d8193b7010d86900e",
+    "verification.log": "2bbfe3af853f86d16dfbab9090fba2995112a3f8cbb22c9bf0b0f612b3fa1b39"
+  },
+  "compiler_errors": 0,
+  "one_block_Collins_Youn_proved": true,
+  "canonical_Haar_model_proved": true,
+  "unbounded_ratios_require_only_one_block_Haar_convergence": true,
+  "finite_representation_factorization_proved": true,
+  "infinite_regular_dilation_norm_proved": true,
+  "arbitrary_infinite_representation_factor_identity_proved": false,
+  "one_block_ratio_theorem": "Nonadditivity.GaussianConsequences.exists_arbitrarily_large_ratio",
+  "one_block_regularized_ratio_theorem": "Nonadditivity.OneBlockRealization.exists_arbitrarily_large_regularized_ratio",
+  "arbitrary_gap_and_ratio_theorem": "Nonadditivity.DeterministicConsequences.exists_small_chi_large_gap_and_ratio",
+  "remaining_scope_limitations": [
+    "The generic HaarStrongConvergence, AllHaarStrongConvergence, HaarUpperConvergence, and HaarTraceMomentControl interfaces remain unproved in their stated generality and are not premises of the unconditional channel or operational results.",
+    "The original undamped finite-unitary realization for every kappa>1 and every sufficiently large integer dimension is broader than the particular prescribed-dimension and alternate qualitative constructions formalized here.",
+    "The one-pair moment theorem is implemented for actual finite matrices and remaining free-factor coefficients, not for every abstract traced C*-algebra. Some standard background generalizations and numerical illustrative examples are not separate formal endpoints.",
+    "Two intermediate manuscript counting claims have formal counterexamples. Their proved replacements now recover both the original Haar moment range and the original final prescribed channel dimensions; the reference manuscript itself is unchanged."
+  ],
+  "general_Collins_Youn_proved": true,
+  "general_Collins_Youn_theorem": "Nonadditivity.CollinsYounProduct.collinsYounBound",
+  "Haar_strong_convergence_proved": false,
+  "infinite_regular_factor_identity_proved": true,
+  "actual_finite_regular_error_transfer_proved": true,
+  "sharp_symmetric_observable_nets_proved": true,
+  "observable_real_dimension_proved": true,
+  "Holevo_tensor_superadditivity_proved": true,
+  "regularized_Holevo_supremum_equals_rate_limit_proved": true,
+  "operational_capacity_identification_proved": false,
+  "regularized_rate_limit_theorem": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.normalizedPowerHolevo_tendsto",
+  "Haar_upper_convergence_proved": false,
+  "upper_Haar_tails_suffice_for_qualitative_channels": true,
+  "Haar_first_and_second_entry_moments_proved": true,
+  "Haar_fourth_absolute_and_same_column_mixed_moments_proved": true,
+  "Haar_twirling_identity_proved": true,
+  "canonical_Haar_trace_moment_to_tail_bridge_proved": true,
+  "prescribed_test_exact_norm_proved": true,
+  "actual_symmetric_net_polynomial_proved": true,
+  "constructed_repeated_product_polynomial_linearization_proved": true,
+  "self_adjoint_linearization_and_safe_explicit_costs_proved": true,
+  "manuscript_sharp_linearization_cost_proved": true,
+  "Gaussian_alternative_route_formalized": true,
+  "resource_search_notes": "RESOURCE_NOTES.md",
+  "arbitrary_gap_from_upper_tails_theorem": "Nonadditivity.UpperHaarRealization.exists_arbitrarily_large_gap_of_all_upper",
+  "quantitative_channel_existence_unconditional": true,
+  "quantitative_channel_existence_formalized_relative_to_explicit_Haar_expectation": true,
+  "strongest_unconditional_qualitative_theorem": "Nonadditivity.ExactQualitative.exists_actual_channel_bounds_with_dimensions",
+  "conditional_multiblock_theorem": "Nonadditivity.UpperHaarRealization.exists_block_channel",
+  "manuscript_cost_theorem": "Nonadditivity.StructuredLinearization.exists_net_linearization",
+  "explicit_dimension_channel_from_Haar_expectation_proved": true,
+  "explicit_dimension_conditional_theorem": "Nonadditivity.StructuredHaarConsequences.exists_explicit_finite_channel",
+  "quantitative_Haar_expectation_proved": true,
+  "Gaussian_channel_theorem": "Nonadditivity.GaussianConstruction.exists_channel",
+  "unbounded_multiplicative_ratios_unconditional": true,
+  "arbitrarily_small_positive_chi_with_unbounded_ratio_unconditional": true,
+  "arbitrarily_large_regularized_Holevo_ratio_unconditional": true,
+  "nonadditive_finite_channel_exists_unconditionally": true,
+  "Haar_all_even_single_entry_moments_proved": true,
+  "Haar_row_phase_selection_proved": true,
+  "Haar_mixed_tensor_average_is_invariant_projection_proved": true,
+  "qualitative_channel_existence_unconditional": true,
+  "original_Haar_qualitative_interface_formalized": true,
+  "Haar_growing_trace_moment_control_proved": true,
+  "exact_section_2_qualitative_existence_proposition_proved": true,
+  "qualitative_two_use_lower_bound_has_no_slack": true,
+  "exact_qualitative_gap_theorem": "Nonadditivity.ExactQualitative.exists_actual_channel_gap",
+  "qualitative_dimensions": "input 2*N^n*K^(2*n), output K^n, N>0 existential finite",
+  "alternative_construction": "Finite free-word quotient regular matrices, exact moments, perturbed unitary probabilities, spectral input damping, switch and Weyl extension",
+  "unbounded_additive_gaps_unconditional": true,
+  "arbitrarily_small_positive_chi_with_unbounded_absolute_two_use_information_unconditional": true,
+  "vanishing_diverging_actual_channel_theorem": "Nonadditivity.DeterministicConsequences.actual_vanishing_diverging",
+  "arbitrarily_large_regularized_Holevo_gain_unconditional": true,
+  "regularized_gain_and_ratio_theorem": "Nonadditivity.DeterministicConsequences.exists_small_chi_large_regularized_gain_and_ratio",
+  "finite_free_group_ball_separation_proved": true,
+  "exact_finite_trace_moment_matching_proved": true,
+  "actual_finite_block_moment_bound_proved": true,
+  "spectral_damping_certificate_and_trace_loss_proved": true,
+  "damped_channel_CPTP_completion_proved": true,
+  "dimension_independent_Bell_stability_proved": true,
+  "uniform_finite_output_entropy_continuity_proved": true,
+  "weighted_Bell_strict_entropy_margin_proved": true,
+  "weighted_channel_norm_perturbation_bound_proved": true,
+  "invertible_damping_positive_Holevo_proved": true,
+  "source_attribution": "RESOURCE_NOTES.md; Bordenave--Collins arXiv:2304.05714v2 guides the finite-Haar proof with locally proved counting corrections; Shou--Gorshkov arXiv:2609.23946v2 motivates the independent finite-moment damping route. All required declarations are proved locally.",
+  "verification_method": "Incremental verification: unchanged baseline source/object hashes are checked against the prior manifest; all new sources have successful session compilations; newer sources and stale dependents are recompiled in dependency order; the complete aggregate and transitive axiom audit are recompiled. This is not a clean rebuild of the unchanged baseline; ./check.sh performs a full rebuild.",
+  "baseline_revision": 6,
+  "baseline_proof_sources_unchanged": true,
+  "compiled_source_objects": [
+    {
+      "module": "Audit.lean",
+      "source_sha256": "423e3da52c5b76da895aa477fca7438a117545328f904cb8f558a4081492198a",
+      "olean_sha256": "d6f1d64f4b3d9b2866676c9159536c696305e42bb69c5181387ee175cdbaea26"
+    },
+    {
+      "module": "Nonadditivity/ActualConsequences.lean",
+      "source_sha256": "c91ac6d85f966bdfb38fac38b259129b758e91970bedacde0117a0d242a45076",
+      "olean_sha256": "93072f4e0269de25ad5d348b391f66a0d93017adad5afbbd04565ef905d3d6c6"
+    },
+    {
+      "module": "Nonadditivity/AdjointPurity.lean",
+      "source_sha256": "6b047581d5d39c7f4f35bd2681f474e910af4c4cff47d50537e548088bc8d370",
+      "olean_sha256": "77e18f05798fb48bb091ee36fb5822d1d10ab03a1f86ec54aa1bcfa39c642bd9"
+    },
+    {
+      "module": "Nonadditivity/Asymptotics.lean",
+      "source_sha256": "66a4b5f0673a54bd45a8ec6d0b59bc64a1f4ef4e4bf57ee42566263149d2a060",
+      "olean_sha256": "50aed08a2a70c6d49b521ae64f7e0fec5bddb01c6eec70e266e99b329bb593da"
+    },
+    {
+      "module": "Nonadditivity/BellOutput.lean",
+      "source_sha256": "9e395e213296db7b7d950fe203a6b184753a8f92ada0b1fe4cf3139755fdcc66",
+      "olean_sha256": "f0141e36721d10ec4a35d78dad221b11375befad5f3f407ebcf469217b5f13e1"
+    },
+    {
+      "module": "Nonadditivity/BlockBell.lean",
+      "source_sha256": "a8b10dbdcd403251eb655078988adef50ae789b210bd3411d271e2a315e4104c",
+      "olean_sha256": "322c56cf321b86c32bdb6b9261cca176707b1db05622ecf1988e1287ff8d26d2"
+    },
+    {
+      "module": "Nonadditivity/BlockConstruction.lean",
+      "source_sha256": "423f942a38a02ed02fffbd04ec8cd32157c1abd6ed9c4aac884f1a6e78ed0e82",
+      "olean_sha256": "73ce8330d983b6bbeeb5c58808bc84f216c834293d7a6b171d7ecbf26d09ba69"
+    },
+    {
+      "module": "Nonadditivity/BlockScalars.lean",
+      "source_sha256": "911cd54db91d5aa0c5335e42dbb7c178604b3b89de8ecdaf155803bc1b563aca",
+      "olean_sha256": "d753ff4c31a6464c88686adc066c2b0f6091558b0dea475e347863572de35a04"
+    },
+    {
+      "module": "Nonadditivity/CanonicalBlockBell.lean",
+      "source_sha256": "5f8c3deab0c5c11047e09935efd9c54735e144c185459873754522c341e6c6e1",
+      "olean_sha256": "58e21558fa0d501d639a918aaa3083095d29f290df9fa228e663c12b71bc144b"
+    },
+    {
+      "module": "Nonadditivity/ChannelEntropy.lean",
+      "source_sha256": "8a43aa41545f213f837ada0cc37216a75dd5d922793bee51f5cb11a5c0f7edad",
+      "olean_sha256": "a999140aa6157fa3caa5655de5b2b4d88f7121f282625714ccdc728224531219"
+    },
+    {
+      "module": "Nonadditivity/ChannelExtensions.lean",
+      "source_sha256": "fb914abd4d51f7019cf3b0468426e923af51c0ce6f3bd3567d45cb35ab863c8f",
+      "olean_sha256": "dd3a6fc7613ee72c7a4e64ea0dc7b9c05c5d227b571515db4ce80980c8ee5afd"
+    },
+    {
+      "module": "Nonadditivity/ChannelReindex.lean",
+      "source_sha256": "8f0bc77b10c94c50718edaa5a5a95586f48b0dfa4b46fe330bb1c0e6b920c96e",
+      "olean_sha256": "1576f76179c905d10e8b0edb932a5996635dce9f4a8cc4e611fe7e7322baff19"
+    },
+    {
+      "module": "Nonadditivity/ChannelTensorControl.lean",
+      "source_sha256": "ff3a7c0702ba2aac129e31832299351073f1f624450753cd699d3dec97f2e0f4",
+      "olean_sha256": "3c782a41cc3ca08919f96c7e2b6d55b8798bf1c0a6b3cdb6892ef0a19e26b7c8"
+    },
+    {
+      "module": "Nonadditivity/Channels.lean",
+      "source_sha256": "b8bb79cf492c56f0af51d7c783761cfd13bc3f316efeec4cc55fe89b2d5e11b9",
+      "olean_sha256": "a7c209c427709fedb8bc95ca197a2485cc540eb6e8b3b26d5e6c15676fc391c6"
+    },
+    {
+      "module": "Nonadditivity/CollinsYoun.lean",
+      "source_sha256": "12daf76d1af1bc2c2229cc707d4468c2ee6e63995e65d2515c3c7f53e1d14436",
+      "olean_sha256": "6b86b0406958ae2a65f57a2dc72d492abb1c80de1381f4fac412ebb307e2d297"
+    },
+    {
+      "module": "Nonadditivity/CollinsYounOne.lean",
+      "source_sha256": "f00d679fb72b630b370857fdb620b329e975605a31d974e0a097c0caaec4bac7",
+      "olean_sha256": "e51da588431e438029add9bd70a853ac135ce7df2422c036fd586f712f9262d2"
+    },
+    {
+      "module": "Nonadditivity/CollinsYounProduct.lean",
+      "source_sha256": "3c2581b476b5963a540ab11f7e071e1916afc2e1b37fa2ae48c8163c728165eb",
+      "olean_sha256": "a3e1b230e42025f3d31fff89c746ccd2befac01a538aea875fb97391b044f1e7"
+    },
+    {
+      "module": "Nonadditivity/CollinsYounTensor.lean",
+      "source_sha256": "6958bae80e2bec4f081fb08213288c218f89ea08beaf24cfc1bb1227c2c5549e",
+      "olean_sha256": "3d3e2d4bf0b3b320ee0abecb79967fe94c57d4443ae75b3627370f9def724503"
+    },
+    {
+      "module": "Nonadditivity/ComplementaryAdjoint.lean",
+      "source_sha256": "0f618be63d1808a0fd636a9b118b4363ebd881b8c6f88b3552a55c8018f3e1bf",
+      "olean_sha256": "0072194a9fb3c88c5b8a3960ca3f572ae6a6d5a678924a3a787905cddac5bdc2"
+    },
+    {
+      "module": "Nonadditivity/ComplexRealTrace.lean",
+      "source_sha256": "a36c53ae496ac7a294f08bce8036a3bd6c14d5eb72795fa4127552a2cbc9626a",
+      "olean_sha256": "28227798fb46b126a85306854402e23528eb905877532b16d78619efa982317b"
+    },
+    {
+      "module": "Nonadditivity/ConditionalStates.lean",
+      "source_sha256": "80c8e4866ce4d25997d1e3a998fdcf889740d7231a4f91ada5ac244d064bb5db",
+      "olean_sha256": "bf4adad549667d572cd63b32b9bd06bd77889736b7925a98a865417d4147c906"
+    },
+    {
+      "module": "Nonadditivity/ConjugateChannel.lean",
+      "source_sha256": "e613f9c760736748544ce5bfa17d7eff0f1d5dc9dcbf933b70361cbd62504e53",
+      "olean_sha256": "1466fa67e035608825ca201f979eafeb40b375a38ddcb6110bb79392ee8e898f"
+    },
+    {
+      "module": "Nonadditivity/Conversion.lean",
+      "source_sha256": "b8a58b32f79ee6edc78a90a7c5a266a6fd61cefecae53051d593cbe51c28baa4",
+      "olean_sha256": "f5f4102d2c1d1af74601e79d1d53ac49ad3509ad0f20b9ff6d9be68908741056"
+    },
+    {
+      "module": "Nonadditivity/DampedBellStability.lean",
+      "source_sha256": "1af7efd32e641613abcf61e1a9c6d86ae362945867a26e291ef0fa4cd8ae845b",
+      "olean_sha256": "6bbb972f67098535cd164d45c5f161334535c93c7ae78bc5f806e205a2221770"
+    },
+    {
+      "module": "Nonadditivity/DampedChannel.lean",
+      "source_sha256": "e040950f063dcad178116f169c2683a97323604dc6250339998c61a33fd6ffbb",
+      "olean_sha256": "7c5b6e3ef7d3058f13d5c7c89abfb530850cbad2427f72234089e0cd17b83449"
+    },
+    {
+      "module": "Nonadditivity/DampedPositivity.lean",
+      "source_sha256": "879d01ea480c1c8fc6bf07154a7cb597e9a6ade1cc279e00417695a44df71fe4",
+      "olean_sha256": "a1e606880e859e612d2f3e82beb6fa8f184fd57f4284ed090848dbbca6610417"
+    },
+    {
+      "module": "Nonadditivity/DampedRealization.lean",
+      "source_sha256": "61fb411084184be4b8e7bb882c36c59d64c2c4ea68ae946d236bef77208c75e3",
+      "olean_sha256": "02d8f014cb3b1c79b83891a2e7e55f91dd4c60704885d128e7c56bbbd1119795"
+    },
+    {
+      "module": "Nonadditivity/DampingNet.lean",
+      "source_sha256": "12732ca3cb10b0a78c7b17cf13e1b68676ef3f15e1c1ffefc9c1128276d609b0",
+      "olean_sha256": "703e75b1956363303c2ae49caa6dfba9f48f733e8add09c97b8769e52abca538"
+    },
+    {
+      "module": "Nonadditivity/DeterministicConsequences.lean",
+      "source_sha256": "f6eb823fcf9ae4d2e1a66dcd82f0eadf076d29f866834805399577a8b823e9e3",
+      "olean_sha256": "cbdf62f3314b1bda3e85b50b5a5ab71602c7acb7a131ef4cda839414a3ba515f"
+    },
+    {
+      "module": "Nonadditivity/DeterministicQualitative.lean",
+      "source_sha256": "2f0e5644c1e29ab6f8612311a392adc86211bc6b9b6688a71e231ec5c2e7293f",
+      "olean_sha256": "15ff7f3eba2f693aee35fd2a709f4ad5b883755dd993f1ee6ff2df4a7b9b0862"
+    },
+    {
+      "module": "Nonadditivity/Dimensions.lean",
+      "source_sha256": "14570f53b01c10806417b8fdaedfaecc339ff0da9ccc3830fd19798f48510a7e",
+      "olean_sha256": "97e2dc6bec10902cea64d4e782c3f669bb6eccda0092d0695bc970f2f7a1727b"
+    },
+    {
+      "module": "Nonadditivity/Entropy.lean",
+      "source_sha256": "f934d33972cdedf23b2389b955591b8621c00380bdbb5b2514325758e2519121",
+      "olean_sha256": "848d0f646cc92837c524d9d1479e5e0198097fc18dad23746b467f32f2813904"
+    },
+    {
+      "module": "Nonadditivity/EntropyContinuity.lean",
+      "source_sha256": "e75a25b4d7b06c6785bcb84dfd6d5fab7742b14b7d17d80323f43fd52e0e6504",
+      "olean_sha256": "942bb45cdce90f6be4df8abd41a1364a44cc130dec755e20fb113dbf6aa53407"
+    },
+    {
+      "module": "Nonadditivity/EntropyMixtures.lean",
+      "source_sha256": "939ae62245654ad99c41ce5d3fe06d363c9cf849ee73d14901379cd4d42b0629",
+      "olean_sha256": "22ee3c595f42943159662e468aeef59fe2d1729187dbe486e93d99a5bd682911"
+    },
+    {
+      "module": "Nonadditivity/EntropyProducts.lean",
+      "source_sha256": "9f9de1ac51c7b8fb4a79fa14498fb1418d261b6bcda01e20c90d85cd06af092d",
+      "olean_sha256": "e11faf92880035fbb001dabafa97a7565a1e6dd261b7dec40d04516046352897"
+    },
+    {
+      "module": "Nonadditivity/EntropyStability.lean",
+      "source_sha256": "f7d8043cf7e0664ee2389bbee7b2f40e6c542684fd3e3307dfc796dbbc018335",
+      "olean_sha256": "9fec6171bd7b5f3a7df8cbc4f3ed75bfdfc3e7e4fed3619558bbb91da8f9ec8f"
+    },
+    {
+      "module": "Nonadditivity/ExactQualitative.lean",
+      "source_sha256": "2e79e74c74b9c908828947ab3c211ba0b217ba2e0c486ef6bb1c7c52dc6f9d5b",
+      "olean_sha256": "6fd0a751ef084df8c257263b2f13064e002f48f2658f537b3fc659b2227d3ecd"
+    },
+    {
+      "module": "Nonadditivity/FiniteBlockModel.lean",
+      "source_sha256": "f574100f618e9130c16bb2312a8978790737ed09e718b9bd346553482cd85842",
+      "olean_sha256": "9571a375c569c85c25da7f477fefcf186305a270b5e187c8e46cd1b1b157165d"
+    },
+    {
+      "module": "Nonadditivity/FiniteChannelRealization.lean",
+      "source_sha256": "7e81f04332b36cdb080a81c15690e2d0c2585d2b6479bcca531310f2a27b6637",
+      "olean_sha256": "d801b9d27d8e9ea1f95e42d210e1e2d45a99fc4e1f7dbae2c391488df5dd9b6c"
+    },
+    {
+      "module": "Nonadditivity/FiniteFreeModel.lean",
+      "source_sha256": "b4eb442bbd11f817fcc00f4d086e33f9b3e78225657436ece719e451697ee9a6",
+      "olean_sha256": "889e44ce7d3639f15aec3355a3f861658e3c1f53f7fd768450445c44d7af93c7"
+    },
+    {
+      "module": "Nonadditivity/FiniteMomentMatching.lean",
+      "source_sha256": "7add0bdc729a5457d18cc6b69db6cf9b7b0f9f75e02dab2eab61c6ed15e974b2",
+      "olean_sha256": "dee87f0fa899182df427c3d5909f09a5251c94b16c25ee479c8214b60c94f9b6"
+    },
+    {
+      "module": "Nonadditivity/FiniteRealization.lean",
+      "source_sha256": "4280e6f6b239c8252e261d13a55e16ca6cf63eededefcba71cb5db72e865b3ea",
+      "olean_sha256": "402c3af12970a15e7eb30c299b2153a51066589605eebc2135fb777071ef5200"
+    },
+    {
+      "module": "Nonadditivity/FiniteRegularMatrix.lean",
+      "source_sha256": "a2544bf657742ca90c2c8878337bb4d26379b90369a24b9fb030a626ae0a347a",
+      "olean_sha256": "609b836e9686f787ede2bfbf022850efe396d45bcd4fbd39602e06f3b5e0b017"
+    },
+    {
+      "module": "Nonadditivity/FiniteSetFactorization.lean",
+      "source_sha256": "26c2758c3bf751affb3a9ca34c964335e3655c16f9bf126db7dbcd26f4aaa470",
+      "olean_sha256": "a6e14d29c374bdd487eb6d4d1747cd02766fd9124c940236e24f37c1d689b2c5"
+    },
+    {
+      "module": "Nonadditivity/FreeBridge.lean",
+      "source_sha256": "00231968739e3d124f7ca8237e3b3107fed2d2cd7e9399ed3a769e93defd9c52",
+      "olean_sha256": "87d1c62186e9a4ae424eed3aa6201f244082cc5a93fa7c78a4e15e53c7d5fe03"
+    },
+    {
+      "module": "Nonadditivity/FreeCreation.lean",
+      "source_sha256": "1d2d3dfd450fc9093c5bc6449cbf65d43091787fbc64e6f280c7a114b11036a9",
+      "olean_sha256": "a09b58d241b17a0d809a128d391f8f314617066401f7cfccb117f98fac9d89be"
+    },
+    {
+      "module": "Nonadditivity/FreeEmbedding.lean",
+      "source_sha256": "683b02e9baeb901b45ba174e4e07599a50f5b1a6ab6c781f7b0db265a82ba94f",
+      "olean_sha256": "e48b0a961492349bded4d5b35e444aa26b8e119e5c09a9e6d3ac4fb4642ed5bd"
+    },
+    {
+      "module": "Nonadditivity/FreeGroupCut.lean",
+      "source_sha256": "dd93c9393a4fac7e46f707d375bcc1b629825ab9a91243a33297af23c7dac609",
+      "olean_sha256": "84538dcace89800a92ea7394fbeae6c4a511a3fe85d9a973e721ddcf761421d0"
+    },
+    {
+      "module": "Nonadditivity/FreeModel.lean",
+      "source_sha256": "23b856ceaa663bbc30dcfe4cf5e8965af701e7a983f266a9b64ed8381dc272b5",
+      "olean_sha256": "63be6050c4eac5fe8cdc3424de6a4e6d6a0fadc534a69cdc611eeba93cd07d2b"
+    },
+    {
+      "module": "Nonadditivity/GapFractionAsymptotics.lean",
+      "source_sha256": "218dd704a985d73f0d183d7f4552055a9cbfa9abca2014cb12ae1f5b8b193a36",
+      "olean_sha256": "f8445e5a4c792f0a3887b75d7c504417782917b94090cad00ec18c449fab3b7a"
+    },
+    {
+      "module": "Nonadditivity/GaussianCertificates.lean",
+      "source_sha256": "fef5643f3b63166118701397f21138de854316184dc873184e63f76f26b85b81",
+      "olean_sha256": "eccd9980231ba8ffe9771da0469a42ddf55d68028bf7f8c49f0a3b299d46022a"
+    },
+    {
+      "module": "Nonadditivity/GaussianChannelBounds.lean",
+      "source_sha256": "58f170ce14b4ab65916ae23c37ddc28a315c384f820e122f8ab7ce016081fa44",
+      "olean_sha256": "8a18144820ebaef9d6f4d33a89527f915e9e23826a4a792d0cd9950bb8237c84"
+    },
+    {
+      "module": "Nonadditivity/GaussianConsequences.lean",
+      "source_sha256": "7e94d5c3d56d51ddf2c1e41585280cd9f4d86d0da0d7015326bc61c3b17a4c08",
+      "olean_sha256": "bfde3224ed4b1fb78e14dbef303b427ff13ebfdef5df0084fbcc942706455a8e"
+    },
+    {
+      "module": "Nonadditivity/GaussianConstruction.lean",
+      "source_sha256": "8708cc12bb3cf5e2f524e7ae4cb6dba985aa97ff42985d6a6d186092374fb02c",
+      "olean_sha256": "62981d200c665da1ae79c2d40c77c4d5326b00e8676afd61575cbeb9f399a5a5"
+    },
+    {
+      "module": "Nonadditivity/GaussianNetRealization.lean",
+      "source_sha256": "f86fe9a33a99e8f902ec7f9cd411280e52e7c0ad0939e21c5b8c979fb7ce6fcd",
+      "olean_sha256": "7be2be0a7c785db891bb65c56206e65a5ab812634f5fa8dcd550c6c884c41a2b"
+    },
+    {
+      "module": "Nonadditivity/GaussianNormalization.lean",
+      "source_sha256": "8553483922da55b9d065dd7cdf58179603557e4b4801603dd571d14720d1f3b5",
+      "olean_sha256": "0091ca9cb5c37f935e1348787004f44c32165270a4938104b8be9493b86c1f3f"
+    },
+    {
+      "module": "Nonadditivity/GaussianQuadratic.lean",
+      "source_sha256": "c28007a8f64ea85baaeef299864f884aeb8f992f8885be1e85cea84ab1e65d48",
+      "olean_sha256": "e4aa72a495d6604150f9af6a3159c1143a265537c0712844700105188adb63c0"
+    },
+    {
+      "module": "Nonadditivity/GaussianRectangular.lean",
+      "source_sha256": "b25f0c3e93ffc44d3f87c2a45a74f5c6fc050f54228120255ccaeee0b166de60",
+      "olean_sha256": "91f085570f4107c6d0568d9bd73691c599a70a3973406a8ae1f161d760c1ba48"
+    },
+    {
+      "module": "Nonadditivity/GaussianRectangularAlgebra.lean",
+      "source_sha256": "c448b4678dae244e5dda0813820542b100fa3b84a2709ca3aa209972223de0d0",
+      "olean_sha256": "3e4f409e4a243790e6d3d9a409e0fd4634e8416206ce3d0ace6c977c5b8183ed"
+    },
+    {
+      "module": "Nonadditivity/GaussianSampleEvaluation.lean",
+      "source_sha256": "8cc5d58163c8f16e66a82aee2b5e8522207cdb755e21a4d53a39688b597b7275",
+      "olean_sha256": "1ad8a55a7c6b3e24fca6d29511a7b196eb2c0defa298d58596aebad07bb2edf1"
+    },
+    {
+      "module": "Nonadditivity/GaussianScalar.lean",
+      "source_sha256": "e3796bec23e9234ab08c26fd362e1c0dd2f8db4f3287faaee054c63e08531cdd",
+      "olean_sha256": "fc1aefdd950cd8979e57d230735d4273d856e181db3592809e45664bd4f43186"
+    },
+    {
+      "module": "Nonadditivity/GeneralBell.lean",
+      "source_sha256": "8651c76426ca51c7baa4e5633c8de2c25ddb795e74512c08ba2448bbb52b377c",
+      "olean_sha256": "109b99400e01e6ab03ada8a056fe0391006db2ff8117267a9ade4ecec05dfee0"
+    },
+    {
+      "module": "Nonadditivity/HaarActualScanWords.lean",
+      "source_sha256": "8e77da99f0c98007ee649a67a1e53f4f51b0b446d9ad808c757f7dd43d7eb313",
+      "olean_sha256": "beebc5804661a11f4375c3e3bd598485e2c30421ded8cddfb70729e081283c46"
+    },
+    {
+      "module": "Nonadditivity/HaarAveraging.lean",
+      "source_sha256": "1ba96921daeef9fc51532e36a00ec112d1c7dc8acd9b9a1a6c9ef7923c5203cf",
+      "olean_sha256": "d073ce66a643cc992215c68b20d4058449509047aa6acebcea227ab2bdddab33"
+    },
+    {
+      "module": "Nonadditivity/HaarBranchCoefficients.lean",
+      "source_sha256": "4e41798e4bf26249d0b403940c10239075851dd294c1a80e89b661280a824b40",
+      "olean_sha256": "1ecce8c83559f9ef5429c97515e3c6feea671ca0c84e6df6bd305bfc2cb20af5"
+    },
+    {
+      "module": "Nonadditivity/HaarBranchContractions.lean",
+      "source_sha256": "e399cb5e986de11346a149a9c3e137dc0c07278ae31d5d3d7ebde99f3a62b394",
+      "olean_sha256": "6d1f59d1a0610816472f67c2a483db9790a50ce191f5a460ba53b133be819bd8"
+    },
+    {
+      "module": "Nonadditivity/HaarBranchGraphBudget.lean",
+      "source_sha256": "e24b3b6045e1fe7445f1c7c877425b4cb577097945ba39e611dbdb4563c1840a",
+      "olean_sha256": "565f1bc0661a18694897259d945abbd0883a5be8ae02d814d243516278338c05"
+    },
+    {
+      "module": "Nonadditivity/HaarBranchTimeSum.lean",
+      "source_sha256": "c04af4e224cbc56280455a4e57fdeb01cb6f3a9b8285cbb717d5c113fed5725f",
+      "olean_sha256": "8ee56af926ae90f936d83a0afb0816240cf47b22ec339bb11c04650d7089f64e"
+    },
+    {
+      "module": "Nonadditivity/HaarCanonicalTransport.lean",
+      "source_sha256": "fb0b6ba799ef48709fd7931705117cb4c5d5a147ef4f2547a393c81e1dd3df23",
+      "olean_sha256": "e8f961152db0ce3192992af0650bcfd0800dc8cd793277c91e401b69682b03a9"
+    },
+    {
+      "module": "Nonadditivity/HaarChainColoring.lean",
+      "source_sha256": "a4a1b560cf2a568e1f641b2ef62e47ceb35e3414ef410fada9b5e18b208b3365",
+      "olean_sha256": "e1dfddfd0c65e1f548fcec1201c4be82b6f8c4ce57d2ebf769b5c4b103d7d939"
+    },
+    {
+      "module": "Nonadditivity/HaarChainColoringFibre.lean",
+      "source_sha256": "8cefd6314a8d99638eec0d9b783f03d0407debaa09503ebd72e0f03ab85cabf5",
+      "olean_sha256": "ff63a54439741f659c22779d23917ff3bb4d22f4d75461241ff22ec668e93641"
+    },
+    {
+      "module": "Nonadditivity/HaarChainColoringPalettes.lean",
+      "source_sha256": "46339969cabae22b23e5e63b23dbaa63b5915ce24fc7bd549696178716356f00",
+      "olean_sha256": "143680fc10987c517ad76ec8d128707dea49b98aed15217fcaf38366c6eaa1d1"
+    },
+    {
+      "module": "Nonadditivity/HaarChainColoringPath.lean",
+      "source_sha256": "23f68dcd935b3b2d6c09ce1cd91d2e2565d46d30be7e4a5f78075694b489030c",
+      "olean_sha256": "17e5fff5bf21710545f92765a43b64e69d6b060ea676f312c7932af51b022072"
+    },
+    {
+      "module": "Nonadditivity/HaarChainMultiplicity.lean",
+      "source_sha256": "7f95056955cfa3646fb9530cdd8558ac81f957c549b5a0ac986e97da69cdb774",
+      "olean_sha256": "fee709ed99c376d12124556e98961595a0b2554c5f0e4f0f08d8d4007102bd90"
+    },
+    {
+      "module": "Nonadditivity/HaarChainReindex.lean",
+      "source_sha256": "d478eec843a9d34e3b368c2da3e6ef6cbe20e7b2811b0fbe7a6150fb5e895362",
+      "olean_sha256": "8e0762313b3b00b7520a6c9c08a01c2f9e00e8d1c1e9dc2c0266474c719e4556"
+    },
+    {
+      "module": "Nonadditivity/HaarCoefficientBounds.lean",
+      "source_sha256": "80d16c00df872849b59c239d82cc26e07465c88b75b465c1a1991c704a1c306e",
+      "olean_sha256": "664df2dd0a814fa264a2dac84e3d2bcba3753e3de6e9255bb008e2acad734bc3"
+    },
+    {
+      "module": "Nonadditivity/HaarCoefficientRows.lean",
+      "source_sha256": "040f9b3d0790d72498cb20512fe5e2cb9038393eff716773a4bd7668464311b1",
+      "olean_sha256": "8424f2e69b1f45ac148fb9397600da389ef3463c8d6bbb360be06711ff1bdbd0"
+    },
+    {
+      "module": "Nonadditivity/HaarColumnMoments.lean",
+      "source_sha256": "703c8a7391337f0196ba7e84a7f81014e0edc5e21d53fef1a082db55dd2f6e2e",
+      "olean_sha256": "3475087c207c3145259b7f21eb1ed0ef846605dd9e0cea011d76dc34af5986a1"
+    },
+    {
+      "module": "Nonadditivity/HaarConsequences.lean",
+      "source_sha256": "475d51cbe06786b55ef659404f870412a77e6cfe84034ecdd69a574165c6972c",
+      "olean_sha256": "2004ebc26e10b2cebed80c45f332286367bfd67f6f6be2e0bffd8b195fe55fbd"
+    },
+    {
+      "module": "Nonadditivity/HaarCoreChainAddress.lean",
+      "source_sha256": "608ab6ea1eae6a68430ef9a76607e33baff0c29f2bd7b0cade9333a37ce0530f",
+      "olean_sha256": "be140d349121c464cab4974eea07c1f31fc01bc7703aa1e4b7092feb956cc7fe"
+    },
+    {
+      "module": "Nonadditivity/HaarCoreChainEndpoints.lean",
+      "source_sha256": "7294a23a6dc6e79f989c2f48092b8c3213c6579575659ab2ad139efd6ac30c6b",
+      "olean_sha256": "ceb2f5253017a055cea5f13220159267af909edcaa69daceff77664fda230e9a"
+    },
+    {
+      "module": "Nonadditivity/HaarCoreChainLabels.lean",
+      "source_sha256": "054d6cf09fde509f2dd15c17a24d0273e9d9f4e8a285ecc568a61d8f68b4ab87",
+      "olean_sha256": "26cd6330155558e5646b41fe36716b4df966ef6c57646a9a82646ce27150d44e"
+    },
+    {
+      "module": "Nonadditivity/HaarCoreChainMultiplicity.lean",
+      "source_sha256": "45ff10032a077284b6771b70be1e0967ffca80e7cb6e0f37e507bb0d15e78d75",
+      "olean_sha256": "2d9360cf2cc4a7abc958f0397650f676402bd1c3321cab24ccd1a97d153fbd7f"
+    },
+    {
+      "module": "Nonadditivity/HaarCoreChainReverseAddress.lean",
+      "source_sha256": "dbf72131f942c4854886f861e9c0529dc9ac6098ce555a119f7520b3779e03a2",
+      "olean_sha256": "ccd2b72b1828517ef667a3a96ce037b8c53f2eef5d7065205354ed3c34788ed0"
+    },
+    {
+      "module": "Nonadditivity/HaarCoreChainWords.lean",
+      "source_sha256": "56040459d8d9b79c8cb59f542aed0728da9c1c6640a98a62da355ce890b3356f",
+      "olean_sha256": "6fed12c5836c93e3cbe6f3b7fe269dcac42ffd5f9c1a8fa0a2885cc40e6bedb2"
+    },
+    {
+      "module": "Nonadditivity/HaarDecodedCoefficientBound.lean",
+      "source_sha256": "8a39a2489c268a829ef9bbb53bac6d5fd77942ea6b5d39c7e0d60a7010d36635",
+      "olean_sha256": "e1f226d7245a9172e8b2746e495b4524d33833e7d14633ef22dc60864b22b0cd"
+    },
+    {
+      "module": "Nonadditivity/HaarEncodingSlack.lean",
+      "source_sha256": "3785cca0cb060eafe7842dca867b306ba9200983d6bae6346e2167abea5338a8",
+      "olean_sha256": "04934665e6857863f56d18f4e8719a7abefe2c47d246d45ee64f20ac0cf574e9"
+    },
+    {
+      "module": "Nonadditivity/HaarEntryBound.lean",
+      "source_sha256": "30ca17d07d261712c8251286807b6d29e745c68be0ca4cace40da7c2ef731c96",
+      "olean_sha256": "c4163ee0f438d41463c443b28c113888183c8f58093f17480582a5005b43254b"
+    },
+    {
+      "module": "Nonadditivity/HaarExpectationFromMoment.lean",
+      "source_sha256": "024e4c7ec4bbf559bc24f878c5f339aac933fd184622e12e24439daaacf7e997",
+      "olean_sha256": "386f67b0ceceaa716a95ad4ca9295a2cea5d9c817ba5d4fa90b6a645a27c3405"
+    },
+    {
+      "module": "Nonadditivity/HaarFiniteFaithfulness.lean",
+      "source_sha256": "7138a23c4b4864b3f6a4cf2bbd92555446837a3d32e5553daef372156d91f7a3",
+      "olean_sha256": "246fce72a4bc6e76836d72675e9e3ea91f023049c9473be0116a8f837e3cd2c7"
+    },
+    {
+      "module": "Nonadditivity/HaarFiniteSymmetry.lean",
+      "source_sha256": "e0ecaa3545dcc3fe0873e0a843690d800d2157cb71d38718a3f35026634833ab",
+      "olean_sha256": "62f79af4e73e773b40481e03560c6a0a7c84fa53867c2d1e7d10049e4a37032c"
+    },
+    {
+      "module": "Nonadditivity/HaarFourthMoments.lean",
+      "source_sha256": "4a38e65bf5feb4ff1a645c10dbc8d9ce933277a83f601ea6dd5bec0747f0573f",
+      "olean_sha256": "433460d4cf4a73f11a04039a7d545f5cb8dad6cc48fe59c60716b2a9a5d6aba5"
+    },
+    {
+      "module": "Nonadditivity/HaarHybridMoments.lean",
+      "source_sha256": "e2fceb4fc2bea20f8f10989457e0521e6b63748d168cfb418f18f6b375db0292",
+      "olean_sha256": "8b2ef13a560e4bfb54b7742a1e97aa474dae15c71ad01ffdf159ffa6931bd343"
+    },
+    {
+      "module": "Nonadditivity/HaarInputScaling.lean",
+      "source_sha256": "0446c6d1ae7e6740090f54a1b78cb2b6759ab763d487f64943ef446e80df4b81",
+      "olean_sha256": "5dcbe2c580d98e9765d3664f8f75d0d5111bb703d290be8598af00221567dac1"
+    },
+    {
+      "module": "Nonadditivity/HaarInvariantCommutant.lean",
+      "source_sha256": "85c3e83b1eb22644bb1afd7f59a766ed2c35c3c4f327cc31c43a199e1f3bf53c",
+      "olean_sha256": "0e346190aa03092acc8f4edbe7be0c6c604b56eb7f759211bfe7b09f90269a98"
+    },
+    {
+      "module": "Nonadditivity/HaarInvariantSpanning.lean",
+      "source_sha256": "8e2277a702f5b8e079774c48f8782b4b0d59bcc9d1b9d2e2d399e0587d6788c9",
+      "olean_sha256": "5c6819b48a31a48f4c7a0d1c9813120db79ce5d6553620e6cd714e89ffa058a2"
+    },
+    {
+      "module": "Nonadditivity/HaarInvariantTensor.lean",
+      "source_sha256": "abb537f6947976831292da62571a707952be945d7fc068e47fea1a3fdbba0935",
+      "olean_sha256": "8c59518f2ee96443a770b6d92765f67d1b4e770cf1aaed4cf31e75edca06e7f8"
+    },
+    {
+      "module": "Nonadditivity/HaarIteratedExpectation.lean",
+      "source_sha256": "f7a8f94f447aaa611279d2284dcd4187ef4a5dbb14461a61e40851508b0aba9f",
+      "olean_sha256": "30ac9246df6877ca410791762bd9ea2c8b2b657619d0aa6a5129e7eeb81218bb"
+    },
+    {
+      "module": "Nonadditivity/HaarIteratedMoments.lean",
+      "source_sha256": "35cab2da5a6a3e9473c3f6128a01c19355c661e9ba3fee1255f9adfa968dd82f",
+      "olean_sha256": "a5f54ab8c0de9526e4d43e45a1dddc0a0473040c57119603b07e38a8a7b05b3b"
+    },
+    {
+      "module": "Nonadditivity/HaarMarkedCompositions.lean",
+      "source_sha256": "ed7d4a47c36bc35b6fa9c5ae8f8997cc166fe4b3a42fe426bae24a68b728730d",
+      "olean_sha256": "00eab08c5898fc882dbf799a2c1eb74e26ae114354db1640401ddf8f8c27f9ce"
+    },
+    {
+      "module": "Nonadditivity/HaarMatchingCount.lean",
+      "source_sha256": "85f921638e1165eed003d896462438cab349fcf4c4ba3866cfeb1d6469da1b53",
+      "olean_sha256": "47140ec7cbc96c3b9c1cf0b2e2c8728e62297ed90628405c7d0ec225c1b7f5c7"
+    },
+    {
+      "module": "Nonadditivity/HaarMatchingFibers.lean",
+      "source_sha256": "c90d38f7c576d047d52db03981725941ab02bf1c5c0b7a8dea5acc6ecd3fba2d",
+      "olean_sha256": "5215dd2b70ee5da3011c3fbed3ce7fbd1e406ce4f92fcd6318dce6754d69a0ae"
+    },
+    {
+      "module": "Nonadditivity/HaarMatchingSharp.lean",
+      "source_sha256": "f238def40de879e5c15459f554d7c1ccf0042ded79ea3f7e02536ca6c517a6de",
+      "olean_sha256": "9a6038daae2649cade225f4ed08552e284bcdf9a930f66b02732edfc2446b916"
+    },
+    {
+      "module": "Nonadditivity/HaarMatchingSingletons.lean",
+      "source_sha256": "dab9a4fe455257748b459a4e8a8f465c1cd0dd3e933ad45f40ffa1b3903b649e",
+      "olean_sha256": "dff4f1c82003c910b61afacde63f9af7e2995748614c3d7afd59fec1cbd67268"
+    },
+    {
+      "module": "Nonadditivity/HaarMixedMoments.lean",
+      "source_sha256": "76d14c8bb7dd0c920a5fd25020161db2fbd7ad398c83df1f79bd6c8a5fde4e7b",
+      "olean_sha256": "f2b7075602a10c51c08cc2ba51bb9c21fede3eb095ede60101a712847b111c6d"
+    },
+    {
+      "module": "Nonadditivity/HaarMixedWordExpansion.lean",
+      "source_sha256": "8abd8af8503d668c32ecb632eb1e4ffc7a106707ddecd151231e3c834ba3e1d1",
+      "olean_sha256": "3a68ac7cadab13c4d15333174b5cd24f9df6a8d844de5055331a8d447fb183a0"
+    },
+    {
+      "module": "Nonadditivity/HaarModel.lean",
+      "source_sha256": "dc58040595db3213a19bc86e34e074791aa2d40c69c8beb286ee88f0bd628407",
+      "olean_sha256": "a4057f82be08f205cb26910f62aa55717d64d46f9aff49aa36139c5ce00b8925"
+    },
+    {
+      "module": "Nonadditivity/HaarMomentConstants.lean",
+      "source_sha256": "02dc42db2d3add709de814efb3dbda31cd442c6873d5ab6c79d67b2e5cac445e",
+      "olean_sha256": "06a5ae368439179997c2ce2f9d90f3d962c178501398b82eb5e02adf13310229"
+    },
+    {
+      "module": "Nonadditivity/HaarMomentExpectation.lean",
+      "source_sha256": "f7d0cb2e0ce6b15bec4e5deeb645c9370a811a20714b0d9263d1476dcfca9ad1",
+      "olean_sha256": "ee59760469d98bc2ed77d269096792a592dc42654664896051e9e30a01b38a07"
+    },
+    {
+      "module": "Nonadditivity/HaarMomentSlack.lean",
+      "source_sha256": "cfbebd65966c8f457efcf0078163178e6f91cbd4f475e80f2637f57d887f5920",
+      "olean_sha256": "1278b01c64c274e40a5537b458d05f1ec8c361a06a84dd6118e8d8a797f41f36"
+    },
+    {
+      "module": "Nonadditivity/HaarMomentTail.lean",
+      "source_sha256": "8e45ee697bf26b2ed9ea0b38efdbbb1e276db68a85099ae0d2b7ee3a04a7a084",
+      "olean_sha256": "0bee46ab9f2876646026383ca33e8894bfcfffa457b217d3cdffa12b2f6665d0"
+    },
+    {
+      "module": "Nonadditivity/HaarMoments.lean",
+      "source_sha256": "f7def7542b42f2e8881cef60a283cfd98f458735916f75f553d2a9dabaff0bd7",
+      "olean_sha256": "60e765aae7495d155ecca783369bb7a6bfd03933a52055ba743e129552398058"
+    },
+    {
+      "module": "Nonadditivity/HaarNonbacktracking.lean",
+      "source_sha256": "fc7de230735a929d8e32cabbd968ea3507e851b917a857f9bb470766a8a51b89",
+      "olean_sha256": "0a58b4f273f01584e619cc9ba02c88f2d8f33e76a5e1d922f61722898281b967"
+    },
+    {
+      "module": "Nonadditivity/HaarNonbacktrackingFirstStep.lean",
+      "source_sha256": "2eb42963af60fc93728e274137f33044bca5a38ab1eaf930ba74416cdabb4e7a",
+      "olean_sha256": "bc6c88c33d8b46725da35e090a39258e53b7f32e1ec147b53142b09c2d88a397"
+    },
+    {
+      "module": "Nonadditivity/HaarNonbacktrackingLastReturn.lean",
+      "source_sha256": "317710d802b5dedeaf5e4f8b918758e87fc67579dfe6a5829ff73dd0c6ff0d2c",
+      "olean_sha256": "e6bd3ce917e16d3899fa989d568c909079924a10c7ce74d812af4aaaa7536b22"
+    },
+    {
+      "module": "Nonadditivity/HaarNonbacktrackingListSegmentation.lean",
+      "source_sha256": "57ae8fc3938ea7c530c68f9c470aa0774659e1e8c19e17e7aeed014c6065ea79",
+      "olean_sha256": "987310c6dccf70eec003a449ddd361233d93bc8599509a57ce2fb78dbb044c98"
+    },
+    {
+      "module": "Nonadditivity/HaarNonbacktrackingRenewal.lean",
+      "source_sha256": "029f45d4f56063c6fe48ddc914ab47bef5cc01e48d7c515c3ce68360e91a4f6c",
+      "olean_sha256": "9ed4c76da8fe8a52912e1ba6fca263e4ed31bbd4a662fd2ef7487208d6d5057d"
+    },
+    {
+      "module": "Nonadditivity/HaarNonbacktrackingSegmentation.lean",
+      "source_sha256": "cf25c283fea14835eb09ea8761b298b45d22f6b368e8315ffd670179eb9662e0",
+      "olean_sha256": "25642c3653d169680de5a6deae08312615b7f6822249a53ffa63781e407dbed0"
+    },
+    {
+      "module": "Nonadditivity/HaarNonbacktrackingSupport.lean",
+      "source_sha256": "101642475aa7138eab279bfaf58af3dacaa2258f27a6a313a98137dca170366d",
+      "olean_sha256": "c249ae3f8d2fa1cde0e179943727c14ae185de3601eb08fa99d71a8b169f716f"
+    },
+    {
+      "module": "Nonadditivity/HaarOnePairAssembly.lean",
+      "source_sha256": "d29f063932078a5c4bb730e9d2d2a2aeb9f1c1c676e45ea9d986c7e9d43f9cf2",
+      "olean_sha256": "d638f53dbd0bbb2c0a8f93fce71fae6eefc6d5201b591cb7679e7c83d6d29a0d"
+    },
+    {
+      "module": "Nonadditivity/HaarOperatorCoefficient.lean",
+      "source_sha256": "9debaf693cda015f6ce885684b1ba9fb582af33325521dda2dd63f9f25326ca3",
+      "olean_sha256": "6058f37c9ea97c93f28fd4eb419955e0e60fb6784ed0682512d86a7190bb2f09"
+    },
+    {
+      "module": "Nonadditivity/HaarOperatorCurry.lean",
+      "source_sha256": "732b52799c8d3b6648f7b0fef1824d47fe054af1924a761215f604b8a4b825a1",
+      "olean_sha256": "d49daaf7f9b59900924f141de6dc3099a1f60bb4ce016db1ecdc774d8c1da748"
+    },
+    {
+      "module": "Nonadditivity/HaarOperatorPathBridge.lean",
+      "source_sha256": "34c7a26c747ae250ab31c0a6a69531651c192ab4869eba085b47a302c5bb9c6a",
+      "olean_sha256": "91d67241e70ebc45a411876538f1aad1be8c052116d0fbdcff81f01485f75d80"
+    },
+    {
+      "module": "Nonadditivity/HaarOperatorPathSum.lean",
+      "source_sha256": "e16936b138d842d564a1c3bed18228fcd8fab8efa966a5df9cacf6654199b88c",
+      "olean_sha256": "7e818a2c3aebb96fd04b770be0805f9404461b1bb9309bd1112a7352593d3506"
+    },
+    {
+      "module": "Nonadditivity/HaarOperatorPolynomial.lean",
+      "source_sha256": "6a452549a9e1377383c34bfa4dabb898198ffdaa10c9bb1e0a3fc4e85805513b",
+      "olean_sha256": "d7d50ec069d484f1fa9e32ed41f8fb2f98922d0bb5a48a24a0ef2c8a0534162a"
+    },
+    {
+      "module": "Nonadditivity/HaarPairEntryBound.lean",
+      "source_sha256": "904ca110c5133e070554545909d220361a421c0121c397e80bef5a78e6edbc4f",
+      "olean_sha256": "c3429097100a4a3dbf006159cc70d4f943c906324aec345ff54f7467c2fef8b7"
+    },
+    {
+      "module": "Nonadditivity/HaarPaletteDecoder.lean",
+      "source_sha256": "173f182534b72a33b72b8303908156ba07928fc4475ad291a72920b73b335280",
+      "olean_sha256": "b99d4d82bb38096952b534322da97d570726b143329de3b75d7434993eb1a71a"
+    },
+    {
+      "module": "Nonadditivity/HaarPathBalance.lean",
+      "source_sha256": "13713e342209ba73c6f66e497e3cae4a9b73c055865173e66876cd21d7db1a5b",
+      "olean_sha256": "3d1cd59c5c197ba23f3ac5d5d0c91c8de87d346c7283deba3746e06ddbbf139c"
+    },
+    {
+      "module": "Nonadditivity/HaarPathChainCount.lean",
+      "source_sha256": "2ef767859896619e5d58438eafcd99761dd2c1247e15a3cc2b4c572ee50fc68c",
+      "olean_sha256": "5ff10a2d1f667019871318195843ca64763887af21992c92d3ccbdbc8f533d4e"
+    },
+    {
+      "module": "Nonadditivity/HaarPathChainPartition.lean",
+      "source_sha256": "7f2b9fd48a3737671ec551add781a3f00dd3731184f183e53701d87603b05bfd",
+      "olean_sha256": "c5a3e06cd4c2c5279a50d6a63bdcde2d9100f1753b87b8cee9393bd8ffb78e99"
+    },
+    {
+      "module": "Nonadditivity/HaarPathChainProfiles.lean",
+      "source_sha256": "408f74d41988a5176efadd3640618433667c0ed4dcc2d5fda825657540a3f4b8",
+      "olean_sha256": "1ba333dff4dee5f5989f5adc56823ad83a7982f4d8db9f8ecad8f15e4c4f2483"
+    },
+    {
+      "module": "Nonadditivity/HaarPathChains.lean",
+      "source_sha256": "06fadd864bf7f85c28647b6de754f0c66fcda1aefab1578e36cc877d2e1b7c21",
+      "olean_sha256": "bd3c199315ab2d61407979a2675c3773172624b276fc688388b56b1b52ed90d7"
+    },
+    {
+      "module": "Nonadditivity/HaarPathClassAssembly.lean",
+      "source_sha256": "3ad5cbc0afce35d0489b9c041dfba08cb2b8193456840a3bd443774316238e13",
+      "olean_sha256": "dab06485ca17ebefba962b3852ab0f3314e1436d25aabf204782b8cf7df61371"
+    },
+    {
+      "module": "Nonadditivity/HaarPathClassData.lean",
+      "source_sha256": "12132bd34ac688a086aa082d808b8c31b2c3a51293c9cb10b9a8377a79faff1e",
+      "olean_sha256": "99988b77d3d590bfff05be67155941d0ccdcff8711cf6dff46077ba7d6dc9a48"
+    },
+    {
+      "module": "Nonadditivity/HaarPathClassStats.lean",
+      "source_sha256": "35bedb6f29f8816609e935b52a2202562764cdbc21c25600c07e6ee3c4b47107",
+      "olean_sha256": "14c7804681000e58c7e239cd761054bacfc8fb299036b79d942744a896b01cb5"
+    },
+    {
+      "module": "Nonadditivity/HaarPathClassSums.lean",
+      "source_sha256": "59a5896e3dee7415bf8ecd7bbcc73a93be8b69758d20906e050cada2f50840f1",
+      "olean_sha256": "880310b8ac94b75cfda654b9601554b9f79518b227cc32b71f44ed43ee5b9bd5"
+    },
+    {
+      "module": "Nonadditivity/HaarPathClasses.lean",
+      "source_sha256": "57fd416d9ad0c6b47d278e74db4e8d925b67ba40ea9474030872cece21548901",
+      "olean_sha256": "f3fa301748bb0be01da63cdaf1fe9722f82b4f3c10c59c6a3ca6e4d08282b46b"
+    },
+    {
+      "module": "Nonadditivity/HaarPathCodes.lean",
+      "source_sha256": "e0764261dcabbf2a806205880992aba9b01df003479501d84928079a51ef3b2b",
+      "olean_sha256": "190a74b1ebcffed8d9cc39938b3b911b2d62bda52016e0b1b3af7771dae9e3bc"
+    },
+    {
+      "module": "Nonadditivity/HaarPathCoefficientWords.lean",
+      "source_sha256": "3e20c8c55d3f259d6ed6a36b4d7368048abd2a7f1a7b0ef6e7124dfaf7d6339b",
+      "olean_sha256": "98cacd0af562f800e6d18c993c0130701bcadbdee30ac38e54dca3a03e8caeeb"
+    },
+    {
+      "module": "Nonadditivity/HaarPathColorMarks.lean",
+      "source_sha256": "90b99507e53966608cd2757071fe417a9995659ac126157eea23a3b1ab174ee7",
+      "olean_sha256": "3612ffaec532ca30db864f3486e4f126f9936d0d6b8bf7462fb03423aebf3273"
+    },
+    {
+      "module": "Nonadditivity/HaarPathColorNormalization.lean",
+      "source_sha256": "c1545e712950c5ce78112843a22c783d7b629770911ed129b2ce4ebf9767c97e",
+      "olean_sha256": "9841a51c6dca2ec5692b64b471134cc669e7d14208a8a424705c9af2b42b0fd8"
+    },
+    {
+      "module": "Nonadditivity/HaarPathColorRelabel.lean",
+      "source_sha256": "7df8e4f5121f5df0cd9b866c0948c9b6c35b3d8c5c5045db41267b354653c0a1",
+      "olean_sha256": "8a4d5c5eaf68739064edf02d3625deebc11a4c292b0c7b9260aaf73f8adc23fa"
+    },
+    {
+      "module": "Nonadditivity/HaarPathCounting.lean",
+      "source_sha256": "50d653a23d8e454a81de90545babd5847c8f4b3e1efaada1f1ce0b787e1ca6c6",
+      "olean_sha256": "9f702795816627a4be0c0c2dc293366df860dce5ca18cc96fb00c719bf790761"
+    },
+    {
+      "module": "Nonadditivity/HaarPathDecomposition.lean",
+      "source_sha256": "6d21ee0df2b6fad6bca014c84552343e2d953aab50e9893fabb4e168d63b57d8",
+      "olean_sha256": "54860a8a4048ea5f23965403c3375f3089e62af4268ed167a182cdae9cc645c7"
+    },
+    {
+      "module": "Nonadditivity/HaarPathExpansion.lean",
+      "source_sha256": "e21ff7b879dbc50a7351cb1502d0cdf2b3222c3a2b253176cc03d0fb88c19404",
+      "olean_sha256": "7f536267eddbde3babbaa3b4b92164b1a1707f7e75aa1649899b6886149d7614"
+    },
+    {
+      "module": "Nonadditivity/HaarPathExploration.lean",
+      "source_sha256": "75599d0edb7b825705412c2807f9220ffc068508f890e9c31e575cc0a12717c6",
+      "olean_sha256": "c39649ca4a48086da7d34038545d574703f8763725ad5339b673e0b5000469df"
+    },
+    {
+      "module": "Nonadditivity/HaarPathExplorationBlocks.lean",
+      "source_sha256": "f551822f0a1c4d5d055a8842c86c7f7451afd236d778290654651137ddfe2142",
+      "olean_sha256": "77ef6da76f1c4c0c866e3fc0a6c502fdb04b8786f59b4d3372f6fb1826da7b64"
+    },
+    {
+      "module": "Nonadditivity/HaarPathExplorationCounterexample.lean",
+      "source_sha256": "ce5486dfaf0beb1d3163c3a89be7211e485e237dcdaa4e9426b0e3b8f4b0dd99",
+      "olean_sha256": "a3c668cecee561ee1b1012d4a67fb9796f363d3fd4fcb5e86105ad2f213ef08f"
+    },
+    {
+      "module": "Nonadditivity/HaarPathFreshRuns.lean",
+      "source_sha256": "b0ea9c1f97955c15c11e213894f0ed19ff2f081b97640bdb250e4d72628f87da",
+      "olean_sha256": "4f52111c0924131846ff70bd856842805aed1998c8e37758c9a5b0db07b702fe"
+    },
+    {
+      "module": "Nonadditivity/HaarPathGraph.lean",
+      "source_sha256": "9f251d044f4e0c694e43625ca4a11239a20908d9bef87c3fb7be92d5c54288a3",
+      "olean_sha256": "c6ad98a554f303fbe9bc84c1339c918bab5c3084f0b50fbd8af65f33ff4e50b4"
+    },
+    {
+      "module": "Nonadditivity/HaarPathInternalColors.lean",
+      "source_sha256": "aaa576578142137a7135420dae1ae6ba393dc619cb1e00993ba5ff3ee92a4703",
+      "olean_sha256": "af439b9524a28a69ae9b6d415b7493e3e4b7a49e0291c7d257f1d907a37e5710"
+    },
+    {
+      "module": "Nonadditivity/HaarPathInvolution.lean",
+      "source_sha256": "b511a0421745299ef49e7be7a213ffc13123fc3d97108969c88eb7fa024d6272",
+      "olean_sha256": "84eee0d3de5436c1bf93e705657e1962d0b1fcc2222df9f63019987ed6f3ee3c"
+    },
+    {
+      "module": "Nonadditivity/HaarPathLocalPhase.lean",
+      "source_sha256": "48515566482d46836a387ef7ba4e5dbe2218be39b3d1792d84ab7a76f2a66953",
+      "olean_sha256": "53a370f0f84e1b14b6cd550ed27af14be62c09a48c731855c0e37e83826a2ccb"
+    },
+    {
+      "module": "Nonadditivity/HaarPathMarks.lean",
+      "source_sha256": "509691121d764cc321a262e2bff3dbcf61d134e105159e1034ba00128dd667c8",
+      "olean_sha256": "d38bd62dd639a450af7fa6e1ac10679ea7af4d4e3e3dd05c7f1351d53812ef46"
+    },
+    {
+      "module": "Nonadditivity/HaarPathMultiplicity.lean",
+      "source_sha256": "8e5f64e07b8cbfc08ca13f501965a3a8bdba3370599efc7c48d816a72dbd1436",
+      "olean_sha256": "0be2d8b2dca1b9f463547bebd211ae8f3f59d54e74a041f7b4b8bd68f924ce5a"
+    },
+    {
+      "module": "Nonadditivity/HaarPathNormalizedFresh.lean",
+      "source_sha256": "0e27dbeb250335ced351ab6fafa424c8a16bc216ebde76c393cb36cc75bb2feb",
+      "olean_sha256": "6df9e32ffae2d19570da9f5cae147382afa1dbd7df850c2d4bc2e9d9c3bef054"
+    },
+    {
+      "module": "Nonadditivity/HaarPathNormalizedTree.lean",
+      "source_sha256": "7efd3770b2f3fd5c4001fd78cdb21c53ff3fa937a9069d626793970faf54dbda",
+      "olean_sha256": "63269c3aa69651e572f90f9da02f25f20b14e335296e0032fad0ea70cfd471af"
+    },
+    {
+      "module": "Nonadditivity/HaarPathNormalizedTreeColors.lean",
+      "source_sha256": "afdfb872bb6965eef80d6ab173069b688b85adc32788ab49758ddcc23cc3a121",
+      "olean_sha256": "bef43838a2e4d59de79372c1a726f778de0b190ca6eb0d0406894b62c2d92ce5"
+    },
+    {
+      "module": "Nonadditivity/HaarPathPrefixTree.lean",
+      "source_sha256": "016a4ff71e11691759f2e1c5b3445ac9ec6fb72771faf4dbc81909cadbb62bb3",
+      "olean_sha256": "a3425003d81ea684548a3a57b87afb92c30904b6edb32ff06442218d03a5f2f1"
+    },
+    {
+      "module": "Nonadditivity/HaarPathProfileReverse.lean",
+      "source_sha256": "313ed281eb40805b7567276cf291522e6a7e8f730e3d0d38df85be75c460cb3e",
+      "olean_sha256": "33b4b54d53c66760ee705234517e5341cabae9d16d0077e6aa5b909b1a87f9d3"
+    },
+    {
+      "module": "Nonadditivity/HaarPathProfiles.lean",
+      "source_sha256": "1d9c56bf14905d9f6f7e62026d5fa3ffd380b6fb3cf4a42d20469af12d029033",
+      "olean_sha256": "62f5c7fd23e6fe372bedf84ea3c5ef15f8bd56e24af499c9c8894e45ce9118b0"
+    },
+    {
+      "module": "Nonadditivity/HaarPathRecoloring.lean",
+      "source_sha256": "57f075dca672ef907481a4af7af7806fbb93a740a520a3556101716e18cad266",
+      "olean_sha256": "e4d0caead2d8dcf82a4afa6a24bd7247d7be3e2285794d7d9bd275584ac884e8"
+    },
+    {
+      "module": "Nonadditivity/HaarPathReconstruction.lean",
+      "source_sha256": "64620059a92afd7bf40d8e07c87c7f4fe62d16179c819df4a531629fe5383354",
+      "olean_sha256": "9072678d81d05bfcf8bc614ae49e152b8da5b2fee2721526049c00e8f9d19687"
+    },
+    {
+      "module": "Nonadditivity/HaarPathReconstructionFresh.lean",
+      "source_sha256": "690a55ae1da48ddab657185038cd635986231e82c86a3458c1ccae5fcd029fc5",
+      "olean_sha256": "f082ff779d762cc2be3a456de8163eb796a5bd07544b7dbd21c8e56f13051500"
+    },
+    {
+      "module": "Nonadditivity/HaarPathReconstructionTree.lean",
+      "source_sha256": "46584ed56778306a16b78ec0edee40bdc1a5023824da4ee995e4a946062db942",
+      "olean_sha256": "dfe07b7660fb7219cb103ffc00bb891b2df0e1e34a786b934f97ae3ddd8295e0"
+    },
+    {
+      "module": "Nonadditivity/HaarPathRefined.lean",
+      "source_sha256": "87baf871d719e3359c04bf6ae2fd626712212646f981fe83b2422c285db64b22",
+      "olean_sha256": "a62dcf4e800e43eb0b7ac7a98688f0d9803c14f8dbec51f5deab197d02a8b0ee"
+    },
+    {
+      "module": "Nonadditivity/HaarPathRefinedCounting.lean",
+      "source_sha256": "209362f8acdace5302d51ba06c5b25ba5b26396acfa612fe1f232ac4d8cf5e34",
+      "olean_sha256": "2bb88e9bb8a10c98f27f5b90dea853b05fa734fa44263107ca25c975fecf2b59"
+    },
+    {
+      "module": "Nonadditivity/HaarPathRelabel.lean",
+      "source_sha256": "0147be498f8f7d317cfc0379033dad6e960bd41037c5fd43bb4341177cd84e31",
+      "olean_sha256": "106467156ecdf8bfb23d790a02bf4158a207d4c9ecf1f6f6c8038b0c15733ff2"
+    },
+    {
+      "module": "Nonadditivity/HaarPathRunCounterexample.lean",
+      "source_sha256": "9dfd7822d632695f4fc68717c72d9cbae002a4c3f6e6a53ca5c531838a364734",
+      "olean_sha256": "2718a4fef2f5fceed9c6b2152807babbb65e7850e05ab43e33012ac04e4cb645"
+    },
+    {
+      "module": "Nonadditivity/HaarPathRuns.lean",
+      "source_sha256": "63dd46a6d4035fe5ac932e82928a3560c915c2e194f93960d72e8374c62424da",
+      "olean_sha256": "7ef1516b1ef1c0e5d6a342ec1ea4e17c41bca2a6d819e1589d4ec6777fa53509"
+    },
+    {
+      "module": "Nonadditivity/HaarPathSample.lean",
+      "source_sha256": "ad635de43653b71fc64217df01a42f258d2c8cbd3b80e6b1a09c7976acd74999",
+      "olean_sha256": "ca58391c9fdc9a0ef53bf78dec02e5b74c5cca24695e6cef7193ade3a547f1b8"
+    },
+    {
+      "module": "Nonadditivity/HaarPathScalarSummation.lean",
+      "source_sha256": "58efe471c398a3f23e078f2736632ebee42481feb9821c346b519e09db544015",
+      "olean_sha256": "49d8bf27f107af4e7b41da779a52370700069236c237db290a7238caad0dcf2e"
+    },
+    {
+      "module": "Nonadditivity/HaarPathSupport.lean",
+      "source_sha256": "ebfb7f84e54d9b256cf178f5a17701e8f75c2fa0d327db2b5b5fb5998ae4acf4",
+      "olean_sha256": "767a584dbd9b6c9c767b866c6707bad712898e1b682392452ef71916728b1139"
+    },
+    {
+      "module": "Nonadditivity/HaarPathTransport.lean",
+      "source_sha256": "b7e2658ecb70587c4c0214579d73ef9bc812d7f28f493be8cd9a7c2a9be9858d",
+      "olean_sha256": "d97b056738bdaf42d08e647ea8918f89bc0a1f00bd1a57281b12c0757fa0f84c"
+    },
+    {
+      "module": "Nonadditivity/HaarPathTree.lean",
+      "source_sha256": "d1a12ffcfffe154197565af2323592cebba206191b5c2bc134d9d9dbd46c47ac",
+      "olean_sha256": "192fea2fe17cffefefed7ed02e08f1aead9fb07f22a212eca0eb05cbe39d410b"
+    },
+    {
+      "module": "Nonadditivity/HaarPathTreeSegment.lean",
+      "source_sha256": "c5a777a23c0fa262e866506d3d1bf7d4494fe72f3dc083b4e8d27512d7dda980",
+      "olean_sha256": "209d33170a05f651317757b3b4b1c25ec7c921a903aa6f6476eaaf6bf350f27f"
+    },
+    {
+      "module": "Nonadditivity/HaarPathVertexFibre.lean",
+      "source_sha256": "51aa84d3b912103a861471b530245c58d99962045992094e65b222ab0ecc823a",
+      "olean_sha256": "9cb4afc14cc0bbca6f41e7e38c95c5ffb4a94cccebd188183844c5fbb354721e"
+    },
+    {
+      "module": "Nonadditivity/HaarPathVertexNames.lean",
+      "source_sha256": "33554d281ca80cc540b29d97f4c58be66b9aee67e78cbff95bb03a2fa4fac6cc",
+      "olean_sha256": "daebb8577a57dca5b0fb55f6e8001bbfcf80a8284a38234656d940df58cfc53e"
+    },
+    {
+      "module": "Nonadditivity/HaarPathWeightBudget.lean",
+      "source_sha256": "1b21c5f891fab557c91046473f6880697cec936df558e920832f029507712725",
+      "olean_sha256": "c150cab838bc483d88627c01bbb0a90fa45d2fba9358f76a699d8e8f43b5c30f"
+    },
+    {
+      "module": "Nonadditivity/HaarPathWeightTransport.lean",
+      "source_sha256": "c10336b7e18fe146d7599a2cb6ba7e67bffd0118075241d02d2899e2f8c7ddc7",
+      "olean_sha256": "e738002ebb83cbd7c13918900fb4b6fdf5872c2a255fdaaa9d204ee51977ec0b"
+    },
+    {
+      "module": "Nonadditivity/HaarPathWeights.lean",
+      "source_sha256": "d31bff3778ca1440fde355a38a41e9945f6d4807d701941b6a7dd91352fef04c",
+      "olean_sha256": "37229432808d8a4408b8a7c21326c024eb243e2f8d28456ae64a45208c275866"
+    },
+    {
+      "module": "Nonadditivity/HaarPermutationSupport.lean",
+      "source_sha256": "225823b0e9b550f3b9c0dc785459c0985c1b868e946acf1bc7cd31ebd703d0aa",
+      "olean_sha256": "08d6bcaeaef56b2ffd48ced78ba102558f886534748c829d58bdcbd066830adb"
+    },
+    {
+      "module": "Nonadditivity/HaarPrescribedBound.lean",
+      "source_sha256": "c6d6193445935349b580cf5bb0343727a81ad0b2573b0c1618cddd7dd859703c",
+      "olean_sha256": "0278be20e0f855c0d45eb57a6c82997a81318a0bbb3e7f7c976214d6cacf22b9"
+    },
+    {
+      "module": "Nonadditivity/HaarPrescribedConsequences.lean",
+      "source_sha256": "2811fb37101c421555fa4ac65fb5bdd551828136e10e3094700e43395f04ceb1",
+      "olean_sha256": "c05b660184f6f7aa8f2d4e48b1f2d221833e421af5292a977c6c46fd6e5beef7"
+    },
+    {
+      "module": "Nonadditivity/HaarPrescribedDimension.lean",
+      "source_sha256": "dc1d9c29fdc7642b27e13873517ace62087be71e5261c11ea94b008ec7919fd6",
+      "olean_sha256": "2644ce9241a9591ab14a38e6fbf770be336d72e61c30a3fe869d29c9c38ac805"
+    },
+    {
+      "module": "Nonadditivity/HaarPrescribedProbability.lean",
+      "source_sha256": "83266d5dc9fbd4ab9db1687b6de1bf9cba34c81739a0c22393b8e9c35a7d3248",
+      "olean_sha256": "67ccce90c0ee31bdcd6f60bacfaf9076d5593955d43cc6c319c38f5910cfa381"
+    },
+    {
+      "module": "Nonadditivity/HaarPrescribedRatio.lean",
+      "source_sha256": "8d9bb6a1e596a2e5ecdf5b2f55847df34716f862e7690e0e674a894cc0c86bf3",
+      "olean_sha256": "0c044b93b026b3468c1474aa1e9635e3b6a0c4578365e8439ea07b8b0f7e6566"
+    },
+    {
+      "module": "Nonadditivity/HaarPrescribedScaling.lean",
+      "source_sha256": "9273ceb8bfcd1e41e25d188226ac15c8b19d182cd4a54b22f729f7e2dd1d9176",
+      "olean_sha256": "b6a1288e66ce28da693adb73249300c7f9725348fa691cc3afa1112f5ad0f8a2"
+    },
+    {
+      "module": "Nonadditivity/HaarProfileAssignmentBound.lean",
+      "source_sha256": "0c84504444a17b95955eea75a59904922a73ce27c2ae60115550fba9a4f1c949",
+      "olean_sha256": "ee9c740a16435e412408d0453a9c8073dc8b226d4ec8429fdceab0e113a5f912"
+    },
+    {
+      "module": "Nonadditivity/HaarProfileBlockCoefficients.lean",
+      "source_sha256": "3904edfc17e66747f1c7b0fd66156d1b3f0aa0c02a09d22b2a1a664a9608f010",
+      "olean_sha256": "998d13010a92d5bbc2b8a57a4d104612a99e93f18f27c5197338b5da71e89968"
+    },
+    {
+      "module": "Nonadditivity/HaarProfileCoefficient.lean",
+      "source_sha256": "ecb2c4675ad7eedd716b14f11aec0681723a33766d9fbd3eeb8fc21a86195a19",
+      "olean_sha256": "aa6ad2ed1cb0b68e421975174efc1dc54e0de94d8f61cd969fa0ad1bed2778cc"
+    },
+    {
+      "module": "Nonadditivity/HaarProfileCompositionBound.lean",
+      "source_sha256": "4b12d1daa9d31b081819b1af9f06a7ce4e144039a053380dabf776418ea2e37f",
+      "olean_sha256": "ccccda9ef6c58ad4976b8f69722b9fb2cc4f7243397dd7af1c68594fae31fc00"
+    },
+    {
+      "module": "Nonadditivity/HaarProfileDecodedCoefficients.lean",
+      "source_sha256": "4b3428879b2f255cc430b0011eb63e6036e98cf5867ee5c0702a74b0a7e13122",
+      "olean_sha256": "b24d1765b93e6457f6cde8fc047a7296566113f35098800536d7bb86ff25cbac"
+    },
+    {
+      "module": "Nonadditivity/HaarProfileOrientation.lean",
+      "source_sha256": "e2fb6b80b0c638be8c66cc73bfd3fe3cae2f3093630cfa93ff9cb7c83b123a7f",
+      "olean_sha256": "cbcd2a874177db1eb331b7a4e2db6ef28e748508ebfc2076f72a654317bcd1b0"
+    },
+    {
+      "module": "Nonadditivity/HaarProfilePadding.lean",
+      "source_sha256": "6834ad3db748e7c361d1e600006dd5e5b9baa262d7b1d5bbb77bfbb9ffe288e1",
+      "olean_sha256": "4ac12958226fae5a6f6a50e946c857c79f64988ff24b806e0daf995f1333f641"
+    },
+    {
+      "module": "Nonadditivity/HaarProfilePatternBound.lean",
+      "source_sha256": "70baf167c6c15db400d06b906ca8e69555d92dc81078740ff75c2b501a0fe6a1",
+      "olean_sha256": "fbfcca73bec404c5cb06026c9acc747762f12b49ba77cd0a69f5c604e8c3c41f"
+    },
+    {
+      "module": "Nonadditivity/HaarProfilePermutations.lean",
+      "source_sha256": "cb011acefa8667a9b695415d9b168ffcb5503ac5e66114f5dcff60a0b67fe020",
+      "olean_sha256": "c2e3d2d21764e56811f4174ffc7a66fdcec8110d1673ea263cda8b771f628e4a"
+    },
+    {
+      "module": "Nonadditivity/HaarProfileSingletonWeight.lean",
+      "source_sha256": "3b97b12b901789e0ea73d6f35b753b22a7a5c8aa1383c8448cedf05b49257a2a",
+      "olean_sha256": "663654b88a7aa77277f9fc1c69969c440f54d94daf63164c4d9b4f07a989c1ff"
+    },
+    {
+      "module": "Nonadditivity/HaarProfileWordReverse.lean",
+      "source_sha256": "f845ee0312c527da736ab1a4cdfbf4cbda97c1cbf9d60e1d59525afcb33e8d49",
+      "olean_sha256": "0ab04961c57ccba63ef57e9474ad11c2c481f18762a0d37bcb3921c92a8db9cf"
+    },
+    {
+      "module": "Nonadditivity/HaarRecursiveSample.lean",
+      "source_sha256": "28571fa0d032c9b4ce2f90ba77b87988663b09fac085c506e162e268ddceb6c4",
+      "olean_sha256": "c7ef6017d24aad182d94fde5abdab5e862c94d3baa1e7e60a4bcdb712dec478c"
+    },
+    {
+      "module": "Nonadditivity/HaarReducedChunks.lean",
+      "source_sha256": "0dd63f5b4830cf62e964870325bbcc66faa35db8d178697cd5e3cfea789425e4",
+      "olean_sha256": "68e716993753de274e3eea72dbfc05d2609f206fa0251f1060b38d69ccfd361f"
+    },
+    {
+      "module": "Nonadditivity/HaarRefinedCoefficientBound.lean",
+      "source_sha256": "c484b65095690235cda9e54f46eb8df3696388181aebe3b51a2d485fd2301b8f",
+      "olean_sha256": "44b3b05ff35bac07be81d06ffae6476b1bea72850ff97d679b39cf60b6bfbc08"
+    },
+    {
+      "module": "Nonadditivity/HaarRefinedCoefficientFibre.lean",
+      "source_sha256": "5d54eb4d9134913c71672b0253ae15bcb6fd4e1f76669f7c2035d53c9f4e706d",
+      "olean_sha256": "f74292f2b2d7023cb2054de2c63a1f20a1705769f837c2db3a53b79e1bdd5870"
+    },
+    {
+      "module": "Nonadditivity/HaarRefinedPaletteFibre.lean",
+      "source_sha256": "d8be61034835bb89594fc690fb8995bb768c325b00ec75d6f92211071dcf1b14",
+      "olean_sha256": "be4934ef35d2913a5ab3e2673fba08ed8e54dd0acf57d5a9574bb7e47e69c2cd"
+    },
+    {
+      "module": "Nonadditivity/HaarRefinedVertexFibre.lean",
+      "source_sha256": "e1c4c1a2ee370b5a44147c1c6e7746a157b882cc8bacb24f2514770c39fea66f",
+      "olean_sha256": "17a4c1c42f011a223e51f44db1396674fab28e82dd85446abeb0413896e6b05d"
+    },
+    {
+      "module": "Nonadditivity/HaarRefinedWeight.lean",
+      "source_sha256": "e8621e6bd620f228e87acf160e84ff100970365e7cc8224972e77c197aad4b25",
+      "olean_sha256": "bb52a7209c2ed0387f55d4b82ddd46309317769b91ee75cd4423ccd8364fc09a"
+    },
+    {
+      "module": "Nonadditivity/HaarRepresentativePositions.lean",
+      "source_sha256": "34146ccdf895c8203f65ce264a507466d1309300accae61661bff54f9fdc3a7a",
+      "olean_sha256": "86f66f06485b559b2178ea3ef783c68af785b33aca46340c028b7d4c16ff783e"
+    },
+    {
+      "module": "Nonadditivity/HaarSharpBound.lean",
+      "source_sha256": "3e793450c85e802a8245f9ec05c4c5fba457a96a57906373df06a0a9216ce086",
+      "olean_sha256": "2bffde9774339a2eecd19bbcb34f9eccf2f301d372562b9b43ba9030dd6f3816"
+    },
+    {
+      "module": "Nonadditivity/HaarSharpConstants.lean",
+      "source_sha256": "da964deb2d6ed8d3cead12fb9258fb6c87614841c43f7ef5864ae63643dfa31e",
+      "olean_sha256": "2a0c15f3ad3db1a509fd36828d4e61316263b3507c215f490e310f80ee38c77c"
+    },
+    {
+      "module": "Nonadditivity/HaarSharpCounting.lean",
+      "source_sha256": "88a75298da517dbfe412a8c508029dc6d9c51f460fd97b9e6d9c4499e5a93cce",
+      "olean_sha256": "6d71ed53562092a45c66f6a5559f5c2bb4cd91964791e6691e748f86a6d1cd8e"
+    },
+    {
+      "module": "Nonadditivity/HaarSharpPathWeight.lean",
+      "source_sha256": "2d29f0b7f8574644b0a2f64edabe4f5814b66f141ce32ba23549b86bdde1f84c",
+      "olean_sha256": "d297aa8c038a6b35a426422bfd6836f04fa629e5b9b816036e36215638bb63d9"
+    },
+    {
+      "module": "Nonadditivity/HaarSharpSummation.lean",
+      "source_sha256": "8af6afda6b19cfbb52379e0551e44f3fdefb7a70ffb19b3ea2b1146257f2816f",
+      "olean_sha256": "8b8afb1efc138b0ce387d508b79a407d4a6fe0d1bb8875d024d08dff4d0c7599"
+    },
+    {
+      "module": "Nonadditivity/HaarSkeletonSegmentation.lean",
+      "source_sha256": "1dfb206255af206b18a4b327ac095438a02e472c4539f6d2bab5605541d6dc6c",
+      "olean_sha256": "e191ef9690cfc2f5200483c72a4d198f43f2d60bf4f95d66527b0d1e2597ed29"
+    },
+    {
+      "module": "Nonadditivity/HaarStationaryCoefficients.lean",
+      "source_sha256": "3c15bf96b6a4762aee2c6d785dde42414eea457d1b0514847b2f04fc09ec70f8",
+      "olean_sha256": "6a1a521b7169641cb5cb513150736d2bf407eb8b6a49e2654a92a356e4c197d3"
+    },
+    {
+      "module": "Nonadditivity/HaarTensorConstants.lean",
+      "source_sha256": "d3633cb8d60e7979ebebd24820dba8083b85c388789196392cb0ff4d70de8c28",
+      "olean_sha256": "52cb96606a760bc81b351d53f958051cb1b591ffbc045fbe8757b8e1c0b83ba5"
+    },
+    {
+      "module": "Nonadditivity/HaarTensorEvaluation.lean",
+      "source_sha256": "a04647ca33d30d62c7a65dbbd0fa913a9025c265d7e102a9e620e350119a3afb",
+      "olean_sha256": "f7d2c68f4493f39411ed8ca59a60f2704d2acc27552ba894f9cfd5b511b26f82"
+    },
+    {
+      "module": "Nonadditivity/HaarTensorReplacement.lean",
+      "source_sha256": "8bddc430d6a7cda2ccc3027411a7ce9b6b9089274f06e0c7bef05fa76f96e447",
+      "olean_sha256": "b46431a6423028ba5b03ec154f551fc23d25595b1b158d587489e249df8cbe03"
+    },
+    {
+      "module": "Nonadditivity/HaarTimeCompositionReverse.lean",
+      "source_sha256": "ae7dc9ec282f0ad9fc5bd8f645378e7eeb8efe2b57f3d97a26584c48c95b1a42",
+      "olean_sha256": "5d0664057d68003592ccdfe7a71841b86a9604b2a749a346ddb4b47a1ebc3e65"
+    },
+    {
+      "module": "Nonadditivity/HaarTimeCompositions.lean",
+      "source_sha256": "44b4c3210bfdabcf780f8f63397eeb09db0ce7bc1c9b2919392ff042a236564f",
+      "olean_sha256": "0727173a2b0a2e066c9216285b342ede5765ace0ecd4387537ae0b2a0b267894"
+    },
+    {
+      "module": "Nonadditivity/HaarVacuumFunctional.lean",
+      "source_sha256": "e276a7c5af3bca9e49c2403205f6367a340c3e3d4e5bec87c3347cc377d36199",
+      "olean_sha256": "dfad267125c302aaf48f9090496b7652e1a657e043ea7e0a29d1800795004594"
+    },
+    {
+      "module": "Nonadditivity/HaarWeingartenCounting.lean",
+      "source_sha256": "6fb59f62d02f14ee02d6ff693c41c9c31498f20a6003ca960a16444c11ec8f56",
+      "olean_sha256": "f9f9ac12b3173ec69a860720d7e9198a382fee6181b5882926f0fafd13d20ded"
+    },
+    {
+      "module": "Nonadditivity/HaarWeingartenCycles.lean",
+      "source_sha256": "1a8e8e12113188e2107b50e48ca3086c1e16fc3fa65fa5728f95126c673f78ca",
+      "olean_sha256": "f3b238d32b0253175a2f348773443aafd8601f1b19a3f56817451eb027a7896e"
+    },
+    {
+      "module": "Nonadditivity/HaarWeingartenGram.lean",
+      "source_sha256": "c0a36d8a419614aaaf8eeb4abe1e616411ebbf8b238160633b90f2afe10ef7ad",
+      "olean_sha256": "b992a01bc475fa82d0eeac343f73cecd4ea00d9693def80cc0db39c8fded09ab"
+    },
+    {
+      "module": "Nonadditivity/HaarWeingartenInverse.lean",
+      "source_sha256": "184c1d75258abad946d8dc51cc3ad89bd742050c85ccb29c0cc4c832b97a8e2e",
+      "olean_sha256": "170c056d3f1e5fd108045464243a35728e415eaf6f3a830448eec62d1b6834eb"
+    },
+    {
+      "module": "Nonadditivity/HaarWeingartenInverseSum.lean",
+      "source_sha256": "212072a67217f406545ba6732d8ccfb2d68a441b7a2edc3de41f6d0dbd4e603f",
+      "olean_sha256": "801dae21c4f598fbb98793e54abbbf52e040791698a2b39e34f15238c50bac4a"
+    },
+    {
+      "module": "Nonadditivity/HaarWeingartenMomentBound.lean",
+      "source_sha256": "5aa84673d2f58ddaedc8ef3e133cbe88cc23eacc081bb87dc0a39b0d6974347b",
+      "olean_sha256": "293defae27db35c759aa7c514a58793f54731b8897cd62e48b71315ede7fb1a0"
+    },
+    {
+      "module": "Nonadditivity/HaarWeingartenSymmetry.lean",
+      "source_sha256": "ebd01cd11329e2391241943a4b0015426a076be411b1e6a2080ef561178263a4",
+      "olean_sha256": "6f87aa0602b965d7c3a1164bdecdefe7a8e276d5bba6fa59116d820e46920ede"
+    },
+    {
+      "module": "Nonadditivity/HaarWordExpansion.lean",
+      "source_sha256": "0bf25abf1d48ea6f412aaf3e92d5fba58c53883fd251bae460bb9e7b6f77817b",
+      "olean_sha256": "8e18c826606465a8160d3512a5cb800c6bc3943d186467a00daf8715122e6bd0"
+    },
+    {
+      "module": "Nonadditivity/HaarWordPhase.lean",
+      "source_sha256": "436f1d421309dea815e370beedeca79dbea7b6b8f3cb41909fa976856fda7b30",
+      "olean_sha256": "f23868a6e9f34e03ca5403b2ddf9fa4b2474e471a944e08c84dcd810ff6814e8"
+    },
+    {
+      "module": "Nonadditivity/Holevo.lean",
+      "source_sha256": "4f6c9e6368e9614661a7b3c3333a6ef3b66941fac434186ff4304254376ba2be",
+      "olean_sha256": "bbec3230572bf8cb0dd23b9c811ee80c6acb4db4f9f78f28a5818dc2e761f1c7"
+    },
+    {
+      "module": "Nonadditivity/HolevoBits.lean",
+      "source_sha256": "782fbe04fb52413a5085aae41564a3cb05d1eb32d4f85b9e30b9d31ba39b83e0",
+      "olean_sha256": "03e9ddae27634f58e8d00b14ffb013ab7c880d8a360b4a7e3fb12992289580a0"
+    },
+    {
+      "module": "Nonadditivity/HolevoPowerGap.lean",
+      "source_sha256": "2424192b34175ebcf81d07b2a08a91a2edf51183feb2330291165fefc033fdb1",
+      "olean_sha256": "95e6cb312db59373ca11b0c470a7792aaa496a7d8b4b3c647ba370ddc5159517"
+    },
+    {
+      "module": "Nonadditivity/HolevoRateLimit.lean",
+      "source_sha256": "020c89d4353fd83751ebb0231b2caab813131039188ba838c55e3813cd9392d2",
+      "olean_sha256": "d0096ea01bd1622fef4551879d3dd970b443cfb916f8993f3c996825bafa459d"
+    },
+    {
+      "module": "Nonadditivity/HolevoTensorSuperadditivity.lean",
+      "source_sha256": "a2f32a408fd5398ac102c352d7b3ff8ac2e39ede274b7947a9026ce50f95111b",
+      "olean_sha256": "ca534b0667fcb30bffcdf7b1a09a99843349b120844bbdc5e234401e7da2f40a"
+    },
+    {
+      "module": "Nonadditivity/InitialNetReduction.lean",
+      "source_sha256": "2e668a683eabf911f0c21c16d0f11139c4f8e4eb28e6cb35634e06c50cdcabd1",
+      "olean_sha256": "f5bf2e5af3e069ae473962443d5226510ba58221b79438ed5fa52033ce91ebd3"
+    },
+    {
+      "module": "Nonadditivity/Linearization.lean",
+      "source_sha256": "dd82360af31d9941d9a36df2d8f8a934cc13ed7b060216ca317418a35a2ec5db",
+      "olean_sha256": "ae67c3d3d51ff0020ba24c4f295e46d2e723588acacba4d0a126d9f9900ddca6"
+    },
+    {
+      "module": "Nonadditivity/Main.lean",
+      "source_sha256": "170de1735251f969dc905e76d2004bc1979d219ca9e97c89110b4e61b0ce3742",
+      "olean_sha256": "8c7b36f4d7d80c560d6c4dddf1026a6bff18fdeb2c53ef5b82bbfb20dad510f6"
+    },
+    {
+      "module": "Nonadditivity/MatrixNormReindex.lean",
+      "source_sha256": "f7c4066d52e392f2c717c0c1005136e00cc04025a3a413d1c1b0f4d80b7a0be9",
+      "olean_sha256": "fd24c8828318b59db17c8856c8044bbc9ca0934df60c6f0f9cbc827aa2250956"
+    },
+    {
+      "module": "Nonadditivity/MatrixRegularRestriction.lean",
+      "source_sha256": "093d9cc9d78ebda7b6f7496ebafa0e0b0557af6d5c8a5636f4146d9bc082cb90",
+      "olean_sha256": "b0ca482f988cd13437f96d0af8077228caef8428143a1322a5b557b85b281df0"
+    },
+    {
+      "module": "Nonadditivity/MatrixShortEmbedding.lean",
+      "source_sha256": "381e428aaa1e360418b621825d0a45a97ccaf91a05586f0375f016ba67d72464",
+      "olean_sha256": "1385ce08e7c5baa2fc0c08e4f4fc3d3b2338118da4740a789287a7aa667a840f"
+    },
+    {
+      "module": "Nonadditivity/Net.lean",
+      "source_sha256": "069e2e79ddfa63227a889e3184c5d50d7a04633651dc389df48c74128e9bcb95",
+      "olean_sha256": "194f50e19ce0909a4fb60dae3f3394575be3595ca7c29582d938a7f5434a372b"
+    },
+    {
+      "module": "Nonadditivity/NetPolynomial.lean",
+      "source_sha256": "06562790928e572e3947c5c582860b18383f593602b2f21e9813671c2bf3406e",
+      "olean_sha256": "92f3d020a9fe4e284e740601408e797757e067a754fb119b113e814b2cc88329"
+    },
+    {
+      "module": "Nonadditivity/NetPolynomialSupport.lean",
+      "source_sha256": "98c4e47348e5140978d8745e1a18b517f010106a4b973cb24f608ee30f32cf12",
+      "olean_sha256": "b76f7fcbde8d2e920a11c44784ee13b1c685c463d8d481641f424b75982dc332"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCS.lean",
+      "source_sha256": "0c1edf07f8b857dcef4b29f48480cc01ad96ad9b97f6ffd5285ead0e00631a2b",
+      "olean_sha256": "c293012b07054dc6d6d6cbd7b0a758bc2e95ce47bb72dca1fd53c66a0e23a33e"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSAssignmentProducts.lean",
+      "source_sha256": "855ac105e74928e63ac6dc329ed5c5bbdffb9c0d9ae79e40b24ab7f85daf592c",
+      "olean_sha256": "d9bfb69211409e96950e901c97a067fee809feec4c5f5f332312de97c2183902"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSAssignments.lean",
+      "source_sha256": "fd701bdfac71b411684894d76411fdd31145b66b629bc59c7ace973d66298e0a",
+      "olean_sha256": "b5b72af86ddd337b707d3be87b60057ac54e583b9849211680511ffb9bc2ae31"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSBlocks.lean",
+      "source_sha256": "5b6cd358e59a38d0a45ad44887368dfb11e4fb45ac42c7cc37be8cfb7987db72",
+      "olean_sha256": "f3a5a74fafe996ccd480f5585118d22e63695ca9a65878e6591f285246d751bd"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSCrossing.lean",
+      "source_sha256": "74d99720533fa775936d6775ba2b715b105195312971968a1105abbb5102ecd6",
+      "olean_sha256": "e12f2b9fde4ebed8e191c104585babcec1776ca48dc75542cfea3d7d8ca976ff"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSEndpointSkeleton.lean",
+      "source_sha256": "609878c7d0b6baddc32463cdf895c5f12f460a25451e2f7613bb65abfc6c701a",
+      "olean_sha256": "0a9d1683657551eba11b6939727557eda96654ce8a12579920ec0b99d7b6f818"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSEndpointTrace.lean",
+      "source_sha256": "9098a1074f08f0dbdaca01b1856bb833e196895cd49ea0b2631919cc53b1f135",
+      "olean_sha256": "c208ee28ab6c371fcc2dbbc4dc6787c6190eee463865ee54d36e154f89416543"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSMemory.lean",
+      "source_sha256": "d51cd7ff57fec0311e2b93394b80b62a3bf760992852ee09f073f64bb3b2bb34",
+      "olean_sha256": "347fa71feabf61a163f4d04ede1f76b7a7956a382a7c9d92410736e1927284e1"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSPaths.lean",
+      "source_sha256": "77757baa22d56c6f1e6273ac30a8859cab0baacfe6cac0ed0346b4ecc8106b2a",
+      "olean_sha256": "15727a53f28a7644d8ecad463d14b1270b8c159aa892346efc46eeeefae3b81b"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSSingletons.lean",
+      "source_sha256": "53b8ccd008a9af976ac6a878ba126206c12cb59b8d5969caa1bd021bb8660d7c",
+      "olean_sha256": "074cd2dbd7f52e643abd6653d588126a55ac606a7b22c21292e4bea4ee26f019"
+    },
+    {
+      "module": "Nonadditivity/NoncommutativeCSSkeletonDecoration.lean",
+      "source_sha256": "6060b53908e401b1e94018880d7af300208e8dafa2ef14c7500bb85adb77b05b",
+      "olean_sha256": "34758939320936cdfb806dac74acf0c797c831e10e82542c57e408b7e99205aa"
+    },
+    {
+      "module": "Nonadditivity/ObservableDimension.lean",
+      "source_sha256": "dd747824dbb5c9abd0f2cf572d95e9b942e868f104e975d2e65d2be7c5a9b23d",
+      "olean_sha256": "0a69c9ada3ce56b97d910cede4c699897287fb4a308cf0fe747c0718ff938c3a"
+    },
+    {
+      "module": "Nonadditivity/OneBlockRealization.lean",
+      "source_sha256": "cda322e1abb957480a367d6e9ec482228047e160eaaea953a473e00c63217e8f",
+      "olean_sha256": "3dfd95d2ef6b9091725ea92491154eeb16ef0d1d7ff44988b81a39c751aadbb4"
+    },
+    {
+      "module": "Nonadditivity/OperationalBlockRates.lean",
+      "source_sha256": "158142a8ea201a0953042957100a41e1c25fd831d521348ac61b562e779a38fd",
+      "olean_sha256": "5ae2c036ac9d6b5d6678b222a311bfa9148fd29b267ed69245a2e13a99261d47"
+    },
+    {
+      "module": "Nonadditivity/OperationalBlocking.lean",
+      "source_sha256": "0b0cb817aec0b215817e7cad59a23b063bad80b272d005ffdaaeae76d5a6ef2f",
+      "olean_sha256": "32c4e064fa066ee9752f5c3aa12662ebfc4ded6781f0904a7c3a9575d4c12a1e"
+    },
+    {
+      "module": "Nonadditivity/OperationalBlockingCodes.lean",
+      "source_sha256": "1fd2838d34efd64c362983dc0ace05bef45155acc462316f4c988bf6cd3f323b",
+      "olean_sha256": "4c50eef437a55b0c563339ecf9e01104aa3cb9f0a5db3e1ab577ec132e835032"
+    },
+    {
+      "module": "Nonadditivity/OperationalBlockingFlatten.lean",
+      "source_sha256": "0c37b3269eeb393151956c3ef19d4b7c00b9fc5832c59b87f336eb3f0b63b468",
+      "olean_sha256": "fc35f97959847edbe6f4897f604099d2640a7f63c1180cd78f874cc77ab91055"
+    },
+    {
+      "module": "Nonadditivity/OperationalCapacity.lean",
+      "source_sha256": "4520a65e8335779722560e2cda223f9439c98faa49ae44758289a57f91f74870",
+      "olean_sha256": "e4670a067ef167f341daacc8305c80f4ac68258ebd82b562fd429d6c4ebd68e9"
+    },
+    {
+      "module": "Nonadditivity/OperationalCodingTheorem.lean",
+      "source_sha256": "910766087013080f16be3b2fd020fb9e0ed5acc6e9b215efdbb3171f7c88d154",
+      "olean_sha256": "e6bcd28252a4e5536b0c24176dcee96cd7d8ea349fc5888e29a58f826d44b0a4"
+    },
+    {
+      "module": "Nonadditivity/OperationalConsequences.lean",
+      "source_sha256": "b60570626da69793bf37719eb25397082c9d37fb4690ca2ed28b3374b0f8ed1b",
+      "olean_sha256": "900e44bbd3f56e1143cb7d8d678eae2a3bccb8d228c2dce6d55876d08d6cc4c6"
+    },
+    {
+      "module": "Nonadditivity/OperationalConverse.lean",
+      "source_sha256": "cf0f1870c7367892ee24456f4877e33a800b75c345472a5b2b84eaf13dd8dc61",
+      "olean_sha256": "999e74c8bae014ffe5916a942e2a1bb47897180802e983cb792ba4fed341404d"
+    },
+    {
+      "module": "Nonadditivity/OperationalFlaggedEntropy.lean",
+      "source_sha256": "f7ad276247a9cedbd413699c0658d287646627297fcc701117f62e8d876206d8",
+      "olean_sha256": "c72fa4e9eece5c70f9f0cf2cada5a2a175c26b27c675d7e44ffbe4afb115865c"
+    },
+    {
+      "module": "Nonadditivity/OperationalHolevoConverse.lean",
+      "source_sha256": "9d6563270b34cf758bfeba67de5df10d65b22289d1f1ec56785d24a0f6c562db",
+      "olean_sha256": "b651558f3a7985a364216466e693184d1ea0031404fbc49bcb13d36e76d20555"
+    },
+    {
+      "module": "Nonadditivity/OperationalNaimark.lean",
+      "source_sha256": "adef769e06d8bf2df0689a7616069acb3a98d8f7d5127a1bc8d7fec8b3298195",
+      "olean_sha256": "16f2225266d5de04696986a6e0599b9c86c6e5add2632404036764fb26dc0e14"
+    },
+    {
+      "module": "Nonadditivity/OperationalProjectedCode.lean",
+      "source_sha256": "98105b50fccdd2492df3fe398b0fb438f30a60c9c997c82f515c07eb9b27a9c5",
+      "olean_sha256": "d55425868733141b6a1d318e9228d888983f4f29910878d55a0e312b253a829c"
+    },
+    {
+      "module": "Nonadditivity/OperationalReindex.lean",
+      "source_sha256": "d4bf7d2b233f123c89101a9f4e129e98dc6b45d3924717ff878f97586452ed73",
+      "olean_sha256": "4b831bc9ce2c308468329df37fbe2faf4f9b04c258fddaa69477b983180b7a0e"
+    },
+    {
+      "module": "Nonadditivity/OperationalStrongConverse.lean",
+      "source_sha256": "e552e54fa67680c19690d117197e36b18e2f4c2501ddce59dced54df7808094e",
+      "olean_sha256": "565048a8fe385cbff497508935a6d1a2d887a1abe58d490f443350b0cf88b0b9"
+    },
+    {
+      "module": "Nonadditivity/OperationalWeakConverse.lean",
+      "source_sha256": "bbf89227f881fed5bc90711deeebb06042e51ccf921249c0a1d5ffca5f6463c3",
+      "olean_sha256": "e2737d20726b57c19a849bafe5ce666fc03ea9c41d9643d2ac67e828b0853fdb"
+    },
+    {
+      "module": "Nonadditivity/PolynomialDilation.lean",
+      "source_sha256": "a6ddc943019087d6261d8a3b71165a32e29090a35193a3d0bf8e0bcbe1385992",
+      "olean_sha256": "dcfcef9c3794bcef753d647a9a39d89468dc35a128768c4d31eef7128c8b83a1"
+    },
+    {
+      "module": "Nonadditivity/PolynomialReduction.lean",
+      "source_sha256": "3d8b19ecf7d4c407b8712ea3c5da5b02a5225f01711956132b737c3023ba52dd",
+      "olean_sha256": "bdd16df411070c4e005c234e7fb0ed9b252d4fd9408d90d478fc9b2101bb816b"
+    },
+    {
+      "module": "Nonadditivity/PositiveHolevo.lean",
+      "source_sha256": "0ade8662b20310ed3c5fc1ff85b514fd4002bb574b555658ddd82109d9554455",
+      "olean_sha256": "dd06e0a7871e4e5b362bb99c936792cf86e2364d2ad5a9e693a6f8ad5ca58d58"
+    },
+    {
+      "module": "Nonadditivity/PositiveLinearization.lean",
+      "source_sha256": "26620f7e14fb15d43a560437390fee803e0671e667570439f461f65bb822fada",
+      "olean_sha256": "8aae4c70352ac9f40967ee8042b34ffe6944c0c99042f7c3c08a220a7fdc0870"
+    },
+    {
+      "module": "Nonadditivity/PrescribedCostCapacity.lean",
+      "source_sha256": "a2b8fe733122013cb049771397227b6b025d11983048b2b0250136ebcd9cea74",
+      "olean_sha256": "536d5110910d92a21557c46bac8b6e2633ea8ff301bbc40084d5552b2ffffea8"
+    },
+    {
+      "module": "Nonadditivity/PrescribedCostDimensions.lean",
+      "source_sha256": "99bc789ac6351e12b68c6aeb61067ac9786976319139abb0c42e56069ad401d0",
+      "olean_sha256": "87b54bb1c408402752fe4030634fed9aacd072e6dce1bb4e9cf17ac7edaa3c25"
+    },
+    {
+      "module": "Nonadditivity/PrescribedCostInformation.lean",
+      "source_sha256": "3abe91ea7153a7ff23b1ff104a51f8dfd5f219c7c5bdd7b0fbacdcec11b9332a",
+      "olean_sha256": "659af3e7e5c5f41a19a4b52f7b3a14a1c45fcf4fe0ef87701861a2c1b2224c81"
+    },
+    {
+      "module": "Nonadditivity/PrescribedCostLogarithms.lean",
+      "source_sha256": "4fc925cf60f06e44e1e714c395005610b6d5d8c260f21a0e5cb18c0b2edde3bb",
+      "olean_sha256": "3ce980a836abbed911f911b63e136746c4ae145cc30343e34420fa5b25c9e886"
+    },
+    {
+      "module": "Nonadditivity/PrescribedCostScalars.lean",
+      "source_sha256": "b1958b538f5c133ac3bf0ecb4cb518b12c7dd3f250e5f33e048b8500227aa656",
+      "olean_sha256": "f0eab2834976d1c0f8da7d36498b2ee0ee9281d020d363ef135c4ac183b05bcd"
+    },
+    {
+      "module": "Nonadditivity/PrescribedCostScaling.lean",
+      "source_sha256": "b3522fb7b7b5b2cc4f16f6bd277f25e656eabd5f1386fadffc2668d2bb047fde",
+      "olean_sha256": "ed3cbcfc59cd2d8d94267b5c1169f748e0aa9b0c8b2f4f24f660b0ff8f5de644"
+    },
+    {
+      "module": "Nonadditivity/PrescribedTest.lean",
+      "source_sha256": "da00742e711ad84261e26641e231f33574e203eb564d52b0519163d837665d29",
+      "olean_sha256": "aea555a595e27cb42081de74ac9ee38f185e96b26af8eeb34fa169d70a270852"
+    },
+    {
+      "module": "Nonadditivity/Probability.lean",
+      "source_sha256": "9d45e10712202947f2f2c41ba131e904251f0c3df42a69b1568298ad99d2d64d",
+      "olean_sha256": "2a0975f607072dd0ed9576b4756e0933ddf040080706cf23cdd2b41c37a97591"
+    },
+    {
+      "module": "Nonadditivity/ProbabilityQuantitative.lean",
+      "source_sha256": "dfaac2c8dab6d1124b6d84b941bf4180d02d6c59cbd1d21bc1d63caf03f4bbfd",
+      "olean_sha256": "31cb52eebec3eda2653d13d5a08190b5d520d161ca3f3ac6d20924bec1574ec8"
+    },
+    {
+      "module": "Nonadditivity/ProductHaagerupBall.lean",
+      "source_sha256": "6fecfdfbed703231b1d6fd09c5fae8be01aa723099dd39e0a5aa902503e6465d",
+      "olean_sha256": "9d868a2d91c0ab57fe4406d88670aa39a67b53eadfc1dcc8c99237ac4066f924"
+    },
+    {
+      "module": "Nonadditivity/ProductHaagerupCreation.lean",
+      "source_sha256": "b064b02068bead46d42d9b35ae5e0d05923ae224d3c85d4b1d21100b4fc143de",
+      "olean_sha256": "c672edd6888375550a8fb64c1c4305ed8fc73cf22a57f55b8ec606a3e563bb8b"
+    },
+    {
+      "module": "Nonadditivity/ProductHaagerupHomogeneous.lean",
+      "source_sha256": "b7c654741689d23a2a72f0ed3c8f6df03da29838e2f890edcec164b95a00ee3f",
+      "olean_sha256": "25a52fc1fe0736150c4a7137bd400c89c2fd2edc3bbeee2badd06f030a15a7b7"
+    },
+    {
+      "module": "Nonadditivity/ProductHaagerupIndex.lean",
+      "source_sha256": "1e234d2dd21fa185149e690b322fa26a116f947f525011be7d3e4032de32f8d4",
+      "olean_sha256": "3fbc3ede70a6062c49890af363fc80c02265b9ed0e4c7411e1efc27b10bef1bb"
+    },
+    {
+      "module": "Nonadditivity/ProductHaagerupProduct.lean",
+      "source_sha256": "3f4bbc82e865a5c9ca992e07a0fb800d8e05c2e7a708aa81cc5e636e91072bf9",
+      "olean_sha256": "1b56f3e77d3e79b53393533fd4577366ed6bba1a5b2e2354e4e45f19b3c6b06a"
+    },
+    {
+      "module": "Nonadditivity/ProductHaagerupReindex.lean",
+      "source_sha256": "c1239c8d50becdd3a6a3a4e8e4796a7167a1f600247ccc353f664b7ee59f1b10",
+      "olean_sha256": "384d864ca90c096d0963521bad6a74f3b15742d5f163b09c874f383c49124550"
+    },
+    {
+      "module": "Nonadditivity/ProductHaagerupWords.lean",
+      "source_sha256": "5f75f7c0f3d715cc9e8e02e9c1dab26d1fd21fe2f0a762f50662817646463b86",
+      "olean_sha256": "e4f34dee67b9551a01a1a8f9943d58eddefb09f6487a4c34048f57a5154cc104"
+    },
+    {
+      "module": "Nonadditivity/ProductMomentBridge.lean",
+      "source_sha256": "8c880e8eaa53484d10d036f3edb1836da4fe0c4e19218a37770b32b639b1636f",
+      "olean_sha256": "27dddef8f9d8cfdd5d03e3c2a2cb07360fed4ec32ed6b16546a9eb72c6ffe74f"
+    },
+    {
+      "module": "Nonadditivity/ProductPolynomialReduction.lean",
+      "source_sha256": "31556c43156b322b5c8f3c859454943f6a8d2c0d78f8bb4ff0b3ce6777b5f708",
+      "olean_sha256": "67d7b2f03103d58da874b138558823b740c9cfa75dfc0883e2bda79e985797b6"
+    },
+    {
+      "module": "Nonadditivity/PureChannelEntropy.lean",
+      "source_sha256": "cb8e15d0522cd79faee877dc94618a8ae56cc2433b2a0a68e69c5ba9586cba6c",
+      "olean_sha256": "9d1ba814ef46aa16c8bc41e4b45af8119ae811dce89e46d4ab3db52c2c96d6ad"
+    },
+    {
+      "module": "Nonadditivity/Purity.lean",
+      "source_sha256": "fa68e666489073528edfffdb10782580bda52ff2379b8df5bf64ddb1e942952c",
+      "olean_sha256": "76ca2b2ed01b1efef40aad6c97c29ac470c33c111db9776180b72c9d12af7604"
+    },
+    {
+      "module": "Nonadditivity/QuadraticNet.lean",
+      "source_sha256": "5422f38617fd74cc32bf20d8de502b56ddd15351937e91f5771527435987bab4",
+      "olean_sha256": "d69ce8fbba58c8f05effb2e46c6c7a93de8e09095747d033d62d8214ca0d95c2"
+    },
+    {
+      "module": "Nonadditivity/Qualitative.lean",
+      "source_sha256": "3e488aa7f28a35f03b1e3dd5c8482db62d2d1b0a739d86783e6f326f96d1a734",
+      "olean_sha256": "2ddf6f79da0540cc72daa047cd8ab03036d1b7e0106da9a43ddc7887aa813cb7"
+    },
+    {
+      "module": "Nonadditivity/Quantitative.lean",
+      "source_sha256": "fcab536ee587f2b279daba135e0487b95a955eef3266fb33cee572cbe8de20ea",
+      "olean_sha256": "cd8ee2e61b2711bba0be8fd9664de3abcd3d14e54245ebee20960b57630dcede"
+    },
+    {
+      "module": "Nonadditivity/QuantitativeNet.lean",
+      "source_sha256": "b562474fc22b6b732879e6d12282ca963df26f2008e790bac9160da4c275b6d6",
+      "olean_sha256": "e2cacf06cfba28ce522ab5766dfcfb0038fbaaf32aae08d8bb17399270ff025c"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingChannelWords.lean",
+      "source_sha256": "238b89fc23339f8ec9e6f5cf4432fd532145c0f126d8f566622e314f7c240e00",
+      "olean_sha256": "25614cdd3fbc46cefe499bd0eb051a9f704b1707a4bdf85a566fd983b25b5345"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingConditionalTypicality.lean",
+      "source_sha256": "b1f4d737d4ad783f81186b9d387fd7d405888c22e9e58264c42fd9451a322dea",
+      "olean_sha256": "1d834f543f7bcbb888ffdaf06b18486e0589a2ebf35252ed4e866a86214fa4e8"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingContinuity.lean",
+      "source_sha256": "4ebc293095973f1e00ca8c8736c594e36988d935a877fae8ff27f9f72e690ff6",
+      "olean_sha256": "3e7bdcabc6cccf552300c1ebef294bd5207ee241ece95bede31afd3c691ff9c7"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingDecoderBound.lean",
+      "source_sha256": "8696368d1be7a224573fbb844f66d894b5bfeeaba84eaa0306a20e5d1e89602d",
+      "olean_sha256": "7f4ddf4667e33be8235209a2d69aa0fa27556160ef0754d08f505ec023eb0d80"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingEnsembleTypicality.lean",
+      "source_sha256": "30f09c37766ee5173222ae6ee87217422520e20756f83a999e4e75dd52794699",
+      "olean_sha256": "a858807811f9ca8c5b50ff2e25ad81af9b2b945b4470b5a4b1b3b341ffe2f1c5"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingFamilySpectrum.lean",
+      "source_sha256": "2f9d0d16be5fe2a1c327175e9818ba0c789154a8bf466a8333e8f811ac285285",
+      "olean_sha256": "ebfe212fa8f0444e0b3a20f5c7f11603b57a76b3eaec27f0a608b5938412902b"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingGentle.lean",
+      "source_sha256": "761cdbb3e118980d7d34598ff96ac0fbd743bdfc96bc449604f50e412e8f83f9",
+      "olean_sha256": "49ab1df88df73deeea4b4159110b28a86b33c660ea31ac98292c90e2a2371470"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingHSW.lean",
+      "source_sha256": "2a0d0653416798e4456f7998032ae9c1510202f0323c72677fa5ba7d644d74d4",
+      "olean_sha256": "8252ef71cacd4b40bd47d99fdc43b72d335aa362473735603665019f265f1f17"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingPacking.lean",
+      "source_sha256": "bcb7759edc9f01a24419d4d455e96496a52a9963d080ecb5e51dba5e13f3428b",
+      "olean_sha256": "e5d52ccb4ab7c5848e36d69c44103e2a4245add6933dea29bb2aaa9320830e68"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingPackingAverages.lean",
+      "source_sha256": "7c218f85fbac774d4444de6e4fbfb4e1406ca0b82ca6ead28ecf5843bb78d625",
+      "olean_sha256": "5df97ff4edb7c258b90171ad87d396b9d421ddd30c38e6c2f25d54b4ec8ee8d0"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingRates.lean",
+      "source_sha256": "dee40cb792f56f294a4b1e9712baa40d78c50e313c051061fd8d009aa6f590f1",
+      "olean_sha256": "23c18c8ec7677feb577ced427c162e36e65461465f91e74dc7077c5480876959"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingSampling.lean",
+      "source_sha256": "0066fad2a2bbbab493fac17eac1acbe5c8f022546890830e6010d5b03ba55a17",
+      "olean_sha256": "7f1c11ea3d3a7ca579df1dd6a311e6ca019a270a41dbf28a34d18fea524a0e0d"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingSequential.lean",
+      "source_sha256": "3cf87b82598e3c9459ae264a9e24499c8e2e3878755b4156e7f882e59aa390a2",
+      "olean_sha256": "d19e96a3194ff12c1afb82c9e136105b4167412e3eda620127d620baecd922d4"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingSpectral.lean",
+      "source_sha256": "95f4d8738e61bb7a1caeb4417a7841d89786f40f3750adb818488ba9f7abb726",
+      "olean_sha256": "4d43d3d2815ac0c8accfbd8eb698819b4ae4a9bef9f41425fa7ad42bbc8ca947"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingTensorSpectrum.lean",
+      "source_sha256": "a1d52c3b9eca0e9dd9277b02a43ca588d9b49af3c52cb0798277bc46a7fa6755",
+      "olean_sha256": "76943ebb4b61bd95794e4c858292b3b76baaedbde24b8d46e03f4dd61ee8d188"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingTraceDistance.lean",
+      "source_sha256": "a83bf4cb82131f4ab182d09cd3e356a556ae63d749308e6b5589c9f9badddee3",
+      "olean_sha256": "f5c8ede93da358e02925852a6281512db60f98d4fe352e64ec9ebe2684eb1bc1"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingTraceUnion.lean",
+      "source_sha256": "5e183d0c23d782c0e98d0dd69605e3b656c81f581331032012440b2410a2b24e",
+      "olean_sha256": "91914d2375db43ca09590b1c683728ee5ec9fbeb2f53a44507fa98abb1b65e7f"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingTypicalProjectors.lean",
+      "source_sha256": "bd00530be119e64dfa6939cf5c7b5dc45f258cea76e593dda2aa7b9e866ccc9a",
+      "olean_sha256": "5631b5a78fb314150034d3db86835e8c38d9b17dba8e67cde77b76d5a4250140"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingTypicalTests.lean",
+      "source_sha256": "1691a682fd06ad7cee0462604bc91fd55c1609d48115b2bc2c662e016db66d49",
+      "olean_sha256": "75491f3c6b2e9c9bb75866e1f465a184ea84bd613037caa344478a8406541e36"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingTypicality.lean",
+      "source_sha256": "ee2b32511d317cd519ab3e210fbe3b3b1ed37020e2892539e97a9ae00dcb8eec",
+      "olean_sha256": "48585ffe925cd706032eadb326cb781b58be5ad233ec098b4d40e0d3f0256afd"
+    },
+    {
+      "module": "Nonadditivity/QuantumCodingUnion.lean",
+      "source_sha256": "54112dad4528113ca9ec39da7274c4a0ccf22e4209171af83e196230afe9804d",
+      "olean_sha256": "81017004d3c37488f5740969a9ea5d875ffbc1b6e42a4afd1dcf31a60c60145d"
+    },
+    {
+      "module": "Nonadditivity/QuantumHolevo.lean",
+      "source_sha256": "de5c465877e233708d2a5b640d7fc94f6ed6553f373ef528fb34819dd406c0ec",
+      "olean_sha256": "4b5ca85426ddaa3c19358c8061ede3fe74c11478afed807ef1b55f2dc3ac6747"
+    },
+    {
+      "module": "Nonadditivity/RegularCoefficientEnergy.lean",
+      "source_sha256": "c94e43136a76a7a687ac3da41194651c938688b3dfe7d6fea9ccd8ca1442b5f1",
+      "olean_sha256": "fcfec8868928731b09436b0a68ed6f2ee4f045d883846e822adb23144f170254"
+    },
+    {
+      "module": "Nonadditivity/RegularDilation.lean",
+      "source_sha256": "8caf1ccb3748ecfea5aaaf2f83a88d94ee69b6dbae9044db1c1ce96e0d20435f",
+      "olean_sha256": "48b99f883d828488d741f210c1135808073c3d83c2e04cb3ab4360dd44da579c"
+    },
+    {
+      "module": "Nonadditivity/RegularFactorization.lean",
+      "source_sha256": "02df53d0def8706792d33a7eeb2fa6b4e5813d2b4805e1cb437d8d8b6d32558a",
+      "olean_sha256": "d6cfa4bdae9f62e7b22f93857ed23b691530f4603e9755c359e7d83b25ccb654"
+    },
+    {
+      "module": "Nonadditivity/RegularFubini.lean",
+      "source_sha256": "a0d79f2c83c5e2eda7b54c2b4fe6d91402aa1c455defe1bc079519177b4ed891",
+      "olean_sha256": "11345b3d664de6ce9af21254662186926715f3d5d549b5a952d2c791e0c9ccc7"
+    },
+    {
+      "module": "Nonadditivity/RegularRestriction.lean",
+      "source_sha256": "2ffba1dd29a3de07d713af8c10e261efa402a5d1c469624d669229287bb59bed",
+      "olean_sha256": "7272dce301de290ffa79d0a5b1e58b324e54d578a5440b9b052ba36b2d353f1b"
+    },
+    {
+      "module": "Nonadditivity/RegularShiftedDilation.lean",
+      "source_sha256": "12c19fdae17a50df8234dde19c0b0a29def0a708b771b0b59c43753bdfd8eca7",
+      "olean_sha256": "05fd54c7eb133714b6fedd988d96543349cfc39d7c151d450387045fd6d69070"
+    },
+    {
+      "module": "Nonadditivity/RegularizedHolevo.lean",
+      "source_sha256": "6caf8fcb95a72dc2faa78a4f84d0e03b10641c30a63d74695370588e23e50dd5",
+      "olean_sha256": "12408df7cb02b21d67b14bdde434b558de6320171c578387256ff0e2d912398a"
+    },
+    {
+      "module": "Nonadditivity/Scalar.lean",
+      "source_sha256": "be324484d5c5d8ff418d68958602abfc2bfe0a19869b8ee0bc631f679da63d69",
+      "olean_sha256": "a1356e6105b6f05320b9ed1de7d091f44e9700aba1a7914c920528e7e0a29932"
+    },
+    {
+      "module": "Nonadditivity/ShiftNorm.lean",
+      "source_sha256": "e15b5608ba81a4c3b892285d714733f9f233705beac4795857e48df01be3a373",
+      "olean_sha256": "fa0cd90a7bec561106468164b5a365bed9ac51cfd31f745eae1330d58a9e8003"
+    },
+    {
+      "module": "Nonadditivity/ShortEmbeddingNorm.lean",
+      "source_sha256": "019c5c506ac36c74b3e0e3dd258a8a0562c941f9007fbb56072c17d8c463a134",
+      "olean_sha256": "3699f73656f5fd33e83866e2108e81d50787e0aac41565b4f381bd31f3eb5907"
+    },
+    {
+      "module": "Nonadditivity/SmallEnvironment.lean",
+      "source_sha256": "591918f7c829ac709ec10db69601a9c0476de7a00e08bb6382729d6f56dd82ce",
+      "olean_sha256": "f077bc356ad818f5ea274e11e0708b2e45f11e8fbde05ba6452a25985b3b786a"
+    },
+    {
+      "module": "Nonadditivity/SpectralDamping.lean",
+      "source_sha256": "90898ea0da4bc98e2bdf9048e4b7f3b605b872c4019830548eadbe8277900424",
+      "olean_sha256": "99ff823c3a4a35851ff121867776daa838f39563b45a81bc046cd21e53578c80"
+    },
+    {
+      "module": "Nonadditivity/StateEnsembles.lean",
+      "source_sha256": "77cd27af9f718913cc93beee3b53ceb64de5b23aeff81478c1b6ccf2d06a2e4b",
+      "olean_sha256": "76496c1ba762497cd62ef29567b30a0777a01a9754dab68598e0b6eb5dde22e5"
+    },
+    {
+      "module": "Nonadditivity/StrictEntropy.lean",
+      "source_sha256": "69e51dd636db4cda5de22148805f66c7ffbc0df5def4af09fc6fffff0b7fe191",
+      "olean_sha256": "fd2a0ffaa9d5a9f40ff9d66446ab715410c428926733ea14dde3f9b468c39a37"
+    },
+    {
+      "module": "Nonadditivity/StructuredCostBounds.lean",
+      "source_sha256": "68c4428025794bcdf94a32acb5b8280abf31dceff01b77fdc1e42fee8b6ef8c9",
+      "olean_sha256": "bb1bddf42774cad9cfd507464e459a8162feaa233125e0d2d6909f60e8c421f7"
+    },
+    {
+      "module": "Nonadditivity/StructuredFiniteChannel.lean",
+      "source_sha256": "aa75322c71afe24aa083e7f450738dd1ba9efa4ed1febdfac7b7a9618fad30ad",
+      "olean_sha256": "ee83ce0e394899a51ae397dd06864545b17fa0be3a14cffc8b53bcfcf59b4a0f"
+    },
+    {
+      "module": "Nonadditivity/StructuredHaarConsequences.lean",
+      "source_sha256": "b74d3afba84e7da171b2aea3191fb598f998987d6e65c5460cfd762663d1df91",
+      "olean_sha256": "0e98c880a38123cad98a377cf351ba7a80740420ec59e028b93653665b175974"
+    },
+    {
+      "module": "Nonadditivity/StructuredHaarModel.lean",
+      "source_sha256": "7e3672332f57bf64bc6aa2a2ab0f180c0c0ba05403dbd582851d4efab5a30909",
+      "olean_sha256": "9e13265e384fdf21db740e1b1a8fd0e22caec92573f17dbe6cc2f74dbd9f3409"
+    },
+    {
+      "module": "Nonadditivity/StructuredLinearization.lean",
+      "source_sha256": "ade47a180737d01c6688126a9f4315420d68da55675b81c724f06b7cf4aaa3d3",
+      "olean_sha256": "3c4214c8b32b15957d319d972e96f9ccbd86e0a366a02e096d2e3ff9c932a142"
+    },
+    {
+      "module": "Nonadditivity/StructuredReductionCosts.lean",
+      "source_sha256": "4e0965000aff36a9b2c02264d2d3e719bcac9f4b2795509d7fdc4a8809bfff49",
+      "olean_sha256": "5825d2c6ef24ba43bcedc21b3f9f3c48fee680ab49a2784e90c4aa911efb3cad"
+    },
+    {
+      "module": "Nonadditivity/SwitchChannel.lean",
+      "source_sha256": "67f91b2e092c337a807ff45eaf8105e892a4d44856bc793d2d38957068d4da9b",
+      "olean_sha256": "d52a494a9546624c0040f22410dbc81971e7e21ded12bee5f5e351f6fcf70c05"
+    },
+    {
+      "module": "Nonadditivity/TensorPartitionReduction.lean",
+      "source_sha256": "50f918878edbaaa35238724040c0380d1683e0a248a5b20c44e9eb5f27a4360a",
+      "olean_sha256": "93bfb75d6abf2975bd7d2fc3b6c2043a414ab13b80967caaab292e84ebdd1500"
+    },
+    {
+      "module": "Nonadditivity/TensorPowers.lean",
+      "source_sha256": "c0c3e29a10cf6db14d389cc031dc0289e46e444f439a80b972864ef649df77df",
+      "olean_sha256": "ed49b2d7c4fa044532f7dc25972b0d41c49d581ea16d614c50e5087472628ca7"
+    },
+    {
+      "module": "Nonadditivity/UniversalFactorization.lean",
+      "source_sha256": "0a56cc51cfb904c0765c3f78de102bf2599a1f7c5f73c77041a3d611cfbc66ec",
+      "olean_sha256": "f03da958cce1e06438b4285790c975f08c9a6a7b62813e177f57ee8d497879f8"
+    },
+    {
+      "module": "Nonadditivity/UniversalFactorizationGram.lean",
+      "source_sha256": "f108c141e714666663d42aa771ffcce533e44d496a620aeeefd952c581aa8763",
+      "olean_sha256": "fa8d316174cb5ccf4c0105a6d0bba807f0ff67484f6ef212bebbbb1d554de67e"
+    },
+    {
+      "module": "Nonadditivity/UniversalFactorizationOperators.lean",
+      "source_sha256": "5511f9efdbc425d95de52a0bf42d2dd5430ac32a29b4e52066cb8757027d33b7",
+      "olean_sha256": "bc6fa5ad7c6347b2ef43097535a493c5fb4cb9fad5a20e44ed2cf1686890359f"
+    },
+    {
+      "module": "Nonadditivity/UniversalFactorizationPolynomialDilation.lean",
+      "source_sha256": "f575b8c08c09e7be4eee2a922a1de37088512eadd4045e431d975a0e4d8b68b5",
+      "olean_sha256": "243428932b23b0a55c1b24974a941c4c5ab356ea7aa813cefa748598ac2e816c"
+    },
+    {
+      "module": "Nonadditivity/UniversalShiftedDilation.lean",
+      "source_sha256": "2d304454ed04c29b7da5657b30a4c3240f768e021d5c90632a2cf97b1504ea15",
+      "olean_sha256": "101d912da5fc4d3f791ecc2c68e422188f9aa234308ae4fe790a5e86bb4f343e"
+    },
+    {
+      "module": "Nonadditivity/UpperHaarRealization.lean",
+      "source_sha256": "2358ce2000536527c8f4cfc38ec062899c3af349f73c4260363df3dc4cda146a",
+      "olean_sha256": "4f11b140d1f09035a3c85cde53d4aa6621b8ec39fbafc75d6f9cec43d620e9fd"
+    },
+    {
+      "module": "Nonadditivity/WeightedBell.lean",
+      "source_sha256": "aeb766b4338d5f0e2ed4d292ff39c122b1ca341a37fb9a7cb06f996f67b74cd8",
+      "olean_sha256": "4aaa09a6f394303a34425af4124f7c9c750ca152874baaf74dde3982130990bb"
+    },
+    {
+      "module": "Nonadditivity/WeightedBellScalar.lean",
+      "source_sha256": "23a9d6c7c59ce3b3e14b499aec7ba0fc77455a06ab900fb0e87b31ac1e80568a",
+      "olean_sha256": "8246a86abfef3ac7b63fb874f16ad4a9997eb6c8e1789ab81b4a5e510c89d08f"
+    },
+    {
+      "module": "Nonadditivity/WeightedBlock.lean",
+      "source_sha256": "7cbe86893d9dcdc27550115d1d3f6bf096d964f269021d55ef6085549ba87f6c",
+      "olean_sha256": "bf4d06481aa90e464f7742a916b53cd4d19131b66babe889832b97f233291732"
+    },
+    {
+      "module": "Nonadditivity/WeightedBlockBell.lean",
+      "source_sha256": "dcc1954f55c20854986a8034a1928db81ef469e148474cd4c5cfa2c7bf968715",
+      "olean_sha256": "22e804cc73c58a14c96e064a16f15064e0b545cb00d38cb3dee19216b7c30173"
+    },
+    {
+      "module": "Nonadditivity/WeightedCertificate.lean",
+      "source_sha256": "5b7154cd48ec50d7dac8abc8b5b093d259a5723e5f511e0b4f4b0759f26db46e",
+      "olean_sha256": "e34143c3e547d36a8df5f05d7a172888fff2c3c49a5ca072e4b61879a6ff06fa"
+    },
+    {
+      "module": "Nonadditivity/WeightedMatrixInverse.lean",
+      "source_sha256": "304308798de71754e6cd70a6470e480c852f744202af0e1f0c40cd71a7e47cbc",
+      "olean_sha256": "66089b3ef2617fd9a9446d893dc57ce6674c75433b25f33a47166ace0c337a10"
+    },
+    {
+      "module": "Nonadditivity/WeightedParameters.lean",
+      "source_sha256": "80cdbea612a3f1e4e470c09472536f8419f38aaaaa892ac9a6b82bf4a1db3acb",
+      "olean_sha256": "c44c2eb40082df641339c63d4cc309c004c5e8c5617924c1cb6a9954e25cceed"
+    },
+    {
+      "module": "Nonadditivity/WeightedPositivity.lean",
+      "source_sha256": "fb83f857a31091a99ad02391fece8b6c37fd0573e2de8e56ff61a50174f53b3b",
+      "olean_sha256": "d611f83cde7d6bedd6a11aec78860bd934c91546555d683bb2e6529c5c366527"
+    },
+    {
+      "module": "Nonadditivity/Weyl.lean",
+      "source_sha256": "8ebc57248e69627081f98208617f8bfe2f6fea12037969af3ce5037c7bc3b427",
+      "olean_sha256": "8e03bc102becbf926b999559a090a31776f79cbc87b64dd89dab497b0457561b"
+    },
+    {
+      "module": "Nonadditivity/WeylPowersChannels.lean",
+      "source_sha256": "459067320fcacfdab6b91499890360a09c08bf12003ba61fc010b332f8b7f8e1",
+      "olean_sha256": "53fdfc54a4ab55c0cddfa08259f2679c4fcd82d81e49ceab8d7f1ddad19e94b6"
+    },
+    {
+      "module": "Nonadditivity/WeylPowersControl.lean",
+      "source_sha256": "2f63cd877340c0e02bc0fb6a59d7888974ce3e8f1442473d404766aea14510c7",
+      "olean_sha256": "4acc40120570a16375c25b5576f9e1691beac23d48337e5fadb157837bb3912d"
+    },
+    {
+      "module": "Nonadditivity/WeylPowersEntropy.lean",
+      "source_sha256": "123432c5c336479f5daaa1fa332d5187a0cc62fb77b5a4585837797059b656ed",
+      "olean_sha256": "d5a7dfe0d4ee7d5a66932e38eed86de3191544ebe8a528206d736f6205215d7c"
+    },
+    {
+      "module": "Nonadditivity/WeylPowersIndex.lean",
+      "source_sha256": "e2203da0bd0644b7a5591d50151f8cfbcb9c2de1a9fb1fededaefbbf3df209ac",
+      "olean_sha256": "a2867698c2499ee32614a0496bcff3b102d5ef55368138c50493eb40f1974643"
+    },
+    {
+      "module": "Nonadditivity/WeylPowersRegularized.lean",
+      "source_sha256": "7db84c5ba09314557f8b68407713025da7faffd18e58295ed3afea58924435f0",
+      "olean_sha256": "ed3ba1bae5c928bfa1dbbe7c211c64e1db3537780bdf33c0f8028a5ed78b1d69"
+    },
+    {
+      "module": "Nonadditivity/WeylPowersTwirl.lean",
+      "source_sha256": "ac50cd67fb79f35be2568b64385694059cfd366b7ec474e6e1577feb7434d937",
+      "olean_sha256": "0a6fc8014f58f15f0fa9caabfb70c19da5512b57878aed4313d4903786d59636"
+    },
+    {
+      "module": "Nonadditivity/WeylTensor.lean",
+      "source_sha256": "af7f4706fab19ce417d8acdfa879a5d6d4a0448705eb7d2aa4a3fa21c66f4322",
+      "olean_sha256": "5e41e3bc2dbcc1c9ded967ece4991826749c3b69d7896f321835253e949679b9"
+    },
+    {
+      "module": "Nonadditivity/WordBallReduction.lean",
+      "source_sha256": "02c4663b628b5f6a7b76bb4db4fc38dcb71e7759be2c3e0df6645955769b366e",
+      "olean_sha256": "c239d74100abeb0a774d1b0291f10a7bb25be7bc928f7a918133a1fab36f4960"
+    },
+    {
+      "module": "Nonadditivity.lean",
+      "source_sha256": "da60e2c65e3cdf8947ed60cd80ba7b15605954b5269e0fb2508d9add98d899cf",
+      "olean_sha256": "67ff74651d4766a85e293611f1a94e5dfb79b11840870b468b082ce4eb87c972"
+    }
+  ],
+  "aggregate_compiler_warnings": 0,
+  "individual_module_warnings": "Nonfatal unused variable/section/simp warnings occur in some new modules.",
+  "uses_admit": false,
+  "prescribed_dimension_theorem": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel",
+  "prescribed_expectation_theorem": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+  "one_pair_trace_theorem": "Nonadditivity.HaarPrescribedDimension.onePairTraceBound",
+  "prescribed_theorem_analytic_inputs": [],
+  "prescribed_local_dimension": "ceil(exp(40*(7*ln(K)+2)*n))",
+  "prescribed_threshold": "K>=2 and n>=ceil(256*(1+ln(K))^2)",
+  "prescribed_dimensions": "input 2*N^n*K^(2*n), output K^n",
+  "dimension_optimality_claimed": false,
+  "proved_Haar_moment_scope": "The actual one-pair mixed trace comparison for 2<=p and 2^80*p^80<=N+1, plus tensor replacement at the prescribed order.",
+  "corrected_path_counts": [
+    "Important-time count <= defectTwice+2; actual coarse quotient count <=128^(defectTwice+2)*m^(3*defectTwice+6).",
+    "Compressed endpoint coefficient exponent <=6*number_of_core_labels-1 <=9*defectTwice+11; marker bounds replace the invalid raw block count.",
+    "The stronger prescribed relation 2^80*p^80<=N absorbs the repaired constants without changing N."
+  ],
+  "supplementary_prescribed_chi_lower_bound_proved": true,
+  "supplementary_prescribed_theorem": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
+  "actual_prescribed_family_corollaries_proved": true,
+  "prescribed_family_corollary_modules": [
+    "HaarPrescribedConsequences.lean",
+    "HaarPrescribedScaling.lean"
+  ],
+  "rebuilt_modules": [
+    "Nonadditivity/HaarRefinedPaletteFibre.lean",
+    "Nonadditivity/HaarActualScanWords.lean",
+    "Nonadditivity/HaarIteratedMoments.lean",
+    "Nonadditivity/HaarIteratedExpectation.lean",
+    "Nonadditivity/HaarRecursiveSample.lean",
+    "Nonadditivity/HaarCanonicalTransport.lean",
+    "Nonadditivity/HaarExpectationFromMoment.lean",
+    "Nonadditivity/HaarPathReconstruction.lean",
+    "Nonadditivity/HaarPathReconstructionFresh.lean",
+    "Nonadditivity/HaarPathReconstructionTree.lean",
+    "Nonadditivity/HaarPathCounting.lean",
+    "Nonadditivity/HaarPathRefinedCounting.lean",
+    "Nonadditivity/HaarOnePairAssembly.lean",
+    "Nonadditivity/HaarOperatorPathBridge.lean",
+    "Nonadditivity/HaarOperatorPathSum.lean",
+    "Nonadditivity/HaarPathClassSums.lean",
+    "Nonadditivity/HaarRefinedCoefficientFibre.lean",
+    "Nonadditivity/HaarRefinedCoefficientBound.lean",
+    "Nonadditivity/HaarPathScalarSummation.lean",
+    "Nonadditivity/HaarPathClassStats.lean",
+    "Nonadditivity/HaarPathWeightBudget.lean",
+    "Nonadditivity/HaarPathClassAssembly.lean",
+    "Nonadditivity/HaarPrescribedDimension.lean",
+    "Nonadditivity/HaarPrescribedBound.lean",
+    "Nonadditivity/HaarPrescribedConsequences.lean",
+    "Nonadditivity/HaarPrescribedScaling.lean",
+    "Nonadditivity/HaarInputScaling.lean",
+    "Nonadditivity/ProbabilityQuantitative.lean",
+    "Nonadditivity/HaarPrescribedProbability.lean",
+    "Nonadditivity/HaarPrescribedRatio.lean",
+    "Nonadditivity/HaarSharpCounting.lean",
+    "Nonadditivity/HaarSharpPathWeight.lean",
+    "Nonadditivity/HaarSharpSummation.lean",
+    "Nonadditivity/HaarSharpBound.lean",
+    "Nonadditivity/OperationalProjectedCode.lean",
+    "Nonadditivity/OperationalWeakConverse.lean",
+    "Nonadditivity/OperationalCodingTheorem.lean",
+    "Nonadditivity/OperationalConsequences.lean",
+    "Nonadditivity/PrescribedCostScalars.lean",
+    "Nonadditivity/PrescribedCostDimensions.lean",
+    "Nonadditivity/PrescribedCostInformation.lean",
+    "Nonadditivity/PrescribedCostLogarithms.lean",
+    "Nonadditivity/PrescribedCostScaling.lean",
+    "Nonadditivity/PrescribedCostCapacity.lean",
+    "Nonadditivity/UniversalFactorizationPolynomialDilation.lean",
+    "Nonadditivity/UniversalFactorization.lean",
+    "Nonadditivity.lean",
+    "Audit.lean"
+  ],
+  "reused_modules": [
+    "Nonadditivity/Entropy.lean",
+    "Nonadditivity/Channels.lean",
+    "Nonadditivity/EntropyProducts.lean",
+    "Nonadditivity/PureChannelEntropy.lean",
+    "Nonadditivity/TensorPowers.lean",
+    "Nonadditivity/StateEnsembles.lean",
+    "Nonadditivity/EntropyMixtures.lean",
+    "Nonadditivity/ChannelReindex.lean",
+    "Nonadditivity/BellOutput.lean",
+    "Nonadditivity/ConjugateChannel.lean",
+    "Nonadditivity/BlockBell.lean",
+    "Nonadditivity/ChannelExtensions.lean",
+    "Nonadditivity/ConditionalStates.lean",
+    "Nonadditivity/AdjointPurity.lean",
+    "Nonadditivity/QuantumHolevo.lean",
+    "Nonadditivity/Weyl.lean",
+    "Nonadditivity/ChannelEntropy.lean",
+    "Nonadditivity/SwitchChannel.lean",
+    "Nonadditivity/ChannelTensorControl.lean",
+    "Nonadditivity/WeylTensor.lean",
+    "Nonadditivity/Conversion.lean",
+    "Nonadditivity/BlockConstruction.lean",
+    "Nonadditivity/ComplementaryAdjoint.lean",
+    "Nonadditivity/Net.lean",
+    "Nonadditivity/BlockScalars.lean",
+    "Nonadditivity/FiniteRealization.lean",
+    "Nonadditivity/FiniteChannelRealization.lean",
+    "Nonadditivity/FreeModel.lean",
+    "Nonadditivity/FreeBridge.lean",
+    "Nonadditivity/Qualitative.lean",
+    "Nonadditivity/HaarModel.lean",
+    "Nonadditivity/Scalar.lean",
+    "Nonadditivity/HolevoBits.lean",
+    "Nonadditivity/PositiveHolevo.lean",
+    "Nonadditivity/Asymptotics.lean",
+    "Nonadditivity/ActualConsequences.lean",
+    "Nonadditivity/CanonicalBlockBell.lean",
+    "Nonadditivity/FreeCreation.lean",
+    "Nonadditivity/CollinsYoun.lean",
+    "Nonadditivity/RegularRestriction.lean",
+    "Nonadditivity/CollinsYounOne.lean",
+    "Nonadditivity/Linearization.lean",
+    "Nonadditivity/PositiveLinearization.lean",
+    "Nonadditivity/RegularCoefficientEnergy.lean",
+    "Nonadditivity/MatrixRegularRestriction.lean",
+    "Nonadditivity/CollinsYounTensor.lean",
+    "Nonadditivity/RegularFubini.lean",
+    "Nonadditivity/CollinsYounProduct.lean",
+    "Nonadditivity/ComplexRealTrace.lean",
+    "Nonadditivity/GeneralBell.lean",
+    "Nonadditivity/DampedChannel.lean",
+    "Nonadditivity/DampedBellStability.lean",
+    "Nonadditivity/StrictEntropy.lean",
+    "Nonadditivity/DampedPositivity.lean",
+    "Nonadditivity/DampingNet.lean",
+    "Nonadditivity/HaarMomentTail.lean",
+    "Nonadditivity/GaussianNormalization.lean",
+    "Nonadditivity/SpectralDamping.lean",
+    "Nonadditivity/DampedRealization.lean",
+    "Nonadditivity/RegularDilation.lean",
+    "Nonadditivity/MatrixNormReindex.lean",
+    "Nonadditivity/FiniteSetFactorization.lean",
+    "Nonadditivity/RegularShiftedDilation.lean",
+    "Nonadditivity/RegularFactorization.lean",
+    "Nonadditivity/PolynomialReduction.lean",
+    "Nonadditivity/FiniteFreeModel.lean",
+    "Nonadditivity/FiniteMomentMatching.lean",
+    "Nonadditivity/FiniteRegularMatrix.lean",
+    "Nonadditivity/ProductPolynomialReduction.lean",
+    "Nonadditivity/TensorPartitionReduction.lean",
+    "Nonadditivity/WordBallReduction.lean",
+    "Nonadditivity/PolynomialDilation.lean",
+    "Nonadditivity/QuantitativeNet.lean",
+    "Nonadditivity/ObservableDimension.lean",
+    "Nonadditivity/ShiftNorm.lean",
+    "Nonadditivity/PrescribedTest.lean",
+    "Nonadditivity/NetPolynomial.lean",
+    "Nonadditivity/NetPolynomialSupport.lean",
+    "Nonadditivity/FreeEmbedding.lean",
+    "Nonadditivity/InitialNetReduction.lean",
+    "Nonadditivity/Quantitative.lean",
+    "Nonadditivity/StructuredCostBounds.lean",
+    "Nonadditivity/StructuredReductionCosts.lean",
+    "Nonadditivity/StructuredLinearization.lean",
+    "Nonadditivity/StructuredHaarModel.lean",
+    "Nonadditivity/StructuredFiniteChannel.lean",
+    "Nonadditivity/FiniteBlockModel.lean",
+    "Nonadditivity/EntropyContinuity.lean",
+    "Nonadditivity/EntropyStability.lean",
+    "Nonadditivity/DeterministicQualitative.lean",
+    "Nonadditivity/HolevoTensorSuperadditivity.lean",
+    "Nonadditivity/RegularizedHolevo.lean",
+    "Nonadditivity/HolevoRateLimit.lean",
+    "Nonadditivity/DeterministicConsequences.lean",
+    "Nonadditivity/Dimensions.lean",
+    "Nonadditivity/WeightedCertificate.lean",
+    "Nonadditivity/WeightedBlock.lean",
+    "Nonadditivity/WeightedBellScalar.lean",
+    "Nonadditivity/WeightedBell.lean",
+    "Nonadditivity/WeightedBlockBell.lean",
+    "Nonadditivity/WeightedParameters.lean",
+    "Nonadditivity/WeightedPositivity.lean",
+    "Nonadditivity/ExactQualitative.lean",
+    "Nonadditivity/FreeGroupCut.lean",
+    "Nonadditivity/GapFractionAsymptotics.lean",
+    "Nonadditivity/GaussianQuadratic.lean",
+    "Nonadditivity/GaussianCertificates.lean",
+    "Nonadditivity/SmallEnvironment.lean",
+    "Nonadditivity/GaussianChannelBounds.lean",
+    "Nonadditivity/GaussianRectangular.lean",
+    "Nonadditivity/GaussianRectangularAlgebra.lean",
+    "Nonadditivity/QuadraticNet.lean",
+    "Nonadditivity/GaussianNetRealization.lean",
+    "Nonadditivity/GaussianSampleEvaluation.lean",
+    "Nonadditivity/GaussianConstruction.lean",
+    "Nonadditivity/GaussianScalar.lean",
+    "Nonadditivity/GaussianConsequences.lean",
+    "Nonadditivity/NoncommutativeCS.lean",
+    "Nonadditivity/HaarCoefficientBounds.lean",
+    "Nonadditivity/HaarCoefficientRows.lean",
+    "Nonadditivity/HaarNonbacktracking.lean",
+    "Nonadditivity/HaarWordExpansion.lean",
+    "Nonadditivity/HaarNonbacktrackingRenewal.lean",
+    "Nonadditivity/HaarNonbacktrackingLastReturn.lean",
+    "Nonadditivity/HaarOperatorPolynomial.lean",
+    "Nonadditivity/HaarOperatorCoefficient.lean",
+    "Nonadditivity/HaarNonbacktrackingSupport.lean",
+    "Nonadditivity/HaarNonbacktrackingFirstStep.lean",
+    "Nonadditivity/HaarPathProfiles.lean",
+    "Nonadditivity/HaarProfileCoefficient.lean",
+    "Nonadditivity/HaarProfileOrientation.lean",
+    "Nonadditivity/HaarProfilePadding.lean",
+    "Nonadditivity/HaarProfileBlockCoefficients.lean",
+    "Nonadditivity/NoncommutativeCSMemory.lean",
+    "Nonadditivity/NoncommutativeCSPaths.lean",
+    "Nonadditivity/NoncommutativeCSAssignments.lean",
+    "Nonadditivity/NoncommutativeCSAssignmentProducts.lean",
+    "Nonadditivity/NoncommutativeCSEndpointTrace.lean",
+    "Nonadditivity/NoncommutativeCSEndpointSkeleton.lean",
+    "Nonadditivity/NoncommutativeCSSkeletonDecoration.lean",
+    "Nonadditivity/HaarTimeCompositions.lean",
+    "Nonadditivity/HaarPathRuns.lean",
+    "Nonadditivity/HaarMarkedCompositions.lean",
+    "Nonadditivity/HaarProfilePatternBound.lean",
+    "Nonadditivity/HaarProfileAssignmentBound.lean",
+    "Nonadditivity/HaarProfileDecodedCoefficients.lean",
+    "Nonadditivity/HaarProfileCompositionBound.lean",
+    "Nonadditivity/NoncommutativeCSBlocks.lean",
+    "Nonadditivity/HaarNonbacktrackingSegmentation.lean",
+    "Nonadditivity/HaarTimeCompositionReverse.lean",
+    "Nonadditivity/HaarSkeletonSegmentation.lean",
+    "Nonadditivity/HaarPathMultiplicity.lean",
+    "Nonadditivity/HaarPathGraph.lean",
+    "Nonadditivity/HaarPathChains.lean",
+    "Nonadditivity/HaarPathInvolution.lean",
+    "Nonadditivity/HaarPathChainCount.lean",
+    "Nonadditivity/HaarPathChainPartition.lean",
+    "Nonadditivity/HaarPathDecomposition.lean",
+    "Nonadditivity/HaarPathCoefficientWords.lean",
+    "Nonadditivity/HaarCoreChainLabels.lean",
+    "Nonadditivity/HaarCoreChainAddress.lean",
+    "Nonadditivity/HaarCoreChainReverseAddress.lean",
+    "Nonadditivity/HaarPathChainProfiles.lean",
+    "Nonadditivity/HaarPathProfileReverse.lean",
+    "Nonadditivity/HaarPathExploration.lean",
+    "Nonadditivity/HaarPathTree.lean",
+    "Nonadditivity/HaarPathClasses.lean",
+    "Nonadditivity/HaarPathClassData.lean",
+    "Nonadditivity/HaarPathTransport.lean",
+    "Nonadditivity/HaarPathRefined.lean",
+    "Nonadditivity/HaarCoreChainWords.lean",
+    "Nonadditivity/HaarPathInternalColors.lean",
+    "Nonadditivity/HaarChainColoring.lean",
+    "Nonadditivity/HaarProfileWordReverse.lean",
+    "Nonadditivity/HaarRepresentativePositions.lean",
+    "Nonadditivity/HaarChainColoringPalettes.lean",
+    "Nonadditivity/HaarPaletteDecoder.lean",
+    "Nonadditivity/HaarPathRecoloring.lean",
+    "Nonadditivity/HaarPathVertexFibre.lean",
+    "Nonadditivity/HaarRefinedVertexFibre.lean",
+    "Nonadditivity/HaarChainColoringPath.lean",
+    "Nonadditivity/HaarChainColoringFibre.lean",
+    "Nonadditivity/HaarReducedChunks.lean",
+    "Nonadditivity/HaarMoments.lean",
+    "Nonadditivity/HaarAveraging.lean",
+    "Nonadditivity/HaarStationaryCoefficients.lean",
+    "Nonadditivity/HaarBranchCoefficients.lean",
+    "Nonadditivity/HaarBranchContractions.lean",
+    "Nonadditivity/HaarBranchTimeSum.lean",
+    "Nonadditivity/HaarBranchGraphBudget.lean",
+    "Nonadditivity/ProductHaagerupCreation.lean",
+    "Nonadditivity/ProductHaagerupWords.lean",
+    "Nonadditivity/ProductHaagerupHomogeneous.lean",
+    "Nonadditivity/ProductHaagerupBall.lean",
+    "Nonadditivity/ProductHaagerupIndex.lean",
+    "Nonadditivity/ProductHaagerupProduct.lean",
+    "Nonadditivity/ProductMomentBridge.lean",
+    "Nonadditivity/HaarTensorReplacement.lean",
+    "Nonadditivity/HaarMomentExpectation.lean",
+    "Nonadditivity/HaarHybridMoments.lean",
+    "Nonadditivity/HaarMomentConstants.lean",
+    "Nonadditivity/HaarTensorConstants.lean",
+    "Nonadditivity/HaarTensorEvaluation.lean",
+    "Nonadditivity/HaarChainMultiplicity.lean",
+    "Nonadditivity/HaarCoreChainMultiplicity.lean",
+    "Nonadditivity/HaarCoreChainEndpoints.lean",
+    "Nonadditivity/HaarChainReindex.lean",
+    "Nonadditivity/HaarFourthMoments.lean",
+    "Nonadditivity/HaarColumnMoments.lean",
+    "Nonadditivity/HaarConsequences.lean",
+    "Nonadditivity/HaarNonbacktrackingListSegmentation.lean",
+    "Nonadditivity/HaarDecodedCoefficientBound.lean",
+    "Nonadditivity/HaarMomentSlack.lean",
+    "Nonadditivity/HaarEncodingSlack.lean",
+    "Nonadditivity/HaarMatchingSingletons.lean",
+    "Nonadditivity/HaarMatchingCount.lean",
+    "Nonadditivity/HaarMatchingFibers.lean",
+    "Nonadditivity/HaarMatchingSharp.lean",
+    "Nonadditivity/HaarMixedMoments.lean",
+    "Nonadditivity/HaarInvariantTensor.lean",
+    "Nonadditivity/HaarInvariantCommutant.lean",
+    "Nonadditivity/HaarInvariantSpanning.lean",
+    "Nonadditivity/HaarWeingartenGram.lean",
+    "Nonadditivity/HaarWeingartenCycles.lean",
+    "Nonadditivity/HaarWeingartenSymmetry.lean",
+    "Nonadditivity/HaarWeingartenMomentBound.lean",
+    "Nonadditivity/HaarPermutationSupport.lean",
+    "Nonadditivity/WeightedMatrixInverse.lean",
+    "Nonadditivity/HaarWeingartenInverseSum.lean",
+    "Nonadditivity/HaarWeingartenInverse.lean",
+    "Nonadditivity/HaarEntryBound.lean",
+    "Nonadditivity/HaarFiniteFaithfulness.lean",
+    "Nonadditivity/HaarFiniteSymmetry.lean",
+    "Nonadditivity/StructuredHaarConsequences.lean",
+    "Nonadditivity/HaarPathFreshRuns.lean",
+    "Nonadditivity/HaarPathColorNormalization.lean",
+    "Nonadditivity/HaarPathVertexNames.lean",
+    "Nonadditivity/HaarPathExplorationBlocks.lean",
+    "Nonadditivity/HaarPathCodes.lean",
+    "Nonadditivity/HaarPathMarks.lean",
+    "Nonadditivity/HaarPathNormalizedFresh.lean",
+    "Nonadditivity/HaarPathTreeSegment.lean",
+    "Nonadditivity/HaarPathNormalizedTree.lean",
+    "Nonadditivity/HaarPathNormalizedTreeColors.lean",
+    "Nonadditivity/HaarOperatorCurry.lean",
+    "Nonadditivity/HaarMixedWordExpansion.lean",
+    "Nonadditivity/HaarVacuumFunctional.lean",
+    "Nonadditivity/HaarPairEntryBound.lean",
+    "Nonadditivity/HaarWordPhase.lean",
+    "Nonadditivity/HaarPathWeights.lean",
+    "Nonadditivity/HaarPathExpansion.lean",
+    "Nonadditivity/HaarPathBalance.lean",
+    "Nonadditivity/HaarPathLocalPhase.lean",
+    "Nonadditivity/HaarPathSupport.lean",
+    "Nonadditivity/NoncommutativeCSSingletons.lean",
+    "Nonadditivity/HaarProfileSingletonWeight.lean",
+    "Nonadditivity/HaarProfilePermutations.lean",
+    "Nonadditivity/HaarPathColorRelabel.lean",
+    "Nonadditivity/HaarPathRelabel.lean",
+    "Nonadditivity/HaarPathWeightTransport.lean",
+    "Nonadditivity/HaarRefinedWeight.lean",
+    "Nonadditivity/HaarPathColorMarks.lean",
+    "Nonadditivity/HaarPathExplorationCounterexample.lean",
+    "Nonadditivity/HaarPathPrefixTree.lean",
+    "Nonadditivity/HaarPathRunCounterexample.lean",
+    "Nonadditivity/HaarPathSample.lean",
+    "Nonadditivity/Probability.lean",
+    "Nonadditivity/HaarSharpConstants.lean",
+    "Nonadditivity/HaarWeingartenCounting.lean",
+    "Nonadditivity/Holevo.lean",
+    "Nonadditivity/HolevoPowerGap.lean",
+    "Nonadditivity/Purity.lean",
+    "Nonadditivity/Main.lean",
+    "Nonadditivity/ShortEmbeddingNorm.lean",
+    "Nonadditivity/MatrixShortEmbedding.lean",
+    "Nonadditivity/NoncommutativeCSCrossing.lean",
+    "Nonadditivity/OneBlockRealization.lean",
+    "Nonadditivity/OperationalConverse.lean",
+    "Nonadditivity/OperationalCapacity.lean",
+    "Nonadditivity/OperationalBlockRates.lean",
+    "Nonadditivity/OperationalReindex.lean",
+    "Nonadditivity/OperationalBlockingCodes.lean",
+    "Nonadditivity/OperationalBlockingFlatten.lean",
+    "Nonadditivity/OperationalBlocking.lean",
+    "Nonadditivity/QuantumCodingSpectral.lean",
+    "Nonadditivity/QuantumCodingTensorSpectrum.lean",
+    "Nonadditivity/QuantumCodingFamilySpectrum.lean",
+    "Nonadditivity/QuantumCodingTypicality.lean",
+    "Nonadditivity/QuantumCodingTypicalProjectors.lean",
+    "Nonadditivity/QuantumCodingPackingAverages.lean",
+    "Nonadditivity/QuantumCodingConditionalTypicality.lean",
+    "Nonadditivity/QuantumCodingEnsembleTypicality.lean",
+    "Nonadditivity/QuantumCodingSequential.lean",
+    "Nonadditivity/QuantumCodingTypicalTests.lean",
+    "Nonadditivity/QuantumCodingSampling.lean",
+    "Nonadditivity/QuantumCodingUnion.lean",
+    "Nonadditivity/QuantumCodingTraceUnion.lean",
+    "Nonadditivity/QuantumCodingDecoderBound.lean",
+    "Nonadditivity/QuantumCodingPacking.lean",
+    "Nonadditivity/QuantumCodingChannelWords.lean",
+    "Nonadditivity/QuantumCodingRates.lean",
+    "Nonadditivity/QuantumCodingHSW.lean",
+    "Nonadditivity/OperationalNaimark.lean",
+    "Nonadditivity/QuantumCodingContinuity.lean",
+    "Nonadditivity/QuantumCodingTraceDistance.lean",
+    "Nonadditivity/OperationalHolevoConverse.lean",
+    "Nonadditivity/OperationalFlaggedEntropy.lean",
+    "Nonadditivity/QuantumCodingGentle.lean",
+    "Nonadditivity/WeylPowersIndex.lean",
+    "Nonadditivity/WeylPowersControl.lean",
+    "Nonadditivity/WeylPowersChannels.lean",
+    "Nonadditivity/WeylPowersTwirl.lean",
+    "Nonadditivity/WeylPowersEntropy.lean",
+    "Nonadditivity/WeylPowersRegularized.lean",
+    "Nonadditivity/OperationalStrongConverse.lean",
+    "Nonadditivity/ProductHaagerupReindex.lean",
+    "Nonadditivity/UniversalFactorizationOperators.lean",
+    "Nonadditivity/UniversalFactorizationGram.lean",
+    "Nonadditivity/UniversalShiftedDilation.lean",
+    "Nonadditivity/UpperHaarRealization.lean"
+  ],
+  "compiler_warnings_in_verification_log": 13,
+  "principal_channel_and_operational_results_proved": true,
+  "operational_capacity_independently_defined": true,
+  "operational_coding_theorem_proved": true,
+  "operational_coding_theorem": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+  "all_positive_use_weyl_identity_proved": true,
+  "universal_nonzero_hilbert_factorization_proved": true,
+  "original_haar_2pow32_moment_threshold_proved": true,
+  "original_haar_threshold_theorem": "Nonadditivity.HaarSharpBound.onePairTraceBound",
+  "growing_actual_family_input_cost_proved": true,
+  "actual_input_cost_information_scaling_proved": true,
+  "actual_fixed_K_sqrt_input_scaling_proved": true,
+  "explicit_favorable_probability_proved": true,
+  "prescribed_ratio_liminf_proved": true
+}

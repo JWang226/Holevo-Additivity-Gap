@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-01T05:43:19.466285+00:00",
+  "lean_toolchain": "leanprover/lean4:v4.29.0-rc6",
+  "scope": "Release preparation; proof source equivalence, reused audited object checks, fresh aggregate/audit, metadata and separate expected-statement checks.",
+  "baseline_proof_bodies_matching_sha256": 368,
+  "baseline_compiled_objects_matching_sha256": 368,
+  "baseline_body_difference": "Only the exact added copyright comment prefix; no existing Lean proof body edited.",
+  "freshly_compiled_aggregate_modules": [
+    "Nonadditivity",
+    "Audit",
+    "All"
+  ],
+  "audited_project_declarations": 9107,
+  "audited_theorem_constants": 7219,
+  "permitted_transitive_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "proof_library_sorry_count": 0,
+  "project_custom_axioms": [],
+  "new_clean_rebuild_of_all_proof_modules": false,
+  "release_proof_modules_including_all": 369,
+  "mapped_manuscript_items": 25,
+  "mapped_declarations_checked_in_lean": 49,
+  "challenge_modules_elaborated": 5,
+  "expected_types_checked_against_solution_proofs": 6,
+  "intentional_challenge_statement_placeholders": 6,
+  "external_comparator_execution": "not_run",
+  "nanoda_execution": "not_run",
+  "github_ci_execution": "not_run",
+  "github_publication": "not_performed",
+  "manuscript_edited": false,
+  "full_manuscript_formalized": false,
+  "principal_results_proved": true,
+  "license_selection": "pending",
+  "evidence": {
+    "baseline": "baseline-verification.json",
+    "audit_log": "release-audit.log",
+    "metadata": "release-validation.json",
+    "mapped_declaration_log": "release-declarations.log",
+    "challenges": "challenge-checks.json"
+  },
+  "notes": [
+    "Challenge checks are separate from Comparator execution.",
+    "Cached proof objects and their pre-header sources were matched against the preserved baseline manifest before use.",
+    "No clean rebuild of all unchanged proof modules was repeated for the organization task."
+  ]
+}

@@ -1,0 +1,746 @@
+{
+  "schema_version": "1.0",
+  "description": "Machine-readable, non-exhaustive correspondence between the preserved manuscript and the formalization. Names and labels are stable identifiers; correspondence entries are not a claim of exhaustive statement equivalence.",
+  "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved; see COPYRIGHT.md.",
+  "manuscript": {
+    "file": "paper/nonadditivity.tex",
+    "sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+    "title": "Unbounded Holevo additivity gaps in finite dimensions",
+    "authors": [
+      "Jinzhao Wang"
+    ],
+    "edited": false,
+    "corrections_incorporated": false,
+    "publication_date": null
+  },
+  "formalization": {
+    "full_manuscript_formalized": false,
+    "principal_results_proved": true,
+    "principal_results_remaining_analytic_assumptions": [],
+    "permitted_transitive_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "sorry_count": 0,
+    "custom_axioms": [],
+    "proof_assistant": "Lean",
+    "toolchain": "leanprover/lean4:v4.29.0-rc6",
+    "mathlib_revision": "f156f7abd91ac67adb22bf999e5a71ba22e22e41",
+    "logarithm_convention": "Channel endpoints and qubit counts use base 2; internal von Neumann entropy uses natural logarithms with explicit conversions.",
+    "capacity_convention": "Operational capacity is defined from actual finite block codes and vanishing average decoding error. The regularized Holevo identity is proved.",
+    "sorry_count_scope": "Proof library and solution theorem dependencies; excludes isolated Comparator expected statements."
+  },
+  "verification_baseline": {
+    "manifest": "verification/baseline-verification.json",
+    "log": "verification/baseline-verification.log",
+    "verified_at_utc": "2026-10-01T04:10:05.782491+00:00",
+    "compiled_modules": 368,
+    "audited_project_declarations": 9107,
+    "audited_theorem_constants_including_generated_helpers": 7219,
+    "source_theorem_lemma_declarations": 3469,
+    "method": "Incremental compilation with baseline hashes and complete aggregate/transitive-axiom audit; not a clean rebuild.",
+    "scope": "Records the proof project before release-layout changes and copyright headers. Its source hashes are historical, not a current release manifest."
+  },
+  "review": {
+    "status": "agent-reviewed",
+    "independent_human_certification": false,
+    "independent_comparator_run_recorded": false,
+    "notes": "Lean kernel acceptance and an axiom audit certify the formal statements, not by themselves the manuscript-to-statement correspondence. Comparator configurations are prepared for independent checking."
+  },
+  "automation": {
+    "framework": "Codex",
+    "model_name": null,
+    "model_version": null,
+    "wall_time": null,
+    "compute_cost": null,
+    "unknown_fields_reason": "Exact model identity/version and reliable project-wide time/cost were not recorded in the available project history."
+  },
+  "license": {
+    "project_spdx": "NOASSERTION",
+    "selection_status": "pending_author_selection",
+    "notes": "No open-source license is asserted for project-owned code or manuscript. Third-party notices and original licenses are preserved."
+  },
+  "status_vocabulary": {
+    "proved": "The listed formal theorem(s) prove the described endpoint at the stated scope.",
+    "corrected": "A formal counterexample refutes an intermediate estimate and a proved replacement supplies the needed endpoint.",
+    "not_formalized": "No proof of the stated broader claim is asserted."
+  },
+  "correspondence_vocabulary": {
+    "exact_endpoint": "The mathematical conclusion is represented at the described scope; internal definitions and notation may differ.",
+    "alternate_argument": "The endpoint is proved through a different construction or argument.",
+    "specialization": "Explicit scope qualifications are listed in notes.",
+    "corrected_proof": "The natural-language proof requires the listed correction; the final principal endpoint is unchanged.",
+    "broader_unformalized": "The manuscript/background claim exceeds the available proof scope."
+  },
+  "references": {
+    "release_guideline": "https://agmai.org/general-sep29/",
+    "repository_style": "https://github.com/openai/ten-proofs",
+    "formalization_metadata_example": "https://github.com/openai/ten-proofs/blob/main/formalization.yaml",
+    "repository": "https://github.com/JWang226/Holevo-Additivity-Gap"
+  },
+  "results": [
+    {
+      "id": "prescribed-dimensions",
+      "name": "Prescribed finite dimensions and Holevo gap",
+      "paper": {
+        "labels": [
+          "thm:main",
+          "eq:dimension-constant",
+          "eq:main-holevo",
+          "eq:main-gap",
+          "eq:constructed-holevo-lower"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
+          "file": "Nonadditivity/HaarPrescribedBound.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "Actual finite Kraus CPTP channel; the only non-typeclass hypotheses are K >= 2 and n >= n0(K). The theorem also proves positivity and the supplementary single-use lower bound 2n/K on the same witness. The intermediate combinatorial proofs are corrected without changing the final dimension formula.",
+      "comparator_config": "ComparatorChallenges/A_PrescribedDimensions.json"
+    },
+    {
+      "id": "operational-coding",
+      "name": "Operational classical capacity equals regularized Holevo information",
+      "paper": {
+        "labels": [
+          "eq:capacity"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+          "file": "Nonadditivity/OperationalCodingTheorem.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.normalizedPowerHolevo_tendsto_classicalCapacity",
+          "file": "Nonadditivity/OperationalCodingTheorem.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "Capacity is independently defined by actual density-matrix codewords, normalized POVMs, and vanishing average Born error at all positive block lengths. The coding theorem is proved, not assumed or used as the definition of capacity.",
+      "comparator_config": "ComparatorChallenges/B_OperationalCoding.json"
+    },
+    {
+      "id": "capacity-gain",
+      "name": "Prescribed dimensions and operational capacity gain",
+      "paper": {
+        "labels": [
+          "cor:capacity",
+          "eq:capacity-gap"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.exists_prescribed_channel_with_capacity_gain",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.prescribed_capacity_gain_tendsto_atTop",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The bound and divergence concern C(T)-chi(T); they make no claim about additivity of C between distinct channels."
+    },
+    {
+      "id": "two-use-ratio",
+      "name": "Two-use Holevo ratio lower limit",
+      "paper": {
+        "labels": [
+          "cor:capacity",
+          "eq:ratio"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_ratio_liminf_manuscript",
+          "file": "Nonadditivity/HaarPrescribedRatio.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The actual selected prescribed family has positive chi. Positivity follows from the same-witness lower bound rather than the manuscript zero-Holevo characterization."
+    },
+    {
+      "id": "simultaneous-separation",
+      "name": "Small positive single-use information with large capacity gain and two-use ratio",
+      "paper": {
+        "labels": [
+          "cor:capacity",
+          "cor:separation"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "alternate_argument",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "Combines and strengthens the two existence conclusions. The qualitative route uses deterministic finite moments, branch weights, and damping.",
+      "comparator_config": "ComparatorChallenges/C_SmallInformationSeparation.json"
+    },
+    {
+      "id": "qualitative-realization",
+      "name": "Qualitative finite-dimensional realization",
+      "paper": {
+        "labels": [
+          "prop:qualitative",
+          "eq:qualitative-bounds"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "alternate_argument",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.ExactQualitative.exists_actual_channel_bounds_with_dimensions",
+          "file": "Nonadditivity/ExactQualitative.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The endpoint, including input/output dimension form and the exact two-use lower bound, is proved. The weighted and damped deterministic realization differs from the undamped Haar realization in the manuscript."
+    },
+    {
+      "id": "small-large-and-sequence",
+      "name": "Vanishing single-use information and diverging capacity",
+      "paper": {
+        "labels": [
+          "cor:separation",
+          "eq:small-large",
+          "eq:vanishing-diverging"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "alternate_argument",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.DeterministicConsequences.actual_small_large",
+          "file": "Nonadditivity/DeterministicConsequences.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.DeterministicConsequences.actual_vanishing_diverging",
+          "file": "Nonadditivity/DeterministicConsequences.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.actual_vanishing_chi_diverging_capacity",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "All quantities belong to actual finite channels. This qualitative family uses the alternate deterministic construction."
+    },
+    {
+      "id": "fixed-k-scaling",
+      "name": "Gap scaling with input and output qubits",
+      "paper": {
+        "labels": [
+          "eq:scaling"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_qubits",
+          "file": "Nonadditivity/HaarPrescribedScaling.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_gap_linear_bounds",
+          "file": "Nonadditivity/HaarPrescribedScaling.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribed_gap_sqrt_input_bounds",
+          "file": "Nonadditivity/HaarInputScaling.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "For fixed K with deltaK > 0 the gap has positive two-sided linear bounds in n and square-root bounds in the actual input-qubit count."
+    },
+    {
+      "id": "input-size-expansion",
+      "name": "Prescribed-family input-qubit expansion",
+      "paper": {
+        "labels": [
+          "eq:input-size"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_input_size_remainder_tendsto",
+          "file": "Nonadditivity/HaarPrescribedConsequences.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The remainder tends to zero with the logarithm of the actual input dimension, including the integer ceiling in the local dimension."
+    },
+    {
+      "id": "guaranteed-gap-fraction",
+      "name": "Output-normalized gap lower limit and its large-K expansion",
+      "paper": {
+        "labels": [
+          "eq:guaranteed-fraction"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_normalized_gap_liminf",
+          "file": "Nonadditivity/HaarPrescribedScaling.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.Scalar.gap_fraction_identity",
+          "file": "Nonadditivity/GapFractionAsymptotics.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.Scalar.gap_fraction_explicit_remainder",
+          "file": "Nonadditivity/GapFractionAsymptotics.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The large-K remainder is bounded explicitly between zero and 162/(K^2 ln K). The numerical illustrative footnote is not separately certified."
+    },
+    {
+      "id": "fixed-channel-regrouping",
+      "name": "A fixed channel has sublinear regrouped two-use gap",
+      "paper": {
+        "labels": [
+          "sec:introduction"
+        ],
+        "locator": "Unnumbered displayed limit immediately before cor:capacity."
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.RegularizedHolevo.normalized_fixed_channel_gap_tendsto_zero",
+          "file": "Nonadditivity/HolevoPowerGap.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "growing-family-cost",
+      "name": "Input-qubit cost of the growing-K separation",
+      "paper": {
+        "labels": [
+          "rem:separation-cost"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_input_qubits_div_sq_tendsto",
+          "file": "Nonadditivity/PrescribedCostDimensions.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_vanishing_diverging",
+          "file": "Nonadditivity/PrescribedCostInformation.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds",
+          "file": "Nonadditivity/PrescribedCostScaling.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower",
+          "file": "Nonadditivity/PrescribedCostCapacity.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "For the actual prescribed family with nK=ceil(K/sqrt(ln K)), q_in/K^2 tends to 280/ln 2. The theorem supplies two-sided chi bounds and lower bounds for half chiTwo and operational capacity in terms of sqrt(log2 q_in). The threshold holds eventually for this same rounded nK.",
+      "comparator_config": "ComparatorChallenges/E_InputCost.json"
+    },
+    {
+      "id": "free-collins-youn",
+      "name": "Free-group Collins-Youn bound",
+      "paper": {
+        "labels": [
+          "lem:cy",
+          "eq:cy",
+          "eq:gamma-free"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.CollinsYounProduct.collinsYounBound",
+          "file": "Nonadditivity/CollinsYounProduct.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The normalized free-operator inequality is proved for all K >= 2 and n >= 1."
+    },
+    {
+      "id": "prescribed-norm-certificate",
+      "name": "Uniform adjoint norm estimate at prescribed dimensions",
+      "paper": {
+        "labels": [
+          "prop:finite",
+          "eq:finite"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate",
+          "file": "Nonadditivity/StructuredHaarConsequences.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+          "file": "Nonadditivity/HaarPrescribedBound.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The first theorem is a conditional assembly interface; the second discharges its ExplicitHaarExpectation hypothesis under the same numerical K,n conditions. Taken together they give the manuscript certificate unconditionally."
+    },
+    {
+      "id": "purity-entropy",
+      "name": "Adjoint norm certificate implies purity and output entropy bounds",
+      "paper": {
+        "labels": [
+          "lem:purity",
+          "eq:purity",
+          "eq:single-entropy"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.Channels.KrausChannel.output_purity_and_entropy_of_certificate",
+          "file": "Nonadditivity/QuantumHolevo.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The displayed adjoint certificate is the mathematical premise of this lemma; it is discharged by the channel construction. Entropy is in natural logarithms internally, with proved base-two conversion at channel endpoints."
+    },
+    {
+      "id": "bell-entropy",
+      "name": "Bell-output entropy bound",
+      "paper": {
+        "labels": [
+          "lem:bell",
+          "eq:local-bell",
+          "eq:bell"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.BellOutput.complementary_bell_entropy_le",
+          "file": "Nonadditivity/BellOutput.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.BlockBell.block_complementary_bell_entropy_le",
+          "file": "Nonadditivity/BlockBell.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "Actual finite unitary families, channels, entangled Bell inputs, and block tensor regroupings are used."
+    },
+    {
+      "id": "weyl-all-uses",
+      "name": "Weyl-extension Holevo equality at every positive tensor power",
+      "paper": {
+        "labels": [
+          "eq:chi-extension"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits",
+          "file": "Nonadditivity/WeylPowersEntropy.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.WeylPowers.operationalCapacity_weylExtension",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "Extends the one-use displayed equality to all positive tensor powers and operational capacity. Lean index n denotes n+1 channel uses. Arbitrary entangled inputs are included; the entropy endpoint is an infimum, without assuming minimum attainment.",
+      "comparator_config": "ComparatorChallenges/D_WeylAllUses.json"
+    },
+    {
+      "id": "universal-factorization",
+      "name": "Universal finite-set factorization",
+      "paper": {
+        "labels": [
+          "lem:linear",
+          "eq:linear-id",
+          "eq:theta"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "specialization",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.UniversalFactorization.exists_universal_factorization",
+          "file": "Nonadditivity/UniversalFactorization.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.UniversalFactorization.regular_error_transfer",
+          "file": "Nonadditivity/UniversalFactorization.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The coefficients and scalar are chosen before the representation. The Hilbert space may be infinite-dimensional and is explicitly required to be nonzero; the additive scalar norm identity need not hold on the zero space. This qualification should be reflected when revising the manuscript."
+    },
+    {
+      "id": "haar-moment-range",
+      "name": "One-pair Haar estimate at the original moment range",
+      "paper": {
+        "labels": [
+          "lem:haar",
+          "eq:haar-hypotheses"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "specialization",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarSharpBound.onePairTraceBound",
+          "file": "Nonadditivity/HaarSharpBound.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarIteratedMoments.iteratedExpectation_le",
+          "file": "Nonadditivity/HaarIteratedExpectation.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The actual one-pair trace bound is proved when the true matrix dimension D=N+1 satisfies D >= 2^32 p^80. It supplies the premise of the iterated estimate for finite matrix coefficients and remaining free-group factors. The abstract arbitrary traced C*-algebra formulation is outside the formalized scope."
+    },
+    {
+      "id": "favorable-probability",
+      "name": "Explicit favorable-realization probability",
+      "paper": {
+        "labels": [
+          "eq:positive-probability"
+        ],
+        "locator": ""
+      },
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.Probability.favorable_realization_probability",
+          "file": "Nonadditivity/ProbabilityQuantitative.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribed_polynomial_favorable_probability",
+          "file": "Nonadditivity/HaarPrescribedProbability.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The probability is at least epsilon/(2(1+epsilon)); the specialized Haar theorem discharges the required expectation estimate."
+    },
+    {
+      "id": "correction-important-times",
+      "name": "Corrected important-exploration-time count",
+      "paper": {
+        "labels": [
+          "lem:haar",
+          "app:finite-threshold"
+        ],
+        "locator": "Proof of lem:haar, one-pair estimate citing Bordenave-Collins Lemmas 5.3 and 5.8."
+      },
+      "status": "corrected",
+      "correspondence": "corrected_proof",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPathExplorationCounterexample.violates_uncorrected_important_bound",
+          "file": "Nonadditivity/HaarPathExplorationCounterexample.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPathExplorationCounterexample.attains_corrected_important_bound",
+          "file": "Nonadditivity/HaarPathExplorationCounterexample.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPathGraph.Path.card_importantTimes_le",
+          "file": "Nonadditivity/HaarPathExploration.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPathClasses.card_defectClass_weighted_le",
+          "file": "Nonadditivity/HaarSharpCounting.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "The closed reduced generator-balanced six-step word abaBAA has integer defect delta=length+singletons-2*vertices=2 and four important times. The bound delta+1 fails even excluding the final traversal; delta+2 is proved. The weighted chronological encoding preserves the final moment threshold. This repairs an intermediate counting claim used in the manuscript proof, not the main channel statement. The source manuscript is preserved and still needs editorial correction."
+    },
+    {
+      "id": "correction-middle-runs",
+      "name": "Corrected marked-position and middle-run accounting",
+      "paper": {
+        "labels": [
+          "lem:haar",
+          "app:finite-threshold"
+        ],
+        "locator": "Proof of lem:haar, one-pair estimate invoking the operator coefficient bound of Bordenave-Collins Lemma 5.9."
+      },
+      "status": "corrected",
+      "correspondence": "corrected_proof",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPathRunCounterexample.violates_uncorrected_run_bound",
+          "file": "Nonadditivity/HaarPathRunCounterexample.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPathRuns.two_edge_run_counterexample",
+          "file": "Nonadditivity/HaarPathRuns.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarMarkedCompositions.corrected_marked_sum_le",
+          "file": "Nonadditivity/HaarMarkedCompositions.lean",
+          "role": "theorem"
+        },
+        {
+          "declaration": "Nonadditivity.HaarOperatorPathBridge.coefficient_bound",
+          "file": "Nonadditivity/HaarRefinedCoefficientBound.lean",
+          "role": "theorem"
+        }
+      ],
+      "notes": "Marker flags [true,false,false,true,false,true,false,true] have four marked positions and three middle runs: seven blocks, exceeding 3*2. Charge a middle run to its following marker and moment-order factors only at marked positions. The proved grouped coefficient exponent is 9*delta+11. The source manuscript is preserved and still needs editorial correction."
+    },
+    {
+      "id": "undamped-all-dimensions",
+      "name": "Undamped realization in every sufficiently large dimension",
+      "paper": {
+        "labels": [
+          "lem:cy",
+          "eq:norm-certificate"
+        ],
+        "locator": ""
+      },
+      "status": "not_formalized",
+      "correspondence": "broader_unformalized",
+      "lean": [],
+      "notes": "The stated generality for every kappa > 1 and all sufficiently large integer dimensions has not been formalized. The prescribed-dimension and alternative qualitative endpoints are proved and do not assume this broader claim."
+    },
+    {
+      "id": "generic-haar-convergence",
+      "name": "Generic Haar-convergence interfaces",
+      "paper": {
+        "labels": [
+          "lem:cy",
+          "lem:haar"
+        ],
+        "locator": ""
+      },
+      "status": "not_formalized",
+      "correspondence": "broader_unformalized",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarModel.HaarStrongConvergence",
+          "file": "Nonadditivity/HaarModel.lean",
+          "role": "unproved_predicate"
+        },
+        {
+          "declaration": "Nonadditivity.HaarConsequences.AllHaarStrongConvergence",
+          "file": "Nonadditivity/HaarConsequences.lean",
+          "role": "unproved_predicate"
+        },
+        {
+          "declaration": "Nonadditivity.UpperHaarRealization.HaarUpperConvergence",
+          "file": "Nonadditivity/UpperHaarRealization.lean",
+          "role": "unproved_predicate"
+        },
+        {
+          "declaration": "Nonadditivity.UpperHaarRealization.HaarTraceMomentControl",
+          "file": "Nonadditivity/UpperHaarRealization.lean",
+          "role": "unproved_predicate"
+        }
+      ],
+      "notes": "These are explicit predicates/conditional interfaces, not theorems of convergence and not axioms. They are not hypotheses of the completed principal endpoints."
+    },
+    {
+      "id": "background-generality",
+      "name": "Remaining background generalizations",
+      "paper": {
+        "labels": [
+          "eq:def-smin",
+          "lem:haar",
+          "eq:chi-extension",
+          "cor:capacity"
+        ],
+        "locator": ""
+      },
+      "status": "not_formalized",
+      "correspondence": "broader_unformalized",
+      "lean": [],
+      "notes": "Not separately formalized: pure-input attainment of minimum output entropy; zero Holevo information implies constant output; one-pair Haar bound for arbitrary traced C*-algebras; a standalone Weyl equality for two distinct channels of different output dimensions. The completed proof uses entropy infima, direct same-witness positivity, actual coefficient-algebra specializations, and all positive powers of one channel."
+    }
+  ],
+  "comparator_challenges": {
+    "configurations": 5,
+    "theorem_targets": 6,
+    "intentional_statement_placeholders": 6,
+    "imported_by_proof_library": false,
+    "elaboration_status": "passed",
+    "solution_proof_against_expected_statement_status": "passed",
+    "external_comparator_execution": "not_run",
+    "nanoda_execution": "not_run",
+    "comparator_revision": "a4f696825c583ed8a5b4060d9a0faa5b882d365b",
+    "readme": "ComparatorChallenges/README.md"
+  }
+}
