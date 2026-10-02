@@ -2,7 +2,7 @@
 
 Lean 4 proofs accompanying Jinzhao Wang’s manuscript on unbounded Holevo additivity gaps for finite-dimensional quantum channels, including dimension bounds and operational classical-capacity consequences.
 
-[Proof website](https://jwang226.github.io/Holevo-Additivity-Gap/) · [Proof route](PROOF-PATH.md) · [Manuscript](paper/nonadditivity.tex)
+[arXiv paper](https://arxiv.org/abs/2609.18222) · [Proof website](https://jwang226.github.io/Holevo-Additivity-Gap/) · [Proof route](PROOF-PATH.md) · [Manuscript](paper/nonadditivity.tex)
 
 ## Verify with Lean
 
