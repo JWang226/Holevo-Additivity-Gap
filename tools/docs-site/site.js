@@ -19,8 +19,12 @@
       results.replaceChildren();
       results.hidden = words.length === 0;
       if (!words.length) return;
-      const matches = data.filter(item => (!item.internal || (internal && internal.checked)) && words.every(word => item.search.includes(word)));
-      if (!matches.length) { addMessage("No matching declaration, result or module. Try including internal/detail/private constants."); return; }
+      const query = input.value.trim().toLowerCase();
+      const matches = data.filter(item => (!item.internal || (internal && internal.checked)) && words.every(word => item.search.includes(word))).sort((a, b) => {
+        const score = item => item.title.toLowerCase() === query ? 0 : words.every(word => item.title.toLowerCase().includes(word)) ? (item.reader ? 1 : 2) : item.reader ? 3 : 4;
+        return score(a) - score(b) || a.title.localeCompare(b.title);
+      });
+      if (!matches.length) { addMessage("No matching concept, result or Lean declaration. Try another term or include internal constants."); return; }
       matches.slice(0, 30).forEach(item => {
         const a = document.createElement("a");
         a.className = "search-result";

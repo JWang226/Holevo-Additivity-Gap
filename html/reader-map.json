@@ -1,0 +1,1259 @@
+{
+  "schema_version": 1,
+  "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved.",
+  "purpose": "Reading correspondence, not an informal-to-formal equivalence certificate",
+  "declaration_export_sha256": "9e42707d1781901fe0e4f39e7b9340626832409329aa5c485e4f614ffb70b201",
+  "pages": [
+    {
+      "category": "guides",
+      "title": "The communication problem",
+      "page": "guide/introduction.html",
+      "source": "tools/docs-site/reader/guides/introduction.md",
+      "source_sha256": "dc48f394746e5fea13569f09284375753a487cef28f7af387f869f1fdf915f8c",
+      "declarations": [
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel",
+          "kind": "inductive",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/8ae47c88494fc629015fb0c0.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.chi",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/6b854834b4114da22b211b9e.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.chiTwo",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/ea634e5f3a2f8ce431b03ecb.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.gap",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/21adda9f2f1bcbc7c8def90d.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.twoUseRatio",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/54803431bda207378f012ce8.html"
+        }
+      ]
+    },
+    {
+      "category": "guides",
+      "title": "How the channel is built",
+      "page": "guide/construction.html",
+      "source": "tools/docs-site/reader/guides/construction.md",
+      "source_sha256": "326c5920c899d0325fbce30ae838648a02ef5bd171d1724866ff8b9d3195c31d",
+      "declarations": [
+        {
+          "name": "Nonadditivity.BlockConstruction.block_converted_bounds_of_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.BlockConstruction",
+          "url": "declarations/3ddf28e655845ff02a6dc3bc.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/80cfb1f3fd72ad5a49c2d38d.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/da5996600cf037b6b9125ba8.html"
+        },
+        {
+          "name": "Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.StructuredHaarConsequences",
+          "url": "declarations/9ac1ca1e6760023c4cd188f4.html"
+        }
+      ]
+    },
+    {
+      "category": "guides",
+      "title": "From Holevo information to capacity",
+      "page": "guide/capacity.html",
+      "source": "tools/docs-site/reader/guides/capacity.md",
+      "source_sha256": "efb3474a8b799b33d4ebde205513d3aabfb90a6b31c008ecb2f4e1aa18c59f2c",
+      "declarations": [
+        {
+          "name": "Nonadditivity.Operational.operationalCapacity",
+          "kind": "definition",
+          "module": "Nonadditivity.OperationalCapacity",
+          "url": "declarations/6ff281c28b0c96da8acc3bb9.html"
+        },
+        {
+          "name": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalCodingTheorem",
+          "url": "declarations/2190eda6b36f2c50ea335862.html"
+        }
+      ]
+    },
+    {
+      "category": "guides",
+      "title": "What grows, and what it costs",
+      "page": "guide/scaling.html",
+      "source": "tools/docs-site/reader/guides/scaling.md",
+      "source_sha256": "6baccb1f0b5f74012eb0a229d7af23c7d01e2dfd6335ac29358ce8c812363f4e",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_gap_linear_bounds",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedScaling",
+          "url": "declarations/7ed8b5cb17f0c19eb1f0cf17.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribed_gap_sqrt_input_bounds",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarInputScaling",
+          "url": "declarations/e25e6ced50dec140b138de45.html"
+        },
+        {
+          "name": "Nonadditivity.PrescribedCost.growingFamily_input_qubits_div_sq_tendsto",
+          "kind": "theorem",
+          "module": "Nonadditivity.PrescribedCostDimensions",
+          "url": "declarations/d8d2b1d0f213b594032ce2e1.html"
+        }
+      ]
+    },
+    {
+      "category": "guides",
+      "title": "Notation and units",
+      "page": "guide/notation.html",
+      "source": "tools/docs-site/reader/guides/notation.md",
+      "source_sha256": "67961ea4b29731f52e5cba3b9750f871845760b31874d605d5a08eec1949e638",
+      "declarations": [
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.chi",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/6b854834b4114da22b211b9e.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.chiTwo",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/ea634e5f3a2f8ce431b03ecb.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.gap",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/21adda9f2f1bcbc7c8def90d.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.twoUseRatio",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/54803431bda207378f012ce8.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.holevo",
+          "kind": "definition",
+          "module": "Nonadditivity.QuantumHolevo",
+          "url": "declarations/65bc0b1f7cab6c4e2ead0e46.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.holevoBits",
+          "kind": "definition",
+          "module": "Nonadditivity.HolevoBits",
+          "url": "declarations/7b91fe0621a164875e414727.html"
+        },
+        {
+          "name": "Nonadditivity.Entropy.DensityMatrix.vonNeumann",
+          "kind": "definition",
+          "module": "Nonadditivity.Entropy",
+          "url": "declarations/0b05aab3a329baba37454d57.html"
+        },
+        {
+          "name": "Nonadditivity.Operational.operationalCapacity",
+          "kind": "definition",
+          "module": "Nonadditivity.OperationalCapacity",
+          "url": "declarations/6ff281c28b0c96da8acc3bb9.html"
+        },
+        {
+          "name": "Nonadditivity.Scalar.log2",
+          "kind": "definition",
+          "module": "Nonadditivity.Scalar",
+          "url": "declarations/e886cff2ab5c84af4e7f9b13.html"
+        }
+      ]
+    },
+    {
+      "category": "guides",
+      "title": "Reading the Lean statements",
+      "page": "guide/reading-lean.html",
+      "source": "tools/docs-site/reader/guides/reading-lean.md",
+      "source_sha256": "2c0c66a149f75e3dcd7297f8d3d9c8b2576e76d5a466fee8855ab9640e229f19",
+      "declarations": [
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel",
+          "kind": "inductive",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/8ae47c88494fc629015fb0c0.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.chi",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/6b854834b4114da22b211b9e.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel",
+          "kind": "inductive",
+          "module": "Nonadditivity.Channels",
+          "url": "declarations/ef64d7e8975d403f83c2f452.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/80cfb1f3fd72ad5a49c2d38d.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/da5996600cf037b6b9125ba8.html"
+        },
+        {
+          "name": "Nonadditivity.Operational.operationalCapacity",
+          "kind": "definition",
+          "module": "Nonadditivity.OperationalCapacity",
+          "url": "declarations/6ff281c28b0c96da8acc3bb9.html"
+        },
+        {
+          "name": "Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.StructuredHaarConsequences",
+          "url": "declarations/9ac1ca1e6760023c4cd188f4.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "Finite quantum channels",
+      "page": "concepts/channels.html",
+      "source": "tools/docs-site/reader/concepts/channels.md",
+      "source_sha256": "06134b76b4add20a7e770a75525a14ae80ecd85a9792b72d1a1f989a356b4268",
+      "declarations": [
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel",
+          "kind": "inductive",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/8ae47c88494fc629015fb0c0.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel",
+          "kind": "inductive",
+          "module": "Nonadditivity.Channels",
+          "url": "declarations/ef64d7e8975d403f83c2f452.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.complementary",
+          "kind": "definition",
+          "module": "Nonadditivity.Channels",
+          "url": "declarations/4ea0caa3e7753abbb49e7264.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.map",
+          "kind": "definition",
+          "module": "Nonadditivity.Channels",
+          "url": "declarations/90af0bdc5755c7e0d3cf612d.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.tensor",
+          "kind": "definition",
+          "module": "Nonadditivity.Channels",
+          "url": "declarations/9d41a9e14ebeb718f9c4a148.html"
+        },
+        {
+          "name": "Nonadditivity.Entropy.DensityMatrix",
+          "kind": "inductive",
+          "module": "Nonadditivity.Entropy",
+          "url": "declarations/f7028adf1c1242b9cb8674c3.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "Holevo information and the two-use gap",
+      "page": "concepts/holevo-information.html",
+      "source": "tools/docs-site/reader/concepts/holevo-information.md",
+      "source_sha256": "305c954841b304b46a11e6bd33df8cf84672bd877a828e233acc790a80240a73",
+      "declarations": [
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.gap",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/21adda9f2f1bcbc7c8def90d.html"
+        },
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.twoUseRatio",
+          "kind": "definition",
+          "module": "Nonadditivity.ActualConsequences",
+          "url": "declarations/54803431bda207378f012ce8.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.holevoBits",
+          "kind": "definition",
+          "module": "Nonadditivity.HolevoBits",
+          "url": "declarations/7b91fe0621a164875e414727.html"
+        },
+        {
+          "name": "Nonadditivity.StateEnsembles.Ensemble.information",
+          "kind": "definition",
+          "module": "Nonadditivity.StateEnsembles",
+          "url": "declarations/608798708b96b83781745e72.html"
+        },
+        {
+          "name": "Nonadditivity.StateEnsembles.quantity",
+          "kind": "definition",
+          "module": "Nonadditivity.StateEnsembles",
+          "url": "declarations/ac8fcf8af18f33764db4a3c6.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "Minimum output entropy and purity",
+      "page": "concepts/output-entropy.html",
+      "source": "tools/docs-site/reader/concepts/output-entropy.md",
+      "source_sha256": "6df30cc2589d3f17c25b39b51ea3465f9a834bdfee5b1fc0876bd43f4ad09d37",
+      "declarations": [
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.minimumEntropy",
+          "kind": "definition",
+          "module": "Nonadditivity.QuantumHolevo",
+          "url": "declarations/2781a9d8e304513a30284d39.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.output_purity_and_entropy_of_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.QuantumHolevo",
+          "url": "declarations/2eff1a65a5a0cb0f5e6f7ad5.html"
+        },
+        {
+          "name": "Nonadditivity.Entropy.DensityMatrix.purity",
+          "kind": "definition",
+          "module": "Nonadditivity.Entropy",
+          "url": "declarations/7beee9fec4034bed021a5d53.html"
+        },
+        {
+          "name": "Nonadditivity.Entropy.DensityMatrix.vonNeumann",
+          "kind": "definition",
+          "module": "Nonadditivity.Entropy",
+          "url": "declarations/0b05aab3a329baba37454d57.html"
+        },
+        {
+          "name": "Nonadditivity.Entropy.DensityMatrix.vonNeumann_ge_neg_log_purity",
+          "kind": "theorem",
+          "module": "Nonadditivity.Entropy",
+          "url": "declarations/02001ff7192f140e654d288c.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "The Bell-state witness",
+      "page": "concepts/bell-input.html",
+      "source": "tools/docs-site/reader/concepts/bell-input.md",
+      "source_sha256": "d2f0072bbc41c0b0b4527ac25b3c2a249bd7f9f97afe4c3ec1b338223259bd75",
+      "declarations": [
+        {
+          "name": "Nonadditivity.BellOutput.complementary_bell_entropy_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.BellOutput",
+          "url": "declarations/997830f106645266ed15776c.html"
+        },
+        {
+          "name": "Nonadditivity.BlockBell.block_complementary_bell_entropy_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.BlockBell",
+          "url": "declarations/1a251bbe504b7365dad3aad6.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "The uniform adjoint certificate",
+      "page": "concepts/adjoint-certificate.html",
+      "source": "tools/docs-site/reader/concepts/adjoint-certificate.md",
+      "source_sha256": "7d815f7a7a2a7632a6502831e21d3c4e9ab08156ef1b257640edf964c5ce01f3",
+      "declarations": [
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.adjointMap",
+          "kind": "definition",
+          "module": "Nonadditivity.Channels",
+          "url": "declarations/1a5450968dca61e2d8e411e6.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.output_purity_and_entropy_of_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.QuantumHolevo",
+          "url": "declarations/2eff1a65a5a0cb0f5e6f7ad5.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/da5996600cf037b6b9125ba8.html"
+        },
+        {
+          "name": "Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.StructuredHaarConsequences",
+          "url": "declarations/9ac1ca1e6760023c4cd188f4.html"
+        },
+        {
+          "name": "Nonadditivity.StructuredLinearization.exists_net_linearization",
+          "kind": "theorem",
+          "module": "Nonadditivity.StructuredLinearization",
+          "url": "declarations/44a39a288da111b74752dd11.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "Free operators and finite Haar matrices",
+      "page": "concepts/free-haar.html",
+      "source": "tools/docs-site/reader/concepts/free-haar.md",
+      "source_sha256": "5bc39cd8506f4269abb92a23177368503d29e92fa0faf839a1b44fc67718a442",
+      "declarations": [
+        {
+          "name": "Nonadditivity.CollinsYounProduct.collinsYounBound",
+          "kind": "theorem",
+          "module": "Nonadditivity.CollinsYounProduct",
+          "url": "declarations/03d116c524ebe8ca6a60b897.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/da5996600cf037b6b9125ba8.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "Haar moments and path counting",
+      "page": "concepts/finite-moments.html",
+      "source": "tools/docs-site/reader/concepts/finite-moments.md",
+      "source_sha256": "ea9e1ad1bf73c304fec55246c6624a87bd3ef1ccd8e319e858e49b231c6124c0",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarIteratedMoments.iteratedExpectation_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarIteratedExpectation",
+          "url": "declarations/ff528e0a2e85cc7e9c8ce493.html"
+        },
+        {
+          "name": "Nonadditivity.HaarOperatorPathBridge.coefficient_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarRefinedCoefficientBound",
+          "url": "declarations/af212ad5e405403a8873fad3.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathGraph.Path.card_importantTimes_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPathExploration",
+          "url": "declarations/d3fcdf50afa02a67d6998df1.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathGraph.Path.defectTwice",
+          "kind": "definition",
+          "module": "Nonadditivity.HaarPathGraph",
+          "url": "declarations/629258f2e0829d2d32d172e2.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.onePairTraceBound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/cbd0f69a674b807c384d0e90.html"
+        },
+        {
+          "name": "Nonadditivity.HaarSharpBound.onePairTraceBound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarSharpBound",
+          "url": "declarations/df17d582bfe3c1fa86014c34.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "Switch channels and Weyl extensions",
+      "page": "concepts/weyl-switch.html",
+      "source": "tools/docs-site/reader/concepts/weyl-switch.md",
+      "source_sha256": "649a072b5ff48bc164ab16b449386b5992a4953270f70f1aa4367ddfcb7c4080",
+      "declarations": [
+        {
+          "name": "Nonadditivity.BlockConstruction.block_converted_bounds_of_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.BlockConstruction",
+          "url": "declarations/3ddf28e655845ff02a6dc3bc.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.switch",
+          "kind": "definition",
+          "module": "Nonadditivity.SwitchChannel",
+          "url": "declarations/5a03143199ad3abcca9612f7.html"
+        },
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.weylExtension_holevo",
+          "kind": "theorem",
+          "module": "Nonadditivity.ChannelEntropy",
+          "url": "declarations/a6427e46494f1ae42f418ca8.html"
+        },
+        {
+          "name": "Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits",
+          "kind": "theorem",
+          "module": "Nonadditivity.WeylPowersEntropy",
+          "url": "declarations/b7e16fe7c6b07a1ba22bc14a.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "Operational capacity and regularization",
+      "page": "concepts/operational-capacity.html",
+      "source": "tools/docs-site/reader/concepts/operational-capacity.md",
+      "source_sha256": "b4f37cc41e5e7cb9e89b30c26216de93bfd7f673c5eb33ea83e669c23d0357ca",
+      "declarations": [
+        {
+          "name": "Nonadditivity.Operational.AchievableRate",
+          "kind": "definition",
+          "module": "Nonadditivity.OperationalCapacity",
+          "url": "declarations/4002ef38d3ff5e207d1e3fde.html"
+        },
+        {
+          "name": "Nonadditivity.Operational.Code",
+          "kind": "inductive",
+          "module": "Nonadditivity.OperationalConverse",
+          "url": "declarations/90439c244ec0468ad96464e6.html"
+        },
+        {
+          "name": "Nonadditivity.Operational.POVM",
+          "kind": "inductive",
+          "module": "Nonadditivity.OperationalConverse",
+          "url": "declarations/7dfee87f649516efb35e0917.html"
+        },
+        {
+          "name": "Nonadditivity.Operational.operationalCapacity",
+          "kind": "definition",
+          "module": "Nonadditivity.OperationalCapacity",
+          "url": "declarations/6ff281c28b0c96da8acc3bb9.html"
+        },
+        {
+          "name": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalCodingTheorem",
+          "url": "declarations/2190eda6b36f2c50ea335862.html"
+        }
+      ]
+    },
+    {
+      "category": "concepts",
+      "title": "Input and output qubit costs",
+      "page": "concepts/dimension-cost.html",
+      "source": "tools/docs-site/reader/concepts/dimension-cost.md",
+      "source_sha256": "f09efb6c91942f81e268fc41c9fc85b9c2c3af4de097673bf6e8a456e0a2a580",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_input_size_remainder_tendsto",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedConsequences",
+          "url": "declarations/4c52514f80869eefceafecb6.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_qubits",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedScaling",
+          "url": "declarations/c0d121708a16907d02bbb7ad.html"
+        },
+        {
+          "name": "Nonadditivity.PrescribedCost.growingFamily_input_qubits_div_sq_tendsto",
+          "kind": "theorem",
+          "module": "Nonadditivity.PrescribedCostDimensions",
+          "url": "declarations/d8d2b1d0f213b594032ce2e1.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Prescribed finite dimensions and Holevo gap",
+      "page": "results/prescribed-dimensions.html",
+      "source": "tools/docs-site/reader/results/prescribed-dimensions.md",
+      "source_sha256": "6a34f3aa63f40e86e5c0671b340e9fcd5cc636a932d5176217e4837cfc96bdf5",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/80cfb1f3fd72ad5a49c2d38d.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Operational classical capacity equals regularized Holevo information",
+      "page": "results/operational-coding.html",
+      "source": "tools/docs-site/reader/results/operational-coding.md",
+      "source_sha256": "66c48fb04bca6cd10eec436cbc1950acb00fea1fe3cac42a1f04f4e0464b785c",
+      "declarations": [
+        {
+          "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.normalizedPowerHolevo_tendsto_classicalCapacity",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalCodingTheorem",
+          "url": "declarations/08f6c95d467f0abfc1266e30.html"
+        },
+        {
+          "name": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalCodingTheorem",
+          "url": "declarations/2190eda6b36f2c50ea335862.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Prescribed dimensions and operational capacity gain",
+      "page": "results/capacity-gain.html",
+      "source": "tools/docs-site/reader/results/capacity-gain.md",
+      "source_sha256": "a44994be5653267a98ffbe388d6c3679351b18b94ac0276765385b5077badfe1",
+      "declarations": [
+        {
+          "name": "Nonadditivity.OperationalConsequences.exists_prescribed_channel_with_capacity_gain",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalConsequences",
+          "url": "declarations/d93312c70783d6042df16629.html"
+        },
+        {
+          "name": "Nonadditivity.OperationalConsequences.prescribed_capacity_gain_tendsto_atTop",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalConsequences",
+          "url": "declarations/d46477a78ba01d62c83cd55d.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Two-use Holevo ratio lower limit",
+      "page": "results/two-use-ratio.html",
+      "source": "tools/docs-site/reader/results/two-use-ratio.md",
+      "source_sha256": "0a7ca75a847fc54e153c16688fccf59452d9675de4f8c40280d5bb6b837fd840",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_ratio_liminf_manuscript",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedRatio",
+          "url": "declarations/65f0203e0b3d0e0acfa561ac.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Small positive single-use information with large capacity gain and two-use ratio",
+      "page": "results/simultaneous-separation.html",
+      "source": "tools/docs-site/reader/results/simultaneous-separation.md",
+      "source_sha256": "8ef0c419511794b405b240687aa9097c3b7cb1f45d76e1528840d7f88bd307ae",
+      "declarations": [
+        {
+          "name": "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalConsequences",
+          "url": "declarations/cfeaa1959ef9cc4b5765c74f.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Qualitative finite-dimensional realization",
+      "page": "results/qualitative-realization.html",
+      "source": "tools/docs-site/reader/results/qualitative-realization.md",
+      "source_sha256": "16bff3441656dff8686b1d523d01384491d99db023301fdd9ec9a84521d52f27",
+      "declarations": [
+        {
+          "name": "Nonadditivity.ExactQualitative.exists_actual_channel_bounds_with_dimensions",
+          "kind": "theorem",
+          "module": "Nonadditivity.ExactQualitative",
+          "url": "declarations/5435793b10ca045ee8f4ab30.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Vanishing single-use information and diverging capacity",
+      "page": "results/small-large-and-sequence.html",
+      "source": "tools/docs-site/reader/results/small-large-and-sequence.md",
+      "source_sha256": "61baa96bbee1432853b2a27a8ae10166139a8f15cd56e4b0e413417a47e57dc2",
+      "declarations": [
+        {
+          "name": "Nonadditivity.DeterministicConsequences.actual_small_large",
+          "kind": "theorem",
+          "module": "Nonadditivity.DeterministicConsequences",
+          "url": "declarations/5909b31837ccf03a4996e882.html"
+        },
+        {
+          "name": "Nonadditivity.DeterministicConsequences.actual_vanishing_diverging",
+          "kind": "theorem",
+          "module": "Nonadditivity.DeterministicConsequences",
+          "url": "declarations/fa185701cd028e5a6173863c.html"
+        },
+        {
+          "name": "Nonadditivity.OperationalConsequences.actual_vanishing_chi_diverging_capacity",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalConsequences",
+          "url": "declarations/6d558c8f715a30d0b49665ea.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Gap scaling with input and output qubits",
+      "page": "results/fixed-k-scaling.html",
+      "source": "tools/docs-site/reader/results/fixed-k-scaling.md",
+      "source_sha256": "c4116ad4e3a6906e677338cc8b7964f0b7754b33a4def20d5ba22ac5a0ece9f1",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_gap_linear_bounds",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedScaling",
+          "url": "declarations/7ed8b5cb17f0c19eb1f0cf17.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_qubits",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedScaling",
+          "url": "declarations/c0d121708a16907d02bbb7ad.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribed_gap_sqrt_input_bounds",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarInputScaling",
+          "url": "declarations/e25e6ced50dec140b138de45.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Prescribed-family input-qubit expansion",
+      "page": "results/input-size-expansion.html",
+      "source": "tools/docs-site/reader/results/input-size-expansion.md",
+      "source_sha256": "e64829c8d219ae9797117a626f024824fca87eb092fe03026be727ef34016069",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_input_size_remainder_tendsto",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedConsequences",
+          "url": "declarations/4c52514f80869eefceafecb6.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Output-normalized gap lower limit and its large-K expansion",
+      "page": "results/guaranteed-gap-fraction.html",
+      "source": "tools/docs-site/reader/results/guaranteed-gap-fraction.md",
+      "source_sha256": "0996665b366c8a49b64e340502acc1fcfe8f569aa6cae68c0999f8d33a13526b",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_normalized_gap_liminf",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedScaling",
+          "url": "declarations/7a8c0eed2b15c8b4302e3fea.html"
+        },
+        {
+          "name": "Nonadditivity.Scalar.gap_fraction_explicit_remainder",
+          "kind": "theorem",
+          "module": "Nonadditivity.GapFractionAsymptotics",
+          "url": "declarations/bd66bcee213b3ffd40ff939f.html"
+        },
+        {
+          "name": "Nonadditivity.Scalar.gap_fraction_identity",
+          "kind": "theorem",
+          "module": "Nonadditivity.GapFractionAsymptotics",
+          "url": "declarations/74be5d0e057f402db4fee323.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "A fixed channel has sublinear regrouped two-use gap",
+      "page": "results/fixed-channel-regrouping.html",
+      "source": "tools/docs-site/reader/results/fixed-channel-regrouping.md",
+      "source_sha256": "aec1c0a30c8b93d9efe54f61bd4d4d34251240b4f9315766f0de8ef15bb1193a",
+      "declarations": [
+        {
+          "name": "Nonadditivity.RegularizedHolevo.normalized_fixed_channel_gap_tendsto_zero",
+          "kind": "theorem",
+          "module": "Nonadditivity.HolevoPowerGap",
+          "url": "declarations/392e27de4099bd285e074586.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Input-qubit cost of the growing-K separation",
+      "page": "results/growing-family-cost.html",
+      "source": "tools/docs-site/reader/results/growing-family-cost.md",
+      "source_sha256": "06248a5b5a24113a8e871885b36791c0dfe57ef0f1eeab80ff12b742be6b139a",
+      "declarations": [
+        {
+          "name": "Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds",
+          "kind": "theorem",
+          "module": "Nonadditivity.PrescribedCostScaling",
+          "url": "declarations/bbc40432b546deb405168c4c.html"
+        },
+        {
+          "name": "Nonadditivity.PrescribedCost.growingFamily_input_qubits_div_sq_tendsto",
+          "kind": "theorem",
+          "module": "Nonadditivity.PrescribedCostDimensions",
+          "url": "declarations/d8d2b1d0f213b594032ce2e1.html"
+        },
+        {
+          "name": "Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower",
+          "kind": "theorem",
+          "module": "Nonadditivity.PrescribedCostCapacity",
+          "url": "declarations/6ad0f5fef07b73366bc477a6.html"
+        },
+        {
+          "name": "Nonadditivity.PrescribedCost.growingFamily_vanishing_diverging",
+          "kind": "theorem",
+          "module": "Nonadditivity.PrescribedCostInformation",
+          "url": "declarations/bbcc928100bdb7223f23e1e5.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Free-group Collins-Youn bound",
+      "page": "results/free-collins-youn.html",
+      "source": "tools/docs-site/reader/results/free-collins-youn.md",
+      "source_sha256": "2c2ba75f58818a3e718eaa8784b8d07fc21ebe52b809289226957a990448d847",
+      "declarations": [
+        {
+          "name": "Nonadditivity.CollinsYounProduct.collinsYounBound",
+          "kind": "theorem",
+          "module": "Nonadditivity.CollinsYounProduct",
+          "url": "declarations/03d116c524ebe8ca6a60b897.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Uniform adjoint norm estimate at prescribed dimensions",
+      "page": "results/prescribed-norm-certificate.html",
+      "source": "tools/docs-site/reader/results/prescribed-norm-certificate.md",
+      "source_sha256": "56b8e6234d8fffe4c3a8d5e60cc7dfc9292c77ff4321f1afba5148f158293d8f",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/da5996600cf037b6b9125ba8.html"
+        },
+        {
+          "name": "Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.StructuredHaarConsequences",
+          "url": "declarations/9ac1ca1e6760023c4cd188f4.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Adjoint norm certificate implies purity and output entropy bounds",
+      "page": "results/purity-entropy.html",
+      "source": "tools/docs-site/reader/results/purity-entropy.md",
+      "source_sha256": "c69907ec59b3e864f768e5278a2b825db81e328b90097311858f2528d5dc97d0",
+      "declarations": [
+        {
+          "name": "Nonadditivity.Channels.KrausChannel.output_purity_and_entropy_of_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.QuantumHolevo",
+          "url": "declarations/2eff1a65a5a0cb0f5e6f7ad5.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Bell-output entropy bound",
+      "page": "results/bell-entropy.html",
+      "source": "tools/docs-site/reader/results/bell-entropy.md",
+      "source_sha256": "33536370021e2531aace83a0b7170da546890729e8a4530826d3321253cef229",
+      "declarations": [
+        {
+          "name": "Nonadditivity.BellOutput.complementary_bell_entropy_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.BellOutput",
+          "url": "declarations/997830f106645266ed15776c.html"
+        },
+        {
+          "name": "Nonadditivity.BlockBell.block_complementary_bell_entropy_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.BlockBell",
+          "url": "declarations/1a251bbe504b7365dad3aad6.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Weyl-extension Holevo equality at every positive tensor power",
+      "page": "results/weyl-all-uses.html",
+      "source": "tools/docs-site/reader/results/weyl-all-uses.md",
+      "source_sha256": "92a6d353c3f0d0746dc4fe1dac8eb782f215a32b450d7a44151f8bc0963a28ba",
+      "declarations": [
+        {
+          "name": "Nonadditivity.WeylPowers.operationalCapacity_weylExtension",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalConsequences",
+          "url": "declarations/212725335406d48b1cd82183.html"
+        },
+        {
+          "name": "Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits",
+          "kind": "theorem",
+          "module": "Nonadditivity.WeylPowersEntropy",
+          "url": "declarations/b7e16fe7c6b07a1ba22bc14a.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Universal finite-set factorization",
+      "page": "results/universal-factorization.html",
+      "source": "tools/docs-site/reader/results/universal-factorization.md",
+      "source_sha256": "05753b3942cae881615ae40074b60d7265c1617ed28b68fcca3780c0ef59166e",
+      "declarations": [
+        {
+          "name": "Nonadditivity.StructuredLinearization.exists_net_linearization",
+          "kind": "theorem",
+          "module": "Nonadditivity.StructuredLinearization",
+          "url": "declarations/44a39a288da111b74752dd11.html"
+        },
+        {
+          "name": "Nonadditivity.UniversalFactorization.exists_universal_factorization",
+          "kind": "theorem",
+          "module": "Nonadditivity.UniversalFactorization",
+          "url": "declarations/d70309497a845e372f39b160.html"
+        },
+        {
+          "name": "Nonadditivity.UniversalFactorization.regular_error_transfer",
+          "kind": "theorem",
+          "module": "Nonadditivity.UniversalFactorization",
+          "url": "declarations/52335f48e156b63bbd4370cd.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "One-pair Haar estimate at the original moment range",
+      "page": "results/haar-moment-range.html",
+      "source": "tools/docs-site/reader/results/haar-moment-range.md",
+      "source_sha256": "91f832753c64421ab36a736c80d6ff6aa22464e11388378e0948d317a98823cc",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarIteratedMoments.iteratedExpectation_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarIteratedExpectation",
+          "url": "declarations/ff528e0a2e85cc7e9c8ce493.html"
+        },
+        {
+          "name": "Nonadditivity.HaarSharpBound.onePairTraceBound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarSharpBound",
+          "url": "declarations/df17d582bfe3c1fa86014c34.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Explicit favorable-realization probability",
+      "page": "results/favorable-probability.html",
+      "source": "tools/docs-site/reader/results/favorable-probability.md",
+      "source_sha256": "037bc1c8ecba9fe457c4778263fb80c68a06bd1e3d1685a5a647ace2119554d4",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.prescribed_polynomial_favorable_probability",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedProbability",
+          "url": "declarations/d5d2aa1b4f745ae9ed3bee6b.html"
+        },
+        {
+          "name": "Nonadditivity.Probability.favorable_realization_probability",
+          "kind": "theorem",
+          "module": "Nonadditivity.ProbabilityQuantitative",
+          "url": "declarations/7c49281ac44dbb162c2bc9eb.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Corrected important-exploration-time count",
+      "page": "results/correction-important-times.html",
+      "source": "tools/docs-site/reader/results/correction-important-times.md",
+      "source_sha256": "63af1f4dc97e9bfb2c835d4b5d1ce3176235726aeb7bb0f2d5330c863b8d56b9",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPathClasses.card_defectClass_weighted_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarSharpCounting",
+          "url": "declarations/99e8bb6aae7f7741f1f4deef.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathExplorationCounterexample.attains_corrected_important_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPathExplorationCounterexample",
+          "url": "declarations/fbd82f4ffb0d06d1fbaf5669.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathExplorationCounterexample.violates_uncorrected_important_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPathExplorationCounterexample",
+          "url": "declarations/53566e9d83862839c46c98fc.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathGraph.Path.card_importantTimes_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPathExploration",
+          "url": "declarations/d3fcdf50afa02a67d6998df1.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathGraph.Path.defectTwice",
+          "kind": "definition",
+          "module": "Nonadditivity.HaarPathGraph",
+          "url": "declarations/629258f2e0829d2d32d172e2.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Corrected marked-position and middle-run accounting",
+      "page": "results/correction-middle-runs.html",
+      "source": "tools/docs-site/reader/results/correction-middle-runs.md",
+      "source_sha256": "350886282f5df0431d5124eacfb41d885db218a6f4881913334ac68ec59f13b3",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarMarkedCompositions.corrected_marked_sum_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarMarkedCompositions",
+          "url": "declarations/3cd5b2027828c75d5aa2c28e.html"
+        },
+        {
+          "name": "Nonadditivity.HaarOperatorPathBridge.coefficient_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarRefinedCoefficientBound",
+          "url": "declarations/af212ad5e405403a8873fad3.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathGraph.Path.defectTwice",
+          "kind": "definition",
+          "module": "Nonadditivity.HaarPathGraph",
+          "url": "declarations/629258f2e0829d2d32d172e2.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathRunCounterexample.violates_uncorrected_run_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPathRunCounterexample",
+          "url": "declarations/12ef5a736e33fc3d930e10fc.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathRuns.two_edge_run_counterexample",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPathRuns",
+          "url": "declarations/216a0451391bfef70ad71d23.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Undamped realization in every sufficiently large dimension",
+      "page": "results/undamped-all-dimensions.html",
+      "source": "tools/docs-site/reader/results/undamped-all-dimensions.md",
+      "source_sha256": "64ce8dc45a886a1e2d50df84a8ae8f6b3576d9bc98f457b7c464bb5234973700",
+      "declarations": []
+    },
+    {
+      "category": "results",
+      "title": "Generic Haar-convergence interfaces",
+      "page": "results/generic-haar-convergence.html",
+      "source": "tools/docs-site/reader/results/generic-haar-convergence.md",
+      "source_sha256": "d0224c7a6e411f512d3fc08c00ec172efe5db56d23e378600da8359adf8308ce",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarConsequences.AllHaarStrongConvergence",
+          "kind": "definition",
+          "module": "Nonadditivity.HaarConsequences",
+          "url": "declarations/e1a3f381893e85db300aa4a0.html"
+        },
+        {
+          "name": "Nonadditivity.HaarModel.HaarStrongConvergence",
+          "kind": "definition",
+          "module": "Nonadditivity.HaarModel",
+          "url": "declarations/b7192ced29edde993331ca50.html"
+        },
+        {
+          "name": "Nonadditivity.UpperHaarRealization.HaarTraceMomentControl",
+          "kind": "definition",
+          "module": "Nonadditivity.UpperHaarRealization",
+          "url": "declarations/9ac82928b324083467d852bf.html"
+        },
+        {
+          "name": "Nonadditivity.UpperHaarRealization.HaarUpperConvergence",
+          "kind": "definition",
+          "module": "Nonadditivity.UpperHaarRealization",
+          "url": "declarations/b3255d1579856585576053b4.html"
+        }
+      ]
+    },
+    {
+      "category": "results",
+      "title": "Remaining background generalizations",
+      "page": "results/background-generality.html",
+      "source": "tools/docs-site/reader/results/background-generality.md",
+      "source_sha256": "b1160d4bdd3b2dbb075b6494ff0fe2869bd022f5f26ec6f684fa43136cd6d0a6",
+      "declarations": []
+    },
+    {
+      "category": "stages",
+      "title": "Actual channels and entropy",
+      "page": "route.html#stage-1",
+      "source": "tools/docs-site/reader/stages/1.md",
+      "source_sha256": "b6f0a720a90bd602c54f7a2349a22f7f5631c41c8b18bc9ea28a0832a94334d1",
+      "declarations": [
+        {
+          "name": "Nonadditivity.Channels.KrausChannel",
+          "kind": "inductive",
+          "module": "Nonadditivity.Channels",
+          "url": "declarations/ef64d7e8975d403f83c2f452.html"
+        },
+        {
+          "name": "Nonadditivity.Entropy.DensityMatrix",
+          "kind": "inductive",
+          "module": "Nonadditivity.Entropy",
+          "url": "declarations/f7028adf1c1242b9cb8674c3.html"
+        },
+        {
+          "name": "Nonadditivity.StateEnsembles.Ensemble.information",
+          "kind": "definition",
+          "module": "Nonadditivity.StateEnsembles",
+          "url": "declarations/608798708b96b83781745e72.html"
+        }
+      ]
+    },
+    {
+      "category": "stages",
+      "title": "Free comparison and finite Haar estimates",
+      "page": "route.html#stage-2",
+      "source": "tools/docs-site/reader/stages/2.md",
+      "source_sha256": "da7471278bd6f6323e5e2dc752a8f0bef59bd0d01663b851db59797859c3c545",
+      "declarations": [
+        {
+          "name": "Nonadditivity.CollinsYounProduct.collinsYounBound",
+          "kind": "theorem",
+          "module": "Nonadditivity.CollinsYounProduct",
+          "url": "declarations/03d116c524ebe8ca6a60b897.html"
+        },
+        {
+          "name": "Nonadditivity.StructuredLinearization.exists_net_linearization",
+          "kind": "theorem",
+          "module": "Nonadditivity.StructuredLinearization",
+          "url": "declarations/44a39a288da111b74752dd11.html"
+        }
+      ]
+    },
+    {
+      "category": "stages",
+      "title": "Repaired combinatorial counts",
+      "page": "route.html#stage-3",
+      "source": "tools/docs-site/reader/stages/3.md",
+      "source_sha256": "225d2a384b5eb66d867192a0044dd9101a051582dc9436143369303af36eb377",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarOperatorPathBridge.coefficient_bound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarRefinedCoefficientBound",
+          "url": "declarations/af212ad5e405403a8873fad3.html"
+        },
+        {
+          "name": "Nonadditivity.HaarPathGraph.Path.card_importantTimes_le",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPathExploration",
+          "url": "declarations/d3fcdf50afa02a67d6998df1.html"
+        },
+        {
+          "name": "Nonadditivity.HaarSharpBound.onePairTraceBound",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarSharpBound",
+          "url": "declarations/df17d582bfe3c1fa86014c34.html"
+        }
+      ]
+    },
+    {
+      "category": "stages",
+      "title": "Prescribed dimensions and the channel witness",
+      "page": "route.html#stage-4",
+      "source": "tools/docs-site/reader/stages/4.md",
+      "source_sha256": "c2f14c0f1ed37300a5e8758b0602bc71f2fbc025b4f4bf3b18db26cf816182ee",
+      "declarations": [
+        {
+          "name": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+          "kind": "theorem",
+          "module": "Nonadditivity.HaarPrescribedBound",
+          "url": "declarations/da5996600cf037b6b9125ba8.html"
+        },
+        {
+          "name": "Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.StructuredHaarConsequences",
+          "url": "declarations/9ac1ca1e6760023c4cd188f4.html"
+        }
+      ]
+    },
+    {
+      "category": "stages",
+      "title": "Conversion and qualitative separation",
+      "page": "route.html#stage-5",
+      "source": "tools/docs-site/reader/stages/5.md",
+      "source_sha256": "5fe8df929881c78ddea7527255de4b7fb537fedeccfa12386457e2796ae49e35",
+      "declarations": [
+        {
+          "name": "Nonadditivity.BlockConstruction.block_converted_bounds_of_certificate",
+          "kind": "theorem",
+          "module": "Nonadditivity.BlockConstruction",
+          "url": "declarations/3ddf28e655845ff02a6dc3bc.html"
+        }
+      ]
+    },
+    {
+      "category": "stages",
+      "title": "Operational coding and capacity",
+      "page": "route.html#stage-6",
+      "source": "tools/docs-site/reader/stages/6.md",
+      "source_sha256": "ffd2cef0aae99df20ff6251c9e1132b6e3dbddc31b972dd340761186a779980b",
+      "declarations": [
+        {
+          "name": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+          "kind": "theorem",
+          "module": "Nonadditivity.OperationalCodingTheorem",
+          "url": "declarations/2190eda6b36f2c50ea335862.html"
+        }
+      ]
+    },
+    {
+      "category": "stages",
+      "title": "Asymptotics and precise scope",
+      "page": "route.html#stage-7",
+      "source": "tools/docs-site/reader/stages/7.md",
+      "source_sha256": "b6a85ed967ad9a527eea5d003bc4c78ac24c3996567951416a4c6c026223d84a",
+      "declarations": []
+    }
+  ]
+}

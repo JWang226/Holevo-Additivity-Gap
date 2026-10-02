@@ -2,11 +2,11 @@
 <!-- Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved. See COPYRIGHT.md for attribution. -->
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A reader guide to Lean proofs of Holevo additivity gaps, exact source statements, and reproducible verification.">
-<title>Counting corrections and their effect on the manuscript · Holevo Additivity Gap</title><link rel="stylesheet" href="../assets/site.css"></head>
+<title>Counting corrections and their effect on the manuscript · Holevo Additivity Gap</title><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/katex/katex.min.css"><script defer src="../assets/katex/katex.min.js"></script><script defer src="../assets/math.js"></script></head>
 <body data-root="../"><header class="top"><div class="top-inner">
 <a class="brand" href="../index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
-<nav aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../verify.html">Verify</a><a href="../route.html">Proof route</a><a href="../results.html">Results</a><a href="../declarations.html">Declarations</a><a href="../dependencies.html">Dependencies</a><a href="../modules.html">Modules</a><a href="../imports.html">Imports</a><a href="../docs/index.html" aria-current="page">Documents</a><a href="../about.html">About</a></nav>
-<div class="search-wrap"><label class="hidden" for="site-search">Search declarations, results and modules</label><input id="site-search" type="search" placeholder="Search any declaration, result, paper label, or module…" autocomplete="off" spellcheck="false" aria-label="Search declarations, results and modules"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
+<nav aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../guide/introduction.html">Start here</a><a href="../concepts/index.html">Concepts</a><a href="../results.html">Results</a><a href="../route.html">Proof route</a><a href="../verify.html">Verify</a></nav><details class="technical-nav" open><summary>Lean explorer and project documents</summary><nav aria-label="Formal documentation"><a href="../dependencies.html">Proof map</a><a href="../declarations.html">Declarations</a><a href="../modules.html">Modules</a><a href="../imports.html">Imports</a><a href="../docs/index.html" aria-current="page">Documents</a><a href="../about.html">About</a></nav></details>
+<div class="search-wrap"><label class="hidden" for="site-search">Search concepts, results and Lean declarations</label><input id="site-search" type="search" placeholder="Search concepts, results, or Lean declarations…" autocomplete="off" spellcheck="false" aria-label="Search concepts, results and Lean declarations"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
 </div></header><main><article class="prose"><div class="breadcrumb"><a href="../docs/index.html">Documents</a> / docs/CORRECTIONS.md</div><p class="eyebrow">Repository document</p><h1>Counting corrections and their effect on the manuscript</h1><p><a href="../source/docs/CORRECTIONS.md">Download exact Markdown</a> · <a href="https://github.com/JWang226/Holevo-Additivity-Gap/blob/main/docs/CORRECTIONS.md">View on GitHub</a></p><div class="document-body"><h2 id="counting-corrections-and-their-effect-on-the-manuscript">Counting corrections and their effect on the manuscript</h2>
 <p>Two intermediate counting assertions used in the Haar-moment argument fail on explicit finite paths. The Lean development proves the counterexamples and replacement estimates. The principal channel bounds, prescribed dimensions, and original Haar moment range survive these corrections.</p>
 <p>The author&#x27;s revised <a href="../source/paper/nonadditivity.tex">manuscript source</a> <strong>incorporates both counting repairs</strong>. This note maps the repaired argument to the formalization. Its SHA-256 is:</p>
@@ -16,13 +16,13 @@
 <p>The revised manuscript explicitly describes both false intermediate assertions and replaces the old <code>6400 e p^24 ρ^p / N</code> calculation with the error budget below. The final moment hypothesis, label <code>eq:haar-hypotheses</code>, is unchanged. The exploration mark records the endpoint of the run along already discovered tree edges and the source color of the next step, as in <code>HaarPathMarks.explorationMark</code>. The source also includes the nonzero-Hilbert-space qualification in <code>eq:linear-id</code> and restricts the one-pair estimate to finite-support matrix/free-factor polynomial coefficients.</p>
 <h3 id="1-important-exploration-times">1. Important exploration times</h3>
 <p>Write</p>
-<p>\[ \delta=\ell+e_1-2v, \]</p>
+<div class="math-display">\delta=\ell+e_1-2v,</div>
 <p>where <code>ℓ</code> is path length, <code>e₁</code> counts edges traversed exactly once, and <code>v</code> counts visited vertices. Here <code>δ</code> is an integer path defect, distinct from the channel gap coefficient <code>δ_K</code>. In half-defect notation <code>g = δ/2</code>, the same bounds read <code>2g + 1</code> and <code>2g + 2</code>.</p>
 <p>The asserted bound of <strong>at most <code>δ + 1</code> important times</strong> is false. Let uppercase letters denote inverse generators. The six-step reduced, closed, generator-balanced path with word</p>
 <div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>abaBAA</code></pre></div>
 <p>and vertex sequence <code>(0,1,1,1,1,1,0)</code> has <code>δ = 2</code> and four important times, indexed <code>1,2,3,4</code> starting from zero. Thus <code>4 &gt; δ + 1 = 3</code>. The final traversal is a tree-edge visit; excluding it still leaves those same four important times.</p>
 <p>The proved replacement is</p>
-<p>\[ \#\{\text{important times}\}\le\delta+2. \]</p>
+<div class="math-display">\#\{\text{important times}\}\le\delta+2.</div>
 <p>The terminal tree-edge visit is why one cannot always deduct the extra unit. This example refutes the intermediate exploration-time bound; it does <strong>not</strong>, by itself, refute the final class-count conclusion of the cited lemma.</p>
 <p>The first explicit replacement class count is <code>128^(δ+2) ℓ^(3δ+6)</code>. A sharper weighted chronological encoding is used to recover the original moment range; it retains the actual positions of important times rather than charging every position independently.</p>
 <p>Lean sources:</p>
@@ -33,19 +33,23 @@
 <div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>true, false, false, true, false, true, false, true</code></pre></div>
 <p>There are four marked positions and three intervening runs: seven blocks, exceeding <code>3 × 2 = 6</code>. This is an actual path, not just an arbitrary Boolean pattern; its Haar entry monomial is <code>|U_a(x,x)|^6 |U_b(x,x)|^2</code>.</p>
 <p>Let <code>M</code> be the number of marked positions. The valid bounds are</p>
-<p>\[ \#\{\text{middle blocks}\}\le M-1, \qquad M\le2e. \]</p>
+<div class="math-display">\#\{\text{middle blocks}\}\le M-1,
+\qquad M\le2e.</div>
 <p>Each middle block is charged to its following marker; the initial marker is unused. Although this allows more blocks, only marked coefficient factors incur the extra moment-order factor. The combined exponent is therefore bounded by</p>
-<p>\[ (r-1)+M\le6e-2. \]</p>
+<div class="math-display">(r-1)+M\le6e-2.</div>
 <p>This proves the required grouped coefficient exponent <code>9δ + 11</code>. There is no need to retain the false bound <code>r ≤ 3e</code>.</p>
 <p>Lean sources:</p>
 <ul><li><a href="../source/Nonadditivity/HaarPathRunCounterexample.lean">HaarPathRunCounterexample.lean</a>: the literal path and <code>violates_uncorrected_run_bound</code>.</li><li><a href="../source/Nonadditivity/HaarPathRuns.lean">HaarPathRuns.lean</a>: <code>middleRuns_add_one_le</code>, <code>corrected_exponent_le</code>, and <code>occurrence_exponent_le</code>.</li><li><a href="../source/Nonadditivity/HaarMarkedCompositions.lean">HaarMarkedCompositions.lean</a> and <a href="../source/Nonadditivity/HaarBranchGraphBudget.lean">HaarBranchGraphBudget.lean</a>: the marked-factor counting and coefficient exponent.</li></ul>
 <h3 id="final-error-budget-and-unchanged-endpoints">Final error budget and unchanged endpoints</h3>
 <p>With the corrected weighted path count and coefficient bound, the sum of the length contributions is bounded by</p>
-<p>\[ \sum_{t=1}^{p}|D_t| \le \frac{4096p^{26}}{N}\left(1+\frac{64}{p}\right)^p\rho^p \le N^{-1/2}\rho^p, \qquad p\ge2,\quad N\ge2^{32}p^{80}. \]</p>
+<div class="math-display">\sum_{t=1}^{p}|D_t|
+\le \frac{4096p^{26}}{N}\left(1+\frac{64}{p}\right)^p\rho^p
+\le N^{-1/2}\rho^p,
+\qquad p\ge2,\quad N\ge2^{32}p^{80}.</div>
 <p>Here <code>N</code> denotes actual matrix dimension, as in the manuscript. The Lean endpoint indexes that dimension by <code>N + 1</code>. For the manuscript&#x27;s moment application, <code>p</code> is even. The scalar estimate <code>(1 + 64/p)^p ≤ 16p^14</code> makes the final absorption explicit.</p>
 <p>The replacement error budget is proved in <a href="../source/Nonadditivity/HaarSharpSummation.lean">HaarSharpSummation.lean</a>, <a href="../source/Nonadditivity/HaarSharpConstants.lean">HaarSharpConstants.lean</a>, and <a href="../source/Nonadditivity/HaarSharpBound.lean">HaarSharpBound.lean</a>. In particular, <code>HaarSharpBound.onePairTraceBound</code> proves the actual mixed one-pair Haar integral estimate for finite matrix coefficients and the remaining free factors, with no unproved analytic premise.</p>
 <p>The original condition <code>N ≥ 2^32 p^80</code> is preserved. The principal prescribed choice</p>
-<p>\[ N=\left\lceil\exp\bigl(40(7\ln K+2)n\bigr)\right\rceil \]</p>
+<div class="math-display">N=\left\lceil\exp\bigl(40(7\ln K+2)n\bigr)\right\rceil</div>
 <p>and the final channel information bounds are unchanged. The main prescribed-channel theorem already follows from a valid corrected route with the stronger intermediate threshold <code>2^80 p^80</code>, which its chosen parameters satisfy; the sharper weighted route separately restores the original <code>2^32 p^80</code> range.</p>
 <p>This note records formal counterexamples, proved repairs, and their incorporation into the revised manuscript. The coefficient proofs use different internal encodings, so the correspondence concerns the stated bounds rather than every proof line. Full manuscript formalization and independent human certification remain outside the recorded verification scope. See <a href="../docs/docs--FORMALIZATION_STATUS.html">FORMALIZATION_STATUS.md</a> for the exact scope and verification record.</p></div></article></main>
 <footer><p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p><p>Lean 4.29.0-rc6 · Mathlib <code>f156f7ab…</code> · Only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> permitted in solution dependencies.</p><p class="footer-links"><a href="../about.html">About these pages</a><a href="../generation.json">Generation record</a><a href="https://github.com/JWang226/Holevo-Additivity-Gap">GitHub repository</a></p></footer><script src="../assets/search-data.js"></script><script src="../assets/site.js"></script></body></html>

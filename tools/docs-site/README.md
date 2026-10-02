@@ -14,6 +14,37 @@ The standard-library generator writes the self-contained `html/` directory.
 Open `html/index.html` directly or deploy that directory as a static site.
 Assets and search data are local; browsing works offline without a server.
 
+The mathematical reader has six chapters, ten concept pages, explanations of
+all 25 result records, and seven proof-stage explanations. Its handwritten
+Markdown lives in `tools/docs-site/reader/`; `reader/index.json` registers the
+pages and their summaries. Result IDs match `metadata/results.json`, whose
+formalization statuses and scope notes are retained unchanged. Edit these
+sources, then run both commands above.
+
+Use `$...$` for inline mathematics and a separate pair of `$$` lines for
+display mathematics. KaTeX 0.19.0, its fonts, and its original MIT license are
+bundled in `vendor/katex/`; no CDN, npm installation, or Node build is needed.
+The Markdown renderer supports headings, paragraphs, lists, tables, links,
+and fenced code. Links to mathematical and formal pages use these targets:
+
+| Target | Destination |
+| --- | --- |
+| `lean:Nonadditivity.Namespace.declaration` | Exact exported declaration |
+| `guide:introduction` | Registered reading chapter |
+| `concept:channels` | Registered concept page |
+| `result:prescribed-dimensions` | Result explanation and formal correspondence |
+| `stage:1` | Explanatory section of the proof route |
+| `site:verify.html` | Other generated page or artifact |
+
+Every attached Lean name must exist in the actual declaration export. The
+generated `html/reader-map.json` records explanation sources and SHA-256 hashes,
+declaration kinds, and exact page targets. Declaration pages link back to their
+explanations, and proof-map details link to the relevant mathematical page.
+These are reading correspondences; they do not certify equivalence between
+English prose and proof terms. Search includes the mathematical explanations
+and prioritizes relevant concept and result titles while preserving exact Lean
+name matches.
+
 The site includes all 366 proof modules and three aggregate entry points,
 all 25 correspondence records and their
 49 exact declaration references, every exported project constant with its full

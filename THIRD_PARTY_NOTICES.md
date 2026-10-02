@@ -1,5 +1,14 @@
 # Third-party code notices
 
+## KaTeX
+
+The reader website bundles the unmodified KaTeX 0.19.0 JavaScript, stylesheet,
+and fonts from its [official release](https://github.com/KaTeX/KaTeX/releases/tag/v0.19.0).
+The original MIT license and copyright notice are retained in
+[the vendored LICENSE](tools/docs-site/vendor/katex/LICENSE).
+[UPSTREAM.md](tools/docs-site/vendor/katex/UPSTREAM.md) records the archive hash
+and source. These display assets have no role in Lean or Comparator checking.
+
 ## SLT: Statistical Learning Theory in Lean
 
 Two eigenbasis coordinate proof patterns in

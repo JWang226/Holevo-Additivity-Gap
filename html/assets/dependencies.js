@@ -313,6 +313,11 @@
   }
   function statementLinks(host, declaration, includePreview = true) {
     if (!declaration) return;
+    if (declaration.reader_url) {
+      const explanation = element("p", "proof-reader-link");
+      explanation.appendChild(link(declaration.reader_url, "Read the mathematical explanation →"));
+      host.appendChild(explanation);
+    }
     const links = element("p", "proof-statement-links");
     links.appendChild(link(declaration.url, "Exact Lean statement"));
     const source = declaration.source_url || declaration.module_url;

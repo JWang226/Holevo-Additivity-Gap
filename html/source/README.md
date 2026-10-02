@@ -4,6 +4,8 @@ Lean 4 proofs accompanying Jinzhao Wang’s manuscript on unbounded Holevo addit
 
 [arXiv paper](https://arxiv.org/abs/2609.18222) · [Proof website](https://jwang226.github.io/Holevo-Additivity-Gap/) · [Proof route](PROOF-PATH.md) · [Manuscript](paper/nonadditivity.tex)
 
+The website explains the results, concepts, and proof ideas, with links to the corresponding Lean statements. [Start reading](https://jwang226.github.io/Holevo-Additivity-Gap/guide/introduction.html).
+
 ## Verify with Lean
 
 Requires Linux or macOS, Git, [elan](https://github.com/leanprover/elan), and Python 3.11+ with `venv`/`pip`. Dependencies are pinned to Lean `4.29.0-rc6` and the committed mathlib revision.

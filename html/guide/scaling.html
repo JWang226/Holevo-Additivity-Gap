@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved. See COPYRIGHT.md for attribution. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A reader guide to Lean proofs of Holevo additivity gaps, exact source statements, and reproducible verification.">
+<title>What grows, and what it costs · Holevo Additivity Gap</title><link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/katex/katex.min.css"><script defer src="../assets/katex/katex.min.js"></script><script defer src="../assets/math.js"></script></head>
+<body data-root="../"><header class="top"><div class="top-inner">
+<a class="brand" href="../index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
+<nav aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../guide/introduction.html" aria-current="page">Start here</a><a href="../concepts/index.html">Concepts</a><a href="../results.html">Results</a><a href="../route.html">Proof route</a><a href="../verify.html">Verify</a></nav><details class="technical-nav"><summary>Lean explorer and project documents</summary><nav aria-label="Formal documentation"><a href="../dependencies.html">Proof map</a><a href="../declarations.html">Declarations</a><a href="../modules.html">Modules</a><a href="../imports.html">Imports</a><a href="../docs/index.html">Documents</a><a href="../about.html">About</a></nav></details>
+<div class="search-wrap"><label class="hidden" for="site-search">Search concepts, results and Lean declarations</label><input id="site-search" type="search" placeholder="Search concepts, results, or Lean declarations…" autocomplete="off" spellcheck="false" aria-label="Search concepts, results and Lean declarations"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
+</div></header><main><article class="wide"><div class="breadcrumb"><a href="../guide/index.html">Reading guide</a></div><p class="eyebrow">Mathematical guide</p><h1>What grows, and what it costs</h1><p class="lead">Compare the fixed-K and growing-K families, keeping input qubits, output qubits, and channel uses distinct.</p><div class="reader-layout"><div class="reader-body"><h2 id="fixed-k-a-large-absolute-gap">Fixed K: a large absolute gap</h2>
+<p>Fix <span class="math-inline">K\ge2</span> with <span class="math-inline">\delta_K&gt;0</span>, where</p>
+<div class="math-display">\delta_K=\frac{\log_2K}{K}-2\log_2(1+9/K).</div>
+<p>Let the block parameter <span class="math-inline">n</span> increase. The <a href="../results/prescribed-dimensions.html">prescribed channels</a> obey</p>
+<div class="math-display">\Delta_\chi(T_{K,n})\ge n\delta_K-4\log_2\frac{n+1}{n-1}.</div>
+<p>The correction tends to zero. The upper bound <span class="math-inline">\Delta_\chi(T)\le2\log_2d_{\mathrm{out}}</span> gives a matching order bound, so <span class="math-inline">\Delta_\chi(T_{K,n})=\Theta_K(n)</span>. The same argument gives an unbounded capacity gain.</p>
+<p>The sufficient condition <span class="math-inline">\ln K&gt;18</span> implies <span class="math-inline">\delta_K&gt;0</span> by <span class="math-inline">\ln(1+x)\le x</span>. It is a sufficient parameter choice, not a claim about the smallest useful <span class="math-inline">K</span> or the actual optimal gap.</p>
+<h2 id="output-linear-does-not-mean-input-linear">Output-linear does not mean input-linear</h2>
+<p>Use the logarithmic dimension costs <span class="math-inline">q_{\mathrm{in}}=\log_2d_{\mathrm{in}}</span> and <span class="math-inline">q_{\mathrm{out}}=\log_2d_{\mathrm{out}}</span>. For the constructed channel,</p>
+<div class="math-display">\begin{aligned}
+q_{\mathrm{out}}&amp;=n\log_2K,\\
+q_{\mathrm{in}}&amp;=\frac{40(7\ln K+2)}{\ln2}\,n^2
++2n\log_2K+1+o(1).
+\end{aligned}</div>
+<p>Thus, at fixed <span class="math-inline">K</span> with positive <span class="math-inline">\delta_K</span>, the gap is linear in output cost and of order <span class="math-inline">\sqrt{q_{\mathrm{in}}}</span> in input cost. The <a href="../results/input-size-expansion.html">input expansion</a> includes the ceiling in <span class="math-inline">N</span> and proves that its remaining error tends to zero.</p>
+<p>The <a href="../results/guaranteed-gap-fraction.html">guaranteed output fraction</a> satisfies</p>
+<div class="math-display">\liminf_n\frac{\Delta_\chi(T_{K,n})}{q_{\mathrm{out}}}
+\ge r_K=\frac1K-\frac{2\ln(1+9/K)}{\ln K}.</div>
+<p>This is a proved lower guarantee. It is not an equality for the actual gap.</p>
+<h2 id="growing-k-vanishing-one-use-information">Growing K: vanishing one-use information</h2>
+<p>For a different family, choose <span class="math-inline">n_K=\lceil K/\sqrt{\ln K}\rceil</span> and let <span class="math-inline">K</span> increase. This rounded length eventually meets the prescribed theorem&#x27;s threshold. The information bounds then imply</p>
+<div class="math-display">\chi(T_K)=\Theta\!\left(\frac1{\sqrt{\ln K}}\right),\qquad
+\frac{\chi(T_K\otimes T_K)}2=\Omega(\sqrt{\ln K}),\qquad
+C(T_K)=\Omega(\sqrt{\ln K}).</div>
+<p>The first two regimes use different parameter limits: fixed <span class="math-inline">K</span>, growing <span class="math-inline">n</span> gives the output-linear gap; growing <span class="math-inline">K</span> with the specified <span class="math-inline">n_K</span> gives vanishing single-use information. These statements should not be combined into one limit without fixing the family.</p>
+<p>For the growing family, <a href="../results/growing-family-cost.html">the formal input-cost result</a> proves</p>
+<div class="math-display">\frac{q_{\mathrm{in}}(T_K)}{K^2}\longrightarrow\frac{280}{\ln2}.</div>
+<p>Consequently <span class="math-inline">\chi(T_K)</span> is of order <span class="math-inline">1/\sqrt{\log_2q_{\mathrm{in}}}</span>, while both two-use information per use and capacity have positive lower bounds of order <span class="math-inline">\sqrt{\log_2q_{\mathrm{in}}}</span>.</p>
+<h2 id="why-varying-the-channel-matters">Why varying the channel matters</h2>
+<p>These families change the channel and its dimensions. For one fixed channel <span class="math-inline">\Phi</span>, regularization instead gives</p>
+<div class="math-display">\frac{\chi(\Phi^{\otimes2m})-2\chi(\Phi^{\otimes m})}{m}\longrightarrow0.</div>
+<p>The <a href="../results/fixed-channel-regrouping.html">fixed-channel regrouping theorem</a> makes this distinction formal. The large family gap is not obtained simply by renaming blocks of one fixed channel.</p>
+<h2 id="lean-landmarks">Lean landmarks</h2>
+<p>Read <a href="../declarations/7ed8b5cb17f0c19eb1f0cf17.html">prescribedFamily_gap_linear_bounds</a>, <a href="../declarations/e25e6ced50dec140b138de45.html">prescribed_gap_sqrt_input_bounds</a>, and <a href="../declarations/d8d2b1d0f213b594032ce2e1.html">growingFamily_input_qubits_div_sq_tendsto</a>. The <a href="../concepts/dimension-cost.html">dimension-cost concept</a> explains the logarithmic cost convention.</p><p class="reader-source"><a href="../source/tools/docs-site/reader/guides/scaling.md">Exact explanation source</a> · <a href="../reader-map.json">Explanation-to-Lean map</a></p></div><aside class="reader-toc"><p>On this page</p><ol><li class="toc-level-2"><a href="#fixed-k-a-large-absolute-gap">Fixed K: a large absolute gap</a></li><li class="toc-level-2"><a href="#output-linear-does-not-mean-input-linear">Output-linear does not mean input-linear</a></li><li class="toc-level-2"><a href="#growing-k-vanishing-one-use-information">Growing K: vanishing one-use information</a></li><li class="toc-level-2"><a href="#why-varying-the-channel-matters">Why varying the channel matters</a></li><li class="toc-level-2"><a href="#lean-landmarks">Lean landmarks</a></li></ol><p><a href="../guide/index.html">Reading guide</a></p><p><a href="../concepts/index.html">All concepts</a></p></aside></div></article></main>
+<footer><p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p><p>Lean 4.29.0-rc6 · Mathlib <code>f156f7ab…</code> · Only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> permitted in solution dependencies.</p><p class="footer-links"><a href="../about.html">About these pages</a><a href="../generation.json">Generation record</a><a href="https://github.com/JWang226/Holevo-Additivity-Gap">GitHub repository</a></p></footer><script src="../assets/search-data.js"></script><script src="../assets/site.js"></script></body></html>

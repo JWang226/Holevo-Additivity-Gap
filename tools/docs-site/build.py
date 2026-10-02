@@ -33,9 +33,12 @@ OUT = ROOT / "html"
 REPO = "https://github.com/JWang226/Holevo-Additivity-Gap"
 SITE = "https://JWang226.github.io/Holevo-Additivity-Gap/"
 COPYRIGHT = "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved."
-NAV = [("Overview", "index.html"), ("Verify", "verify.html"), ("Proof route", "route.html"),
-       ("Results", "results.html"), ("Declarations", "declarations.html"), ("Dependencies", "dependencies.html"), ("Modules", "modules.html"),
-       ("Imports", "imports.html"), ("Documents", "docs/index.html"), ("About", "about.html")]
+NAV = [("Overview", "index.html"), ("Start here", "guide/introduction.html"),
+       ("Concepts", "concepts/index.html"), ("Results", "results.html"),
+       ("Proof route", "route.html"), ("Verify", "verify.html")]
+LEAN_NAV = [("Proof map", "dependencies.html"), ("Declarations", "declarations.html"),
+            ("Modules", "modules.html"), ("Imports", "imports.html"),
+            ("Documents", "docs/index.html"), ("About", "about.html")]
 STAGES = [
     ("Actual channels and entropy", "Begin with finite density matrices, concrete Kraus channels, output ensembles, and entropy. The channel endpoints refer to these physical objects.",
      ["purity-entropy", "bell-entropy"],
@@ -255,6 +258,46 @@ class Site:
             rel = "tools/docs-site/" + name
             if (ROOT / rel).exists():
                 self.read(rel)
+        self.read("tools/docs-site/math.js")
+        self.load_reader()
+
+    def load_reader(self) -> None:
+        self.reader = json.loads(self.read("tools/docs-site/reader/index.json"))
+        if self.reader.get("schema_version") != 1:
+            raise ValueError("Unsupported mathematical reader schema")
+        self.reader_text: dict[str, str] = {}
+        self.reader_by_decl: dict[str, list[dict]] = defaultdict(list)
+        for group in ("guides", "concepts", "results", "stages"):
+            items = self.reader[group]
+            if len({item["id"] for item in items}) != len(items):
+                raise ValueError("Duplicate mathematical reader page: " + group)
+            for item in items:
+                if not re.fullmatch(r"[a-z0-9-]+", item["id"]):
+                    raise ValueError("Invalid mathematical reader ID")
+                if group == "results":
+                    item["title"] = self.result_by_id[item["id"]]["name"]
+                if group == "stages":
+                    item["title"] = STAGES[int(item["id"]) - 1][0]
+                item["source"] = "tools/docs-site/reader/" + group + "/" + item["id"] + ".md"
+                item["category"] = group
+                item["page"] = (("guide" if group == "guides" else group) + "/" + item["id"] + ".html") if group != "stages" else "route.html#stage-" + item["id"]
+                text = self.read(item["source"])
+                self.reader_text[item["source"]] = text
+                self.emit("source/" + item["source"], text)
+                names = set(re.findall(r"\]\(lean:([^\s)]+)\)", text))
+                if group == "results":
+                    if item["id"] not in self.result_by_id:
+                        raise ValueError("Unknown explained result " + item["id"])
+                    names.update(ref["declaration"] for ref in self.result_by_id[item["id"]]["lean"])
+                for name in sorted(names):
+                    if name not in self.declarations:
+                        raise ValueError("Unknown Lean correspondence in reader: " + name)
+                    self.reader_by_decl[name].append(item)
+                item["declarations"] = sorted(names)
+        if {item["id"] for item in self.reader["results"]} != self.result_by_id.keys():
+            raise ValueError("Every result needs a mathematical explanation")
+        if {item["id"] for item in self.reader["stages"]} != {str(i) for i in range(1, len(STAGES) + 1)}:
+            raise ValueError("Every proof stage needs an explanation")
 
     def read(self, rel: str) -> str:
         data = (ROOT / rel).read_bytes()
@@ -446,6 +489,10 @@ class Site:
     def page(self, path: str, title: str, content: str, active: str, wide: bool = False, extra_scripts: tuple[str, ...] = ()) -> None:
         root = "../" * (len(PurePosixPath(path).parts) - 1)
         nav = "".join(f'<a href="{root + url}"' + (' aria-current="page"' if label == active else "") + f'>{label}</a>' for label, url in NAV)
+        technical = "".join(f'<a href="{root + url}"' + (' aria-current="page"' if label == active or (label == "Proof map" and active == "Dependencies") else "") + f'>{label}</a>' for label, url in LEAN_NAV)
+        has_math = 'class="math-inline"' in content or 'class="math-display"' in content
+        math_head = f'<link rel="stylesheet" href="{root}assets/katex/katex.min.css">' if has_math else ""
+        math_scripts = f'<script defer src="{root}assets/katex/katex.min.js"></script><script defer src="{root}assets/math.js"></script>' if has_math else ""
         footer = '<p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p>'
         footer += '<p>Lean 4.29.0-rc6 · Mathlib <code>f156f7ab…</code> · Only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> permitted in solution dependencies.</p>'
         footer += '<p class="footer-links">' + self.link("about.html", "About these pages", path) + self.link("generation.json", "Generation record", path) + f'<a href="{REPO}">GitHub repository</a></p>'
@@ -453,46 +500,85 @@ class Site:
 <!-- {COPYRIGHT} See COPYRIGHT.md for attribution. -->
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A reader guide to Lean proofs of Holevo additivity gaps, exact source statements, and reproducible verification.">
-<title>{esc(title)} · Holevo Additivity Gap</title><link rel="stylesheet" href="{root}assets/site.css"></head>
+<title>{esc(title)} · Holevo Additivity Gap</title><link rel="stylesheet" href="{root}assets/site.css">{math_head}{math_scripts}</head>
 <body data-root="{root}"><header class="top"><div class="top-inner">
 <a class="brand" href="{root}index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
-<nav aria-label="Main navigation">{nav}</nav>
-<div class="search-wrap"><label class="hidden" for="site-search">Search declarations, results and modules</label><input id="site-search" type="search" placeholder="Search any declaration, result, paper label, or module…" autocomplete="off" spellcheck="false" aria-label="Search declarations, results and modules"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
+<nav aria-label="Main navigation">{nav}</nav><details class="technical-nav"{(' open' if active in {'Dependencies', 'Declarations', 'Modules', 'Imports', 'Documents', 'About'} else '')}><summary>Lean explorer and project documents</summary><nav aria-label="Formal documentation">{technical}</nav></details>
+<div class="search-wrap"><label class="hidden" for="site-search">Search concepts, results and Lean declarations</label><input id="site-search" type="search" placeholder="Search concepts, results, or Lean declarations…" autocomplete="off" spellcheck="false" aria-label="Search concepts, results and Lean declarations"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
 </div></header><main><article class="{'wide' if wide else 'prose'}">{content}</article></main>
 <footer>{footer}</footer><script src="{root}assets/search-data.js"></script><script src="{root}assets/site.js"></script>{''.join('<script src="' + root + script + '"></script>' for script in extra_scripts)}</body></html>
 ''')
 
     def card(self, result_id: str, page: str) -> str:
         result = self.result_by_id[result_id]
-        return '<div class="card">' + self.tag(result["status"]) + '<h3>' + self.result_link(result_id, page) + '</h3><p>' + esc(result["notes"]) + '</p></div>'
+        explanation = self.reader_item("results", result_id)
+        return '<div class="card">' + self.tag(result["status"]) + '<h3>' + self.result_link(result_id, page) + '</h3><p>' + esc(explanation["summary"]) + '</p></div>'
+
+    def reader_item(self, group: str, item_id: str) -> dict:
+        return next(item for item in self.reader[group] if item["id"] == item_id)
+
+    def reader_body(self, item: dict, page: str, heading_shift: int = 0) -> str:
+        text = re.sub(r"(?m)^#\s+[^\n]+\n", "", self.reader_text[item["source"]], count=1)
+        prefix = "stage-" + item["id"] + "-" if item["category"] == "stages" else ""
+        return self.render_markdown(item["source"], text, page, heading_shift, prefix)
+
+    def explanation_links(self, name: str, page: str) -> str:
+        items = self.reader_by_decl.get(name, [])
+        if not items:
+            return ""
+        order = {"results": 0, "concepts": 1, "guides": 2, "stages": 3}
+        items = sorted(items, key=lambda item: (order[item["category"]], item["title"]))
+        return '<div class="explanation-links"><span>Read the mathematics:</span> ' + ' · '.join(self.link(item["page"], esc(item["title"]), page) for item in items) + '</div>'
+
+    @staticmethod
+    def math(tex: str, display: bool = False) -> str:
+        tag = "div" if display else "span"
+        return f'<{tag} class="math-{("display" if display else "inline")}">' + esc(tex) + f'</{tag}>'
+
+    def build_reader(self) -> None:
+        for group in ("guides", "concepts"):
+            for item in self.reader[group]:
+                page = item["page"]
+                body = self.reader_body(item, page)
+                headings = re.findall(r'<h([23]) id="([^"]+)">(.*?)</h\1>', body, re.S)
+                toc = '<aside class="reader-toc"><p>On this page</p><ol>' + ''.join('<li class="toc-level-' + level + '"><a href="#' + anchor + '">' + re.sub(r'<[^>]+>', '', label) + '</a></li>' for level, anchor, label in headings) + '</ol><p>' + self.link("guide/index.html", "Reading guide", page) + '</p><p>' + self.link("concepts/index.html", "All concepts", page) + '</p></aside>'
+                content = '<div class="breadcrumb">' + self.link("guide/index.html" if group == "guides" else "concepts/index.html", "Reading guide" if group == "guides" else "Concepts", page) + '</div><p class="eyebrow">' + ("Mathematical guide" if group == "guides" else esc(item["topic"])) + '</p><h1>' + esc(item["title"]) + '</h1><p class="lead">' + esc(item["summary"]) + '</p><div class="reader-layout"><div class="reader-body">' + body + '<p class="reader-source">' + self.link("source/" + item["source"], "Exact explanation source", page) + ' · ' + self.link("reader-map.json", "Explanation-to-Lean map", page) + '</p></div>' + toc + '</div>'
+                self.page(page, item["title"], content, "Start here" if group == "guides" else "Concepts", True)
+                self.search.append({"title": item["title"], "detail": ("Concept" if group == "concepts" else "Mathematical guide") + " · " + item["summary"], "url": page, "search": (item["title"] + " " + item["summary"] + " " + self.reader_text[item["source"]]).lower(), "reader": True})
+        page = "guide/index.html"
+        content = '<p class="eyebrow">Read the mathematics</p><h1>A guide to the results and proofs.</h1><p class="lead">Start with the communication problem, then follow the channel construction and its consequences. Every chapter connects the explanation to exact Lean objects.</p><ol class="reading-path">'
+        for item in self.reader["guides"]:
+            content += '<li><h2>' + self.link(item["page"], esc(item["title"]), page) + '</h2><p>' + esc(item["summary"]) + '</p></li>'
+        content += '</ol>'
+        self.page(page, "Reading guide", content, "Start here")
+        page = "concepts/index.html"
+        content = '<p class="eyebrow">Definitions, intuition, and formal objects</p><h1>The concepts behind the proof.</h1><p class="lead">Each entry explains the idea, its role in this project, and the corresponding Lean definitions or lemmas.</p>'
+        for topic in dict.fromkeys(item["topic"] for item in self.reader["concepts"]):
+            content += '<h2>' + esc(topic) + '</h2><div class="cards">'
+            for item in self.reader["concepts"]:
+                if item["topic"] == topic:
+                    content += '<div class="card"><h3>' + self.link(item["page"], esc(item["title"]), page) + '</h3><p>' + esc(item["summary"]) + '</p></div>'
+            content += '</div>'
+        self.page(page, "Concepts", content, "Concepts", True)
+        pages = [{"category": item["category"], "title": item["title"], "page": item["page"], "source": item["source"], "source_sha256": self.inputs[item["source"]], "declarations": [{"name": name, "kind": self.declarations[name]["kind"], "module": self.declarations[name]["module"], "url": self.declaration_urls[name]} for name in item["declarations"]]} for group in ("guides", "concepts", "results", "stages") for item in self.reader[group]]
+        self.emit("reader-map.json", pretty({"schema_version": 1, "copyright": COPYRIGHT, "purpose": "Reading correspondence, not an informal-to-formal equivalence certificate", "declaration_export_sha256": self.inputs["metadata/declarations.json"], "pages": pages}))
 
     def build_overview(self) -> None:
         page = "index.html"
-        content = '''<div class="hero"><div><p class="eyebrow">A reader guide to the formalization</p>
-<h1>Unbounded Holevo additivity gaps,<br>in finite dimensions.</h1>
-<p class="lead">Explore the channel constructions, the proof route, and the exact Lean statements accompanying Jinzhao Wang’s manuscript.</p>
-<p>Actual finite CPTP channels exhibit large gaps between single-use Holevo information and information available across multiple uses. Operational capacity is defined using physical codes and then identified with regularized Holevo information.</p>
-<div class="actions">'''
-        content += self.link("verify.html", "Reproduce the checks", page, "button primary") + self.link("results/prescribed-dimensions.html", "Read the main theorem", page, "button") + self.link("route.html", "Follow the proof route", page, "button")
-        content += '''</div></div><aside class="hero-note"><h2>What is established</h2>
-<p>The principal formal endpoints have no unfinished solution proofs or project-specific axioms.</p>
-<p>A full project-source rebuild, aggregate axiom audit, all 49 catalog declaration checks, and six local challenge statement checks passed in GitHub CI.</p>
-<p><strong>Comparator and an independent kernel have not been run.</strong> The full manuscript is not formalized. The revised manuscript incorporates both repaired counting arguments.</p>'''
-        content += self.link("verify.html#evidence", "Read the evidence and trust limits →", page) + '</aside></div>'
-        content += '<div class="numbers">' + ''.join(f'<div><b>{n}</b><span>{label}</span></div>' for n, label in [(len(self.modules), "modules: 366 proof files + 3 entry points"), (len(self.results), "manuscript correspondence records"), (len(self.headers), "mapped Lean declarations"), ("3", "standard axioms permitted")]) + '</div>'
-        content += '<h2>Start with the results</h2><div class="cards">'
-        for result_id in ["prescribed-dimensions", "operational-coding", "simultaneous-separation", "weyl-all-uses", "growing-family-cost", "correction-important-times"]:
-            content += self.card(result_id, page)
-        content += '</div><h2>The main formal statement</h2><p>This is the literal declaration header from <code>HaarPrescribedBound.lean</code>. Its ambient namespace, imports, and local settings remain visible on the full source page.</p>'
-        main_ref = self.result_by_id["prescribed-dimensions"]["lean"][0]
-        header, line = self.headers[main_ref["declaration"]]
-        if header:
-            content += command(header, "Copy statement")
-        content += '<p>' + self.link("results/prescribed-dimensions.html", "Scope, manuscript labels, and source context →", page) + '</p>'
-        content += '<h2>How to read this project</h2><div class="cards">'
-        for title, url, text in [("Proof route", "route.html", "A seven-stage reading order, with links to the endpoints and modules in each part of the argument."), ("Exact source", "modules.html", "Every proof module in full, with line anchors, source downloads, direct imports, and reverse import links."), ("Scope and corrections", "docs/docs--FORMALIZATION_STATUS.html", "What the formalization covers, which older interfaces remain conditional, and how the revised manuscript incorporates the counting repairs.")]:
+        content = '<div class="hero"><div><p class="eyebrow">Quantum communication · mathematics and Lean proofs</p><h1>Two uses can reveal much more than one.</h1><p class="lead">Finite quantum channels can have arbitrarily small single-use Holevo information and arbitrarily large information per use when inputs are entangled across uses.</p><p>This guide explains Jinzhao Wang’s Holevo additivity-gap construction, its scaling, and its operational meaning. Each explanation leads to the corresponding formal statements.</p><div class="actions">'
+        content += self.link("guide/introduction.html", "Start with the mathematics", page, "button primary") + self.link("guide/construction.html", "How the construction works", page, "button") + '<a class="button" href="https://arxiv.org/abs/2609.18222">Read the paper</a></div></div><aside class="hero-note reader-key"><h2>Three quantities to keep apart</h2>'
+        for expression, text in [(r"\chi(T)", "Single-use Holevo information: optimize over ensembles sent through one channel."), (r"\tfrac12\chi(T\otimes T)", "Two-use information per use: allow entangled inputs to a pair of uses."), (r"C(T)", "Operational capacity: the rate of physical codes with vanishing decoding error.")]:
+            content += '<p><strong>' + self.math(expression) + '</strong><span>' + esc(text) + '</span></p>'
+        content += self.link("guide/capacity.html", "How these quantities are related →", page) + '</aside></div>'
+        content += '<section class="reader-highlight"><h2>The central separation</h2><p>For every positive tolerance and every target gain and ratio, one finite channel can satisfy all three conditions:</p>' + self.math(r"0<\chi(T)\le\varepsilon,\qquad C(T)-\chi(T)\ge A,\qquad \frac{\chi(T\otimes T)}{2\chi(T)}\ge R.", True)
+        content += '<p>The channel may depend on the targets. Its input and output spaces are finite, and their dimensions grow along the constructed families. ' + self.result_link("simultaneous-separation", page) + ' explains the quantifiers and proof.</p></section>'
+        content += '<h2>Follow the argument</h2><div class="cards">'
+        for title, url, text in [("1. Understand the problem", "guide/introduction.html", "What additivity would predict, what entangled inputs change, and what the results establish."), ("2. Build the channel", "guide/construction.html", "Uniformly high single-use entropy, a low-entropy Bell witness, and the switch/Weyl conversion."), ("3. Read the scaling", "guide/scaling.html", "Fixed-K gaps, vanishing one-use information, and the actual input/output size costs.")]:
             content += '<div class="card"><h3>' + self.link(url, title, page) + '</h3><p>' + esc(text) + '</p></div>'
-        content += '</div><h2>Explore the checked declarations</h2><p>' + self.link("declarations.html", f'Browse all {len(self.declarations):,} project constants', page) + ' with their complete elaborated types, direct references and reverse links. ' + self.link("dependencies.html", "Explore declaration dependencies", page) + ' uses the constant references extracted from Lean’s environment.</p><p class="small muted">English descriptions and the route are reading aids. Result correspondence is non-exhaustive and does not itself certify informal-to-formal equivalence. Import links describe modules; the separate declaration explorer shows references in types and proof or definition expressions.</p>'
+        content += '</div><h2>Explore the results</h2><div class="cards">'
+        for result_id in ["prescribed-dimensions", "operational-coding", "growing-family-cost", "free-collins-youn", "weyl-all-uses", "fixed-channel-regrouping"]:
+            content += self.card(result_id, page)
+        content += '</div><h2>Connect intuition to the formal proof</h2><p>Use the ' + self.link("concepts/index.html", "concept guide", page) + ' for definitions and intuition, the ' + self.link("route.html", "proof route", page) + ' for the reasoning, and the ' + self.link("dependencies.html", "interactive map", page) + ' for actual Lean reference paths. ' + self.link("guide/reading-lean.html", "Reading a formal statement", page) + ' explains how to inspect hypotheses, units, and definitions.</p><div class="note"><strong>Formalization status.</strong> The principal endpoints passed the Lean build and axiom audit. The full manuscript is not formalized; Comparator and an independent kernel remain pending. ' + self.link("verify.html", "Reproducer commands and evidence →", page) + '</div>'
         self.page(page, "Overview", content, "Overview", True)
 
     def build_verify(self) -> None:
@@ -521,9 +607,9 @@ class Site:
 
     def build_route(self) -> None:
         page = "route.html"
-        content = '<p class="eyebrow">A guide to the argument</p><h1>The proof route.</h1><p class="lead">A reading order through the main construction, its repaired estimates, and the capacity consequences.</p><p>These stages summarize the repository’s proof map. They are not a mechanically extracted theorem-dependency graph. The module import catalog records exact direct imports separately.</p>'
+        content = '<p class="eyebrow">Why the construction works</p><h1>The proof, step by step.</h1><p class="lead">Make every single-use output highly mixed, find an entangled input with a less mixed two-use output, and turn this entropy difference into a communication advantage.</p><p>Read the ' + self.link("guide/construction.html", "construction chapter", page) + ' for the formulas and the ' + self.link("dependencies.html", "interactive proof map", page) + ' for the implemented Lean paths.</p>'
         for n, (title, text, results, modules) in enumerate(STAGES, 1):
-            content += f'<section class="route-stage" id="stage-{n}"><h2><span class="stage-number">{n}</span>{esc(title)}</h2><p>{esc(text)}</p><ul>'
+            content += f'<section class="route-stage" id="stage-{n}"><h2><span class="stage-number">{n}</span>{esc(title)}</h2>' + self.reader_body(self.reader_item("stages", str(n)), page, 1) + '<p class="small"><strong>Results at this step</strong></p><ul>'
             content += ''.join('<li>' + self.result_link(result_id, page) + '</li>' for result_id in results)
             content += '</ul><p class="small muted">Read these source modules:</p><div class="inline-links">'
             for module in modules:
@@ -537,12 +623,12 @@ class Site:
 
     def build_results(self) -> None:
         page = "results.html"
-        content = '<p class="eyebrow">Manuscript-to-Lean correspondence</p><h1>Result catalog.</h1><p class="lead">25 correspondence records connect manuscript labels to exact declarations, with scope and limitations attached.</p><p>This non-exhaustive catalog includes proved endpoints, corrected intermediate arguments, and broader statements whose formalization is not asserted. “Proved” describes the formal endpoint at its stated scope.</p>'
+        content = '<p class="eyebrow">Statements, significance, and proof ideas</p><h1>The results explained.</h1><p class="lead">Read each result as mathematics, then open its corresponding Lean statement. The main channel theorem, coding theorem, scaling laws, and intermediate estimates are explained here.</p><p>Entries also identify corrected arguments and broader claims whose formalization remains open.</p>'
         content += '<input class="filter" aria-label="Filter result catalog" placeholder="Filter by result, paper label, or declaration…" data-filter=".catalog-item" data-status="catalog-status"><p class="small muted" id="catalog-status">25 correspondence records</p>'
         for result in self.results:
             terms = result["name"] + " " + " ".join(result["paper"]["labels"]) + " " + " ".join(x["declaration"] for x in result["lean"])
             content += '<section class="catalog-item" data-search="' + esc(terms) + '"><div class="catalog-top">' + self.tag(result["status"]) + '<span class="small muted">' + esc(result["correspondence"].replace("_", " ")) + '</span></div><h2>' + self.result_link(result["id"], page) + '</h2>'
-            content += '<div class="label-list">' + ''.join('<code>' + esc(x) + '</code>' for x in result["paper"]["labels"]) + '</div><p>' + esc(result["notes"] or "See the linked formal declaration and its complete source context.") + '</p></section>'
+            content += '<div class="label-list">' + ''.join('<code>' + esc(x) + '</code>' for x in result["paper"]["labels"]) + '</div><p>' + esc(self.reader_item("results", result["id"])["summary"]) + '</p></section>'
             self.build_result(result)
         self.page(page, "Results", content, "Results")
 
@@ -550,16 +636,20 @@ class Site:
         page = "results/" + result["id"] + ".html"
         content = '<div class="breadcrumb">' + self.link("results.html", "Result catalog", page) + ' / ' + esc(result["id"]) + '</div>'
         content += '<p class="eyebrow">' + esc(result["correspondence"].replace("_", " ")) + '</p><h1>' + esc(result["name"]) + '</h1>' + self.tag(result["status"])
+        explanation = self.reader_item("results", result["id"])
+        content += '<p class="lead">' + esc(explanation["summary"]) + '</p><div class="reader-body">' + self.reader_body(explanation, page) + '</div><h2>Formal scope and manuscript correspondence</h2>'
         if result["notes"]:
-            content += '<p class="lead">' + esc(result["notes"]) + '</p>'
+            content += '<p>' + esc(result["notes"]) + '</p>'
         if result["status"] == "not_formalized":
             content += '<div class="note warning">No proof of the broader claim is asserted. Any listed predicates are definitions or conditional interfaces, not proofs that those predicates hold.</div>'
-        content += '<h2>Manuscript correspondence</h2><div class="label-list">' + ''.join('<code>' + esc(x) + '</code>' for x in result["paper"]["labels"]) + '</div>'
+        content += '<div class="label-list">' + ''.join('<code>' + esc(x) + '</code>' for x in result["paper"]["labels"]) + '</div>'
         if result["paper"].get("locator"):
             content += '<p>' + esc(result["paper"]["locator"]) + '</p>'
         content += '<p class="small muted">The included manuscript is the revised source incorporating the two counting repairs. Correspondence entries are reading aids rather than an exhaustive statement-equivalence certificate.</p><p>' + self.link("source/paper/nonadditivity.tex", "Revised manuscript source", page) + ' · ' + self.link("source/metadata/results.json", "Correspondence metadata", page) + '</p>'
         if result.get("comparator_config"):
             content += '<p class="small">Comparator configuration: ' + self.link("source/" + result["comparator_config"], '<code>' + esc(result["comparator_config"]) + '</code>', page) + '. End-to-end Comparator execution is pending.</p>'
+        if result["lean"]:
+            content += '<h2 id="lean-correspondence">Corresponding Lean statements</h2><p>Open a declaration for its complete checked type, definitions, source, and references.</p>'
         for n, ref in enumerate(result["lean"], 1):
             name = ref["declaration"]
             module_name = ref["file"][:-5].replace("/", ".")
@@ -568,16 +658,17 @@ class Site:
             source_url = self.module_url(module_name) + (f'#L{line}' if line else "")
             content += '<section class="declaration" id="' + anchor + '"><p class="eyebrow">' + esc(ref["role"].replace("_", " ")) + '</p><h2>' + esc(name) + '</h2>'
             content += '<p>' + self.declaration_link(name, page) + ' — full elaborated type and exact constant references.</p>'
+            content += '<details class="lean-details"><summary>Literal source statement and context</summary>'
             if header:
                 content += command(header, "Copy statement")
                 content += '<p class="source-context">Literal source header; namespace variables, local instances, imports, and notation are not expanded. Open the full module to read the surrounding context.</p>'
             else:
                 content += '<p>A standalone header cannot be safely extracted by this documentation generator. Read the exact full module instead.</p>'
-            content += '<p>' + self.link(source_url, "Exact source" + (f' at line {line}' if line else ""), page) + ' · <a href="' + REPO + '/blob/main/' + ref["file"] + (f'#L{line}' if line else "") + '">View on GitHub</a></p></section>'
+            content += '</details><p>' + self.link(source_url, "Exact source" + (f' at line {line}' if line else ""), page) + ' · <a href="' + REPO + '/blob/main/' + ref["file"] + (f'#L{line}' if line else "") + '">View on GitHub</a></p></section>'
         if not result["lean"]:
             content += '<p>No formal declaration is attached to this broader correspondence entry.</p>'
         content += '<p>' + self.link("verify.html", "Verification and trust limits", page) + ' · ' + self.link(self.doc_url("docs/FORMALIZATION_STATUS.md"), "Full scope statement", page) + '</p>'
-        self.search.append({"title": result["name"], "detail": result["status"].replace("_", " ") + " · " + ", ".join(result["paper"]["labels"]), "url": page, "search": (result["name"] + " " + result["id"] + " " + " ".join(result["paper"]["labels"])).lower()})
+        self.search.append({"title": result["name"], "detail": result["status"].replace("_", " ") + " · " + explanation["summary"], "url": page, "search": (result["name"] + " " + result["id"] + " " + " ".join(result["paper"]["labels"]) + " " + self.reader_text[explanation["source"]]).lower(), "reader": True})
         self.page(page, result["name"], content, "Results")
 
     def build_modules(self) -> None:
@@ -669,6 +760,7 @@ class Site:
         internal = bool(record["is_internal"])
         detail = bool(record.get("is_internal_detail", False))
         content = '<div class="breadcrumb">' + self.link("declarations.html", "All declarations", page) + ' / ' + self.module_link(record["module"], page) + '</div><p class="eyebrow">' + esc(record["kind"]) + '</p><h1 class="title-code">' + esc(name) + '</h1>'
+        content += self.explanation_links(name, page)
         if private or internal or detail:
             predicates = []
             if internal:
@@ -747,6 +839,9 @@ class Site:
             readable = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", short).replace("_", " ")
             statement = record.get("type_readable", "")
             nodes.append({"name": name, "url": self.declaration_urls[name], "kind": record["kind"], "module": record["module"], "module_url": self.module_url(record["module"]), "source_url": self.module_url(record["module"]), "type": [indices[n] for n in record["type_dependencies"] if n in indices], "value": [indices[n] for n in record["value_dependencies"] if n in indices], "internal": hidden_declaration(record), "curated": bool(item), "label": item["label"] if item else readable, "description": item["description"] if item else "", "statement": statement[:1200], "statement_truncated": len(statement) > 1200})
+            if name in self.reader_by_decl:
+                order = {"results": 0, "concepts": 1, "guides": 2, "stages": 3}
+                nodes[-1]["reader_url"] = min(self.reader_by_decl[name], key=lambda item: order[item["category"]])["page"]
         presets = []
         for preset in guide["presets"]:
             selected = set(preset["nodes"])
@@ -811,12 +906,24 @@ class Site:
 
     def resolve_doc_link(self, destination: str, source: str, page: str) -> str:
         parsed = urlsplit(destination)
+        root = "../" * (len(PurePosixPath(page).parts) - 1)
+        if parsed.scheme == "lean":
+            if parsed.path not in self.declarations:
+                raise ValueError("Unknown reader declaration link: " + destination)
+            return root + self.declaration_urls[parsed.path]
+        if parsed.scheme == "site":
+            if not parsed.path or PurePosixPath(parsed.path).is_absolute() or ".." in PurePosixPath(parsed.path).parts:
+                raise ValueError("Invalid reader site link: " + destination)
+            return root + parsed.path + (("#" + parsed.fragment) if parsed.fragment else "")
+        if parsed.scheme in {"guide", "concept", "result", "stage"}:
+            group = {"guide": "guides", "concept": "concepts", "result": "results", "stage": "stages"}[parsed.scheme]
+            item = self.reader_item(group, parsed.path)
+            return root + item["page"] + (("#" + parsed.fragment) if parsed.fragment else "")
         if parsed.scheme or destination.startswith("//"):
             return destination
         if destination.startswith("#"):
             return destination
         resolved = os.path.normpath(str(PurePosixPath(source).parent / unquote(parsed.path))).replace(os.sep, "/")
-        root = "../" * (len(PurePosixPath(page).parts) - 1)
         if resolved in self.docs:
             return root + self.doc_url(resolved) + (("#" + parsed.fragment) if parsed.fragment else "")
         if resolved in self.inputs and "source/" + resolved in self.outputs:
@@ -832,6 +939,8 @@ class Site:
             return "\x00" + str(len(slots) - 1) + "\x00"
 
         text = re.sub(r"`([^`]+)`", lambda m: hold("<code>" + esc(m.group(1)) + "</code>"), text)
+        text = re.sub(r"(?<!\\)\$([^$\n]+)\$", lambda m: hold(self.math(m.group(1))), text)
+        text = re.sub(r"\\\((.+?)\\\)", lambda m: hold(self.math(m.group(1))), text)
         text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda m: hold('<a href="' + esc(self.resolve_doc_link(m.group(2), source, page)) + '">' + esc(m.group(1)) + '</a>'), text)
         text = esc(text)
         text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
@@ -851,7 +960,7 @@ class Site:
             restored.append(re.sub("\x00(\\d+)\x00", restore_prior, slot))
         return re.sub("\x00(\\d+)\x00", lambda m: restored[int(m.group(1))], text)
 
-    def render_markdown(self, source: str, text: str, page: str) -> str:
+    def render_markdown(self, source: str, text: str, page: str, heading_shift: int = 1, anchor_prefix: str = "") -> str:
         """Readable subset of Markdown; exact original is always downloadable."""
         lines = text.splitlines()
         out = []
@@ -860,6 +969,23 @@ class Site:
         while i < len(lines):
             line = lines[i]
             if not line.strip():
+                i += 1
+                continue
+            if line.startswith("<!--"):
+                while i < len(lines) and "-->" not in lines[i]:
+                    i += 1
+                i += 1
+                continue
+            if line.strip() in {"$$", r"\["}:
+                end = "$$" if line.strip() == "$$" else r"\]"
+                equation = []
+                i += 1
+                while i < len(lines) and lines[i].strip() != end:
+                    equation.append(lines[i])
+                    i += 1
+                if i == len(lines):
+                    raise ValueError("Unclosed display math in " + source)
+                out.append(self.math("\n".join(equation), True))
                 i += 1
                 continue
             if line.startswith("```"):
@@ -874,12 +1000,13 @@ class Site:
                 continue
             heading = re.match(r"^(#{1,6})\s+(.+)$", line)
             if heading:
-                level = min(len(heading.group(1)) + 1, 6)
+                level = min(len(heading.group(1)) + heading_shift, 6)
                 name = heading.group(2)
                 slug = re.sub(r"[^\w\- ]", "", name.lower()).replace(" ", "-")
                 used_ids[slug] += 1
                 if used_ids[slug] > 1:
                     slug += "-" + str(used_ids[slug]-1)
+                slug = anchor_prefix + slug
                 out.append(f'<h{level} id="{esc(slug)}">' + self.inline_markdown(name, source, page) + f'</h{level}>')
                 i += 1
                 continue
@@ -928,7 +1055,7 @@ class Site:
                 continue
             paragraph = [line.strip()]
             i += 1
-            while i < len(lines) and lines[i].strip() and not re.match(r"^(?:#{1,6}\s|```|\s*[-*]\s|\s*\d+\.\s|>)", lines[i]):
+            while i < len(lines) and lines[i].strip() and lines[i].strip() not in {"$$", r"\["} and not re.match(r"^(?:#{1,6}\s|```|\s*[-*]\s|\s*\d+\.\s|>)", lines[i]):
                 if i + 1 < len(lines) and "|" in lines[i] and re.match(r"^\s*\|?\s*:?-{3,}", lines[i+1]):
                     break
                 paragraph.append(lines[i].strip())
@@ -938,7 +1065,7 @@ class Site:
 
     def build_docs(self) -> None:
         page = "docs/index.html"
-        content = '<p class="eyebrow">Repository prose and provenance</p><h1>Documents.</h1><p class="lead">The project’s status, corrections, architecture, verification evidence, and attribution.</p><p>These pages render the committed Markdown documents. Exact Markdown downloads remain available on every page; formulas in repository prose are preserved as text rather than reinterpreted as Lean statements.</p><div class="cards">'
+        content = '<p class="eyebrow">Repository prose and provenance</p><h1>Documents.</h1><p class="lead">The project’s status, corrections, architecture, verification evidence, and attribution.</p><p>These pages render the committed Markdown documents, including their mathematical notation. Exact Markdown downloads remain available on every page.</p><div class="cards">'
         for source, text in self.docs.items():
             title_match = re.search(r"(?m)^#\s+(.+)$", text)
             title = title_match.group(1) if title_match else source
@@ -951,7 +1078,7 @@ class Site:
 
     def build_about(self) -> None:
         page = "about.html"
-        content = '<p class="eyebrow">Sources and trust</p><h1>About these pages.</h1><p class="lead">A deterministic reader site generated from this repository’s actual source files and result metadata.</p><p>The information architecture follows the reader-oriented <a href="https://tianyipeng.github.io/fermats-last-theorem/">Fermat’s Last Theorem documentation</a>: overview, route, searchable results, exact statements, source modules, and repository documents. The design, generator, and assets here are original project material.</p>'
+        content = '<p class="eyebrow">Sources and trust</p><h1>About these pages.</h1><p class="lead">A mathematical reader guide connected to this repository’s exact formal sources.</p><p>The explanatory organization follows <a href="https://jwang226.github.io/QMDL/">QMDL</a>: an introduction, concepts, result explanations, a proof route, and links in both directions between mathematics and Lean. The formal source explorer also follows the structure of the <a href="https://tianyipeng.github.io/fermats-last-theorem/">Fermat’s Last Theorem documentation</a>. The project’s explanations, design, and generator are original material. Mathematical notation uses a locally bundled KaTeX 0.19.0 distribution under the MIT license; ' + self.link("assets/katex/LICENSE", "its original license", page) + ' is retained.</p><p>The mathematical chapters, concept entries, all 25 result explanations, and seven proof-stage explanations are handwritten documentation. Every attached Lean declaration is validated against the actual export. The ' + self.link("reader-map.json", "machine-readable explanation map", page) + ' records these reading correspondences and source hashes. It does not assert formal equivalence of the prose and proof terms.</p>'
         content += '<h2>What is shown, and how</h2><table class="about-table"><tbody>'
         for label, text in [("Result correspondence", "The 25 records and 49 exact declaration references are read from metadata/results.json. Status and scope notes are carried through unchanged."), ("Quoted headers", "A conservative lexical recognizer quotes a unique literal declaration header before its outer :=. It hides comments and strings while locating syntax, then quotes the original source text. Ambiguous syntax falls back to full source."), ("Elaborated declarations", f"All {len(self.declarations):,} project constants are exported from the actual Lean environment into metadata/declarations.json. Individual pages display a readable elaborated type, with universe parameters separately listed, and link to the exact full source module. A shared kernel expression DAG preserves every kernel-relevant argument, universe, binder and name component, while omitting kernel-irrelevant metadata annotations."), ("Source context", "A literal source header does not expand namespace variables, implicit instances, notation, imports, or local settings. Its display is distinguished from the complete exported type. An exact declaration line is linked only when available from source extraction or trustworthy declaration metadata."), ("Import relationships", "Direct imports are read from literal import commands. Reverse links cover all 366 proof modules and three aggregate entry points. These remain distinct from individual constant references."), ("Constant dependencies", "Type and stored-value expressions provide exact direct constant-reference lists. Reverse project links are computed from those lists. The proof overview gives mathematical labels to selected theorems, with each arrow backed by an actual proof/definition-reference path. Intermediate helpers and redundant arrows are omitted; their paths remain inspectable. A detailed view retains direct type and proof/definition references. No minimality or informal-proof equivalence is asserted."), ("Search", f"Search indexes every one of the {len(self.declarations):,} exported project constants, all result names and paper labels, and all source modules. Names flagged by Lean’s internal, internal-detail or private predicates can be included explicitly; these flags do not identify every generated constant."), ("Export freshness", "The generator verifies the exported SHA-256 provenance against every proof source, aggregate entry point, toolchain and dependency manifest before generating pages. A stale source blocks the documentation build. This checks provenance consistency; it does not independently re-execute the exporter or prove metadata integrity."), ("Repository documents", "A small offline Markdown renderer displays committed prose. Exact Markdown files are available when typography or formula syntax needs checking."), ("Verification evidence", "The retained successful GitHub CI run certifies a full project-source rebuild and Lean audit at its recorded commit. Comparator execution and independent-kernel verification remain pending."), ("Offline use", "Open html/index.html directly after cloning, or visit the GitHub Pages site. Search and dependency data are local JavaScript assets, so no server, CDN, telemetry, or network request is required to browse."), ("Licensing", "No blanket open-source license has been selected for project-owned code or the manuscript. Copyright and original third-party attribution are preserved.")]:
             content += '<tr><td>' + esc(label) + '</td><td>' + esc(text) + '</td></tr>'
@@ -962,8 +1089,15 @@ class Site:
 
     def generate(self) -> None:
         self.emit(".nojekyll", b"")
-        for name in ["site.css", "site.js", "dependencies.js"]:
+        for name in ["site.css", "site.js", "dependencies.js", "math.js"]:
             self.emit("assets/" + name, (TOOLS / name).read_bytes())
+        for path in sorted((TOOLS / "vendor" / "katex").rglob("*")):
+            if path.is_file():
+                rel = path.relative_to(ROOT).as_posix()
+                data = path.read_bytes()
+                self.inputs[rel] = hashlib.sha256(data).hexdigest()
+                self.emit("assets/katex/" + path.relative_to(TOOLS / "vendor" / "katex").as_posix(), data)
+        self.build_reader()
         self.build_overview()
         self.build_verify()
         self.build_route()
@@ -978,6 +1112,8 @@ class Site:
         self.emit("assets/search-data.js", '// ' + COPYRIGHT + '\nwindow.HOLEVO_SEARCH = ' + json.dumps(self.search, ensure_ascii=False, separators=(",", ":")) + ';\n')
         self.emit("generation.json", pretty({
             "schema_version": 1, "generator": "tools/docs-site/build.py", "site": SITE,
+            "mathematical_guide_chapters": len(self.reader["guides"]), "concept_explanations": len(self.reader["concepts"]), "explained_results": len(self.reader["results"]),
+            "explanation_to_lean_map": "reader-map.json", "math_renderer": {"name": "KaTeX", "version": "0.19.0", "license": "MIT", "offline": True},
             "module_count": len(self.modules), "proof_module_count": 366, "aggregate_entry_points": 3, "correspondence_records": len(self.results),
             "mapped_declarations": len(self.headers), "literal_headers_quoted": sum(header is not None for header, line in self.headers.values()),
             "exported_project_declarations": len(self.declarations),

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved.",
+  "guides": [
+    {"id": "introduction", "title": "The communication problem", "summary": "What Holevo additivity would predict, how entangled inputs change the question, and what the results establish."},
+    {"id": "construction", "title": "How the channel is built", "summary": "Follow the argument from a free-operator comparison to a finite channel with high single-use entropy and a low-entropy Bell witness."},
+    {"id": "capacity", "title": "From Holevo information to capacity", "summary": "Connect the entropy bounds to rates of actual codes, and distinguish a capacity gain from additivity of regularized capacity."},
+    {"id": "scaling", "title": "What grows, and what it costs", "summary": "Compare the fixed-K and growing-K families, keeping input qubits, output qubits, and channel uses distinct."},
+    {"id": "notation", "title": "Notation and units", "summary": "A compact dictionary of the channel parameters, information quantities, logarithms, and their Lean names."},
+    {"id": "reading-lean", "title": "Reading the Lean statements", "summary": "Move from an informal claim to its exact definitions, hypotheses, proof, and verification evidence."}
+  ],
+  "concepts": [
+    {"id": "channels", "title": "Finite quantum channels", "topic": "Communication basics", "summary": "Density matrices, Kraus maps, tensor products, and the complementary channel used in the construction."},
+    {"id": "holevo-information", "title": "Holevo information and the two-use gap", "topic": "Communication basics", "summary": "An entropy difference optimized over output ensembles, and the advantage of allowing joint inputs."},
+    {"id": "output-entropy", "title": "Minimum output entropy and purity", "topic": "Communication basics", "summary": "Why making every output highly mixed restricts the information in any single-use ensemble."},
+    {"id": "bell-input", "title": "The Bell-state witness", "topic": "Ingredients of the construction", "summary": "A concrete entangled input whose joint output has an entropy deficit that survives the conversion."},
+    {"id": "adjoint-certificate", "title": "The uniform adjoint certificate", "topic": "Ingredients of the construction", "summary": "An operator norm bound on every traceless observable that controls every actual output state."},
+    {"id": "free-haar", "title": "Free operators and finite Haar matrices", "topic": "Ingredients of the construction", "summary": "The free model supplies a comparison scale; explicit finite Haar estimates produce a channel at a prescribed size."},
+    {"id": "finite-moments", "title": "Haar moments and path counting", "topic": "Ingredients of the construction", "summary": "How corrected exploration counts and coefficient estimates control the finite-dimensional approximation."},
+    {"id": "weyl-switch", "title": "Switch channels and Weyl extensions", "topic": "Ingredients of the construction", "summary": "Convert a channel/conjugate entropy advantage into a Holevo advantage for two uses of one channel."},
+    {"id": "operational-capacity", "title": "Operational capacity and regularization", "topic": "Coding and size", "summary": "Physical encoders, POVM decoders, vanishing error, and the supremum of normalized tensor-power Holevo quantities."},
+    {"id": "dimension-cost", "title": "Input and output qubit costs", "topic": "Coding and size", "summary": "Logarithmic dimension costs explain both the output-linear gap and the larger input resources."}
+  ],
+  "results": [
+    {"id": "prescribed-dimensions", "summary": "An explicit finite size guarantee gives single-use and two-use bounds for the same channel, and hence a quantitative additivity gap."},
+    {"id": "operational-coding", "summary": "The rate defined using physical codes equals the regularized Holevo information; the equality is proved rather than used as a definition."},
+    {"id": "capacity-gain", "summary": "The prescribed channel has a capacity advantage over its single-use Holevo information that grows with the block parameter."},
+    {"id": "two-use-ratio", "summary": "For each fixed K, the asymptotic two-use information per use is at least a specified multiple of the single-use information."},
+    {"id": "simultaneous-separation", "summary": "One finite channel can simultaneously have tiny positive single-use information, a large capacity gain, and a large two-use ratio."},
+    {"id": "qualitative-realization", "summary": "A separate deterministic construction realizes the qualitative bounds for every allowed block length, without a prescribed local-size formula."},
+    {"id": "small-large-and-sequence", "summary": "A sequence of actual channels has single-use information tending to zero and two-use information per use, and capacity, diverging."},
+    {"id": "fixed-k-scaling", "summary": "With K fixed and a positive gap coefficient, the gap is linear in output cost and proportional to the square root of input cost."},
+    {"id": "input-size-expansion", "summary": "The exact integer-rounded input dimension has an asymptotic qubit-cost expansion, including its constant term."},
+    {"id": "guaranteed-gap-fraction", "summary": "Normalize the proved gap by output qubits and quantify how its guaranteed fraction depends on K."},
+    {"id": "fixed-channel-regrouping", "summary": "Regrouping more and more uses of one fixed channel cannot produce a persistent linear two-block gap."},
+    {"id": "growing-family-cost", "summary": "A growing-K family makes single-use information vanish while two-use information and capacity grow, with explicit input-qubit costs."},
+    {"id": "free-collins-youn", "summary": "The free-group comparison bounds an operator norm by a Hilbert–Schmidt coefficient norm, setting the scale for the channel certificate."},
+    {"id": "prescribed-norm-certificate", "summary": "A finite Haar expectation estimate and net selection yield a uniform adjoint bound at the specified dimensions."},
+    {"id": "purity-entropy", "summary": "An adjoint norm bound implies a purity and entropy bound for every output density matrix."},
+    {"id": "bell-entropy", "summary": "An explicit Bell input gives a joint output entropy deficit for the complementary channel and its conjugate."},
+    {"id": "weyl-all-uses", "summary": "At every positive tensor power, the Weyl extension turns minimum output entropy into an exact Holevo quantity."},
+    {"id": "universal-factorization", "summary": "One finite-set factorization works uniformly across the admissible Hilbert-space representations and transfers approximation errors."},
+    {"id": "haar-moment-range", "summary": "Weighted chronological counting proves the sharper one-pair Haar estimate at the original dimension threshold."},
+    {"id": "favorable-probability", "summary": "An expectation bound provides an explicit positive probability of a favorable finite realization."},
+    {"id": "correction-important-times", "summary": "The correct exploration budget is defect plus two; a formal counterexample explains why the extra event is necessary."},
+    {"id": "correction-middle-runs", "summary": "Marked positions and the repaired coefficient exponent replace an invalid intermediate run count."},
+    {"id": "undamped-all-dimensions", "summary": "A stronger undamped realization in every sufficiently large dimension remains outside the proved endpoints."},
+    {"id": "generic-haar-convergence", "summary": "The library defines general convergence interfaces, while the completed construction uses specialized proved finite estimates."},
+    {"id": "background-generality", "summary": "Some broader background formulations extend beyond the coefficient models and coding results formalized here."}
+  ],
+  "stages": [
+    {"id": "1"}, {"id": "2"}, {"id": "3"}, {"id": "4"}, {"id": "5"}, {"id": "6"}, {"id": "7"}
+  ]
+}
