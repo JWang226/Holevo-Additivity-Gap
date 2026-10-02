@@ -13,7 +13,7 @@ from __future__ import annotations
 import argparse
 import base64
 import codecs
-from collections import defaultdict
+from collections import defaultdict, deque
 import gzip
 import hashlib
 import html
@@ -251,7 +251,7 @@ class Site:
         for rel in source_paths:
             self.emit("source/" + rel, self.read(rel))
         # Track the generator and its own assets in the deterministic manifest.
-        for name in ["build.py", "site.css", "site.js", "dependencies.js", "README.md"]:
+        for name in ["build.py", "site.css", "site.js", "dependencies.js", "proof-graph.json", "README.md"]:
             rel = "tools/docs-site/" + name
             if (ROOT / rel).exists():
                 self.read(rel)
@@ -721,14 +721,93 @@ class Site:
         nodes = []
         names = sorted(self.declarations)
         indices = {name: n for n, name in enumerate(names)}
+        guide = json.loads(self.read("tools/docs-site/proof-graph.json"))
+        if guide.get("schema_version") != 1:
+            raise ValueError("Unsupported proof-map description schema")
+        guide_nodes = {item["id"]: item for item in guide["nodes"]}
+        if len(guide_nodes) != len(guide["nodes"]):
+            raise ValueError("Duplicate proof-map node ID")
+        descriptions = {item["declaration"]: item for item in guide["nodes"]}
+        if len(descriptions) != len(guide["nodes"]):
+            raise ValueError("Duplicate proof-map declaration")
+        for item in guide["nodes"]:
+            if item["declaration"] not in indices:
+                raise ValueError("Unknown proof-map declaration: " + item["declaration"])
+            if not all(isinstance(item.get(key), str) and item[key].strip() for key in ("id", "label", "map_note", "description", "stage")):
+                raise ValueError("Incomplete proof-map description: " + item["id"])
+            if len(item["map_note"]) > 45:
+                raise ValueError("Proof-map takeaway is too long: " + item["id"])
+            item["index"] = indices[item["declaration"]]
+        if len({preset["id"] for preset in guide["presets"]}) != len(guide["presets"]):
+            raise ValueError("Duplicate proof-map preset ID")
         for name in names:
             record = self.declarations[name]
-            nodes.append({"name": name, "url": self.declaration_urls[name], "kind": record["kind"], "module": record["module"], "type": [indices[n] for n in record["type_dependencies"] if n in indices], "value": [indices[n] for n in record["value_dependencies"] if n in indices], "internal": hidden_declaration(record)})
+            item = descriptions.get(name)
+            short = name.rsplit(".", 1)[-1]
+            readable = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", short).replace("_", " ")
+            statement = record.get("type_readable", "")
+            nodes.append({"name": name, "url": self.declaration_urls[name], "kind": record["kind"], "module": record["module"], "module_url": self.module_url(record["module"]), "source_url": self.module_url(record["module"]), "type": [indices[n] for n in record["type_dependencies"] if n in indices], "value": [indices[n] for n in record["value_dependencies"] if n in indices], "internal": hidden_declaration(record), "curated": bool(item), "label": item["label"] if item else readable, "description": item["description"] if item else "", "statement": statement[:1200], "statement_truncated": len(statement) > 1200})
+        presets = []
+        for preset in guide["presets"]:
+            selected = set(preset["nodes"])
+            if not re.fullmatch(r"[a-z0-9-]+", preset["id"]) or len(selected) != len(preset["nodes"]) or preset["root"] not in selected or not selected <= guide_nodes.keys():
+                raise ValueError("Invalid proof-map preset: " + preset["id"])
+            selected_names = {guide_nodes[key]["declaration"]: key for key in selected}
+            edges = []
+            # Stop at another selected theorem. Each visible arrow therefore
+            # has a real proof/definition-reference path through omitted helpers.
+            for consumer_id in preset["nodes"]:
+                consumer = guide_nodes[consumer_id]["declaration"]
+                parents: dict[str, str | None] = {consumer: None}
+                queue = deque([consumer])
+                while queue:
+                    current = queue.popleft()
+                    for reference in sorted(self.declarations[current]["value_dependencies"]):
+                        if reference not in indices or reference in parents:
+                            continue
+                        parents[reference] = current
+                        if reference in selected_names:
+                            path = [reference]
+                            while parents[path[-1]] is not None:
+                                path.append(parents[path[-1]])
+                            path.reverse()
+                            edges.append({"from": selected_names[reference], "to": consumer_id, "path": [indices[n] for n in path]})
+                        else:
+                            queue.append(reference)
+            # Remove a visible edge when other visible edges already provide a
+            # route, retaining a path witness on each edge that is displayed.
+            reduced = []
+            for edge in edges:
+                adjacency: dict[str, list[str]] = defaultdict(list)
+                for other in edges:
+                    if other is not edge:
+                        adjacency[other["from"]].append(other["to"])
+                reached = {edge["from"]}
+                queue = deque(reached)
+                while queue:
+                    for target in adjacency[queue.popleft()]:
+                        if target not in reached:
+                            reached.add(target)
+                            queue.append(target)
+                if edge["to"] not in reached:
+                    reduced.append(edge)
+            ancestors = {preset["root"]}
+            while True:
+                added = {edge["from"] for edge in reduced if edge["to"] in ancestors} - ancestors
+                if not added:
+                    break
+                ancestors.update(added)
+            if ancestors != selected:
+                raise ValueError("Proof-map preset contains a step without a proof-reference path to its root: " + preset["id"] + ": " + ", ".join(sorted(selected - ancestors)))
+            presets.append({**{key: preset[key] for key in ("id", "label", "root", "description")}, "node_ids": preset["nodes"], "edges": reduced})
         self.emit("assets/dependency-data.js", '// ' + COPYRIGHT + '\nwindow.HOLEVO_DEPENDENCIES = ' + json.dumps(nodes, ensure_ascii=False, separators=(",", ":")) + ';\n')
+        self.emit("assets/proof-graph-data.js", '// ' + COPYRIGHT + '\nwindow.HOLEVO_PROOF_GRAPH = ' + json.dumps({"nodes": guide["nodes"], "presets": presets}, ensure_ascii=False, separators=(",", ":")) + ';\n')
         focus = self.result_by_id["prescribed-dimensions"]["lean"][0]["declaration"]
-        content = '<p class="eyebrow">Actual Lean constant references</p><h1>Explore declaration dependencies.</h1><p class="lead">Follow the constants occurring in an elaborated type or its stored proof or definition expression.</p><p>This graph comes from the Lean environment. It is separate from the English proof route and from module imports. It shows project constants; external library references remain listed on each declaration page.</p>'
-        content += '<div id="dependency-explorer" data-focus="' + esc(focus) + '"><div class="graph-controls"><label>Find a project constant <input class="filter" id="dependency-search" type="search" placeholder="Type a declaration name…" autocomplete="off" spellcheck="false"></label><div id="dependency-suggestions"></div><label>Direction <select id="dependency-direction"><option value="dependencies">Uses</option><option value="users">Used by</option></select></label><label>References <select id="dependency-kind"><option value="all">Type and value</option><option value="type">Type only</option><option value="value">Proof or definition only</option></select></label><label>Depth <select id="dependency-depth"><option>1</option><option selected>2</option><option>3</option></select></label><button id="dependency-collapse" class="button" type="button">Collapse to one level</button></div><p id="dependency-focus"></p><p class="small muted" id="dependency-status" aria-live="polite"></p><div id="dependency-graph" class="dependency-graph"></div><h2>Direct neighbors of the selected constant</h2><p class="small muted">This complete neighbor list follows the selected direction and reference kind. The diagram is bounded to four new nodes per depth so labels remain readable; select a listed neighbor to follow another branch.</p><div id="dependency-neighbors"></div><button id="dependency-more" class="button" type="button">Show 50 more neighbors</button></div><noscript><p>The interactive diagram requires JavaScript. Complete direct and reverse references are present on every declaration page.</p></noscript><h2>How to read the arrows</h2><p>An arrow points from a constant to a project constant it directly references. In “Used by” mode the layout follows reverse neighbors while arrow direction still records the original reference. No transitive reduction, mathematical indispensability or equivalence to the informal argument is asserted.</p>'
-        self.page(page, "Dependencies", content, "Dependencies", True, ("assets/dependency-data.js", "assets/dependencies.js"))
+        content = '<p class="eyebrow">The mathematical structure of the formalization</p><h1>How the proofs fit together.</h1><p class="lead">Choose a result, follow its ingredients, and open any step to see what it establishes.</p>'
+        content += '<div id="dependency-explorer" data-focus="' + esc(focus) + '"><div class="proof-tabs" role="tablist" aria-label="Dependency view"><button type="button" id="dependency-overview-tab" role="tab" aria-selected="true" aria-controls="dependency-overview-panel">Proof overview</button><button type="button" id="dependency-references-tab" role="tab" aria-selected="false" aria-controls="dependency-references-panel">Lean references</button></div>'
+        content += '<section id="dependency-overview-panel" role="tabpanel" aria-labelledby="dependency-overview-tab"><div class="proof-toolbar"><label>Explore <select id="proof-preset">' + ''.join('<option value="' + esc(preset["id"]) + '">' + esc(preset["label"]) + '</option>' for preset in presets) + '</select></label><span class="proof-arrow-key">Ingredient <span aria-hidden="true">→</span> conclusion</span></div><p id="proof-overview-status" class="proof-intro"></p><div class="proof-layout"><div id="proof-map" class="proof-map"></div><aside id="proof-detail" class="proof-detail" aria-live="polite"></aside></div><details class="proof-method"><summary>How these connections are obtained</summary><p>Labels describe the mathematical role of selected Lean results. Each arrow is backed by a path through references in the stored Lean proof or definition; intermediate helpers are grouped away. Expand a step’s supporting paths to inspect those helpers. The overview removes redundant arrows. It records the implemented proof route, with no claim that every ingredient is mathematically indispensable. The detailed tab preserves direct references and their type/proof distinction.</p></details></section>'
+        content += '<section id="dependency-references-panel" role="tabpanel" aria-labelledby="dependency-references-tab" hidden><p>Inspect the exact references of any project declaration. Arrows run from a referenced ingredient to the declaration that uses it.</p><div class="graph-controls"><label>Find a theorem or definition <input class="filter" id="dependency-search" type="search" placeholder="Search a result, theorem name, or module…" autocomplete="off" spellcheck="false"></label><div id="dependency-suggestions"></div><label>Follow <select id="dependency-direction"><option value="dependencies">Prerequisites</option><option value="users">Consequences</option></select></label><label>Show <select id="dependency-kind"><option value="value">Proof and definition references</option><option value="type">Statement references</option><option value="all">Both</option></select></label><label>Levels <select id="dependency-depth"><option selected>1</option><option>2</option><option>3</option></select></label><label class="internal-toggle"><input type="checkbox" id="dependency-helpers"> Show Lean internal and private helpers</label><button id="dependency-collapse" class="button" type="button">Reset to one level</button></div><div id="dependency-focus" class="reference-focus"></div><p class="small muted" id="dependency-status" aria-live="polite"></p><div id="dependency-graph" class="dependency-graph"></div><h2>Direct references</h2><p class="small muted">The list includes every matching project reference. The diagram shows a smaller neighborhood and prioritizes the named mathematical steps. Imported-library references and the full type remain on each declaration page.</p><div id="dependency-neighbors"></div><button id="dependency-more" class="button" type="button">Show 50 more references</button></section></div><noscript><p>The interactive diagrams require JavaScript. The selected proof steps are listed below; complete references remain on their declaration pages.</p><ul>' + ''.join('<li>' + self.link(self.declaration_urls[item["declaration"]], esc(item["label"]), page) + ' — ' + esc(item["description"]) + '</li>' for item in guide["nodes"]) + '</ul></noscript>'
+        self.page(page, "Dependencies", content, "Dependencies", True, ("assets/dependency-data.js", "assets/proof-graph-data.js", "assets/dependencies.js"))
 
     def resolve_doc_link(self, destination: str, source: str, page: str) -> str:
         parsed = urlsplit(destination)
@@ -874,7 +953,7 @@ class Site:
         page = "about.html"
         content = '<p class="eyebrow">Sources and trust</p><h1>About these pages.</h1><p class="lead">A deterministic reader site generated from this repository’s actual source files and result metadata.</p><p>The information architecture follows the reader-oriented <a href="https://tianyipeng.github.io/fermats-last-theorem/">Fermat’s Last Theorem documentation</a>: overview, route, searchable results, exact statements, source modules, and repository documents. The design, generator, and assets here are original project material.</p>'
         content += '<h2>What is shown, and how</h2><table class="about-table"><tbody>'
-        for label, text in [("Result correspondence", "The 25 records and 49 exact declaration references are read from metadata/results.json. Status and scope notes are carried through unchanged."), ("Quoted headers", "A conservative lexical recognizer quotes a unique literal declaration header before its outer :=. It hides comments and strings while locating syntax, then quotes the original source text. Ambiguous syntax falls back to full source."), ("Elaborated declarations", f"All {len(self.declarations):,} project constants are exported from the actual Lean environment into metadata/declarations.json. Individual pages display a readable elaborated type, with universe parameters separately listed, and link to the exact full source module. A shared kernel expression DAG preserves every kernel-relevant argument, universe, binder and name component, while omitting kernel-irrelevant metadata annotations."), ("Source context", "A literal source header does not expand namespace variables, implicit instances, notation, imports, or local settings. Its display is distinguished from the complete exported type. An exact declaration line is linked only when available from source extraction or trustworthy declaration metadata."), ("Import relationships", "Direct imports are read from literal import commands. Reverse links cover all 366 proof modules and three aggregate entry points. These remain distinct from individual constant references."), ("Constant dependencies", "Type and stored-value expressions provide exact direct constant-reference lists. Reverse project links are computed from those lists. The interactive graph follows actual project-constant references and limits the visible neighborhood for readability; the full lists remain on declaration pages. No minimality or informal-proof equivalence is asserted."), ("Search", f"Search indexes every one of the {len(self.declarations):,} exported project constants, all result names and paper labels, and all source modules. Names flagged by Lean’s internal, internal-detail or private predicates can be included explicitly; these flags do not identify every generated constant."), ("Export freshness", "The generator verifies the exported SHA-256 provenance against every proof source, aggregate entry point, toolchain and dependency manifest before generating pages. A stale source blocks the documentation build. This checks provenance consistency; it does not independently re-execute the exporter or prove metadata integrity."), ("Repository documents", "A small offline Markdown renderer displays committed prose. Exact Markdown files are available when typography or formula syntax needs checking."), ("Verification evidence", "The retained successful GitHub CI run certifies a full project-source rebuild and Lean audit at its recorded commit. Comparator execution and independent-kernel verification remain pending."), ("Offline use", "Open html/index.html directly after cloning, or visit the GitHub Pages site. Search and dependency data are local JavaScript assets, so no server, CDN, telemetry, or network request is required to browse."), ("Licensing", "No blanket open-source license has been selected for project-owned code or the manuscript. Copyright and original third-party attribution are preserved.")]:
+        for label, text in [("Result correspondence", "The 25 records and 49 exact declaration references are read from metadata/results.json. Status and scope notes are carried through unchanged."), ("Quoted headers", "A conservative lexical recognizer quotes a unique literal declaration header before its outer :=. It hides comments and strings while locating syntax, then quotes the original source text. Ambiguous syntax falls back to full source."), ("Elaborated declarations", f"All {len(self.declarations):,} project constants are exported from the actual Lean environment into metadata/declarations.json. Individual pages display a readable elaborated type, with universe parameters separately listed, and link to the exact full source module. A shared kernel expression DAG preserves every kernel-relevant argument, universe, binder and name component, while omitting kernel-irrelevant metadata annotations."), ("Source context", "A literal source header does not expand namespace variables, implicit instances, notation, imports, or local settings. Its display is distinguished from the complete exported type. An exact declaration line is linked only when available from source extraction or trustworthy declaration metadata."), ("Import relationships", "Direct imports are read from literal import commands. Reverse links cover all 366 proof modules and three aggregate entry points. These remain distinct from individual constant references."), ("Constant dependencies", "Type and stored-value expressions provide exact direct constant-reference lists. Reverse project links are computed from those lists. The proof overview gives mathematical labels to selected theorems, with each arrow backed by an actual proof/definition-reference path. Intermediate helpers and redundant arrows are omitted; their paths remain inspectable. A detailed view retains direct type and proof/definition references. No minimality or informal-proof equivalence is asserted."), ("Search", f"Search indexes every one of the {len(self.declarations):,} exported project constants, all result names and paper labels, and all source modules. Names flagged by Lean’s internal, internal-detail or private predicates can be included explicitly; these flags do not identify every generated constant."), ("Export freshness", "The generator verifies the exported SHA-256 provenance against every proof source, aggregate entry point, toolchain and dependency manifest before generating pages. A stale source blocks the documentation build. This checks provenance consistency; it does not independently re-execute the exporter or prove metadata integrity."), ("Repository documents", "A small offline Markdown renderer displays committed prose. Exact Markdown files are available when typography or formula syntax needs checking."), ("Verification evidence", "The retained successful GitHub CI run certifies a full project-source rebuild and Lean audit at its recorded commit. Comparator execution and independent-kernel verification remain pending."), ("Offline use", "Open html/index.html directly after cloning, or visit the GitHub Pages site. Search and dependency data are local JavaScript assets, so no server, CDN, telemetry, or network request is required to browse."), ("Licensing", "No blanket open-source license has been selected for project-owned code or the manuscript. Copyright and original third-party attribution are preserved.")]:
             content += '<tr><td>' + esc(label) + '</td><td>' + esc(text) + '</td></tr>'
         content += '</tbody></table><h2>Complete kernel type expressions</h2><p>Every elaborated type is preserved as a shared kernel expression DAG: names, universes, binders and all arguments are retained; kernel-irrelevant metadata annotations are omitted. This canonical JSON is a machine expression representation, distinct from Lean source text. It is stored losslessly as gzip/base64, with byte counts and SHA-256 hashes. The generator stream-checks each payload and validates its node references before publishing a complete <code>.expr.json.gz</code> artifact. Declaration pages show readable Lean types and decode at most a 64,000-character JSON preview on expansion; modern browsers also offer the entire decoded JSON download. Compressed downloads remain available without browser gzip support.</p><h2>Rebuild the documentation</h2><p>Python 3 is the only dependency. From the repository root:</p>' + command('python3 tools/docs-site/build.py\npython3 tools/docs-site/build.py --check')
         content += '<p>The freshness check compares generated bytes and validates every local file link, HTML anchor, search target, and source download. It is a documentation check; proof verification uses the separate commands on the verification page.</p><p>The generator records input hashes, counts, and extraction results in ' + self.link("generation.json", "generation.json", page) + '. There are no build timestamps or local absolute paths in the generated site.</p>'
@@ -938,6 +1017,8 @@ def validate(site: Site) -> list[str]:
     errors: list[str] = []
     pages = {}
     dependency_routes = {PurePosixPath(path).stem for path in site.declaration_urls.values()}
+    guide = json.loads((TOOLS / "proof-graph.json").read_text())
+    dependency_routes.update("overview-" + preset["id"] for preset in guide["presets"])
     for rel, data in site.outputs.items():
         if rel.endswith(".html"):
             if b"\x00" in data:

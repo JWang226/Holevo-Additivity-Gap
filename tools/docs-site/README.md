@@ -43,12 +43,24 @@ available without it. Regenerate that export using the procedure in
 The generator refuses stale SHA-256 export provenance before generating.
 
 Declaration pages list constants appearing directly in the type and stored
-proof or definition, plus reverse project references. The interactive
-dependency explorer follows those exact project-constant references in either
-direction, with type/value filtering and a bounded readable neighborhood.
-Complete direct lists are available on each declaration page. Graph arrows
-represent syntactic constant references, not minimal mathematical dependencies
-or an equivalence certificate for the informal proof. Imported library
+proof or definition, plus reverse project references. The dependency explorer
+starts with four mathematical proof maps: the prescribed
+channel, the separate sharp Haar bound, operational capacity gain, and input-qubit
+cost. `proof-graph.json` supplies reviewed labels, statements, and scope. The
+generator derives every arrow from an actual path through stored proof/definition
+references, stops at other displayed results, and removes redundant arrows.
+Every selected step must have a path to its preset endpoint or the build fails.
+The diagram points from ingredients to conclusions; its supporting Lean paths
+remain inspectable. The main channel uses the stronger `2^80 p^80` moment route;
+the separate sharp endpoint restores `2^32 p^80`.
+
+The detailed Lean-reference view retains all project declarations, direct type
+and proof/definition references, reverse traversal, name/result search, and
+complete paginated neighbor lists. Displayed branches prioritize described
+mathematical results and ordinary theorems. Lean-flagged helpers can be included
+explicitly. Readable statements and precise source links remain available.
+These edges are syntactic references, with no minimality or informal-proof
+equivalence certificate asserted. Imported library
 constants remain plain names unless their precise documentation target is
 available. Module imports and the English proof route remain distinct.
 

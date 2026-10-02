@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "nodes": [
+    {
+      "id": "free-comparison",
+      "declaration": "Nonadditivity.CollinsYounProduct.collinsYounBound",
+      "label": "Free-operator norm bound",
+      "description": "For K ≥ 2 and n ≥ 1, every traceless coefficient matrix has its free-regular operator norm bounded by c(K,n) times its Hilbert–Schmidt norm. This supplies the comparison scale for the finite channel's adjoint.",
+      "formula": "c(K,n)² = ((1 + 9/K)ⁿ − 1)/Kⁿ",
+      "stage": "Free comparison",
+      "map_note": "Hilbert–Schmidt to operator norm"
+    },
+    {
+      "id": "important-times",
+      "declaration": "Nonadditivity.HaarPathGraph.Path.card_importantTimes_le",
+      "label": "Corrected exploration count",
+      "description": "A nonempty path has at most δ + 2 important exploration times, where δ is its integer defect. Retaining the extra endpoint event repairs the count used to encode Haar trace paths.",
+      "formula": "#important times ≤ δ + 2",
+      "stage": "Haar analysis",
+      "map_note": "At most defect + 2 exploration events"
+    },
+    {
+      "id": "coarse-path-count",
+      "declaration": "Nonadditivity.HaarPathClasses.card_defectClass_le",
+      "label": "Count paths by defect",
+      "description": "Encode the exploration events to bound the number of genuine two-generator path classes of length m and defect δ. The bound includes the endpoint colors and the corrected δ + 2 event budget.",
+      "formula": "#classes ≤ 128^(δ+2) m^(3δ+6)",
+      "stage": "Haar analysis",
+      "map_note": "Explicit class count at each defect"
+    },
+    {
+      "id": "coefficient-bound",
+      "declaration": "Nonadditivity.HaarOperatorPathBridge.coefficient_bound",
+      "label": "Bound each path's coefficients",
+      "description": "First- and last-occurrence contractions bound each refined path's operator coefficient sum. For local dimension D, v visited vertices, e₁ singleton edges, integer defect δ, and moment order p, the repaired accounting gives exponent 9δ + 11.",
+      "formula": "‖coefficient sum‖ ≤ Dᵛ 2^e₁ p^(9δ+11) ‖Aregular‖ᵖ",
+      "stage": "Haar analysis",
+      "map_note": "Repaired exponent: 9δ + 11"
+    },
+    {
+      "id": "prescribed-one-pair",
+      "declaration": "Nonadditivity.HaarPrescribedDimension.onePairTraceBound",
+      "label": "One-pair moment comparison",
+      "description": "The corrected class and coefficient bounds compare real normalized vacuum trace moments for one independent Haar pair, with finite matrix coefficients and remaining free-group factors. This is the version used by the prescribed-channel construction: p ≥ 2 and actual local dimension D = N + 1 ≥ 2⁸⁰p⁸⁰.",
+      "formula": "Real Haar trace moment ≤ real free trace moment + D^(−1/2) ‖fregular‖ᵖ",
+      "stage": "Haar analysis",
+      "map_note": "D ≥ 2⁸⁰p⁸⁰"
+    },
+    {
+      "id": "iterated-expectation",
+      "declaration": "Nonadditivity.HaarIteratedMoments.iteratedExpectation_le",
+      "label": "Replace all tensor legs",
+      "description": "For an even moment order p ≥ 2, apply the one-pair trace comparison successively to distinct tensor legs, then bound the expected operator norm by the free-regular norm times an explicit moment correction. The correction accounts for the enlarged matrix dimensions and remaining free coordinates.",
+      "stage": "Haar analysis",
+      "map_note": "One-pair bound → all tensor legs"
+    },
+    {
+      "id": "prescribed-expectation",
+      "declaration": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+      "label": "Expected norm at prescribed size",
+      "description": "At the manuscript's explicit local dimension and moment order, compare each admissible self-adjoint linear polynomial's Haar expected operator norm with its free-regular norm. The multiplicative error is explicitly controlled by K, n, and the coefficient dimension, supplying the expectation premise for finite sample selection.",
+      "stage": "Haar analysis",
+      "map_note": "Expected norm at prescribed dimension"
+    },
+    {
+      "id": "net-linearization",
+      "declaration": "Nonadditivity.StructuredLinearization.exists_net_linearization",
+      "label": "One test controls a finite net",
+      "description": "Build a symmetric 1/n net of normalized traceless observables and encode all of its tests into one self-adjoint linear polynomial. The coefficient-size budget and error transfer make a favorable polynomial sample control every test on the net.",
+      "formula": "ln(2 dim H) ≤ 2K^(2n) ln(1 + 2n)",
+      "stage": "Free comparison",
+      "map_note": "One polynomial controls the whole net"
+    },
+    {
+      "id": "adjoint-certificate",
+      "declaration": "Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate",
+      "label": "Uniform adjoint certificate",
+      "description": "Given the Haar expectation comparison, select one finite Haar sample and extend its finite-net estimate to every traceless Hermitian observable. The resulting block channel obeys a uniform operator-to-Hilbert–Schmidt bound, with κ = (n + 1)/(n − 1).",
+      "formula": "‖Φ*(A)‖ ≤ κ c(K,n) ‖A‖HS",
+      "stage": "Channel estimates",
+      "map_note": "Uniform bound on the channel adjoint"
+    },
+    {
+      "id": "purity-entropy",
+      "declaration": "Nonadditivity.Channels.KrausChannel.output_purity_and_entropy_of_certificate",
+      "label": "All outputs have high entropy",
+      "description": "Trace duality converts the uniform adjoint bound with constant t into a purity bound for every actual output density matrix of dimension d. It then bounds von Neumann entropy in nats from below.",
+      "formula": "purity ≤ 1/d + t²; S_nats(output) ≥ ln d − ln(1 + dt²)",
+      "stage": "Channel estimates",
+      "map_note": "Purity bound → entropy bound"
+    },
+    {
+      "id": "bell-witness",
+      "declaration": "Nonadditivity.BlockBell.block_complementary_bell_entropy_le",
+      "label": "Bell input lowers joint entropy",
+      "description": "An explicit tensor product of Bell states supplies a low-entropy output for the block complementary channel paired with its conjugate. The bound is in nats and holds for any finite local unitary family of K branches.",
+      "formula": "S_nats(joint output) ≤ n(2 ln K − ln K/K)",
+      "stage": "Channel estimates",
+      "map_note": "Bell input gives low joint entropy"
+    },
+    {
+      "id": "holevo-conversion",
+      "declaration": "Nonadditivity.BlockConstruction.block_converted_bounds_of_certificate",
+      "label": "Turn entropy bounds into a gap",
+      "description": "Apply the switch channel and Weyl extension to the base block channel. The adjoint certificate with constant t bounds single-use Holevo information, while the Bell witness gives a two-use lower bound for the same converted channel; both bounds here are in nats.",
+      "formula": "χ_nats(T) ≤ ln(1 + Kⁿt²); χ_nats(T⊗T) ≥ n ln K/K",
+      "stage": "Channel estimates",
+      "map_note": "Entropy estimates → Holevo gap"
+    },
+    {
+      "id": "prescribed-channel",
+      "declaration": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
+      "label": "Prescribed channel and Holevo gap",
+      "description": "Construct one finite CPTP channel with din = 2NⁿK^(2n), dout = Kⁿ, and N = ⌈exp(40(7 ln K + 2)n)⌉. In bits, the same witness has 2n/K ≤ χ(T) ≤ n log₂(1 + 9/K) + 2 log₂ κ and χ(T⊗T) ≥ n log₂ K/K, where κ = (n + 1)/(n − 1); assume only K ≥ 2 and n ≥ n₀(K).",
+      "formula": "χ_bits(T⊗T) − 2χ_bits(T) ≥ n[log₂ K/K − 2 log₂(1 + 9/K)] − 4 log₂ κ",
+      "stage": "Prescribed result",
+      "map_note": "Finite channel; explicit gap bound"
+    },
+    {
+      "id": "weighted-path-count",
+      "declaration": "Nonadditivity.HaarPathClasses.card_defectClass_weighted_le",
+      "label": "Keep chronological counting weights",
+      "description": "Weight the actual exploration codes instead of replacing them by a padded-list count. The bound retains the event positions and the corrected δ + 2 budget, providing the sharper summation needed for the original moment threshold.",
+      "formula": "#classes · z^(δ+2) ≤ (1 + 64m²z)ᵐ, 0 ≤ z ≤ 1",
+      "stage": "Sharp Haar estimate",
+      "map_note": "Keep chronological weights in counting"
+    },
+    {
+      "id": "sharp-path-sum",
+      "declaration": "Nonadditivity.HaarSharpBound.normalized_path_sum_bound",
+      "label": "Sum weighted path contributions",
+      "description": "Combine chronological class counts with the refined Haar path weights to bound the normalized sum of all active paths by a common coefficient scale times the displayed factor. This estimate assumes p ≥ 2, length 1 ≤ t ≤ p, and actual local dimension D = N + 1 ≥ 2³²p⁸⁰.",
+      "formula": "Path-sum bound factor: 4096p²⁵(1 + 64/p)ᵖ/D",
+      "stage": "Sharp Haar estimate",
+      "map_note": "Sum active paths with sharper weights"
+    },
+    {
+      "id": "sharp-length-sum",
+      "declaration": "Nonadditivity.HaarSharpBound.mixed_length_bound",
+      "label": "Control each mixed word length",
+      "description": "Insert the corrected coefficient estimate into the sharp normalized path sum and identify it with the actual mixed-moment contribution at each length 1 ≤ t ≤ p. The comparison is against the free-regular operator norm for finite matrix/free-factor polynomials.",
+      "formula": "‖mixed contribution‖ ≤ (4096p²⁵/D)(1 + 64/p)ᵖ ‖fregular‖ᵖ",
+      "stage": "Sharp Haar estimate",
+      "map_note": "Control every mixed word length"
+    },
+    {
+      "id": "sharp-one-pair",
+      "declaration": "Nonadditivity.HaarSharpBound.onePairTraceBound",
+      "label": "Recover the original moment range",
+      "description": "For p ≥ 2, sum the mixed-length contributions to compare the real normalized vacuum trace moments under actual local dimension D = N + 1 ≥ 2³²p⁸⁰. This strengthened endpoint is a separate route; the prescribed-channel proof references the 2⁸⁰ version.",
+      "formula": "Real Haar trace moment ≤ real free trace moment + D^(−1/2) ‖fregular‖ᵖ",
+      "stage": "Sharp Haar estimate",
+      "map_note": "D ≥ 2³²p⁸⁰"
+    },
+    {
+      "id": "hsw-achievability",
+      "declaration": "Nonadditivity.QuantumCoding.holevoBits_le_operationalCapacity",
+      "label": "Build codes achieving Holevo rates",
+      "description": "Lift each finite output ensemble to actual channel inputs and construct codes with normalized POVM decoders and vanishing Born error. Optimizing over these ensembles proves that single-use Holevo information in bits is an achievable capacity lower bound.",
+      "formula": "χ_bits(T) ≤ C_bits(T)",
+      "stage": "Operational coding",
+      "map_note": "Holevo information is achievable"
+    },
+    {
+      "id": "block-coding",
+      "declaration": "Nonadditivity.Operational.operationalCapacity_block_le",
+      "label": "Convert block codes to all lengths",
+      "description": "Flatten Kraus coordinates and pad inputs so a code for a positive tensor power becomes a physical code sequence at every sufficiently large length. The conversion preserves decoding error and accounts for the block-length rate factor.",
+      "formula": "C_bits(T^(⊗(n+1))) ≤ (n + 1) C_bits(T)",
+      "stage": "Operational coding",
+      "map_note": "Physical codes at all block lengths"
+    },
+    {
+      "id": "finite-code-converse",
+      "declaration": "Nonadditivity.Operational.Code.log_messages_le_holevo_add_error",
+      "label": "Bound every finite code's messages",
+      "description": "For an actual code with M messages, average error e, and output dimension d, POVM dilation and entropy continuity bound ln M by Holevo information in nats plus an explicit error correction. The estimate applies to arbitrary density-matrix encoders and normalized POVM decoders.",
+      "formula": "ln M ≤ χnats(T) + 2√(2e) ln(Md) + 4 ln 2",
+      "stage": "Operational coding",
+      "map_note": "Message bound with explicit error term"
+    },
+    {
+      "id": "capacity-identity",
+      "declaration": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+      "label": "Capacity equals regularized Holevo",
+      "description": "Combine HSW achievability and physical blocking with the vanishing-error weak converse. Operational capacity, independently defined from real codes, equals the supremum of the normalized positive-power Holevo quantities.",
+      "formula": "C_bits(T) = supₘ≥1 χ_bits(T^⊗m)/m",
+      "stage": "Operational coding",
+      "map_note": "Capacity = regularized Holevo"
+    },
+    {
+      "id": "prescribed-capacity-gain",
+      "declaration": "Nonadditivity.OperationalConsequences.exists_prescribed_channel_with_capacity_gain",
+      "label": "Operational gain at prescribed size",
+      "description": "Apply the capacity identity to the same prescribed channel to turn its two-use Holevo separation into an operational capacity gain in bits, with κ = (n + 1)/(n − 1). The exact dimensions, positive χ, and χ ≥ 2n/K are retained.",
+      "formula": "C_bits(T) − χ_bits(T) ≥ n[log₂ K/K − 2 log₂(1 + 9/K)]/2 − 2 log₂ κ",
+      "stage": "Operational result",
+      "map_note": "Capacity gain with prescribed dimensions"
+    },
+    {
+      "id": "growing-block-length",
+      "declaration": "Nonadditivity.PrescribedCost.normalized_blockLength_tendsto_one",
+      "label": "Choose the growing block length",
+      "description": "Set nK = ⌈K/√(ln K)⌉ and show that rounding does not change its leading scale. This choice balances decreasing single-use information against increasing two-use information as K grows.",
+      "formula": "nK √(ln K)/K → 1",
+      "stage": "Input cost",
+      "map_note": "Rounded length ∼ K/√(ln K)"
+    },
+    {
+      "id": "growing-threshold",
+      "declaration": "Nonadditivity.PrescribedCost.threshold_le_blockLength_eventually",
+      "label": "Meet the construction threshold",
+      "description": "Prove that the rounded nK eventually exceeds n₀(K), the threshold required by the prescribed-channel theorem. Therefore the actual growing family eventually uses precisely the intended block length.",
+      "formula": "n₀(K) ≤ nK eventually",
+      "stage": "Input cost",
+      "map_note": "Eventually meet the channel threshold"
+    },
+    {
+      "id": "growing-information",
+      "declaration": "Nonadditivity.PrescribedCost.growingFamily_bounds_eventually",
+      "label": "Bounds for the actual growing family",
+      "description": "Apply the prescribed bounds at nK = ⌈K/√(ln K)⌉ to the same selected finite channels. In bits, their single-use information is at least 2nK/K and at most nK log₂(1 + 9/K) plus the finite-size correction, while half their two-use information satisfies the displayed lower bound.",
+      "formula": "2nK/K ≤ χ_bits(TK); χ_bits(TK⊗TK)/2 ≥ nK ln K/(2K ln 2)",
+      "stage": "Input cost",
+      "map_note": "One- and two-use bounds for one family"
+    },
+    {
+      "id": "quadratic-input-cost",
+      "declaration": "Nonadditivity.PrescribedCost.growingFamily_input_qubits_div_sq_tendsto",
+      "label": "Count the actual input qubits",
+      "description": "Take log₂ of the selected channels' exact input dimensions, including the integer ceiling in the local dimension. Their input-qubit count qin is asymptotically quadratic in K with an explicit leading constant.",
+      "formula": "qin(TK)/K² → 280/ln 2",
+      "stage": "Input cost",
+      "map_note": "Input qubits ∼ (280/ln 2)K²"
+    },
+    {
+      "id": "input-log-scale",
+      "declaration": "Nonadditivity.PrescribedCost.input_sqrt_ratio_bounds",
+      "label": "Translate K into input-qubit cost",
+      "description": "Compare √(log₂ qin) with √(ln K) for the actual growing family. The explicit two-sided bounds transfer the information estimates from the parameter K to the physical input-qubit count.",
+      "formula": "L/2 ≤ √(log₂ qin)/√(ln K) ≤ 2L, L = √(2/ln 2)",
+      "stage": "Input cost",
+      "map_note": "Translate K into actual input-qubit cost"
+    },
+    {
+      "id": "capacity-input-cost",
+      "declaration": "Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower",
+      "label": "Information and capacity versus input cost",
+      "description": "For the same growing family, both half the two-use Holevo information and operational capacity, in bits, are at least a positive constant times √(log₂ qin). Here qin is the actual input-qubit count and L = √(2/ln 2).",
+      "formula": "χ_bits(TK⊗TK)/2, C_bits(TK) ≥ √(log₂ qin)/(8 ln 2 · L)",
+      "stage": "Input-cost result",
+      "map_note": "Lower bound ∝ √(log₂ input qubits)"
+    }
+  ],
+  "presets": [
+    {
+      "id": "prescribed",
+      "label": "Prescribed-channel construction",
+      "root": "prescribed-channel",
+      "description": "Follow the corrected Haar moments and free comparison into a finite adjoint certificate, then combine output entropy with the Bell witness. This is the actual proof route used by the main prescribed-dimension theorem.",
+      "nodes": [
+        "important-times",
+        "coarse-path-count",
+        "coefficient-bound",
+        "prescribed-one-pair",
+        "iterated-expectation",
+        "prescribed-expectation",
+        "free-comparison",
+        "net-linearization",
+        "adjoint-certificate",
+        "purity-entropy",
+        "bell-witness",
+        "holevo-conversion",
+        "prescribed-channel"
+      ]
+    },
+    {
+      "id": "sharp-haar",
+      "label": "Sharp Haar moment estimate",
+      "root": "sharp-one-pair",
+      "description": "The separate chronological weighted-counting route proves the one-pair estimate at D ≥ 2³²p⁸⁰. It shares the repaired exploration and coefficient estimates, while the main prescribed-channel route uses the 2⁸⁰ threshold.",
+      "nodes": [
+        "important-times",
+        "weighted-path-count",
+        "coefficient-bound",
+        "sharp-path-sum",
+        "sharp-length-sum",
+        "sharp-one-pair"
+      ]
+    },
+    {
+      "id": "capacity-gain",
+      "label": "Operational capacity gain",
+      "root": "prescribed-capacity-gain",
+      "description": "Combine the prescribed channel with a coding theorem proved from actual codewords, POVMs, and vanishing error. The conclusion is a gain C(T) − χ(T) for that channel.",
+      "nodes": [
+        "prescribed-channel",
+        "hsw-achievability",
+        "block-coding",
+        "finite-code-converse",
+        "capacity-identity",
+        "prescribed-capacity-gain"
+      ]
+    },
+    {
+      "id": "input-cost",
+      "label": "Growing-family input-qubit cost",
+      "root": "capacity-input-cost",
+      "description": "Choose nK = ⌈K/√(ln K)⌉, verify the construction threshold, and translate the same channels' information bounds into their actual input-qubit count. The cost is quadratic in K, while half the two-use information and capacity grow at least as √(log₂ qin).",
+      "nodes": [
+        "prescribed-channel",
+        "capacity-identity",
+        "growing-block-length",
+        "growing-threshold",
+        "growing-information",
+        "quadratic-input-cost",
+        "input-log-scale",
+        "capacity-input-cost"
+      ]
+    }
+  ],
+  "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved; see COPYRIGHT.md."
+}
