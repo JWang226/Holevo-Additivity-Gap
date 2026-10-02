@@ -1,0 +1,17 @@
+# Selected verbatim log lines from GitHub Actions run 36901743100, attempt 2.
+# Commit: 141f355a841cbf56fd1715750eebb9d2bcc488cb
+# Job: 110509662229 (verify), conclusion: success
+# The complete log and artifacts remain available at the run URL.
+# https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/36901743100
+2026-10-01T18:03:19.5008380Z STATIC RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 368 unchanged baseline proof bodies.
+2026-10-01T18:04:46.6745161Z ##[group]Run ./check.sh
+2026-10-01T18:21:16.1182793Z Checking Audit.lean
+2026-10-01T18:24:25.7244618Z AUDIT PASSED: 9107 project declarations, 7219 theorems; transitive axioms [propext, Quot.sound, Classical.choice].
+2026-10-01T18:24:25.7244728Z Checking All.lean
+2026-10-01T18:24:27.2318371Z BUILD PASSED: 369 project modules.
+2026-10-01T18:24:32.4719698Z RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 368 unchanged baseline proof bodies.
+2026-10-01T18:24:32.4936790Z ##[group]Run python scripts/check_challenges.py
+2026-10-01T18:24:32.4937016Z [36;1mpython scripts/check_challenges.py[0m
+2026-10-01T18:24:47.6007657Z Saved .lake/challenge-checks.json. Comparator execution remains not_run.
+.lake/challenge-checks.json
+.lake/challenge-checks/*.log

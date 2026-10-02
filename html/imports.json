@@ -1,0 +1,2039 @@
+{
+  "All": [
+    "Audit"
+  ],
+  "Audit": [
+    "Nonadditivity",
+    "Lean.Util.CollectAxioms"
+  ],
+  "Nonadditivity.ActualConsequences": [
+    "Nonadditivity.HaarModel",
+    "Nonadditivity.HolevoBits",
+    "Nonadditivity.PositiveHolevo",
+    "Nonadditivity.Asymptotics"
+  ],
+  "Nonadditivity.AdjointPurity": [
+    "Nonadditivity.Entropy",
+    "Mathlib.Analysis.Matrix.Order",
+    "Mathlib.Analysis.CStarAlgebra.Matrix",
+    "Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order",
+    "Mathlib.Data.Real.Sqrt",
+    "Mathlib.Tactic.Linarith"
+  ],
+  "Nonadditivity.Asymptotics": [
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Data.Real.Sqrt",
+    "Mathlib.Algebra.Order.Floor.Semiring",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.NormNum"
+  ],
+  "Nonadditivity.BellOutput": [
+    "Nonadditivity.Entropy",
+    "Nonadditivity.EntropyProducts",
+    "Nonadditivity.StateEnsembles",
+    "Nonadditivity.Channels",
+    "Nonadditivity.EntropyMixtures",
+    "Nonadditivity.PureChannelEntropy",
+    "Nonadditivity.ChannelReindex"
+  ],
+  "Nonadditivity.BlockBell": [
+    "Nonadditivity.TensorPowers",
+    "Nonadditivity.BellOutput",
+    "Nonadditivity.ConjugateChannel"
+  ],
+  "Nonadditivity.BlockConstruction": [
+    "Nonadditivity.BlockBell",
+    "Nonadditivity.Conversion",
+    "Mathlib.Data.Fintype.EquivFin"
+  ],
+  "Nonadditivity.BlockScalars": [
+    "Nonadditivity.Net",
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Analysis.Complex.ExponentialBounds"
+  ],
+  "Nonadditivity.CanonicalBlockBell": [
+    "Nonadditivity.BlockConstruction"
+  ],
+  "Nonadditivity.ChannelEntropy": [
+    "Nonadditivity.ChannelExtensions",
+    "Nonadditivity.ConditionalStates",
+    "Nonadditivity.EntropyMixtures",
+    "Nonadditivity.QuantumHolevo",
+    "Nonadditivity.Weyl"
+  ],
+  "Nonadditivity.ChannelExtensions": [
+    "Nonadditivity.Channels",
+    "Nonadditivity.StateEnsembles"
+  ],
+  "Nonadditivity.ChannelReindex": [
+    "Nonadditivity.Channels",
+    "Nonadditivity.EntropyProducts",
+    "Mathlib.LinearAlgebra.Matrix.Reindex"
+  ],
+  "Nonadditivity.ChannelTensorControl": [
+    "Nonadditivity.ChannelExtensions",
+    "Nonadditivity.EntropyProducts"
+  ],
+  "Nonadditivity.Channels": [
+    "Nonadditivity.Entropy",
+    "Mathlib.Data.Matrix.Basic",
+    "Mathlib.LinearAlgebra.Matrix.Kronecker"
+  ],
+  "Nonadditivity.CollinsYoun": [
+    "Nonadditivity.FreeCreation"
+  ],
+  "Nonadditivity.CollinsYounOne": [
+    "Nonadditivity.RegularRestriction",
+    "Nonadditivity.FreeBridge",
+    "Nonadditivity.CollinsYoun"
+  ],
+  "Nonadditivity.CollinsYounProduct": [
+    "Nonadditivity.CollinsYoun",
+    "Nonadditivity.RegularFubini"
+  ],
+  "Nonadditivity.CollinsYounTensor": [
+    "Nonadditivity.CollinsYoun",
+    "Nonadditivity.MatrixRegularRestriction"
+  ],
+  "Nonadditivity.ComplementaryAdjoint": [
+    "Nonadditivity.Channels",
+    "Nonadditivity.BlockConstruction",
+    "Mathlib.Tactic.Ring"
+  ],
+  "Nonadditivity.ComplexRealTrace": [
+    "Mathlib.Analysis.CStarAlgebra.Matrix",
+    "Mathlib.LinearAlgebra.Complex.Module",
+    "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas",
+    "Mathlib.Analysis.InnerProductSpace.Trace"
+  ],
+  "Nonadditivity.ConditionalStates": [
+    "Nonadditivity.StateEnsembles"
+  ],
+  "Nonadditivity.ConjugateChannel": [
+    "Nonadditivity.Channels",
+    "Nonadditivity.StateEnsembles"
+  ],
+  "Nonadditivity.Conversion": [
+    "Nonadditivity.SwitchChannel",
+    "Nonadditivity.ChannelTensorControl",
+    "Nonadditivity.WeylTensor"
+  ],
+  "Nonadditivity.DampedBellStability": [
+    "Nonadditivity.GeneralBell",
+    "Nonadditivity.DampedChannel"
+  ],
+  "Nonadditivity.DampedChannel": [
+    "Nonadditivity.Channels",
+    "Nonadditivity.AdjointPurity",
+    "Mathlib.Data.Matrix.Basis"
+  ],
+  "Nonadditivity.DampedPositivity": [
+    "Nonadditivity.StrictEntropy",
+    "Nonadditivity.DampedChannel",
+    "Nonadditivity.ConditionalStates",
+    "Nonadditivity.PositiveHolevo"
+  ],
+  "Nonadditivity.DampedRealization": [
+    "Nonadditivity.DampingNet",
+    "Nonadditivity.SpectralDamping"
+  ],
+  "Nonadditivity.DampingNet": [
+    "Nonadditivity.DampedChannel",
+    "Nonadditivity.FiniteRealization",
+    "Mathlib.Analysis.SpecificLimits.Basic"
+  ],
+  "Nonadditivity.DeterministicConsequences": [
+    "Nonadditivity.DeterministicQualitative",
+    "Nonadditivity.HolevoRateLimit"
+  ],
+  "Nonadditivity.DeterministicQualitative": [
+    "Nonadditivity.DampedRealization",
+    "Nonadditivity.FiniteBlockModel",
+    "Nonadditivity.CanonicalBlockBell",
+    "Nonadditivity.EntropyStability",
+    "Nonadditivity.DampedPositivity",
+    "Nonadditivity.ActualConsequences"
+  ],
+  "Nonadditivity.Dimensions": [
+    "Nonadditivity.Scalar",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics",
+    "Mathlib.Algebra.Order.Floor.Semiring"
+  ],
+  "Nonadditivity.Entropy": [
+    "Mathlib.Analysis.Matrix.PosDef",
+    "Mathlib.LinearAlgebra.Matrix.Kronecker",
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Ring"
+  ],
+  "Nonadditivity.EntropyContinuity": [
+    "Nonadditivity.EntropyMixtures",
+    "Nonadditivity.HaarMomentTail",
+    "Nonadditivity.AdjointPurity",
+    "Mathlib.Topology.UniformSpace.HeineCantor"
+  ],
+  "Nonadditivity.EntropyMixtures": [
+    "Nonadditivity.StateEnsembles",
+    "Nonadditivity.EntropyProducts",
+    "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog",
+    "Mathlib.Analysis.Convex.Jensen"
+  ],
+  "Nonadditivity.EntropyProducts": [
+    "Nonadditivity.Entropy",
+    "Mathlib.Analysis.Matrix.Order"
+  ],
+  "Nonadditivity.EntropyStability": [
+    "Nonadditivity.EntropyContinuity",
+    "Nonadditivity.DampedBellStability"
+  ],
+  "Nonadditivity.ExactQualitative": [
+    "Nonadditivity.DeterministicQualitative",
+    "Nonadditivity.WeightedBlockBell",
+    "Nonadditivity.WeightedParameters",
+    "Nonadditivity.WeightedPositivity"
+  ],
+  "Nonadditivity.FiniteBlockModel": [
+    "Nonadditivity.FiniteFreeModel",
+    "Nonadditivity.FiniteMomentMatching",
+    "Nonadditivity.FiniteRegularMatrix",
+    "Nonadditivity.StructuredHaarModel",
+    "Nonadditivity.StructuredFiniteChannel"
+  ],
+  "Nonadditivity.FiniteChannelRealization": [
+    "Nonadditivity.FiniteRealization",
+    "Nonadditivity.Conversion"
+  ],
+  "Nonadditivity.FiniteFreeModel": [
+    "Nonadditivity.PolynomialReduction",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Data.Fintype.Vector"
+  ],
+  "Nonadditivity.FiniteMomentMatching": [
+    "Nonadditivity.CollinsYounProduct",
+    "Mathlib.Algebra.MonoidAlgebra.Basic",
+    "Mathlib.Algebra.MonoidAlgebra.Support",
+    "Mathlib.LinearAlgebra.Matrix.Permutation",
+    "Mathlib.GroupTheory.GroupAction.Basic"
+  ],
+  "Nonadditivity.FiniteRealization": [
+    "Nonadditivity.AdjointPurity",
+    "Nonadditivity.Channels",
+    "Nonadditivity.Net",
+    "Nonadditivity.QuantumHolevo",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Normed.Module.FiniteDimension"
+  ],
+  "Nonadditivity.FiniteRegularMatrix": [
+    "Mathlib.LinearAlgebra.Matrix.Permutation",
+    "Mathlib.GroupTheory.GroupAction.Basic"
+  ],
+  "Nonadditivity.FiniteSetFactorization": [
+    "Nonadditivity.PositiveLinearization",
+    "Nonadditivity.RegularCoefficientEnergy",
+    "Nonadditivity.RegularDilation",
+    "Nonadditivity.MatrixNormReindex",
+    "Mathlib.LinearAlgebra.Matrix.Kronecker",
+    "Mathlib.Data.Fintype.Prod"
+  ],
+  "Nonadditivity.FreeBridge": [
+    "Nonadditivity.FreeModel",
+    "Nonadditivity.TensorPowers",
+    "Nonadditivity.Net",
+    "Nonadditivity.BlockConstruction",
+    "Mathlib.Data.Fin.Tuple.Basic"
+  ],
+  "Nonadditivity.FreeCreation": [
+    "Nonadditivity.FreeModel",
+    "Mathlib.GroupTheory.FreeGroup.Reduce",
+    "Mathlib.Analysis.InnerProductSpace.Adjoint"
+  ],
+  "Nonadditivity.FreeEmbedding": [
+    "Mathlib.GroupTheory.FreeGroup.Reduce",
+    "Mathlib.Algebra.Group.Units.Equiv",
+    "Mathlib.GroupTheory.Perm.Basic",
+    "Mathlib.Data.Int.Basic",
+    "Mathlib.Data.Nat.Log",
+    "Mathlib.Logic.Equiv.Fintype",
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Data.Fintype.EquivFin",
+    "Mathlib.Data.Fintype.Prod",
+    "Lean.Elab.Tactic.Omega"
+  ],
+  "Nonadditivity.FreeGroupCut": [
+    "Mathlib.GroupTheory.FreeGroup.Reduce",
+    "Mathlib.Data.List.Chain"
+  ],
+  "Nonadditivity.FreeModel": [
+    "Nonadditivity.AdjointPurity",
+    "Mathlib.Analysis.InnerProductSpace.l2Space",
+    "Mathlib.GroupTheory.FreeGroup.Basic"
+  ],
+  "Nonadditivity.GapFractionAsymptotics": [
+    "Nonadditivity.Scalar"
+  ],
+  "Nonadditivity.GaussianCertificates": [
+    "Nonadditivity.GaussianQuadratic"
+  ],
+  "Nonadditivity.GaussianChannelBounds": [
+    "Nonadditivity.SmallEnvironment",
+    "Nonadditivity.ActualConsequences"
+  ],
+  "Nonadditivity.GaussianConsequences": [
+    "Nonadditivity.GaussianConstruction",
+    "Nonadditivity.GaussianChannelBounds",
+    "Nonadditivity.GaussianScalar",
+    "Nonadditivity.HolevoRateLimit"
+  ],
+  "Nonadditivity.GaussianConstruction": [
+    "Nonadditivity.GaussianCertificates",
+    "Nonadditivity.GaussianRectangularAlgebra",
+    "Nonadditivity.GaussianSampleEvaluation",
+    "Nonadditivity.InitialNetReduction"
+  ],
+  "Nonadditivity.GaussianNetRealization": [
+    "Nonadditivity.GaussianNormalization",
+    "Nonadditivity.QuadraticNet"
+  ],
+  "Nonadditivity.GaussianNormalization": [
+    "Nonadditivity.HaarMomentTail"
+  ],
+  "Nonadditivity.GaussianQuadratic": [
+    "Mathlib.Probability.Distributions.Gaussian.Multivariate",
+    "Mathlib.Probability.Moments.MGFAnalytic",
+    "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+    "Mathlib.Analysis.InnerProductSpace.Spectrum",
+    "Mathlib.Analysis.InnerProductSpace.Trace"
+  ],
+  "Nonadditivity.GaussianRectangular": [
+    "Nonadditivity.GaussianQuadratic",
+    "Mathlib.Analysis.CStarAlgebra.Matrix",
+    "Mathlib.LinearAlgebra.Complex.Module",
+    "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas",
+    "Mathlib.LinearAlgebra.Matrix.Kronecker"
+  ],
+  "Nonadditivity.GaussianRectangularAlgebra": [
+    "Nonadditivity.GaussianRectangular",
+    "Nonadditivity.NetPolynomial",
+    "Nonadditivity.ComplexRealTrace"
+  ],
+  "Nonadditivity.GaussianSampleEvaluation": [
+    "Nonadditivity.GaussianRectangularAlgebra",
+    "Nonadditivity.GaussianNetRealization"
+  ],
+  "Nonadditivity.GaussianScalar": [
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Data.Real.Archimedean",
+    "Mathlib.Tactic"
+  ],
+  "Nonadditivity.GeneralBell": [
+    "Nonadditivity.BellOutput",
+    "Nonadditivity.AdjointPurity",
+    "Nonadditivity.Conversion"
+  ],
+  "Nonadditivity.HaarActualScanWords": [
+    "Nonadditivity.HaarSkeletonSegmentation",
+    "Nonadditivity.HaarPaletteDecoder",
+    "Nonadditivity.HaarRefinedPaletteFibre",
+    "Nonadditivity.HaarReducedChunks"
+  ],
+  "Nonadditivity.HaarAveraging": [
+    "Nonadditivity.HaarMoments",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.MeasureTheory.Measure.Haar.Unique"
+  ],
+  "Nonadditivity.HaarBranchCoefficients": [
+    "Nonadditivity.HaarStationaryCoefficients"
+  ],
+  "Nonadditivity.HaarBranchContractions": [
+    "Nonadditivity.HaarBranchCoefficients"
+  ],
+  "Nonadditivity.HaarBranchGraphBudget": [
+    "Nonadditivity.HaarBranchTimeSum",
+    "Nonadditivity.HaarPathChainCount"
+  ],
+  "Nonadditivity.HaarBranchTimeSum": [
+    "Nonadditivity.HaarBranchContractions",
+    "Nonadditivity.HaarPathRuns",
+    "Mathlib.Algebra.BigOperators.Fin"
+  ],
+  "Nonadditivity.HaarCanonicalTransport": [
+    "Nonadditivity.HaarRecursiveSample",
+    "Mathlib.Algebra.MonoidAlgebra.MapDomain"
+  ],
+  "Nonadditivity.HaarChainColoring": [
+    "Nonadditivity.HaarCoreChainReverseAddress",
+    "Nonadditivity.HaarPathProfileReverse",
+    "Nonadditivity.HaarCoreChainWords",
+    "Nonadditivity.HaarPathInternalColors"
+  ],
+  "Nonadditivity.HaarChainColoringFibre": [
+    "Nonadditivity.HaarChainColoringPath"
+  ],
+  "Nonadditivity.HaarChainColoringPalettes": [
+    "Nonadditivity.HaarChainColoring",
+    "Nonadditivity.HaarProfileWordReverse",
+    "Nonadditivity.HaarRepresentativePositions"
+  ],
+  "Nonadditivity.HaarChainColoringPath": [
+    "Nonadditivity.HaarChainColoring",
+    "Nonadditivity.HaarPathRecoloring",
+    "Nonadditivity.HaarRefinedVertexFibre"
+  ],
+  "Nonadditivity.HaarChainMultiplicity": [
+    "Nonadditivity.HaarCoreChainLabels",
+    "Nonadditivity.HaarPathChainProfiles",
+    "Nonadditivity.HaarPathMultiplicity"
+  ],
+  "Nonadditivity.HaarChainReindex": [
+    "Nonadditivity.HaarRepresentativePositions",
+    "Nonadditivity.HaarCoreChainMultiplicity",
+    "Nonadditivity.HaarCoreChainEndpoints"
+  ],
+  "Nonadditivity.HaarCoefficientBounds": [
+    "Nonadditivity.NoncommutativeCS",
+    "Nonadditivity.MatrixRegularRestriction"
+  ],
+  "Nonadditivity.HaarCoefficientRows": [
+    "Nonadditivity.HaarCoefficientBounds"
+  ],
+  "Nonadditivity.HaarColumnMoments": [
+    "Nonadditivity.HaarFourthMoments",
+    "Mathlib.Algebra.Polynomial.Roots",
+    "Mathlib.Algebra.Polynomial.Eval.Degree"
+  ],
+  "Nonadditivity.HaarConsequences": [
+    "Nonadditivity.CollinsYounProduct",
+    "Nonadditivity.HolevoRateLimit"
+  ],
+  "Nonadditivity.HaarCoreChainAddress": [
+    "Nonadditivity.HaarCoreChainLabels"
+  ],
+  "Nonadditivity.HaarCoreChainEndpoints": [
+    "Nonadditivity.HaarPathInternalColors",
+    "Nonadditivity.HaarCoreChainReverseAddress"
+  ],
+  "Nonadditivity.HaarCoreChainLabels": [
+    "Nonadditivity.HaarPathChainPartition",
+    "Nonadditivity.HaarPathCoefficientWords"
+  ],
+  "Nonadditivity.HaarCoreChainMultiplicity": [
+    "Nonadditivity.HaarPathTransport"
+  ],
+  "Nonadditivity.HaarCoreChainReverseAddress": [
+    "Nonadditivity.HaarCoreChainAddress"
+  ],
+  "Nonadditivity.HaarCoreChainWords": [
+    "Nonadditivity.HaarCoreChainLabels",
+    "Nonadditivity.HaarPathRefined"
+  ],
+  "Nonadditivity.HaarDecodedCoefficientBound": [
+    "Nonadditivity.HaarSkeletonSegmentation",
+    "Nonadditivity.HaarNonbacktrackingListSegmentation"
+  ],
+  "Nonadditivity.HaarEncodingSlack": [
+    "Nonadditivity.HaarMomentSlack",
+    "Nonadditivity.HaarTensorConstants"
+  ],
+  "Nonadditivity.HaarEntryBound": [
+    "Nonadditivity.HaarMatchingSharp",
+    "Nonadditivity.HaarWeingartenMomentBound",
+    "Nonadditivity.HaarWeingartenInverse"
+  ],
+  "Nonadditivity.HaarExpectationFromMoment": [
+    "Nonadditivity.HaarCanonicalTransport",
+    "Nonadditivity.HaarFiniteSymmetry",
+    "Nonadditivity.StructuredHaarConsequences"
+  ],
+  "Nonadditivity.HaarFiniteFaithfulness": [
+    "Nonadditivity.HaarWordExpansion",
+    "Nonadditivity.FiniteBlockModel"
+  ],
+  "Nonadditivity.HaarFiniteSymmetry": [
+    "Nonadditivity.HaarFiniteFaithfulness",
+    "Nonadditivity.HaarTensorReplacement"
+  ],
+  "Nonadditivity.HaarFourthMoments": [
+    "Nonadditivity.HaarMoments"
+  ],
+  "Nonadditivity.HaarHybridMoments": [
+    "Nonadditivity.HaarTensorReplacement",
+    "Nonadditivity.HaarMomentExpectation"
+  ],
+  "Nonadditivity.HaarInputScaling": [
+    "Nonadditivity.HaarPrescribedScaling"
+  ],
+  "Nonadditivity.HaarInvariantCommutant": [
+    "Nonadditivity.HaarInvariantTensor",
+    "Mathlib.Analysis.Matrix.Spectrum",
+    "Mathlib.LinearAlgebra.Matrix.Transvection",
+    "Mathlib.LinearAlgebra.Matrix.Swap"
+  ],
+  "Nonadditivity.HaarInvariantSpanning": [
+    "Nonadditivity.HaarInvariantCommutant"
+  ],
+  "Nonadditivity.HaarInvariantTensor": [
+    "Nonadditivity.HaarAveraging",
+    "Nonadditivity.HaarMixedMoments",
+    "Mathlib.Algebra.BigOperators.Ring.Finset"
+  ],
+  "Nonadditivity.HaarIteratedExpectation": [
+    "Nonadditivity.HaarIteratedMoments"
+  ],
+  "Nonadditivity.HaarIteratedMoments": [
+    "Nonadditivity.HaarHybridMoments",
+    "Nonadditivity.HaarTensorConstants"
+  ],
+  "Nonadditivity.HaarMarkedCompositions": [
+    "Nonadditivity.HaarTimeCompositions",
+    "Nonadditivity.HaarPathRuns"
+  ],
+  "Nonadditivity.HaarMatchingCount": [
+    "Nonadditivity.HaarMatchingSingletons",
+    "Mathlib.Algebra.BigOperators.Fin"
+  ],
+  "Nonadditivity.HaarMatchingFibers": [
+    "Mathlib.SetTheory.Cardinal.Finite",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Data.Fintype.BigOperators",
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset"
+  ],
+  "Nonadditivity.HaarMatchingSharp": [
+    "Nonadditivity.HaarMatchingCount",
+    "Nonadditivity.HaarMatchingFibers"
+  ],
+  "Nonadditivity.HaarMatchingSingletons": [
+    "Nonadditivity.HaarPathMultiplicity",
+    "Mathlib.GroupTheory.Perm.Support",
+    "Mathlib.Data.List.OfFn"
+  ],
+  "Nonadditivity.HaarMixedMoments": [
+    "Nonadditivity.HaarColumnMoments",
+    "Mathlib.RingTheory.RootsOfUnity.Complex"
+  ],
+  "Nonadditivity.HaarMixedWordExpansion": [
+    "Nonadditivity.HaarTensorReplacement"
+  ],
+  "Nonadditivity.HaarModel": [
+    "Nonadditivity.ComplementaryAdjoint",
+    "Nonadditivity.Qualitative",
+    "Mathlib.Topology.Algebra.Star.Unitary",
+    "Mathlib.MeasureTheory.Measure.Haar.Basic",
+    "Mathlib.Probability.Independence.Basic",
+    "Mathlib.Analysis.Normed.Module.FiniteDimension"
+  ],
+  "Nonadditivity.HaarMomentConstants": [
+    "Nonadditivity.Quantitative",
+    "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+    "Mathlib.Order.Interval.Finset.Nat",
+    "Mathlib.Tactic.GCongr"
+  ],
+  "Nonadditivity.HaarMomentExpectation": [
+    "Nonadditivity.HaarMomentTail",
+    "Mathlib.Analysis.Convex.Integral",
+    "Mathlib.Analysis.Convex.Mul",
+    "Mathlib.Analysis.Convex.SpecificFunctions.Pow"
+  ],
+  "Nonadditivity.HaarMomentSlack": [
+    "Nonadditivity.HaarMomentConstants"
+  ],
+  "Nonadditivity.HaarMomentTail": [
+    "Nonadditivity.HaarModel",
+    "Mathlib.MeasureTheory.Integral.Lebesgue.Markov",
+    "Mathlib.Analysis.CStarAlgebra.Spectrum"
+  ],
+  "Nonadditivity.HaarMoments": [
+    "Nonadditivity.HaarModel",
+    "Mathlib.MeasureTheory.Group.Integral",
+    "Mathlib.LinearAlgebra.Matrix.Permutation",
+    "Mathlib.Probability.Independence.Integration"
+  ],
+  "Nonadditivity.HaarNonbacktracking": [
+    "Nonadditivity.HaarCoefficientRows",
+    "Nonadditivity.CollinsYounTensor"
+  ],
+  "Nonadditivity.HaarNonbacktrackingFirstStep": [
+    "Nonadditivity.HaarNonbacktrackingSupport",
+    "Nonadditivity.FreeCreation"
+  ],
+  "Nonadditivity.HaarNonbacktrackingLastReturn": [
+    "Nonadditivity.HaarNonbacktrackingRenewal"
+  ],
+  "Nonadditivity.HaarNonbacktrackingListSegmentation": [
+    "Nonadditivity.HaarNonbacktrackingSegmentation",
+    "Nonadditivity.HaarTimeCompositionReverse"
+  ],
+  "Nonadditivity.HaarNonbacktrackingRenewal": [
+    "Nonadditivity.HaarNonbacktracking",
+    "Nonadditivity.HaarWordExpansion"
+  ],
+  "Nonadditivity.HaarNonbacktrackingSegmentation": [
+    "Nonadditivity.HaarNonbacktrackingFirstStep",
+    "Nonadditivity.HaarTimeCompositions"
+  ],
+  "Nonadditivity.HaarNonbacktrackingSupport": [
+    "Nonadditivity.HaarNonbacktrackingLastReturn",
+    "Nonadditivity.FreeGroupCut"
+  ],
+  "Nonadditivity.HaarOnePairAssembly": [
+    "Nonadditivity.HaarMixedWordExpansion",
+    "Nonadditivity.HaarEncodingSlack",
+    "Nonadditivity.HaarIteratedMoments"
+  ],
+  "Nonadditivity.HaarOperatorCoefficient": [
+    "Nonadditivity.HaarOperatorPolynomial"
+  ],
+  "Nonadditivity.HaarOperatorCurry": [
+    "Nonadditivity.HaarOperatorPolynomial",
+    "Nonadditivity.HaarTensorReplacement",
+    "Nonadditivity.RegularFubini",
+    "Mathlib.Algebra.MonoidAlgebra.MapDomain"
+  ],
+  "Nonadditivity.HaarOperatorPathBridge": [
+    "Nonadditivity.HaarVacuumFunctional",
+    "Nonadditivity.HaarOnePairAssembly",
+    "Nonadditivity.HaarPathExpansion",
+    "Nonadditivity.HaarPathVertexFibre",
+    "Nonadditivity.HaarPathCoefficientWords"
+  ],
+  "Nonadditivity.HaarOperatorPathSum": [
+    "Nonadditivity.HaarOperatorPathBridge",
+    "Nonadditivity.HaarPathSupport"
+  ],
+  "Nonadditivity.HaarOperatorPolynomial": [
+    "Nonadditivity.HaarNonbacktrackingLastReturn"
+  ],
+  "Nonadditivity.HaarPairEntryBound": [
+    "Nonadditivity.HaarEntryBound",
+    "Mathlib.MeasureTheory.Integral.Prod"
+  ],
+  "Nonadditivity.HaarPaletteDecoder": [
+    "Nonadditivity.HaarChainColoringPalettes",
+    "Nonadditivity.HaarProfileAssignmentBound",
+    "Mathlib.Data.List.GetD"
+  ],
+  "Nonadditivity.HaarPathBalance": [
+    "Nonadditivity.HaarPathExpansion"
+  ],
+  "Nonadditivity.HaarPathChainCount": [
+    "Nonadditivity.HaarPathChains",
+    "Nonadditivity.HaarPathInvolution"
+  ],
+  "Nonadditivity.HaarPathChainPartition": [
+    "Nonadditivity.HaarPathChainCount"
+  ],
+  "Nonadditivity.HaarPathChainProfiles": [
+    "Nonadditivity.HaarPathChainPartition"
+  ],
+  "Nonadditivity.HaarPathChains": [
+    "Nonadditivity.HaarPathGraph",
+    "Mathlib.Data.List.Induction",
+    "Mathlib.Data.List.Chain"
+  ],
+  "Nonadditivity.HaarPathClassAssembly": [
+    "Nonadditivity.HaarPathClassSums",
+    "Nonadditivity.HaarPathClassStats",
+    "Nonadditivity.HaarPathWeightBudget",
+    "Nonadditivity.HaarRefinedWeight"
+  ],
+  "Nonadditivity.HaarPathClassData": [
+    "Nonadditivity.HaarPathClasses"
+  ],
+  "Nonadditivity.HaarPathClassStats": [
+    "Nonadditivity.HaarPathRefinedCounting",
+    "Nonadditivity.HaarOperatorPathSum",
+    "Nonadditivity.HaarPathScalarSummation"
+  ],
+  "Nonadditivity.HaarPathClassSums": [
+    "Nonadditivity.HaarPathRefinedCounting",
+    "Nonadditivity.HaarRefinedVertexFibre",
+    "Nonadditivity.HaarOperatorPathSum"
+  ],
+  "Nonadditivity.HaarPathClasses": [
+    "Nonadditivity.HaarPathTree",
+    "Mathlib.Logic.Equiv.Fintype"
+  ],
+  "Nonadditivity.HaarPathCodes": [
+    "Nonadditivity.HaarPathClassData",
+    "Mathlib.Data.List.GetD"
+  ],
+  "Nonadditivity.HaarPathCoefficientWords": [
+    "Nonadditivity.HaarProfileCoefficient",
+    "Nonadditivity.HaarNonbacktrackingSegmentation",
+    "Nonadditivity.HaarPathDecomposition"
+  ],
+  "Nonadditivity.HaarPathColorMarks": [
+    "Nonadditivity.HaarPathFreshRuns"
+  ],
+  "Nonadditivity.HaarPathColorNormalization": [
+    "Nonadditivity.HaarPathFreshRuns"
+  ],
+  "Nonadditivity.HaarPathColorRelabel": [
+    "Nonadditivity.HaarPathRefined",
+    "Nonadditivity.HaarPathInternalColors"
+  ],
+  "Nonadditivity.HaarPathCounting": [
+    "Nonadditivity.HaarPathReconstructionTree"
+  ],
+  "Nonadditivity.HaarPathDecomposition": [
+    "Nonadditivity.HaarPathChains"
+  ],
+  "Nonadditivity.HaarPathExpansion": [
+    "Nonadditivity.HaarPathWeights"
+  ],
+  "Nonadditivity.HaarPathExploration": [
+    "Nonadditivity.HaarPathGraph",
+    "Mathlib.Data.Fintype.Fin"
+  ],
+  "Nonadditivity.HaarPathExplorationBlocks": [
+    "Nonadditivity.HaarPathTree"
+  ],
+  "Nonadditivity.HaarPathExplorationCounterexample": [
+    "Nonadditivity.HaarPathExploration"
+  ],
+  "Nonadditivity.HaarPathFreshRuns": [
+    "Nonadditivity.HaarPathClasses"
+  ],
+  "Nonadditivity.HaarPathGraph": [
+    "Nonadditivity.HaarPathMultiplicity"
+  ],
+  "Nonadditivity.HaarPathInternalColors": [
+    "Nonadditivity.HaarPathChainPartition"
+  ],
+  "Nonadditivity.HaarPathInvolution": [
+    "Nonadditivity.HaarPathProfiles",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+  ],
+  "Nonadditivity.HaarPathLocalPhase": [
+    "Nonadditivity.HaarPathWeights"
+  ],
+  "Nonadditivity.HaarPathMarks": [
+    "Nonadditivity.HaarPathVertexNames",
+    "Nonadditivity.HaarPathExplorationBlocks",
+    "Nonadditivity.HaarPathCodes"
+  ],
+  "Nonadditivity.HaarPathMultiplicity": [
+    "Nonadditivity.HaarPathProfiles",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic"
+  ],
+  "Nonadditivity.HaarPathNormalizedFresh": [
+    "Nonadditivity.HaarPathVertexNames",
+    "Nonadditivity.HaarPathExplorationBlocks"
+  ],
+  "Nonadditivity.HaarPathNormalizedTree": [
+    "Nonadditivity.HaarPathTreeSegment",
+    "Nonadditivity.HaarPathVertexNames"
+  ],
+  "Nonadditivity.HaarPathNormalizedTreeColors": [
+    "Nonadditivity.HaarPathNormalizedTree"
+  ],
+  "Nonadditivity.HaarPathPrefixTree": [
+    "Nonadditivity.HaarPathFreshRuns",
+    "Nonadditivity.HaarPathClassData"
+  ],
+  "Nonadditivity.HaarPathProfileReverse": [
+    "Nonadditivity.HaarPathChainProfiles"
+  ],
+  "Nonadditivity.HaarPathProfiles": [
+    "Mathlib.Data.Fintype.Card",
+    "Mathlib.Data.Fintype.Pi",
+    "Mathlib.Data.List.Count",
+    "Mathlib.Tactic"
+  ],
+  "Nonadditivity.HaarPathRecoloring": [
+    "Nonadditivity.HaarPathTransport"
+  ],
+  "Nonadditivity.HaarPathReconstruction": [
+    "Nonadditivity.HaarPathMarks",
+    "Nonadditivity.HaarPathNormalizedFresh"
+  ],
+  "Nonadditivity.HaarPathReconstructionFresh": [
+    "Nonadditivity.HaarPathReconstruction"
+  ],
+  "Nonadditivity.HaarPathReconstructionTree": [
+    "Nonadditivity.HaarPathReconstructionFresh",
+    "Nonadditivity.HaarPathNormalizedTreeColors"
+  ],
+  "Nonadditivity.HaarPathRefined": [
+    "Nonadditivity.HaarPathTransport"
+  ],
+  "Nonadditivity.HaarPathRefinedCounting": [
+    "Nonadditivity.HaarPathCounting",
+    "Nonadditivity.HaarPathVertexFibre",
+    "Nonadditivity.HaarPathRefined",
+    "Nonadditivity.HaarPathProfileReverse"
+  ],
+  "Nonadditivity.HaarPathRelabel": [
+    "Nonadditivity.HaarPathWeights"
+  ],
+  "Nonadditivity.HaarPathRunCounterexample": [
+    "Nonadditivity.HaarPathRuns",
+    "Nonadditivity.HaarPathChainCount"
+  ],
+  "Nonadditivity.HaarPathRuns": [
+    "Nonadditivity.HaarPathProfiles",
+    "Mathlib.Data.Finset.Card",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Pi"
+  ],
+  "Nonadditivity.HaarPathSample": [
+    "Nonadditivity.HaarPathSupport"
+  ],
+  "Nonadditivity.HaarPathScalarSummation": [
+    "Nonadditivity.HaarEncodingSlack"
+  ],
+  "Nonadditivity.HaarPathSupport": [
+    "Nonadditivity.HaarPathBalance",
+    "Nonadditivity.HaarPathLocalPhase"
+  ],
+  "Nonadditivity.HaarPathTransport": [
+    "Nonadditivity.HaarPathClassData",
+    "Nonadditivity.HaarPathChainProfiles",
+    "Nonadditivity.HaarPathDecomposition"
+  ],
+  "Nonadditivity.HaarPathTree": [
+    "Nonadditivity.HaarPathExploration",
+    "Mathlib.Combinatorics.SimpleGraph.Acyclic"
+  ],
+  "Nonadditivity.HaarPathTreeSegment": [
+    "Nonadditivity.HaarPathTree",
+    "Mathlib.Data.List.ChainOfFn"
+  ],
+  "Nonadditivity.HaarPathVertexFibre": [
+    "Nonadditivity.HaarPathClasses"
+  ],
+  "Nonadditivity.HaarPathVertexNames": [
+    "Nonadditivity.HaarPathClassData",
+    "Nonadditivity.HaarPathColorNormalization"
+  ],
+  "Nonadditivity.HaarPathWeightBudget": [
+    "Nonadditivity.HaarOperatorPathSum",
+    "Nonadditivity.HaarPathScalarSummation"
+  ],
+  "Nonadditivity.HaarPathWeightTransport": [
+    "Nonadditivity.HaarPathColorRelabel",
+    "Nonadditivity.HaarPathRelabel"
+  ],
+  "Nonadditivity.HaarPathWeights": [
+    "Nonadditivity.HaarPairEntryBound",
+    "Nonadditivity.HaarPathGraph",
+    "Nonadditivity.HaarWordPhase"
+  ],
+  "Nonadditivity.HaarPermutationSupport": [
+    "Mathlib.GroupTheory.Perm.Support",
+    "Mathlib.Data.Fintype.EquivFin",
+    "Mathlib.Data.Fintype.Powerset",
+    "Mathlib.Data.Fintype.Perm",
+    "Mathlib.Data.Nat.Choose.Bounds",
+    "Mathlib.Tactic"
+  ],
+  "Nonadditivity.HaarPrescribedBound": [
+    "Nonadditivity.HaarRefinedCoefficientBound",
+    "Nonadditivity.HaarPathClassAssembly",
+    "Nonadditivity.HaarPrescribedDimension"
+  ],
+  "Nonadditivity.HaarPrescribedConsequences": [
+    "Nonadditivity.HaarPrescribedBound",
+    "Nonadditivity.HolevoRateLimit",
+    "Nonadditivity.Dimensions"
+  ],
+  "Nonadditivity.HaarPrescribedDimension": [
+    "Nonadditivity.HaarExpectationFromMoment",
+    "Nonadditivity.HaarOnePairAssembly"
+  ],
+  "Nonadditivity.HaarPrescribedProbability": [
+    "Nonadditivity.HaarPrescribedBound",
+    "Nonadditivity.ProbabilityQuantitative"
+  ],
+  "Nonadditivity.HaarPrescribedRatio": [
+    "Nonadditivity.HaarPrescribedScaling"
+  ],
+  "Nonadditivity.HaarPrescribedScaling": [
+    "Nonadditivity.HaarPrescribedConsequences"
+  ],
+  "Nonadditivity.HaarProfileAssignmentBound": [
+    "Nonadditivity.HaarProfilePatternBound"
+  ],
+  "Nonadditivity.HaarProfileBlockCoefficients": [
+    "Nonadditivity.HaarProfileOrientation",
+    "Nonadditivity.HaarProfilePadding"
+  ],
+  "Nonadditivity.HaarProfileCoefficient": [
+    "Nonadditivity.HaarOperatorCoefficient",
+    "Nonadditivity.HaarNonbacktrackingFirstStep",
+    "Nonadditivity.HaarPathProfiles"
+  ],
+  "Nonadditivity.HaarProfileCompositionBound": [
+    "Nonadditivity.HaarProfileAssignmentBound",
+    "Mathlib.Data.List.GetD"
+  ],
+  "Nonadditivity.HaarProfileDecodedCoefficients": [
+    "Nonadditivity.HaarProfileAssignmentBound"
+  ],
+  "Nonadditivity.HaarProfileOrientation": [
+    "Nonadditivity.HaarProfileCoefficient"
+  ],
+  "Nonadditivity.HaarProfilePadding": [
+    "Nonadditivity.HaarProfileCoefficient"
+  ],
+  "Nonadditivity.HaarProfilePatternBound": [
+    "Nonadditivity.HaarProfileBlockCoefficients",
+    "Nonadditivity.NoncommutativeCSSkeletonDecoration",
+    "Nonadditivity.HaarMarkedCompositions"
+  ],
+  "Nonadditivity.HaarProfilePermutations": [
+    "Nonadditivity.HaarPathRefined",
+    "Nonadditivity.HaarMatchingCount",
+    "Mathlib.GroupTheory.Perm.Support"
+  ],
+  "Nonadditivity.HaarProfileSingletonWeight": [
+    "Nonadditivity.HaarProfilePatternBound",
+    "Nonadditivity.NoncommutativeCSSingletons",
+    "Nonadditivity.HaarChainMultiplicity"
+  ],
+  "Nonadditivity.HaarProfileWordReverse": [
+    "Nonadditivity.HaarCoreChainWords",
+    "Nonadditivity.HaarCoreChainReverseAddress",
+    "Nonadditivity.HaarPathProfileReverse"
+  ],
+  "Nonadditivity.HaarRecursiveSample": [
+    "Nonadditivity.HaarIteratedExpectation",
+    "Nonadditivity.HaarTensorEvaluation",
+    "Mathlib.MeasureTheory.Integral.Prod"
+  ],
+  "Nonadditivity.HaarReducedChunks": [
+    "Nonadditivity.HaarNonbacktrackingSegmentation",
+    "Mathlib.Data.List.Infix"
+  ],
+  "Nonadditivity.HaarRefinedCoefficientBound": [
+    "Nonadditivity.HaarRefinedCoefficientFibre",
+    "Nonadditivity.HaarProfileSingletonWeight",
+    "Nonadditivity.HaarPaletteDecoder",
+    "Nonadditivity.HaarActualScanWords",
+    "Nonadditivity.HaarDecodedCoefficientBound"
+  ],
+  "Nonadditivity.HaarRefinedCoefficientFibre": [
+    "Nonadditivity.HaarRefinedPaletteFibre",
+    "Nonadditivity.HaarPathClassSums"
+  ],
+  "Nonadditivity.HaarRefinedPaletteFibre": [
+    "Nonadditivity.HaarChainColoringFibre",
+    "Nonadditivity.HaarChainColoringPalettes"
+  ],
+  "Nonadditivity.HaarRefinedVertexFibre": [
+    "Nonadditivity.HaarPathVertexFibre",
+    "Nonadditivity.HaarPathRefined"
+  ],
+  "Nonadditivity.HaarRefinedWeight": [
+    "Nonadditivity.HaarChainReindex",
+    "Nonadditivity.HaarProfilePermutations",
+    "Nonadditivity.HaarPathWeightTransport"
+  ],
+  "Nonadditivity.HaarRepresentativePositions": [
+    "Nonadditivity.HaarCoreChainReverseAddress"
+  ],
+  "Nonadditivity.HaarSharpBound": [
+    "Nonadditivity.HaarSharpSummation",
+    "Nonadditivity.HaarPrescribedBound"
+  ],
+  "Nonadditivity.HaarSharpConstants": [
+    "Nonadditivity.HaarMomentConstants",
+    "Mathlib.Tactic.IntervalCases"
+  ],
+  "Nonadditivity.HaarSharpCounting": [
+    "Nonadditivity.HaarPathCounting",
+    "Nonadditivity.HaarPathClassStats",
+    "Mathlib.Algebra.BigOperators.Ring.Finset"
+  ],
+  "Nonadditivity.HaarSharpPathWeight": [
+    "Nonadditivity.HaarOperatorPathSum",
+    "Nonadditivity.HaarPathScalarSummation"
+  ],
+  "Nonadditivity.HaarSharpSummation": [
+    "Nonadditivity.HaarSharpCounting",
+    "Nonadditivity.HaarSharpConstants",
+    "Nonadditivity.HaarSharpPathWeight"
+  ],
+  "Nonadditivity.HaarSkeletonSegmentation": [
+    "Nonadditivity.HaarProfileDecodedCoefficients",
+    "Nonadditivity.HaarProfileCompositionBound",
+    "Nonadditivity.NoncommutativeCSBlocks",
+    "Nonadditivity.HaarNonbacktrackingSegmentation",
+    "Nonadditivity.HaarTimeCompositionReverse"
+  ],
+  "Nonadditivity.HaarStationaryCoefficients": [
+    "Nonadditivity.HaarNonbacktrackingRenewal",
+    "Nonadditivity.NoncommutativeCSPaths"
+  ],
+  "Nonadditivity.HaarTensorConstants": [
+    "Nonadditivity.HaarMomentConstants",
+    "Mathlib.Algebra.BigOperators.Intervals"
+  ],
+  "Nonadditivity.HaarTensorEvaluation": [
+    "Nonadditivity.HaarTensorReplacement",
+    "Nonadditivity.MatrixNormReindex"
+  ],
+  "Nonadditivity.HaarTensorReplacement": [
+    "Nonadditivity.ProductMomentBridge"
+  ],
+  "Nonadditivity.HaarTimeCompositionReverse": [
+    "Nonadditivity.HaarTimeCompositions"
+  ],
+  "Nonadditivity.HaarTimeCompositions": [
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Data.List.NatAntidiagonal",
+    "Mathlib.Tactic"
+  ],
+  "Nonadditivity.HaarVacuumFunctional": [
+    "Nonadditivity.HaarOperatorCurry",
+    "Nonadditivity.HaarMixedWordExpansion"
+  ],
+  "Nonadditivity.HaarWeingartenCounting": [
+    "Mathlib.GroupTheory.Perm.Fin",
+    "Mathlib.Data.Nat.Factorial.Basic",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Pi"
+  ],
+  "Nonadditivity.HaarWeingartenCycles": [
+    "Nonadditivity.HaarWeingartenGram",
+    "Mathlib.GroupTheory.Perm.Cycle.Basic"
+  ],
+  "Nonadditivity.HaarWeingartenGram": [
+    "Nonadditivity.HaarInvariantTensor"
+  ],
+  "Nonadditivity.HaarWeingartenInverse": [
+    "Nonadditivity.HaarPermutationSupport",
+    "Nonadditivity.WeightedMatrixInverse",
+    "Nonadditivity.HaarWeingartenInverseSum",
+    "Nonadditivity.HaarWeingartenCycles",
+    "Mathlib.Order.Interval.Finset.Nat"
+  ],
+  "Nonadditivity.HaarWeingartenInverseSum": [
+    "Nonadditivity.WeightedMatrixInverse"
+  ],
+  "Nonadditivity.HaarWeingartenMomentBound": [
+    "Nonadditivity.HaarWeingartenSymmetry"
+  ],
+  "Nonadditivity.HaarWeingartenSymmetry": [
+    "Nonadditivity.HaarInvariantSpanning",
+    "Nonadditivity.HaarWeingartenCycles"
+  ],
+  "Nonadditivity.HaarWordExpansion": [
+    "Nonadditivity.StructuredHaarModel",
+    "Nonadditivity.FiniteMomentMatching",
+    "Mathlib.Algebra.MonoidAlgebra.Lift"
+  ],
+  "Nonadditivity.HaarWordPhase": [
+    "Nonadditivity.HaarMixedMoments",
+    "Mathlib.GroupTheory.FreeGroup.Reduce"
+  ],
+  "Nonadditivity.Holevo": [
+    "Mathlib.Algebra.Module.BigOperators",
+    "Mathlib.Data.Real.Archimedean",
+    "Mathlib.Order.ConditionallyCompleteLattice.Basic",
+    "Mathlib.Tactic.Linarith"
+  ],
+  "Nonadditivity.HolevoBits": [
+    "Nonadditivity.Qualitative",
+    "Nonadditivity.Scalar"
+  ],
+  "Nonadditivity.HolevoPowerGap": [
+    "Nonadditivity.HolevoRateLimit"
+  ],
+  "Nonadditivity.HolevoRateLimit": [
+    "Nonadditivity.HolevoTensorSuperadditivity",
+    "Nonadditivity.RegularizedHolevo",
+    "Mathlib.Analysis.Subadditive"
+  ],
+  "Nonadditivity.HolevoTensorSuperadditivity": [
+    "Nonadditivity.HolevoBits",
+    "Nonadditivity.ChannelReindex"
+  ],
+  "Nonadditivity.InitialNetReduction": [
+    "Nonadditivity.NetPolynomialSupport",
+    "Nonadditivity.HaarMomentTail",
+    "Nonadditivity.FreeEmbedding"
+  ],
+  "Nonadditivity.Linearization": [
+    "Mathlib.Data.Real.Basic",
+    "Mathlib.Data.Real.Sqrt",
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+    "Mathlib.Analysis.Normed.Operator.Basic",
+    "Mathlib.Data.Finset.Prod",
+    "Mathlib.Data.Fintype.Sigma",
+    "Mathlib.Data.Fin.Rev",
+    "Mathlib.Data.Matrix.Block",
+    "Mathlib.Data.Matrix.ColumnRowPartitioned",
+    "Mathlib.Analysis.Matrix.Order",
+    "Mathlib.Analysis.CStarAlgebra.Matrix",
+    "Mathlib.LinearAlgebra.Matrix.Hermitian",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Tactic.NormNum",
+    "Lean.Elab.Tactic.Omega"
+  ],
+  "Nonadditivity.Main": [
+    "Nonadditivity.Scalar",
+    "Nonadditivity.Entropy",
+    "Nonadditivity.Holevo",
+    "Nonadditivity.Net",
+    "Nonadditivity.Purity",
+    "Nonadditivity.Probability",
+    "Nonadditivity.Linearization",
+    "Nonadditivity.Quantitative",
+    "Nonadditivity.Asymptotics",
+    "Nonadditivity.Dimensions"
+  ],
+  "Nonadditivity.MatrixNormReindex": [
+    "Nonadditivity.PositiveLinearization",
+    "Mathlib.LinearAlgebra.Matrix.Reindex"
+  ],
+  "Nonadditivity.MatrixRegularRestriction": [
+    "Nonadditivity.RegularRestriction",
+    "Nonadditivity.RegularCoefficientEnergy"
+  ],
+  "Nonadditivity.MatrixShortEmbedding": [
+    "Nonadditivity.ShortEmbeddingNorm",
+    "Nonadditivity.MatrixRegularRestriction"
+  ],
+  "Nonadditivity.Net": [
+    "Mathlib.Analysis.Normed.Module.FiniteDimension",
+    "Mathlib.Data.Real.Sqrt",
+    "Mathlib.MeasureTheory.Measure.Typeclasses.Probability",
+    "Mathlib.Tactic.Abel",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring"
+  ],
+  "Nonadditivity.NetPolynomial": [
+    "Nonadditivity.CollinsYounProduct",
+    "Nonadditivity.ObservableDimension",
+    "Nonadditivity.MatrixRegularRestriction",
+    "Nonadditivity.PrescribedTest",
+    "Nonadditivity.RegularFactorization",
+    "Nonadditivity.MatrixNormReindex"
+  ],
+  "Nonadditivity.NetPolynomialSupport": [
+    "Nonadditivity.NetPolynomial",
+    "Nonadditivity.PolynomialDilation"
+  ],
+  "Nonadditivity.NoncommutativeCS": [
+    "Nonadditivity.Linearization",
+    "Mathlib.Analysis.InnerProductSpace.PiL2"
+  ],
+  "Nonadditivity.NoncommutativeCSAssignmentProducts": [
+    "Nonadditivity.NoncommutativeCSAssignments"
+  ],
+  "Nonadditivity.NoncommutativeCSAssignments": [
+    "Nonadditivity.NoncommutativeCSPaths"
+  ],
+  "Nonadditivity.NoncommutativeCSBlocks": [
+    "Nonadditivity.NoncommutativeCSSkeletonDecoration",
+    "Mathlib.Data.List.SplitLengths"
+  ],
+  "Nonadditivity.NoncommutativeCSCrossing": [
+    "Nonadditivity.NoncommutativeCS"
+  ],
+  "Nonadditivity.NoncommutativeCSEndpointSkeleton": [
+    "Nonadditivity.NoncommutativeCSEndpointTrace"
+  ],
+  "Nonadditivity.NoncommutativeCSEndpointTrace": [
+    "Nonadditivity.NoncommutativeCSAssignmentProducts"
+  ],
+  "Nonadditivity.NoncommutativeCSMemory": [
+    "Nonadditivity.NoncommutativeCS",
+    "Mathlib.Data.Fin.Tuple.Basic"
+  ],
+  "Nonadditivity.NoncommutativeCSPaths": [
+    "Nonadditivity.NoncommutativeCSMemory"
+  ],
+  "Nonadditivity.NoncommutativeCSSingletons": [
+    "Nonadditivity.NoncommutativeCSEndpointSkeleton"
+  ],
+  "Nonadditivity.NoncommutativeCSSkeletonDecoration": [
+    "Nonadditivity.NoncommutativeCSEndpointSkeleton",
+    "Mathlib.Data.List.FinRange"
+  ],
+  "Nonadditivity.ObservableDimension": [
+    "Nonadditivity.FiniteRealization",
+    "Nonadditivity.QuantitativeNet",
+    "Mathlib.LinearAlgebra.Complex.Module",
+    "Mathlib.LinearAlgebra.Dimension.Constructions",
+    "Mathlib.LinearAlgebra.FiniteDimensional.Lemmas"
+  ],
+  "Nonadditivity.OneBlockRealization": [
+    "Nonadditivity.CollinsYounOne",
+    "Nonadditivity.RegularizedHolevo"
+  ],
+  "Nonadditivity.OperationalBlockRates": [
+    "Nonadditivity.OperationalCapacity",
+    "Mathlib.Analysis.SpecificLimits.Basic"
+  ],
+  "Nonadditivity.OperationalBlocking": [
+    "Nonadditivity.OperationalBlockingFlatten",
+    "Nonadditivity.OperationalBlockRates"
+  ],
+  "Nonadditivity.OperationalBlockingCodes": [
+    "Nonadditivity.OperationalReindex",
+    "Nonadditivity.OperationalCapacity",
+    "Nonadditivity.HolevoRateLimit"
+  ],
+  "Nonadditivity.OperationalBlockingFlatten": [
+    "Nonadditivity.OperationalBlockingCodes"
+  ],
+  "Nonadditivity.OperationalCapacity": [
+    "Nonadditivity.OperationalConverse",
+    "Nonadditivity.RegularizedHolevo"
+  ],
+  "Nonadditivity.OperationalCodingTheorem": [
+    "Nonadditivity.QuantumCodingHSW",
+    "Nonadditivity.OperationalBlocking",
+    "Nonadditivity.OperationalWeakConverse",
+    "Nonadditivity.HolevoRateLimit"
+  ],
+  "Nonadditivity.OperationalConsequences": [
+    "Nonadditivity.OperationalCodingTheorem",
+    "Nonadditivity.DeterministicConsequences",
+    "Nonadditivity.HaarPrescribedConsequences",
+    "Nonadditivity.WeylPowersRegularized"
+  ],
+  "Nonadditivity.OperationalConverse": [
+    "Nonadditivity.QuantumHolevo"
+  ],
+  "Nonadditivity.OperationalFlaggedEntropy": [
+    "Nonadditivity.EntropyMixtures",
+    "Nonadditivity.PureChannelEntropy",
+    "Mathlib.Data.Matrix.Block"
+  ],
+  "Nonadditivity.OperationalHolevoConverse": [
+    "Nonadditivity.OperationalNaimark",
+    "Nonadditivity.QuantumCodingContinuity",
+    "Nonadditivity.QuantumCodingTraceDistance"
+  ],
+  "Nonadditivity.OperationalNaimark": [
+    "Nonadditivity.OperationalConverse",
+    "Nonadditivity.EntropyProducts"
+  ],
+  "Nonadditivity.OperationalProjectedCode": [
+    "Nonadditivity.OperationalHolevoConverse",
+    "Nonadditivity.OperationalFlaggedEntropy"
+  ],
+  "Nonadditivity.OperationalReindex": [
+    "Nonadditivity.OperationalConverse",
+    "Nonadditivity.ChannelReindex"
+  ],
+  "Nonadditivity.OperationalStrongConverse": [
+    "Nonadditivity.OperationalCapacity",
+    "Mathlib.Analysis.SpecificLimits.Basic"
+  ],
+  "Nonadditivity.OperationalWeakConverse": [
+    "Nonadditivity.OperationalProjectedCode",
+    "Nonadditivity.QuantumCodingGentle",
+    "Nonadditivity.OperationalCapacity"
+  ],
+  "Nonadditivity.PolynomialDilation": [
+    "Nonadditivity.ProductPolynomialReduction"
+  ],
+  "Nonadditivity.PolynomialReduction": [
+    "Nonadditivity.RegularFactorization",
+    "Mathlib.GroupTheory.FreeGroup.Reduce"
+  ],
+  "Nonadditivity.PositiveHolevo": [
+    "Nonadditivity.BlockConstruction",
+    "Nonadditivity.HolevoBits",
+    "Nonadditivity.EntropyMixtures",
+    "Mathlib.LinearAlgebra.Eigenspace.Triangularizable",
+    "Mathlib.Analysis.Complex.Polynomial.Basic"
+  ],
+  "Nonadditivity.PositiveLinearization": [
+    "Nonadditivity.Linearization",
+    "Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order",
+    "Mathlib.Analysis.CStarAlgebra.Hom"
+  ],
+  "Nonadditivity.PrescribedCostCapacity": [
+    "Nonadditivity.PrescribedCostScaling"
+  ],
+  "Nonadditivity.PrescribedCostDimensions": [
+    "Nonadditivity.PrescribedCostScalars"
+  ],
+  "Nonadditivity.PrescribedCostInformation": [
+    "Nonadditivity.PrescribedCostDimensions",
+    "Nonadditivity.OperationalCodingTheorem"
+  ],
+  "Nonadditivity.PrescribedCostLogarithms": [
+    "Nonadditivity.PrescribedCostDimensions"
+  ],
+  "Nonadditivity.PrescribedCostScalars": [
+    "Nonadditivity.HaarPrescribedScaling",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics"
+  ],
+  "Nonadditivity.PrescribedCostScaling": [
+    "Nonadditivity.PrescribedCostInformation",
+    "Nonadditivity.PrescribedCostLogarithms"
+  ],
+  "Nonadditivity.PrescribedTest": [
+    "Nonadditivity.ShiftNorm",
+    "Nonadditivity.FreeBridge",
+    "Mathlib.LinearAlgebra.Matrix.Kronecker"
+  ],
+  "Nonadditivity.Probability": [
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.Tactic.Linarith"
+  ],
+  "Nonadditivity.ProbabilityQuantitative": [
+    "Nonadditivity.Probability",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.Tactic.FieldSimp"
+  ],
+  "Nonadditivity.ProductHaagerupBall": [
+    "Nonadditivity.ProductHaagerupHomogeneous"
+  ],
+  "Nonadditivity.ProductHaagerupCreation": [
+    "Nonadditivity.CollinsYounTensor"
+  ],
+  "Nonadditivity.ProductHaagerupHomogeneous": [
+    "Nonadditivity.ProductHaagerupWords"
+  ],
+  "Nonadditivity.ProductHaagerupIndex": [
+    "Nonadditivity.ProductHaagerupBall"
+  ],
+  "Nonadditivity.ProductHaagerupProduct": [
+    "Nonadditivity.ProductHaagerupIndex",
+    "Nonadditivity.RegularFubini"
+  ],
+  "Nonadditivity.ProductHaagerupReindex": [
+    "Nonadditivity.ProductHaagerupProduct"
+  ],
+  "Nonadditivity.ProductHaagerupWords": [
+    "Nonadditivity.ProductHaagerupCreation",
+    "Mathlib.Data.Fintype.Vector"
+  ],
+  "Nonadditivity.ProductMomentBridge": [
+    "Nonadditivity.HaarWordExpansion",
+    "Nonadditivity.CollinsYoun",
+    "Nonadditivity.ProductHaagerupProduct"
+  ],
+  "Nonadditivity.ProductPolynomialReduction": [
+    "Nonadditivity.PolynomialReduction",
+    "Mathlib.Algebra.BigOperators.Fin"
+  ],
+  "Nonadditivity.PureChannelEntropy": [
+    "Nonadditivity.Channels",
+    "Nonadditivity.EntropyProducts"
+  ],
+  "Nonadditivity.Purity": [
+    "Mathlib.Analysis.InnerProductSpace.Basic",
+    "Mathlib.Analysis.Normed.Operator.Basic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring"
+  ],
+  "Nonadditivity.QuadraticNet": [
+    "Nonadditivity.ObservableDimension",
+    "Mathlib.LinearAlgebra.Complex.FiniteDimensional",
+    "Mathlib.Analysis.InnerProductSpace.Rayleigh"
+  ],
+  "Nonadditivity.Qualitative": [
+    "Nonadditivity.BlockConstruction",
+    "Nonadditivity.BlockScalars",
+    "Nonadditivity.FiniteChannelRealization",
+    "Nonadditivity.FreeBridge"
+  ],
+  "Nonadditivity.Quantitative": [
+    "Mathlib.Analysis.Complex.ExponentialBounds",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Tactic.Positivity"
+  ],
+  "Nonadditivity.QuantitativeNet": [
+    "Nonadditivity.Net",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar",
+    "Mathlib.Data.Set.Finite.Lemmas",
+    "Mathlib.Order.Interval.Finset.Nat"
+  ],
+  "Nonadditivity.QuantumCodingChannelWords": [
+    "Nonadditivity.QuantumCodingFamilySpectrum",
+    "Nonadditivity.OperationalCapacity",
+    "Nonadditivity.OperationalReindex",
+    "Nonadditivity.ChannelReindex"
+  ],
+  "Nonadditivity.QuantumCodingConditionalTypicality": [
+    "Nonadditivity.QuantumCodingTypicality"
+  ],
+  "Nonadditivity.QuantumCodingContinuity": [
+    "Nonadditivity.EntropyMixtures"
+  ],
+  "Nonadditivity.QuantumCodingDecoderBound": [
+    "Nonadditivity.QuantumCodingTraceUnion",
+    "Nonadditivity.QuantumCodingSequential"
+  ],
+  "Nonadditivity.QuantumCodingEnsembleTypicality": [
+    "Nonadditivity.QuantumCodingPackingAverages",
+    "Nonadditivity.QuantumCodingConditionalTypicality"
+  ],
+  "Nonadditivity.QuantumCodingFamilySpectrum": [
+    "Nonadditivity.QuantumCodingSpectral",
+    "Mathlib.Algebra.BigOperators.Ring.Finset"
+  ],
+  "Nonadditivity.QuantumCodingGentle": [
+    "Nonadditivity.QuantumCodingTraceDistance"
+  ],
+  "Nonadditivity.QuantumCodingHSW": [
+    "Nonadditivity.QuantumCodingTypicalTests",
+    "Nonadditivity.QuantumCodingPacking",
+    "Nonadditivity.QuantumCodingChannelWords",
+    "Nonadditivity.QuantumCodingRates"
+  ],
+  "Nonadditivity.QuantumCodingPacking": [
+    "Nonadditivity.QuantumCodingSampling",
+    "Nonadditivity.QuantumCodingSequential",
+    "Nonadditivity.QuantumCodingDecoderBound"
+  ],
+  "Nonadditivity.QuantumCodingPackingAverages": [
+    "Nonadditivity.QuantumCodingTypicalProjectors",
+    "Nonadditivity.StateEnsembles",
+    "Nonadditivity.AdjointPurity"
+  ],
+  "Nonadditivity.QuantumCodingRates": [
+    "Nonadditivity.OperationalCapacity",
+    "Mathlib.Analysis.SpecificLimits.Basic",
+    "Mathlib.Algebra.Order.Floor.Ring"
+  ],
+  "Nonadditivity.QuantumCodingSampling": [
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+    "Mathlib.Tactic"
+  ],
+  "Nonadditivity.QuantumCodingSequential": [
+    "Nonadditivity.OperationalConverse"
+  ],
+  "Nonadditivity.QuantumCodingSpectral": [
+    "Nonadditivity.EntropyProducts",
+    "Mathlib.Analysis.SpecialFunctions.Exp"
+  ],
+  "Nonadditivity.QuantumCodingTensorSpectrum": [
+    "Nonadditivity.QuantumCodingSpectral",
+    "Mathlib.Algebra.BigOperators.Ring.Finset"
+  ],
+  "Nonadditivity.QuantumCodingTraceDistance": [
+    "Nonadditivity.QuantumCodingContinuity",
+    "Nonadditivity.AdjointPurity"
+  ],
+  "Nonadditivity.QuantumCodingTraceUnion": [
+    "Nonadditivity.QuantumCodingUnion",
+    "Mathlib.Analysis.Matrix.Hermitian",
+    "Mathlib.Analysis.Matrix.Order"
+  ],
+  "Nonadditivity.QuantumCodingTypicalProjectors": [
+    "Nonadditivity.QuantumCodingTensorSpectrum",
+    "Nonadditivity.QuantumCodingFamilySpectrum",
+    "Nonadditivity.QuantumCodingTypicality"
+  ],
+  "Nonadditivity.QuantumCodingTypicalTests": [
+    "Nonadditivity.QuantumCodingEnsembleTypicality",
+    "Nonadditivity.QuantumCodingSequential"
+  ],
+  "Nonadditivity.QuantumCodingTypicality": [
+    "Nonadditivity.Entropy",
+    "Mathlib.Algebra.BigOperators.Ring.Finset",
+    "Mathlib.Logic.Equiv.Fin.Basic"
+  ],
+  "Nonadditivity.QuantumCodingUnion": [
+    "Nonadditivity.NoncommutativeCS",
+    "Mathlib.Algebra.Order.BigOperators.Ring.Finset"
+  ],
+  "Nonadditivity.QuantumHolevo": [
+    "Nonadditivity.Channels",
+    "Nonadditivity.StateEnsembles",
+    "Nonadditivity.AdjointPurity"
+  ],
+  "Nonadditivity.RegularCoefficientEnergy": [
+    "Nonadditivity.FreeModel",
+    "Nonadditivity.PositiveLinearization",
+    "Mathlib.Analysis.InnerProductSpace.Positive"
+  ],
+  "Nonadditivity.RegularDilation": [
+    "Nonadditivity.RegularCoefficientEnergy",
+    "Nonadditivity.MatrixRegularRestriction"
+  ],
+  "Nonadditivity.RegularFactorization": [
+    "Nonadditivity.FiniteSetFactorization",
+    "Nonadditivity.RegularShiftedDilation"
+  ],
+  "Nonadditivity.RegularFubini": [
+    "Nonadditivity.MatrixRegularRestriction",
+    "Nonadditivity.CollinsYounTensor"
+  ],
+  "Nonadditivity.RegularRestriction": [
+    "Nonadditivity.FreeModel",
+    "Mathlib.GroupTheory.Coset.Basic",
+    "Mathlib.Topology.Algebra.InfiniteSum.Real",
+    "Mathlib.Tactic.Positivity"
+  ],
+  "Nonadditivity.RegularShiftedDilation": [
+    "Nonadditivity.RegularDilation",
+    "Mathlib.Analysis.CStarAlgebra.ContinuousLinearMap"
+  ],
+  "Nonadditivity.RegularizedHolevo": [
+    "Nonadditivity.ActualConsequences"
+  ],
+  "Nonadditivity.Scalar": [
+    "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.NormNum"
+  ],
+  "Nonadditivity.ShiftNorm": [
+    "Nonadditivity.FreeModel",
+    "Mathlib.Tactic.LinearCombination",
+    "Mathlib.Tactic.Module"
+  ],
+  "Nonadditivity.ShortEmbeddingNorm": [
+    "Nonadditivity.FreeEmbedding",
+    "Nonadditivity.RegularRestriction"
+  ],
+  "Nonadditivity.SmallEnvironment": [
+    "Nonadditivity.GeneralBell",
+    "Nonadditivity.PositiveHolevo",
+    "Mathlib.LinearAlgebra.Matrix.ToLinearEquiv"
+  ],
+  "Nonadditivity.SpectralDamping": [
+    "Nonadditivity.GaussianNormalization",
+    "Mathlib.Analysis.Matrix.Order",
+    "Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order"
+  ],
+  "Nonadditivity.StateEnsembles": [
+    "Nonadditivity.Entropy",
+    "Mathlib.Order.ConditionallyCompleteLattice.Basic"
+  ],
+  "Nonadditivity.StrictEntropy": [
+    "Nonadditivity.StateEnsembles"
+  ],
+  "Nonadditivity.StructuredCostBounds": [
+    "Nonadditivity.Quantitative",
+    "Mathlib.Analysis.SpecialFunctions.Log.Base",
+    "Mathlib.Algebra.Order.Floor.Div"
+  ],
+  "Nonadditivity.StructuredFiniteChannel": [
+    "Nonadditivity.InitialNetReduction",
+    "Nonadditivity.ComplementaryAdjoint"
+  ],
+  "Nonadditivity.StructuredHaarConsequences": [
+    "Nonadditivity.StructuredHaarModel",
+    "Nonadditivity.StructuredFiniteChannel",
+    "Nonadditivity.HaarConsequences"
+  ],
+  "Nonadditivity.StructuredHaarModel": [
+    "Nonadditivity.StructuredLinearization",
+    "Nonadditivity.HaarModel",
+    "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+    "Mathlib.MeasureTheory.Integral.Average"
+  ],
+  "Nonadditivity.StructuredLinearization": [
+    "Nonadditivity.TensorPartitionReduction",
+    "Nonadditivity.WordBallReduction",
+    "Nonadditivity.PolynomialDilation",
+    "Nonadditivity.InitialNetReduction",
+    "Nonadditivity.StructuredReductionCosts"
+  ],
+  "Nonadditivity.StructuredReductionCosts": [
+    "Nonadditivity.StructuredCostBounds",
+    "Nonadditivity.TensorPartitionReduction",
+    "Nonadditivity.WordBallReduction"
+  ],
+  "Nonadditivity.SwitchChannel": [
+    "Nonadditivity.ChannelEntropy",
+    "Nonadditivity.ConjugateChannel"
+  ],
+  "Nonadditivity.TensorPartitionReduction": [
+    "Nonadditivity.ProductPolynomialReduction",
+    "Mathlib.Data.Nat.Log"
+  ],
+  "Nonadditivity.TensorPowers": [
+    "Nonadditivity.EntropyProducts",
+    "Nonadditivity.PureChannelEntropy"
+  ],
+  "Nonadditivity.UniversalFactorization": [
+    "Nonadditivity.UniversalFactorizationGram",
+    "Nonadditivity.UniversalFactorizationPolynomialDilation"
+  ],
+  "Nonadditivity.UniversalFactorizationGram": [
+    "Nonadditivity.UniversalFactorizationOperators",
+    "Nonadditivity.RegularFactorization"
+  ],
+  "Nonadditivity.UniversalFactorizationOperators": [
+    "Nonadditivity.NoncommutativeCS"
+  ],
+  "Nonadditivity.UniversalFactorizationPolynomialDilation": [
+    "Nonadditivity.UniversalFactorizationGram",
+    "Nonadditivity.UniversalShiftedDilation",
+    "Mathlib.Analysis.CStarAlgebra.Spectrum"
+  ],
+  "Nonadditivity.UniversalShiftedDilation": [
+    "Mathlib.Analysis.InnerProductSpace.ProdL2",
+    "Mathlib.Analysis.CStarAlgebra.ContinuousLinearMap",
+    "Mathlib.Analysis.CStarAlgebra.ContinuousFunctionalCalculus.Order"
+  ],
+  "Nonadditivity.UpperHaarRealization": [
+    "Nonadditivity.HaarConsequences",
+    "Nonadditivity.HaarMomentTail"
+  ],
+  "Nonadditivity.WeightedBell": [
+    "Nonadditivity.BellOutput",
+    "Nonadditivity.WeightedBellScalar"
+  ],
+  "Nonadditivity.WeightedBellScalar": [
+    "Nonadditivity.GeneralBell"
+  ],
+  "Nonadditivity.WeightedBlock": [
+    "Nonadditivity.CanonicalBlockBell",
+    "Nonadditivity.ComplementaryAdjoint",
+    "Nonadditivity.WeightedCertificate",
+    "Mathlib.Topology.Instances.Matrix"
+  ],
+  "Nonadditivity.WeightedBlockBell": [
+    "Nonadditivity.WeightedBlock",
+    "Nonadditivity.WeightedBell"
+  ],
+  "Nonadditivity.WeightedCertificate": [
+    "Nonadditivity.DampedChannel",
+    "Nonadditivity.SpectralDamping",
+    "Nonadditivity.InitialNetReduction"
+  ],
+  "Nonadditivity.WeightedMatrixInverse": [
+    "Mathlib.Analysis.Matrix.Normed",
+    "Mathlib.LinearAlgebra.Matrix.NonsingularInverse",
+    "Mathlib.Tactic"
+  ],
+  "Nonadditivity.WeightedParameters": [
+    "Nonadditivity.BlockScalars",
+    "Nonadditivity.WeightedBlock",
+    "Nonadditivity.WeightedBellScalar"
+  ],
+  "Nonadditivity.WeightedPositivity": [
+    "Nonadditivity.DampedPositivity",
+    "Nonadditivity.WeightedBell",
+    "Nonadditivity.WeightedBlock"
+  ],
+  "Nonadditivity.Weyl": [
+    "Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar",
+    "Mathlib.LinearAlgebra.UnitaryGroup",
+    "Mathlib.LinearAlgebra.Matrix.Permutation",
+    "Mathlib.LinearAlgebra.Matrix.Trace",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Tactic.NormNum",
+    "Nonadditivity.StateEnsembles",
+    "Nonadditivity.Channels"
+  ],
+  "Nonadditivity.WeylPowersChannels": [
+    "Nonadditivity.WeylPowersIndex",
+    "Nonadditivity.WeylPowersControl"
+  ],
+  "Nonadditivity.WeylPowersControl": [
+    "Nonadditivity.ChannelTensorControl",
+    "Nonadditivity.ChannelReindex",
+    "Nonadditivity.ConjugateChannel"
+  ],
+  "Nonadditivity.WeylPowersEntropy": [
+    "Nonadditivity.WeylPowersChannels",
+    "Nonadditivity.WeylPowersTwirl"
+  ],
+  "Nonadditivity.WeylPowersIndex": [
+    "Nonadditivity.RegularizedHolevo",
+    "Nonadditivity.HolevoTensorSuperadditivity"
+  ],
+  "Nonadditivity.WeylPowersRegularized": [
+    "Nonadditivity.WeylPowersEntropy"
+  ],
+  "Nonadditivity.WeylPowersTwirl": [
+    "Nonadditivity.WeylTensor",
+    "Nonadditivity.WeylPowersIndex"
+  ],
+  "Nonadditivity.WeylTensor": [
+    "Nonadditivity.Weyl",
+    "Nonadditivity.EntropyProducts"
+  ],
+  "Nonadditivity.WordBallReduction": [
+    "Nonadditivity.ProductPolynomialReduction",
+    "Mathlib.Algebra.Order.Floor.Div",
+    "Mathlib.Data.Nat.Log"
+  ],
+  "Nonadditivity": [
+    "Nonadditivity.ActualConsequences",
+    "Nonadditivity.AdjointPurity",
+    "Nonadditivity.Asymptotics",
+    "Nonadditivity.BellOutput",
+    "Nonadditivity.BlockBell",
+    "Nonadditivity.BlockConstruction",
+    "Nonadditivity.BlockScalars",
+    "Nonadditivity.CanonicalBlockBell",
+    "Nonadditivity.ChannelEntropy",
+    "Nonadditivity.ChannelExtensions",
+    "Nonadditivity.ChannelReindex",
+    "Nonadditivity.ChannelTensorControl",
+    "Nonadditivity.Channels",
+    "Nonadditivity.CollinsYoun",
+    "Nonadditivity.CollinsYounOne",
+    "Nonadditivity.CollinsYounProduct",
+    "Nonadditivity.CollinsYounTensor",
+    "Nonadditivity.ComplementaryAdjoint",
+    "Nonadditivity.ComplexRealTrace",
+    "Nonadditivity.ConditionalStates",
+    "Nonadditivity.ConjugateChannel",
+    "Nonadditivity.Conversion",
+    "Nonadditivity.DampedBellStability",
+    "Nonadditivity.DampedChannel",
+    "Nonadditivity.DampedPositivity",
+    "Nonadditivity.DampedRealization",
+    "Nonadditivity.DampingNet",
+    "Nonadditivity.DeterministicConsequences",
+    "Nonadditivity.DeterministicQualitative",
+    "Nonadditivity.Dimensions",
+    "Nonadditivity.Entropy",
+    "Nonadditivity.EntropyContinuity",
+    "Nonadditivity.EntropyMixtures",
+    "Nonadditivity.EntropyProducts",
+    "Nonadditivity.EntropyStability",
+    "Nonadditivity.ExactQualitative",
+    "Nonadditivity.FiniteBlockModel",
+    "Nonadditivity.FiniteChannelRealization",
+    "Nonadditivity.FiniteFreeModel",
+    "Nonadditivity.FiniteMomentMatching",
+    "Nonadditivity.FiniteRealization",
+    "Nonadditivity.FiniteRegularMatrix",
+    "Nonadditivity.FiniteSetFactorization",
+    "Nonadditivity.FreeBridge",
+    "Nonadditivity.FreeCreation",
+    "Nonadditivity.FreeEmbedding",
+    "Nonadditivity.FreeGroupCut",
+    "Nonadditivity.FreeModel",
+    "Nonadditivity.GapFractionAsymptotics",
+    "Nonadditivity.GaussianCertificates",
+    "Nonadditivity.GaussianChannelBounds",
+    "Nonadditivity.GaussianConsequences",
+    "Nonadditivity.GaussianConstruction",
+    "Nonadditivity.GaussianNetRealization",
+    "Nonadditivity.GaussianNormalization",
+    "Nonadditivity.GaussianQuadratic",
+    "Nonadditivity.GaussianRectangular",
+    "Nonadditivity.GaussianRectangularAlgebra",
+    "Nonadditivity.GaussianSampleEvaluation",
+    "Nonadditivity.GaussianScalar",
+    "Nonadditivity.GeneralBell",
+    "Nonadditivity.HaarActualScanWords",
+    "Nonadditivity.HaarAveraging",
+    "Nonadditivity.HaarBranchCoefficients",
+    "Nonadditivity.HaarBranchContractions",
+    "Nonadditivity.HaarBranchGraphBudget",
+    "Nonadditivity.HaarBranchTimeSum",
+    "Nonadditivity.HaarCanonicalTransport",
+    "Nonadditivity.HaarChainColoring",
+    "Nonadditivity.HaarChainColoringFibre",
+    "Nonadditivity.HaarChainColoringPalettes",
+    "Nonadditivity.HaarChainColoringPath",
+    "Nonadditivity.HaarChainMultiplicity",
+    "Nonadditivity.HaarChainReindex",
+    "Nonadditivity.HaarCoefficientBounds",
+    "Nonadditivity.HaarCoefficientRows",
+    "Nonadditivity.HaarColumnMoments",
+    "Nonadditivity.HaarConsequences",
+    "Nonadditivity.HaarCoreChainAddress",
+    "Nonadditivity.HaarCoreChainEndpoints",
+    "Nonadditivity.HaarCoreChainLabels",
+    "Nonadditivity.HaarCoreChainMultiplicity",
+    "Nonadditivity.HaarCoreChainReverseAddress",
+    "Nonadditivity.HaarCoreChainWords",
+    "Nonadditivity.HaarDecodedCoefficientBound",
+    "Nonadditivity.HaarEncodingSlack",
+    "Nonadditivity.HaarEntryBound",
+    "Nonadditivity.HaarExpectationFromMoment",
+    "Nonadditivity.HaarFiniteFaithfulness",
+    "Nonadditivity.HaarFiniteSymmetry",
+    "Nonadditivity.HaarFourthMoments",
+    "Nonadditivity.HaarHybridMoments",
+    "Nonadditivity.HaarInputScaling",
+    "Nonadditivity.HaarInvariantCommutant",
+    "Nonadditivity.HaarInvariantSpanning",
+    "Nonadditivity.HaarInvariantTensor",
+    "Nonadditivity.HaarIteratedExpectation",
+    "Nonadditivity.HaarIteratedMoments",
+    "Nonadditivity.HaarMarkedCompositions",
+    "Nonadditivity.HaarMatchingCount",
+    "Nonadditivity.HaarMatchingFibers",
+    "Nonadditivity.HaarMatchingSharp",
+    "Nonadditivity.HaarMatchingSingletons",
+    "Nonadditivity.HaarMixedMoments",
+    "Nonadditivity.HaarMixedWordExpansion",
+    "Nonadditivity.HaarModel",
+    "Nonadditivity.HaarMomentConstants",
+    "Nonadditivity.HaarMomentExpectation",
+    "Nonadditivity.HaarMomentSlack",
+    "Nonadditivity.HaarMomentTail",
+    "Nonadditivity.HaarMoments",
+    "Nonadditivity.HaarNonbacktracking",
+    "Nonadditivity.HaarNonbacktrackingFirstStep",
+    "Nonadditivity.HaarNonbacktrackingLastReturn",
+    "Nonadditivity.HaarNonbacktrackingListSegmentation",
+    "Nonadditivity.HaarNonbacktrackingRenewal",
+    "Nonadditivity.HaarNonbacktrackingSegmentation",
+    "Nonadditivity.HaarNonbacktrackingSupport",
+    "Nonadditivity.HaarOnePairAssembly",
+    "Nonadditivity.HaarOperatorCoefficient",
+    "Nonadditivity.HaarOperatorCurry",
+    "Nonadditivity.HaarOperatorPathBridge",
+    "Nonadditivity.HaarOperatorPathSum",
+    "Nonadditivity.HaarOperatorPolynomial",
+    "Nonadditivity.HaarPairEntryBound",
+    "Nonadditivity.HaarPaletteDecoder",
+    "Nonadditivity.HaarPathBalance",
+    "Nonadditivity.HaarPathChainCount",
+    "Nonadditivity.HaarPathChainPartition",
+    "Nonadditivity.HaarPathChainProfiles",
+    "Nonadditivity.HaarPathChains",
+    "Nonadditivity.HaarPathClassAssembly",
+    "Nonadditivity.HaarPathClassData",
+    "Nonadditivity.HaarPathClassStats",
+    "Nonadditivity.HaarPathClassSums",
+    "Nonadditivity.HaarPathClasses",
+    "Nonadditivity.HaarPathCodes",
+    "Nonadditivity.HaarPathCoefficientWords",
+    "Nonadditivity.HaarPathColorMarks",
+    "Nonadditivity.HaarPathColorNormalization",
+    "Nonadditivity.HaarPathColorRelabel",
+    "Nonadditivity.HaarPathCounting",
+    "Nonadditivity.HaarPathDecomposition",
+    "Nonadditivity.HaarPathExpansion",
+    "Nonadditivity.HaarPathExploration",
+    "Nonadditivity.HaarPathExplorationBlocks",
+    "Nonadditivity.HaarPathExplorationCounterexample",
+    "Nonadditivity.HaarPathFreshRuns",
+    "Nonadditivity.HaarPathGraph",
+    "Nonadditivity.HaarPathInternalColors",
+    "Nonadditivity.HaarPathInvolution",
+    "Nonadditivity.HaarPathLocalPhase",
+    "Nonadditivity.HaarPathMarks",
+    "Nonadditivity.HaarPathMultiplicity",
+    "Nonadditivity.HaarPathNormalizedFresh",
+    "Nonadditivity.HaarPathNormalizedTree",
+    "Nonadditivity.HaarPathNormalizedTreeColors",
+    "Nonadditivity.HaarPathPrefixTree",
+    "Nonadditivity.HaarPathProfileReverse",
+    "Nonadditivity.HaarPathProfiles",
+    "Nonadditivity.HaarPathRecoloring",
+    "Nonadditivity.HaarPathReconstruction",
+    "Nonadditivity.HaarPathReconstructionFresh",
+    "Nonadditivity.HaarPathReconstructionTree",
+    "Nonadditivity.HaarPathRefined",
+    "Nonadditivity.HaarPathRefinedCounting",
+    "Nonadditivity.HaarPathRelabel",
+    "Nonadditivity.HaarPathRunCounterexample",
+    "Nonadditivity.HaarPathRuns",
+    "Nonadditivity.HaarPathSample",
+    "Nonadditivity.HaarPathScalarSummation",
+    "Nonadditivity.HaarPathSupport",
+    "Nonadditivity.HaarPathTransport",
+    "Nonadditivity.HaarPathTree",
+    "Nonadditivity.HaarPathTreeSegment",
+    "Nonadditivity.HaarPathVertexFibre",
+    "Nonadditivity.HaarPathVertexNames",
+    "Nonadditivity.HaarPathWeightBudget",
+    "Nonadditivity.HaarPathWeightTransport",
+    "Nonadditivity.HaarPathWeights",
+    "Nonadditivity.HaarPermutationSupport",
+    "Nonadditivity.HaarPrescribedBound",
+    "Nonadditivity.HaarPrescribedConsequences",
+    "Nonadditivity.HaarPrescribedDimension",
+    "Nonadditivity.HaarPrescribedProbability",
+    "Nonadditivity.HaarPrescribedRatio",
+    "Nonadditivity.HaarPrescribedScaling",
+    "Nonadditivity.HaarProfileAssignmentBound",
+    "Nonadditivity.HaarProfileBlockCoefficients",
+    "Nonadditivity.HaarProfileCoefficient",
+    "Nonadditivity.HaarProfileCompositionBound",
+    "Nonadditivity.HaarProfileDecodedCoefficients",
+    "Nonadditivity.HaarProfileOrientation",
+    "Nonadditivity.HaarProfilePadding",
+    "Nonadditivity.HaarProfilePatternBound",
+    "Nonadditivity.HaarProfilePermutations",
+    "Nonadditivity.HaarProfileSingletonWeight",
+    "Nonadditivity.HaarProfileWordReverse",
+    "Nonadditivity.HaarRecursiveSample",
+    "Nonadditivity.HaarReducedChunks",
+    "Nonadditivity.HaarRefinedCoefficientBound",
+    "Nonadditivity.HaarRefinedCoefficientFibre",
+    "Nonadditivity.HaarRefinedPaletteFibre",
+    "Nonadditivity.HaarRefinedVertexFibre",
+    "Nonadditivity.HaarRefinedWeight",
+    "Nonadditivity.HaarRepresentativePositions",
+    "Nonadditivity.HaarSharpBound",
+    "Nonadditivity.HaarSharpConstants",
+    "Nonadditivity.HaarSharpCounting",
+    "Nonadditivity.HaarSharpPathWeight",
+    "Nonadditivity.HaarSharpSummation",
+    "Nonadditivity.HaarSkeletonSegmentation",
+    "Nonadditivity.HaarStationaryCoefficients",
+    "Nonadditivity.HaarTensorConstants",
+    "Nonadditivity.HaarTensorEvaluation",
+    "Nonadditivity.HaarTensorReplacement",
+    "Nonadditivity.HaarTimeCompositionReverse",
+    "Nonadditivity.HaarTimeCompositions",
+    "Nonadditivity.HaarVacuumFunctional",
+    "Nonadditivity.HaarWeingartenCounting",
+    "Nonadditivity.HaarWeingartenCycles",
+    "Nonadditivity.HaarWeingartenGram",
+    "Nonadditivity.HaarWeingartenInverse",
+    "Nonadditivity.HaarWeingartenInverseSum",
+    "Nonadditivity.HaarWeingartenMomentBound",
+    "Nonadditivity.HaarWeingartenSymmetry",
+    "Nonadditivity.HaarWordExpansion",
+    "Nonadditivity.HaarWordPhase",
+    "Nonadditivity.Holevo",
+    "Nonadditivity.HolevoBits",
+    "Nonadditivity.HolevoPowerGap",
+    "Nonadditivity.HolevoRateLimit",
+    "Nonadditivity.HolevoTensorSuperadditivity",
+    "Nonadditivity.InitialNetReduction",
+    "Nonadditivity.Linearization",
+    "Nonadditivity.Main",
+    "Nonadditivity.MatrixNormReindex",
+    "Nonadditivity.MatrixRegularRestriction",
+    "Nonadditivity.MatrixShortEmbedding",
+    "Nonadditivity.Net",
+    "Nonadditivity.NetPolynomial",
+    "Nonadditivity.NetPolynomialSupport",
+    "Nonadditivity.NoncommutativeCS",
+    "Nonadditivity.NoncommutativeCSAssignmentProducts",
+    "Nonadditivity.NoncommutativeCSAssignments",
+    "Nonadditivity.NoncommutativeCSBlocks",
+    "Nonadditivity.NoncommutativeCSCrossing",
+    "Nonadditivity.NoncommutativeCSEndpointSkeleton",
+    "Nonadditivity.NoncommutativeCSEndpointTrace",
+    "Nonadditivity.NoncommutativeCSMemory",
+    "Nonadditivity.NoncommutativeCSPaths",
+    "Nonadditivity.NoncommutativeCSSingletons",
+    "Nonadditivity.NoncommutativeCSSkeletonDecoration",
+    "Nonadditivity.ObservableDimension",
+    "Nonadditivity.OneBlockRealization",
+    "Nonadditivity.OperationalBlockRates",
+    "Nonadditivity.OperationalBlocking",
+    "Nonadditivity.OperationalBlockingCodes",
+    "Nonadditivity.OperationalBlockingFlatten",
+    "Nonadditivity.OperationalCapacity",
+    "Nonadditivity.OperationalCodingTheorem",
+    "Nonadditivity.OperationalConsequences",
+    "Nonadditivity.OperationalConverse",
+    "Nonadditivity.OperationalFlaggedEntropy",
+    "Nonadditivity.OperationalHolevoConverse",
+    "Nonadditivity.OperationalNaimark",
+    "Nonadditivity.OperationalProjectedCode",
+    "Nonadditivity.OperationalReindex",
+    "Nonadditivity.OperationalStrongConverse",
+    "Nonadditivity.OperationalWeakConverse",
+    "Nonadditivity.PolynomialDilation",
+    "Nonadditivity.PolynomialReduction",
+    "Nonadditivity.PositiveHolevo",
+    "Nonadditivity.PositiveLinearization",
+    "Nonadditivity.PrescribedCostCapacity",
+    "Nonadditivity.PrescribedCostDimensions",
+    "Nonadditivity.PrescribedCostInformation",
+    "Nonadditivity.PrescribedCostLogarithms",
+    "Nonadditivity.PrescribedCostScalars",
+    "Nonadditivity.PrescribedCostScaling",
+    "Nonadditivity.PrescribedTest",
+    "Nonadditivity.Probability",
+    "Nonadditivity.ProbabilityQuantitative",
+    "Nonadditivity.ProductHaagerupBall",
+    "Nonadditivity.ProductHaagerupCreation",
+    "Nonadditivity.ProductHaagerupHomogeneous",
+    "Nonadditivity.ProductHaagerupIndex",
+    "Nonadditivity.ProductHaagerupProduct",
+    "Nonadditivity.ProductHaagerupReindex",
+    "Nonadditivity.ProductHaagerupWords",
+    "Nonadditivity.ProductMomentBridge",
+    "Nonadditivity.ProductPolynomialReduction",
+    "Nonadditivity.PureChannelEntropy",
+    "Nonadditivity.Purity",
+    "Nonadditivity.QuadraticNet",
+    "Nonadditivity.Qualitative",
+    "Nonadditivity.Quantitative",
+    "Nonadditivity.QuantitativeNet",
+    "Nonadditivity.QuantumCodingChannelWords",
+    "Nonadditivity.QuantumCodingConditionalTypicality",
+    "Nonadditivity.QuantumCodingContinuity",
+    "Nonadditivity.QuantumCodingDecoderBound",
+    "Nonadditivity.QuantumCodingEnsembleTypicality",
+    "Nonadditivity.QuantumCodingFamilySpectrum",
+    "Nonadditivity.QuantumCodingGentle",
+    "Nonadditivity.QuantumCodingHSW",
+    "Nonadditivity.QuantumCodingPacking",
+    "Nonadditivity.QuantumCodingPackingAverages",
+    "Nonadditivity.QuantumCodingRates",
+    "Nonadditivity.QuantumCodingSampling",
+    "Nonadditivity.QuantumCodingSequential",
+    "Nonadditivity.QuantumCodingSpectral",
+    "Nonadditivity.QuantumCodingTensorSpectrum",
+    "Nonadditivity.QuantumCodingTraceDistance",
+    "Nonadditivity.QuantumCodingTraceUnion",
+    "Nonadditivity.QuantumCodingTypicalProjectors",
+    "Nonadditivity.QuantumCodingTypicalTests",
+    "Nonadditivity.QuantumCodingTypicality",
+    "Nonadditivity.QuantumCodingUnion",
+    "Nonadditivity.QuantumHolevo",
+    "Nonadditivity.RegularCoefficientEnergy",
+    "Nonadditivity.RegularDilation",
+    "Nonadditivity.RegularFactorization",
+    "Nonadditivity.RegularFubini",
+    "Nonadditivity.RegularRestriction",
+    "Nonadditivity.RegularShiftedDilation",
+    "Nonadditivity.RegularizedHolevo",
+    "Nonadditivity.Scalar",
+    "Nonadditivity.ShiftNorm",
+    "Nonadditivity.ShortEmbeddingNorm",
+    "Nonadditivity.SmallEnvironment",
+    "Nonadditivity.SpectralDamping",
+    "Nonadditivity.StateEnsembles",
+    "Nonadditivity.StrictEntropy",
+    "Nonadditivity.StructuredCostBounds",
+    "Nonadditivity.StructuredFiniteChannel",
+    "Nonadditivity.StructuredHaarConsequences",
+    "Nonadditivity.StructuredHaarModel",
+    "Nonadditivity.StructuredLinearization",
+    "Nonadditivity.StructuredReductionCosts",
+    "Nonadditivity.SwitchChannel",
+    "Nonadditivity.TensorPartitionReduction",
+    "Nonadditivity.TensorPowers",
+    "Nonadditivity.UniversalFactorization",
+    "Nonadditivity.UniversalFactorizationGram",
+    "Nonadditivity.UniversalFactorizationOperators",
+    "Nonadditivity.UniversalFactorizationPolynomialDilation",
+    "Nonadditivity.UniversalShiftedDilation",
+    "Nonadditivity.UpperHaarRealization",
+    "Nonadditivity.WeightedBell",
+    "Nonadditivity.WeightedBellScalar",
+    "Nonadditivity.WeightedBlock",
+    "Nonadditivity.WeightedBlockBell",
+    "Nonadditivity.WeightedCertificate",
+    "Nonadditivity.WeightedMatrixInverse",
+    "Nonadditivity.WeightedParameters",
+    "Nonadditivity.WeightedPositivity",
+    "Nonadditivity.Weyl",
+    "Nonadditivity.WeylPowersChannels",
+    "Nonadditivity.WeylPowersControl",
+    "Nonadditivity.WeylPowersEntropy",
+    "Nonadditivity.WeylPowersIndex",
+    "Nonadditivity.WeylPowersRegularized",
+    "Nonadditivity.WeylPowersTwirl",
+    "Nonadditivity.WeylTensor",
+    "Nonadditivity.WordBallReduction"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "challenge_module": "ComparatorChallenges.B_OperationalCoding",
+  "solution_module": "Nonadditivity.OperationalCodingTheorem",
+  "theorem_names": [
+    "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

@@ -1,0 +1,13 @@
+{
+  "challenge_module": "ComparatorChallenges.D_WeylAllUses",
+  "solution_module": "Nonadditivity.WeylPowersEntropy",
+  "theorem_names": [
+    "Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

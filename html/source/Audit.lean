@@ -1,0 +1,190 @@
+/-
+Copyright (c) 2026 the Nonadditivity project contributors.
+All rights reserved. See COPYRIGHT.md for licensing and attribution.
+-/
+
+import Nonadditivity
+import Lean.Util.CollectAxioms
+
+/-!
+Audit every local declaration, including private helpers and definitions containing
+proof fields. Transitive dependency collection rejects `sorryAx`, custom axioms,
+and imported unproved mathematical assumptions. Explicit hypotheses are visible
+in theorem statements and are not axioms.
+-/
+
+open Lean Elab Command
+
+#print axioms Nonadditivity.Scalar.holevo_gap
+#print axioms Nonadditivity.Scalar.capacity_gap
+#print axioms Nonadditivity.Scalar.conversion
+#print axioms Nonadditivity.opNorm_le_of_unitSphereNet
+#print axioms Nonadditivity.Entropy.DensityMatrix.vonNeumann_ge_neg_log_purity
+#print axioms Nonadditivity.Entropy.DensityMatrix.purity_and_entropy_of_centered_bound
+#print axioms Nonadditivity.Linearization.gram_factorization
+#print axioms Nonadditivity.Linearization.backward_error_transfer
+#print axioms Nonadditivity.Quantitative.final_three_tails_lt
+#print axioms Nonadditivity.Quantitative.threshold_consequences
+#print axioms Nonadditivity.Asymptotics.vanishing_diverging_of_bounds
+#print axioms Nonadditivity.Holevo.quantity_eq_sub_minimumEntropy
+#print axioms Nonadditivity.Purity.purity_le
+#print axioms Nonadditivity.Probability.favorable_realization
+#print axioms Nonadditivity.Main.block_entropy_of_purity
+#print axioms Nonadditivity.Main.minimum_block_entropy_of_purity
+#print axioms Nonadditivity.Main.quantitative_gap_of_bounds
+#print axioms Nonadditivity.Dimensions.input_size_remainder_tendsto
+#print axioms Nonadditivity.Entropy.unitary_kronecker_conjugate_fixes_bell
+#print axioms Nonadditivity.Quantitative.explicit_haar_error_bound
+#print axioms Nonadditivity.Quantitative.explicit_haar_log_comparison
+#print axioms Nonadditivity.Quantitative.quantitative_certificate
+#print axioms Nonadditivity.eventually_exists_kappa_norm_certificate
+#print axioms Nonadditivity.Asymptotics.eventually_ratio_of_holevo_bounds
+#print axioms Nonadditivity.Entropy.DensityMatrix.tensor_entropy
+#print axioms Nonadditivity.Entropy.bipartite_entropy_eq
+#print axioms Nonadditivity.EntropyMixtures.densityMatrix_mixture_entropy_upper
+#print axioms Nonadditivity.Channels.KrausChannel.weylExtension_holevo
+#print axioms Nonadditivity.BlockBell.block_complementary_bell_entropy_le
+#print axioms Nonadditivity.Conversion.converted_gap_lower
+#print axioms Nonadditivity.Qualitative.exists_block_channels
+#print axioms Nonadditivity.Qualitative.qualitative_realization_of_CY_and_strong_convergence
+#print axioms Nonadditivity.HaarModel.qualitative_realization_of_CY_and_Haar_strong_convergence
+#print axioms Nonadditivity.PositiveHolevo.block_converted_holevoBits_lower
+#print axioms Nonadditivity.ActualConsequences.actual_large_gap_and_ratio
+#print axioms Nonadditivity.FreeEmbedding.exists_short_embedding
+#print axioms Nonadditivity.RegularRestriction.regularPolynomial_injective_norm_eq
+#print axioms Nonadditivity.RegularCoefficientEnergy.differenceSupport_modulus_sum_norm_le
+#print axioms Nonadditivity.Linearization.factor_norm_sq_of_shifted_gram
+#print axioms Nonadditivity.ShortEmbeddingNorm.block_degree_reduction
+#print axioms Nonadditivity.CollinsYounOne.collinsYounBound_one
+#print axioms Nonadditivity.OneBlockRealization.exists_nonadditive_channel
+#print axioms Nonadditivity.OneBlockRealization.exists_arbitrarily_large_ratio
+#print axioms Nonadditivity.ActualConsequences.actual_large_regularizedGain_and_ratio
+#print axioms Nonadditivity.MatrixShortEmbedding.product_matrix_logarithmic_substitution
+#print axioms Nonadditivity.FiniteSetFactorization.factorPolynomial_gram
+#print axioms Nonadditivity.FiniteSetFactorization.theta_le_card_mul_regularNorm
+#print axioms Nonadditivity.FiniteSetFactorization.paddedPolynomial_dilation_norm_identity
+#print axioms Nonadditivity.RegularDilation.dilation_polynomial_norm
+#print axioms Nonadditivity.FiniteSetFactorization.exists_finite_factorization
+
+#print axioms Nonadditivity.CollinsYounTensor.local_polynomial_norm_le_three_coeff
+#print axioms Nonadditivity.RegularFubini.polynomial_succ_norm_eq
+#print axioms Nonadditivity.CollinsYounProduct.collinsYounBound
+#print axioms Nonadditivity.RegularShiftedDilation.shifted_dilation_polynomial_norm
+#print axioms Nonadditivity.RegularFactorization.exists_factorization_with_error_transfer
+#print axioms Nonadditivity.QuantitativeNet.exists_symmetric_inverse_nat_net
+#print axioms Nonadditivity.ObservableDimension.observableSpace_finrank
+#print axioms Nonadditivity.ObservableDimension.exists_symmetric_observable_net_for_matrix
+#print axioms Nonadditivity.ActualConsequences.FiniteQuantumChannel.normalizedPowerHolevo_tendsto
+#print axioms Nonadditivity.HaarConsequences.exists_block_channel
+#print axioms Nonadditivity.HaarConsequences.exists_large_gap_and_ratio
+#print axioms Nonadditivity.HaarConsequences.exists_separating_family
+
+#print axioms Nonadditivity.HaarMoments.integral_entry_product
+#print axioms Nonadditivity.HaarMoments.integral_twirl_entry
+#print axioms Nonadditivity.HaarFourthMoments.integral_entry_norm_four
+#print axioms Nonadditivity.HaarFourthMoments.integral_entry_norm_sq_mul_norm_sq
+#print axioms Nonadditivity.HaarMomentTail.canonical_upper_tail_of_trace_moments
+#print axioms Nonadditivity.UpperHaarRealization.exists_block_channel_of_trace_moments
+#print axioms Nonadditivity.UpperHaarRealization.exists_arbitrarily_large_gap_of_all_upper
+#print axioms Nonadditivity.UpperHaarRealization.exists_arbitrarily_large_ratio
+#print axioms Nonadditivity.PrescribedTest.exists_prescribed_test
+#print axioms Nonadditivity.NetPolynomial.exists_net_polynomial
+#print axioms Nonadditivity.NetPolynomialSupport.polynomial_regularEval
+#print axioms Nonadditivity.NetPolynomialSupport.polynomial_finiteEval_norm
+#print axioms Nonadditivity.ProductPolynomialReduction.constructed_selfAdjoint_linear_reduction
+#print axioms Nonadditivity.ProductPolynomialReduction.dimensionCost_le
+#print axioms Nonadditivity.ProductPolynomialReduction.errorCost_le
+
+#print axioms Nonadditivity.InitialNetReduction.exists_initial_net_polynomial
+#print axioms Nonadditivity.StructuredLinearization.exists_net_linearization
+#print axioms Nonadditivity.StructuredHaarConsequences.exists_explicit_channel
+#print axioms Nonadditivity.StructuredHaarConsequences.exists_explicit_finite_channel
+#print axioms Nonadditivity.HaarColumnMoments.integral_entry_norm_even
+#print axioms Nonadditivity.HaarMixedMoments.integral_entryMonomial_eq_zero_of_row_mismatch
+#print axioms Nonadditivity.HaarAveraging.average_mixedTensor_mulVec_eq_iff
+#print axioms Nonadditivity.GaussianConstruction.exists_channel
+#print axioms Nonadditivity.GeneralBell.paired_bell_entropy_le
+#print axioms Nonadditivity.SmallEnvironment.converted_holevo_pos
+#print axioms Nonadditivity.GaussianConsequences.exists_small_chi_large_ratio
+#print axioms Nonadditivity.GaussianConsequences.exists_nonadditive_channel
+#print axioms Nonadditivity.GaussianConsequences.exists_small_chi_large_regularized_ratio
+#print axioms Nonadditivity.FiniteFreeModel.productModel_eq_one_iff
+#print axioms Nonadditivity.FiniteBlockModel.block_adjoint_normalized_moment_le
+#print axioms Nonadditivity.SpectralDamping.exists_damping
+#print axioms Nonadditivity.DampedBellStability.damped_pair_entry_sub_norm_le
+#print axioms Nonadditivity.EntropyStability.exists_damped_bell_entropy_modulus
+#print axioms Nonadditivity.DampedPositivity.converted_damped_block_holevoBits_pos
+#print axioms Nonadditivity.DeterministicQualitative.exists_actual_channel_bounds_with_dimensions
+#print axioms Nonadditivity.DeterministicConsequences.actual_vanishing_diverging
+#print axioms Nonadditivity.DeterministicConsequences.exists_small_chi_large_gap_and_ratio
+#print axioms Nonadditivity.DeterministicConsequences.exists_small_chi_large_regularized_gain_and_ratio
+#print axioms Nonadditivity.WeightedBell.complementary_bell_entropy_le
+#print axioms Nonadditivity.WeightedCertificate.damped_weighted_certificate
+#print axioms Nonadditivity.WeightedParameters.exists_small_perturbation
+#print axioms Nonadditivity.WeightedPositivity.converted_damped_weightedBlock_holevoBits_pos
+#print axioms Nonadditivity.ExactQualitative.exists_actual_channel_bounds_with_dimensions
+#print axioms Nonadditivity.ExactQualitative.exists_actual_channel_gap
+
+#print axioms Nonadditivity.HaarInvariantTensor.norm_entry_moment_le_of_dimension
+#print axioms Nonadditivity.HaarInvariantTensor.norm_sample_pair_entry_moment_le
+
+#print axioms Nonadditivity.HaarNonbacktracking.branch_row_norm_le
+#print axioms Nonadditivity.HaarNonbacktracking.BranchPlan.regular_timeSum_norm_le
+#print axioms Nonadditivity.HaarNonbacktracking.BranchPlan.timeSum_norm_le_graph_budget
+
+#print axioms Nonadditivity.HaarPrescribedDimension.onePairLengthBounds
+#print axioms Nonadditivity.HaarPrescribedDimension.onePairTraceBound
+#print axioms Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation
+#print axioms Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel
+#print axioms Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribedFamily_chi_lower
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribedFamily_regularizedGain_lower
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribedFamily_gap_tendsto_atTop_of_delta_pos
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribedFamily_ratio_eventually
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribedFamily_input_size_remainder_tendsto
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribedFamily_gap_linear_bounds
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_normalized_gap_liminf
+#print axioms Nonadditivity.HaarOperatorPathBridge.coefficient_bound
+#print axioms Nonadditivity.HaarPathClasses.RefinedPattern.integral_pathProduct_eq
+#print axioms Nonadditivity.HaarPathClasses.card_defectClass_le
+
+#print axioms Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum
+#print axioms Nonadditivity.QuantumCoding.holevoBits_le_operationalCapacity
+#print axioms Nonadditivity.Operational.operationalCapacity_le_regularizedHolevoSupremum
+#print axioms Nonadditivity.Operational.achievableRate_of_block
+#print axioms Nonadditivity.ActualConsequences.FiniteQuantumChannel.classicalCapacity_eq_regularizedHolevo
+#print axioms Nonadditivity.OperationalConsequences.actual_vanishing_chi_diverging_capacity
+#print axioms Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio
+#print axioms Nonadditivity.OperationalConsequences.exists_prescribed_channel_with_capacity_gain
+#print axioms Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevo
+#print axioms Nonadditivity.WeylPowers.operationalCapacity_weylExtension
+#print axioms Nonadditivity.UniversalFactorization.exists_universal_factorization
+#print axioms Nonadditivity.UniversalFactorization.regular_error_transfer
+#print axioms Nonadditivity.HaarSharpBound.onePairTraceBound
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribedFamily_ratio_liminf_manuscript
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribed_gap_sqrt_input_bounds
+#print axioms Nonadditivity.HaarPrescribedDimension.prescribed_polynomial_favorable_probability
+#print axioms Nonadditivity.Scalar.gap_fraction_explicit_remainder
+#print axioms Nonadditivity.RegularizedHolevo.normalized_fixed_channel_gap_tendsto_zero
+#print axioms Nonadditivity.PrescribedCost.growingFamily_input_qubits_div_sq_tendsto
+#print axioms Nonadditivity.PrescribedCost.growingFamily_vanishing_diverging
+#print axioms Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds
+#print axioms Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower
+
+run_cmd do
+  let env ← getEnv
+  let names := env.constants.fold (init := #[]) fun acc name _ =>
+    let s := name.toString
+    if s.startsWith "Nonadditivity." || s.startsWith "_private.Nonadditivity." then
+      acc.push name
+    else acc
+  let (_, auditState) := ((names.forM Lean.CollectAxioms.collect).run env).run {}
+  let allowed : Array Name := #[``propext, ``Classical.choice, ``Quot.sound]
+  let unexpected := auditState.axioms.filter (fun a => !allowed.contains a)
+  unless unexpected.isEmpty do
+    throwError "Unexpected axioms in project dependency closure: {unexpected}"
+  let theoremNames := names.filter fun name =>
+    (env.find? name).any (fun c => match c with | .thmInfo _ => true | _ => false)
+  for name in theoremNames do
+    logInfo m!"Checked theorem: {name}"
+  logInfo m!"AUDIT PASSED: {names.size} project declarations, {theoremNames.size} theorems; transitive axioms {auditState.axioms}."
