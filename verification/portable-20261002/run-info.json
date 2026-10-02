@@ -1,0 +1,8 @@
+{
+  "started_at_utc": "2026-10-02T18:03:47.458876+00:00",
+  "mode": "all",
+  "sandboxed": false,
+  "nanoda_binary_source": "build_from_recorded_pin",
+  "supplied_nanoda_binary": null,
+  "note": "Invocation metadata only; success requires the requested stages to complete."
+}

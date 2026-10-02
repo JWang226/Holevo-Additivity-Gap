@@ -26,3 +26,7 @@ The `ten-proofs` repository was consulted for organization and metadata field
 conventions. Its proof sources and OpenAI copyright headers were not copied.
 Comparator configuration field names are used according to Comparator's public
 interface. Our challenge statements restate this project's declarations.
+
+The verification scripts adapted from QMDL retain their original Free Entropy
+contributor attribution. Their origin and licensing status are recorded in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

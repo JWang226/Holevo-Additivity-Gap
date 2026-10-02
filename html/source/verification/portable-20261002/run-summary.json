@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "mode": "all",
+  "sandboxed": false,
+  "completed_at_utc": "2026-10-02T19:15:22.831491+00:00",
+  "platform": "macOS arm64; native Lean and Rust toolchains",
+  "project_modules_rebuilt": 369,
+  "audited_project_declarations": 9107,
+  "audited_theorem_constants": 7219,
+  "mapped_declarations_checked": 49,
+  "challenge_configurations": 5,
+  "theorem_roots": 6,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "dependency_boundary": "Pinned prebuilt Mathlib/dependency cache reused; all project modules rebuilt from source.",
+  "command": "bash scripts/verify.sh all",
+  "kernel_checks": "Pinned Comparator comparison/axiom APIs, Lean kernel replay, and Nanoda independent kernel; unsandboxed.",
+  "control_status": "passed",
+  "controls": [
+    "valid theorem accepted",
+    "Comparator: valid theorem accepted",
+    "missing target rejected by wrapper and kernel",
+    "Comparator: missing target rejected",
+    "non-theorem root rejected",
+    "badAxiom rejected by real kernel axiom policy",
+    "Comparator: badAxiom rejected by axiom policy",
+    "proofHole rejected by real kernel axiom policy",
+    "Comparator: proofHole rejected by axiom policy",
+    "ill-typed proof rejected by real kernel",
+    "Comparator: ill-typed proof rejected",
+    "Comparator: mismatched expected statement rejected",
+    "empty, duplicate, and malformed target selections rejected"
+  ],
+  "nanoda_checked_declarations_by_configuration": {
+    "ComparatorChallenges/A_PrescribedDimensions.json": 64374,
+    "ComparatorChallenges/B_OperationalCoding.json": 43469,
+    "ComparatorChallenges/C_SmallInformationSeparation.json": 58154,
+    "ComparatorChallenges/D_WeylAllUses.json": 39854,
+    "ComparatorChallenges/E_InputCost.json": 65101
+  },
+  "upstream_sandboxed_comparator": "not_run",
+  "evidence_sha256": {
+    "all.log": "8ac8330d02305bfe90051326b7666afbf969a02782b4cf086af2fdca9e00c139",
+    "challenge-checks.json": "b0bcd612e9d1bf7447d5d54a63c7fc210bc0635ae85ef5642adb1dac244bc01b",
+    "comparator-result.json": "51d76142e5b071fb0345ce8b994f6fe29e29fde63d8ead811454bd2ac98399da",
+    "comparator.log": "9897c21da3a1f64b51cf1f7941d8a2d1a9df7774b1ef292e7e376a5ff5f4166f",
+    "lean.log": "40d7be0076b08e0d7dd56acc83d11021418ad765225a5d977beac2d42bb62887",
+    "nanoda-build.json": "e2779fc7ac13f0b256e6091421e2140e27e1fd120edbac1263379528b05f17be",
+    "nanoda-build.log": "47399f48e5cbc6cc9cbbeba734de34500768f53695861e50a437d77b6b43db5f",
+    "nanoda-controls.log": "b77fad529de9d99b4098ec1cc7bd0a3507ac3fc125b84f222b606ae469c5fd08",
+    "nanoda-result.json": "a8744e8747a0c0c01656d2bf49322a8b0165d376203d9e1047a07446b99d8307",
+    "nanoda.log": "a5ca15e29803750522ce2034c28986ff959b448f06559ea120b2c478b7c679ac",
+    "release-validation.json": "33f57d4d10b2e7462d207199959c5367fc5b114207ddbab1d47d41fa68ecd95a",
+    "result.txt": "d3ca7cdd63d5f3bbc86a629cd3de778fd7d22f04c3c3b79af3c6a8861deabc00",
+    "run-info.json": "8fd2ad234d3a78c4710a189193c6154a64cae4ca8daf6e55f90a4ec48129cbe9"
+  }
+}

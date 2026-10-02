@@ -89,7 +89,16 @@ and **7,219 theorem constants**, checked **49 mapped declarations**, and passed
 the **six isolated expected-statement type checks**. It used the pinned Mathlib
 cache rather than rebuilding Mathlib from source. See the
 [execution record](../verification/github-actions-5345459.json) for exact steps.
-Comparator and an independent kernel were not run.
+Comparator and an independent kernel were not run in that historical CI job.
+
+The later [portable macOS run](../verification/README.md#portable-verification)
+rebuilt the same 369 project modules and repeated the full axiom/mapping audit.
+It additionally passed pinned Comparator API comparison and Lean replay for all
+five configurations / six theorem roots, and independent Nanoda checking of
+those six roots. Nanoda was built from the recorded source and Rust pins.
+The acceptance/rejection controls passed. These were unsandboxed local checks;
+sandboxed upstream CLI execution is not claimed. Records identify the exact
+checked sources and helper artifacts by SHA-256.
 
 The following records describe the earlier development audit and organization
 pass; they preserve their original execution status.

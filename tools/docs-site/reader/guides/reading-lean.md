@@ -32,6 +32,6 @@ The [proof map](site:dependencies.html) groups selected results. An arrow has a 
 
 ## Understand the evidence
 
-The [verification page](site:verify.html) gives copyable Lean and Comparator reproducer commands and retained results. The Lean build and transitive axiom audit passed under the standard three permitted axioms. End-to-end Comparator and independent-kernel checks remain pending.
+The [verification page](site:verify.html) gives copyable Lean and Comparator reproducer commands and retained results. The Lean build and transitive axiom audit passed under the standard three permitted axioms. The portable run also passed pinned Comparator API comparison and Lean replay, plus independent Nanoda checking for all six challenge roots. These local checks were unsandboxed; source-bound reports and acceptance/rejection controls are retained.
 
 Proof checking concerns the exact formal statements and definitions. English explanations and manuscript correspondences remain reading aids. The [machine-readable map](site:reader-map.json) identifies which explanation refers to which actual Lean declaration, including definitions and conditional predicates.

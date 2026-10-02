@@ -1,0 +1,22 @@
++ git checkout --detach a4f696825c583ed8a5b4060d9a0faa5b882d365b
+HEAD is now at a4f6968 fix: opaque value issue
++ lake build Comparator Lean4Checker lean4export
+Build completed successfully (18 jobs).
+{
+  "status": "passed",
+  "checks": [
+    "valid theorem accepted",
+    "Comparator: valid theorem accepted",
+    "missing target rejected by wrapper and kernel",
+    "Comparator: missing target rejected",
+    "non-theorem root rejected",
+    "badAxiom rejected by real kernel axiom policy",
+    "Comparator: badAxiom rejected by axiom policy",
+    "proofHole rejected by real kernel axiom policy",
+    "Comparator: proofHole rejected by axiom policy",
+    "ill-typed proof rejected by real kernel",
+    "Comparator: ill-typed proof rejected",
+    "Comparator: mismatched expected statement rejected",
+    "empty, duplicate, and malformed target selections rejected"
+  ]
+}

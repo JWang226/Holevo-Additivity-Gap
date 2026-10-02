@@ -1,0 +1,15 @@
+{
+  "source": "/private/tmp/holevo-portable-verification-20261002/.verify-work/run-20261002T180347Z-TM5OfP/nanoda-source",
+  "pin": {
+    "repository": "https://github.com/ammkrn/nanoda_lib.git",
+    "commit": "3a2407216ee84a75f9e1aead6803d0578be06ae7",
+    "package_version": "0.4.19",
+    "rust_toolchain": "1.90.0",
+    "rust_commit": "1159e78c4747b02ef996e55082b704c09b970588",
+    "cargo_lock_sha256": "9b921e794ce5ed515eb31db9ada0c2f34df999b6c9b5135ad308a412872e42be",
+    "build_command": "cargo +1.90.0 build --release --locked",
+    "binary": "target/release/nanoda_bin"
+  },
+  "rust_version": "rustc 1.90.0 (1159e78c4 2025-09-14)\nbinary: rustc\ncommit-hash: 1159e78c4747b02ef996e55082b704c09b970588\ncommit-date: 2025-09-14\nhost: aarch64-apple-darwin\nrelease: 1.90.0\nLLVM version: 20.1.8",
+  "binary_sha256": "f87d7646ee5ad49d1bcbe0ea5a8e6832f9021c3921a236f1e85c67b8b7023887"
+}

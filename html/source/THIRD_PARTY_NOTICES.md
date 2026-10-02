@@ -48,3 +48,16 @@ construction in this project are proved locally against the pinned mathlib.
 The Apache 2.0 terms apply to the adapted portions. This notice does not
 assign a license to unrelated project material or change the licenses of
 Lean and mathlib dependencies.
+
+## QMDL portable verification
+
+The portable verification wrapper, Comparator replay helper, Nanoda helper,
+negative controls, and Nanoda toolchain metadata are adapted at the author’s
+request from [JWang226/QMDL](https://github.com/JWang226/QMDL) at commit
+`fd36df94068299e3d5e0bb193d19649319a40422`. Original copyright attribution to
+the 2026 Free Entropy formalization contributors is retained in the adapted files.
+See the original [NOTICE](https://github.com/JWang226/QMDL/blob/fd36df94068299e3d5e0bb193d19649319a40422/NOTICE)
+and [LICENSE](https://github.com/JWang226/QMDL/blob/fd36df94068299e3d5e0bb193d19649319a40422/LICENSE).
+That project’s license selection is pending; this adaptation does not assign it
+an open-source license. The checker implementations themselves are downloaded
+from their pinned upstream repositories and retain their own licenses.

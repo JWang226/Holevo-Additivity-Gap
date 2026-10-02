@@ -11,10 +11,11 @@ and the [Comparator configuration interface](https://github.com/leanprover/compa
 The statements and explanations here were written for this project. No
 third-party proof code or README text was copied from those repositories.
 
-**Status:** the five challenge modules elaborate under the pinned Lean version,
-and their six expected statements accept the corresponding solution proofs.
-An end-to-end Comparator run has **not** been performed. Neither a successful
-Comparator run nor a nanoda check is claimed by this release.
+The portable workflow checks these five configurations and six theorem roots using
+Comparator’s comparison/axiom APIs and Lean kernel replay. A separate Nanoda
+mode checks the exported solution proofs with an independent Rust kernel.
+See [verification evidence](../verification/README.md) for recorded execution.
+Both modes run unsandboxed on trusted local sources.
 
 ## Contents
 
@@ -51,10 +52,10 @@ The challenge suite does not independently reimplement those mathematical
 objects or establish that they express the intended natural-language claims.
 The manuscript mapping and proof map support that separate human review.
 
-Comparator is intended to compare the statements and their definition
+Comparator mode compares the statements and their definition
 dependencies, reject nonpermitted axioms in the solution proof dependencies,
-and replay the solution through its kernel checker. Local elaboration and the
-project's `Audit.lean` are useful checks but are not substitutes for that run.
+and replays the solution through Lean’s kernel. Nanoda mode independently
+checks the solution exports. Local elaboration and `Audit.lean` are separate checks.
 
 ## Reproducible tool versions
 
@@ -67,100 +68,43 @@ Comparator tag exists:
 | `lean4export` from that Comparator manifest | `048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d` |
 | `Lean4Checker` from that Comparator manifest | `b7398199245524275543dec6113229c9bb4902e5` |
 
-Build Comparator separately using that checkout and its committed
-`lake-manifest.json`; do not run `lake update` there, since its unpinned
-`lean4export` input revision would otherwise move. This keeps the main proof
-project's dependency manifest unchanged.
-
-```sh
-git clone https://github.com/leanprover/comparator.git
-cd comparator
-git checkout a4f696825c583ed8a5b4060d9a0faa5b882d365b
-lake build comparator lean4export
-```
-
-A genuine sandboxed run requires Linux with working `landrun` and a compatible
-`lean4export` on `PATH`. Follow the current
-[Comparator installation and sandbox guidance](https://github.com/leanprover/comparator#readme).
-The pinned Comparator does not itself install those external executables.
-The JSON configurations use the Lean checker; additional nanoda checking is
-optional and has not been enabled or performed.
+The portable wrapper builds this pinned checker in `.verify-work/comparator/`
+without altering the main proof dependency manifest. Nanoda and Rust pins are
+recorded in [verification/nanoda/toolchain.json](../verification/nanoda/toolchain.json).
 
 ## Running the checks
 
-The reusable reproducer runs all five configurations, builds the pinned external
-tools, and retains commands, exit codes, revisions, configurations, and logs.
-Use a **fresh checkout** for independent checking, review the trusted statement
-material described above, and run Comparator before compiling the solution
-sources outside its sandbox:
+From the repository root on macOS or Linux:
 
 ```sh
-./verification/comparator/run.sh --check-prerequisites
-./verification/comparator/run.sh
+bash scripts/verify.sh comparator
+bash scripts/verify.sh nanoda
 ```
 
-The prerequisite check downloads and builds nothing; it does not establish that
-Landrun can sandbox processes on that kernel. The full run requires Linux,
-an unprivileged account, real Landrun built from upstream source, a working
-systemd user session, elan, Git, and Python 3.11 or later. See
-`./verification/comparator/run.sh --help` for installation links. Comparator and
-its exact dependencies are kept in `.verify-work/comparator/`. It does not run
-`lake update` or change the project's pinned dependency manifest.
-
-The script uses the current upstream `RestrictAddressFamilies=~AF_UNIX` systemd
-guard with `--pipe --wait` to capture output instead of allocating an interactive
-pseudo-terminal. Logs are saved under `.verify-work/logs/comparator-<timestamp>-<pid>/`,
-with a final `status.txt` and a command, exit-code file, and full log for every
-executed step. A failed command returns a nonzero exit code. The script does not
-enable nanoda and does not replace Landrun with a compatibility script.
-Every configuration must exit successfully and print Comparator's explicit
-`Your solution is okay!` completion message before the script reports a pass.
-
-The following manual commands explain the same tool setup and allow checking
-individual configurations.
-
-From a fresh project checkout on a suitable Linux machine, obtain the trusted
-mathlib cache. Set `NONADDITIVITY_COMPARATOR_BIN` to the absolute path to the
-separately built Comparator executable and put the compatible `lean4export`
-and `landrun` executables on `PATH`.
+Or reproduce the full Lean build, statement comparison, kernel replay, and
+independent kernel check with:
 
 ```sh
-lake exe cache get
-export NONADDITIVITY_COMPARATOR_BIN=/absolute/path/to/comparator/.lake/build/bin/comparator
+bash scripts/verify.sh all
 ```
 
-For a statement elaboration check only, run:
+No landrun or systemd is required. Every failed stage returns a nonzero exit
+code. Success reports and logs are retained under `.verify-work/run-*`.
+Comparator prints `LOCAL DIAGNOSTIC PASSED` for each configuration; Nanoda
+prints `NANODA PASSED (UNSANDBOXED)` for each configuration. These labels do
+not claim sandboxed upstream CLI execution.
 
-```sh
-lake build ComparatorChallenges
-```
+See [docs/verify.md](../docs/verify.md) for prerequisites, acceptance/rejection
+controls, exact checker pins, expected output, and binary provenance.
 
-After the proof library has been built, reproduce both local checks with:
+For the separate local elaboration/type-fit checks after building the proofs:
 
 ```sh
 python3 scripts/check_challenges.py
 ```
 
-This script compiles each challenge separately, then creates scratch modules
-that retain its explicit expected theorem types and prove them using the actual
-solution theorems. It transforms only the six identified theorem placeholders.
-For E, it verifies the repeated concrete `inputLogScale` definition before
-reusing the solution definition. It does not rebuild baseline proof modules.
-The relative logs and generated checks are in `.lake/challenge-checks/`; the
-machine-readable result is `.lake/challenge-checks.json`. Both local checks are
-distinct from running Comparator.
-
-For the actual Comparator check, use the current upstream-recommended systemd
-sandbox guard. For example, check A with:
-
-```sh
-systemd-run --user --pty --property=RestrictAddressFamilies=~AF_UNIX \
-  --working-directory="$PWD" -E PATH="$PATH" \
-  -E NONADDITIVITY_COMPARATOR_BIN="$NONADDITIVITY_COMPARATOR_BIN" \
-  bash -c 'lake env "$NONADDITIVITY_COMPARATOR_BIN" ComparatorChallenges/A_PrescribedDimensions.json'
-```
-
-Repeat with B, C, D, and E. Preserve each command, exit code, full log, and tool
-revision before changing the recorded Comparator status to verified. Do not
-replace `landrun` with an unsandboxed compatibility script and report the result
-as an independent sandboxed verification.
+This creates scratch modules retaining the expected types and proves them using
+the actual solution theorems. For E, it verifies the concrete `inputLogScale`
+definition before reusing the solution definition. Logs and generated checks
+are in `.lake/challenge-checks/`; the record is `.lake/challenge-checks.json`.
+This elaboration check alone is separate from Comparator or Nanoda execution.

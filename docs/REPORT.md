@@ -184,7 +184,7 @@ bound \(2n/K\) on the same channel witness. The revised manuscript incorporates 
 
 ## Verification and reproduction
 
-The [full project-source GitHub Actions build](../verification/github-actions-5345459.json) subsequently rebuilt all 369 project modules, including the aggregate audit, and passed. It checked 9,107 project declarations, including 7,219 theorem constants, with no `sorry`, `admit`, custom axiom, or unexpected transitive axiom. Comparator and independent-kernel execution remain pending.
+The [full project-source GitHub Actions build](../verification/github-actions-5345459.json) subsequently rebuilt all 369 project modules, including the aggregate audit, and passed. It checked 9,107 project declarations, including 7,219 theorem constants, with no `sorry`, `admit`, custom axiom, or unexpected transitive axiom. The later [portable run](../verification/README.md#portable-verification) also passed pinned Comparator API comparison / Lean replay and independent Nanoda checking for five configurations and six theorem roots, with acceptance/rejection controls. These checks were unsandboxed; their source-bound records are separate from that historical CI run.
 
 The earlier local verification was incremental: all 368 mathematical project modules compiled successfully, unchanged baseline source/object hashes were checked against the prior manifest, and newer sources, stale dependents, and the aggregate audit were recompiled. The source contains 3,469 explicit theorem/lemma declarations. This historical check did not rebuild the unchanged baseline. Some baseline modules emitted nonfatal unused-variable or simplifier warnings; exact compiler output is retained in the [baseline verification log](../verification/baseline-verification.log).
 

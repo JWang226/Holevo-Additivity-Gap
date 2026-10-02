@@ -192,7 +192,7 @@
       "title": "Reading the Lean statements",
       "page": "guide/reading-lean.html",
       "source": "tools/docs-site/reader/guides/reading-lean.md",
-      "source_sha256": "2c0c66a149f75e3dcd7297f8d3d9c8b2576e76d5a466fee8855ab9640e229f19",
+      "source_sha256": "7fd563ba4117d7f8718fda5442cf05d9522e7efd9944e366bcd2545dbe0cfe65",
       "declarations": [
         {
           "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel",

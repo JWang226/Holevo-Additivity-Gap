@@ -19,11 +19,36 @@ The [earlier full-build record](github-actions-141f355.json) remains preserved.
 Later documentation and reproducer changes do not alter the proof bodies;
 each commit's workflow status is separately visible in GitHub Actions.
 
-Run `./verification/lean/run.sh` from a clean clone to reproduce the project
-source build, metadata checks, and isolated challenge checks. The command
-retains `.lake/check.log` and per-step logs under `.verify-work/logs/`.
-`./verification/comparator/run.sh` is the separate Linux Comparator reproducer.
-An end-to-end Comparator run and independent-kernel check remain pending.
+## Portable verification
+
+Run `bash scripts/verify.sh all` from a clean clone to rebuild/audit the Lean
+proof library, compare all five challenge configurations with pinned Comparator
+and replay their six theorem roots in Lean, then check their exports with pinned
+Nanoda. Individual modes are `lean`, `comparator`, and `nanoda`.
+No landrun or systemd is needed. Comparator and Nanoda run unsandboxed.
+See [reproducer commands](../docs/verify.md) for prerequisites and trust scope.
+
+The October 2, 2026 native macOS `all` run passed. It rebuilt all 369 project
+modules and audited 9,107 declarations / 7,219 theorem constants, checked the
+49 mapped declaration references and six local expected types, then passed all
+five configurations and six theorem roots in Comparator/Lean replay and Nanoda.
+The pinned prebuilt Mathlib/dependency cache was reused; Lean and Mathlib were
+not rebuilt from source. Nanoda was built from the recorded source, Cargo lock,
+and Rust compiler pins. Thirteen acceptance/rejection controls passed.
+
+Retained evidence:
+
+- [Full-run summary](portable-20261002/run-summary.json), [full log](portable-20261002/all.log), and [Lean build/audit log](portable-20261002/lean.log).
+- [Comparator report](portable-20261002/comparator-result.json) and [log](portable-20261002/comparator.log).
+- [Nanoda report](portable-20261002/nanoda-result.json), [log](portable-20261002/nanoda.log), [build receipt](portable-20261002/nanoda-build.json), and [controls log](portable-20261002/nanoda-controls.log).
+
+The source/artifact hashes identify the exact checked inputs. The base Git
+commit alone does not identify the uncommitted checker additions present at
+execution. `python3 verification/check_reports.py` checks those hashes and the
+recorded scope against the current tree; it does not rerun proof checking.
+The website build performs the same evidence freshness check. The historical
+CI records retain their original execution status. No sandboxed upstream CLI
+execution is claimed.
 
 ## Reproduce the declaration browser
 
