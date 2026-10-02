@@ -63,6 +63,7 @@ main:has(#dependency-explorer){max-width:1440px}
 @media(max-width:560px){.command.statement pre{padding-right:1.1rem;padding-top:2.8rem}}
 
 .top nav.technical-nav{margin:.4rem 0 .85rem;gap:1.2rem}
+.lean-explorer-heading{font-family:inherit;font-size:.8rem;font-weight:600;letter-spacing:normal;color:var(--muted);margin:.8rem 0 .2rem}
 .reader-key p{border-bottom:1px solid var(--line);padding:.35rem 0 .8rem}.reader-key p:last-of-type{border:0}
 .reader-key strong{display:block;color:var(--green-dark);font-size:1.1rem;margin-bottom:.3rem}.reader-key p>span{font-size:.87rem}
 .reader-highlight{margin:2rem 0;padding:1.35rem 1.6rem;border:1px solid #bdd0bf;border-left:4px solid var(--green);background:var(--panel);border-radius:6px}

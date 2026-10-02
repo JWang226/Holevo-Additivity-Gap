@@ -503,7 +503,7 @@ class Site:
 <title>{esc(title)} · Holevo Additivity Gap</title><link rel="stylesheet" href="{root}assets/site.css">{math_head}{math_scripts}</head>
 <body data-root="{root}"><header class="top"><div class="top-inner">
 <a class="brand" href="{root}index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
-<nav aria-label="Main navigation">{nav}</nav><nav class="technical-nav" aria-label="Lean explorer and project documents">{technical}</nav>
+<nav aria-label="Main navigation">{nav}</nav><h2 class="lean-explorer-heading" id="lean-explorer-heading">Lean explorer</h2><nav class="technical-nav" aria-labelledby="lean-explorer-heading">{technical}</nav>
 <div class="search-wrap"><label class="hidden" for="site-search">Search concepts, results and Lean declarations</label><input id="site-search" type="search" placeholder="Search concepts, results, or Lean declarations…" autocomplete="off" spellcheck="false" aria-label="Search concepts, results and Lean declarations"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
 </div></header><main><article class="{'wide' if wide else 'prose'}">{content}</article></main>
 <footer>{footer}</footer><script src="{root}assets/search-data.js"></script><script src="{root}assets/site.js"></script>{''.join('<script src="' + root + script + '"></script>' for script in extra_scripts)}</body></html>
