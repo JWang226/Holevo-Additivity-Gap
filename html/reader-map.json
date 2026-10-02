@@ -6,10 +6,10 @@
   "pages": [
     {
       "category": "guides",
-      "title": "The communication problem",
+      "title": "A Unbounded additivity gap",
       "page": "guide/introduction.html",
       "source": "tools/docs-site/reader/guides/introduction.md",
-      "source_sha256": "dc48f394746e5fea13569f09284375753a487cef28f7af387f869f1fdf915f8c",
+      "source_sha256": "a2d8c74d7b1d409365417d0b289607ab821de8b16f2dd055e9a9e4e28ad90ab7",
       "declarations": [
         {
           "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel",

@@ -1,6 +1,6 @@
 <!-- Copyright (c) 2026 the Nonadditivity project contributors.
 All rights reserved. See COPYRIGHT.md for licensing and attribution. -->
-# The communication problem
+# A Unbounded additivity gap
 
 ## One channel, many possible messages
 

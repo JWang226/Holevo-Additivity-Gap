@@ -2,7 +2,7 @@
   "schema_version": 1,
   "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved.",
   "guides": [
-    {"id": "introduction", "title": "The communication problem", "summary": "What Holevo additivity would predict, how entangled inputs change the question, and what the results establish."},
+    {"id": "introduction", "title": "A Unbounded additivity gap", "summary": "What Holevo additivity would predict, how entangled inputs change the question, and what the results establish."},
     {"id": "construction", "title": "How the channel is built", "summary": "Follow the argument from a free-operator comparison to a finite channel with high single-use entropy and a low-entropy Bell witness."},
     {"id": "capacity", "title": "From Holevo information to capacity", "summary": "Connect the entropy bounds to rates of actual codes, and distinguish a capacity gain from additivity of regularized capacity."},
     {"id": "scaling", "title": "What grows, and what it costs", "summary": "Compare the fixed-K and growing-K families, keeping input qubits, output qubits, and channel uses distinct."},
