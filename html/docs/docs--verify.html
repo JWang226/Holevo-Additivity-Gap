@@ -10,15 +10,25 @@
 </div></header><main><article class="prose"><div class="breadcrumb"><a href="../docs/index.html">Documents</a> / docs/verify.md</div><p class="eyebrow">Repository document</p><h1>Reproduce the verification</h1><p><a href="../source/docs/verify.md">Download exact Markdown</a> · <a href="https://github.com/JWang226/Holevo-Additivity-Gap/blob/main/docs/verify.md">View on GitHub</a></p><div class="document-body"><h2 id="reproduce-the-verification">Reproduce the verification</h2>
 <p>The portable workflow follows <a href="https://github.com/JWang226/QMDL">QMDL</a>. It works on macOS and Linux without landrun or systemd.</p>
 <h3 id="prerequisites">Prerequisites</h3>
-<p>Install Bash, Git, <a href="https://github.com/leanprover/elan">elan</a>, Python 3.11 or newer with <code>venv</code>/<code>pip</code>, <a href="https://rustup.rs/">Rustup</a>, and native C/C++ build tools. Add <code>~/.elan/bin</code> and <code>~/.cargo/bin</code> to <code>PATH</code>. On macOS, the compiler is supplied by Xcode Command Line Tools (<code>xcode-select --install</code>); on Debian/Ubuntu, install <code>build-essential</code> and <code>python3-venv</code>. Network access is needed to download pinned dependencies.</p>
+<p>Install Bash, Git, <a href="https://github.com/leanprover/elan">elan</a>, Python 3.11 or newer with <code>venv</code>/<code>pip</code>, and native C/C++ build tools. Nanoda’s pinned-source build also needs <a href="https://rustup.rs/">Rustup</a>. Add <code>~/.elan/bin</code> and, when using Rustup, <code>~/.cargo/bin</code> to <code>PATH</code>. On macOS, the compiler is supplied by Xcode Command Line Tools (<code>xcode-select --install</code>); on Debian/Ubuntu, install <code>build-essential</code> and <code>python3-venv</code>. Network access is needed to download pinned dependencies.</p>
 <p>Lean is pinned to <code>4.29.0-rc6</code>, Mathlib to the committed <code>lake-manifest.json</code>, and the checker revisions are recorded below. The wrapper never runs <code>lake update</code>. A full project-source rebuild can take considerable time; the dependency Mathlib cache is downloaded rather than rebuilt from source.</p>
-<h3 id="run-all-checks">Run all checks</h3>
+<h3 id="get-the-repository">Get the repository</h3>
 <div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>git clone https://github.com/JWang226/Holevo-Additivity-Gap.git
-cd Holevo-Additivity-Gap
-bash scripts/verify.sh all</code></pre></div>
-<p><code>all</code> is also the default when the mode is omitted. All requested stages must finish successfully before the wrapper prints <code>VERIFICATION PASSED: all</code>. Any failed stage returns a nonzero exit code and retains its log.</p>
-<h3 id="run-a-single-stage">Run a single stage</h3>
-<div class="table-scroll"><table><tr><th>Command</th><th>What it checks</th></tr><tr><td><code>bash scripts/verify.sh lean</code></td><td>Rebuild all 369 project modules; audit 9,107 declarations; validate manuscript mappings and six local challenge types. Rust is not required.</td></tr><tr><td><code>bash scripts/verify.sh comparator</code></td><td>Export expected statements and actual proofs for all five configurations; compare types and referenced definitions using pinned Comparator; enforce the axiom policy; replay exports through Lean’s kernel. Rust is not required.</td></tr><tr><td><code>bash scripts/verify.sh nanoda</code></td><td>Build pinned Nanoda; run acceptance/rejection controls; export and check all six solution theorems through the independent Rust kernel. This mode does not compare expected statements.</td></tr><tr><td><code>bash scripts/verify.sh --help</code></td><td>Show command usage.</td></tr></table></div>
+cd Holevo-Additivity-Gap</code></pre></div>
+<h3 id="run-checks-separately">Run checks separately</h3>
+<p>Each mode prepares its own dependencies and builds the proof modules it needs. Run your chosen command from the repository root; no prior <code>all</code> run is required.</p>
+<h4 id="lean">Lean</h4>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>bash scripts/verify.sh lean</code></pre></div>
+<p>Rebuilds all 369 project modules, audits 9,107 declarations, validates manuscript mappings, and checks six local challenge types. Rust is not required.</p>
+<h4 id="comparator">Comparator</h4>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>bash scripts/verify.sh comparator</code></pre></div>
+<p>Exports expected statements and actual proofs for all five configurations, compares types and referenced definitions using pinned Comparator, enforces the axiom policy, and replays exports through Lean’s kernel. Rust is not required.</p>
+<h4 id="nanoda">Nanoda</h4>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>bash scripts/verify.sh nanoda</code></pre></div>
+<p>Builds pinned Nanoda, runs acceptance/rejection controls, and checks all six solution theorem roots through the independent Rust kernel. Run Comparator as well for comparison with the expected statements.</p>
+<h3 id="run-all-checks">Run all checks</h3>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>bash scripts/verify.sh all</code></pre></div>
+<p><code>all</code> is also the default when the mode is omitted. All requested stages must finish successfully before the wrapper prints <code>VERIFICATION PASSED: all</code>. Any failed stage returns a nonzero exit code and retains its log. Use <code>bash scripts/verify.sh --help</code> for usage.</p>
 <p>The existing <code>verification/lean/run.sh</code>, <code>verification/comparator/run.sh</code>, and <code>verification/nanoda/run.sh</code> entry points remain available. The latter two delegate to the portable workflow.</p>
 <p>If Nanoda has already been built, optionally supply its executable:</p>
 <div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>bash scripts/verify.sh nanoda --nanoda-bin /absolute/path/to/nanoda_bin</code></pre></div>

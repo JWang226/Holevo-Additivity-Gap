@@ -12,12 +12,14 @@
 <p><a href="https://arxiv.org/abs/2609.18222">arXiv paper</a> · <a href="https://jwang226.github.io/Holevo-Additivity-Gap/">Proof website</a> · <a href="../docs/PROOF-PATH.html">Proof route</a> · <a href="../source/paper/nonadditivity.tex">Manuscript</a></p>
 <p>The website explains the results and concepts alongside their Lean statements.</p>
 <h3 id="verify">Verify</h3>
-<p>On macOS or Linux, install Git, <a href="https://github.com/leanprover/elan">elan</a>, Python 3.11+ with <code>venv</code>/<code>pip</code>, <a href="https://rustup.rs/">Rustup</a>, and a native C/C++ build toolchain. Then run:</p>
+<p>On macOS or Linux, install Git, <a href="https://github.com/leanprover/elan">elan</a>, Python 3.11+ with <code>venv</code>/<code>pip</code>, and a native C/C++ build toolchain. Nanoda also needs <a href="https://rustup.rs/">Rustup</a> to build its pinned kernel. Clone the repository:</p>
 <div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>git clone https://github.com/JWang226/Holevo-Additivity-Gap.git
-cd Holevo-Additivity-Gap
-bash scripts/verify.sh</code></pre></div>
-<p>This rebuilds and audits all Lean proofs, compares the six challenge statements with pinned Comparator and replays their proofs in Lean, then checks them independently with pinned Nanoda. No landrun or systemd is needed. Success ends with <code>VERIFICATION PASSED: all</code>; fresh logs and reports are under <code>.verify-work/run-*</code>.</p>
-<p>For individual checks, use <code>bash scripts/verify.sh lean</code>, <code>comparator</code>, or <code>nanoda</code>. Comparator and Nanoda run unsandboxed on trusted local sources. <a href="../docs/docs--verify.html">Commands, prerequisites, and trust assumptions</a>.</p>
+cd Holevo-Additivity-Gap</code></pre></div>
+<p>Choose a verifier; each command runs independently:</p>
+<div class="table-scroll"><table><tr><th>Check</th><th>Command</th></tr><tr><td>Lean build and axiom audit</td><td><code>bash scripts/verify.sh lean</code></td></tr><tr><td>Comparator statement comparison and Lean replay</td><td><code>bash scripts/verify.sh comparator</code></td></tr><tr><td>Nanoda independent kernel</td><td><code>bash scripts/verify.sh nanoda</code></td></tr></table></div>
+<p>Or run all three:</p>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>bash scripts/verify.sh all</code></pre></div>
+<p>No landrun or systemd is needed. Success ends with <code>VERIFICATION PASSED: &lt;mode&gt;</code>; fresh logs and reports are under <code>.verify-work/run-*</code>. Comparator and Nanoda run unsandboxed on trusted local sources. <a href="../docs/docs--verify.html">Commands, prerequisites, and trust assumptions</a>.</p>
 <h3 id="status-and-scope">Status and scope</h3>
 <p>The full project-source Lean build and axiom audit <a href="../source/verification/github-actions-5345459.json">passed</a>, permitting only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>. The <a href="../docs/verification--README.html#portable-verification">portable run</a> also passed Comparator/Lean replay and Nanoda for all six challenge roots.</p>
 <p>The principal endpoints are proved; <strong>the full manuscript is not formalized</strong>. The revised manuscript incorporates the <a href="../docs/docs--CORRECTIONS.html">two counting repairs</a>. See <a href="../docs/docs--FORMALIZATION_STATUS.html">formalization status</a> for the exact scope.</p>

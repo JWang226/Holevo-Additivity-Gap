@@ -6,28 +6,52 @@ The portable workflow follows [QMDL](https://github.com/JWang226/QMDL). It works
 
 ## Prerequisites
 
-Install Bash, Git, [elan](https://github.com/leanprover/elan), Python 3.11 or newer with `venv`/`pip`, [Rustup](https://rustup.rs/), and native C/C++ build tools. Add `~/.elan/bin` and `~/.cargo/bin` to `PATH`. On macOS, the compiler is supplied by Xcode Command Line Tools (`xcode-select --install`); on Debian/Ubuntu, install `build-essential` and `python3-venv`. Network access is needed to download pinned dependencies.
+Install Bash, Git, [elan](https://github.com/leanprover/elan), Python 3.11 or newer with `venv`/`pip`, and native C/C++ build tools. Nanoda’s pinned-source build also needs [Rustup](https://rustup.rs/). Add `~/.elan/bin` and, when using Rustup, `~/.cargo/bin` to `PATH`. On macOS, the compiler is supplied by Xcode Command Line Tools (`xcode-select --install`); on Debian/Ubuntu, install `build-essential` and `python3-venv`. Network access is needed to download pinned dependencies.
 
 Lean is pinned to `4.29.0-rc6`, Mathlib to the committed `lake-manifest.json`, and the checker revisions are recorded below. The wrapper never runs `lake update`. A full project-source rebuild can take considerable time; the dependency Mathlib cache is downloaded rather than rebuilt from source.
 
-## Run all checks
+## Get the repository
 
 ```sh
 git clone https://github.com/JWang226/Holevo-Additivity-Gap.git
 cd Holevo-Additivity-Gap
+```
+
+## Run checks separately
+
+Each mode prepares its own dependencies and builds the proof modules it needs. Run your chosen command from the repository root; no prior `all` run is required.
+
+### Lean
+
+```sh
+bash scripts/verify.sh lean
+```
+
+Rebuilds all 369 project modules, audits 9,107 declarations, validates manuscript mappings, and checks six local challenge types. Rust is not required.
+
+### Comparator
+
+```sh
+bash scripts/verify.sh comparator
+```
+
+Exports expected statements and actual proofs for all five configurations, compares types and referenced definitions using pinned Comparator, enforces the axiom policy, and replays exports through Lean’s kernel. Rust is not required.
+
+### Nanoda
+
+```sh
+bash scripts/verify.sh nanoda
+```
+
+Builds pinned Nanoda, runs acceptance/rejection controls, and checks all six solution theorem roots through the independent Rust kernel. Run Comparator as well for comparison with the expected statements.
+
+## Run all checks
+
+```sh
 bash scripts/verify.sh all
 ```
 
-`all` is also the default when the mode is omitted. All requested stages must finish successfully before the wrapper prints `VERIFICATION PASSED: all`. Any failed stage returns a nonzero exit code and retains its log.
-
-## Run a single stage
-
-| Command | What it checks |
-| --- | --- |
-| `bash scripts/verify.sh lean` | Rebuild all 369 project modules; audit 9,107 declarations; validate manuscript mappings and six local challenge types. Rust is not required. |
-| `bash scripts/verify.sh comparator` | Export expected statements and actual proofs for all five configurations; compare types and referenced definitions using pinned Comparator; enforce the axiom policy; replay exports through Lean’s kernel. Rust is not required. |
-| `bash scripts/verify.sh nanoda` | Build pinned Nanoda; run acceptance/rejection controls; export and check all six solution theorems through the independent Rust kernel. This mode does not compare expected statements. |
-| `bash scripts/verify.sh --help` | Show command usage. |
+`all` is also the default when the mode is omitted. All requested stages must finish successfully before the wrapper prints `VERIFICATION PASSED: all`. Any failed stage returns a nonzero exit code and retains its log. Use `bash scripts/verify.sh --help` for usage.
 
 The existing `verification/lean/run.sh`, `verification/comparator/run.sh`, and `verification/nanoda/run.sh` entry points remain available. The latter two delegate to the portable workflow.
 

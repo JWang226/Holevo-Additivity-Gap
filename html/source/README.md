@@ -8,17 +8,28 @@ The website explains the results and concepts alongside their Lean statements.
 
 ## Verify
 
-On macOS or Linux, install Git, [elan](https://github.com/leanprover/elan), Python 3.11+ with `venv`/`pip`, [Rustup](https://rustup.rs/), and a native C/C++ build toolchain. Then run:
+On macOS or Linux, install Git, [elan](https://github.com/leanprover/elan), Python 3.11+ with `venv`/`pip`, and a native C/C++ build toolchain. Nanoda also needs [Rustup](https://rustup.rs/) to build its pinned kernel. Clone the repository:
 
 ```sh
 git clone https://github.com/JWang226/Holevo-Additivity-Gap.git
 cd Holevo-Additivity-Gap
-bash scripts/verify.sh
 ```
 
-This rebuilds and audits all Lean proofs, compares the six challenge statements with pinned Comparator and replays their proofs in Lean, then checks them independently with pinned Nanoda. No landrun or systemd is needed. Success ends with `VERIFICATION PASSED: all`; fresh logs and reports are under `.verify-work/run-*`.
+Choose a verifier; each command runs independently:
 
-For individual checks, use `bash scripts/verify.sh lean`, `comparator`, or `nanoda`. Comparator and Nanoda run unsandboxed on trusted local sources. [Commands, prerequisites, and trust assumptions](docs/verify.md).
+| Check | Command |
+| --- | --- |
+| Lean build and axiom audit | `bash scripts/verify.sh lean` |
+| Comparator statement comparison and Lean replay | `bash scripts/verify.sh comparator` |
+| Nanoda independent kernel | `bash scripts/verify.sh nanoda` |
+
+Or run all three:
+
+```sh
+bash scripts/verify.sh all
+```
+
+No landrun or systemd is needed. Success ends with `VERIFICATION PASSED: <mode>`; fresh logs and reports are under `.verify-work/run-*`. Comparator and Nanoda run unsandboxed on trusted local sources. [Commands, prerequisites, and trust assumptions](docs/verify.md).
 
 ## Status and scope
 
