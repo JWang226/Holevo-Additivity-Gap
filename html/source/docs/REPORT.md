@@ -184,7 +184,9 @@ been edited.
 
 ## Verification and reproduction
 
-All 368 project modules have successful Lean compilations. The final aggregate audit checked 9,107 project declarations, including 7,219 theorem constants; the source contains 3,469 explicit theorem/lemma declarations. No `sorry`, `admit`, custom axiom, or unexpected transitive axiom was found. Incremental verification: unchanged baseline source/object hashes are checked against the prior manifest; all new sources have successful session compilations; newer sources and stale dependents are recompiled in dependency order; the complete aggregate and transitive axiom audit are recompiled. This is not a clean rebuild of the unchanged baseline; ./check.sh performs a full rebuild. Some baseline modules emit nonfatal unused-variable or simplifier warnings; exact compiler output is retained in [baseline verification log](../verification/baseline-verification.log).
+The [full project-source GitHub Actions build](../verification/github-actions-5345459.json) subsequently rebuilt all 369 project modules, including the aggregate audit, and passed. It checked 9,107 project declarations, including 7,219 theorem constants, with no `sorry`, `admit`, custom axiom, or unexpected transitive axiom. Comparator and independent-kernel execution remain pending.
+
+The earlier local verification was incremental: all 368 mathematical project modules compiled successfully, unchanged baseline source/object hashes were checked against the prior manifest, and newer sources, stale dependents, and the aggregate audit were recompiled. The source contains 3,469 explicit theorem/lemma declarations. This historical check did not rebuild the unchanged baseline. Some baseline modules emitted nonfatal unused-variable or simplifier warnings; exact compiler output is retained in the [baseline verification log](../verification/baseline-verification.log).
 
 The permitted transitive axioms are `propext`, `Classical.choice`, and
 `Quot.sound`. The audit covers private helpers and definitions with proof
