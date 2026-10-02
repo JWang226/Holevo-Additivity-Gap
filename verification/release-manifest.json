@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-02T02:34:28.703616+00:00",
+  "generated_at_utc": "2026-10-02T02:59:47.589520+00:00",
   "hash_algorithm": "sha256",
   "excludes": [
     "verification/release-manifest.json",
@@ -399,7 +399,7 @@
     "Nonadditivity/WeylTensor.lean": "aa126b91620daa38db8b7f404ce21e96f289002efc953ac770cfdf1adf760d4f",
     "Nonadditivity/WordBallReduction.lean": "4ccd1d1f649bc2adcc43ad1474fe07fdd082fd2e5538872b0f54f2663563b74b",
     "PROOF-PATH.md": "c1db5a05cc175836586be958cd13c5f9ea263b228c64366d85d92d1948db5b57",
-    "README.md": "aea99f2b272e601cdb06b744eea2729605f2256b82d27ebbbc956ee4eb684485",
+    "README.md": "c05d3c2b332b519f579000ac8703f7b1d9103e774f40ac6da2e76db885903ad5",
     "THIRD_PARTY_NOTICES.md": "45bfe4c9f064db1eedc8720a8ab4b5e1aa95ad0bdbdcc0cbc50bce19763f6a2a",
     "build.sh": "c056e5f29e070e685d29abc2e454c56cf4a7306c4827c5e48679948ece449e88",
     "check.sh": "e6ace05f19ff45b5ad566d5ece26f849eecdd243009754da46a6836d6a99fb5c",
