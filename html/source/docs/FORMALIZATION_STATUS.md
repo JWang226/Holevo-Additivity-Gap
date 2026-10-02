@@ -82,13 +82,13 @@ These are scope limitations, not hidden hypotheses of the completed endpoints. M
 
 ## Verification evidence and release organization
 
-The later [GitHub Actions run 36901743100, attempt 2](https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/36901743100)
-passed on commit `141f355a841cbf56fd1715750eebb9d2bcc488cb` on October 1, 2026.
+The later [GitHub Actions run 36956367986, attempt 1](https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/36956367986)
+passed on commit `5345459acb1c072cfdc307904973fdca582ce13f` on October 2, 2026.
 It rebuilt all **369 project modules** from source, audited **9,107 declarations**
 and **7,219 theorem constants**, checked **49 mapped declarations**, and passed
 the **six isolated expected-statement type checks**. It used the pinned Mathlib
 cache rather than rebuilding Mathlib from source. See the
-[execution record](../verification/github-actions-141f355.json) for exact steps.
+[execution record](../verification/github-actions-5345459.json) for exact steps.
 Comparator and an independent kernel were not run.
 
 The following records describe the earlier development audit and organization

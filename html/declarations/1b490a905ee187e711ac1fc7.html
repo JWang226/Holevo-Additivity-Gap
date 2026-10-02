@@ -1,0 +1,71 @@
+<!doctype html>
+<!-- Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved. See COPYRIGHT.md for attribution. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A reader guide to Lean proofs of Holevo additivity gaps, exact source statements, and reproducible verification.">
+<title>_private.Nonadditivity.HaarProfileSingletonWeight.0.Nonadditivity.NoncommutativeCS.EndpointSkeleton.singletonLength.match_1.eq_1 · Holevo Additivity Gap</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body data-root="../"><header class="top"><div class="top-inner">
+<a class="brand" href="../index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
+<nav aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../verify.html">Verify</a><a href="../route.html">Proof route</a><a href="../results.html">Results</a><a href="../declarations.html" aria-current="page">Declarations</a><a href="../dependencies.html">Dependencies</a><a href="../modules.html">Modules</a><a href="../imports.html">Imports</a><a href="../docs/index.html">Documents</a><a href="../about.html">About</a></nav>
+<div class="search-wrap"><label class="hidden" for="site-search">Search declarations, results and modules</label><input id="site-search" type="search" placeholder="Search any declaration, result, paper label, or module…" autocomplete="off" spellcheck="false" aria-label="Search declarations, results and modules"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
+</div></header><main><article class="wide"><div class="breadcrumb"><a href="../declarations.html">All declarations</a> / <a href="../modules/Nonadditivity.HaarProfileSingletonWeight.html"><code>Nonadditivity.HaarProfileSingletonWeight</code></a></div><p class="eyebrow">theorem</p><h1 class="title-code">_private.Nonadditivity.HaarProfileSingletonWeight.0.Nonadditivity.NoncommutativeCS.EndpointSkeleton.singletonLength.match_1.eq_1</h1><div class="note">Flagged by Lean’s <code>Name.isInternal</code>, <code>Name.isInternalDetail</code>, <code>isPrivateName</code> predicates. Generated declarations without these flags remain visible in the default catalog.</div><p>Defined in <a href="../modules/Nonadditivity.HaarProfileSingletonWeight.html"><code>Nonadditivity.HaarProfileSingletonWeight</code></a>. <a href="../modules/Nonadditivity.HaarProfileSingletonWeight.html">Read exact source module</a> · <a href="../source/Nonadditivity/HaarProfileSingletonWeight.lean">Download .lean</a></p><h2>Readable Lean statement</h2><p class="small muted">Lean’s readable pretty-print of the stored type can hide implicit or proof arguments. The complete kernel JSON expression is available below; universe parameters are listed separately.</p><p class="small">Universe parameters: <code>u_1</code>, <code>u_2</code>.</p><div class="command statement"><button class="copy" type="button" aria-label="Copy statement">Copy statement</button><pre><code>∀ {I : Type u_1}
+  (motive :
+    (m : Nat) →
+      (a : Fin m → I) →
+        (n : Nat) →
+          (b : Fin n → I) → Nonadditivity.NoncommutativeCS.EndpointSkeleton.{u_1} I a b → Sort u_2)
+  (m : Nat) (a : Fin m → I)
+  (h_1 :
+    (m : Nat) →
+      (a : Fin m → I) →
+        motive m a m a (Nonadditivity.NoncommutativeCS.EndpointSkeleton.done.{u_1} a))
+  (h_2 :
+    (m : Nat) →
+      (a : Fin m → I) →
+        (n : Nat) →
+          (b : Fin n → I) →
+            (i : I) →
+              (P :
+                  Nonadditivity.NoncommutativeCS.EndpointSkeleton.{u_1} I (Fin.cons.{u_1 + 1} i a)
+                    b) →
+                motive m a n b (Nonadditivity.NoncommutativeCS.EndpointSkeleton.first.{u_1} i P))
+  (h_3 :
+    (m : Nat) →
+      (a : Fin (HAdd.hAdd.{0, 0, 0} m 1) → I) →
+        (n : Nat) →
+          (b : Fin n → I) →
+            (p : Fin (HAdd.hAdd.{0, 0, 0} m 1)) →
+              (P :
+                  Nonadditivity.NoncommutativeCS.EndpointSkeleton.{u_1} I
+                    (Fin.removeNth.{u_1 + 1} p a) b) →
+                motive (HAdd.hAdd.{0, 0, 0} m 1) a n b
+                  (Nonadditivity.NoncommutativeCS.EndpointSkeleton.last.{u_1} p P))
+  (h_4 :
+    (m : Nat) →
+      (a : Fin m → I) →
+        (n : Nat) →
+          (b : Fin n → I) →
+            (visits : List.{0} (Fin m)) →
+              (P : Nonadditivity.NoncommutativeCS.EndpointSkeleton.{u_1} I a b) →
+                motive m a n b
+                  (Nonadditivity.NoncommutativeCS.EndpointSkeleton.middle.{u_1} visits P))
+  (h_5 :
+    (m : Nat) →
+      (a : Fin m → I) →
+        (n : Nat) →
+          (b : Fin n → I) →
+            (i : I) →
+              (P : Nonadditivity.NoncommutativeCS.EndpointSkeleton.{u_1} I a b) →
+                motive m a n b
+                  (Nonadditivity.NoncommutativeCS.EndpointSkeleton.singleton.{u_1} i P)),
+  Eq.{u_2}
+    (match m, a, m, a, Nonadditivity.NoncommutativeCS.EndpointSkeleton.done.{u_1} a with
+    | m, a, .(m), .(a), Nonadditivity.NoncommutativeCS.EndpointSkeleton.done.{u_1} .(a) =&gt; h_1 m a
+    | m, a, n, b, Nonadditivity.NoncommutativeCS.EndpointSkeleton.first.{u_1} i P =&gt; h_2 m a n b i P
+    | .(HAdd.hAdd.{0, 0, 0} m 1), a, n, b,
+      Nonadditivity.NoncommutativeCS.EndpointSkeleton.last.{u_1} p P =&gt; h_3 m a n b p P
+    | m, a, n, b, Nonadditivity.NoncommutativeCS.EndpointSkeleton.middle.{u_1} visits P =&gt;
+      h_4 m a n b visits P
+    | m, a, n, b, Nonadditivity.NoncommutativeCS.EndpointSkeleton.singleton.{u_1} i P =&gt;
+      h_5 m a n b i P)
+    (h_1 m a)</code></pre></div><details class="full-type" data-size="6792" data-sha256="b5f857720b1d109e62c0eefd417757554b6460128bf3692823750768124ff690" data-filename="1b490a905ee187e711ac1fc7.expr.json" data-suffix=".expr.json"><summary>Complete kernel type expression (JSON)</summary><p class="small muted">Canonical JSON encodes the complete kernel type as a shared expression DAG, including every argument, universe, binder and name component. Kernel-irrelevant metadata annotations are omitted. This is a machine expression artifact, distinct from Lean source text. The inline preview is limited to 64,000 characters.</p><p class="small">Uncompressed UTF-8 bytes: <strong>6,792</strong><br>SHA-256: <code>b5f857720b1d109e62c0eefd417757554b6460128bf3692823750768124ff690</code></p><p><a href="../types/1b490a905ee187e711ac1fc7.expr.json.gz">Download the complete artifact (.expr.json.gz)</a> <span class="full-type-download"></span></p><p class="small muted full-type-status" aria-live="polite">Expand to decode a bounded preview locally. The complete compressed download also works without JavaScript.</p><pre class="full-type-preview" hidden><code></code></pre><script type="application/json" class="full-type-payload">"H4sIAAAAAAAC/81YTY/bRgz9LzrPAiLnO6cGQYoUCNIAOfRgLBbKWrsrRJZcWbtIWvS/lyPZFqlIRg9JYezFHM6QHPLxcbR/Zw9ttyv67FVWl0Vz86XsmrK+Kb/uu5tt8XjzApkizUtZH7JXm022L7pilym4VZvs8Hx/n6k8/TwtYxL+Krs2u71VWVPsyuEY7e07MvRbWj5Lz3cg5F3bVy+lXMoGR8Pvu1+Y8KFtiu22ogNV/42tvyuK7mPXPlR1+alqHuuyb5s/yurxqR82Nc8UZYbGeYeQA7f+9O3xTf91tsIOxVxE9oFyxuXieiIN8b9Fdlc1PZW7qNdNyTv/WjVCbq7nzkaLyD5fUWQoIvt4PZFpmbO1AGj9vt3tnvsiteebT0z1ttnuW0LRpy/lENesvXHeyxKVTHqaUcEPieWs2rZNOXOHcyBL8DCpup6CAYY5lpj07vV2y84+DSK/SHPo3y0t0tqczX5/GFbOxtqH+Y50cNg1VwwkcT543zaHn1jZh6o79LPS6mudIGAlne6vKTS4UMSu3LUv5Yf+ad4YP62udfFdWY2QX6pD1R+uKIFewu59NbvAj83Prtpu6zmn2Z/o8HBKl/Dx9s//w+X7snlM2JtuX/T348RIj8x2Oz4ys0Pb9cenaaId+m3U5paJ/ih+fim648O12O8zhUpPy8MTlh7FRV1nypEJSwOkfCie6xEk4y4z3+XlrqNHALXJb8+OovKTCX1ehpw2TgqYFKiAbaNYJsGOBsZLi6CTOadgFtFJG1VQEJZ1pFEQl3WWron5sk7TOYRlXUoOwFIO7XwbGrltuKjnKUDH0oZSFUbVKfNOZF7nZH2SgJ/UyI1GpbXIJsVFuTbLt4N0db0IETe/nvZL28J32+LStshAZDjGEdVGUwX0dFmjGYaM4YIV/YGazrJzXmpP7TMqgzJTEMYpOzWQhRHYp4NWmLXHcOqqv2votUBsOZXXEqgtP+u4U+uP2lEip2GSUFkWECo3BeRACaPU+TBZdXoM99j847lj7w2/6/Qx65QjzLsFSDqj3GTABQYfF4+tPEqo/BSUF6gzwBHpeUjecCPeyrsEAWzvKcZJCsKoCCbkzEUAxiVB0EzQ7D7eqSC4jtrcowp2uR2IIAi+wa00C0E3V2GFmCCxT1hhJupCHVSIF7ow5gulImROl4kCMagio30v2zAaFe06oRlY9sXSHcPMGe9gVjJ6aLC6QI6i2sRNHLmQGz5CRncDWrVOcIV8Ca+QJw13EsT0ETCBnJIJE2oBBGytgC1Q5tktqVsAuNbyq6WhxPzQgBI3NQLXQGCh27BRKBgcUCQbiAWZJ+I1NimJx/gURcsvn1CHboZwSIMXV3CahkdOIxbDKsojESnGCzAHna/iPFKa9MowpWPpMK4jc05Yp+x6QckokkfzC7Rj8BSJp75jqaX2Zqk1uTBkBFQSGHnJDOc4MEYelSynzyx3RDqyrZRdE5gchRsrY7KivSyKN5QW8dIs4q8tqoO1c2TQnAG7wm86VY6Cs34VGUAwBxsuQcPGVWikdLv8AgeCu/QKWySHKJPpDE+XszxdTjaw8/J1KmYPuMgNeVkUL+cz3UtWm5mlyQie2aVxyN14GRONQ+418PDTOGSGaR5yN1TXAPNqu/RWXuk2YtyUUaB5uVptemlAMJeqvTZJExFQfldH6VDtsPzVQW24QfbVQYTHkhIlkUaQWhQP5TTPmdLIvbIUkWKKjDhoWkPk70LqnQ05ZyQfI7ePRKvRMlGEhrkIDWlOCa2RWiuCQaoU3+w5ajDnOMFc4ARB4ITGOvLHmYiBqsJjoCmCIF5PxJ4QkoWVqicmdunUStkxhUZO1j7uaD2mT7E1grGJoxDWGYYmJ+IlhsG17zxMXyKIK82S0x+S8aza7evqvhr+OZJ1bdtnrxDNP/8C5c5FaIgaAAA="</script></details><h2>Direct references in the type</h2><details><summary>18 type references</summary><ul class="reference-list"><li><code>Eq</code> <span class="muted small">external</span></li><li><code>Fin</code> <span class="muted small">external</span></li><li><code>Fin.cons</code> <span class="muted small">external</span></li><li><code>Fin.removeNth</code> <span class="muted small">external</span></li><li><code>HAdd.hAdd</code> <span class="muted small">external</span></li><li><code>List</code> <span class="muted small">external</span></li><li><code>Nat</code> <span class="muted small">external</span></li><li><a href="../declarations/70b266860401eb24985e7503.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton</code></a></li><li><a href="../declarations/e31dcc3ad821679b2fb782fa.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.done</code></a></li><li><a href="../declarations/46263c96a1d831c3b157547b.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.first</code></a></li><li><a href="../declarations/c074cc42e8bb26e8b370d8c4.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.last</code></a></li><li><a href="../declarations/f94782f5645d785756e78e97.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.middle</code></a></li><li><a href="../declarations/1c4b2eb1b0b198fd99652a5e.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.singleton</code></a></li><li><a href="../declarations/38fbd7f0f1be62a17cf3094c.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.singletonLength.match_1</code></a></li><li><code>OfNat.ofNat</code> <span class="muted small">external</span></li><li><code>instAddNat</code> <span class="muted small">external</span></li><li><code>instHAdd</code> <span class="muted small">external</span></li><li><code>instOfNatNat</code> <span class="muted small">external</span></li></ul></details><h2>Direct references in the proof or definition</h2><p class="small muted">For declaration kinds without a stored value expression, this list is empty. Recursor rules, constructor fields and other kernel metadata are not silently reinterpreted as proof expressions.</p><details><summary>18 value references</summary><ul class="reference-list"><li><code>Eq.refl</code> <span class="muted small">external</span></li><li><code>Fin</code> <span class="muted small">external</span></li><li><code>Fin.cons</code> <span class="muted small">external</span></li><li><code>Fin.removeNth</code> <span class="muted small">external</span></li><li><code>HAdd.hAdd</code> <span class="muted small">external</span></li><li><code>List</code> <span class="muted small">external</span></li><li><code>Nat</code> <span class="muted small">external</span></li><li><a href="../declarations/70b266860401eb24985e7503.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton</code></a></li><li><a href="../declarations/e31dcc3ad821679b2fb782fa.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.done</code></a></li><li><a href="../declarations/46263c96a1d831c3b157547b.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.first</code></a></li><li><a href="../declarations/c074cc42e8bb26e8b370d8c4.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.last</code></a></li><li><a href="../declarations/f94782f5645d785756e78e97.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.middle</code></a></li><li><a href="../declarations/1c4b2eb1b0b198fd99652a5e.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.singleton</code></a></li><li><a href="../declarations/38fbd7f0f1be62a17cf3094c.html"><code>Nonadditivity.NoncommutativeCS.EndpointSkeleton.singletonLength.match_1</code></a></li><li><code>OfNat.ofNat</code> <span class="muted small">external</span></li><li><code>instAddNat</code> <span class="muted small">external</span></li><li><code>instHAdd</code> <span class="muted small">external</span></li><li><code>instOfNatNat</code> <span class="muted small">external</span></li></ul></details><h2>Used by project declarations</h2><p class="small muted">Direct references in types or stored values across the entire exported project environment, including internal and private constants.</p><p class="small muted">No project declarations referring to this constant in the exported expression.</p><p><a href="../dependencies.html#1b490a905ee187e711ac1fc7">Explore these constant dependencies</a> · <a href="../verify.html">Reproduce proof checks</a> · <a href="../source/metadata/declarations.json">Metadata and export provenance</a></p></article></main>
+<footer><p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p><p>Lean 4.29.0-rc6 · Mathlib <code>f156f7ab…</code> · Only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> permitted in solution dependencies.</p><p class="footer-links"><a href="../about.html">About these pages</a><a href="../generation.json">Generation record</a><a href="https://github.com/JWang226/Holevo-Additivity-Gap">GitHub repository</a></p></footer><script src="../assets/search-data.js"></script><script src="../assets/site.js"></script></body></html>

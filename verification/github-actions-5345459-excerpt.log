@@ -1,0 +1,29 @@
+# Selected verbatim log lines from GitHub Actions run 36956367986, attempt 1.
+# Commit: 5345459acb1c072cfdc307904973fdca582ce13f
+# Job: 110680087702 (verify), conclusion: success
+# Job interval: 2026-10-02T02:35:55Z to 2026-10-02T03:14:33Z
+# The complete log and artifacts remain available at the run URL.
+# https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/36956367986
+2026-10-02T02:35:57.4270668Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5345459acb1c072cfdc307904973fdca582ce13f:refs/remotes/origin/main
+2026-10-02T02:35:57.7445245Z  * [new ref]         5345459acb1c072cfdc307904973fdca582ce13f -> origin/main
+2026-10-02T02:35:57.8840363Z 5345459acb1c072cfdc307904973fdca582ce13f
+2026-10-02T02:36:05.6606838Z ##[group]Run python scripts/validate_release.py --static-only
+2026-10-02T02:36:07.5191470Z STATIC RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 368 unchanged baseline proof bodies.
+2026-10-02T02:36:20.3604836Z Lean (version 4.29.0-rc6, x86_64-unknown-linux-gnu, commit 00659f8e6071d7e46131ed643bf8003b99b044e9, Release)
+2026-10-02T02:36:51.4121612Z info: mathlib: checking out revision 'f156f7abd91ac67adb22bf999e5a71ba22e22e41'
+2026-10-02T02:37:46.8170763Z ##[group]Run ./check.sh
+2026-10-02T02:37:47.0089629Z Lean (version 4.29.0-rc6, x86_64-unknown-linux-gnu, commit 00659f8e6071d7e46131ed643bf8003b99b044e9, Release)
+2026-10-02T03:09:00.3444136Z Checking Audit.lean
+2026-10-02T03:13:49.2272090Z AUDIT PASSED: 9107 project declarations, 7219 theorems; transitive axioms [propext, Quot.sound, Classical.choice].
+2026-10-02T03:13:49.2339807Z Checking All.lean
+2026-10-02T03:13:52.3792952Z BUILD PASSED: 369 project modules.
+2026-10-02T03:13:52.3971534Z ##[group]Run python scripts/validate_release.py
+2026-10-02T03:14:01.4356263Z DECLARATIONS PASSED: 49 exact names, source modules, roles, and transitive axioms.
+2026-10-02T03:14:01.4360337Z RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 368 unchanged baseline proof bodies.
+2026-10-02T03:14:01.4744817Z ##[group]Run python scripts/check_challenges.py
+2026-10-02T03:14:07.1914862Z A_PrescribedDimensions: expected statement and solution/type check passed
+2026-10-02T03:14:12.7025639Z B_OperationalCoding: expected statement and solution/type check passed
+2026-10-02T03:14:18.3559444Z C_SmallInformationSeparation: expected statement and solution/type check passed
+2026-10-02T03:14:24.1723908Z D_WeylAllUses: expected statement and solution/type check passed
+2026-10-02T03:14:30.2693773Z E_InputCost: expected statement and solution/type check passed
+2026-10-02T03:14:30.2703321Z Saved .lake/challenge-checks.json. Comparator execution remains not_run.

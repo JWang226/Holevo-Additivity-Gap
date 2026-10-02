@@ -1,0 +1,112 @@
+<!doctype html>
+<!-- Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved. See COPYRIGHT.md for attribution. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A reader guide to Lean proofs of Holevo additivity gaps, exact source statements, and reproducible verification.">
+<title>_private.Nonadditivity.HaarBranchTimeSum.0.Nonadditivity.HaarNonbacktracking.BranchPlan.retime.match_1.eq_2 · Holevo Additivity Gap</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body data-root="../"><header class="top"><div class="top-inner">
+<a class="brand" href="../index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
+<nav aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../verify.html">Verify</a><a href="../route.html">Proof route</a><a href="../results.html">Results</a><a href="../declarations.html" aria-current="page">Declarations</a><a href="../dependencies.html">Dependencies</a><a href="../modules.html">Modules</a><a href="../imports.html">Imports</a><a href="../docs/index.html">Documents</a><a href="../about.html">About</a></nav>
+<div class="search-wrap"><label class="hidden" for="site-search">Search declarations, results and modules</label><input id="site-search" type="search" placeholder="Search any declaration, result, paper label, or module…" autocomplete="off" spellcheck="false" aria-label="Search declarations, results and modules"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
+</div></header><main><article class="wide"><div class="breadcrumb"><a href="../declarations.html">All declarations</a> / <a href="../modules/Nonadditivity.HaarBranchTimeSum.html"><code>Nonadditivity.HaarBranchTimeSum</code></a></div><p class="eyebrow">theorem</p><h1 class="title-code">_private.Nonadditivity.HaarBranchTimeSum.0.Nonadditivity.HaarNonbacktracking.BranchPlan.retime.match_1.eq_2</h1><div class="note">Flagged by Lean’s <code>Name.isInternal</code>, <code>Name.isInternalDetail</code>, <code>isPrivateName</code> predicates. Generated declarations without these flags remain visible in the default catalog.</div><p>Defined in <a href="../modules/Nonadditivity.HaarBranchTimeSum.html"><code>Nonadditivity.HaarBranchTimeSum</code></a>. <a href="../modules/Nonadditivity.HaarBranchTimeSum.html">Read exact source module</a> · <a href="../source/Nonadditivity/HaarBranchTimeSum.lean">Download .lean</a></p><h2>Readable Lean statement</h2><p class="small muted">Lean’s readable pretty-print of the stored type can hide implicit or proof arguments. The complete kernel JSON expression is available below; universe parameters are listed separately.</p><p class="small">Universe parameters: <code>u_1</code>, <code>u_2</code>, <code>u_3</code>.</p><div class="command statement"><button class="copy" type="button" aria-label="Copy statement">Copy statement</button><pre><code>∀ {G : Type u_1} {J : Type u_2}
+  (motive :
+    (n m : Nat) →
+      (x : Nonadditivity.HaarNonbacktracking.BranchPlan.{u_1, u_2} G J m n) →
+        (Fin (Nonadditivity.HaarNonbacktracking.BranchPlan.blocks.{u_1, u_2} x) → Nat) → Sort u_3)
+  (m : Nat) (p : Fin (HAdd.hAdd.{0, 0, 0} m 1)) (g : G) (r : Nat) (w : J → G)
+  (hw : Function.Injective.{u_2 + 1, u_1 + 1} w)
+  (t :
+    Fin
+        (Nonadditivity.HaarNonbacktracking.BranchPlan.blocks.{u_1, u_2}
+          (Nonadditivity.HaarNonbacktracking.BranchPlan.openReg.{u_1, u_2} p g r w hw)) →
+      Nat)
+  (h_1 :
+    (n : Nat) →
+      (x :
+          Fin
+              (Nonadditivity.HaarNonbacktracking.BranchPlan.blocks.{u_1, u_2}
+                (Nonadditivity.HaarNonbacktracking.BranchPlan.identity.{u_1, u_2} n)) →
+            Nat) →
+        motive n n (Nonadditivity.HaarNonbacktracking.BranchPlan.identity.{u_1, u_2} n) x)
+  (h_2 :
+    (m : Nat) →
+      (p : Fin (HAdd.hAdd.{0, 0, 0} m 1)) →
+        (g : G) →
+          (r : Nat) →
+            (w : J → G) →
+              (hw : Function.Injective.{u_2 + 1, u_1 + 1} w) →
+                (t :
+                    Fin
+                        (Nonadditivity.HaarNonbacktracking.BranchPlan.blocks.{u_1, u_2}
+                          (Nonadditivity.HaarNonbacktracking.BranchPlan.openReg.{u_1, u_2} p g r w
+                            hw)) →
+                      Nat) →
+                  motive (HAdd.hAdd.{0, 0, 0} m 1) m
+                    (Nonadditivity.HaarNonbacktracking.BranchPlan.openReg.{u_1, u_2} p g r w hw) t)
+  (h_3 :
+    (n : Nat) →
+      (p : Fin (HAdd.hAdd.{0, 0, 0} n 1)) →
+        (g : G) →
+          (r : Nat) →
+            (w : J → G) →
+              (hw : Function.Injective.{u_2 + 1, u_1 + 1} w) →
+                (t :
+                    Fin
+                        (Nonadditivity.HaarNonbacktracking.BranchPlan.blocks.{u_1, u_2}
+                          (Nonadditivity.HaarNonbacktracking.BranchPlan.closeReg.{u_1, u_2} p g r w
+                            hw)) →
+                      Nat) →
+                  motive n (HAdd.hAdd.{0, 0, 0} n 1)
+                    (Nonadditivity.HaarNonbacktracking.BranchPlan.closeReg.{u_1, u_2} p g r w hw) t)
+  (h_4 :
+    (n : Nat) →
+      (g : G) →
+        (r : Nat) →
+          (w : (Fin n → J) → G) →
+            (t :
+                Fin
+                    (Nonadditivity.HaarNonbacktracking.BranchPlan.blocks.{u_1, u_2}
+                      (Nonadditivity.HaarNonbacktracking.BranchPlan.middle.{u_1, u_2} n g r w)) →
+                  Nat) →
+              motive n n (Nonadditivity.HaarNonbacktracking.BranchPlan.middle.{u_1, u_2} n g r w) t)
+  (h_5 :
+    (n : Nat) →
+      (g : G) →
+        (r : Nat) →
+          (w : J → G) →
+            (hw : Function.Injective.{u_2 + 1, u_1 + 1} w) →
+              (t :
+                  Fin
+                      (Nonadditivity.HaarNonbacktracking.BranchPlan.blocks.{u_1, u_2}
+                        (Nonadditivity.HaarNonbacktracking.BranchPlan.singleton.{u_1, u_2} n g r w
+                          hw)) →
+                    Nat) →
+                motive n n
+                  (Nonadditivity.HaarNonbacktracking.BranchPlan.singleton.{u_1, u_2} n g r w hw) t)
+  (h_6 :
+    (n m m_1 : Nat) →
+      (Q : Nonadditivity.HaarNonbacktracking.BranchPlan.{u_1, u_2} G J m_1 n) →
+        (P : Nonadditivity.HaarNonbacktracking.BranchPlan.{u_1, u_2} G J m m_1) →
+          (t :
+              Fin
+                  (Nonadditivity.HaarNonbacktracking.BranchPlan.blocks.{u_1, u_2}
+                    (Nonadditivity.HaarNonbacktracking.BranchPlan.comp.{u_1, u_2} Q P)) →
+                Nat) →
+            motive n m (Nonadditivity.HaarNonbacktracking.BranchPlan.comp.{u_1, u_2} Q P) t),
+  Eq.{u_3}
+    (match HAdd.hAdd.{0, 0, 0} m 1, m,
+      Nonadditivity.HaarNonbacktracking.BranchPlan.openReg.{u_1, u_2} p g r w hw, t with
+    | n, .(n), Nonadditivity.HaarNonbacktracking.BranchPlan.identity.{u_1, u_2} .(n), x =&gt; h_1 n x
+    | .(HAdd.hAdd.{0, 0, 0} m 1), m,
+      Nonadditivity.HaarNonbacktracking.BranchPlan.openReg.{u_1, u_2} p g r w hw, t =&gt;
+      h_2 m p g r w hw t
+    | n, .(HAdd.hAdd.{0, 0, 0} n 1),
+      Nonadditivity.HaarNonbacktracking.BranchPlan.closeReg.{u_1, u_2} p g r w hw, t =&gt;
+      h_3 n p g r w hw t
+    | n, .(n), Nonadditivity.HaarNonbacktracking.BranchPlan.middle.{u_1, u_2} .(n) g r w, t =&gt;
+      h_4 n g r w t
+    | n, .(n), Nonadditivity.HaarNonbacktracking.BranchPlan.singleton.{u_1, u_2} .(n) g r w hw, t =&gt;
+      h_5 n g r w hw t
+    | n, m, Nonadditivity.HaarNonbacktracking.BranchPlan.comp.{u_1, u_2} Q P, t =&gt;
+      h_6 n m m_1 Q P t)
+    (h_2 m p g r w hw t)</code></pre></div><details class="full-type" data-size="9394" data-sha256="e565f282ac9446ee231cd6cd7c966294ae03f55ad26f70f05d1a6228c96a1e87" data-filename="31b97d29532a0a996ce3b437.expr.json" data-suffix=".expr.json"><summary>Complete kernel type expression (JSON)</summary><p class="small muted">Canonical JSON encodes the complete kernel type as a shared expression DAG, including every argument, universe, binder and name component. Kernel-irrelevant metadata annotations are omitted. This is a machine expression artifact, distinct from Lean source text. The inline preview is limited to 64,000 characters.</p><p class="small">Uncompressed UTF-8 bytes: <strong>9,394</strong><br>SHA-256: <code>e565f282ac9446ee231cd6cd7c966294ae03f55ad26f70f05d1a6228c96a1e87</code></p><p><a href="../types/31b97d29532a0a996ce3b437.expr.json.gz">Download the complete artifact (.expr.json.gz)</a> <span class="full-type-download"></span></p><p class="small muted full-type-status" aria-live="polite">Expand to decode a bounded preview locally. The complete compressed download also works without JavaScript.</p><pre class="full-type-preview" hidden><code></code></pre><script type="application/json" class="full-type-payload">"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"</script></details><h2>Direct references in the type</h2><details><summary>18 type references</summary><ul class="reference-list"><li><code>Eq</code> <span class="muted small">external</span></li><li><code>Fin</code> <span class="muted small">external</span></li><li><code>Function.Injective</code> <span class="muted small">external</span></li><li><code>HAdd.hAdd</code> <span class="muted small">external</span></li><li><code>Nat</code> <span class="muted small">external</span></li><li><a href="../declarations/61e92398885f654f2b3d49a3.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan</code></a></li><li><a href="../declarations/1f652ca6d11f433b83074f62.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.blocks</code></a></li><li><a href="../declarations/51da0c00daf21fb32dced3cf.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.closeReg</code></a></li><li><a href="../declarations/4634b56975a55d5dc0d25d2b.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.comp</code></a></li><li><a href="../declarations/371ef98dc6c60429e72d46b5.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.identity</code></a></li><li><a href="../declarations/f0c97622cea0a7421c4cc637.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.middle</code></a></li><li><a href="../declarations/7bde58bce6e8b11b99540eab.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.openReg</code></a></li><li><a href="../declarations/0fcac6339a9bec9bc3a92df0.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.retime.match_1</code></a></li><li><a href="../declarations/f0c98e8158e74ee43a916295.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.singleton</code></a></li><li><code>OfNat.ofNat</code> <span class="muted small">external</span></li><li><code>instAddNat</code> <span class="muted small">external</span></li><li><code>instHAdd</code> <span class="muted small">external</span></li><li><code>instOfNatNat</code> <span class="muted small">external</span></li></ul></details><h2>Direct references in the proof or definition</h2><p class="small muted">For declaration kinds without a stored value expression, this list is empty. Recursor rules, constructor fields and other kernel metadata are not silently reinterpreted as proof expressions.</p><details><summary>18 value references</summary><ul class="reference-list"><li><code>Eq.refl</code> <span class="muted small">external</span></li><li><code>Fin</code> <span class="muted small">external</span></li><li><code>Function.Injective</code> <span class="muted small">external</span></li><li><code>HAdd.hAdd</code> <span class="muted small">external</span></li><li><code>Nat</code> <span class="muted small">external</span></li><li><a href="../declarations/61e92398885f654f2b3d49a3.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan</code></a></li><li><a href="../declarations/1f652ca6d11f433b83074f62.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.blocks</code></a></li><li><a href="../declarations/51da0c00daf21fb32dced3cf.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.closeReg</code></a></li><li><a href="../declarations/4634b56975a55d5dc0d25d2b.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.comp</code></a></li><li><a href="../declarations/371ef98dc6c60429e72d46b5.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.identity</code></a></li><li><a href="../declarations/f0c97622cea0a7421c4cc637.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.middle</code></a></li><li><a href="../declarations/7bde58bce6e8b11b99540eab.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.openReg</code></a></li><li><a href="../declarations/0fcac6339a9bec9bc3a92df0.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.retime.match_1</code></a></li><li><a href="../declarations/f0c98e8158e74ee43a916295.html"><code>Nonadditivity.HaarNonbacktracking.BranchPlan.singleton</code></a></li><li><code>OfNat.ofNat</code> <span class="muted small">external</span></li><li><code>instAddNat</code> <span class="muted small">external</span></li><li><code>instHAdd</code> <span class="muted small">external</span></li><li><code>instOfNatNat</code> <span class="muted small">external</span></li></ul></details><h2>Used by project declarations</h2><p class="small muted">Direct references in types or stored values across the entire exported project environment, including internal and private constants.</p><p class="small muted">No project declarations referring to this constant in the exported expression.</p><p><a href="../dependencies.html#31b97d29532a0a996ce3b437">Explore these constant dependencies</a> · <a href="../verify.html">Reproduce proof checks</a> · <a href="../source/metadata/declarations.json">Metadata and export provenance</a></p></article></main>
+<footer><p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p><p>Lean 4.29.0-rc6 · Mathlib <code>f156f7ab…</code> · Only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> permitted in solution dependencies.</p><p class="footer-links"><a href="../about.html">About these pages</a><a href="../generation.json">Generation record</a><a href="https://github.com/JWang226/Holevo-Additivity-Gap">GitHub repository</a></p></footer><script src="../assets/search-data.js"></script><script src="../assets/site.js"></script></body></html>

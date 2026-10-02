@@ -11,10 +11,14 @@ entries without writing files. This is a documentation check, not a proof check.
 from __future__ import annotations
 
 import argparse
+import base64
+import codecs
 from collections import defaultdict
+import gzip
 import hashlib
 import html
 from html.parser import HTMLParser
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -30,7 +34,7 @@ REPO = "https://github.com/JWang226/Holevo-Additivity-Gap"
 SITE = "https://JWang226.github.io/Holevo-Additivity-Gap/"
 COPYRIGHT = "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved."
 NAV = [("Overview", "index.html"), ("Verify", "verify.html"), ("Proof route", "route.html"),
-       ("Results", "results.html"), ("Modules", "modules.html"),
+       ("Results", "results.html"), ("Declarations", "declarations.html"), ("Dependencies", "dependencies.html"), ("Modules", "modules.html"),
        ("Imports", "imports.html"), ("Documents", "docs/index.html"), ("About", "about.html")]
 STAGES = [
     ("Actual channels and entropy", "Begin with finite density matrices, concrete Kraus channels, output ensembles, and entropy. The channel endpoints refer to these physical objects.",
@@ -63,6 +67,11 @@ def esc(value: object) -> str:
 
 def pretty(value: object) -> bytes:
     return (json.dumps(value, indent=2, ensure_ascii=False) + "\n").encode()
+
+
+def hidden_declaration(record: dict) -> bool:
+    """Use exported Lean predicates, not an independently inferred name rule."""
+    return bool(record["is_internal"] or record["is_private"] or record.get("is_internal_detail", False))
 
 
 def mask_lean(source: str) -> str:
@@ -165,15 +174,16 @@ def declaration_header(source: str, name: str) -> tuple[str | None, int | None]:
     return None, line
 
 
-def command(text: str) -> str:
-    return '<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>' + esc(text.rstrip()) + '</code></pre></div>'
+def command(text: str, label: str = "Copy command") -> str:
+    statement = label == "Copy statement"
+    return '<div class="command' + (' statement' if statement else '') + '"><button class="copy" type="button" aria-label="' + esc(label) + '">' + ('Copy statement' if statement else 'Copy') + '</button><pre><code>' + esc(text.rstrip()) + '</code></pre></div>'
 
 
 class Site:
     def __init__(self) -> None:
         self.outputs: dict[str, bytes] = {}
         self.inputs: dict[str, str] = {}
-        self.search: list[dict[str, str]] = []
+        self.search: list[dict[str, object]] = []
         self.meta = json.loads(self.read("metadata/results.json"))
         self.results = self.meta["results"]
         self.result_by_id = {x["id"]: x for x in self.results}
@@ -181,8 +191,27 @@ class Site:
         self.used_by: dict[str, list[str]] = defaultdict(list)
         self.module_results: dict[str, list[dict]] = defaultdict(list)
         self.headers: dict[str, tuple[str | None, int | None]] = {}
+        self.declaration_meta = json.loads(self.read("metadata/declarations.json"))
+        self.declarations = {record["name"]: record for record in self.declaration_meta["declarations"]}
+        if len(self.declarations) != len(self.declaration_meta["declarations"]):
+            raise ValueError("Duplicate names in Lean declaration export")
+        self.declaration_urls = {name: "declarations/" + hashlib.sha256(name.encode()).hexdigest()[:24] + ".html" for name in self.declarations}
+        if len(set(self.declaration_urls.values())) != len(self.declaration_urls):
+            raise ValueError("Declaration URL hash collision")
+        self.declaration_users: dict[str, list[str]] = defaultdict(list)
+        self.module_declarations: dict[str, list[str]] = defaultdict(list)
+        self.declaration_results: dict[str, list[dict]] = defaultdict(list)
+        self.validate_declaration_export()
+        for name, record in self.declarations.items():
+            self.module_declarations[record["module"]].append(name)
+            for dependency in record["project_dependencies"]:
+                self.declaration_users[dependency].append(name)
         self.docs: dict[str, str] = {}
-        self.ci = json.loads(self.read("verification/github-actions-141f355.json"))
+        self.ci_record = self.meta["verification_current"]["record"]
+        self.ci_excerpt = self.meta["verification_current"]["log_excerpt"]
+        self.ci = json.loads(self.read(self.ci_record))
+        if self.ci["commit"] != self.meta["verification_current"]["commit"]:
+            raise ValueError("Current CI metadata disagrees with the retained verification record")
         proof_paths = list((ROOT / "Nonadditivity").glob("*.lean"))
         proof_paths += [ROOT / name for name in ["Nonadditivity.lean", "Audit.lean", "All.lean"]]
         for path in sorted(proof_paths):
@@ -195,24 +224,34 @@ class Site:
         for name, module in self.modules.items():
             for imp in module["imports"]:
                 self.used_by[imp].append(name)
+        for name, record in self.declarations.items():
+            if record["module"] not in self.modules:
+                raise ValueError("Exported declaration refers to a module outside the source catalog: " + name)
         for result in self.results:
             for ref in result["lean"]:
                 module_name = ref["file"][:-5].replace("/", ".")
                 if module_name not in self.modules:
                     raise ValueError("Result references unavailable module: " + ref["file"])
                 self.module_results[module_name].append(result)
+                if ref["declaration"] not in self.declarations:
+                    raise ValueError("Mapped declaration absent from Lean export: " + ref["declaration"])
+                self.declaration_results[ref["declaration"]].append(result)
                 self.headers[ref["declaration"]] = declaration_header(self.modules[module_name]["source"], ref["declaration"])
         doc_paths = ["README.md", "PROOF-PATH.md", "COPYRIGHT.md", "THIRD_PARTY_NOTICES.md", "verification/README.md", "ComparatorChallenges/README.md"]
         doc_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "docs").glob("*.md"))]
         for rel in doc_paths:
             self.docs[rel] = self.read(rel)
             self.emit("source/" + rel, self.docs[rel])
-        source_paths = ["paper/nonadditivity.tex", "formalization.yaml", "metadata/results.json", "verification/github-actions-141f355.json", "verification/github-actions-141f355-excerpt.log", "Audit.lean", "All.lean", "Nonadditivity.lean", "lean-toolchain", "lake-manifest.json", "verification/lean/run.sh", "verification/comparator/run.sh", "requirements-validation.txt", "check.sh"]
+        source_paths = ["paper/nonadditivity.tex", "formalization.yaml", "metadata/results.json", "metadata/declarations.json", self.ci_record, self.ci_excerpt, "Audit.lean", "All.lean", "Nonadditivity.lean", "lean-toolchain", "lake-manifest.json", "verification/lean/run.sh", "verification/comparator/run.sh", "requirements-validation.txt", "check.sh"]
+        # Historical CI evidence remains downloadable when repository documents
+        # retain links to an earlier checked source commit.
+        for pattern in ["github-actions-*.json", "github-actions-*-excerpt.log"]:
+            source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "verification").glob(pattern))]
         source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "ComparatorChallenges").glob("*")) if p.suffix in {".lean", ".json"}]
         for rel in source_paths:
             self.emit("source/" + rel, self.read(rel))
         # Track the generator and its own assets in the deterministic manifest.
-        for name in ["build.py", "site.css", "site.js", "README.md"]:
+        for name in ["build.py", "site.css", "site.js", "dependencies.js", "README.md"]:
             rel = "tools/docs-site/" + name
             if (ROOT / rel).exists():
                 self.read(rel)
@@ -224,6 +263,163 @@ class Site:
 
     def emit(self, rel: str, content: str | bytes) -> None:
         self.outputs[rel] = content.encode("utf-8") if isinstance(content, str) else content
+
+    def validate_declaration_export(self) -> None:
+        """Refuse stale source provenance or dangling project-constant edges."""
+        if self.declaration_meta.get("schema_version") != 1:
+            raise ValueError("Unsupported Lean declaration export schema")
+        if self.declaration_meta["count"] != len(self.declarations):
+            raise ValueError("Declaration count disagrees with exported records")
+        provenance = self.declaration_meta["provenance"]
+        hashes = provenance["source_sha256"]
+        required = {p.relative_to(ROOT).as_posix() for p in (ROOT / "Nonadditivity").glob("*.lean")}
+        required.update({"Nonadditivity.lean", "Audit.lean", "All.lean", "lean-toolchain", "lake-manifest.json"})
+        if not required.issubset(hashes):
+            raise ValueError("Declaration export provenance misses sources: " + ", ".join(sorted(required - set(hashes))))
+        for rel, expected in hashes.items():
+            if rel.startswith("/") or ".." in PurePosixPath(rel).parts:
+                raise ValueError("Unsafe export provenance path: " + rel)
+            data = (ROOT / rel).read_bytes()
+            actual = hashlib.sha256(data).hexdigest()
+            self.inputs[rel] = actual
+            if actual != expected:
+                raise ValueError("Stale Lean declaration export: " + rel + "; rerun the declaration exporter")
+        for name, record in self.declarations.items():
+            if record["file"] != record["module"].replace(".", "/") + ".lean":
+                raise ValueError("Declaration file/module mismatch: " + name)
+            if not isinstance(record["type"], str) or not record["type"].strip():
+                raise ValueError("Empty elaborated type: " + name)
+            if record.get("type_encoding") == "gzip+base64":
+                self.validate_full_type(name, record)
+            elif record.get("type_encoding") not in {None, "utf-8"}:
+                raise ValueError("Unsupported elaborated type encoding: " + name)
+            combined = set(record["type_dependencies"]) | set(record["value_dependencies"])
+            expected = combined & self.declarations.keys()
+            if expected != set(record["project_dependencies"]):
+                raise ValueError("Inconsistent project dependencies: " + name)
+            missing = set(record["project_dependencies"]) - self.declarations.keys()
+            if missing:
+                raise ValueError("Unknown project dependency: " + name + ": " + ", ".join(sorted(missing)))
+
+    def validate_full_type(self, name: str, record: dict) -> None:
+        """Stream one exact type artifact; validate canonical kernel DAG references."""
+        packed = base64.b64decode(record["type"], validate=True)
+        digest = hashlib.sha256()
+        decoder = codecs.getincrementaldecoder("utf-8")()
+        count = 0
+        representation = record.get("type_representation", "lean-fully-explicit-text-v1")
+        if representation not in {"lean-kernel-expr-dag-v1", "lean-fully-explicit-text-v1"}:
+            raise ValueError("Unknown full type representation: " + name)
+        dag_text = []
+        with gzip.GzipFile(fileobj=io.BytesIO(packed)) as stream:
+            while chunk := stream.read(65536):
+                count += len(chunk)
+                digest.update(chunk)
+                text = decoder.decode(chunk)
+                if representation == "lean-kernel-expr-dag-v1":
+                    dag_text.append(text)
+                elif "⋯" in text:
+                    raise ValueError("Full type contains pretty-printer elision: " + name)
+        decoder.decode(b"", final=True)
+        if count != record["type_uncompressed_bytes"] or digest.hexdigest() != record["type_sha256"]:
+            raise ValueError("Compressed full type integrity mismatch: " + name)
+        if count == 0:
+            raise ValueError("Empty full type payload: " + name)
+        if representation == "lean-kernel-expr-dag-v1":
+            self.validate_type_dag(name, json.loads("".join(dag_text)))
+
+    def validate_type_dag(self, name: str, dag: dict) -> None:
+        if dag.get("format") != "lean-kernel-expr-dag-v1":
+            raise ValueError("Kernel type DAG format mismatch: " + name)
+        nodes, levels, names = dag["nodes"], dag["levels"], dag["names"]
+
+        def index(value: object, bound: int) -> None:
+            if type(value) is not int or not 0 <= value < bound:
+                raise ValueError("Kernel type DAG reference out of range: " + name)
+
+        def natural(value: object) -> None:
+            if type(value) is not int or value < 0:
+                raise ValueError("Kernel type DAG natural index invalid: " + name)
+
+        def decimal(value: object) -> None:
+            if not isinstance(value, str) or not re.fullmatch(r"0|[1-9][0-9]*", value):
+                raise ValueError("Kernel type DAG decimal invalid: " + name)
+
+        index(dag["root"], len(nodes))
+        for parts in names:
+            if not isinstance(parts, list):
+                raise ValueError("Kernel type DAG name is not a part list: " + name)
+            for part in parts:
+                if len(part) != 2 or part[0] not in {"str", "num"} or not isinstance(part[1], str):
+                    raise ValueError("Kernel type DAG name part invalid: " + name)
+                if part[0] == "num":
+                    decimal(part[1])
+        for i, level in enumerate(levels):
+            tag = level[0]
+            if tag == "zero" and len(level) == 1:
+                continue
+            if tag == "succ" and len(level) == 2:
+                index(level[1], i)
+            elif tag in {"max", "imax"} and len(level) == 3:
+                index(level[1], i); index(level[2], i)
+            elif tag == "param" and len(level) == 2:
+                index(level[1], len(names))
+            else:
+                raise ValueError("Kernel type DAG universe tag invalid: " + name)
+        for i, node in enumerate(nodes):
+            tag = node[0]
+            if tag == "bvar" and len(node) == 2:
+                natural(node[1])
+            elif tag == "sort" and len(node) == 2:
+                index(node[1], len(levels))
+            elif tag == "const" and len(node) == 3:
+                index(node[1], len(names))
+                for level in node[2]:
+                    index(level, len(levels))
+            elif tag == "app" and len(node) == 3:
+                index(node[1], i); index(node[2], i)
+            elif tag in {"lam", "forall"} and len(node) == 5:
+                index(node[1], len(names)); index(node[2], i); index(node[3], i)
+                if node[4] not in {"default", "implicit", "strictImplicit", "instImplicit"}:
+                    raise ValueError("Kernel type DAG binder info invalid: " + name)
+            elif tag == "let" and len(node) == 6:
+                index(node[1], len(names)); index(node[2], i); index(node[3], i); index(node[4], i)
+                if type(node[5]) is not bool:
+                    raise ValueError("Kernel type DAG let flag invalid: " + name)
+            elif tag == "lit_nat" and len(node) == 2:
+                decimal(node[1])
+            elif tag == "lit_string" and len(node) == 2 and isinstance(node[1], str):
+                continue
+            elif tag == "proj" and len(node) == 4:
+                index(node[1], len(names)); natural(node[2]); index(node[3], i)
+            else:
+                raise ValueError("Kernel type DAG expression tag invalid: " + name)
+        # A shared node can appear under several binder depths. Validate scope
+        # using (node, depth) pairs without expanding the shared DAG into a tree.
+        pending = [(dag["root"], 0)]
+        seen = set()
+        while pending:
+            node_id, depth = pending.pop()
+            if (node_id, depth) in seen:
+                continue
+            seen.add((node_id, depth))
+            node = nodes[node_id]
+            tag = node[0]
+            if tag == "bvar" and node[1] >= depth:
+                raise ValueError("Kernel type DAG has an unbound variable: " + name)
+            if tag == "app":
+                pending.extend([(node[1], depth), (node[2], depth)])
+            elif tag in {"lam", "forall"}:
+                pending.extend([(node[2], depth), (node[3], depth + 1)])
+            elif tag == "let":
+                pending.extend([(node[2], depth), (node[3], depth), (node[4], depth + 1)])
+            elif tag == "proj":
+                pending.append((node[3], depth))
+
+    def declaration_link(self, name: str, page: str) -> str:
+        if name in self.declarations:
+            return self.link(self.declaration_urls[name], "<code>" + esc(name) + "</code>", page)
+        return '<code>' + esc(name) + '</code>'
 
     def module_url(self, name: str) -> str:
         return "modules/" + name + ".html"
@@ -247,7 +443,7 @@ class Site:
     def tag(self, status: str) -> str:
         return f'<span class="tag {status.replace("_", "-")}">{esc(status.replace("_", " "))}</span>'
 
-    def page(self, path: str, title: str, content: str, active: str, wide: bool = False) -> None:
+    def page(self, path: str, title: str, content: str, active: str, wide: bool = False, extra_scripts: tuple[str, ...] = ()) -> None:
         root = "../" * (len(PurePosixPath(path).parts) - 1)
         nav = "".join(f'<a href="{root + url}"' + (' aria-current="page"' if label == active else "") + f'>{label}</a>' for label, url in NAV)
         footer = '<p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p>'
@@ -261,9 +457,9 @@ class Site:
 <body data-root="{root}"><header class="top"><div class="top-inner">
 <a class="brand" href="{root}index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
 <nav aria-label="Main navigation">{nav}</nav>
-<div class="search-wrap"><label class="hidden" for="site-search">Search results and modules</label><input id="site-search" type="search" placeholder="Search result names, exact declarations, paper labels, or modules…" autocomplete="off" spellcheck="false" aria-label="Search results and modules"><div id="search-results" class="search-results" hidden></div></div>
+<div class="search-wrap"><label class="hidden" for="site-search">Search declarations, results and modules</label><input id="site-search" type="search" placeholder="Search any declaration, result, paper label, or module…" autocomplete="off" spellcheck="false" aria-label="Search declarations, results and modules"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
 </div></header><main><article class="{'wide' if wide else 'prose'}">{content}</article></main>
-<footer>{footer}</footer><script src="{root}assets/search-data.js"></script><script src="{root}assets/site.js"></script></body></html>
+<footer>{footer}</footer><script src="{root}assets/search-data.js"></script><script src="{root}assets/site.js"></script>{''.join('<script src="' + root + script + '"></script>' for script in extra_scripts)}</body></html>
 ''')
 
     def card(self, result_id: str, page: str) -> str:
@@ -291,12 +487,12 @@ class Site:
         main_ref = self.result_by_id["prescribed-dimensions"]["lean"][0]
         header, line = self.headers[main_ref["declaration"]]
         if header:
-            content += command(header)
+            content += command(header, "Copy statement")
         content += '<p>' + self.link("results/prescribed-dimensions.html", "Scope, manuscript labels, and source context →", page) + '</p>'
         content += '<h2>How to read this project</h2><div class="cards">'
         for title, url, text in [("Proof route", "route.html", "A seven-stage reading order, with links to the endpoints and modules in each part of the argument."), ("Exact source", "modules.html", "Every proof module in full, with line anchors, source downloads, direct imports, and reverse import links."), ("Scope and corrections", "docs/docs--FORMALIZATION_STATUS.html", "Precisely what the formalization covers, which older interfaces remain conditional, and where the manuscript needs correction.")]:
             content += '<div class="card"><h3>' + self.link(url, title, page) + '</h3><p>' + esc(text) + '</p></div>'
-        content += '</div><p class="small muted">English descriptions and the route are reading aids. Result correspondence is non-exhaustive and does not itself certify informal-to-formal equivalence. Import links describe modules, not a theorem-level dependency graph.</p>'
+        content += '</div><h2>Explore the checked declarations</h2><p>' + self.link("declarations.html", f'Browse all {len(self.declarations):,} project constants', page) + ' with their complete elaborated types, direct references and reverse links. ' + self.link("dependencies.html", "Explore declaration dependencies", page) + ' uses the constant references extracted from Lean’s environment.</p><p class="small muted">English descriptions and the route are reading aids. Result correspondence is non-exhaustive and does not itself certify informal-to-formal equivalence. Import links describe modules; the separate declaration explorer shows references in types and proof or definition expressions.</p>'
         self.page(page, "Overview", content, "Overview", True)
 
     def build_verify(self) -> None:
@@ -318,7 +514,7 @@ class Site:
         content += '<table><thead><tr><th>Check</th><th>Recorded result</th></tr></thead><tbody>'
         for label, value in [("Project-source rebuild", f'{self.ci["project_modules_rebuilt"]} project modules rebuilt'), ("Transitive axiom audit", f'{self.ci["audited_project_declarations"]:,} declarations; only the standard three axioms'), ("Theorem constants", f'{self.ci["audited_theorem_constants"]:,} including generated helpers'), ("Catalog references", f'{self.ci["mapped_declarations_checked_in_lean"]} declarations checked in Lean'), ("Local challenge type checks", f'{self.ci["expected_types_checked_against_solution_proofs"]} expected statements fit solution proofs'), ("Comparator engine", "Not run"), ("Independent kernel", "Not run")]:
             content += '<tr><td>' + esc(label) + '</td><td>' + esc(value) + '</td></tr>'
-        content += '</tbody></table><p><a href="' + esc(self.ci["url"]) + '">Successful GitHub Actions run</a> · ' + self.link("source/verification/github-actions-141f355.json", "Machine-readable record", page) + ' · ' + self.link("source/verification/github-actions-141f355-excerpt.log", "Retained log excerpt", page) + '</p>'
+        content += '</tbody></table><p><a href="' + esc(self.ci["url"]) + '">Successful GitHub Actions run</a> · ' + self.link("source/" + self.ci_record, "Machine-readable record", page) + ' · ' + self.link("source/" + self.ci_excerpt, "Retained log excerpt", page) + '</p>'
         content += '<h2>What these checks certify</h2><p>The audit permits only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> across all project declarations, including definitions with proof fields and private helpers. The six intentional expected-statement placeholders in isolated Comparator challenge files are excluded from the solution build.</p><p>Kernel acceptance concerns exactly the formal statements in their Lean context. Mathematical review must still assess their correspondence to the manuscript. The original manuscript has not been edited to incorporate the two repaired intermediate counting arguments.</p>'
         content += '<p>' + self.link(self.doc_url("docs/FORMALIZATION_STATUS.md"), "Formalization status", page) + ' · ' + self.link(self.doc_url("docs/CORRECTIONS.md"), "Manuscript corrections", page) + '</p>'
         self.page(page, "Verify", content, "Verify")
@@ -371,13 +567,13 @@ class Site:
             anchor = f'declaration-{n}'
             source_url = self.module_url(module_name) + (f'#L{line}' if line else "")
             content += '<section class="declaration" id="' + anchor + '"><p class="eyebrow">' + esc(ref["role"].replace("_", " ")) + '</p><h2>' + esc(name) + '</h2>'
+            content += '<p>' + self.declaration_link(name, page) + ' — full elaborated type and exact constant references.</p>'
             if header:
-                content += command(header)
+                content += command(header, "Copy statement")
                 content += '<p class="source-context">Literal source header; namespace variables, local instances, imports, and notation are not expanded. Open the full module to read the surrounding context.</p>'
             else:
                 content += '<p>A standalone header cannot be safely extracted by this documentation generator. Read the exact full module instead.</p>'
             content += '<p>' + self.link(source_url, "Exact source" + (f' at line {line}' if line else ""), page) + ' · <a href="' + REPO + '/blob/main/' + ref["file"] + (f'#L{line}' if line else "") + '">View on GitHub</a></p></section>'
-            self.search.append({"title": name, "detail": result["name"] + " · " + ref["role"].replace("_", " "), "url": page + "#" + anchor, "search": (name + " " + result["name"] + " " + " ".join(result["paper"]["labels"])).lower()})
         if not result["lean"]:
             content += '<p>No formal declaration is attached to this broader correspondence entry.</p>'
         content += '<p>' + self.link("verify.html", "Verification and trust limits", page) + ' · ' + self.link(self.doc_url("docs/FORMALIZATION_STATUS.md"), "Full scope statement", page) + '</p>'
@@ -410,7 +606,19 @@ class Site:
             content += '<details' + (' open' if len(users) < 7 else "") + '><summary>' + str(len(users)) + ' direct reverse imports</summary><ul class="module-list">' + ''.join('<li>' + self.module_link(user, page) + '</li>' for user in users) + '</ul></details>'
         else:
             content += '<p class="small muted">No direct reverse imports in this project-module catalog.</p>'
-        content += '</div></div><p class="small muted">Relationships above come from literal import commands, not from references between individual declarations. Source text below is complete and unchanged.</p><h2 id="source">Full module</h2><pre class="source">'
+        content += '</div></div><p class="small muted">Relationships above come from literal import commands. The declarations below link to types and references extracted from Lean’s environment. Source text is complete and unchanged.</p>'
+        names = self.module_declarations[name]
+        content += '<h2 id="declarations">Declarations in this module</h2><p class="small muted">' + str(len(names)) + ' project constants, including generated, internal and private declarations.</p>'
+        if names:
+            content += '<input class="filter" aria-label="Filter this module’s declarations" placeholder="Filter declaration names…" data-filter=".module-declaration" data-status="module-declaration-status"><p class="small muted" id="module-declaration-status">' + str(len(names)) + ' declarations</p><ul class="module-list">'
+            for declaration in names:
+                record = self.declarations[declaration]
+                marked = ' <span class="muted small">internal/detail/private</span>' if hidden_declaration(record) else ''
+                content += '<li class="module-declaration" data-search="' + esc(declaration) + '">' + self.declaration_link(declaration, page) + marked + '</li>'
+            content += '</ul>'
+        else:
+            content += '<p>This aggregate module introduces no project constant in the export.</p>'
+        content += '<h2 id="source">Full module</h2><pre class="source">'
         for n, line in enumerate(module["source"].splitlines(), 1):
             content += f'<span class="code-line" id="L{n}"><a class="line-number" href="#L{n}" aria-label="Line {n}">{n}</a><code>{esc(line)}</code></span>'
         content += '</pre>'
@@ -429,6 +637,98 @@ class Site:
         content += '<p>' + self.link("imports.json", "Download exact import adjacency data", page) + '</p>'
         self.emit("imports.json", pretty(graph))
         self.page(page, "Imports", content, "Imports", True)
+
+    def reference_list(self, names: list[str], page: str, label: str) -> str:
+        if not names:
+            return '<p class="small muted">No ' + esc(label) + ' in the exported expression.</p>'
+        content = '<ul class="reference-list">' + ''.join('<li>' + self.declaration_link(name, page) + (' <span class="muted small">external</span>' if name not in self.declarations else '') + '</li>' for name in names) + '</ul>'
+        if len(names) > 12:
+            return '<details><summary>' + str(len(names)) + ' ' + esc(label) + '</summary>' + content + '</details>'
+        return content
+
+    def build_declarations(self) -> None:
+        page = "declarations.html"
+        count = len(self.declarations)
+        hidden = sum(hidden_declaration(x) for x in self.declarations.values())
+        kinds: dict[str, int] = defaultdict(int)
+        for record in self.declarations.values():
+            kinds[record["kind"]] += 1
+        content = '<p class="eyebrow">Extracted from the Lean environment</p><h1>Every project declaration.</h1><p class="lead">' + f'{count:,}' + ' constants, with full elaborated types, exact direct references, and reverse reference links.</p>'
+        content += '<p>The export contains theorem and definition constants, structures, constructors, recursors, and generated helpers from the project modules imported by <code>All</code>. Every item has its own page. ' + f'{hidden:,}' + ' constants are flagged by Lean’s <code>Name.isInternal</code>, <code>Name.isInternalDetail</code> or <code>isPrivateName</code> predicates; that flag is not a mathematical judgment and does not identify every generated helper.</p>'
+        content += '<p class="small muted">The exported inventory uses the same audited namespace selection as <code>Audit.lean</code>: names beginning <code>Nonadditivity.</code> or <code>_private.Nonadditivity.</code>.</p>'
+        content += '<div class="catalog-controls"><label>Search names, kinds or modules <input id="declaration-search" class="filter" type="search" placeholder="For example: channel, HaarPrescribedBound, constructor…" autocomplete="off"></label><label class="internal-toggle"><input id="declaration-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><label>Kind <select id="declaration-kind"><option value="">All kinds</option>' + ''.join('<option value="' + esc(kind) + '">' + esc(kind) + ' (' + str(n) + ')</option>' for kind, n in sorted(kinds.items())) + '</select></label></div><p id="declaration-status" class="small muted" aria-live="polite"></p><div id="declaration-catalog"></div><button type="button" id="declaration-more" class="button">Show 100 more</button>'
+        content += '<noscript><p>Interactive filtering requires JavaScript. All declaration links remain available on the ' + self.link("modules.html", "module pages", page) + '.</p></noscript><h2>What the export records</h2><p>The readable type is Lean’s pretty-printed elaborated expression with full names and universe levels requested. The compressed kernel expression DAG preserves all kernel-relevant fields, including arguments hidden by readable printing. Universe parameters are listed separately. It includes the implicit context that a literal source header can leave outside the declaration. Pretty printing is a display of the checked expression; proof verification still uses the committed Lean sources.</p><p>References are the constant names occurring directly in a declaration’s type and its stored proof or definition expression, including the structure names carried by projection expressions. They are not a minimal dependency certificate or informal citations. Reverse links are derived from the union of those two lists. Imported library constants appear as plain names where no precise external documentation link is available.</p><p>'
+        content += self.link("source/metadata/declarations.json", "Download the exact Lean declaration export", page) + ' · ' + self.link("dependencies.html", "Explore the real constant-reference graph", page) + ' · ' + self.link("about.html", "Export provenance and trust", page) + '</p>'
+        self.page(page, "Declarations", content, "Declarations", True)
+        for name, record in sorted(self.declarations.items()):
+            self.build_declaration(name, record)
+
+    def build_declaration(self, name: str, record: dict) -> None:
+        page = self.declaration_urls[name]
+        private = bool(record["is_private"])
+        internal = bool(record["is_internal"])
+        detail = bool(record.get("is_internal_detail", False))
+        content = '<div class="breadcrumb">' + self.link("declarations.html", "All declarations", page) + ' / ' + self.module_link(record["module"], page) + '</div><p class="eyebrow">' + esc(record["kind"]) + '</p><h1 class="title-code">' + esc(name) + '</h1>'
+        if private or internal or detail:
+            predicates = []
+            if internal:
+                predicates.append('<code>Name.isInternal</code>')
+            if detail:
+                predicates.append('<code>Name.isInternalDetail</code>')
+            if private:
+                predicates.append('<code>isPrivateName</code>')
+            content += '<div class="note">Flagged by Lean’s ' + ', '.join(predicates) + ' predicate' + ('s' if len(predicates) > 1 else '') + '. Generated declarations without these flags remain visible in the default catalog.</div>'
+        content += '<p>Defined in ' + self.module_link(record["module"], page) + '. '
+        source = record.get("source_range")
+        line = source.get("start_line") if isinstance(source, dict) else None
+        source_url = self.module_url(record["module"]) + (f'#L{line}' if isinstance(line, int) and line > 0 else '')
+        content += self.link(source_url, 'Read exact source' + (f' at line {line}' if isinstance(line, int) and line > 0 else ' module'), page) + ' · ' + self.link("source/" + record["file"], "Download .lean", page) + '</p>'
+        mapped = {x["id"]: x for x in self.declaration_results[name]}
+        if mapped:
+            content += '<p>Manuscript correspondence: ' + ' · '.join(self.result_link(rid, page) for rid in mapped) + '.</p>'
+        content += '<h2>Readable Lean statement</h2><p class="small muted">Lean’s readable pretty-print of the stored type can hide implicit or proof arguments. The complete kernel JSON expression is available below; universe parameters are listed separately.</p>'
+        levels = record["level_parameters"]
+        content += '<p class="small">Universe parameters: ' + (', '.join('<code>' + esc(level) + '</code>' for level in levels) if levels else 'none') + '.</p>'
+        if record.get("type_readable"):
+            content += command(record["type_readable"], "Copy statement")
+            if record.get("type_encoding") == "gzip+base64":
+                dag = record.get("type_representation") == "lean-kernel-expr-dag-v1"
+                suffix = ".expr.json" if dag else ".txt"
+                type_file = "types/" + PurePosixPath(page).stem + suffix + ".gz"
+                packed = base64.b64decode(record["type"], validate=True)
+                self.emit(type_file, packed)
+                explanation = 'Canonical JSON encodes the complete kernel type as a shared expression DAG, including every argument, universe, binder and name component. Kernel-irrelevant metadata annotations are omitted. This is a machine expression artifact, distinct from Lean source text.' if dag else 'The same stored expression with full names, explicit arguments and universe levels requested.'
+                content += '<details class="full-type" data-size="' + str(record["type_uncompressed_bytes"]) + '" data-sha256="' + esc(record["type_sha256"]) + '" data-filename="' + PurePosixPath(page).stem + suffix + '" data-suffix="' + suffix + '"><summary>' + ('Complete kernel type expression (JSON)' if dag else 'Fully explicit type and exact download') + '</summary><p class="small muted">' + explanation + ' The inline preview is limited to 64,000 characters.</p><p class="small">Uncompressed UTF-8 bytes: <strong>' + f'{record["type_uncompressed_bytes"]:,}' + '</strong><br>SHA-256: <code>' + esc(record["type_sha256"]) + '</code></p><p>' + self.link(type_file, "Download the complete artifact (" + suffix + ".gz)", page) + ' <span class="full-type-download"></span></p><p class="small muted full-type-status" aria-live="polite">Expand to decode a bounded preview locally. The complete compressed download also works without JavaScript.</p><pre class="full-type-preview" hidden><code></code></pre><script type="application/json" class="full-type-payload">' + json.dumps(record["type"]) + '</script></details>'
+            else:
+                content += '<details><summary>Fully explicit type display</summary><p class="small muted">The same stored expression with full names, explicit arguments and universe levels requested.</p>' + command(record["type"], "Copy statement") + '</details>'
+        else:
+            if record.get("type_encoding") == "gzip+base64":
+                raise ValueError("Compressed type has no readable display: " + name)
+            content += command(record["type"], "Copy statement")
+        content += '<h2>Direct references in the type</h2>' + self.reference_list(record["type_dependencies"], page, 'type references')
+        content += '<h2>Direct references in the proof or definition</h2><p class="small muted">For declaration kinds without a stored value expression, this list is empty. Recursor rules, constructor fields and other kernel metadata are not silently reinterpreted as proof expressions.</p>' + self.reference_list(record["value_dependencies"], page, 'value references')
+        users = sorted(self.declaration_users[name])
+        content += '<h2>Used by project declarations</h2><p class="small muted">Direct references in types or stored values across the entire exported project environment, including internal and private constants.</p>' + self.reference_list(users, page, 'project declarations referring to this constant')
+        content += '<p>' + self.link("dependencies.html#" + self.declaration_urls[name].split('/')[-1][:-5], "Explore these constant dependencies", page) + ' · ' + self.link("verify.html", "Reproduce proof checks", page) + ' · ' + self.link("source/metadata/declarations.json", "Metadata and export provenance", page) + '</p>'
+        search = name + ' ' + record["kind"] + ' ' + record["module"]
+        if mapped:
+            search += ' ' + ' '.join(x["name"] + ' ' + ' '.join(x["paper"]["labels"]) for x in mapped.values())
+        self.search.append({"title": name, "detail": record["kind"] + ' · ' + record["module"], "url": page, "search": search.lower(), "kind": record["kind"], "declaration": True, "internal": hidden_declaration(record)})
+        self.page(page, name, content, "Declarations", True)
+
+    def build_dependencies(self) -> None:
+        page = "dependencies.html"
+        nodes = []
+        names = sorted(self.declarations)
+        indices = {name: n for n, name in enumerate(names)}
+        for name in names:
+            record = self.declarations[name]
+            nodes.append({"name": name, "url": self.declaration_urls[name], "kind": record["kind"], "module": record["module"], "type": [indices[n] for n in record["type_dependencies"] if n in indices], "value": [indices[n] for n in record["value_dependencies"] if n in indices], "internal": hidden_declaration(record)})
+        self.emit("assets/dependency-data.js", '// ' + COPYRIGHT + '\nwindow.HOLEVO_DEPENDENCIES = ' + json.dumps(nodes, ensure_ascii=False, separators=(",", ":")) + ';\n')
+        focus = self.result_by_id["prescribed-dimensions"]["lean"][0]["declaration"]
+        content = '<p class="eyebrow">Actual Lean constant references</p><h1>Explore declaration dependencies.</h1><p class="lead">Follow the constants occurring in an elaborated type or its stored proof or definition expression.</p><p>This graph comes from the Lean environment. It is separate from the English proof route and from module imports. It shows project constants; external library references remain listed on each declaration page.</p>'
+        content += '<div id="dependency-explorer" data-focus="' + esc(focus) + '"><div class="graph-controls"><label>Find a project constant <input class="filter" id="dependency-search" type="search" placeholder="Type a declaration name…" autocomplete="off" spellcheck="false"></label><div id="dependency-suggestions"></div><label>Direction <select id="dependency-direction"><option value="dependencies">Uses</option><option value="users">Used by</option></select></label><label>References <select id="dependency-kind"><option value="all">Type and value</option><option value="type">Type only</option><option value="value">Proof or definition only</option></select></label><label>Depth <select id="dependency-depth"><option>1</option><option selected>2</option><option>3</option></select></label><button id="dependency-collapse" class="button" type="button">Collapse to one level</button></div><p id="dependency-focus"></p><p class="small muted" id="dependency-status" aria-live="polite"></p><div id="dependency-graph" class="dependency-graph"></div><h2>Direct neighbors of the selected constant</h2><p class="small muted">This complete neighbor list follows the selected direction and reference kind. The diagram is bounded to four new nodes per depth so labels remain readable; select a listed neighbor to follow another branch.</p><div id="dependency-neighbors"></div><button id="dependency-more" class="button" type="button">Show 50 more neighbors</button></div><noscript><p>The interactive diagram requires JavaScript. Complete direct and reverse references are present on every declaration page.</p></noscript><h2>How to read the arrows</h2><p>An arrow points from a constant to a project constant it directly references. In “Used by” mode the layout follows reverse neighbors while arrow direction still records the original reference. No transitive reduction, mathematical indispensability or equivalence to the informal argument is asserted.</p>'
+        self.page(page, "Dependencies", content, "Dependencies", True, ("assets/dependency-data.js", "assets/dependencies.js"))
 
     def resolve_doc_link(self, destination: str, source: str, page: str) -> str:
         parsed = urlsplit(destination)
@@ -457,7 +757,20 @@ class Site:
         text = esc(text)
         text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
         text = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", text)
-        return re.sub("\x00(\\d+)\x00", lambda m: slots[int(m.group(1))], text)
+        # A link label can contain a protected inline-code slot. Expand earlier
+        # slots inside each later slot before restoring the outer text, so code
+        # labels remain real <code> elements instead of leaking NUL markers.
+        restored: list[str] = []
+
+        def restore_prior(match: re.Match) -> str:
+            index = int(match.group(1))
+            if index >= len(restored):
+                raise ValueError("Invalid Markdown placeholder nesting")
+            return restored[index]
+
+        for slot in slots:
+            restored.append(re.sub("\x00(\\d+)\x00", restore_prior, slot))
+        return re.sub("\x00(\\d+)\x00", lambda m: restored[int(m.group(1))], text)
 
     def render_markdown(self, source: str, text: str, page: str) -> str:
         """Readable subset of Markdown; exact original is always downloadable."""
@@ -561,31 +874,39 @@ class Site:
         page = "about.html"
         content = '<p class="eyebrow">Sources and trust</p><h1>About these pages.</h1><p class="lead">A deterministic reader site generated from this repository’s actual source files and result metadata.</p><p>The information architecture follows the reader-oriented <a href="https://tianyipeng.github.io/fermats-last-theorem/">Fermat’s Last Theorem documentation</a>: overview, route, searchable results, exact statements, source modules, and repository documents. The design, generator, and assets here are original project material.</p>'
         content += '<h2>What is shown, and how</h2><table class="about-table"><tbody>'
-        for label, text in [("Result correspondence", "The 25 records and 49 exact declaration references are read from metadata/results.json. Status and scope notes are carried through unchanged."), ("Quoted headers", "A conservative lexical recognizer quotes a unique literal declaration header before its outer :=. It hides comments and strings while locating syntax, then quotes the original source text. Ambiguous syntax falls back to full source."), ("Source context", "A header does not expand namespace variables, implicit instances, notation, imports, or local settings. Each statement therefore links to the complete exact module, with line anchors and an original source download."), ("Import relationships", "Direct imports are read from literal import commands. Reverse links cover all 366 proof modules and three aggregate entry points. No theorem-level dependency graph or per-declaration citation graph is claimed."), ("Search", "Search matches result names, paper labels, all 49 mapped declaration names, all 366 proof module names, and three aggregate entry points. It does not index every internal helper declaration."), ("Repository documents", "A small offline Markdown renderer displays committed prose. Exact Markdown files are available when typography or formula syntax needs checking."), ("Verification evidence", "The retained successful GitHub CI run certifies a full project-source rebuild and Lean audit at its recorded commit. Comparator execution and independent-kernel verification remain pending."), ("Offline use", "Open html/index.html directly after cloning, or visit the GitHub Pages site. Search data is a local JavaScript asset, so no server, CDN, telemetry, or network request is required to browse."), ("Licensing", "No blanket open-source license has been selected for project-owned code or the manuscript. Copyright and original third-party attribution are preserved.")]:
+        for label, text in [("Result correspondence", "The 25 records and 49 exact declaration references are read from metadata/results.json. Status and scope notes are carried through unchanged."), ("Quoted headers", "A conservative lexical recognizer quotes a unique literal declaration header before its outer :=. It hides comments and strings while locating syntax, then quotes the original source text. Ambiguous syntax falls back to full source."), ("Elaborated declarations", f"All {len(self.declarations):,} project constants are exported from the actual Lean environment into metadata/declarations.json. Individual pages display a readable elaborated type, with universe parameters separately listed, and link to the exact full source module. A shared kernel expression DAG preserves every kernel-relevant argument, universe, binder and name component, while omitting kernel-irrelevant metadata annotations."), ("Source context", "A literal source header does not expand namespace variables, implicit instances, notation, imports, or local settings. Its display is distinguished from the complete exported type. An exact declaration line is linked only when available from source extraction or trustworthy declaration metadata."), ("Import relationships", "Direct imports are read from literal import commands. Reverse links cover all 366 proof modules and three aggregate entry points. These remain distinct from individual constant references."), ("Constant dependencies", "Type and stored-value expressions provide exact direct constant-reference lists. Reverse project links are computed from those lists. The interactive graph follows actual project-constant references and limits the visible neighborhood for readability; the full lists remain on declaration pages. No minimality or informal-proof equivalence is asserted."), ("Search", f"Search indexes every one of the {len(self.declarations):,} exported project constants, all result names and paper labels, and all source modules. Names flagged by Lean’s internal, internal-detail or private predicates can be included explicitly; these flags do not identify every generated constant."), ("Export freshness", "The generator verifies the exported SHA-256 provenance against every proof source, aggregate entry point, toolchain and dependency manifest before generating pages. A stale source blocks the documentation build. This checks provenance consistency; it does not independently re-execute the exporter or prove metadata integrity."), ("Repository documents", "A small offline Markdown renderer displays committed prose. Exact Markdown files are available when typography or formula syntax needs checking."), ("Verification evidence", "The retained successful GitHub CI run certifies a full project-source rebuild and Lean audit at its recorded commit. Comparator execution and independent-kernel verification remain pending."), ("Offline use", "Open html/index.html directly after cloning, or visit the GitHub Pages site. Search and dependency data are local JavaScript assets, so no server, CDN, telemetry, or network request is required to browse."), ("Licensing", "No blanket open-source license has been selected for project-owned code or the manuscript. Copyright and original third-party attribution are preserved.")]:
             content += '<tr><td>' + esc(label) + '</td><td>' + esc(text) + '</td></tr>'
-        content += '</tbody></table><h2>Rebuild the documentation</h2><p>Python 3 is the only dependency. From the repository root:</p>' + command('python3 tools/docs-site/build.py\npython3 tools/docs-site/build.py --check')
+        content += '</tbody></table><h2>Complete kernel type expressions</h2><p>Every elaborated type is preserved as a shared kernel expression DAG: names, universes, binders and all arguments are retained; kernel-irrelevant metadata annotations are omitted. This canonical JSON is a machine expression representation, distinct from Lean source text. It is stored losslessly as gzip/base64, with byte counts and SHA-256 hashes. The generator stream-checks each payload and validates its node references before publishing a complete <code>.expr.json.gz</code> artifact. Declaration pages show readable Lean types and decode at most a 64,000-character JSON preview on expansion; modern browsers also offer the entire decoded JSON download. Compressed downloads remain available without browser gzip support.</p><h2>Rebuild the documentation</h2><p>Python 3 is the only dependency. From the repository root:</p>' + command('python3 tools/docs-site/build.py\npython3 tools/docs-site/build.py --check')
         content += '<p>The freshness check compares generated bytes and validates every local file link, HTML anchor, search target, and source download. It is a documentation check; proof verification uses the separate commands on the verification page.</p><p>The generator records input hashes, counts, and extraction results in ' + self.link("generation.json", "generation.json", page) + '. There are no build timestamps or local absolute paths in the generated site.</p>'
         content += '<p>' + self.link("verify.html", "Proof verification", page) + ' · ' + self.link(self.doc_url("COPYRIGHT.md"), "Copyright", page) + ' · ' + self.link(self.doc_url("THIRD_PARTY_NOTICES.md"), "Third-party notices", page) + '</p>'
         self.page(page, "About", content, "About")
 
     def generate(self) -> None:
         self.emit(".nojekyll", b"")
-        for name in ["site.css", "site.js"]:
+        for name in ["site.css", "site.js", "dependencies.js"]:
             self.emit("assets/" + name, (TOOLS / name).read_bytes())
         self.build_overview()
         self.build_verify()
         self.build_route()
         self.build_results()
+        self.build_declarations()
+        self.build_dependencies()
         self.build_modules()
         self.build_imports()
         self.build_docs()
         self.build_about()
-        self.search.sort(key=lambda x: ("Proof module" in x["detail"], x["title"].lower()))
+        self.search.sort(key=lambda x: (bool(x.get("internal")), x["title"].lower()))
         self.emit("assets/search-data.js", '// ' + COPYRIGHT + '\nwindow.HOLEVO_SEARCH = ' + json.dumps(self.search, ensure_ascii=False, separators=(",", ":")) + ';\n')
         self.emit("generation.json", pretty({
             "schema_version": 1, "generator": "tools/docs-site/build.py", "site": SITE,
             "module_count": len(self.modules), "proof_module_count": 366, "aggregate_entry_points": 3, "correspondence_records": len(self.results),
             "mapped_declarations": len(self.headers), "literal_headers_quoted": sum(header is not None for header, line in self.headers.values()),
+            "exported_project_declarations": len(self.declarations),
+            "internal_detail_or_private_declarations": sum(hidden_declaration(x) for x in self.declarations.values()),
+            "direct_project_constant_reference_edges": sum(len(x["project_dependencies"]) for x in self.declarations.values()),
+            "declaration_export_sha256": self.inputs["metadata/declarations.json"],
+            "compressed_full_type_artifacts": sum(record.get("type_encoding") == "gzip+base64" for record in self.declarations.values()),
+            "full_type_uncompressed_bytes": sum(record.get("type_uncompressed_bytes", len(record["type"].encode())) for record in self.declarations.values()),
             "header_fallbacks": [name for name, (header, line) in self.headers.items() if header is None],
             "search_entries": len(self.search), "module_import_edges": sum(sum(x in self.modules for x in m["imports"]) for m in self.modules.values()),
             "evidence_commit": self.ci["commit"], "evidence_run": self.ci["url"],
@@ -616,8 +937,11 @@ class Links(HTMLParser):
 def validate(site: Site) -> list[str]:
     errors: list[str] = []
     pages = {}
+    dependency_routes = {PurePosixPath(path).stem for path in site.declaration_urls.values()}
     for rel, data in site.outputs.items():
         if rel.endswith(".html"):
+            if b"\x00" in data:
+                errors.append(rel + ": generated HTML contains a NUL placeholder")
             parsed = Links()
             parsed.feed(data.decode())
             pages[rel] = parsed
@@ -632,7 +956,10 @@ def validate(site: Site) -> list[str]:
             if target not in site.outputs:
                 errors.append(rel + ": broken local link " + destination)
             elif url.fragment and target in pages and unquote(url.fragment) not in pages[target].ids:
-                errors.append(rel + ": missing anchor " + destination)
+                # Dependency hashes are explicit client-side routes, validated
+                # against the same complete constant registry used by the UI.
+                if target != "dependencies.html" or unquote(url.fragment) not in dependency_routes:
+                    errors.append(rel + ": missing anchor " + destination)
     for entry in site.search:
         url = urlsplit(entry["url"])
         if url.path not in pages or (url.fragment and url.fragment not in pages[url.path].ids):
@@ -675,7 +1002,7 @@ def main() -> int:
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
     metrics = json.loads(site.outputs["generation.json"])
-    print(("Site check passed" if args.check else "Site generated") + f': {len(site.outputs)} files, {metrics["module_count"]} project modules, {metrics["correspondence_records"]} result records, {metrics["mapped_declarations"]} mapped declarations, {metrics["literal_headers_quoted"]} exact headers, {metrics["search_entries"]} search entries.')
+    print(("Site check passed" if args.check else "Site generated") + f': {len(site.outputs)} files, {metrics["module_count"]} project modules, {metrics["correspondence_records"]} result records, {metrics["exported_project_declarations"]:,} exported declarations, {metrics["direct_project_constant_reference_edges"]:,} direct project constant-reference edges, {metrics["search_entries"]} search entries.')
     return 0
 
 

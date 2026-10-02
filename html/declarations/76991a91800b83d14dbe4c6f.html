@@ -1,0 +1,106 @@
+<!doctype html>
+<!-- Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved. See COPYRIGHT.md for attribution. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A reader guide to Lean proofs of Holevo additivity gaps, exact source statements, and reproducible verification.">
+<title>_private.Nonadditivity.NoncommutativeCSEndpointTrace.0.Nonadditivity.NoncommutativeCS.EndpointTrace.compile.match_1.splitter · Holevo Additivity Gap</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body data-root="../"><header class="top"><div class="top-inner">
+<a class="brand" href="../index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
+<nav aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../verify.html">Verify</a><a href="../route.html">Proof route</a><a href="../results.html">Results</a><a href="../declarations.html" aria-current="page">Declarations</a><a href="../dependencies.html">Dependencies</a><a href="../modules.html">Modules</a><a href="../imports.html">Imports</a><a href="../docs/index.html">Documents</a><a href="../about.html">About</a></nav>
+<div class="search-wrap"><label class="hidden" for="site-search">Search declarations, results and modules</label><input id="site-search" type="search" placeholder="Search any declaration, result, paper label, or module…" autocomplete="off" spellcheck="false" aria-label="Search declarations, results and modules"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
+</div></header><main><article class="wide"><div class="breadcrumb"><a href="../declarations.html">All declarations</a> / <a href="../modules/Nonadditivity.NoncommutativeCSEndpointTrace.html"><code>Nonadditivity.NoncommutativeCSEndpointTrace</code></a></div><p class="eyebrow">definition</p><h1 class="title-code">_private.Nonadditivity.NoncommutativeCSEndpointTrace.0.Nonadditivity.NoncommutativeCS.EndpointTrace.compile.match_1.splitter</h1><div class="note">Flagged by Lean’s <code>Name.isInternal</code>, <code>Name.isInternalDetail</code>, <code>isPrivateName</code> predicates. Generated declarations without these flags remain visible in the default catalog.</div><p>Defined in <a href="../modules/Nonadditivity.NoncommutativeCSEndpointTrace.html"><code>Nonadditivity.NoncommutativeCSEndpointTrace</code></a>. <a href="../modules/Nonadditivity.NoncommutativeCSEndpointTrace.html">Read exact source module</a> · <a href="../source/Nonadditivity/NoncommutativeCSEndpointTrace.lean">Download .lean</a></p><h2>Readable Lean statement</h2><p class="small muted">Lean’s readable pretty-print of the stored type can hide implicit or proof arguments. The complete kernel JSON expression is available below; universe parameters are listed separately.</p><p class="small">Universe parameters: <code>u_1</code>, <code>u_2</code>, <code>u_3</code>, <code>u_4</code>, <code>u_5</code>.</p><div class="command statement"><button class="copy" type="button" aria-label="Copy statement">Copy statement</button><pre><code>{𝕜 : Type u_1} →
+  {E : Type u_2} →
+    {I : Type u_3} →
+      {J : Type u_4} →
+        [inst : RCLike.{u_1} 𝕜] →
+          [inst_1 : NormedAddCommGroup.{u_2} E] →
+            [inst_2 : InnerProductSpace.{u_1, u_2} 𝕜 E] →
+              (motive :
+                  (m : Nat) →
+                    (a : Fin m → I) →
+                      (n : Nat) →
+                        (b : Fin n → I) →
+                          Nonadditivity.NoncommutativeCS.EndpointTrace.{u_1, u_2, u_3, u_4} 𝕜 E I J
+                              a b →
+                            Sort u_5) →
+                (m : Nat) →
+                  (a : Fin m → I) →
+                    (n : Nat) →
+                      (b : Fin n → I) →
+                        (x :
+                            Nonadditivity.NoncommutativeCS.EndpointTrace.{u_1, u_2, u_3, u_4} 𝕜 E I
+                              J a b) →
+                          ((m : Nat) →
+                              (a : Fin m → I) →
+                                motive m a m a
+                                  (Nonadditivity.NoncommutativeCS.EndpointTrace.done.{u_1, u_2, u_3,
+                                      u_4}
+                                    a)) →
+                            ((m : Nat) →
+                                (a : Fin m → I) →
+                                  (n : Nat) →
+                                    (b : Fin n → I) →
+                                      (i : I) →
+                                        (A :
+                                            J →
+                                              ContinuousLinearMap.{u_1, u_1, u_2, u_2}
+                                                (RingHom.id.{u_1} 𝕜) E E) →
+                                          (P :
+                                              Nonadditivity.NoncommutativeCS.EndpointTrace.{u_1,
+                                                  u_2, u_3, u_4}
+                                                𝕜 E I J (Fin.cons.{u_3 + 1} i a) b) →
+                                            motive m a n b
+                                              (Nonadditivity.NoncommutativeCS.EndpointTrace.first.{u_1,
+                                                  u_2, u_3, u_4}
+                                                i A P)) →
+                              ((m : Nat) →
+                                  (a : Fin (HAdd.hAdd.{0, 0, 0} m 1) → I) →
+                                    (n : Nat) →
+                                      (b : Fin n → I) →
+                                        (p : Fin (HAdd.hAdd.{0, 0, 0} m 1)) →
+                                          (A :
+                                              J →
+                                                ContinuousLinearMap.{u_1, u_1, u_2, u_2}
+                                                  (RingHom.id.{u_1} 𝕜) E E) →
+                                            (P :
+                                                Nonadditivity.NoncommutativeCS.EndpointTrace.{u_1,
+                                                    u_2, u_3, u_4}
+                                                  𝕜 E I J (Fin.removeNth.{u_3 + 1} p a) b) →
+                                              motive (HAdd.hAdd.{0, 0, 0} m 1) a n b
+                                                (Nonadditivity.NoncommutativeCS.EndpointTrace.last.{u_1,
+                                                    u_2, u_3, u_4}
+                                                  p A P)) →
+                                ((m : Nat) →
+                                    (a : Fin m → I) →
+                                      (n : Nat) →
+                                        (b : Fin n → I) →
+                                          (A :
+                                              (Fin m → J) →
+                                                ContinuousLinearMap.{u_1, u_1, u_2, u_2}
+                                                  (RingHom.id.{u_1} 𝕜) E E) →
+                                            (P :
+                                                Nonadditivity.NoncommutativeCS.EndpointTrace.{u_1,
+                                                    u_2, u_3, u_4}
+                                                  𝕜 E I J a b) →
+                                              motive m a n b
+                                                (Nonadditivity.NoncommutativeCS.EndpointTrace.middle.{u_1,
+                                                    u_2, u_3, u_4}
+                                                  A P)) →
+                                  ((m : Nat) →
+                                      (a : Fin m → I) →
+                                        (n : Nat) →
+                                          (b : Fin n → I) →
+                                            (i : I) →
+                                              (A :
+                                                  J →
+                                                    ContinuousLinearMap.{u_1, u_1, u_2, u_2}
+                                                      (RingHom.id.{u_1} 𝕜) E E) →
+                                                (P :
+                                                    Nonadditivity.NoncommutativeCS.EndpointTrace.{u_1,
+                                                        u_2, u_3, u_4}
+                                                      𝕜 E I J a b) →
+                                                  motive m a n b
+                                                    (Nonadditivity.NoncommutativeCS.EndpointTrace.singleton.{u_1,
+                                                        u_2, u_3, u_4}
+                                                      i A P)) →
+                                    motive m a n b x</code></pre></div><details class="full-type" data-size="12911" data-sha256="5dc2a70f40324d5c31f1f2f3fff74995528e25604986e14307e00e8b3078e678" data-filename="76991a91800b83d14dbe4c6f.expr.json" data-suffix=".expr.json"><summary>Complete kernel type expression (JSON)</summary><p class="small muted">Canonical JSON encodes the complete kernel type as a shared expression DAG, including every argument, universe, binder and name component. Kernel-irrelevant metadata annotations are omitted. This is a machine expression artifact, distinct from Lean source text. The inline preview is limited to 64,000 characters.</p><p class="small">Uncompressed UTF-8 bytes: <strong>12,911</strong><br>SHA-256: <code>5dc2a70f40324d5c31f1f2f3fff74995528e25604986e14307e00e8b3078e678</code></p><p><a href="../types/76991a91800b83d14dbe4c6f.expr.json.gz">Download the complete artifact (.expr.json.gz)</a> <span class="full-type-download"></span></p><p class="small muted full-type-status" aria-live="polite">Expand to decode a bounded preview locally. The complete compressed download also works without JavaScript.</p><pre class="full-type-preview" hidden><code></code></pre><script type="application/json" class="full-type-payload">"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"</script></details><h2>Direct references in the type</h2><details><summary>36 type references</summary><ul class="reference-list"><li><code>ContinuousLinearMap</code> <span class="muted small">external</span></li><li><code>DenselyNormedField.toNormedField</code> <span class="muted small">external</span></li><li><code>DivisionSemiring.toSemiring</code> <span class="muted small">external</span></li><li><code>ENormedAddCommMonoid.toESeminormedAddCommMonoid</code> <span class="muted small">external</span></li><li><code>ESeminormedAddCommMonoid.toAddCommMonoid</code> <span class="muted small">external</span></li><li><code>Field.toSemifield</code> <span class="muted small">external</span></li><li><code>Fin</code> <span class="muted small">external</span></li><li><code>Fin.cons</code> <span class="muted small">external</span></li><li><code>Fin.removeNth</code> <span class="muted small">external</span></li><li><code>HAdd.hAdd</code> <span class="muted small">external</span></li><li><code>InnerProductSpace</code> <span class="muted small">external</span></li><li><code>InnerProductSpace.toNormedSpace</code> <span class="muted small">external</span></li><li><code>Nat</code> <span class="muted small">external</span></li><li><a href="../declarations/7f322dcb98cd4318bba4a243.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace</code></a></li><li><a href="../declarations/e2647bdcfaf90b2e5a1fd720.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.done</code></a></li><li><a href="../declarations/8451cee83bcf663564d4f476.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.first</code></a></li><li><a href="../declarations/d93ec7431554133bd2a1fbe2.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.last</code></a></li><li><a href="../declarations/93e0028d90f2c00d98dbd250.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.middle</code></a></li><li><a href="../declarations/a2e87140d2896d133d44c287.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.singleton</code></a></li><li><code>NormedAddCommGroup</code> <span class="muted small">external</span></li><li><code>NormedAddCommGroup.toENormedAddCommMonoid</code> <span class="muted small">external</span></li><li><code>NormedAddCommGroup.toSeminormedAddCommGroup</code> <span class="muted small">external</span></li><li><code>NormedField.toField</code> <span class="muted small">external</span></li><li><code>NormedSpace.toModule</code> <span class="muted small">external</span></li><li><code>OfNat.ofNat</code> <span class="muted small">external</span></li><li><code>PseudoMetricSpace.toUniformSpace</code> <span class="muted small">external</span></li><li><code>RCLike</code> <span class="muted small">external</span></li><li><code>RCLike.toDenselyNormedField</code> <span class="muted small">external</span></li><li><code>RingHom.id</code> <span class="muted small">external</span></li><li><code>Semifield.toDivisionSemiring</code> <span class="muted small">external</span></li><li><code>SeminormedAddCommGroup.toPseudoMetricSpace</code> <span class="muted small">external</span></li><li><code>Semiring.toNonAssocSemiring</code> <span class="muted small">external</span></li><li><code>UniformSpace.toTopologicalSpace</code> <span class="muted small">external</span></li><li><code>instAddNat</code> <span class="muted small">external</span></li><li><code>instHAdd</code> <span class="muted small">external</span></li><li><code>instOfNatNat</code> <span class="muted small">external</span></li></ul></details><h2>Direct references in the proof or definition</h2><p class="small muted">For declaration kinds without a stored value expression, this list is empty. Recursor rules, constructor fields and other kernel metadata are not silently reinterpreted as proof expressions.</p><ul class="reference-list"><li><a href="../declarations/7d22e879948a0aaea346e541.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.compile.match_1</code></a></li></ul><h2>Used by project declarations</h2><p class="small muted">Direct references in types or stored values across the entire exported project environment, including internal and private constants.</p><ul class="reference-list"><li><a href="../declarations/af0dc99c2eacd96248123a11.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.compile.eq_def</code></a></li><li><a href="../declarations/0a6adc1b0113bba86de79874.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.factors.eq_def</code></a></li><li><a href="../declarations/2107f98d43b7d91ca806e5a9.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.labels.eq_def</code></a></li><li><a href="../declarations/64ed73418b6b6f2f879106fe.html"><code>Nonadditivity.NoncommutativeCS.EndpointTrace.markedFlags.eq_def</code></a></li></ul><p><a href="../dependencies.html#76991a91800b83d14dbe4c6f">Explore these constant dependencies</a> · <a href="../verify.html">Reproduce proof checks</a> · <a href="../source/metadata/declarations.json">Metadata and export provenance</a></p></article></main>
+<footer><p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p><p>Lean 4.29.0-rc6 · Mathlib <code>f156f7ab…</code> · Only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> permitted in solution dependencies.</p><p class="footer-links"><a href="../about.html">About these pages</a><a href="../generation.json">Generation record</a><a href="https://github.com/JWang226/Holevo-Additivity-Gap">GitHub repository</a></p></footer><script src="../assets/search-data.js"></script><script src="../assets/site.js"></script></body></html>

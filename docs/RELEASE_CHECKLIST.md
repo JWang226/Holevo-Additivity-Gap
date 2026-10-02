@@ -10,8 +10,8 @@ This file records remaining manuscript, attribution, and independent-verificatio
   acknowledged. Select licenses for original code and manuscript material;
   preserve the existing third-party attribution and license.
 - The full project-source rebuild and audit passed in GitHub Actions on
-  `141f355` (run `36901743100`, attempt 2); see
-  [the execution record](../verification/github-actions-141f355.json).
+  `5345459` (run `36956367986`, attempt 1); see
+  [the execution record](../verification/github-actions-5345459.json).
   Keep future commit checks and their cache/rebuild boundaries documented.
 - Run the Comparator configurations using the documented compatible toolchain
   and independent checker. Record tool revisions and actual results. Challenge

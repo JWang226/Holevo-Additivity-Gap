@@ -2,6 +2,7 @@
 # All rights reserved. See COPYRIGHT.md for licensing and attribution.
 # Follows the v0.3 field layout used by openai/ten-proofs.
 # Extended manuscript mapping and verification scope: metadata/results.json.
+# Compiled declaration types and direct references: metadata/declarations.json.
 
 
 version: v0.3

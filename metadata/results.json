@@ -746,11 +746,11 @@
     "readme": "ComparatorChallenges/README.md"
   },
   "verification_current": {
-    "record": "verification/github-actions-141f355.json",
-    "log_excerpt": "verification/github-actions-141f355-excerpt.log",
-    "commit": "141f355a841cbf56fd1715750eebb9d2bcc488cb",
-    "run_url": "https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/36901743100",
-    "run_attempt": 2,
+    "record": "verification/github-actions-5345459.json",
+    "log_excerpt": "verification/github-actions-5345459-excerpt.log",
+    "commit": "5345459acb1c072cfdc307904973fdca582ce13f",
+    "run_url": "https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/36956367986",
+    "run_attempt": 1,
     "conclusion": "success",
     "method": "Full source rebuild of all 369 project modules and transitive axiom audit; pinned prebuilt mathlib dependency cache.",
     "audited_project_declarations": 9107,
