@@ -1,17 +1,27 @@
 {
   "schema_version": "1.0",
-  "description": "Machine-readable, non-exhaustive correspondence between the preserved manuscript and the formalization. Names and labels are stable identifiers; correspondence entries are not a claim of exhaustive statement equivalence.",
+  "description": "Machine-readable, non-exhaustive correspondence between the revised manuscript and the formalization. Names and labels are stable identifiers; correspondence entries are not a claim of exhaustive statement equivalence.",
   "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved; see COPYRIGHT.md.",
   "manuscript": {
     "file": "paper/nonadditivity.tex",
-    "sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+    "sha256": "3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98",
     "title": "Unbounded Holevo additivity gaps in finite dimensions",
     "authors": [
       "Jinzhao Wang"
     ],
-    "edited": false,
-    "corrections_incorporated": false,
-    "publication_date": null
+    "edited": true,
+    "corrections_incorporated": true,
+    "publication_date": null,
+    "revision": {
+      "received_at_utc": "2026-10-02T04:52:19.524994+00:00",
+      "author_supplied_sha256": "09f797bd4ef6d1f582cc241c7860dc23cfb58e8d9d4352e8911be9c45e67b31f",
+      "previous_sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+      "previous_commit": "ed99a01639d8b7605f1655a338df0048961bb188",
+      "repository_adjustments": [
+        "Limit the verification sentence to principal Lean endpoints and recorded build/audit success; Comparator execution remains pending. Author model attribution is retained.",
+        "Align the exploration mark and reconstruction prose with the next-step color and old-tree run used by HaarPathMarks.explorationMark."
+      ]
+    }
   },
   "formalization": {
     "full_manuscript_formalized": false,
@@ -50,11 +60,12 @@
   },
   "automation": {
     "framework": "Codex",
-    "model_name": null,
+    "model_name": "GPT-6 Astra",
     "model_version": null,
     "wall_time": null,
     "compute_cost": null,
-    "unknown_fields_reason": "Exact model identity/version and reliable project-wide time/cost were not recorded in the available project history."
+    "unknown_fields_reason": "Full model invocation/version history and reliable project-wide time/cost were not recorded in the retained artifacts.",
+    "model_name_source": "Author attribution in the revised manuscript; complete runtime invocation records are not retained."
   },
   "license": {
     "project_spdx": "NOASSERTION",
@@ -70,7 +81,7 @@
     "exact_endpoint": "The mathematical conclusion is represented at the described scope; internal definitions and notation may differ.",
     "alternate_argument": "The endpoint is proved through a different construction or argument.",
     "specialization": "Explicit scope qualifications are listed in notes.",
-    "corrected_proof": "The natural-language proof requires the listed correction; the final principal endpoint is unchanged.",
+    "corrected_proof": "The revised natural-language proof incorporates the listed correction; the final principal endpoint is unchanged.",
     "broader_unformalized": "The manuscript/background claim exceeds the available proof scope."
   },
   "references": {
@@ -539,7 +550,7 @@
           "role": "theorem"
         }
       ],
-      "notes": "The coefficients and scalar are chosen before the representation. The Hilbert space may be infinite-dimensional and is explicitly required to be nonzero; the additive scalar norm identity need not hold on the zero space. This qualification should be reflected when revising the manuscript."
+      "notes": "The coefficients and scalar are chosen before the representation. The Hilbert space may be infinite-dimensional and is explicitly required to be nonzero; the additive scalar norm identity need not hold on the zero space. The revised manuscript explicitly includes this qualification."
     },
     {
       "id": "haar-moment-range",
@@ -547,7 +558,9 @@
       "paper": {
         "labels": [
           "lem:haar",
-          "eq:haar-hypotheses"
+          "eq:haar-hypotheses",
+          "eq:path-weight",
+          "eq:class-sum"
         ],
         "locator": ""
       },
@@ -565,7 +578,7 @@
           "role": "theorem"
         }
       ],
-      "notes": "The actual one-pair trace bound is proved when the true matrix dimension D=N+1 satisfies D >= 2^32 p^80. It supplies the premise of the iterated estimate for finite matrix coefficients and remaining free-group factors. The abstract arbitrary traced C*-algebra formulation is outside the formalized scope."
+      "notes": "The actual one-pair trace bound is proved when the true matrix dimension D=N+1 satisfies D >= 2^32 p^80. It supplies the premise of the iterated estimate for finite matrix coefficients and remaining free-group factors. The abstract arbitrary traced C*-algebra formulation is outside the formalized scope. The revised manuscript restricts its one-pair argument to finite-support matrix/free-factor polynomials in the iteration algebras."
     },
     {
       "id": "favorable-probability",
@@ -598,9 +611,10 @@
       "paper": {
         "labels": [
           "lem:haar",
-          "app:finite-threshold"
+          "app:finite-threshold",
+          "eq:class-count"
         ],
-        "locator": "Proof of lem:haar, one-pair estimate citing Bordenave-Collins Lemmas 5.3 and 5.8."
+        "locator": "Proof of lem:haar, Weighted class enumeration: corrected important-time count and chronological encoding."
       },
       "status": "corrected",
       "correspondence": "corrected_proof",
@@ -626,7 +640,7 @@
           "role": "theorem"
         }
       ],
-      "notes": "The closed reduced generator-balanced six-step word abaBAA has integer defect delta=length+singletons-2*vertices=2 and four important times. The bound delta+1 fails even excluding the final traversal; delta+2 is proved. The weighted chronological encoding preserves the final moment threshold. This repairs an intermediate counting claim used in the manuscript proof, not the main channel statement. The source manuscript is preserved and still needs editorial correction."
+      "notes": "The closed reduced generator-balanced six-step word abaBAA has integer defect delta=length+singletons-2*vertices=2 and four important times. The bound delta+1 fails even excluding the final traversal; delta+2 is proved. The weighted chronological encoding preserves the final moment threshold. This repairs an intermediate counting claim used in the manuscript proof, not the main channel statement. The revised manuscript incorporates this repair."
     },
     {
       "id": "correction-middle-runs",
@@ -634,9 +648,10 @@
       "paper": {
         "labels": [
           "lem:haar",
-          "app:finite-threshold"
+          "app:finite-threshold",
+          "eq:coefficient-sum"
         ],
-        "locator": "Proof of lem:haar, one-pair estimate invoking the operator coefficient bound of Bordenave-Collins Lemma 5.9."
+        "locator": "Proof of lem:haar, Coefficient sums: marked blocks and corrected composition exponent."
       },
       "status": "corrected",
       "correspondence": "corrected_proof",
@@ -662,7 +677,7 @@
           "role": "theorem"
         }
       ],
-      "notes": "Marker flags [true,false,false,true,false,true,false,true] have four marked positions and three middle runs: seven blocks, exceeding 3*2. Charge a middle run to its following marker and moment-order factors only at marked positions. The proved grouped coefficient exponent is 9*delta+11. The source manuscript is preserved and still needs editorial correction."
+      "notes": "Marker flags [true,false,false,true,false,true,false,true] have four marked positions and three middle runs: seven blocks, exceeding 3*2. Charge a middle run to its following marker and moment-order factors only at marked positions. The proved grouped coefficient exponent is 9*delta+11. The revised manuscript incorporates this repair."
     },
     {
       "id": "undamped-all-dimensions",
@@ -730,7 +745,7 @@
       "status": "not_formalized",
       "correspondence": "broader_unformalized",
       "lean": [],
-      "notes": "Not separately formalized: pure-input attainment of minimum output entropy; zero Holevo information implies constant output; one-pair Haar bound for arbitrary traced C*-algebras; a standalone Weyl equality for two distinct channels of different output dimensions. The completed proof uses entropy infima, direct same-witness positivity, actual coefficient-algebra specializations, and all positive powers of one channel."
+      "notes": "Not separately formalized: pure-input attainment of minimum output entropy; zero Holevo information implies constant output; a standalone Weyl equality for two distinct channels of different output dimensions. The completed proof uses entropy infima, direct same-witness positivity, actual coefficient-algebra specializations, and all positive powers of one channel. The revised manuscript explicitly excludes arbitrary traced C*-algebra coefficients from its one-pair claim."
     }
   ],
   "comparator_challenges": {

@@ -100,7 +100,7 @@ Two further results have broader roles than the main channel assembly:
 
 ## Repairs, remaining scope, and verification
 
-The manuscript's important-time bound `δ+1` is false; the formalized replacement is `δ+2`. The old middle-run count also fails; marked-position accounting repairs its coefficient estimate. The release contains formal counterexamples to both old claims and proves the corrected estimates. The final prescribed dimension formula remains the same. [CORRECTIONS.md](docs/CORRECTIONS.md) identifies the exact manuscript paragraphs to change; the included manuscript has not yet been edited.
+The revised manuscript incorporates the important-time bound `δ+2` and marked-position accounting for the coefficient estimate. The release contains formal counterexamples to the two old intermediate claims and proves the replacement estimates. The final prescribed dimension formula remains the same. [CORRECTIONS.md](docs/CORRECTIONS.md) maps the revised passages to their Lean sources.
 
 Generic Haar strong-convergence interfaces remain unproved at their stated generality, and the one-pair Haar estimate is formalized for the matrix/free-factor coefficient representations needed here rather than every abstract traced C*-algebra. Other background generalizations remain outside the completed endpoints. [FORMALIZATION_STATUS.md](docs/FORMALIZATION_STATUS.md) records them explicitly.
 

@@ -2,17 +2,17 @@
 
 Two intermediate counting assertions used in the Haar-moment argument fail on explicit finite paths. The Lean development proves the counterexamples and replacement estimates. The principal channel bounds, prescribed dimensions, and original Haar moment range survive these corrections.
 
-The supplied [manuscript source](../paper/nonadditivity.tex) has **not been edited**. This note describes the corrections established in the formalization and the corresponding manuscript revision still needed. Its SHA-256 is:
+The author's revised [manuscript source](../paper/nonadditivity.tex) **incorporates both counting repairs**. This note maps the repaired argument to the formalization. Its SHA-256 is:
 
 ```text
-90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39
+3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98
 ```
 
 ## Location in the manuscript
 
-The affected argument is in the appendix **“The random-matrix estimate and parameter bounds”**, label `app:finite-threshold`, subsection **“The two-generator Haar estimate”**, in the proof of **“Explicit two-generator Haar estimate”**, label `lem:haar`. Within the paragraph *“The estimate for one pair,”* the manuscript invokes Bordenave–Collins Lemmas 5.3 and 5.8 for path counts and Lemma 5.9 for operator coefficients, then displays a bound for `|D_t|` and the aggregate error `6400 e p^24 ρ^p / N`.
+The affected argument is in the appendix **“The random-matrix estimate and parameter bounds”**, label `app:finite-threshold`, subsection **“The two-generator Haar estimate”**, in the proof of **“Explicit two-generator Haar estimate”**, label `lem:haar`. Its paragraphs *“Coefficient sums”* and *“Weighted class enumeration”* explain the failed counts and their repairs. The revised labels `eq:path-weight`, `eq:class-sum`, `eq:coefficient-sum`, and `eq:class-count` locate the path weight, class decomposition, coefficient bound, and weighted enumeration.
 
-The manuscript does not itself display the two false intermediate combinatorial assertions below. They arise in the cited counting argument on which that passage relies. The correction is to supply the repaired counting and coefficient argument and replace that numerical error calculation. The final moment hypothesis, label `eq:haar-hypotheses`, can remain unchanged.
+The revised manuscript explicitly describes both false intermediate assertions and replaces the old `6400 e p^24 ρ^p / N` calculation with the error budget below. The final moment hypothesis, label `eq:haar-hypotheses`, is unchanged. The exploration mark records the endpoint of the run along already discovered tree edges and the source color of the next step, as in `HaarPathMarks.explorationMark`. The source also includes the nonzero-Hilbert-space qualification in `eq:linear-id` and restricts the one-pair estimate to finite-support matrix/free-factor polynomial coefficients.
 
 ## 1. Important exploration times
 
@@ -105,4 +105,4 @@ N=\left\lceil\exp\bigl(40(7\ln K+2)n\bigr)\right\rceil
 
 and the final channel information bounds are unchanged. The main prescribed-channel theorem already follows from a valid corrected route with the stronger intermediate threshold `2^80 p^80`, which its chosen parameters satisfy; the sharper weighted route separately restores the original `2^32 p^80` range.
 
-This note records formal counterexamples and proved repairs. It does not claim that the manuscript has been revised, that every background statement has been formalized, or that an independent human review has occurred. See [FORMALIZATION_STATUS.md](FORMALIZATION_STATUS.md) for the exact scope and verification record.
+This note records formal counterexamples, proved repairs, and their incorporation into the revised manuscript. The coefficient proofs use different internal encodings, so the correspondence concerns the stated bounds rather than every proof line. Full manuscript formalization and independent human certification remain outside the recorded verification scope. See [FORMALIZATION_STATUS.md](FORMALIZATION_STATUS.md) for the exact scope and verification record.

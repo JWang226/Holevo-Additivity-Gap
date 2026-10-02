@@ -1,11 +1,11 @@
 # Further review and verification
 
 This repository publishes the completed Lean results and their verification evidence.
-This file records remaining manuscript, attribution, and independent-verification work.
+This file records remaining attribution, correspondence-review, and independent-verification work.
 
-- Incorporate the two counting repairs in the manuscript, then update its hash
-  and correspondence metadata together. The current source is intentionally
-  identified as the original uncorrected manuscript.
+- The revised manuscript incorporates both counting repairs; its hash and
+  correspondence metadata are updated together. Keep them synchronized with
+  any future manuscript revision.
 - Confirm named contributors, author details, and how AI assistance should be
   acknowledged. Select licenses for original code and manuscript material;
   preserve the existing third-party attribution and license.

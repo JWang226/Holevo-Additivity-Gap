@@ -2,10 +2,10 @@
 
 The principal channel construction, quantitative information bounds, operational coding theorem, and listed asymptotic consequences are proved in Lean without unproved analytic or coding premises. **The entire manuscript is not formalized.** Broader Haar-convergence interfaces and some background generalizations remain outside the completed endpoints.
 
-The release contains the original, unedited [manuscript source](../paper/nonadditivity.tex). Two counting repairs have been proved in Lean and are documented in [CORRECTIONS.md](CORRECTIONS.md); they have not been incorporated into that source. Its SHA-256 is:
+The release contains the author's revised [manuscript source](../paper/nonadditivity.tex). It incorporates both counting repairs, the nonzero-Hilbert-space qualification, and the finite matrix/free-factor coefficient scope documented in [CORRECTIONS.md](CORRECTIONS.md). Its SHA-256 is:
 
 ```text
-90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39
+3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98
 ```
 
 ## Completed principal results
@@ -74,9 +74,9 @@ The following distinctions are preserved in this release:
 
 - The generic `HaarStrongConvergence`, `AllHaarStrongConvergence`, `HaarUpperConvergence`, and `HaarTraceMomentControl` interfaces remain unproved in their stated generality. Their conditional theorems retain their explicit premises. None is a premise of the principal unconditional channel or operational results listed above.
 - The finite-dimensional part of manuscript lemma `lem:cy`, **“Free and finite-dimensional norm bounds,”** asserts an undamped unitary realization for every `κ > 1` and every sufficiently large integer dimension. That exact broader claim is not supplied by the particular prescribed-dimension theorem or the alternative qualitative construction.
-- The one-pair moment theorem is implemented for actual finite matrices and the remaining free-factor coefficient representations needed by the construction. It is not packaged at the full generality of every abstract traced C*-algebra used in the appendix's exposition.
+- The one-pair moment theorem is implemented for actual finite matrices and the remaining free-factor coefficient representations needed by the construction. The revised appendix restricts its claim to these finite-support polynomial coefficients and explicitly excludes arbitrary traced C*-algebras.
 - Some standard background generalizations and illustrative numerical examples are not separate formal endpoints. In particular, this release does not claim a statement-by-statement formalization of the paper.
-- The two counting repairs are proved in Lean; the reference manuscript remains unedited.
+- The two counting repairs are proved in Lean and incorporated into the revised manuscript. Correspondence is checked at the listed endpoint scope; the informal and formal coefficient proofs use different internal encodings.
 
 These are scope limitations, not hidden hypotheses of the completed endpoints. More technical discussion appears in [ANALYTIC_INPUTS.md](ANALYTIC_INPUTS.md), with a theorem map in [PROOF_MAP.md](PROOF_MAP.md).
 

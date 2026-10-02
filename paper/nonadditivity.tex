@@ -60,7 +60,7 @@ classical capacity, diverges. The channels arise from structured tensor
 products of the complementary mixed-unitary channels used in Collins's
 free-probabilistic proof~\cite{Collins}. We establish minimum-output-entropy
 gaps by combining Collins--Youn's product-group Haagerup inequality~\cite{CY}
-with Bordenave--Collins's quantitative strong-convergence estimates~\cite{BC}.
+with Bordenave--Collins's quantitative strong-convergence estimates~\cite{BC}. We also provide a \href{https://github.com/JWang226/Holevo-Additivity-Gap}{Lean Certificate} for our proofs.
 \end{abstract}
 
 \section{Introduction and main results}\label{sec:introduction}
@@ -223,8 +223,14 @@ reducing the polynomial to degree one using the algebraic lemmas
 in Appendix~\ref{app:operators}. The base generators are
 evaluated at independent Haar matrices; the resulting $K$ unitaries
 within a factor may be dependent. Lemma~\ref{lem:haar} makes the
-two-generator Bordenave--Collins estimate explicit, using the proof of
-\cite[Lemma~9.3]{BC} and the moment range of \cite[Theorem~5.1]{BC}.
+two-generator Bordenave--Collins estimate explicit. It follows the
+pair-by-pair replacement in the proof of \cite[Lemma~9.3]{BC} and
+retains the moment range of \cite[Theorem~5.1]{BC}. Two intermediate
+counting bounds, in the proofs of \cite[Lemmas~5.3 and~5.9]{BC}, fail
+on explicit paths: one counts important exploration times, and the
+other counts blocks between first and last edge visits. We replace
+them by corrected bounds and a weighted enumeration of path classes,
+which recover the same $N^{-1/2}$ error.
 This gives $N=\lceil e^{b_Kn}\rceil$ with $b_K=O(\ln K)$ and entropy
 error $O(1/n)$ for the whole block; Appendix~\ref{app:finite-threshold}
 proves the estimate and checks the parameter bounds.
@@ -496,7 +502,7 @@ literature searches and reference verification, and the drafting and
 revision of this manuscript. In particular, the model proposed the
 method developed in Section~\ref{sec:approximation}. The author takes
 responsibility for the mathematical claims, references, and final
-presentation.
+presentation. The principal results are autoformalized by GPT-6 Astra in Lean. A full project-source build and axiom audit have passed. Comparator configurations are supplied for independent checking; execution remains pending. See the \href{https://github.com/JWang226/Holevo-Additivity-Gap}{Lean Certificate}.
 
 \section{Qualitative realization of unbounded Holevo gaps}
 \label{sec:entropy}
@@ -1877,9 +1883,9 @@ independent of the unitary representation $\pi$, such that
 $Q(\pi)=\sum_{g\in S}b_g\otimes\pi(g)$ satisfies
 \begin{equation}
  \norm{P(\pi)}=\norm{Q(\pi)}^2-\theta
- \quad\text{for every }\pi,
  \label{eq:linear-id}
 \end{equation}
+for every unitary representation $\pi$ on a nonzero Hilbert space,
 and
 \begin{equation}
  \theta\le B\norm{P(\lambda_{\mathcal G})}.
@@ -1898,8 +1904,8 @@ Hermitian dilation
  H(\pi)=\begin{pmatrix}0&P(\pi)\\P(\pi)^*&0\end{pmatrix}
        =\sum_{w\in W}c_w\otimes\pi(w).
 \]
-Thus $c_{w^{-1}}=c_w^*$, and the largest spectral value of $H(\pi)$ is
-$\norm{P(\pi)}$.
+Thus $c_{w^{-1}}=c_w^*$, and, since $\pi$ acts on a nonzero Hilbert
+space, the largest spectral value of $H(\pi)$ is $\norm{P(\pi)}$.
 Compressing $H(\lambda_{\mathcal G})^*H(\lambda_{\mathcal G})$ to the
 identity group vector gives
 \begin{equation}
@@ -2010,21 +2016,29 @@ then
 \begin{proof}
 The upper bound in \cite[Lemma~9.3]{BC}, specialized to $d=2$,
 has $(1+cN^{-1/2})^k$ for a universal numerical constant $c$.
-We follow its proof, retaining the larger moment range of
-\cite[Theorem~5.1]{BC} and tracking constants to obtain $c=1$.
+We follow its strategy of replacing one pair of Haar matrices at a
+time, retaining the larger moment range of \cite[Theorem~5.1]{BC}.
+For the one-pair estimate we use the repaired counting estimates
+established below in place of two counting steps in
+\cite[Section~5.2]{BC}; they give $c=1$.
 Only the self-adjoint, two-generator case is needed here.
 
 \emph{The estimate for one pair.}
-To allow iteration over tensor factors, let $\mathcal A$ be a unital
-$C^*$-algebra with a normalized faithful tracial state
-$\tau_{\mathcal A}$. Let $U_1,U_2$ be independent Haar
-unitaries in $U(N)$, and let
+To allow iteration over tensor factors, let $\mathcal A$ be one of
+the coefficient algebras $\mathcal A_j$ of the iteration below, with
+its normalized faithful product trace $\tau_{\mathcal A}$.
+Let $U_1,U_2$ be independent Haar unitaries in $U(N)$, and let
 \[
  R_N=a_0\otimes I_N+
        \sum_{i=1}^2(a_i\otimes U_i+a_i^*\otimes U_i^*),
  \qquad a_0=a_0^*,\quad a_i\in\mathcal A,
 \]
-with deterministic coefficients. Let $R_{\F_2}$ be the same
+with deterministic coefficients that are finite-support polynomials:
+finite sums of elementary tensors of matrices and regular shifts
+$\lambda(g)$ in the free-group factors of $\mathcal A_j$.
+These are the coefficients that arise in the iteration. We do not
+need, and do not claim, the one-pair estimate for coefficients in an
+arbitrary traced $C^*$-algebra. Let $R_{\F_2}$ be the same
 polynomial evaluated at the regular generators and let
 $\rho=\norm{R_{\F_2}}$.
 Throughout the proof, $\norm R_p=\tau(|R|^p)^{1/p}$ uses the
@@ -2046,22 +2060,49 @@ $p\ge2$; in particular, $N\ge2^{112}$. Consequently,
 \]
 The first inequality is precisely the hypothesis of
 \cite[Theorem~5.1]{BC} for $d=2$ and moment order $p$.
-The quantities $\alpha$ and $\beta$ will bound the two geometric
-ratios in that proof.
+The quantities $\alpha$ and $\beta$ are the two geometric ratios in
+the summation below, and the last inequality controls the prefactor
+of the path-weight estimate.
 
-For a single Haar matrix occurring $r$ times, the entry-moment
-estimate in \cite[proof of Lemma~5.4, p.~26]{BC} has explicit
-prefactor $1+3r^{7/2}/N^2\le5/2$.
-Its hypothesis $2r^{7/2}\le N^2$ follows from $r\le p$ and
-$N\ge2^{32}p^{80}$. Odd occurrence counts give zero by Haar phase
-invariance, and an absent matrix contributes one. Each matrix and
-its adjoint belong to the same independent family, so the product
-of the two prefactors is at most
+\emph{Paths and their weights.}
+For $1\le t\le p$, let $P_t$ be the set of closed colored paths
+$\gamma=(x_0,i_1,x_1,\dots,i_t,x_t)$ with
+$x_s\in\{1,\dots,N\}$, $x_t=x_0$, and colors
+$i_s\in\{1,2,1^*,2^*\}$ satisfying $i_{s+1}\ne i_s^*$ for $1\le s<t$.
+Put $U_{i^*}=U_i^*$, let $g(\gamma)$ be the reduced word of length $t$
+with $U(g(\gamma))=U_{i_1}\cdots U_{i_t}$, and let
+$w(\gamma)=\E\prod_{s=1}^{t}(U_{i_s})_{x_{s-1}x_s}$. Let $v$ be the number of vertices of the colored graph $G_\gamma$ of
+\cite[Definition~5.2]{BC}, and let $e_1$ be the number of its edges
+traversed exactly once. The integer path defect
+$\delta=t+e_1-2v\ge0$ is $2\chi$ in the notation of \cite[equation~(26)]{BC}; this
+$\delta$ is local to the proof and unrelated to $\delta_K$.
+The repaired argument uses the path-weight estimate
+\begin{equation}
+ |w(\gamma)|\le\frac{4}{N^{t/2}}\,t^{\delta}
+  \Bigl(\frac{t}{N^{1/4}}\Bigr)^{e_1},
+ \qquad\gamma\in P_t,
+ \label{eq:path-weight}
+\end{equation}
+with prefactor $4$. To prove it, factor $w(\gamma)$ by independence into one mixed entry
+moment for each of $U_1,U_2$. If $U_i$ and $U_i^*$ together occur
+$k_i$ times, then $k_1+k_2=t$. The moment vanishes for odd $k_i$ by
+Haar phase invariance, and it equals one if $k_i=0$. For even
+$k_i\ge2$, \cite[Lemma~5.4]{BC}, with the explicit constants of its
+proof on p.~26, bounds the moment by
 \[
- C_0=(5/2)^2=25/4.
+ \bigl(1+3k_i^{7/2}N^{-2}\bigr)\bigl(1+k_iN^{-1/4}\bigr)^{k_i}
+ N^{-k_i/2}\bigl(k_iN^{-1/4}\bigr)^{e_{1,i}}k_i^{m_{4,i}/2}.
 \]
-Thus $C_0$ is valid in the probabilistic weight bound of
-\cite[Corollary~5.5]{BC} for these two matrices.
+Here $e_{1,i}$ is the number of simple edges with color $i$ or $i^*$,
+and $m_{4,i}$ is the total multiplicity of such edges of multiplicity
+at least four. The hypothesis $2k_i^{7/2}\le N^2$ of that lemma
+holds. Since $k_i\le p$ and $N\ge2^{32}p^{80}$, we have
+$3k_i^{7/2}N^{-2}<2^{-60}$, and the last inequality displayed above
+gives $(1+k_iN^{-1/4})^{k_i}\le\exp(p^2N^{-1/4})\le\exp(2^{-26})$.
+Hence the first two factors have product at most $2$.
+Finally, $k_i\le t$, $e_{1,1}+e_{1,2}=e_1$, and
+$m_{4,1}+m_{4,2}\le2\delta$ by \cite[equation~(27)]{BC}.
+Multiplying the two bounds gives \eqref{eq:path-weight}.
 
 To identify the terms in the moment expansion, write
 \[
@@ -2078,45 +2119,154 @@ The identity term is $\norm{R_{\F_2}}_p^p$, so
 \]
 This is the word-length decomposition used in
 \cite[equation~(21)]{BC}; odd $t$ gives zero by Haar phase invariance.
-The path counts in \cite[Lemmas~5.3 and~5.8]{BC} and the
-operator bound in \cite[Lemma~5.9]{BC} have explicit constants.
-Substituting $d=2$, moment order $p$, and word length $t\le p$
-in \cite[proof of Theorem~5.1, p.~33]{BC} gives
+
+\emph{Classes of paths.}
+Fix an even $t$ with $2\le t\le p$. Expanding the normalized trace in
+matrix entries, as in \cite[equations~(22)--(23)]{BC}, gives
+$N D_t=\sum_{\gamma\in P_t}\tau_{\mathcal A}(b_{g(\gamma)})\,w(\gamma)$.
+We use the two equivalence relations of \cite[Section~5.2]{BC}.
+Two paths are coarsely equivalent, $\gamma\sim\gamma'$, if they differ
+by a permutation of $\{1,\dots,N\}$ and local color permutations at
+the vertices, compatible at both endpoints of every edge. They are
+equivalent in the refined sense, $\gamma\mathrel{\hat\sim}\gamma'$, if
+in addition corresponding edges of their kernel graphs have equal
+profiles \cite[Definition~5.6]{BC}. The quantities $v$, $e_1$ and
+$\delta$ are constant on coarse classes, and $w$ is constant on
+refined classes \cite[Lemma~5.7]{BC}. Call a refined class $\Gamma$
+active if $w(\Gamma)\ne0$. Since $\tau_{\mathcal A}$ is a state,
+\begin{equation}
+ N|D_t|\le\sum_{\Gamma\ \mathrm{active}}|w(\Gamma)|\,
+ \Bigl\|\sum_{\gamma\in\Gamma}b_{g(\gamma)}\Bigr\|.
+ \label{eq:class-sum}
+\end{equation}
+For an active class, $v\le t/2$ by \cite[Corollary~5.5]{BC}. Hence
+$s=t/2-v$ is a nonnegative integer and $\delta=e_1+2s$.
+
+\emph{Coefficient sums.}
+Let $\Gamma$ be active, and let $\hat e$ be the number of edges of its
+kernel graph. We show that
+\begin{equation}
+ \Bigl\|\sum_{\gamma\in\Gamma}b_{g(\gamma)}\Bigr\|
+ \le N^v\,2^{e_1}\,p^{9\delta+11}\rho^p .
+ \label{eq:coefficient-sum}
+\end{equation}
+This is the conclusion of \cite[Lemma~5.9]{BC} for $d=2$, whose
+exponent $18\chi+11$ equals $9\delta+11$; one counting step in its
+proof must be repaired. The proof cuts each path in $\Gamma$ into
+blocks. Each first or last traversal of a kernel edge is a marked
+singleton block, and each maximal run of the remaining traversals is
+an unmarked middle block. Let $r$ be the number of blocks and $M$ the
+number of marked ones. The bound $r\le3\hat e$ of
+\cite[equation~(31)]{BC} can fail. For example, the active closed path
+at a single vertex with colors $(1,1,1,2,1^*,2^*,1^*,1^*)$ has
+$\hat e=2$ and $r=7$. What holds is $M\le2\hat e$ and $r-M\le M-1$,
+because the first block is marked and each middle block is followed by
+a marked block. The proof of \cite[Lemma~5.9]{BC} bounds the left side
+of \eqref{eq:coefficient-sum} by $N^v2^{e_1}\rho^p$ times a sum over
+compositions $\lambda_1+\dots+\lambda_r=p$ into positive parts. Each
+summand is the product of the parts $\lambda_u$ belonging to marked
+blocks; middle blocks contribute no such factor. There are at most
+$p^{r-1}$ compositions, and each product is at most $p^M$. The
+marked-factor estimate
 \[
- |D_t|\le
- \frac{C_0(4t^3)^4p^{11}\rho^p}{N}
- e^{t^2N^{-1/4}}
- \left(\sum_{a\ge0}\alpha^a\right)
- \left(\sum_{b\ge0}\beta^b\right).
+ (r-1)+M\le3M-2\le6\hat e-2,
 \]
-Here the two ratios before replacing $t$ by $p$ are
+together with $2\hat e\le3\delta+4$ \cite[equation~(29)]{BC}, bounds
+the resulting exponent by $9\delta+10$. This proves
+\eqref{eq:coefficient-sum}.
+
+\emph{Weighted class enumeration.}
+Explore a path step by step. Its exploration tree consists of the
+$v-1$ edges along which vertices are visited for the first time. A
+step is important if it traverses an edge outside this tree. Every
+tree edge other than the $e_1$ simple edges is traversed at least
+twice, so at most
 \[
-\begin{aligned}
- (4t^3)^3(2t^2p^9N^{-1/4})
-   &=128t^{11}p^9N^{-1/4}\le\alpha,\\
- (4t^3)^6(t^2p^{18}/N)
-   &=4096t^{20}p^{18}/N\le\beta.
-\end{aligned}
+ t-2(v-1)+e_1=\delta+2
 \]
-Each geometric series is at most $2$, and the exponential is at
-most $e$. Summing over $1\le t\le p$ and using
-$\sum_{t=1}^p t^{12}\le p^{13}$ therefore yields
+steps are important. The bound $\delta+1$ asserted in
+\cite[proof of Lemma~5.3, p.~25]{BC} can fail, because the final step
+may traverse a tree edge for the second time. For example, the active
+path with colors $(1,2,1,2^*,1^*,1^*)$ and vertex sequence
+$(x_0,x,x,x,x,x,x_0)$, $x\ne x_0$, has $\delta=2$ and four important
+steps, all among its first $t-1$ steps.
+
+Label vertices by their order of first visit, and normalize colors
+locally. At each vertex other than $x_0$, permute the four colors so
+that the step entering it for the first time and the step leaving it
+immediately afterwards receive fixed labels; at $x_0$, the first step
+receives a fixed label. The mark of an important step $s$ records the
+labels of $x_s$ and of the vertex at which the subsequent run along
+already discovered tree edges ends, the local labels of step $s$ at
+$x_{s-1}$ and at $x_s$, and the local label, at its source, of the next
+step after that run (a default label if the path ends there). There are at most $64t^2$ marks. The local labels need not come from
+one compatible recoloring of the path, so step $s$ is labeled at both
+endpoints. Reading the steps in order recovers the vertex sequence
+and all local labels, hence the coarse class, as in
+\cite[proof of Lemma~5.3]{BC}. Before the first important step, every
+step visits a new vertex and uses the fixed labels. Between consecutive
+important steps, and after the last important step, the path first follows the unique non-backtracking route
+in the already discovered tree toward the recorded endpoint, then visits
+new vertices. The first departure of this latter run uses the recorded
+local label; subsequent steps use the fixed labels. Thus a coarse class
+is determined by the function
+$c:\{1,\dots,t\}\to\{\varnothing\}\cup\{\text{marks}\}$ that records the mark of each important step and assigns
+$\varnothing$ to every other step.
+
+Fix $0<z\le1$, and give such a function the weight
+$z^{|\{s:\,c(s)\ne\varnothing\}|}$. The function of a coarse class of
+defect $\delta$ has weight at least $z^{\delta+2}$, and the weights of
+all functions sum to $(1+64t^2z)^t$. Hence
 \[
-\begin{aligned}
+ z^{\delta+2}\cdot\#\{\text{coarse classes of defect }\delta\}
+ \le(1+64t^2z)^t.
+\]
+This chronological encoding retains the actual positions of the
+important steps instead of charging a separate factor $t$ to each of
+them. We take $z=p^{-3}$. Since $t\le p$, the right side is then at
+most $(1+64/p)^p$. By the profile count in
+\cite[proof of Lemma~5.8]{BC}, each coarse class splits into at most
+$(4t^2)^{2\hat e}$ refined classes, and $2\hat e\le3\delta+4$.
+Therefore at most
+\begin{equation}
+ \Bigl(1+\frac{64}{p}\Bigr)^p(4p^2)^{3\delta+4}p^{3\delta+6}
+ \label{eq:class-count}
+\end{equation}
+refined classes have defect $\delta$.
+
+\emph{Summation.}
+Consider an active class with $e_1$ simple edges and $s=t/2-v$. By
+\eqref{eq:path-weight}, \eqref{eq:coefficient-sum} and $t\le p$, its
+term in \eqref{eq:class-sum}, divided by $N$, is at most
+\[
+ \frac{4}{N^{s+1}}\,p^{\delta}
+ \Bigl(\frac{2p}{N^{1/4}}\Bigr)^{e_1}p^{9\delta+11}\rho^p .
+\]
+Multiply by \eqref{eq:class-count} and substitute $\delta=e_1+2s$.
+The active classes with given $(e_1,s)$ then contribute at most
+\[
+ \frac{1024\,p^{25}}{N}\Bigl(1+\frac{64}{p}\Bigr)^p
+ \alpha^{e_1}\beta^{s}\rho^p
+\]
+to $|D_t|$. The geometric series in $e_1$ and in $s$ are each at most
+$2$, so
+\[
+ |D_t|\le\frac{4096\,p^{25}}{N}\Bigl(1+\frac{64}{p}\Bigr)^p\rho^p .
+\]
+This also holds for odd $t$, since then $D_t=0$. Hence
+\[
  \left|\E\norm{R_N}_p^p-\norm{R_{\F_2}}_p^p\right|
- &\le\sum_{t=1}^p|D_t|\\
- &\le\frac{4eC_0\,4^4p^{11}\rho^p}{N}
-                  \sum_{t=1}^p t^{12}\\
- &\le\frac{6400e\,p^{24}}{N}\rho^p
- \le N^{-1/2}\rho^p.
-\end{aligned}
+ \le\sum_{t=1}^p|D_t|
+ \le\frac{4096\,p^{26}}{N}\Bigl(1+\frac{64}{p}\Bigr)^p\rho^p
+ \le\frac{2^{16}p^{40}}{N}\rho^p
+ \le N^{-1/2}\rho^p .
 \]
-For the last step, $\sqrt N\ge2^{16}p^{40}$, so
-\[
- \frac{6400e\,p^{24}}{\sqrt N}
- \le\frac{6400e}{2^{16}p^{16}}<1,
-\]
-since $6400e<2^{16}$ and $p\ge2$.
+The last two steps use $(1+64/p)^p\le16p^{14}$ and
+$\sqrt N\ge2^{16}p^{40}$; the second is the moment range. For the first, $(1+64/p)^p$ increases
+with $p$. For $2^j\le p\le2^{j+1}$ with $1\le j\le6$, it is at most
+$(1+2^{5-j})^{2^{j+1}}\le2^{14j+4}\le16p^{14}$. For $p\ge128$, it is
+below $e^{64}<2^{102}\le16p^{14}$.
+
 Since $\norm{R_{\F_2}}_p\le\rho$, Jensen's inequality now gives
 \[
  \E\norm{R_N}_p
@@ -2130,16 +2280,13 @@ evaluated at their regular generators and the other pairs at their
 Haar matrices. Thus $H_0=H(\pi_N)$ and $H_k=H(\lambda_2)$.
 At stage $j\ge1$, condition on the first $k-j$ Haar pairs.
 The coefficient algebra for the next pair, in factor $k-j+1$, is
-\[
- \mathcal A_j=\M_m(\C)\otimes\M_N(\C)^{\otimes(k-j)}
-       \otimes C_r^*(\F_2)^{\otimes(j-1)}.
-\]
-Here $C_r^*(\F_2)$ is the norm-closed algebra generated by the
+$\mathcal A_j=\M_m(\C)\otimes\M_N(\C)^{\otimes(k-j)}
+\otimes C_r^*(\F_2)^{\otimes(j-1)}$. Here $C_r^*(\F_2)$ is the norm-closed algebra generated by the
 regular shifts; all tensor products act on separate Hilbert spaces.
 The product trace on $\mathcal A_j$ is normalized and faithful.
-The conditioned polynomial is self-adjoint and its coefficients
-are independent of the next Haar pair. The one-pair estimate thus
-applies conditionally:
+The conditioned polynomial is self-adjoint, and its coefficients are
+finite-support polynomials in $\mathcal A_j$ that are independent of
+the next Haar pair. The one-pair estimate thus applies conditionally:
 \[
  \E_{k-j+1}\norm{H_{j-1}}_p
  \le(1+N^{-1/2})\norm{H_j},
@@ -2156,11 +2303,7 @@ the normalized matrix trace and the canonical product trace.
 For $1\le j<k$, the conditioned $H_j$ has this form with
 $r=mN^{k-j}$, so the estimate applies throughout
 \eqref{eq:haar-hypotheses} and gives
-\[
- \norm{H_j}
- \le(2mN^{k-j}p^{3j})^{1/p}\norm{H_j}_p.
-\]
-At $j=k$, the conditional estimate already ends with
+$\norm{H_j}\le(2mN^{k-j}p^{3j})^{1/p}\norm{H_j}_p$. At $j=k$, the conditional estimate already ends with
 $\norm{H_k}$, so no further conversion is needed.
 Starting with $\norm{H_0}\le(mN^k)^{1/p}\norm{H_0}_p$ and
 integrating the pairs successively gives the following bound.
@@ -2352,11 +2495,11 @@ $p=2\lfloor N^\alpha/4\rfloor$ obeys
 
 Separate the three contributions in \eqref{eq:En} as
 $E_n=A_n+D_n+R_n$, where
-\begin{align*}
- A_n&=\frac{(n+1)\ln(2m_n)}p,\\
- D_n&=\frac{n(n+1)}{2p}(\ln N+3\ln p),\\
- R_n&=n\ln(1+N^{-1/2}).
-\end{align*}
+\[
+ A_n=\frac{(n+1)\ln(2m_n)}p,\qquad
+ D_n=\frac{n(n+1)}{2p}(\ln N+3\ln p),\qquad
+ R_n=n\ln(1+N^{-1/2}).
+\]
 The coefficient-size bound in \eqref{eq:error-size} gives
 \begin{align*}
  \frac{A_n}{\varepsilon_n}

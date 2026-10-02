@@ -32,6 +32,6 @@ The script builds the pinned checker and runs all five configurations. Success e
 
 The full project-source Lean build and axiom audit [passed](verification/github-actions-5345459.json), permitting only `propext`, `Classical.choice`, and `Quot.sound`. **Comparator and independent-kernel execution remain pending.**
 
-The principal endpoints are proved; **the full manuscript is not formalized**. The preserved manuscript still needs [two counting corrections](docs/CORRECTIONS.md). See [formalization status](docs/FORMALIZATION_STATUS.md) for the exact scope.
+The principal endpoints are proved; **the full manuscript is not formalized**. The revised manuscript incorporates the [two counting repairs](docs/CORRECTIONS.md). See [formalization status](docs/FORMALIZATION_STATUS.md) for the exact scope.
 
 Proofs are in [Nonadditivity/](Nonadditivity/); [All.lean](All.lean) includes the audit. Open `html/index.html` for offline browsing. [Copyright and attribution](COPYRIGHT.md) are preserved; original material has no blanket open-source license selected.

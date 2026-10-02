@@ -179,8 +179,8 @@ quantitative theorem does not assert them. Their conditional interfaces remain i
 are not hypotheses of `exists_prescribed_channel`. The original undamped
 Haar realization in every sufficiently large dimension is a broader statement
 than the alternative qualitative construction proved here. The strengthened prescribed-channel theorem includes the supplementary lower
-bound \(2n/K\) on the same channel witness. The reference manuscript has not
-been edited.
+bound \(2n/K\) on the same channel witness. The revised manuscript incorporates both counting repairs;
+[CORRECTIONS.md](CORRECTIONS.md) maps the repaired passages to Lean.
 
 ## Verification and reproduction
 

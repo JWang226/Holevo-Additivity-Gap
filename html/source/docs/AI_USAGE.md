@@ -44,7 +44,8 @@ replace human review of definitions, hypotheses, correspondence, or exposition.
 | Field | Record |
 | --- | --- |
 | Assistant framework | OpenAI Codex |
-| Exact model identifiers for the full proof-development history | Not recorded in the retained artifacts |
+| Model attribution in the revised manuscript | GPT-6 Astra, reported by the author |
+| Exact runtime identifiers for the full proof-development history | Not recorded in the retained artifacts |
 | Full prompts and raw model outputs | Not retained in this repository |
 | Total elapsed research time | Not measured; audit timestamps are available |
 | Compute usage and monetary cost | Not recorded |
@@ -54,5 +55,8 @@ replace human review of definitions, hypotheses, correspondence, or exposition.
 | Independent human mathematical review | Not documented in the available record |
 | Other attempted problems or failed experiments outside this project | Not recorded |
 
-The missing fields remain explicit so that future maintainers can add actual
-records. No claim of complete compliance with every AGM recommendation is made.
+The revised manuscript supplies the author's model attribution. Complete
+runtime invocation records are still unavailable. Its verification sentence
+is limited to the principal Lean endpoints and recorded build/audit success;
+Comparator execution remains pending. The missing fields remain explicit so
+that future maintainers can add actual records. No claim of complete compliance with every AGM recommendation is made.

@@ -5,14 +5,13 @@
   "comparator_targets": 6,
   "baseline_proof_bodies_unchanged": 368,
   "proof_modules_including_all": 369,
-  "manuscript_sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+  "manuscript_sha256": "3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98",
   "schema_validation": "repository consistency schema for v0.3-style metadata",
   "comparator_executed": false,
-  "lean_declaration_check": "passed",
-  "validated_at_utc": "2026-10-01T05:36:20.298759+00:00",
   "metadata_sha256": {
-    "metadata/results.json": "1929549699633731a169c9724b371f84edb785c50f1cb67563129aa65053c923",
-    "formalization.yaml": "9ac68fea1dd8fd0bf6c7a3a021f6c577c90c6fdf58fa17d388d3ccc8de87a9e0"
+    "metadata/results.json": "15b3d893285deb68108ef5cd92ff37b8f60c8584cbc1f178adf8726df8ca791c",
+    "formalization.yaml": "c9e6aba568e3370e04cff0eb76000ac08e3a503d3ee718546d4c6d5bd11bc592"
   },
-  "metadata_rechecked_at_utc": "2026-10-01T05:36:44.671237+00:00"
+  "lean_declaration_check": "passed",
+  "validated_at_utc": "2026-10-02T04:54:37.605877+00:00"
 }
