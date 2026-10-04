@@ -21,6 +21,14 @@ pages and their summaries. Result IDs match `metadata/results.json`, whose
 formalization statuses and scope notes are retained unchanged. Edit these
 sources, then run both commands above.
 
+`correspondence.html` connects manuscript statements and argument locations to
+informal guides and exact Lean declarations in four columns. Edit the selected
+passages in `correspondence.json`; the generator validates their LaTeX labels
+against the included revised manuscript and creates a source browser with line
+anchors. Status and scope come from `metadata/results.json`. The map supports
+local search and status filters, remains readable without JavaScript, and has a
+downloadable `correspondence-map.json` with source hashes and all link targets.
+
 Use `$...$` for inline mathematics and a separate pair of `$$` lines for
 display mathematics. KaTeX 0.19.0, its fonts, and its original MIT license are
 bundled in `vendor/katex/`; no CDN, npm installation, or Node build is needed.

@@ -1,0 +1,3757 @@
+{
+  "schema_version": 1,
+  "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved.",
+  "exhaustive": false,
+  "manuscript": {
+    "file": "paper/nonadditivity.tex",
+    "sha256": "3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98",
+    "title": "Unbounded Holevo additivity gaps in finite dimensions",
+    "authors": [
+      "Jinzhao Wang"
+    ],
+    "edited": true,
+    "corrections_incorporated": true,
+    "publication_date": null,
+    "revision": {
+      "received_at_utc": "2026-10-02T04:52:19.524994+00:00",
+      "author_supplied_sha256": "09f797bd4ef6d1f582cc241c7860dc23cfb58e8d9d4352e8911be9c45e67b31f",
+      "previous_sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+      "previous_commit": "ed99a01639d8b7605f1655a338df0048961bb188",
+      "repository_adjustments": [
+        "Limit the verification sentence to principal Lean endpoints and recorded build/audit success; Comparator execution remains pending. Author model attribution is retained.",
+        "Align the exploration mark and reconstruction prose with the next-step color and old-tree run used by HaarPathMarks.explorationMark."
+      ]
+    },
+    "source_page": "manuscript.html"
+  },
+  "metadata_sha256": "15b3d893285deb68108ef5cd92ff37b8f60c8584cbc1f178adf8726df8ca791c",
+  "mapping_source_sha256": "7dbada3fd5299d6bdaaa0eefc9a04e930d123c41665c2a4b354ad1fbff0ec574",
+  "counts": {
+    "proved": 20,
+    "corrected": 2,
+    "not_formalized": 3,
+    "records": 25,
+    "declaration_references": 49,
+    "theorem_references": 45,
+    "unproved_predicate_references": 4
+  },
+  "statement_equivalence_certified": false,
+  "entries": [
+    {
+      "result_id": "prescribed-dimensions",
+      "statement_label": "thm:main",
+      "statement_caption": "Theorem 1.1 — prescribed dimensions and Holevo gap",
+      "argument_labels": [
+        {
+          "label": "sec:entropy",
+          "caption": "§2 — entropy bounds and channel conversion"
+        },
+        {
+          "label": "prop:finite",
+          "caption": "Proposition 3.1 — uniform finite-matrix estimate"
+        },
+        {
+          "label": "sec:finish-finite",
+          "caption": "§3.4 — finite realization and concluding proof of Theorem 1.1"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "channels",
+        "adjoint-certificate",
+        "dimension-cost"
+      ],
+      "stages": [
+        "1",
+        "4",
+        "5"
+      ],
+      "name": "Prescribed finite dimensions and Holevo gap",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "Actual finite Kraus CPTP channel; the only non-typeclass hypotheses are K >= 2 and n >= n0(K). The theorem also proves positivity and the supplementary single-use lower bound 2n/K on the same witness. The intermediate combinatorial proofs are corrected without changing the final dimension formula.",
+      "statement_location": {
+        "label": "thm:main",
+        "line": 256,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "theorem",
+        "number": "1.1",
+        "source_page": "manuscript.html#L256"
+      },
+      "argument_locations": [
+        {
+          "label": "sec:entropy",
+          "line": 507,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": null,
+          "kind": "section",
+          "number": "2",
+          "title": "Qualitative realization of unbounded Holevo gaps",
+          "source_page": "manuscript.html#L507",
+          "caption": "§2 — entropy bounds and channel conversion"
+        },
+        {
+          "label": "prop:finite",
+          "line": 1065,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": null,
+          "kind": "proposition",
+          "number": "3.1",
+          "source_page": "manuscript.html#L1065",
+          "caption": "Proposition 3.1 — uniform finite-matrix estimate"
+        },
+        {
+          "label": "sec:finish-finite",
+          "line": 1686,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": {
+            "number": "3.4",
+            "title": "Step 4: apply the random-matrix estimate",
+            "line": 1686
+          },
+          "kind": "section",
+          "number": "3.4",
+          "title": "Step 4: apply the random-matrix estimate",
+          "source_page": "manuscript.html#L1686",
+          "caption": "§3.4 — finite realization and concluding proof of Theorem 1.1"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "thm:main",
+          "line": 256,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "theorem",
+          "number": "1.1",
+          "source_page": "manuscript.html#L256"
+        },
+        {
+          "label": "eq:dimension-constant",
+          "line": 261,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L261"
+        },
+        {
+          "label": "eq:main-holevo",
+          "line": 272,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L272"
+        },
+        {
+          "label": "eq:main-gap",
+          "line": 277,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L277"
+        },
+        {
+          "label": "eq:constructed-holevo-lower",
+          "line": 1024,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1024"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-1",
+        "route.html#stage-4",
+        "route.html#stage-5"
+      ],
+      "reader_page": "results/prescribed-dimensions.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
+          "file": "Nonadditivity/HaarPrescribedBound.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/80cfb1f3fd72ad5a49c2d38d.html",
+          "source_page": "modules/Nonadditivity.HaarPrescribedBound.html#L65"
+        }
+      ]
+    },
+    {
+      "result_id": "operational-coding",
+      "statement_label": "eq:capacity",
+      "statement_caption": "§1 — operational capacity and regularized Holevo information",
+      "argument_labels": [
+        {
+          "label": "eq:capacity",
+          "caption": "§1 cites the Holevo–Schumacher–Westmoreland coding theorem; the Lean development supplies its proof"
+        }
+      ],
+      "guides": [
+        "capacity"
+      ],
+      "concepts": [
+        "operational-capacity",
+        "holevo-information"
+      ],
+      "stages": [
+        "6"
+      ],
+      "name": "Operational classical capacity equals regularized Holevo information",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "Capacity is independently defined by actual density-matrix codewords, normalized POVMs, and vanishing average Born error at all positive block lengths. The coding theorem is proved, not assumed or used as the definition of capacity.",
+      "statement_location": {
+        "label": "eq:capacity",
+        "line": 109,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "equation",
+        "number": null,
+        "source_page": "manuscript.html#L109"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:capacity",
+          "line": 109,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L109",
+          "caption": "§1 cites the Holevo–Schumacher–Westmoreland coding theorem; the Lean development supplies its proof"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:capacity",
+          "line": 109,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L109"
+        }
+      ],
+      "guide_pages": [
+        "guide/capacity.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-6"
+      ],
+      "reader_page": "results/operational-coding.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+          "file": "Nonadditivity/OperationalCodingTheorem.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/2190eda6b36f2c50ea335862.html",
+          "source_page": "modules/Nonadditivity.OperationalCodingTheorem.html#L50"
+        },
+        {
+          "declaration": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.normalizedPowerHolevo_tendsto_classicalCapacity",
+          "file": "Nonadditivity/OperationalCodingTheorem.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/08f6c95d467f0abfc1266e30.html",
+          "source_page": "modules/Nonadditivity.OperationalCodingTheorem.html#L84"
+        }
+      ]
+    },
+    {
+      "result_id": "capacity-gain",
+      "statement_label": "cor:capacity",
+      "statement_caption": "Corollary 1.2 — capacity gain",
+      "argument_labels": [
+        {
+          "label": "eq:capacity-gap",
+          "caption": "§1 — capacity-gain inequality and proof of Corollary 1.2"
+        },
+        {
+          "label": "eq:capacity",
+          "caption": "§1 — coding theorem identifies the operational capacity"
+        }
+      ],
+      "guides": [
+        "capacity",
+        "scaling"
+      ],
+      "concepts": [
+        "operational-capacity",
+        "holevo-information"
+      ],
+      "stages": [
+        "6",
+        "7"
+      ],
+      "name": "Prescribed dimensions and operational capacity gain",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "The bound and divergence concern C(T)-chi(T); they make no claim about additivity of C between distinct channels.",
+      "statement_location": {
+        "label": "cor:capacity",
+        "line": 325,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "corollary",
+        "number": "1.2",
+        "source_page": "manuscript.html#L325"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:capacity-gap",
+          "line": 333,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "align",
+          "number": null,
+          "source_page": "manuscript.html#L333",
+          "caption": "§1 — capacity-gain inequality and proof of Corollary 1.2"
+        },
+        {
+          "label": "eq:capacity",
+          "line": 109,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L109",
+          "caption": "§1 — coding theorem identifies the operational capacity"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "cor:capacity",
+          "line": 325,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.2",
+          "source_page": "manuscript.html#L325"
+        },
+        {
+          "label": "eq:capacity-gap",
+          "line": 333,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "align",
+          "number": null,
+          "source_page": "manuscript.html#L333"
+        }
+      ],
+      "guide_pages": [
+        "guide/capacity.html",
+        "guide/scaling.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-6",
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/capacity-gain.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.exists_prescribed_channel_with_capacity_gain",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/d93312c70783d6042df16629.html",
+          "source_page": "modules/Nonadditivity.OperationalConsequences.html#L84"
+        },
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.prescribed_capacity_gain_tendsto_atTop",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/d46477a78ba01d62c83cd55d.html",
+          "source_page": "modules/Nonadditivity.OperationalConsequences.html#L101"
+        }
+      ]
+    },
+    {
+      "result_id": "two-use-ratio",
+      "statement_label": "eq:ratio",
+      "statement_caption": "Corollary 1.2 — two-use ratio lower limit",
+      "argument_labels": [
+        {
+          "label": "cor:capacity",
+          "caption": "§1 — proof of Corollary 1.2, positivity and fixed-K limit"
+        },
+        {
+          "label": "eq:constructed-holevo-lower",
+          "caption": "§2.3 — supplementary same-channel positivity bound used by the formal proof"
+        }
+      ],
+      "guides": [
+        "scaling"
+      ],
+      "concepts": [
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "Two-use Holevo ratio lower limit",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "The actual selected prescribed family has positive chi. Positivity follows from the same-witness lower bound rather than the manuscript zero-Holevo characterization.",
+      "statement_location": {
+        "label": "eq:ratio",
+        "line": 337,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "align",
+        "number": null,
+        "source_page": "manuscript.html#L337"
+      },
+      "argument_locations": [
+        {
+          "label": "cor:capacity",
+          "line": 325,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.2",
+          "source_page": "manuscript.html#L325",
+          "caption": "§1 — proof of Corollary 1.2, positivity and fixed-K limit"
+        },
+        {
+          "label": "eq:constructed-holevo-lower",
+          "line": 1024,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1024",
+          "caption": "§2.3 — supplementary same-channel positivity bound used by the formal proof"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "cor:capacity",
+          "line": 325,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.2",
+          "source_page": "manuscript.html#L325"
+        },
+        {
+          "label": "eq:ratio",
+          "line": 337,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "align",
+          "number": null,
+          "source_page": "manuscript.html#L337"
+        }
+      ],
+      "guide_pages": [
+        "guide/scaling.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/two-use-ratio.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_ratio_liminf_manuscript",
+          "file": "Nonadditivity/HaarPrescribedRatio.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/65f0203e0b3d0e0acfa561ac.html",
+          "source_page": "modules/Nonadditivity.HaarPrescribedRatio.html#L45"
+        }
+      ]
+    },
+    {
+      "result_id": "simultaneous-separation",
+      "statement_label": "cor:capacity",
+      "statement_caption": "Corollaries 1.2–1.3 — simultaneous separation",
+      "argument_labels": [
+        {
+          "label": "cor:capacity",
+          "caption": "§1 — simultaneous capacity gain and two-use ratio"
+        },
+        {
+          "label": "cor:separation",
+          "caption": "Corollary 1.3 — small one-use information and large two-use information"
+        },
+        {
+          "label": "prop:qualitative",
+          "caption": "Proposition 2.4 — qualitative realization; the formal proof uses an alternative construction"
+        }
+      ],
+      "guides": [
+        "capacity",
+        "scaling"
+      ],
+      "concepts": [
+        "holevo-information",
+        "operational-capacity"
+      ],
+      "stages": [
+        "5",
+        "6"
+      ],
+      "name": "Small positive single-use information with large capacity gain and two-use ratio",
+      "status": "proved",
+      "correspondence": "alternate_argument",
+      "scope": "Combines and strengthens the two existence conclusions. The qualitative route uses deterministic finite moments, branch weights, and damping.",
+      "statement_location": {
+        "label": "cor:capacity",
+        "line": 325,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "corollary",
+        "number": "1.2",
+        "source_page": "manuscript.html#L325"
+      },
+      "argument_locations": [
+        {
+          "label": "cor:capacity",
+          "line": 325,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.2",
+          "source_page": "manuscript.html#L325",
+          "caption": "§1 — simultaneous capacity gain and two-use ratio"
+        },
+        {
+          "label": "cor:separation",
+          "line": 390,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.3",
+          "source_page": "manuscript.html#L390",
+          "caption": "Corollary 1.3 — small one-use information and large two-use information"
+        },
+        {
+          "label": "prop:qualitative",
+          "line": 1030,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "proposition",
+          "number": "2.4",
+          "source_page": "manuscript.html#L1030",
+          "caption": "Proposition 2.4 — qualitative realization; the formal proof uses an alternative construction"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "cor:capacity",
+          "line": 325,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.2",
+          "source_page": "manuscript.html#L325"
+        },
+        {
+          "label": "cor:separation",
+          "line": 390,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.3",
+          "source_page": "manuscript.html#L390"
+        }
+      ],
+      "guide_pages": [
+        "guide/capacity.html",
+        "guide/scaling.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-5",
+        "route.html#stage-6"
+      ],
+      "reader_page": "results/simultaneous-separation.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/cfeaa1959ef9cc4b5765c74f.html",
+          "source_page": "modules/Nonadditivity.OperationalConsequences.html#L69"
+        }
+      ]
+    },
+    {
+      "result_id": "qualitative-realization",
+      "statement_label": "prop:qualitative",
+      "statement_caption": "Proposition 2.4 — qualitative finite-dimensional realization",
+      "argument_labels": [
+        {
+          "label": "sec:finite-entropy",
+          "caption": "§2.1 — finite blocks and their entropy bound"
+        },
+        {
+          "label": "sec:conversion",
+          "caption": "§2.3 — switch and Weyl conversion; proof of Proposition 2.4"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "channels",
+        "weyl-switch",
+        "free-haar"
+      ],
+      "stages": [
+        "5"
+      ],
+      "name": "Qualitative finite-dimensional realization",
+      "status": "proved",
+      "correspondence": "alternate_argument",
+      "scope": "The endpoint, including input/output dimension form and the exact two-use lower bound, is proved. The weighted and damped deterministic realization differs from the undamped Haar realization in the manuscript.",
+      "statement_location": {
+        "label": "prop:qualitative",
+        "line": 1030,
+        "section": {
+          "number": "2",
+          "title": "Qualitative realization of unbounded Holevo gaps",
+          "line": 507
+        },
+        "subsection": {
+          "number": "2.3",
+          "title": "Converting the entropy gap into a Holevo gap",
+          "line": 849
+        },
+        "kind": "proposition",
+        "number": "2.4",
+        "source_page": "manuscript.html#L1030"
+      },
+      "argument_locations": [
+        {
+          "label": "sec:finite-entropy",
+          "line": 522,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "section",
+          "number": "2.1",
+          "title": "Finite-dimensional block channels and their entropy bound",
+          "source_page": "manuscript.html#L522",
+          "caption": "§2.1 — finite blocks and their entropy bound"
+        },
+        {
+          "label": "sec:conversion",
+          "line": 849,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "section",
+          "number": "2.3",
+          "title": "Converting the entropy gap into a Holevo gap",
+          "source_page": "manuscript.html#L849",
+          "caption": "§2.3 — switch and Weyl conversion; proof of Proposition 2.4"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "prop:qualitative",
+          "line": 1030,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "proposition",
+          "number": "2.4",
+          "source_page": "manuscript.html#L1030"
+        },
+        {
+          "label": "eq:qualitative-bounds",
+          "line": 1037,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1037"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-5"
+      ],
+      "reader_page": "results/qualitative-realization.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.ExactQualitative.exists_actual_channel_bounds_with_dimensions",
+          "file": "Nonadditivity/ExactQualitative.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/5435793b10ca045ee8f4ab30.html",
+          "source_page": "modules/Nonadditivity.ExactQualitative.html#L33"
+        }
+      ]
+    },
+    {
+      "result_id": "small-large-and-sequence",
+      "statement_label": "cor:separation",
+      "statement_caption": "Corollary 1.3 — vanishing Holevo information and diverging capacity",
+      "argument_labels": [
+        {
+          "label": "eq:small-large",
+          "caption": "§1 — arbitrarily small one-use and large two-use information"
+        },
+        {
+          "label": "eq:vanishing-diverging",
+          "caption": "§1 — channel sequence and proof of Corollary 1.3"
+        },
+        {
+          "label": "prop:qualitative",
+          "caption": "Proposition 2.4 — qualitative realization; the formal proof uses an alternative construction"
+        }
+      ],
+      "guides": [
+        "scaling",
+        "capacity"
+      ],
+      "concepts": [
+        "holevo-information",
+        "operational-capacity"
+      ],
+      "stages": [
+        "5",
+        "7"
+      ],
+      "name": "Vanishing single-use information and diverging capacity",
+      "status": "proved",
+      "correspondence": "alternate_argument",
+      "scope": "All quantities belong to actual finite channels. This qualitative family uses the alternate deterministic construction.",
+      "statement_location": {
+        "label": "cor:separation",
+        "line": 390,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "corollary",
+        "number": "1.3",
+        "source_page": "manuscript.html#L390"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:small-large",
+          "line": 397,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L397",
+          "caption": "§1 — arbitrarily small one-use and large two-use information"
+        },
+        {
+          "label": "eq:vanishing-diverging",
+          "line": 405,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L405",
+          "caption": "§1 — channel sequence and proof of Corollary 1.3"
+        },
+        {
+          "label": "prop:qualitative",
+          "line": 1030,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "proposition",
+          "number": "2.4",
+          "source_page": "manuscript.html#L1030",
+          "caption": "Proposition 2.4 — qualitative realization; the formal proof uses an alternative construction"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "cor:separation",
+          "line": 390,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.3",
+          "source_page": "manuscript.html#L390"
+        },
+        {
+          "label": "eq:small-large",
+          "line": 397,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L397"
+        },
+        {
+          "label": "eq:vanishing-diverging",
+          "line": 405,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L405"
+        }
+      ],
+      "guide_pages": [
+        "guide/scaling.html",
+        "guide/capacity.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-5",
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/small-large-and-sequence.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.DeterministicConsequences.actual_small_large",
+          "file": "Nonadditivity/DeterministicConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/5909b31837ccf03a4996e882.html",
+          "source_page": "modules/Nonadditivity.DeterministicConsequences.html#L129"
+        },
+        {
+          "declaration": "Nonadditivity.DeterministicConsequences.actual_vanishing_diverging",
+          "file": "Nonadditivity/DeterministicConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/fa185701cd028e5a6173863c.html",
+          "source_page": "modules/Nonadditivity.DeterministicConsequences.html#L58"
+        },
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.actual_vanishing_chi_diverging_capacity",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/6d558c8f715a30d0b49665ea.html",
+          "source_page": "modules/Nonadditivity.OperationalConsequences.html#L34"
+        }
+      ]
+    },
+    {
+      "result_id": "fixed-k-scaling",
+      "statement_label": "eq:scaling",
+      "statement_caption": "§1 — scaling remark after Theorem 1.1 (fixed K)",
+      "argument_labels": [
+        {
+          "label": "eq:main-gap",
+          "caption": "Theorem 1.1 — quantitative gap lower bound"
+        },
+        {
+          "label": "eq:input-size",
+          "caption": "§1 — quadratic input-qubit expansion"
+        }
+      ],
+      "guides": [
+        "scaling"
+      ],
+      "concepts": [
+        "dimension-cost"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "Gap scaling with input and output qubits",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "For fixed K with deltaK > 0 the gap has positive two-sided linear bounds in n and square-root bounds in the actual input-qubit count.",
+      "statement_location": {
+        "label": "eq:scaling",
+        "line": 287,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "equation",
+        "number": null,
+        "source_page": "manuscript.html#L287"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:main-gap",
+          "line": 277,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L277",
+          "caption": "Theorem 1.1 — quantitative gap lower bound"
+        },
+        {
+          "label": "eq:input-size",
+          "line": 296,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L296",
+          "caption": "§1 — quadratic input-qubit expansion"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:scaling",
+          "line": 287,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L287"
+        }
+      ],
+      "guide_pages": [
+        "guide/scaling.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/fixed-k-scaling.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_qubits",
+          "file": "Nonadditivity/HaarPrescribedScaling.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/c0d121708a16907d02bbb7ad.html",
+          "source_page": "modules/Nonadditivity.HaarPrescribedScaling.html#L20"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_gap_linear_bounds",
+          "file": "Nonadditivity/HaarPrescribedScaling.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/7ed8b5cb17f0c19eb1f0cf17.html",
+          "source_page": "modules/Nonadditivity.HaarPrescribedScaling.html#L63"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribed_gap_sqrt_input_bounds",
+          "file": "Nonadditivity/HaarInputScaling.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/e25e6ced50dec140b138de45.html",
+          "source_page": "modules/Nonadditivity.HaarInputScaling.html#L46"
+        }
+      ]
+    },
+    {
+      "result_id": "input-size-expansion",
+      "statement_label": "eq:input-size",
+      "statement_caption": "§1 — input-qubit expansion in the scaling remark",
+      "argument_labels": [
+        {
+          "label": "thm:main",
+          "caption": "Theorem 1.1 — exact integer-rounded input dimension"
+        },
+        {
+          "label": "eq:input-size",
+          "caption": "§1 — expansion in the scaling remark"
+        }
+      ],
+      "guides": [
+        "scaling",
+        "notation"
+      ],
+      "concepts": [
+        "dimension-cost"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "Prescribed-family input-qubit expansion",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "The remainder tends to zero with the logarithm of the actual input dimension, including the integer ceiling in the local dimension.",
+      "statement_location": {
+        "label": "eq:input-size",
+        "line": 296,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "equation",
+        "number": null,
+        "source_page": "manuscript.html#L296"
+      },
+      "argument_locations": [
+        {
+          "label": "thm:main",
+          "line": 256,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "theorem",
+          "number": "1.1",
+          "source_page": "manuscript.html#L256",
+          "caption": "Theorem 1.1 — exact integer-rounded input dimension"
+        },
+        {
+          "label": "eq:input-size",
+          "line": 296,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L296",
+          "caption": "§1 — expansion in the scaling remark"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:input-size",
+          "line": 296,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L296"
+        }
+      ],
+      "guide_pages": [
+        "guide/scaling.html",
+        "guide/notation.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/input-size-expansion.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_input_size_remainder_tendsto",
+          "file": "Nonadditivity/HaarPrescribedConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/4c52514f80869eefceafecb6.html",
+          "source_page": "modules/Nonadditivity.HaarPrescribedConsequences.html#L136"
+        }
+      ]
+    },
+    {
+      "result_id": "guaranteed-gap-fraction",
+      "statement_label": "eq:guaranteed-fraction",
+      "statement_caption": "§1 — guaranteed output-normalized gap fraction",
+      "argument_labels": [
+        {
+          "label": "eq:main-gap",
+          "caption": "Theorem 1.1 — gap lower bound"
+        },
+        {
+          "label": "eq:guaranteed-fraction",
+          "caption": "§1 — normalized lower limit and large-K expansion in the scaling remark"
+        }
+      ],
+      "guides": [
+        "scaling"
+      ],
+      "concepts": [
+        "dimension-cost",
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "Output-normalized gap lower limit and its large-K expansion",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "The large-K remainder is bounded explicitly between zero and 162/(K^2 ln K). The numerical illustrative footnote is not separately certified.",
+      "statement_location": {
+        "label": "eq:guaranteed-fraction",
+        "line": 304,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "equation",
+        "number": null,
+        "source_page": "manuscript.html#L304"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:main-gap",
+          "line": 277,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L277",
+          "caption": "Theorem 1.1 — gap lower bound"
+        },
+        {
+          "label": "eq:guaranteed-fraction",
+          "line": 304,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L304",
+          "caption": "§1 — normalized lower limit and large-K expansion in the scaling remark"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:guaranteed-fraction",
+          "line": 304,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L304"
+        }
+      ],
+      "guide_pages": [
+        "guide/scaling.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/guaranteed-gap-fraction.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribedFamily_output_normalized_gap_liminf",
+          "file": "Nonadditivity/HaarPrescribedScaling.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/7a8c0eed2b15c8b4302e3fea.html",
+          "source_page": "modules/Nonadditivity.HaarPrescribedScaling.html#L82"
+        },
+        {
+          "declaration": "Nonadditivity.Scalar.gap_fraction_identity",
+          "file": "Nonadditivity/GapFractionAsymptotics.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/74be5d0e057f402db4fee323.html",
+          "source_page": "modules/Nonadditivity.GapFractionAsymptotics.html#L17"
+        },
+        {
+          "declaration": "Nonadditivity.Scalar.gap_fraction_explicit_remainder",
+          "file": "Nonadditivity/GapFractionAsymptotics.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/bd66bcee213b3ffd40ff939f.html",
+          "source_page": "modules/Nonadditivity.GapFractionAsymptotics.html#L37"
+        }
+      ]
+    },
+    {
+      "result_id": "fixed-channel-regrouping",
+      "statement_label": "sec:introduction",
+      "statement_caption": "§1 — unnumbered regrouping limit immediately before Corollary 1.2",
+      "argument_labels": [
+        {
+          "label": "eq:capacity",
+          "caption": "§1 — convergence of normalized tensor-power Holevo information"
+        },
+        {
+          "label": "cor:capacity",
+          "caption": "§1 — regrouping argument immediately before Corollary 1.2"
+        }
+      ],
+      "guides": [
+        "capacity",
+        "scaling"
+      ],
+      "concepts": [
+        "operational-capacity",
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "A fixed channel has sublinear regrouped two-use gap",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "",
+      "statement_location": {
+        "label": "sec:introduction",
+        "line": 66,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "section",
+        "number": "1",
+        "title": "Introduction and main results",
+        "source_page": "manuscript.html#L66"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:capacity",
+          "line": 109,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L109",
+          "caption": "§1 — convergence of normalized tensor-power Holevo information"
+        },
+        {
+          "label": "cor:capacity",
+          "line": 325,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.2",
+          "source_page": "manuscript.html#L325",
+          "caption": "§1 — regrouping argument immediately before Corollary 1.2"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "sec:introduction",
+          "line": 66,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "section",
+          "number": "1",
+          "title": "Introduction and main results",
+          "source_page": "manuscript.html#L66"
+        }
+      ],
+      "guide_pages": [
+        "guide/capacity.html",
+        "guide/scaling.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/fixed-channel-regrouping.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.RegularizedHolevo.normalized_fixed_channel_gap_tendsto_zero",
+          "file": "Nonadditivity/HolevoPowerGap.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/392e27de4099bd285e074586.html",
+          "source_page": "modules/Nonadditivity.HolevoPowerGap.html#L26"
+        }
+      ]
+    },
+    {
+      "result_id": "growing-family-cost",
+      "statement_label": "rem:separation-cost",
+      "statement_caption": "Remark 1.4 — input-qubit cost of the separation",
+      "argument_labels": [
+        {
+          "label": "rem:separation-cost",
+          "caption": "§1 — explicit growing-K family and its cost estimates"
+        },
+        {
+          "label": "eq:constructed-holevo-lower",
+          "caption": "§2.3 — matching lower bound for single-use information"
+        },
+        {
+          "label": "eq:input-size",
+          "caption": "§1 — exact-dimension input-qubit expansion"
+        }
+      ],
+      "guides": [
+        "scaling"
+      ],
+      "concepts": [
+        "dimension-cost",
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "Input-qubit cost of the growing-K separation",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "For the actual prescribed family with nK=ceil(K/sqrt(ln K)), q_in/K^2 tends to 280/ln 2. The theorem supplies two-sided chi bounds and lower bounds for half chiTwo and operational capacity in terms of sqrt(log2 q_in). The threshold holds eventually for this same rounded nK.",
+      "statement_location": {
+        "label": "rem:separation-cost",
+        "line": 426,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "remark",
+        "number": "1.4",
+        "source_page": "manuscript.html#L426"
+      },
+      "argument_locations": [
+        {
+          "label": "rem:separation-cost",
+          "line": 426,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "remark",
+          "number": "1.4",
+          "source_page": "manuscript.html#L426",
+          "caption": "§1 — explicit growing-K family and its cost estimates"
+        },
+        {
+          "label": "eq:constructed-holevo-lower",
+          "line": 1024,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1024",
+          "caption": "§2.3 — matching lower bound for single-use information"
+        },
+        {
+          "label": "eq:input-size",
+          "line": 296,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L296",
+          "caption": "§1 — exact-dimension input-qubit expansion"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "rem:separation-cost",
+          "line": 426,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "remark",
+          "number": "1.4",
+          "source_page": "manuscript.html#L426"
+        }
+      ],
+      "guide_pages": [
+        "guide/scaling.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/growing-family-cost.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_input_qubits_div_sq_tendsto",
+          "file": "Nonadditivity/PrescribedCostDimensions.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/d8d2b1d0f213b594032ce2e1.html",
+          "source_page": "modules/Nonadditivity.PrescribedCostDimensions.html#L105"
+        },
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_vanishing_diverging",
+          "file": "Nonadditivity/PrescribedCostInformation.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/bbcc928100bdb7223f23e1e5.html",
+          "source_page": "modules/Nonadditivity.PrescribedCostInformation.html#L33"
+        },
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds",
+          "file": "Nonadditivity/PrescribedCostScaling.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/bbc40432b546deb405168c4c.html",
+          "source_page": "modules/Nonadditivity.PrescribedCostScaling.html#L84"
+        },
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower",
+          "file": "Nonadditivity/PrescribedCostCapacity.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/6ad0f5fef07b73366bc477a6.html",
+          "source_page": "modules/Nonadditivity.PrescribedCostCapacity.html#L15"
+        }
+      ]
+    },
+    {
+      "result_id": "free-collins-youn",
+      "statement_label": "lem:cy",
+      "statement_caption": "Lemma 2.1 — free comparison only",
+      "argument_labels": [
+        {
+          "label": "eq:gamma-free",
+          "caption": "§2.1 — free-group polynomial and comparison constant"
+        },
+        {
+          "label": "eq:cy",
+          "caption": "§2.1 — free Collins–Youn bound and its proof"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "free-haar",
+        "adjoint-certificate"
+      ],
+      "stages": [
+        "2"
+      ],
+      "name": "Free-group Collins-Youn bound",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "The normalized free-operator inequality is proved for all K >= 2 and n >= 1.",
+      "statement_location": {
+        "label": "lem:cy",
+        "line": 604,
+        "section": {
+          "number": "2",
+          "title": "Qualitative realization of unbounded Holevo gaps",
+          "line": 507
+        },
+        "subsection": {
+          "number": "2.1",
+          "title": "Finite-dimensional block channels and their entropy bound",
+          "line": 522
+        },
+        "kind": "lemma",
+        "number": "2.1",
+        "source_page": "manuscript.html#L604"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:gamma-free",
+          "line": 611,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L611",
+          "caption": "§2.1 — free-group polynomial and comparison constant"
+        },
+        {
+          "label": "eq:cy",
+          "line": 616,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L616",
+          "caption": "§2.1 — free Collins–Youn bound and its proof"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:cy",
+          "line": 604,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "lemma",
+          "number": "2.1",
+          "source_page": "manuscript.html#L604"
+        },
+        {
+          "label": "eq:cy",
+          "line": 616,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L616"
+        },
+        {
+          "label": "eq:gamma-free",
+          "line": 611,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L611"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-2"
+      ],
+      "reader_page": "results/free-collins-youn.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.CollinsYounProduct.collinsYounBound",
+          "file": "Nonadditivity/CollinsYounProduct.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/03d116c524ebe8ca6a60b897.html",
+          "source_page": "modules/Nonadditivity.CollinsYounProduct.html#L380"
+        }
+      ]
+    },
+    {
+      "result_id": "prescribed-norm-certificate",
+      "statement_label": "prop:finite",
+      "statement_caption": "Proposition 3.1 — uniform finite-matrix estimate",
+      "argument_labels": [
+        {
+          "label": "sec:finite-tests",
+          "caption": "§3.1 — combine the observable tests into one polynomial"
+        },
+        {
+          "label": "sec:degree-reduction",
+          "caption": "§3.3 — reduce to a linear polynomial"
+        },
+        {
+          "label": "sec:finish-finite",
+          "caption": "§3.4 — random-matrix estimate and favorable realization"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "adjoint-certificate",
+        "free-haar",
+        "dimension-cost"
+      ],
+      "stages": [
+        "4"
+      ],
+      "name": "Uniform adjoint norm estimate at prescribed dimensions",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "The first theorem is a conditional assembly interface; the second discharges its ExplicitHaarExpectation hypothesis under the same numerical K,n conditions. Taken together they give the manuscript certificate unconditionally.",
+      "statement_location": {
+        "label": "prop:finite",
+        "line": 1065,
+        "section": {
+          "number": "3",
+          "title": "Quantitative finite-dimensional approximation",
+          "line": 1057
+        },
+        "subsection": null,
+        "kind": "proposition",
+        "number": "3.1",
+        "source_page": "manuscript.html#L1065"
+      },
+      "argument_locations": [
+        {
+          "label": "sec:finite-tests",
+          "line": 1121,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": {
+            "number": "3.1",
+            "title": "Step 1: combine the observable tests",
+            "line": 1121
+          },
+          "kind": "section",
+          "number": "3.1",
+          "title": "Step 1: combine the observable tests",
+          "source_page": "manuscript.html#L1121",
+          "caption": "§3.1 — combine the observable tests into one polynomial"
+        },
+        {
+          "label": "sec:degree-reduction",
+          "line": 1258,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": {
+            "number": "3.3",
+            "title": "Step 3: reduce to a linear polynomial",
+            "line": 1258
+          },
+          "kind": "section",
+          "number": "3.3",
+          "title": "Step 3: reduce to a linear polynomial",
+          "source_page": "manuscript.html#L1258",
+          "caption": "§3.3 — reduce to a linear polynomial"
+        },
+        {
+          "label": "sec:finish-finite",
+          "line": 1686,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": {
+            "number": "3.4",
+            "title": "Step 4: apply the random-matrix estimate",
+            "line": 1686
+          },
+          "kind": "section",
+          "number": "3.4",
+          "title": "Step 4: apply the random-matrix estimate",
+          "source_page": "manuscript.html#L1686",
+          "caption": "§3.4 — random-matrix estimate and favorable realization"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "prop:finite",
+          "line": 1065,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": null,
+          "kind": "proposition",
+          "number": "3.1",
+          "source_page": "manuscript.html#L1065"
+        },
+        {
+          "label": "eq:finite",
+          "line": 1081,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": null,
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1081"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-4"
+      ],
+      "reader_page": "results/prescribed-norm-certificate.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.StructuredHaarConsequences.exists_explicit_certificate",
+          "file": "Nonadditivity/StructuredHaarConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/9ac1ca1e6760023c4cd188f4.html",
+          "source_page": "modules/Nonadditivity.StructuredHaarConsequences.html#L66"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.explicitHaarExpectation",
+          "file": "Nonadditivity/HaarPrescribedBound.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/da5996600cf037b6b9125ba8.html",
+          "source_page": "modules/Nonadditivity.HaarPrescribedBound.html#L49"
+        }
+      ]
+    },
+    {
+      "result_id": "purity-entropy",
+      "statement_label": "lem:purity",
+      "statement_caption": "Lemma 2.2 — adjoint certificate, purity and output entropy",
+      "argument_labels": [
+        {
+          "label": "sec:finite-entropy",
+          "caption": "§2.1 — finite-dimensional block channels and their entropy bound"
+        },
+        {
+          "label": "eq:purity",
+          "caption": "Lemma 2.2 — purity and entropy inequalities and their proof"
+        },
+        {
+          "label": "eq:single-entropy",
+          "caption": "§2.1 — resulting block-channel entropy bound"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "adjoint-certificate",
+        "output-entropy"
+      ],
+      "stages": [
+        "1"
+      ],
+      "name": "Adjoint norm certificate implies purity and output entropy bounds",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "The displayed adjoint certificate is the mathematical premise of this lemma; it is discharged by the channel construction. Entropy is in natural logarithms internally, with proved base-two conversion at channel endpoints.",
+      "statement_location": {
+        "label": "lem:purity",
+        "line": 733,
+        "section": {
+          "number": "2",
+          "title": "Qualitative realization of unbounded Holevo gaps",
+          "line": 507
+        },
+        "subsection": {
+          "number": "2.1",
+          "title": "Finite-dimensional block channels and their entropy bound",
+          "line": 522
+        },
+        "kind": "lemma",
+        "number": "2.2",
+        "source_page": "manuscript.html#L733"
+      },
+      "argument_locations": [
+        {
+          "label": "sec:finite-entropy",
+          "line": 522,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "section",
+          "number": "2.1",
+          "title": "Finite-dimensional block channels and their entropy bound",
+          "source_page": "manuscript.html#L522",
+          "caption": "§2.1 — finite-dimensional block channels and their entropy bound"
+        },
+        {
+          "label": "eq:purity",
+          "line": 743,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L743",
+          "caption": "Lemma 2.2 — purity and entropy inequalities and their proof"
+        },
+        {
+          "label": "eq:single-entropy",
+          "line": 770,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L770",
+          "caption": "§2.1 — resulting block-channel entropy bound"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:purity",
+          "line": 733,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "lemma",
+          "number": "2.2",
+          "source_page": "manuscript.html#L733"
+        },
+        {
+          "label": "eq:purity",
+          "line": 743,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L743"
+        },
+        {
+          "label": "eq:single-entropy",
+          "line": 770,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L770"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-1"
+      ],
+      "reader_page": "results/purity-entropy.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.Channels.KrausChannel.output_purity_and_entropy_of_certificate",
+          "file": "Nonadditivity/QuantumHolevo.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/2eff1a65a5a0cb0f5e6f7ad5.html",
+          "source_page": "modules/Nonadditivity.QuantumHolevo.html#L55"
+        }
+      ]
+    },
+    {
+      "result_id": "bell-entropy",
+      "statement_label": "lem:bell",
+      "statement_caption": "Lemma 2.3 — Bell-output entropy bound",
+      "argument_labels": [
+        {
+          "label": "eq:local-bell",
+          "caption": "§2.2 — local Bell-output entropy deficit"
+        },
+        {
+          "label": "eq:bell",
+          "caption": "§2.2 — tensor-block bound and proof of Lemma 2.3"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "bell-input",
+        "output-entropy"
+      ],
+      "stages": [
+        "1"
+      ],
+      "name": "Bell-output entropy bound",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "Actual finite unitary families, channels, entangled Bell inputs, and block tensor regroupings are used.",
+      "statement_location": {
+        "label": "lem:bell",
+        "line": 799,
+        "section": {
+          "number": "2",
+          "title": "Qualitative realization of unbounded Holevo gaps",
+          "line": 507
+        },
+        "subsection": {
+          "number": "2.2",
+          "title": "The minimum-output-entropy gap",
+          "line": 777
+        },
+        "kind": "lemma",
+        "number": "2.3",
+        "source_page": "manuscript.html#L799"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:local-bell",
+          "line": 806,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.2",
+            "title": "The minimum-output-entropy gap",
+            "line": 777
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L806",
+          "caption": "§2.2 — local Bell-output entropy deficit"
+        },
+        {
+          "label": "eq:bell",
+          "line": 812,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.2",
+            "title": "The minimum-output-entropy gap",
+            "line": 777
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L812",
+          "caption": "§2.2 — tensor-block bound and proof of Lemma 2.3"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:bell",
+          "line": 799,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.2",
+            "title": "The minimum-output-entropy gap",
+            "line": 777
+          },
+          "kind": "lemma",
+          "number": "2.3",
+          "source_page": "manuscript.html#L799"
+        },
+        {
+          "label": "eq:local-bell",
+          "line": 806,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.2",
+            "title": "The minimum-output-entropy gap",
+            "line": 777
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L806"
+        },
+        {
+          "label": "eq:bell",
+          "line": 812,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.2",
+            "title": "The minimum-output-entropy gap",
+            "line": 777
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L812"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-1"
+      ],
+      "reader_page": "results/bell-entropy.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.BellOutput.complementary_bell_entropy_le",
+          "file": "Nonadditivity/BellOutput.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/997830f106645266ed15776c.html",
+          "source_page": "modules/Nonadditivity.BellOutput.html#L303"
+        },
+        {
+          "declaration": "Nonadditivity.BlockBell.block_complementary_bell_entropy_le",
+          "file": "Nonadditivity/BlockBell.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/1a251bbe504b7365dad3aad6.html",
+          "source_page": "modules/Nonadditivity.BlockBell.html#L160"
+        }
+      ]
+    },
+    {
+      "result_id": "weyl-all-uses",
+      "statement_label": "eq:chi-extension",
+      "statement_caption": "§2.3 — Weyl-extension Holevo equality at every positive tensor power",
+      "argument_labels": [
+        {
+          "label": "eq:twirl",
+          "caption": "§2.3 — discrete Weyl averaging identity"
+        },
+        {
+          "label": "eq:extension",
+          "caption": "§2.3 — measured-label channel extension"
+        },
+        {
+          "label": "eq:chi-extension",
+          "caption": "§2.3 — conditioning and uniform-orbit argument for all positive powers"
+        }
+      ],
+      "guides": [
+        "construction",
+        "capacity"
+      ],
+      "concepts": [
+        "weyl-switch",
+        "holevo-information",
+        "output-entropy"
+      ],
+      "stages": [
+        "5"
+      ],
+      "name": "Weyl-extension Holevo equality at every positive tensor power",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "Extends the one-use displayed equality to all positive tensor powers and operational capacity. Lean index n denotes n+1 channel uses. Arbitrary entangled inputs are included; the entropy endpoint is an infimum, without assuming minimum attainment.",
+      "statement_location": {
+        "label": "eq:chi-extension",
+        "line": 927,
+        "section": {
+          "number": "2",
+          "title": "Qualitative realization of unbounded Holevo gaps",
+          "line": 507
+        },
+        "subsection": {
+          "number": "2.3",
+          "title": "Converting the entropy gap into a Holevo gap",
+          "line": 849
+        },
+        "kind": "equation",
+        "number": null,
+        "source_page": "manuscript.html#L927"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:twirl",
+          "line": 903,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L903",
+          "caption": "§2.3 — discrete Weyl averaging identity"
+        },
+        {
+          "label": "eq:extension",
+          "line": 911,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L911",
+          "caption": "§2.3 — measured-label channel extension"
+        },
+        {
+          "label": "eq:chi-extension",
+          "line": 927,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L927",
+          "caption": "§2.3 — conditioning and uniform-orbit argument for all positive powers"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:chi-extension",
+          "line": 927,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L927"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html",
+        "guide/capacity.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-5"
+      ],
+      "reader_page": "results/weyl-all-uses.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits",
+          "file": "Nonadditivity/WeylPowersEntropy.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/b7e16fe7c6b07a1ba22bc14a.html",
+          "source_page": "modules/Nonadditivity.WeylPowersEntropy.html#L85"
+        },
+        {
+          "declaration": "Nonadditivity.WeylPowers.operationalCapacity_weylExtension",
+          "file": "Nonadditivity/OperationalConsequences.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/212725335406d48b1cd82183.html",
+          "source_page": "modules/Nonadditivity.OperationalConsequences.html#L125"
+        }
+      ]
+    },
+    {
+      "result_id": "universal-factorization",
+      "statement_label": "lem:linear",
+      "statement_caption": "Lemma A.2 — factorization over a finite set (nonzero Hilbert spaces)",
+      "argument_labels": [
+        {
+          "label": "app:operators",
+          "caption": "Appendix A — algebraic tools for reducing word length"
+        },
+        {
+          "label": "eq:linear-id",
+          "caption": "§A.2 — representation-independent norm identity and factorization proof"
+        },
+        {
+          "label": "eq:theta",
+          "caption": "§A.2 — scalar bound and error transfer"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "free-haar",
+        "dimension-cost"
+      ],
+      "stages": [
+        "2"
+      ],
+      "name": "Universal finite-set factorization",
+      "status": "proved",
+      "correspondence": "specialization",
+      "scope": "The coefficients and scalar are chosen before the representation. The Hilbert space may be infinite-dimensional and is explicitly required to be nonzero; the additive scalar norm identity need not hold on the zero space. The revised manuscript explicitly includes this qualification.",
+      "statement_location": {
+        "label": "lem:linear",
+        "line": 1873,
+        "section": {
+          "number": "A",
+          "title": "Algebraic tools for reducing the word length",
+          "line": 1823
+        },
+        "subsection": {
+          "number": "A.2",
+          "title": "Factorization and error transfer",
+          "line": 1864
+        },
+        "kind": "lemma",
+        "number": "A.2",
+        "source_page": "manuscript.html#L1873"
+      },
+      "argument_locations": [
+        {
+          "label": "app:operators",
+          "line": 1823,
+          "section": {
+            "number": "A",
+            "title": "Algebraic tools for reducing the word length",
+            "line": 1823
+          },
+          "subsection": null,
+          "kind": "section",
+          "number": "A",
+          "title": "Algebraic tools for reducing the word length",
+          "source_page": "manuscript.html#L1823",
+          "caption": "Appendix A — algebraic tools for reducing word length"
+        },
+        {
+          "label": "eq:linear-id",
+          "line": 1886,
+          "section": {
+            "number": "A",
+            "title": "Algebraic tools for reducing the word length",
+            "line": 1823
+          },
+          "subsection": {
+            "number": "A.2",
+            "title": "Factorization and error transfer",
+            "line": 1864
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1886",
+          "caption": "§A.2 — representation-independent norm identity and factorization proof"
+        },
+        {
+          "label": "eq:theta",
+          "line": 1892,
+          "section": {
+            "number": "A",
+            "title": "Algebraic tools for reducing the word length",
+            "line": 1823
+          },
+          "subsection": {
+            "number": "A.2",
+            "title": "Factorization and error transfer",
+            "line": 1864
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1892",
+          "caption": "§A.2 — scalar bound and error transfer"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:linear",
+          "line": 1873,
+          "section": {
+            "number": "A",
+            "title": "Algebraic tools for reducing the word length",
+            "line": 1823
+          },
+          "subsection": {
+            "number": "A.2",
+            "title": "Factorization and error transfer",
+            "line": 1864
+          },
+          "kind": "lemma",
+          "number": "A.2",
+          "source_page": "manuscript.html#L1873"
+        },
+        {
+          "label": "eq:linear-id",
+          "line": 1886,
+          "section": {
+            "number": "A",
+            "title": "Algebraic tools for reducing the word length",
+            "line": 1823
+          },
+          "subsection": {
+            "number": "A.2",
+            "title": "Factorization and error transfer",
+            "line": 1864
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1886"
+        },
+        {
+          "label": "eq:theta",
+          "line": 1892,
+          "section": {
+            "number": "A",
+            "title": "Algebraic tools for reducing the word length",
+            "line": 1823
+          },
+          "subsection": {
+            "number": "A.2",
+            "title": "Factorization and error transfer",
+            "line": 1864
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1892"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-2"
+      ],
+      "reader_page": "results/universal-factorization.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.UniversalFactorization.exists_universal_factorization",
+          "file": "Nonadditivity/UniversalFactorization.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/d70309497a845e372f39b160.html",
+          "source_page": "modules/Nonadditivity.UniversalFactorization.html#L63"
+        },
+        {
+          "declaration": "Nonadditivity.UniversalFactorization.regular_error_transfer",
+          "file": "Nonadditivity/UniversalFactorization.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/52335f48e156b63bbd4370cd.html",
+          "source_page": "modules/Nonadditivity.UniversalFactorization.html#L43"
+        }
+      ]
+    },
+    {
+      "result_id": "haar-moment-range",
+      "statement_label": "lem:haar",
+      "statement_caption": "Lemma B.1 — one-pair estimate in its proof",
+      "argument_labels": [
+        {
+          "label": "eq:haar-hypotheses",
+          "caption": "§B.1 — original moment range in the two-generator Haar estimate"
+        },
+        {
+          "label": "eq:class-sum",
+          "caption": "§B.1 — one-pair trace estimate for matrix/free-factor coefficients"
+        },
+        {
+          "label": "eq:class-count",
+          "caption": "§B.1 — repaired weighted class enumeration"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "free-haar",
+        "finite-moments"
+      ],
+      "stages": [
+        "2",
+        "3"
+      ],
+      "name": "One-pair Haar estimate at the original moment range",
+      "status": "proved",
+      "correspondence": "specialization",
+      "scope": "The actual one-pair trace bound is proved when the true matrix dimension D=N+1 satisfies D >= 2^32 p^80. It supplies the premise of the iterated estimate for finite matrix coefficients and remaining free-group factors. The abstract arbitrary traced C*-algebra formulation is outside the formalized scope. The revised manuscript restricts its one-pair argument to finite-support matrix/free-factor polynomials in the iteration algebras.",
+      "statement_location": {
+        "label": "lem:haar",
+        "line": 1996,
+        "section": {
+          "number": "B",
+          "title": "The random-matrix estimate and parameter bounds",
+          "line": 1991
+        },
+        "subsection": {
+          "number": "B.1",
+          "title": "The two-generator Haar estimate",
+          "line": 1994
+        },
+        "kind": "lemma",
+        "number": "B.1",
+        "source_page": "manuscript.html#L1996"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:haar-hypotheses",
+          "line": 2007,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2007",
+          "caption": "§B.1 — original moment range in the two-generator Haar estimate"
+        },
+        {
+          "label": "eq:class-sum",
+          "line": 2140,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2140",
+          "caption": "§B.1 — one-pair trace estimate for matrix/free-factor coefficients"
+        },
+        {
+          "label": "eq:class-count",
+          "line": 2233,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2233",
+          "caption": "§B.1 — repaired weighted class enumeration"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:haar",
+          "line": 1996,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "lemma",
+          "number": "B.1",
+          "source_page": "manuscript.html#L1996"
+        },
+        {
+          "label": "eq:haar-hypotheses",
+          "line": 2007,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2007"
+        },
+        {
+          "label": "eq:path-weight",
+          "line": 2084,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2084"
+        },
+        {
+          "label": "eq:class-sum",
+          "line": 2140,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2140"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-2",
+        "route.html#stage-3"
+      ],
+      "reader_page": "results/haar-moment-range.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarSharpBound.onePairTraceBound",
+          "file": "Nonadditivity/HaarSharpBound.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/df17d582bfe3c1fa86014c34.html",
+          "source_page": "modules/Nonadditivity.HaarSharpBound.html#L92"
+        },
+        {
+          "declaration": "Nonadditivity.HaarIteratedMoments.iteratedExpectation_le",
+          "file": "Nonadditivity/HaarIteratedExpectation.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/ff528e0a2e85cc7e9c8ce493.html",
+          "source_page": "modules/Nonadditivity.HaarIteratedExpectation.html#L21"
+        }
+      ]
+    },
+    {
+      "result_id": "favorable-probability",
+      "statement_label": "eq:positive-probability",
+      "statement_caption": "§3.4 — explicit favorable-realization probability",
+      "argument_labels": [
+        {
+          "label": "sec:finish-finite",
+          "caption": "§3.4 — apply the random-matrix estimate"
+        },
+        {
+          "label": "app:haar-error",
+          "caption": "§B.3 — verify the final norm error"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "free-haar",
+        "adjoint-certificate"
+      ],
+      "stages": [
+        "4"
+      ],
+      "name": "Explicit favorable-realization probability",
+      "status": "proved",
+      "correspondence": "exact_endpoint",
+      "scope": "The probability is at least epsilon/(2(1+epsilon)); the specialized Haar theorem discharges the required expectation estimate.",
+      "statement_location": {
+        "label": "eq:positive-probability",
+        "line": 1743,
+        "section": {
+          "number": "3",
+          "title": "Quantitative finite-dimensional approximation",
+          "line": 1057
+        },
+        "subsection": {
+          "number": "3.4",
+          "title": "Step 4: apply the random-matrix estimate",
+          "line": 1686
+        },
+        "kind": "equation",
+        "number": null,
+        "source_page": "manuscript.html#L1743"
+      },
+      "argument_locations": [
+        {
+          "label": "sec:finish-finite",
+          "line": 1686,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": {
+            "number": "3.4",
+            "title": "Step 4: apply the random-matrix estimate",
+            "line": 1686
+          },
+          "kind": "section",
+          "number": "3.4",
+          "title": "Step 4: apply the random-matrix estimate",
+          "source_page": "manuscript.html#L1686",
+          "caption": "§3.4 — apply the random-matrix estimate"
+        },
+        {
+          "label": "app:haar-error",
+          "line": 2473,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.3",
+            "title": "Verification of the final norm error",
+            "line": 2473
+          },
+          "kind": "section",
+          "number": "B.3",
+          "title": "Verification of the final norm error",
+          "source_page": "manuscript.html#L2473",
+          "caption": "§B.3 — verify the final norm error"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:positive-probability",
+          "line": 1743,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": {
+            "number": "3.4",
+            "title": "Step 4: apply the random-matrix estimate",
+            "line": 1686
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L1743"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-4"
+      ],
+      "reader_page": "results/favorable-probability.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.Probability.favorable_realization_probability",
+          "file": "Nonadditivity/ProbabilityQuantitative.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/7c49281ac44dbb162c2bc9eb.html",
+          "source_page": "modules/Nonadditivity.ProbabilityQuantitative.html#L20"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.prescribed_polynomial_favorable_probability",
+          "file": "Nonadditivity/HaarPrescribedProbability.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/d5d2aa1b4f745ae9ed3bee6b.html",
+          "source_page": "modules/Nonadditivity.HaarPrescribedProbability.html#L19"
+        }
+      ]
+    },
+    {
+      "result_id": "correction-important-times",
+      "statement_label": "eq:class-count",
+      "statement_caption": "Lemma B.1 proof — corrected important-time count and class enumeration",
+      "argument_labels": [
+        {
+          "label": "lem:haar",
+          "caption": "§B.1 — weighted class enumeration in the proof of the Haar estimate"
+        },
+        {
+          "label": "eq:class-count",
+          "caption": "§B.1 — corrected chronological encoding and refined-class count"
+        }
+      ],
+      "guides": [
+        "construction",
+        "reading-lean"
+      ],
+      "concepts": [
+        "finite-moments"
+      ],
+      "stages": [
+        "3"
+      ],
+      "name": "Corrected important-exploration-time count",
+      "status": "corrected",
+      "correspondence": "corrected_proof",
+      "scope": "The closed reduced generator-balanced six-step word abaBAA has integer defect delta=length+singletons-2*vertices=2 and four important times. The bound delta+1 fails even excluding the final traversal; delta+2 is proved. The weighted chronological encoding preserves the final moment threshold. This repairs an intermediate counting claim used in the manuscript proof, not the main channel statement. The revised manuscript incorporates this repair.",
+      "statement_location": {
+        "label": "eq:class-count",
+        "line": 2233,
+        "section": {
+          "number": "B",
+          "title": "The random-matrix estimate and parameter bounds",
+          "line": 1991
+        },
+        "subsection": {
+          "number": "B.1",
+          "title": "The two-generator Haar estimate",
+          "line": 1994
+        },
+        "kind": "equation",
+        "number": null,
+        "source_page": "manuscript.html#L2233"
+      },
+      "argument_locations": [
+        {
+          "label": "lem:haar",
+          "line": 1996,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "lemma",
+          "number": "B.1",
+          "source_page": "manuscript.html#L1996",
+          "caption": "§B.1 — weighted class enumeration in the proof of the Haar estimate"
+        },
+        {
+          "label": "eq:class-count",
+          "line": 2233,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2233",
+          "caption": "§B.1 — corrected chronological encoding and refined-class count"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:haar",
+          "line": 1996,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "lemma",
+          "number": "B.1",
+          "source_page": "manuscript.html#L1996"
+        },
+        {
+          "label": "app:finite-threshold",
+          "line": 1991,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": null,
+          "kind": "section",
+          "number": "B",
+          "title": "The random-matrix estimate and parameter bounds",
+          "source_page": "manuscript.html#L1991"
+        },
+        {
+          "label": "eq:class-count",
+          "line": 2233,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2233"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html",
+        "guide/reading-lean.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-3"
+      ],
+      "reader_page": "results/correction-important-times.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPathExplorationCounterexample.violates_uncorrected_important_bound",
+          "file": "Nonadditivity/HaarPathExplorationCounterexample.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/53566e9d83862839c46c98fc.html",
+          "source_page": "modules/Nonadditivity.HaarPathExplorationCounterexample.html#L40"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPathExplorationCounterexample.attains_corrected_important_bound",
+          "file": "Nonadditivity/HaarPathExplorationCounterexample.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/fbd82f4ffb0d06d1fbaf5669.html",
+          "source_page": "modules/Nonadditivity.HaarPathExplorationCounterexample.html#L44"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPathGraph.Path.card_importantTimes_le",
+          "file": "Nonadditivity/HaarPathExploration.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/d3fcdf50afa02a67d6998df1.html",
+          "source_page": "modules/Nonadditivity.HaarPathExploration.html#L203"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPathClasses.card_defectClass_weighted_le",
+          "file": "Nonadditivity/HaarSharpCounting.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/99e8bb6aae7f7741f1f4deef.html",
+          "source_page": "modules/Nonadditivity.HaarSharpCounting.html#L97"
+        }
+      ]
+    },
+    {
+      "result_id": "correction-middle-runs",
+      "statement_label": "eq:coefficient-sum",
+      "statement_caption": "Lemma B.1 proof — corrected marked blocks and coefficient sums",
+      "argument_labels": [
+        {
+          "label": "lem:haar",
+          "caption": "§B.1 — coefficient-sum argument in the proof of the Haar estimate"
+        },
+        {
+          "label": "eq:coefficient-sum",
+          "caption": "§B.1 — marked factors and the repaired composition exponent"
+        }
+      ],
+      "guides": [
+        "construction",
+        "reading-lean"
+      ],
+      "concepts": [
+        "finite-moments"
+      ],
+      "stages": [
+        "3"
+      ],
+      "name": "Corrected marked-position and middle-run accounting",
+      "status": "corrected",
+      "correspondence": "corrected_proof",
+      "scope": "Marker flags [true,false,false,true,false,true,false,true] have four marked positions and three middle runs: seven blocks, exceeding 3*2. Charge a middle run to its following marker and moment-order factors only at marked positions. The proved grouped coefficient exponent is 9*delta+11. The revised manuscript incorporates this repair.",
+      "statement_location": {
+        "label": "eq:coefficient-sum",
+        "line": 2151,
+        "section": {
+          "number": "B",
+          "title": "The random-matrix estimate and parameter bounds",
+          "line": 1991
+        },
+        "subsection": {
+          "number": "B.1",
+          "title": "The two-generator Haar estimate",
+          "line": 1994
+        },
+        "kind": "equation",
+        "number": null,
+        "source_page": "manuscript.html#L2151"
+      },
+      "argument_locations": [
+        {
+          "label": "lem:haar",
+          "line": 1996,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "lemma",
+          "number": "B.1",
+          "source_page": "manuscript.html#L1996",
+          "caption": "§B.1 — coefficient-sum argument in the proof of the Haar estimate"
+        },
+        {
+          "label": "eq:coefficient-sum",
+          "line": 2151,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2151",
+          "caption": "§B.1 — marked factors and the repaired composition exponent"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:haar",
+          "line": 1996,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "lemma",
+          "number": "B.1",
+          "source_page": "manuscript.html#L1996"
+        },
+        {
+          "label": "app:finite-threshold",
+          "line": 1991,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": null,
+          "kind": "section",
+          "number": "B",
+          "title": "The random-matrix estimate and parameter bounds",
+          "source_page": "manuscript.html#L1991"
+        },
+        {
+          "label": "eq:coefficient-sum",
+          "line": 2151,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L2151"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html",
+        "guide/reading-lean.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-3"
+      ],
+      "reader_page": "results/correction-middle-runs.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarPathRunCounterexample.violates_uncorrected_run_bound",
+          "file": "Nonadditivity/HaarPathRunCounterexample.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/12ef5a736e33fc3d930e10fc.html",
+          "source_page": "modules/Nonadditivity.HaarPathRunCounterexample.html#L43"
+        },
+        {
+          "declaration": "Nonadditivity.HaarPathRuns.two_edge_run_counterexample",
+          "file": "Nonadditivity/HaarPathRuns.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/216a0451391bfef70ad71d23.html",
+          "source_page": "modules/Nonadditivity.HaarPathRuns.html#L147"
+        },
+        {
+          "declaration": "Nonadditivity.HaarMarkedCompositions.corrected_marked_sum_le",
+          "file": "Nonadditivity/HaarMarkedCompositions.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/3cd5b2027828c75d5aa2c28e.html",
+          "source_page": "modules/Nonadditivity.HaarMarkedCompositions.html#L91"
+        },
+        {
+          "declaration": "Nonadditivity.HaarOperatorPathBridge.coefficient_bound",
+          "file": "Nonadditivity/HaarRefinedCoefficientBound.lean",
+          "role": "theorem",
+          "kind": "theorem",
+          "page": "declarations/af212ad5e405403a8873fad3.html",
+          "source_page": "modules/Nonadditivity.HaarRefinedCoefficientBound.html#L30"
+        }
+      ]
+    },
+    {
+      "result_id": "undamped-all-dimensions",
+      "statement_label": "lem:cy",
+      "statement_caption": "Lemma 2.1 — broader finite-dimensional assertion (not formalized)",
+      "argument_labels": [
+        {
+          "label": "eq:norm-certificate",
+          "caption": "§2.1 — certificate for every kappa > 1 and all sufficiently large dimensions"
+        },
+        {
+          "label": "prop:finite",
+          "caption": "Proposition 3.1 — proved prescribed-dimension alternative, a different scope"
+        }
+      ],
+      "guides": [
+        "construction",
+        "reading-lean"
+      ],
+      "concepts": [
+        "free-haar",
+        "adjoint-certificate"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "Undamped realization in every sufficiently large dimension",
+      "status": "not_formalized",
+      "correspondence": "broader_unformalized",
+      "scope": "The stated generality for every kappa > 1 and all sufficiently large integer dimensions has not been formalized. The prescribed-dimension and alternative qualitative endpoints are proved and do not assume this broader claim.",
+      "statement_location": {
+        "label": "lem:cy",
+        "line": 604,
+        "section": {
+          "number": "2",
+          "title": "Qualitative realization of unbounded Holevo gaps",
+          "line": 507
+        },
+        "subsection": {
+          "number": "2.1",
+          "title": "Finite-dimensional block channels and their entropy bound",
+          "line": 522
+        },
+        "kind": "lemma",
+        "number": "2.1",
+        "source_page": "manuscript.html#L604"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:norm-certificate",
+          "line": 626,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L626",
+          "caption": "§2.1 — certificate for every kappa > 1 and all sufficiently large dimensions"
+        },
+        {
+          "label": "prop:finite",
+          "line": 1065,
+          "section": {
+            "number": "3",
+            "title": "Quantitative finite-dimensional approximation",
+            "line": 1057
+          },
+          "subsection": null,
+          "kind": "proposition",
+          "number": "3.1",
+          "source_page": "manuscript.html#L1065",
+          "caption": "Proposition 3.1 — proved prescribed-dimension alternative, a different scope"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:cy",
+          "line": 604,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "lemma",
+          "number": "2.1",
+          "source_page": "manuscript.html#L604"
+        },
+        {
+          "label": "eq:norm-certificate",
+          "line": 626,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L626"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html",
+        "guide/reading-lean.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/undamped-all-dimensions.html",
+      "lean": []
+    },
+    {
+      "result_id": "generic-haar-convergence",
+      "statement_label": "lem:cy",
+      "statement_caption": "Lemma 2.1 proof — generic strong-convergence background (interfaces only)",
+      "argument_labels": [
+        {
+          "label": "sec:finite-entropy",
+          "caption": "§2.1 — cited strong convergence used in the finite-realization argument"
+        },
+        {
+          "label": "lem:haar",
+          "caption": "Lemma B.1 — specialized finite Haar estimate, distinct from a generic convergence theorem"
+        }
+      ],
+      "guides": [
+        "construction",
+        "reading-lean"
+      ],
+      "concepts": [
+        "free-haar"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "Generic Haar-convergence interfaces",
+      "status": "not_formalized",
+      "correspondence": "broader_unformalized",
+      "scope": "These are explicit predicates/conditional interfaces, not theorems of convergence and not axioms. They are not hypotheses of the completed principal endpoints.",
+      "statement_location": {
+        "label": "lem:cy",
+        "line": 604,
+        "section": {
+          "number": "2",
+          "title": "Qualitative realization of unbounded Holevo gaps",
+          "line": 507
+        },
+        "subsection": {
+          "number": "2.1",
+          "title": "Finite-dimensional block channels and their entropy bound",
+          "line": 522
+        },
+        "kind": "lemma",
+        "number": "2.1",
+        "source_page": "manuscript.html#L604"
+      },
+      "argument_locations": [
+        {
+          "label": "sec:finite-entropy",
+          "line": 522,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "section",
+          "number": "2.1",
+          "title": "Finite-dimensional block channels and their entropy bound",
+          "source_page": "manuscript.html#L522",
+          "caption": "§2.1 — cited strong convergence used in the finite-realization argument"
+        },
+        {
+          "label": "lem:haar",
+          "line": 1996,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "lemma",
+          "number": "B.1",
+          "source_page": "manuscript.html#L1996",
+          "caption": "Lemma B.1 — specialized finite Haar estimate, distinct from a generic convergence theorem"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "lem:cy",
+          "line": 604,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.1",
+            "title": "Finite-dimensional block channels and their entropy bound",
+            "line": 522
+          },
+          "kind": "lemma",
+          "number": "2.1",
+          "source_page": "manuscript.html#L604"
+        },
+        {
+          "label": "lem:haar",
+          "line": 1996,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "lemma",
+          "number": "B.1",
+          "source_page": "manuscript.html#L1996"
+        }
+      ],
+      "guide_pages": [
+        "guide/construction.html",
+        "guide/reading-lean.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/generic-haar-convergence.html",
+      "lean": [
+        {
+          "declaration": "Nonadditivity.HaarModel.HaarStrongConvergence",
+          "file": "Nonadditivity/HaarModel.lean",
+          "role": "unproved_predicate",
+          "kind": "definition",
+          "page": "declarations/b7192ced29edde993331ca50.html",
+          "source_page": "modules/Nonadditivity.HaarModel.html#L150"
+        },
+        {
+          "declaration": "Nonadditivity.HaarConsequences.AllHaarStrongConvergence",
+          "file": "Nonadditivity/HaarConsequences.lean",
+          "role": "unproved_predicate",
+          "kind": "definition",
+          "page": "declarations/e1a3f381893e85db300aa4a0.html",
+          "source_page": "modules/Nonadditivity.HaarConsequences.html#L21"
+        },
+        {
+          "declaration": "Nonadditivity.UpperHaarRealization.HaarUpperConvergence",
+          "file": "Nonadditivity/UpperHaarRealization.lean",
+          "role": "unproved_predicate",
+          "kind": "definition",
+          "page": "declarations/b3255d1579856585576053b4.html",
+          "source_page": "modules/Nonadditivity.UpperHaarRealization.html#L76"
+        },
+        {
+          "declaration": "Nonadditivity.UpperHaarRealization.HaarTraceMomentControl",
+          "file": "Nonadditivity/UpperHaarRealization.lean",
+          "role": "unproved_predicate",
+          "kind": "definition",
+          "page": "declarations/9ac82928b324083467d852bf.html",
+          "source_page": "modules/Nonadditivity.UpperHaarRealization.html#L88"
+        }
+      ]
+    },
+    {
+      "result_id": "background-generality",
+      "statement_label": "eq:def-smin",
+      "statement_caption": "§1 and §2.3 — remaining background claims (not separately formalized)",
+      "argument_labels": [
+        {
+          "label": "eq:def-smin",
+          "caption": "§1 — minimum output entropy and pure-input attainment"
+        },
+        {
+          "label": "cor:capacity",
+          "caption": "Corollary 1.2 proof — zero Holevo information implies constant output"
+        },
+        {
+          "label": "eq:chi-extension",
+          "caption": "§2.3 — extension to distinct channels beyond the proved same-channel powers"
+        }
+      ],
+      "guides": [
+        "reading-lean",
+        "capacity"
+      ],
+      "concepts": [
+        "output-entropy",
+        "weyl-switch",
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ],
+      "name": "Remaining background generalizations",
+      "status": "not_formalized",
+      "correspondence": "broader_unformalized",
+      "scope": "Not separately formalized: pure-input attainment of minimum output entropy; zero Holevo information implies constant output; a standalone Weyl equality for two distinct channels of different output dimensions. The completed proof uses entropy infima, direct same-witness positivity, actual coefficient-algebra specializations, and all positive powers of one channel. The revised manuscript explicitly excludes arbitrary traced C*-algebra coefficients from its one-pair claim.",
+      "statement_location": {
+        "label": "eq:def-smin",
+        "line": 96,
+        "section": {
+          "number": "1",
+          "title": "Introduction and main results",
+          "line": 66
+        },
+        "subsection": null,
+        "kind": "align",
+        "number": null,
+        "source_page": "manuscript.html#L96"
+      },
+      "argument_locations": [
+        {
+          "label": "eq:def-smin",
+          "line": 96,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "align",
+          "number": null,
+          "source_page": "manuscript.html#L96",
+          "caption": "§1 — minimum output entropy and pure-input attainment"
+        },
+        {
+          "label": "cor:capacity",
+          "line": 325,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.2",
+          "source_page": "manuscript.html#L325",
+          "caption": "Corollary 1.2 proof — zero Holevo information implies constant output"
+        },
+        {
+          "label": "eq:chi-extension",
+          "line": 927,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L927",
+          "caption": "§2.3 — extension to distinct channels beyond the proved same-channel powers"
+        }
+      ],
+      "manuscript_locations": [
+        {
+          "label": "eq:def-smin",
+          "line": 96,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "align",
+          "number": null,
+          "source_page": "manuscript.html#L96"
+        },
+        {
+          "label": "lem:haar",
+          "line": 1996,
+          "section": {
+            "number": "B",
+            "title": "The random-matrix estimate and parameter bounds",
+            "line": 1991
+          },
+          "subsection": {
+            "number": "B.1",
+            "title": "The two-generator Haar estimate",
+            "line": 1994
+          },
+          "kind": "lemma",
+          "number": "B.1",
+          "source_page": "manuscript.html#L1996"
+        },
+        {
+          "label": "eq:chi-extension",
+          "line": 927,
+          "section": {
+            "number": "2",
+            "title": "Qualitative realization of unbounded Holevo gaps",
+            "line": 507
+          },
+          "subsection": {
+            "number": "2.3",
+            "title": "Converting the entropy gap into a Holevo gap",
+            "line": 849
+          },
+          "kind": "equation",
+          "number": null,
+          "source_page": "manuscript.html#L927"
+        },
+        {
+          "label": "cor:capacity",
+          "line": 325,
+          "section": {
+            "number": "1",
+            "title": "Introduction and main results",
+            "line": 66
+          },
+          "subsection": null,
+          "kind": "corollary",
+          "number": "1.2",
+          "source_page": "manuscript.html#L325"
+        }
+      ],
+      "guide_pages": [
+        "guide/reading-lean.html",
+        "guide/capacity.html"
+      ],
+      "stage_pages": [
+        "route.html#stage-7"
+      ],
+      "reader_page": "results/background-generality.html",
+      "lean": []
+    }
+  ]
+}

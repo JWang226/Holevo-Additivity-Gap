@@ -25,6 +25,7 @@ from pathlib import Path, PurePosixPath
 import re
 import sys
 from urllib.parse import unquote, urlsplit
+from correspondence import manuscript_locations, validate_correspondence
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -37,6 +38,7 @@ SITE = "https://JWang226.github.io/Holevo-Additivity-Gap/"
 COPYRIGHT = "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved."
 NAV = [("Overview", "index.html"), ("Start here", "guide/introduction.html"),
        ("Concepts", "concepts/index.html"), ("Results", "results.html"),
+       ("Paper ↔ Lean", "correspondence.html"),
        ("Proof route", "route.html"), ("Verify", "verify.html")]
 LEAN_NAV = [("Proof map", "dependencies.html"), ("Declarations", "declarations.html"),
             ("Modules", "modules.html"), ("Imports", "imports.html"),
@@ -264,6 +266,12 @@ class Site:
                 self.read(rel)
         self.read("tools/docs-site/math.js")
         self.load_reader()
+        self.manuscript_source = self.read(self.meta["manuscript"]["file"])
+        self.manuscript_locations = manuscript_locations(self.manuscript_source)
+        self.correspondence = json.loads(self.read("tools/docs-site/correspondence.json"))
+        validate_correspondence(self.correspondence, self.results, self.manuscript_locations, self.reader)
+        for name in ("correspondence.py", "correspondence.css", "correspondence.js"):
+            self.read("tools/docs-site/" + name)
 
     def load_reader(self) -> None:
         self.reader = json.loads(self.read("tools/docs-site/reader/index.json"))
@@ -490,13 +498,14 @@ class Site:
     def tag(self, status: str) -> str:
         return f'<span class="tag {status.replace("_", "-")}">{esc(status.replace("_", " "))}</span>'
 
-    def page(self, path: str, title: str, content: str, active: str, wide: bool = False, extra_scripts: tuple[str, ...] = ()) -> None:
+    def page(self, path: str, title: str, content: str, active: str, wide: bool = False, extra_scripts: tuple[str, ...] = (), extra_styles: tuple[str, ...] = ()) -> None:
         root = "../" * (len(PurePosixPath(path).parts) - 1)
         nav = "".join(f'<a href="{root + url}"' + (' aria-current="page"' if label == active else "") + f'>{label}</a>' for label, url in NAV)
         technical = "".join(f'<a href="{root + url}"' + (' aria-current="page"' if label == active or (label == "Proof map" and active == "Dependencies") else "") + f'>{label}</a>' for label, url in LEAN_NAV)
         has_math = 'class="math-inline"' in content or 'class="math-display"' in content
         math_head = f'<link rel="stylesheet" href="{root}assets/katex/katex.min.css">' if has_math else ""
         math_scripts = f'<script defer src="{root}assets/katex/katex.min.js"></script><script defer src="{root}assets/math.js"></script>' if has_math else ""
+        style_head = ''.join(f'<link rel="stylesheet" href="{root + style}">' for style in extra_styles)
         footer = '<p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p>'
         footer += '<p>Lean 4.29.0-rc6 · Mathlib <code>f156f7ab…</code> · Only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> permitted in solution dependencies.</p>'
         footer += '<p class="footer-links">' + self.link("about.html", "About these pages", path) + self.link("generation.json", "Generation record", path) + f'<a href="{REPO}">GitHub repository</a></p>'
@@ -504,7 +513,7 @@ class Site:
 <!-- {COPYRIGHT} See COPYRIGHT.md for attribution. -->
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A reader guide to Lean proofs of Holevo additivity gaps, exact source statements, and reproducible verification.">
-<title>{esc(title)} · Holevo Additivity Gap</title><link rel="stylesheet" href="{root}assets/site.css">{math_head}{math_scripts}</head>
+<title>{esc(title)} · Holevo Additivity Gap</title><link rel="stylesheet" href="{root}assets/site.css">{style_head}{math_head}{math_scripts}</head>
 <body data-root="{root}"><header class="top"><div class="top-inner">
 <a class="brand" href="{root}index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
 <nav aria-label="Main navigation">{nav}</nav><h2 class="lean-explorer-heading" id="lean-explorer-heading">Lean explorer</h2><nav class="technical-nav" aria-labelledby="lean-explorer-heading">{technical}</nav>
@@ -627,6 +636,7 @@ class Site:
     def build_results(self) -> None:
         page = "results.html"
         content = '<p class="eyebrow">Statements, significance, and proof ideas</p><h1>The results explained.</h1><p class="lead">Read each result as mathematics, then open its corresponding Lean statement. The main channel theorem, coding theorem, scaling laws, and intermediate estimates are explained here.</p><p>Entries also identify corrected arguments and broader claims whose formalization remains open.</p>'
+        content += '<p>' + self.link("correspondence.html", "Browse the manuscript-to-Lean map →", page) + '</p>'
         content += '<input class="filter" aria-label="Filter result catalog" placeholder="Filter by result, paper label, or declaration…" data-filter=".catalog-item" data-status="catalog-status"><p class="small muted" id="catalog-status">25 correspondence records</p>'
         for result in self.results:
             terms = result["name"] + " " + " ".join(result["paper"]["labels"]) + " " + " ".join(x["declaration"] for x in result["lean"])
@@ -648,7 +658,7 @@ class Site:
         content += '<div class="label-list">' + ''.join('<code>' + esc(x) + '</code>' for x in result["paper"]["labels"]) + '</div>'
         if result["paper"].get("locator"):
             content += '<p>' + esc(result["paper"]["locator"]) + '</p>'
-        content += '<p class="small muted">The included manuscript is the revised source incorporating the two counting repairs. Correspondence entries are reading aids rather than an exhaustive statement-equivalence certificate.</p><p>' + self.link("source/paper/nonadditivity.tex", "Revised manuscript source", page) + ' · ' + self.link("source/metadata/results.json", "Correspondence metadata", page) + '</p>'
+        content += '<p class="small muted">The included manuscript is the revised source incorporating the two counting repairs. Correspondence entries are reading aids rather than an exhaustive statement-equivalence certificate.</p><p>' + self.link("correspondence.html#" + result["id"], "Manuscript-to-Lean map", page) + ' · ' + self.link("source/paper/nonadditivity.tex", "Revised manuscript source", page) + ' · ' + self.link("source/metadata/results.json", "Correspondence metadata", page) + '</p>'
         if result.get("comparator_config"):
             content += '<p class="small">Comparator configuration: ' + self.link("source/" + result["comparator_config"], '<code>' + esc(result["comparator_config"]) + '</code>', page) + '. Portable statement comparison, Lean replay, and Nanoda checking passed for this configuration.</p>'
         if result["lean"]:
@@ -673,6 +683,104 @@ class Site:
         content += '<p>' + self.link("verify.html", "Verification and trust limits", page) + ' · ' + self.link(self.doc_url("docs/FORMALIZATION_STATUS.md"), "Full scope statement", page) + '</p>'
         self.search.append({"title": result["name"], "detail": result["status"].replace("_", " ") + " · " + explanation["summary"], "url": page, "search": (result["name"] + " " + result["id"] + " " + " ".join(result["paper"]["labels"]) + " " + self.reader_text[explanation["source"]]).lower(), "reader": True})
         self.page(page, result["name"], content, "Results")
+
+    def manuscript_link(self, label: str, caption: str, page: str) -> str:
+        location = self.manuscript_locations[label]
+        return self.link("manuscript.html#L" + str(location["line"]), esc(caption), page)
+
+    def build_correspondence(self) -> None:
+        page = "correspondence.html"
+        counts = {status: sum(result["status"] == status for result in self.results)
+                  for status in ("proved", "corrected", "not_formalized")}
+        references = [ref for result in self.results for ref in result["lean"]]
+        theorem_count = sum(ref["role"] == "theorem" for ref in references)
+        predicate_count = len(references) - theorem_count
+        content = '<section id="manuscript-correspondence"><p class="eyebrow">Manuscript → guide → formal statement</p><h1>Manuscript-to-Lean map</h1><p class="lead">Find a manuscript claim, follow its informal argument, and inspect the Lean declarations that represent it.</p>'
+        content += f'<p>This map covers {len(self.results)} selected claims and proof ingredients. Numbers and source locations refer to the revised manuscript included in this repository, which incorporates the two counting repairs; the arXiv version may differ. <a href="https://arxiv.org/abs/2609.18222">Read the arXiv paper</a> or ' + self.link("manuscript.html", "browse the revised source", page) + '.</p>'
+        content += '<div class="correspondence-summary">' + ''.join('<span><strong>' + str(counts[status]) + '</strong> ' + esc(status.replace('_', ' ')) + '</span>' for status in counts) + '</div>'
+        content += f'<p class="small">The {len(references)} mapped declaration references include {theorem_count} theorems and {predicate_count} unproved predicates. The full manuscript is not formalized. Each row states its scope and whether the formalization uses an alternative argument, a specialization, or a corrected proof. Lean checks the formal statements; this reading map does not certify English–Lean equivalence.</p>'
+        content += '<p class="small">' + self.link("correspondence-map.json", "Download the correspondence data", page) + ' · ' + self.link(self.doc_url("docs/PROOF_MAP.md"), "Detailed repository proof map", page) + ' · ' + self.link("verify.html", "Verification evidence", page) + '</p>'
+        content += '<div id="correspondence-controls" hidden role="search" aria-label="Filter manuscript correspondences"><label>Find a claim<input id="correspondence-query" type="search" placeholder="Theorem, label, concept, or Lean name…" autocomplete="off"></label><label>Formalization status<select id="correspondence-status"><option value="all">All records</option><option value="proved">Proved</option><option value="corrected">Corrected proof</option><option value="not_formalized">Not formalized</option></select></label><button id="correspondence-reset" type="button">Reset</button></div>'
+        content += f'<p id="correspondence-count" aria-live="polite">{len(self.results)} correspondence records</p><p id="correspondence-empty" hidden>No matching records. Clear the search or choose another status.</p><div class="correspondence-table-wrap" tabindex="0" role="region" aria-label="Manuscript-to-Lean correspondence table; scroll horizontally on a narrow screen"><table class="correspondence-table"><thead><tr><th scope="col">Manuscript statement</th><th scope="col">Manuscript argument</th><th scope="col">Informal proof guide</th><th scope="col">Lean statements and scope</th></tr></thead><tbody>'
+        records = []
+        for entry, result in zip(self.correspondence["entries"], self.results):
+            result_id = result["id"]
+            terms = ' '.join([result["name"], result_id, result["notes"], result["correspondence"],
+                              entry["statement_caption"], *result["paper"]["labels"],
+                              *(ref["declaration"] for ref in result["lean"]),
+                              *(item["caption"] for item in entry["argument_labels"]),
+                              *entry["concepts"]])
+            content += '<tr id="' + esc(result_id) + '" data-correspondence-row data-proof-status="' + esc(result["status"]) + '" data-search="' + esc(terms) + '"><td><div class="correspondence-claim">' + self.manuscript_link(entry["statement_label"], entry["statement_caption"], page) + '</div><p>' + esc(result["name"]) + '</p>' + self.tag(result["status"])
+            content += '<div class="correspondence-labels">' + ' '.join(self.manuscript_link(label, label, page) for label in result["paper"]["labels"]) + '</div></td><td><ul>'
+            content += ''.join('<li>' + self.manuscript_link(item["label"], item["caption"], page) + '</li>' for item in entry["argument_labels"]) + '</ul></td><td><p>' + self.link("results/" + result_id + ".html", "Statement and proof idea", page) + '</p><ul>'
+            for guide_id in entry["guides"]:
+                guide = self.reader_item("guides", guide_id)
+                content += '<li>' + self.link(guide["page"], esc(guide["title"]), page) + '</li>'
+            content += '</ul><p class="small">Proof route: ' + ' · '.join(self.link("route.html#stage-" + stage_id, "Stage " + stage_id, page) for stage_id in entry["stages"]) + '</p></td><td>'
+            declaration_records = []
+            if result["lean"]:
+                content += '<ul class="correspondence-declarations">'
+                for ref in result["lean"]:
+                    name = ref["declaration"]
+                    _, line = self.headers[name]
+                    source = self.module_url(ref["file"][:-5].replace("/", ".")) + (f'#L{line}' if line else '')
+                    content += '<li>' + self.declaration_link(name, page)
+                    if ref["role"] != "theorem":
+                        content += ' <span class="tag not-formalized">Unproved predicate</span>'
+                    content += '<div class="correspondence-source">' + self.link(source, "Source", page) + '</div></li>'
+                    declaration_records.append({**ref, "kind": self.declarations[name]["kind"],
+                                                "page": self.declaration_urls[name], "source_page": source})
+                content += '</ul>'
+            else:
+                content += '<p>No formal declaration is mapped to this broader claim.</p>'
+            content += '<p class="correspondence-scope"><strong>' + esc(result["correspondence"].replace('_', ' ').capitalize()) + '.</strong> ' + esc(result["notes"]) + '</p>'
+            if result.get("comparator_config"):
+                content += '<p class="small">' + self.link("source/" + result["comparator_config"], "Expected-statement challenge", page) + '</p>'
+            content += '</td></tr>'
+            records.append({**entry, "name": result["name"], "status": result["status"],
+                            "correspondence": result["correspondence"], "scope": result["notes"],
+                            "statement_location": self.manuscript_location(entry["statement_label"]),
+                            "argument_locations": [{**self.manuscript_location(item["label"]), "caption": item["caption"]}
+                                                   for item in entry["argument_labels"]],
+                            "manuscript_locations": [self.manuscript_location(label) for label in result["paper"]["labels"]],
+                            "guide_pages": [self.reader_item("guides", guide_id)["page"] for guide_id in entry["guides"]],
+                            "stage_pages": ["route.html#stage-" + stage_id for stage_id in entry["stages"]],
+                            "reader_page": "results/" + result_id + ".html", "lean": declaration_records})
+        content += '</tbody></table></div><h2 id="guide-crosswalk">Where the reading guide meets the manuscript</h2><div class="table-scroll"><table><thead><tr><th>Guide chapter</th><th>Manuscript passages</th></tr></thead><tbody>'
+        crosswalk = {"introduction": [("sec:introduction", "§1 · introduction and main results")],
+                     "construction": [("sec:entropy", "§2 · qualitative channel construction"), ("sec:approximation", "§3 · quantitative approximation"), ("app:operators", "Appendix A · algebraic tools"), ("app:finite-threshold", "Appendix B · Haar estimates and parameters")],
+                     "capacity": [("eq:capacity", "§1 · cited coding identity"), ("cor:capacity", "Corollary 1.2 · capacity consequences"), ("sec:conversion", "§2.3 · conversion to Holevo information")],
+                     "scaling": [("eq:scaling", "§1 · scaling remark"), ("rem:separation-cost", "Remark 1.4 · actual input costs")],
+                     "notation": [("sec:introduction", "§1 · information quantities and dimensions"), ("sec:entropy", "§2 · channels and comparison objects")],
+                     "reading-lean": []}
+        for guide_id, passages in crosswalk.items():
+            guide = self.reader_item("guides", guide_id)
+            content += '<tr><td>' + self.link(guide["page"], esc(guide["title"]), page) + '</td><td>'
+            content += ' · '.join(self.manuscript_link(label, caption, page) for label, caption in passages) if passages else 'Companion formalization guide: definitions, hypotheses, and verification.'
+            if guide_id == "capacity":
+                content += '<p class="small">The Lean coding proof supplements the manuscript’s use of the cited HSW theorem.</p>'
+            content += '</td></tr>'
+        content += '</tbody></table></div></section>'
+        self.emit("correspondence-map.json", pretty({"schema_version": 1, "copyright": COPYRIGHT, "exhaustive": False,
+                  "manuscript": {**self.meta["manuscript"], "source_page": "manuscript.html"},
+                  "metadata_sha256": self.inputs["metadata/results.json"],
+                  "mapping_source_sha256": self.inputs["tools/docs-site/correspondence.json"],
+                  "counts": {**counts, "records": len(records), "declaration_references": len(references),
+                             "theorem_references": theorem_count, "unproved_predicate_references": predicate_count},
+                  "statement_equivalence_certified": False, "entries": records}))
+        self.search.append({"title": "Manuscript-to-Lean map", "detail": "Paper statements, argument locations, informal guides, and exact Lean declarations", "url": page, "search": "manuscript paper lean correspondence statements map", "reader": True})
+        self.page(page, "Manuscript-to-Lean map", content, "Paper ↔ Lean", True,
+                  ("assets/correspondence.js",), ("assets/correspondence.css",))
+
+    def manuscript_location(self, label: str) -> dict:
+        location = self.manuscript_locations[label]
+        return {**location, "source_page": "manuscript.html#L" + str(location["line"])}
+
+    def build_manuscript(self) -> None:
+        page = "manuscript.html"
+        content = '<p class="eyebrow">Exact revised LaTeX source</p><h1>The included manuscript</h1><p class="lead">Source locations for the manuscript-to-Lean map.</p><p>' + self.link("correspondence.html", "Return to the correspondence map", page) + ' · ' + self.link("source/paper/nonadditivity.tex", "Download the manuscript", page) + ' · <a href="' + REPO + '/blob/main/paper/nonadditivity.tex">View on GitHub</a></p><p class="small">SHA-256: <code>' + esc(self.meta["manuscript"]["sha256"]) + '</code>. These numbered source lines belong to the included revision; they do not assert matching page numbers or anchors in an arXiv version.</p>'
+        content += '<pre class="source" id="source">' + ''.join('<span class="code-line" id="L' + str(n) + '"><a class="line-number" href="#L' + str(n) + '" aria-label="Line ' + str(n) + '">' + str(n) + '</a><code>' + esc(line) + '</code></span>' for n, line in enumerate(self.manuscript_source.splitlines(), 1)) + '</pre>'
+        self.page(page, "Revised manuscript source", content, "Paper ↔ Lean", True)
 
     def build_modules(self) -> None:
         page = "modules.html"
@@ -1092,7 +1200,7 @@ class Site:
 
     def generate(self) -> None:
         self.emit(".nojekyll", b"")
-        for name in ["site.css", "site.js", "dependencies.js", "math.js"]:
+        for name in ["site.css", "site.js", "dependencies.js", "math.js", "correspondence.css", "correspondence.js"]:
             self.emit("assets/" + name, (TOOLS / name).read_bytes())
         for path in sorted((TOOLS / "vendor" / "katex").rglob("*")):
             if path.is_file():
@@ -1105,6 +1213,8 @@ class Site:
         self.build_verify()
         self.build_route()
         self.build_results()
+        self.build_correspondence()
+        self.build_manuscript()
         self.build_declarations()
         self.build_dependencies()
         self.build_modules()
@@ -1117,6 +1227,7 @@ class Site:
             "schema_version": 1, "generator": "tools/docs-site/build.py", "site": SITE,
             "mathematical_guide_chapters": len(self.reader["guides"]), "concept_explanations": len(self.reader["concepts"]), "explained_results": len(self.reader["results"]),
             "explanation_to_lean_map": "reader-map.json", "math_renderer": {"name": "KaTeX", "version": "0.19.0", "license": "MIT", "offline": True},
+            "manuscript_to_lean_map": "correspondence-map.json",
             "module_count": len(self.modules), "proof_module_count": 366, "aggregate_entry_points": 3, "correspondence_records": len(self.results),
             "mapped_declarations": len(self.headers), "literal_headers_quoted": sum(header is not None for header, line in self.headers.values()),
             "exported_project_declarations": len(self.declarations),

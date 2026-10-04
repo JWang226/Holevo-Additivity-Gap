@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved. See COPYRIGHT.md for licensing and attribution.",
+  "entries": [
+    {
+      "result_id": "prescribed-dimensions",
+      "statement_label": "thm:main",
+      "statement_caption": "Theorem 1.1 — prescribed dimensions and Holevo gap",
+      "argument_labels": [
+        {
+          "label": "sec:entropy",
+          "caption": "§2 — entropy bounds and channel conversion"
+        },
+        {
+          "label": "prop:finite",
+          "caption": "Proposition 3.1 — uniform finite-matrix estimate"
+        },
+        {
+          "label": "sec:finish-finite",
+          "caption": "§3.4 — finite realization and concluding proof of Theorem 1.1"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "channels",
+        "adjoint-certificate",
+        "dimension-cost"
+      ],
+      "stages": [
+        "1",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "result_id": "operational-coding",
+      "statement_label": "eq:capacity",
+      "statement_caption": "§1 — operational capacity and regularized Holevo information",
+      "argument_labels": [
+        {
+          "label": "eq:capacity",
+          "caption": "§1 cites the Holevo–Schumacher–Westmoreland coding theorem; the Lean development supplies its proof"
+        }
+      ],
+      "guides": [
+        "capacity"
+      ],
+      "concepts": [
+        "operational-capacity",
+        "holevo-information"
+      ],
+      "stages": [
+        "6"
+      ]
+    },
+    {
+      "result_id": "capacity-gain",
+      "statement_label": "cor:capacity",
+      "statement_caption": "Corollary 1.2 — capacity gain",
+      "argument_labels": [
+        {
+          "label": "eq:capacity-gap",
+          "caption": "§1 — capacity-gain inequality and proof of Corollary 1.2"
+        },
+        {
+          "label": "eq:capacity",
+          "caption": "§1 — coding theorem identifies the operational capacity"
+        }
+      ],
+      "guides": [
+        "capacity",
+        "scaling"
+      ],
+      "concepts": [
+        "operational-capacity",
+        "holevo-information"
+      ],
+      "stages": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "result_id": "two-use-ratio",
+      "statement_label": "eq:ratio",
+      "statement_caption": "Corollary 1.2 — two-use ratio lower limit",
+      "argument_labels": [
+        {
+          "label": "cor:capacity",
+          "caption": "§1 — proof of Corollary 1.2, positivity and fixed-K limit"
+        },
+        {
+          "label": "eq:constructed-holevo-lower",
+          "caption": "§2.3 — supplementary same-channel positivity bound used by the formal proof"
+        }
+      ],
+      "guides": [
+        "scaling"
+      ],
+      "concepts": [
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ]
+    },
+    {
+      "result_id": "simultaneous-separation",
+      "statement_label": "cor:capacity",
+      "statement_caption": "Corollaries 1.2–1.3 — simultaneous separation",
+      "argument_labels": [
+        {
+          "label": "cor:capacity",
+          "caption": "§1 — simultaneous capacity gain and two-use ratio"
+        },
+        {
+          "label": "cor:separation",
+          "caption": "Corollary 1.3 — small one-use information and large two-use information"
+        },
+        {
+          "label": "prop:qualitative",
+          "caption": "Proposition 2.4 — qualitative realization; the formal proof uses an alternative construction"
+        }
+      ],
+      "guides": [
+        "capacity",
+        "scaling"
+      ],
+      "concepts": [
+        "holevo-information",
+        "operational-capacity"
+      ],
+      "stages": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "result_id": "qualitative-realization",
+      "statement_label": "prop:qualitative",
+      "statement_caption": "Proposition 2.4 — qualitative finite-dimensional realization",
+      "argument_labels": [
+        {
+          "label": "sec:finite-entropy",
+          "caption": "§2.1 — finite blocks and their entropy bound"
+        },
+        {
+          "label": "sec:conversion",
+          "caption": "§2.3 — switch and Weyl conversion; proof of Proposition 2.4"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "channels",
+        "weyl-switch",
+        "free-haar"
+      ],
+      "stages": [
+        "5"
+      ]
+    },
+    {
+      "result_id": "small-large-and-sequence",
+      "statement_label": "cor:separation",
+      "statement_caption": "Corollary 1.3 — vanishing Holevo information and diverging capacity",
+      "argument_labels": [
+        {
+          "label": "eq:small-large",
+          "caption": "§1 — arbitrarily small one-use and large two-use information"
+        },
+        {
+          "label": "eq:vanishing-diverging",
+          "caption": "§1 — channel sequence and proof of Corollary 1.3"
+        },
+        {
+          "label": "prop:qualitative",
+          "caption": "Proposition 2.4 — qualitative realization; the formal proof uses an alternative construction"
+        }
+      ],
+      "guides": [
+        "scaling",
+        "capacity"
+      ],
+      "concepts": [
+        "holevo-information",
+        "operational-capacity"
+      ],
+      "stages": [
+        "5",
+        "7"
+      ]
+    },
+    {
+      "result_id": "fixed-k-scaling",
+      "statement_label": "eq:scaling",
+      "statement_caption": "§1 — scaling remark after Theorem 1.1 (fixed K)",
+      "argument_labels": [
+        {
+          "label": "eq:main-gap",
+          "caption": "Theorem 1.1 — quantitative gap lower bound"
+        },
+        {
+          "label": "eq:input-size",
+          "caption": "§1 — quadratic input-qubit expansion"
+        }
+      ],
+      "guides": [
+        "scaling"
+      ],
+      "concepts": [
+        "dimension-cost"
+      ],
+      "stages": [
+        "7"
+      ]
+    },
+    {
+      "result_id": "input-size-expansion",
+      "statement_label": "eq:input-size",
+      "statement_caption": "§1 — input-qubit expansion in the scaling remark",
+      "argument_labels": [
+        {
+          "label": "thm:main",
+          "caption": "Theorem 1.1 — exact integer-rounded input dimension"
+        },
+        {
+          "label": "eq:input-size",
+          "caption": "§1 — expansion in the scaling remark"
+        }
+      ],
+      "guides": [
+        "scaling",
+        "notation"
+      ],
+      "concepts": [
+        "dimension-cost"
+      ],
+      "stages": [
+        "7"
+      ]
+    },
+    {
+      "result_id": "guaranteed-gap-fraction",
+      "statement_label": "eq:guaranteed-fraction",
+      "statement_caption": "§1 — guaranteed output-normalized gap fraction",
+      "argument_labels": [
+        {
+          "label": "eq:main-gap",
+          "caption": "Theorem 1.1 — gap lower bound"
+        },
+        {
+          "label": "eq:guaranteed-fraction",
+          "caption": "§1 — normalized lower limit and large-K expansion in the scaling remark"
+        }
+      ],
+      "guides": [
+        "scaling"
+      ],
+      "concepts": [
+        "dimension-cost",
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ]
+    },
+    {
+      "result_id": "fixed-channel-regrouping",
+      "statement_label": "sec:introduction",
+      "statement_caption": "§1 — unnumbered regrouping limit immediately before Corollary 1.2",
+      "argument_labels": [
+        {
+          "label": "eq:capacity",
+          "caption": "§1 — convergence of normalized tensor-power Holevo information"
+        },
+        {
+          "label": "cor:capacity",
+          "caption": "§1 — regrouping argument immediately before Corollary 1.2"
+        }
+      ],
+      "guides": [
+        "capacity",
+        "scaling"
+      ],
+      "concepts": [
+        "operational-capacity",
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ]
+    },
+    {
+      "result_id": "growing-family-cost",
+      "statement_label": "rem:separation-cost",
+      "statement_caption": "Remark 1.4 — input-qubit cost of the separation",
+      "argument_labels": [
+        {
+          "label": "rem:separation-cost",
+          "caption": "§1 — explicit growing-K family and its cost estimates"
+        },
+        {
+          "label": "eq:constructed-holevo-lower",
+          "caption": "§2.3 — matching lower bound for single-use information"
+        },
+        {
+          "label": "eq:input-size",
+          "caption": "§1 — exact-dimension input-qubit expansion"
+        }
+      ],
+      "guides": [
+        "scaling"
+      ],
+      "concepts": [
+        "dimension-cost",
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ]
+    },
+    {
+      "result_id": "free-collins-youn",
+      "statement_label": "lem:cy",
+      "statement_caption": "Lemma 2.1 — free comparison only",
+      "argument_labels": [
+        {
+          "label": "eq:gamma-free",
+          "caption": "§2.1 — free-group polynomial and comparison constant"
+        },
+        {
+          "label": "eq:cy",
+          "caption": "§2.1 — free Collins–Youn bound and its proof"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "free-haar",
+        "adjoint-certificate"
+      ],
+      "stages": [
+        "2"
+      ]
+    },
+    {
+      "result_id": "prescribed-norm-certificate",
+      "statement_label": "prop:finite",
+      "statement_caption": "Proposition 3.1 — uniform finite-matrix estimate",
+      "argument_labels": [
+        {
+          "label": "sec:finite-tests",
+          "caption": "§3.1 — combine the observable tests into one polynomial"
+        },
+        {
+          "label": "sec:degree-reduction",
+          "caption": "§3.3 — reduce to a linear polynomial"
+        },
+        {
+          "label": "sec:finish-finite",
+          "caption": "§3.4 — random-matrix estimate and favorable realization"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "adjoint-certificate",
+        "free-haar",
+        "dimension-cost"
+      ],
+      "stages": [
+        "4"
+      ]
+    },
+    {
+      "result_id": "purity-entropy",
+      "statement_label": "lem:purity",
+      "statement_caption": "Lemma 2.2 — adjoint certificate, purity and output entropy",
+      "argument_labels": [
+        {
+          "label": "sec:finite-entropy",
+          "caption": "§2.1 — finite-dimensional block channels and their entropy bound"
+        },
+        {
+          "label": "eq:purity",
+          "caption": "Lemma 2.2 — purity and entropy inequalities and their proof"
+        },
+        {
+          "label": "eq:single-entropy",
+          "caption": "§2.1 — resulting block-channel entropy bound"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "adjoint-certificate",
+        "output-entropy"
+      ],
+      "stages": [
+        "1"
+      ]
+    },
+    {
+      "result_id": "bell-entropy",
+      "statement_label": "lem:bell",
+      "statement_caption": "Lemma 2.3 — Bell-output entropy bound",
+      "argument_labels": [
+        {
+          "label": "eq:local-bell",
+          "caption": "§2.2 — local Bell-output entropy deficit"
+        },
+        {
+          "label": "eq:bell",
+          "caption": "§2.2 — tensor-block bound and proof of Lemma 2.3"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "bell-input",
+        "output-entropy"
+      ],
+      "stages": [
+        "1"
+      ]
+    },
+    {
+      "result_id": "weyl-all-uses",
+      "statement_label": "eq:chi-extension",
+      "statement_caption": "§2.3 — Weyl-extension Holevo equality at every positive tensor power",
+      "argument_labels": [
+        {
+          "label": "eq:twirl",
+          "caption": "§2.3 — discrete Weyl averaging identity"
+        },
+        {
+          "label": "eq:extension",
+          "caption": "§2.3 — measured-label channel extension"
+        },
+        {
+          "label": "eq:chi-extension",
+          "caption": "§2.3 — conditioning and uniform-orbit argument for all positive powers"
+        }
+      ],
+      "guides": [
+        "construction",
+        "capacity"
+      ],
+      "concepts": [
+        "weyl-switch",
+        "holevo-information",
+        "output-entropy"
+      ],
+      "stages": [
+        "5"
+      ]
+    },
+    {
+      "result_id": "universal-factorization",
+      "statement_label": "lem:linear",
+      "statement_caption": "Lemma A.2 — factorization over a finite set (nonzero Hilbert spaces)",
+      "argument_labels": [
+        {
+          "label": "app:operators",
+          "caption": "Appendix A — algebraic tools for reducing word length"
+        },
+        {
+          "label": "eq:linear-id",
+          "caption": "§A.2 — representation-independent norm identity and factorization proof"
+        },
+        {
+          "label": "eq:theta",
+          "caption": "§A.2 — scalar bound and error transfer"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "free-haar",
+        "dimension-cost"
+      ],
+      "stages": [
+        "2"
+      ]
+    },
+    {
+      "result_id": "haar-moment-range",
+      "statement_label": "lem:haar",
+      "statement_caption": "Lemma B.1 — one-pair estimate in its proof",
+      "argument_labels": [
+        {
+          "label": "eq:haar-hypotheses",
+          "caption": "§B.1 — original moment range in the two-generator Haar estimate"
+        },
+        {
+          "label": "eq:class-sum",
+          "caption": "§B.1 — one-pair trace estimate for matrix/free-factor coefficients"
+        },
+        {
+          "label": "eq:class-count",
+          "caption": "§B.1 — repaired weighted class enumeration"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "free-haar",
+        "finite-moments"
+      ],
+      "stages": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "result_id": "favorable-probability",
+      "statement_label": "eq:positive-probability",
+      "statement_caption": "§3.4 — explicit favorable-realization probability",
+      "argument_labels": [
+        {
+          "label": "sec:finish-finite",
+          "caption": "§3.4 — apply the random-matrix estimate"
+        },
+        {
+          "label": "app:haar-error",
+          "caption": "§B.3 — verify the final norm error"
+        }
+      ],
+      "guides": [
+        "construction"
+      ],
+      "concepts": [
+        "free-haar",
+        "adjoint-certificate"
+      ],
+      "stages": [
+        "4"
+      ]
+    },
+    {
+      "result_id": "correction-important-times",
+      "statement_label": "eq:class-count",
+      "statement_caption": "Lemma B.1 proof — corrected important-time count and class enumeration",
+      "argument_labels": [
+        {
+          "label": "lem:haar",
+          "caption": "§B.1 — weighted class enumeration in the proof of the Haar estimate"
+        },
+        {
+          "label": "eq:class-count",
+          "caption": "§B.1 — corrected chronological encoding and refined-class count"
+        }
+      ],
+      "guides": [
+        "construction",
+        "reading-lean"
+      ],
+      "concepts": [
+        "finite-moments"
+      ],
+      "stages": [
+        "3"
+      ]
+    },
+    {
+      "result_id": "correction-middle-runs",
+      "statement_label": "eq:coefficient-sum",
+      "statement_caption": "Lemma B.1 proof — corrected marked blocks and coefficient sums",
+      "argument_labels": [
+        {
+          "label": "lem:haar",
+          "caption": "§B.1 — coefficient-sum argument in the proof of the Haar estimate"
+        },
+        {
+          "label": "eq:coefficient-sum",
+          "caption": "§B.1 — marked factors and the repaired composition exponent"
+        }
+      ],
+      "guides": [
+        "construction",
+        "reading-lean"
+      ],
+      "concepts": [
+        "finite-moments"
+      ],
+      "stages": [
+        "3"
+      ]
+    },
+    {
+      "result_id": "undamped-all-dimensions",
+      "statement_label": "lem:cy",
+      "statement_caption": "Lemma 2.1 — broader finite-dimensional assertion (not formalized)",
+      "argument_labels": [
+        {
+          "label": "eq:norm-certificate",
+          "caption": "§2.1 — certificate for every kappa > 1 and all sufficiently large dimensions"
+        },
+        {
+          "label": "prop:finite",
+          "caption": "Proposition 3.1 — proved prescribed-dimension alternative, a different scope"
+        }
+      ],
+      "guides": [
+        "construction",
+        "reading-lean"
+      ],
+      "concepts": [
+        "free-haar",
+        "adjoint-certificate"
+      ],
+      "stages": [
+        "7"
+      ]
+    },
+    {
+      "result_id": "generic-haar-convergence",
+      "statement_label": "lem:cy",
+      "statement_caption": "Lemma 2.1 proof — generic strong-convergence background (interfaces only)",
+      "argument_labels": [
+        {
+          "label": "sec:finite-entropy",
+          "caption": "§2.1 — cited strong convergence used in the finite-realization argument"
+        },
+        {
+          "label": "lem:haar",
+          "caption": "Lemma B.1 — specialized finite Haar estimate, distinct from a generic convergence theorem"
+        }
+      ],
+      "guides": [
+        "construction",
+        "reading-lean"
+      ],
+      "concepts": [
+        "free-haar"
+      ],
+      "stages": [
+        "7"
+      ]
+    },
+    {
+      "result_id": "background-generality",
+      "statement_label": "eq:def-smin",
+      "statement_caption": "§1 and §2.3 — remaining background claims (not separately formalized)",
+      "argument_labels": [
+        {
+          "label": "eq:def-smin",
+          "caption": "§1 — minimum output entropy and pure-input attainment"
+        },
+        {
+          "label": "cor:capacity",
+          "caption": "Corollary 1.2 proof — zero Holevo information implies constant output"
+        },
+        {
+          "label": "eq:chi-extension",
+          "caption": "§2.3 — extension to distinct channels beyond the proved same-channel powers"
+        }
+      ],
+      "guides": [
+        "reading-lean",
+        "capacity"
+      ],
+      "concepts": [
+        "output-entropy",
+        "weyl-switch",
+        "holevo-information"
+      ],
+      "stages": [
+        "7"
+      ]
+    }
+  ]
+}
