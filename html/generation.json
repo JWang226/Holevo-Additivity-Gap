@@ -440,7 +440,7 @@
     "scripts/test_nanoda_check.py": "885a8a1a8ff6c84d8c2e45e47404c2b680a7de17f58be90edaa8b6cedbf09a9e",
     "scripts/verify.sh": "dfef8003cc6633be04959e994e82656c400dd1752f3d0d3c2d1cad3de9ebd9e7",
     "tools/docs-site/README.md": "d23e926700c92660b0816c6112544422c088617dd32cc8d59e7420d7e7f6cfad",
-    "tools/docs-site/build.py": "a6d3c39969f00d00ed97fb06b5cb4fdc4c48c9833e69e60922c6377bb305beb1",
+    "tools/docs-site/build.py": "cad18e9ae24abc04dfde31d178173f1da4acc55d702119a4ecbe27768549bb04",
     "tools/docs-site/correspondence.css": "76cedcd8c4ed5c8b2da532c9bb70ecc543745bcb4dc52e5ece201fe4756d5b29",
     "tools/docs-site/correspondence.js": "cc36b379a24b1a755e0925fd668e692d0594fa9592710cc8ef8b6556dfcaf312",
     "tools/docs-site/correspondence.json": "7dbada3fd5299d6bdaaa0eefc9a04e930d123c41665c2a4b354ad1fbff0ec574",
