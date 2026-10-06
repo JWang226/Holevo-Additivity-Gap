@@ -423,11 +423,23 @@ def dependencies_snapshot(root: Path, compiler: Path, external: dict) -> dict:
             "manifest_policy": "Initial/final size, mtime_ns and inode; no cache invalidation or polling."}
 
 
-def process_inventory() -> list[str]:
-    process = subprocess.run(["ps", "-axo", "pid,etime,command"], text=True,
-                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    return [line for line in process.stdout.splitlines()
-            if re.search(r"(?:^|[/\s])(?:lean|lake)(?:\s|$)", line)]
+def process_inventory() -> dict:
+    """Informational only: restricted process visibility must not gate builds."""
+    try:
+        process = subprocess.run(["ps", "-axo", "pid,etime,command"], text=True,
+                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    except OSError as error:
+        return {"available": False, "processes": [], "error": str(error)}
+    if process.returncode:
+        return {"available": False, "processes": [],
+                "error": process.stderr.strip() or f"ps exited {process.returncode}"}
+    return {"available": True, "processes": [
+        line for line in process.stdout.splitlines()
+        if re.search(r"(?:^|[/\s])(?:lean|lake)(?:\s|$)", line)], "error": None}
+
+
+def process_inventory_description(inventory: dict) -> str:
+    return str(len(inventory["processes"])) if inventory["available"] else "unavailable"
 
 
 def check_source_guard(config: dict) -> None:
@@ -629,7 +641,7 @@ def markdown_report(summary: dict, prior: dict | None) -> str:
              f"RSS interpretation: {provenance['rss_interpretation']}", "",
              "The existing `./build.sh` recompiles every own module in serial order; no cache was removed.",
              "Dependency oleans are inputs. Their initial/final stat manifests are retained separately.",
-             f"Initial co-running Lean/Lake processes: {len(provenance['processes_before'])}; final: {len(provenance['processes_after'])}. Presence alone does not invalidate this run.",
+             f"Initial co-running Lean/Lake processes: {process_inventory_description(provenance['processes_before'])}; final: {process_inventory_description(provenance['processes_after'])}. Presence or unavailable process visibility alone does not invalidate this run.",
              "", "## Size snapshot", "",
              "| Scope | Lean files | Counted files | Physical lines | Non-comment code lines | Comment-only excluded |",
              "| --- | ---: | ---: | ---: | ---: | ---: |"]

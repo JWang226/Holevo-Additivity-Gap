@@ -8,6 +8,8 @@ These tests invoke no Lean, Lake, cache restoration or project build.
 import tempfile
 from pathlib import Path
 import unittest
+from unittest.mock import patch
+import subprocess
 
 import elaboration_test as measurement
 
@@ -91,6 +93,18 @@ class CoverageTests(unittest.TestCase):
 
 
 class SourceProvenanceTests(unittest.TestCase):
+    def test_unavailable_process_inventory_is_informational(self):
+        with patch.object(measurement.subprocess, "run", side_effect=PermissionError("restricted")):
+            inventory = measurement.process_inventory()
+        self.assertFalse(inventory["available"])
+        self.assertIn("restricted", inventory["error"])
+        self.assertEqual(measurement.process_inventory_description(inventory), "unavailable")
+        with patch.object(measurement.subprocess, "run", return_value=subprocess.CompletedProcess([], 1, "", "denied")):
+            self.assertEqual(measurement.process_inventory()["error"], "denied")
+        with patch.object(measurement.subprocess, "run", return_value=subprocess.CompletedProcess([], 0, "123 00:02 /bin/lean A.lean\n124 00:02 ps\n", "")):
+            inventory = measurement.process_inventory()
+        self.assertEqual(measurement.process_inventory_description(inventory), "1")
+
     def test_comments_strings_and_legacy_headers(self):
         snapshot = measurement.size_snapshot({
             "OnlyComment.lean": "/- nested /- comment -/ -/\n-- more\n",
