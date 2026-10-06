@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "sequence": 1,
+  "mode": "profile",
+  "baseline_sha": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+  "candidate_sha": "cf909eb32401c25c071ddbfbc9037037ffa8b7cb",
+  "modules": ["Nonadditivity.RegularCoefficientEnergy"],
+  "repetitions": 3
+}
