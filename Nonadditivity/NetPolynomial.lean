@@ -451,6 +451,9 @@ theorem netRegularPolynomial_norm_mem_spectrum (tests : Finset (ObservableSpace 
   classical
   letI : Nonempty tests := hne.to_subtype
   rcases CStarAlgebra.norm_or_neg_norm_mem_spectrum
+    (A := RegularCoefficientEnergy.Hilbert (ProductFreeGroup K n) tests →L[ℂ]
+      RegularCoefficientEnergy.Hilbert (ProductFreeGroup K n) tests)
+    (a := netRegularPolynomial tests)
     (netRegularPolynomial_selfAdjoint tests) with h | h
   · exact h
   · have hneg : ‖netRegularPolynomial tests‖ ∈ spectrum ℝ (-netRegularPolynomial tests) := by
