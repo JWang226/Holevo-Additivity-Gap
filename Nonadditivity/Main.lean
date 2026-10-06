@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
 All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
-import Nonadditivity.Scalar
 import Nonadditivity.Entropy
 import Nonadditivity.Holevo
 import Nonadditivity.Net
@@ -21,8 +20,10 @@ This original component module connects density-matrix purity to entropy
 and records the numerical gap implications. The subsequently added
 `Qualitative` module proves actual finite-channel realization from explicit
 limiting-norm and convergence hypotheses; its Bell and conversion steps are
-proved internally. The full unconditional manuscript theorem and its
-quantitative finite-matrix approximation remain open in this project.
+proved internally. The later `ExactQualitative` and `HaarPrescribedBound`
+modules prove the unconditional channel endpoints and prescribed finite
+dimensions. Broader manuscript claims retain the scope recorded in
+`docs/FORMALIZATION_STATUS.md`.
 -/
 
 noncomputable section

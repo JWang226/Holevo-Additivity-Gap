@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.InitialNetReduction
-import Nonadditivity.ComplementaryAdjoint
 
 /-! # From the actual paired net polynomial to the actual block channel
 

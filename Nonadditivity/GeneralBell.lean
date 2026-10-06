@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.BellOutput
-import Nonadditivity.AdjointPurity
 import Nonadditivity.Conversion
 
 /-! # Bell witnesses for arbitrary Kraus channels

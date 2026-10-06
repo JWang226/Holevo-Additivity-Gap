@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.CanonicalBlockBell
-import Nonadditivity.ComplementaryAdjoint
 import Nonadditivity.WeightedCertificate
 import Mathlib.Topology.Instances.Matrix
 

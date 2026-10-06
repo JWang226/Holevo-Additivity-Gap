@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.GaussianCertificates
-import Nonadditivity.GaussianRectangularAlgebra
 import Nonadditivity.GaussianSampleEvaluation
 import Nonadditivity.InitialNetReduction
 

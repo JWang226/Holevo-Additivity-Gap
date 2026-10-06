@@ -5,7 +5,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 
 import Nonadditivity.StrictEntropy
 import Nonadditivity.DampedChannel
-import Nonadditivity.ConditionalStates
 import Nonadditivity.PositiveHolevo
 
 /-! # Invertible damping preserves a nonuniform output

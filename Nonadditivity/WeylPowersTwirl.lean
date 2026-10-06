@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
 All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
-import Nonadditivity.WeylTensor
 import Nonadditivity.WeylPowersIndex
 
 /-! Exact independent local Weyl twirls for every positive tensor power. -/

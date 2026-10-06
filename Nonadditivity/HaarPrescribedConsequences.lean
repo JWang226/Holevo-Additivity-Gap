@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.HaarPrescribedBound
-import Nonadditivity.HolevoRateLimit
 import Nonadditivity.Dimensions
 
 /-! # Asymptotic consequences for the prescribed-dimension channels

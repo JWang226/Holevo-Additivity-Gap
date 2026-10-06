@@ -3,8 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
 All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
-import Nonadditivity.AdjointPurity
-import Nonadditivity.Channels
 import Nonadditivity.Net
 import Nonadditivity.QuantumHolevo
 import Mathlib.Analysis.InnerProductSpace.PiL2

@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
 All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
-import Nonadditivity.BellOutput
 import Nonadditivity.WeightedBellScalar
 
 /-! # Bell entropy for genuinely weighted random-unitary complementary channels

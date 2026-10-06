@@ -5,7 +5,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 
 import Nonadditivity.HaarCoreChainLabels
 import Nonadditivity.HaarPathChainProfiles
-import Nonadditivity.HaarPathMultiplicity
 
 /-! # Edge multiplicities in the actual maximal-chain decomposition
 
