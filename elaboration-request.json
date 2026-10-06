@@ -1,9 +1,11 @@
 {
   "schema_version": 1,
-  "sequence": 1,
+  "sequence": 2,
   "mode": "profile",
   "baseline_sha": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
-  "candidate_sha": "cf909eb32401c25c071ddbfbc9037037ffa8b7cb",
-  "modules": ["Nonadditivity.RegularCoefficientEnergy"],
+  "candidate_sha": "19009365349aa79885ff88af5648b52dde754ec1",
+  "modules": [
+    "Nonadditivity.NetPolynomial"
+  ],
   "repetitions": 3
 }
