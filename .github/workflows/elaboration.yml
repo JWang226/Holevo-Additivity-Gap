@@ -1,0 +1,202 @@
+# Copyright (c) 2026 the Nonadditivity project contributors.
+# All rights reserved. See COPYRIGHT.md for licensing and attribution.
+name: Measured elaboration cleanup
+
+on:
+  workflow_dispatch:
+    inputs:
+      baseline_ref:
+        description: 'Committed baseline branch containing this harness and helper'
+        required: true
+        type: string
+      after_ref:
+        description: 'Public source branch for profile candidates and final after SHA'
+        required: true
+        type: string
+      control_ref:
+        description: 'Public branch containing only elaboration-request.json requests'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: elaboration-cleanup-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  measure:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 360
+    env:
+      ELAB_EVIDENCE: ${{ runner.temp }}/elaboration-evidence
+      ELAB_STATE: ${{ runner.temp }}/elaboration-state.json
+      ELAB_HELPER: ${{ runner.temp }}/elaboration-continue.py
+      ELAB_FINISHED: '0'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ inputs.baseline_ref }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11'
+      - name: Freeze continuation helper outside checkout
+        run: |
+          cp scripts/elaboration_continue.py "$ELAB_HELPER"
+          mkdir -p "$ELAB_EVIDENCE"
+          /usr/bin/time --version
+      - name: Install pinned Lean toolchain and dependency cache outside timing
+        uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
+        with:
+          auto-config: 'false'
+          build: 'false'
+          test: 'false'
+          lint: 'false'
+          use-mathlib-cache: 'true'
+          use-github-cache: 'false'
+      - name: Full baseline build and eight serial warm own-file profiles
+        run: |
+          python scripts/elaboration_test.py --label before \
+            --output "$ELAB_EVIDENCE/before" --time-bin /usr/bin/time
+      - name: Upload baseline evidence immediately
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-before
+          path: ${{ env.ELAB_EVIDENCE }}/before
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Initialize same-runner continuation window
+        env:
+          CONTROL_REF: ${{ inputs.control_ref }}
+          AFTER_REF: ${{ inputs.after_ref }}
+        run: |
+          python "$ELAB_HELPER" init --root "$GITHUB_WORKSPACE" \
+            --evidence "$ELAB_EVIDENCE" --state "$ELAB_STATE" \
+            --control-ref "$CONTROL_REF" --after-ref "$AFTER_REF"
+      - name: Await request and run fixed profiles or select final SHA (1/6)
+        id: slot1
+        if: env.ELAB_FINISHED != '1'
+        run: |
+          python "$ELAB_HELPER" wait --root "$GITHUB_WORKSPACE" \
+            --evidence "$ELAB_EVIDENCE" --state "$ELAB_STATE"
+      - name: Upload request 1 evidence immediately
+        if: always() && steps.slot1.outputs.sequence != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-request-${{ steps.slot1.outputs.sequence }}
+          path: ${{ env.ELAB_EVIDENCE }}/trials/${{ steps.slot1.outputs.sequence }}
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Await request and run fixed profiles or select final SHA (2/6)
+        id: slot2
+        if: env.ELAB_FINISHED != '1'
+        run: |
+          python "$ELAB_HELPER" wait --root "$GITHUB_WORKSPACE" \
+            --evidence "$ELAB_EVIDENCE" --state "$ELAB_STATE"
+      - name: Upload request 2 evidence immediately
+        if: always() && steps.slot2.outputs.sequence != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-request-${{ steps.slot2.outputs.sequence }}
+          path: ${{ env.ELAB_EVIDENCE }}/trials/${{ steps.slot2.outputs.sequence }}
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Await request and run fixed profiles or select final SHA (3/6)
+        id: slot3
+        if: env.ELAB_FINISHED != '1'
+        run: |
+          python "$ELAB_HELPER" wait --root "$GITHUB_WORKSPACE" \
+            --evidence "$ELAB_EVIDENCE" --state "$ELAB_STATE"
+      - name: Upload request 3 evidence immediately
+        if: always() && steps.slot3.outputs.sequence != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-request-${{ steps.slot3.outputs.sequence }}
+          path: ${{ env.ELAB_EVIDENCE }}/trials/${{ steps.slot3.outputs.sequence }}
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Await request and run fixed profiles or select final SHA (4/6)
+        id: slot4
+        if: env.ELAB_FINISHED != '1'
+        run: |
+          python "$ELAB_HELPER" wait --root "$GITHUB_WORKSPACE" \
+            --evidence "$ELAB_EVIDENCE" --state "$ELAB_STATE"
+      - name: Upload request 4 evidence immediately
+        if: always() && steps.slot4.outputs.sequence != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-request-${{ steps.slot4.outputs.sequence }}
+          path: ${{ env.ELAB_EVIDENCE }}/trials/${{ steps.slot4.outputs.sequence }}
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Await request and run fixed profiles or select final SHA (5/6)
+        id: slot5
+        if: env.ELAB_FINISHED != '1'
+        run: |
+          python "$ELAB_HELPER" wait --root "$GITHUB_WORKSPACE" \
+            --evidence "$ELAB_EVIDENCE" --state "$ELAB_STATE"
+      - name: Upload request 5 evidence immediately
+        if: always() && steps.slot5.outputs.sequence != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-request-${{ steps.slot5.outputs.sequence }}
+          path: ${{ env.ELAB_EVIDENCE }}/trials/${{ steps.slot5.outputs.sequence }}
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Await request and run fixed profiles or select final SHA (6/6)
+        id: slot6
+        if: env.ELAB_FINISHED != '1'
+        run: |
+          python "$ELAB_HELPER" wait --root "$GITHUB_WORKSPACE" \
+            --evidence "$ELAB_EVIDENCE" --state "$ELAB_STATE"
+      - name: Upload request 6 evidence immediately
+        if: always() && steps.slot6.outputs.sequence != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-request-${{ steps.slot6.outputs.sequence }}
+          path: ${{ env.ELAB_EVIDENCE }}/trials/${{ steps.slot6.outputs.sequence }}
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Require an explicit final request
+        run: test "$ELAB_FINISHED" = 1
+      - name: Full after build and eight serial warm own-file profiles on same runner
+        if: env.ELAB_FINISHED == '1'
+        run: |
+          python scripts/elaboration_test.py --label after \
+            --output "$ELAB_EVIDENCE/after" --time-bin /usr/bin/time \
+            --prior-summary "$ELAB_EVIDENCE/before/summary.json"
+      - name: Supplement after profiles for baseline top eight and edited modules
+        if: env.ELAB_FINISHED == '1'
+        run: |
+          python "$ELAB_HELPER" matched --root "$GITHUB_WORKSPACE" \
+            --evidence "$ELAB_EVIDENCE" --state "$ELAB_STATE"
+      - name: Export current kernel declarations after measurement
+        if: env.ELAB_FINISHED == '1'
+        run: |
+          python scripts/export_declarations.py --fresh
+      - name: Upload fresh declaration export and exporter evidence
+        if: always() && env.ELAB_FINISHED == '1'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-after-declarations
+          path: |
+            metadata/declarations.json
+            .lake/export-declarations.log
+            .lake/export-declarations-progress.json
+            .lake/declarations.records.jsonl
+            .lake/declarations.checkpoint.json
+            .lake/declarations.raw.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Preserve after and any failure evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: elaboration-after-and-continuation
+          path: ${{ env.ELAB_EVIDENCE }}
+          if-no-files-found: warn
+          retention-days: 30
