@@ -85,9 +85,7 @@ theorem liftOperator_single [DecidableEq G] (T : E →L[ℂ] E) (g : G) (x : E) 
 def reindexFunction (e : G ≃ G) (f : VectorHilbert G E) : VectorHilbert G E :=
   ⟨fun g => f (e g), by
     apply memℓp_gen
-    exact (e.summable_iff
-      (f := fun g : G => ‖f g‖ ^ (2 : ℝ≥0∞).toReal)).mpr
-      (f.property.summable (by norm_num))⟩
+    exact e.summable_iff.mpr (f.property.summable (by norm_num))⟩
 
 def reindexIsometry (e : G ≃ G) : VectorHilbert G E ≃ₗᵢ[ℂ] VectorHilbert G E where
   toFun := reindexFunction e
