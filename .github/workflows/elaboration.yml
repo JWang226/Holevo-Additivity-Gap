@@ -30,9 +30,6 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 360
     env:
-      ELAB_EVIDENCE: ${{ runner.temp }}/elaboration-evidence
-      ELAB_STATE: ${{ runner.temp }}/elaboration-state.json
-      ELAB_HELPER: ${{ runner.temp }}/elaboration-continue.py
       ELAB_FINISHED: '0'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -45,8 +42,13 @@ jobs:
           python-version: '3.11'
       - name: Freeze continuation helper outside checkout
         run: |
-          cp scripts/elaboration_continue.py "$ELAB_HELPER"
-          mkdir -p "$ELAB_EVIDENCE"
+          cp scripts/elaboration_continue.py "$RUNNER_TEMP/elaboration-continue.py"
+          mkdir -p "$RUNNER_TEMP/elaboration-evidence"
+          {
+            echo "ELAB_EVIDENCE=$RUNNER_TEMP/elaboration-evidence"
+            echo "ELAB_STATE=$RUNNER_TEMP/elaboration-state.json"
+            echo "ELAB_HELPER=$RUNNER_TEMP/elaboration-continue.py"
+          } >> "$GITHUB_ENV"
           /usr/bin/time --version
       - name: Install pinned Lean toolchain and dependency cache outside timing
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
