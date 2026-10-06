@@ -29,6 +29,27 @@ anchors. Status and scope come from `metadata/results.json`. The map supports
 local search and status filters, remains readable without JavaScript, and has a
 downloadable `correspondence-map.json` with source hashes and all link targets.
 
+The six challenge roots also have independent AI source-semantics reviews in
+`docs/STATEMENT_AUDIT.md` and its linked reports. Relevant correspondence rows and
+result pages display report links and recorded verdicts. The downloadable map
+retains each reviewed declaration, report, verdict, and qualification, plus the
+source URL and hash of `verification/statement-audit.json`. These reviews do not
+machine-certify English–Lean equivalence.
+
+Every build validates the audit's source, report, and mechanical-evidence hashes
+before displaying it. Exact downloads include the manifest, reports, freshness
+checker, negative controls, logs, and mechanical probe. Existing proof-source
+downloads are reused. To check only the recorded audit's freshness:
+
+```sh
+python3 verification/check_statement_audit.py
+```
+
+This checks hashes, references, and recorded provenance; it does not redo the
+semantic review or run proof checks. Its mechanical record covers incremental
+exact-type applications and axiom checks with existing compiled dependencies.
+The Verify page retains separate Lean, Comparator, and Nanoda reproducers.
+
 Use `$...$` for inline mathematics and a separate pair of `$$` lines for
 display mathematics. KaTeX 0.19.0, its fonts, and its original MIT license are
 bundled in `vendor/katex/`; no CDN, npm installation, or Node build is needed.

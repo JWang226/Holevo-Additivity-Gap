@@ -32,6 +32,7 @@ ROOT = Path(__file__).resolve().parents[2]
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "verification"))
 from check_reports import load_records
+from check_statement_audit import AUDIT_PATH, load_audit
 OUT = ROOT / "html"
 REPO = "https://github.com/JWang226/Holevo-Additivity-Gap"
 SITE = "https://JWang226.github.io/Holevo-Additivity-Gap/"
@@ -218,6 +219,12 @@ class Site:
         self.ci_excerpt = self.meta["verification_current"]["log_excerpt"]
         self.ci = json.loads(self.read(self.ci_record))
         self.portable = load_records()
+        self.statement_audit = load_audit()
+        self.statement_audits_by_result: dict[str, list[dict]] = defaultdict(list)
+        for entry in self.statement_audit["entries"]:
+            for result_id in entry["result_ids"]:
+                self.statement_audits_by_result[result_id].append(entry)
+        self.statement_audit_evidence = json.loads(self.read(self.statement_audit["mechanical_evidence"]["path"]))
         if self.ci["commit"] != self.meta["verification_current"]["commit"]:
             raise ValueError("Current CI metadata disagrees with the retained verification record")
         proof_paths = list((ROOT / "Nonadditivity").glob("*.lean"))
@@ -257,8 +264,14 @@ class Site:
         for pattern in ["github-actions-*.json", "github-actions-*-excerpt.log"]:
             source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "verification").glob(pattern))]
         source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "ComparatorChallenges").glob("*")) if p.suffix in {".lean", ".json"}]
-        for rel in source_paths:
-            self.emit("source/" + rel, self.read(rel))
+        source_paths += [AUDIT_PATH, "verification/check_statement_audit.py", "scripts/test_statement_audit.py",
+                         *self.statement_audit["report_bindings"], self.statement_audit["mechanical_evidence"]["path"],
+                         *self.statement_audit_evidence["logs"], *self.statement_audit_evidence["inputs"]]
+        for rel in sorted(set(source_paths)):
+            # Proof sources and Markdown reports already have exact downloads.
+            # Add only missing artifacts, including the small mechanical probe.
+            if "source/" + rel not in self.outputs:
+                self.emit("source/" + rel, self.read(rel))
         # Track the generator and its own assets in the deterministic manifest.
         for name in ["build.py", "site.css", "site.js", "dependencies.js", "proof-graph.json", "README.md"]:
             rel = "tools/docs-site/" + name
@@ -495,6 +508,16 @@ class Site:
         result = self.result_by_id[result_id]
         return self.link("results/" + result_id + ".html", esc(result["name"]), page)
 
+    def statement_audit_links(self, result_id: str, page: str) -> str:
+        reports: dict[tuple[str, str], int] = defaultdict(int)
+        for entry in self.statement_audits_by_result.get(result_id, []):
+            reports[(entry["report"], entry["verdict"])] += 1
+        if not reports:
+            return ""
+        links = [self.link(self.doc_url(report), esc(verdict + (f" ({count} roots)" if count > 1 else "")), page)
+                 for (report, verdict), count in reports.items()]
+        return '<p class="small"><strong>Independent AI review:</strong> ' + ' · '.join(links) + '.</p>'
+
     def tag(self, status: str) -> str:
         return f'<span class="tag {status.replace("_", "-")}">{esc(status.replace("_", " "))}</span>'
 
@@ -613,6 +636,9 @@ class Site:
             content += '<tr><td>' + esc(label) + '</td><td>' + esc(value) + '</td></tr>'
         content += '</tbody></table><p>' + self.link(self.doc_url("verification/README.md"), "Execution details and retained logs", page) + ' · ' + self.link("source/verification/portable-20261002/comparator-result.json", "Comparator record", page) + ' · ' + self.link("source/verification/portable-20261002/nanoda-result.json", "Nanoda record", page) + ' · ' + self.link("source/verification/portable-20261002/run-summary.json", "Full-run summary", page) + '</p>'
         content += '<p>These reports identify the checked inputs by source and artifact hashes, including changes beyond their base Git commit. The site build rejects stale records. The earlier full source-build ' + '<a href="' + esc(self.ci["url"]) + '">GitHub Actions evidence</a> remains preserved at its original commit.</p>'
+        content += '<h2>Statement review freshness</h2><p>' + self.link(self.doc_url("docs/STATEMENT_AUDIT.md"), "Independent AI reviews of the six challenge roots", page) + ' compare the manuscript, Lean statements, and relevant definitions, with qualifications retained. They do not machine-certify English–Lean equivalence.</p>'
+        content += command('python3 verification/check_statement_audit.py')
+        content += '<p>This command checks recorded hashes, references, and mechanical provenance. It does not redo the semantic review or execute Lean, Comparator, or Nanoda. The attached mechanical evidence records incremental exact-type applications and axiom checks using existing compiled dependencies.</p><p>' + self.link("source/" + AUDIT_PATH, "Review manifest", page) + ' · ' + self.link("source/" + self.statement_audit["mechanical_evidence"]["path"], "Mechanical evidence", page) + ' · ' + self.link("source/verification/check_statement_audit.py", "Freshness checker", page) + '</p>'
         content += '<h2>Trust and scope</h2><p>Comparator and Nanoda run <strong>unsandboxed on trusted local sources</strong>. Comparator mode calls the pinned APIs directly; it does not claim a sandboxed upstream CLI run. Nanoda supplies an independent kernel implementation. Neither check replaces review of the expected statements, challenge imports, or their correspondence to the manuscript.</p><p>The six intentional expected-statement placeholders are excluded from the solution build. Solution proof dependencies permit only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>. The principal endpoints are proved; the full manuscript is not formalized.</p>'
         content += '<p>' + self.link(self.doc_url("ComparatorChallenges/README.md"), "Challenge trust assumptions", page) + ' · ' + self.link(self.doc_url("docs/FORMALIZATION_STATUS.md"), "Formalization scope", page) + '</p>'
         self.page(page, "Verify", content, "Verify")
@@ -661,6 +687,7 @@ class Site:
         content += '<p class="small muted">The included manuscript is the revised source incorporating the two counting repairs. Correspondence entries are reading aids rather than an exhaustive statement-equivalence certificate.</p><p>' + self.link("correspondence.html#" + result["id"], "Manuscript-to-Lean map", page) + ' · ' + self.link("source/paper/nonadditivity.tex", "Revised manuscript source", page) + ' · ' + self.link("source/metadata/results.json", "Correspondence metadata", page) + '</p>'
         if result.get("comparator_config"):
             content += '<p class="small">Comparator configuration: ' + self.link("source/" + result["comparator_config"], '<code>' + esc(result["comparator_config"]) + '</code>', page) + '. Portable statement comparison, Lean replay, and Nanoda checking passed for this configuration.</p>'
+        content += self.statement_audit_links(result["id"], page)
         if result["lean"]:
             content += '<h2 id="lean-correspondence">Corresponding Lean statements</h2><p>Open a declaration for its complete checked type, definitions, source, and references.</p>'
         for n, ref in enumerate(result["lean"], 1):
@@ -699,6 +726,7 @@ class Site:
         content += f'<p>This map covers {len(self.results)} selected claims and proof ingredients. Numbers and source locations refer to the revised manuscript included in this repository, which incorporates the two counting repairs; the arXiv version may differ. <a href="https://arxiv.org/abs/2609.18222">Read the arXiv paper</a> or ' + self.link("manuscript.html", "browse the revised source", page) + '.</p>'
         content += '<div class="correspondence-summary">' + ''.join('<span><strong>' + str(counts[status]) + '</strong> ' + esc(status.replace('_', ' ')) + '</span>' for status in counts) + '</div>'
         content += f'<p class="small">The {len(references)} mapped declaration references include {theorem_count} theorems and {predicate_count} unproved predicates. The full manuscript is not formalized. Each row states its scope and whether the formalization uses an alternative argument, a specialization, or a corrected proof. Lean checks the formal statements; this reading map does not certify English–Lean equivalence.</p>'
+        content += '<p class="small">' + self.link(self.doc_url("docs/STATEMENT_AUDIT.md"), "Independent AI source-semantics reviews", page) + ' cover the six challenge roots. Relevant rows link their reports and recorded verdicts; these reviews do not machine-certify English–Lean equivalence.</p>'
         content += '<p class="small">' + self.link("correspondence-map.json", "Download the correspondence data", page) + ' · ' + self.link(self.doc_url("docs/PROOF_MAP.md"), "Detailed repository proof map", page) + ' · ' + self.link("verify.html", "Verification evidence", page) + '</p>'
         content += '<div id="correspondence-controls" hidden role="search" aria-label="Filter manuscript correspondences"><label>Find a claim<input id="correspondence-query" type="search" placeholder="Theorem, label, concept, or Lean name…" autocomplete="off"></label><label>Formalization status<select id="correspondence-status"><option value="all">All records</option><option value="proved">Proved</option><option value="corrected">Corrected proof</option><option value="not_formalized">Not formalized</option></select></label><button id="correspondence-reset" type="button">Reset</button></div>'
         content += f'<p id="correspondence-count" aria-live="polite">{len(self.results)} correspondence records</p><p id="correspondence-empty" hidden>No matching records. Clear the search or choose another status.</p><div class="correspondence-table-wrap" tabindex="0" role="region" aria-label="Manuscript-to-Lean correspondence table; scroll horizontally on a narrow screen"><table class="correspondence-table"><thead><tr><th scope="col">Manuscript statement</th><th scope="col">Manuscript argument</th><th scope="col">Informal proof guide</th><th scope="col">Lean statements and scope</th></tr></thead><tbody>'
@@ -736,6 +764,7 @@ class Site:
             content += '<p class="correspondence-scope"><strong>' + esc(result["correspondence"].replace('_', ' ').capitalize()) + '.</strong> ' + esc(result["notes"]) + '</p>'
             if result.get("comparator_config"):
                 content += '<p class="small">' + self.link("source/" + result["comparator_config"], "Expected-statement challenge", page) + '</p>'
+            content += self.statement_audit_links(result_id, page)
             content += '</td></tr>'
             records.append({**entry, "name": result["name"], "status": result["status"],
                             "correspondence": result["correspondence"], "scope": result["notes"],
@@ -745,7 +774,11 @@ class Site:
                             "manuscript_locations": [self.manuscript_location(label) for label in result["paper"]["labels"]],
                             "guide_pages": [self.reader_item("guides", guide_id)["page"] for guide_id in entry["guides"]],
                             "stage_pages": ["route.html#stage-" + stage_id for stage_id in entry["stages"]],
-                            "reader_page": "results/" + result_id + ".html", "lean": declaration_records})
+                            "reader_page": "results/" + result_id + ".html", "lean": declaration_records,
+                            "statement_audits": [{"declaration": audit["declaration"], "report": audit["report"],
+                                                  "report_page": self.doc_url(audit["report"]),
+                                                  "verdict": audit["verdict"], "qualifications": audit["qualifications"]}
+                                                 for audit in self.statement_audits_by_result.get(result_id, [])]})
         content += '</tbody></table></div><h2 id="guide-crosswalk">Where the reading guide meets the manuscript</h2><div class="table-scroll"><table><thead><tr><th>Guide chapter</th><th>Manuscript passages</th></tr></thead><tbody>'
         crosswalk = {"introduction": [("sec:introduction", "§1 · introduction and main results")],
                      "construction": [("sec:entropy", "§2 · qualitative channel construction"), ("sec:approximation", "§3 · quantitative approximation"), ("app:operators", "Appendix A · algebraic tools"), ("app:finite-threshold", "Appendix B · Haar estimates and parameters")],
@@ -765,6 +798,10 @@ class Site:
                   "manuscript": {**self.meta["manuscript"], "source_page": "manuscript.html"},
                   "metadata_sha256": self.inputs["metadata/results.json"],
                   "mapping_source_sha256": self.inputs["tools/docs-site/correspondence.json"],
+                  "statement_audit_manifest": {"source_url": "source/" + AUDIT_PATH,
+                                               "sha256": self.inputs[AUDIT_PATH],
+                                               "review_kind": self.statement_audit["review_kind"],
+                                               "machine_equivalence_certified": False},
                   "counts": {**counts, "records": len(records), "declaration_references": len(references),
                              "theorem_references": theorem_count, "unproved_predicate_references": predicate_count},
                   "statement_equivalence_certified": False, "entries": records}))

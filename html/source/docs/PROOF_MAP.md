@@ -3,6 +3,9 @@
 [Browse the website map](https://jwang226.github.io/Holevo-Additivity-Gap/correspondence.html)
 for manuscript passages, informal proof guides, and exact Lean statements.
 
+[Independent statement audits](STATEMENT_AUDIT.md) examine the six principal
+challenge roots, including definitions, quantifiers, and scope qualifications.
+
 The source is identified by LaTeX labels, which stay useful when theorem
 numbers change. The finite-dimensional quantum steps below use actual complex
 positive semidefinite trace-one matrices and actual finite Kraus channels.

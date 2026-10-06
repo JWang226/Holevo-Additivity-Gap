@@ -26,6 +26,12 @@
   },
   "metadata_sha256": "15b3d893285deb68108ef5cd92ff37b8f60c8584cbc1f178adf8726df8ca791c",
   "mapping_source_sha256": "7dbada3fd5299d6bdaaa0eefc9a04e930d123c41665c2a4b354ad1fbff0ec574",
+  "statement_audit_manifest": {
+    "source_url": "source/verification/statement-audit.json",
+    "sha256": "effd4226f443659a0bfa3c4410d3a4aefe793e32dd58eb6768230364d1136c9c",
+    "review_kind": "independent_ai_source_semantics_review",
+    "machine_equivalence_certified": false
+  },
   "counts": {
     "proved": 20,
     "corrected": 2,
@@ -224,6 +230,18 @@
           "page": "declarations/80cfb1f3fd72ad5a49c2d38d.html",
           "source_page": "modules/Nonadditivity.HaarPrescribedBound.html#L65"
         }
+      ],
+      "statement_audits": [
+        {
+          "declaration": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
+          "report": "docs/AUDIT_PRESCRIBED.md",
+          "report_page": "docs/docs--AUDIT_PRESCRIBED.html",
+          "verdict": "qualified",
+          "qualifications": [
+            "Combines thm:main with eq:constructed-holevo-lower and the resulting positivity on one channel witness.",
+            "The concrete Weyl representation agrees up to harmless phase and label reindexing."
+          ]
+        }
       ]
     },
     {
@@ -317,6 +335,19 @@
           "kind": "theorem",
           "page": "declarations/08f6c95d467f0abfc1266e30.html",
           "source_page": "modules/Nonadditivity.OperationalCodingTheorem.html#L84"
+        }
+      ],
+      "statement_audits": [
+        {
+          "declaration": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
+          "report": "docs/AUDIT_CODING.md",
+          "report_page": "docs/docs--AUDIT_CODING.html",
+          "verdict": "qualified",
+          "qualifications": [
+            "The root requires nonempty physical spaces; broader helper definitions also totalize empty carriers.",
+            "Quantifies over finite Kraus realizations; a converse representation theorem for abstract CPTP maps is outside this root.",
+            "The exported root states the supremum identity; convergence to the capacity is a separate theorem."
+          ]
         }
       ]
     },
@@ -447,7 +478,8 @@
           "page": "declarations/d46477a78ba01d62c83cd55d.html",
           "source_page": "modules/Nonadditivity.OperationalConsequences.html#L101"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "two-use-ratio",
@@ -567,7 +599,8 @@
           "page": "declarations/65f0203e0b3d0e0acfa561ac.html",
           "source_page": "modules/Nonadditivity.HaarPrescribedRatio.html#L45"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "simultaneous-separation",
@@ -710,6 +743,18 @@
           "page": "declarations/cfeaa1959ef9cc4b5765c74f.html",
           "source_page": "modules/Nonadditivity.OperationalConsequences.html#L69"
         }
+      ],
+      "statement_audits": [
+        {
+          "declaration": "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio",
+          "report": "docs/AUDIT_SEPARATION.md",
+          "report_page": "docs/docs--AUDIT_SEPARATION.html",
+          "verdict": "qualified",
+          "qualifications": [
+            "A stronger common-witness conjunction of the two source corollaries, proved using the alternative deterministic construction.",
+            "This root does not include the corollaries' quantitative prescribed-dimension or sequence assertions."
+          ]
+        }
       ]
     },
     {
@@ -850,7 +895,8 @@
           "page": "declarations/5435793b10ca045ee8f4ab30.html",
           "source_page": "modules/Nonadditivity.ExactQualitative.html#L33"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "small-large-and-sequence",
@@ -1022,7 +1068,8 @@
           "page": "declarations/6d558c8f715a30d0b49665ea.html",
           "source_page": "modules/Nonadditivity.OperationalConsequences.html#L34"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "fixed-k-scaling",
@@ -1141,7 +1188,8 @@
           "page": "declarations/e25e6ced50dec140b138de45.html",
           "source_page": "modules/Nonadditivity.HaarInputScaling.html#L46"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "input-size-expansion",
@@ -1246,7 +1294,8 @@
           "page": "declarations/4c52514f80869eefceafecb6.html",
           "source_page": "modules/Nonadditivity.HaarPrescribedConsequences.html#L136"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "guaranteed-gap-fraction",
@@ -1366,7 +1415,8 @@
           "page": "declarations/bd66bcee213b3ffd40ff939f.html",
           "source_page": "modules/Nonadditivity.GapFractionAsymptotics.html#L37"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "fixed-channel-regrouping",
@@ -1474,7 +1524,8 @@
           "page": "declarations/392e27de4099bd285e074586.html",
           "source_page": "modules/Nonadditivity.HolevoPowerGap.html#L26"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "growing-family-cost",
@@ -1623,6 +1674,28 @@
           "kind": "theorem",
           "page": "declarations/6ad0f5fef07b73366bc477a6.html",
           "source_page": "modules/Nonadditivity.PrescribedCostCapacity.html#L15"
+        }
+      ],
+      "statement_audits": [
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds",
+          "report": "docs/AUDIT_INPUT_COST.md",
+          "report_page": "docs/docs--AUDIT_INPUT_COST.html",
+          "verdict": "qualified",
+          "qualifications": [
+            "The total channel family agrees with the manuscript construction parameters eventually; its finite initial completion is outside the asymptotic claim.",
+            "Channel selection is from a joint proved existential; uniqueness or choice-independent information values are not asserted."
+          ]
+        },
+        {
+          "declaration": "Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower",
+          "report": "docs/AUDIT_INPUT_COST.md",
+          "report_page": "docs/docs--AUDIT_INPUT_COST.html",
+          "verdict": "qualified",
+          "qualifications": [
+            "The total channel family agrees with the manuscript construction parameters eventually; its finite initial completion is outside the asymptotic claim.",
+            "Channel selection is from a joint proved existential; uniqueness or choice-independent information values are not asserted."
+          ]
         }
       ]
     },
@@ -1778,7 +1851,8 @@
           "page": "declarations/03d116c524ebe8ca6a60b897.html",
           "source_page": "modules/Nonadditivity.CollinsYounProduct.html#L380"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "prescribed-norm-certificate",
@@ -1937,7 +2011,8 @@
           "page": "declarations/da5996600cf037b6b9125ba8.html",
           "source_page": "modules/Nonadditivity.HaarPrescribedBound.html#L49"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "purity-entropy",
@@ -2114,7 +2189,8 @@
           "page": "declarations/2eff1a65a5a0cb0f5e6f7ad5.html",
           "source_page": "modules/Nonadditivity.QuantumHolevo.html#L55"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "bell-entropy",
@@ -2276,7 +2352,8 @@
           "page": "declarations/1a251bbe504b7365dad3aad6.html",
           "source_page": "modules/Nonadditivity.BlockBell.html#L160"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "weyl-all-uses",
@@ -2428,6 +2505,20 @@
           "kind": "theorem",
           "page": "declarations/212725335406d48b1cd82183.html",
           "source_page": "modules/Nonadditivity.OperationalConsequences.html#L125"
+        }
+      ],
+      "statement_audits": [
+        {
+          "declaration": "Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits",
+          "report": "docs/AUDIT_WEYL.md",
+          "report_page": "docs/docs--AUDIT_WEYL.html",
+          "verdict": "qualified",
+          "qualifications": [
+            "minimumEntropy is a real infimum. A formal attainment or pure-minimizer bridge to the manuscript's minimum was not located.",
+            "Quantifies over finite Kraus realizations; no converse representation bridge from abstract CPTP maps is included.",
+            "Covers every positive self-power; the distinct-channel identity is outside this root.",
+            "Weyl conventions agree after phase cancellation and label reindexing."
+          ]
         }
       ]
     },
@@ -2610,7 +2701,8 @@
           "page": "declarations/52335f48e156b63bbd4370cd.html",
           "source_page": "modules/Nonadditivity.UniversalFactorization.html#L43"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "haar-moment-range",
@@ -2813,7 +2905,8 @@
           "page": "declarations/ff528e0a2e85cc7e9c8ce493.html",
           "source_page": "modules/Nonadditivity.HaarIteratedExpectation.html#L21"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "favorable-probability",
@@ -2943,7 +3036,8 @@
           "page": "declarations/d5d2aa1b4f745ae9ed3bee6b.html",
           "source_page": "modules/Nonadditivity.HaarPrescribedProbability.html#L19"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "correction-important-times",
@@ -3119,7 +3213,8 @@
           "page": "declarations/99e8bb6aae7f7741f1f4deef.html",
           "source_page": "modules/Nonadditivity.HaarSharpCounting.html#L97"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "correction-middle-runs",
@@ -3295,7 +3390,8 @@
           "page": "declarations/af212ad5e405403a8873fad3.html",
           "source_page": "modules/Nonadditivity.HaarRefinedCoefficientBound.html#L30"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "undamped-all-dimensions",
@@ -3421,7 +3517,8 @@
         "route.html#stage-7"
       ],
       "reader_page": "results/undamped-all-dimensions.html",
-      "lean": []
+      "lean": [],
+      "statement_audits": []
     },
     {
       "result_id": "generic-haar-convergence",
@@ -3584,7 +3681,8 @@
           "page": "declarations/9ac82928b324083467d852bf.html",
           "source_page": "modules/Nonadditivity.UpperHaarRealization.html#L88"
         }
-      ]
+      ],
+      "statement_audits": []
     },
     {
       "result_id": "background-generality",
@@ -3751,7 +3849,8 @@
         "route.html#stage-7"
       ],
       "reader_page": "results/background-generality.html",
-      "lean": []
+      "lean": [],
+      "statement_audits": []
     }
   ]
 }

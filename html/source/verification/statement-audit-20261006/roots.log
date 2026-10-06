@@ -1,0 +1,217 @@
+@Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound : ∀ {K n : Nat},
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) K →
+    @LE.le.{0} Nat instLENat (Nonadditivity.Quantitative.n₀ K) n →
+      ∃ T,
+        And
+          (@Eq.{1} Nat (@Fintype.card.{0} T.Input T.inputFinite)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))
+                (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@Monoid.toPow.{0} Nat Nat.instMonoid))
+                  (Nonadditivity.StructuredHaarConsequences.localDimension K n) n))
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@Monoid.toPow.{0} Nat Nat.instMonoid)) K
+                (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n))))
+          (And
+            (@Eq.{1} Nat (@Fintype.card.{0} T.Output T.outputFinite)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat (@instHPow.{0, 0} Nat Nat (@Monoid.toPow.{0} Nat Nat.instMonoid)) K n))
+            (And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                T.chi)
+              (And
+                (@LE.le.{0} Real Real.instLE
+                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                      (@Nat.cast.{0} Real Real.instNatCast n))
+                    (@Nat.cast.{0} Real Real.instNatCast K))
+                  T.chi)
+                (And
+                  (@LE.le.{0} Real Real.instLE T.chi
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@Nat.cast.{0} Real Real.instNatCast n)
+                        (Nonadditivity.Scalar.aK (@Nat.cast.{0} Real Real.instNatCast K)))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@OfNat.ofNat.{0} Real (nat_lit 2)
+                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                        (Nonadditivity.Scalar.log2 (Nonadditivity.StructuredHaarConsequences.kappa n)))))
+                  (And
+                    (@LE.le.{0} Real Real.instLE
+                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Nat.cast.{0} Real Real.instNatCast n)
+                          (Nonadditivity.Scalar.log2 (@Nat.cast.{0} Real Real.instNatCast K)))
+                        (@Nat.cast.{0} Real Real.instNatCast K))
+                      T.chiTwo)
+                    (@LE.le.{0} Real Real.instLE
+                      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Nat.cast.{0} Real Real.instNatCast n)
+                          (Nonadditivity.Scalar.deltaK (@Nat.cast.{0} Real Real.instNatCast K)))
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@OfNat.ofNat.{0} Real (nat_lit 4)
+                            (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+                          (Nonadditivity.Scalar.log2 (Nonadditivity.StructuredHaarConsequences.kappa n))))
+                      T.gap))))))
+'Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum.{u_1, u_2,
+    u_3} : ∀ {ι : Type u_1} {ο : Type u_2} {κ : Type u_3} [inst : Fintype.{u_1} ι] [inst_1 : DecidableEq.{u_1 + 1} ι]
+  [Nonempty.{u_1 + 1} ι] [inst_3 : Fintype.{u_2} ο] [inst_4 : DecidableEq.{u_2 + 1} ο] [Nonempty.{u_2 + 1} ο]
+  [inst_6 : Fintype.{u_3} κ] (T : @Nonadditivity.Channels.KrausChannel.{u_1, u_2, u_3} ι ο κ inst inst_1 inst_3 inst_6),
+  @Eq.{1} Real (@Nonadditivity.Operational.operationalCapacity.{u_1, u_2, u_3} ι ο κ inst inst_1 inst_3 inst_4 inst_6 T)
+    (@sSup.{0} Real Real.instSupSet
+      (@Set.range.{0, 1} Real Nat
+        (@Nonadditivity.RegularizedHolevo.normalizedPowerHolevo.{u_1, u_2, u_3} ι ο κ inst inst_1 inst_3 inst_4 inst_6
+          T)))
+'Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio : ∀ {ε : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε →
+    ∀ (A R : Real),
+      ∃ T,
+        And
+          (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            T.chi)
+          (And (@LE.le.{0} Real Real.instLE T.chi ε)
+            (And
+              (@LE.le.{0} Real Real.instLE A
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) T.classicalCapacity T.chi))
+              (@LE.le.{0} Real Real.instLE R T.twoUseRatio)))
+'Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+@Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits.{u_1,
+    u_2} : ∀ {ι : Type u_1} {κ : Type u_2} [inst : Fintype.{u_1} ι] [inst_1 : DecidableEq.{u_1 + 1} ι]
+  [Nonempty.{u_1 + 1} ι] [inst_3 : Fintype.{u_2} κ] {d : Nat}
+  [inst_4 : @NeZero.{0} Nat (@MulZeroClass.toZero.{0} Nat Nat.instMulZeroClass) d]
+  (T : @Nonadditivity.Channels.KrausChannel.{u_1, 0, u_2} ι (ZMod d) κ inst inst_1 (@ZMod.fintype d inst_4) inst_3)
+  (n : Nat),
+  @Eq.{1} Real
+    (@Nonadditivity.Channels.KrausChannel.holevoBits.{u_1, 0, u_2}
+      (Nonadditivity.RegularizedHolevo.PositiveTensorIndex.{u_1} (Prod.{0, u_1} (Prod.{0, 0} (ZMod d) (ZMod d)) ι) n)
+      (Nonadditivity.RegularizedHolevo.PositiveTensorIndex.{0} (ZMod d) n)
+      (Nonadditivity.RegularizedHolevo.PositiveTensorIndex.{u_2} (Prod.{0, u_2} (Prod.{0, 0} (ZMod d) (ZMod d)) κ) n)
+      (@Nonadditivity.RegularizedHolevo.positiveTensorIndexFintype.{u_1}
+        (Prod.{0, u_1} (Prod.{0, 0} (ZMod d) (ZMod d)) ι)
+        (@instFintypeProd.{0, u_1} (Prod.{0, 0} (ZMod d) (ZMod d)) ι
+          (@instFintypeProd.{0, 0} (ZMod d) (ZMod d) (@ZMod.fintype d inst_4) (@ZMod.fintype d inst_4)) inst)
+        n)
+      (fun a b =>
+        @Nonadditivity.RegularizedHolevo.positiveTensorIndexDecidableEq.{u_1}
+          (Prod.{0, u_1} (Prod.{0, 0} (ZMod d) (ZMod d)) ι)
+          (fun a b =>
+            @instDecidableEqProd.{0, u_1} (Prod.{0, 0} (ZMod d) (ZMod d)) ι
+              (fun a b => @instDecidableEqProd.{0, 0} (ZMod d) (ZMod d) (ZMod.decidableEq d) (ZMod.decidableEq d) a b)
+              inst_1 a b)
+          n a b)
+      (@Nonadditivity.RegularizedHolevo.positiveTensorIndexFintype.{0} (ZMod d) (@ZMod.fintype d inst_4) n)
+      (fun a b =>
+        @Nonadditivity.RegularizedHolevo.positiveTensorIndexDecidableEq.{0} (ZMod d) (ZMod.decidableEq d) n a b)
+      (@Nonadditivity.RegularizedHolevo.positiveTensorIndexFintype.{u_2}
+        (Prod.{0, u_2} (Prod.{0, 0} (ZMod d) (ZMod d)) κ)
+        (@instFintypeProd.{0, u_2} (Prod.{0, 0} (ZMod d) (ZMod d)) κ
+          (@instFintypeProd.{0, 0} (ZMod d) (ZMod d) (@ZMod.fintype d inst_4) (@ZMod.fintype d inst_4)) inst_3)
+        n)
+      (@Nonadditivity.RegularizedHolevo.positiveTensorPower.{u_1, 0, u_2}
+        (Prod.{0, u_1} (Prod.{0, 0} (ZMod d) (ZMod d)) ι) (ZMod d) (Prod.{0, u_2} (Prod.{0, 0} (ZMod d) (ZMod d)) κ)
+        (@instFintypeProd.{0, u_1} (Prod.{0, 0} (ZMod d) (ZMod d)) ι
+          (@instFintypeProd.{0, 0} (ZMod d) (ZMod d) (@ZMod.fintype d inst_4) (@ZMod.fintype d inst_4)) inst)
+        (fun a b =>
+          @instDecidableEqProd.{0, u_1} (Prod.{0, 0} (ZMod d) (ZMod d)) ι
+            (fun a b => @instDecidableEqProd.{0, 0} (ZMod d) (ZMod d) (ZMod.decidableEq d) (ZMod.decidableEq d) a b)
+            inst_1 a b)
+        (@ZMod.fintype d inst_4) (ZMod.decidableEq d)
+        (@instFintypeProd.{0, u_2} (Prod.{0, 0} (ZMod d) (ZMod d)) κ
+          (@instFintypeProd.{0, 0} (ZMod d) (ZMod d) (@ZMod.fintype d inst_4) (@ZMod.fintype d inst_4)) inst_3)
+        (@Nonadditivity.Channels.KrausChannel.weylExtension.{u_1, u_2} ι κ inst inst_1 inst_3 d inst_4 T) n))
+    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Nat.cast.{0} Real Real.instNatCast
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Nonadditivity.Scalar.log2 (@Nat.cast.{0} Real Real.instNatCast d)))
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@Nonadditivity.Channels.KrausChannel.minimumEntropy.{u_1, 0, u_2}
+          (Nonadditivity.RegularizedHolevo.PositiveTensorIndex.{u_1} ι n)
+          (Nonadditivity.RegularizedHolevo.PositiveTensorIndex.{0} (ZMod d) n)
+          (Nonadditivity.RegularizedHolevo.PositiveTensorIndex.{u_2} κ n)
+          (@Nonadditivity.RegularizedHolevo.positiveTensorIndexFintype.{u_1} ι inst n)
+          (fun a b => @Nonadditivity.RegularizedHolevo.positiveTensorIndexDecidableEq.{u_1} ι inst_1 n a b)
+          (@Nonadditivity.RegularizedHolevo.positiveTensorIndexFintype.{0} (ZMod d) (@ZMod.fintype d inst_4) n)
+          (fun a b =>
+            @Nonadditivity.RegularizedHolevo.positiveTensorIndexDecidableEq.{0} (ZMod d) (ZMod.decidableEq d) n a b)
+          (@Nonadditivity.RegularizedHolevo.positiveTensorIndexFintype.{u_2} κ inst_3 n)
+          (@Nonadditivity.RegularizedHolevo.positiveTensorPower.{u_1, 0, u_2} ι (ZMod d) κ inst inst_1
+            (@ZMod.fintype d inst_4) (ZMod.decidableEq d) inst_3 T n))
+        (Real.log (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)))))
+'Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds : @Filter.Eventually.{0} Nat
+  (fun K =>
+    And
+      (@LE.le.{0} Real Real.instLE
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          Nonadditivity.PrescribedCost.inputLogScale
+          (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)))
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (Nonadditivity.PrescribedCost.growingFamily K).chi
+          (Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)).sqrt))
+      (@LE.le.{0} Real Real.instLE
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (Nonadditivity.PrescribedCost.growingFamily K).chi
+          (Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)).sqrt)
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@OfNat.ofNat.{0} Real (nat_lit 9) (@instOfNatAtLeastTwo.{0} Real (nat_lit 9) Real.instNatCast ⋯))
+              (Real.log
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+            Nonadditivity.PrescribedCost.inputLogScale))))
+  (@Filter.atTop.{0} Nat Nat.instPreorder)
+'Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower : @Filter.Eventually.{0} Nat
+  (fun K =>
+    And
+      (@LE.le.{0} Real Real.instLE
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 8) (@instOfNatAtLeastTwo.{0} Real (nat_lit 8) Real.instNatCast ⋯))
+              (Real.log
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+            Nonadditivity.PrescribedCost.inputLogScale))
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (Nonadditivity.PrescribedCost.growingFamily K).chiTwo
+            (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)))
+          (Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)).sqrt))
+      (@LE.le.{0} Real Real.instLE
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 8) (@instOfNatAtLeastTwo.{0} Real (nat_lit 8) Real.instNatCast ⋯))
+              (Real.log
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+            Nonadditivity.PrescribedCost.inputLogScale))
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (Nonadditivity.PrescribedCost.growingFamily K).classicalCapacity
+          (Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)).sqrt)))
+  (@Filter.atTop.{0} Nat Nat.instPreorder)
+'Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
