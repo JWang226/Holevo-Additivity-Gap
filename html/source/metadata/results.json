@@ -771,6 +771,20 @@
     "audited_project_declarations": 9107,
     "audited_theorem_constants": 7219,
     "external_comparator_execution": "not_run",
-    "independent_kernel_execution": "not_run"
+    "independent_kernel_execution": "not_run",
+    "source_certificate": "verification/elaboration-20261006/source-certificate.json",
+    "note": "The linked October 2 CI record is historical. Current cleanup rebuild/type evidence is selected by source_certificate; new portable verification is selected separately."
+  },
+  "portable_verification_current": {
+    "directory": "verification/portable-20261007"
+  },
+  "statement_audit_current": {
+    "selector": "verification/statement-audit-current.json"
+  },
+  "verification_release": {
+    "tag": "v1.0.0",
+    "portable_evidence": "verification/portable-20261007/run-summary.json",
+    "statement_review": "verification/statement-audit-delta-20261007.json",
+    "scope": "Principal endpoints; full manuscript not formalized. Release publication requires all selected evidence checks and normal CI to pass."
   }
 }

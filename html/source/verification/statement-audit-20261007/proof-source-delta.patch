@@ -1,0 +1,522 @@
+diff --git a/Nonadditivity/ActualConsequences.lean b/Nonadditivity/ActualConsequences.lean
+index 6657cddf..92860514 100644
+--- a/Nonadditivity/ActualConsequences.lean
++++ b/Nonadditivity/ActualConsequences.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.HaarModel
+-import Nonadditivity.HolevoBits
+ import Nonadditivity.PositiveHolevo
+ import Nonadditivity.Asymptotics
+ 
+diff --git a/Nonadditivity/BellOutput.lean b/Nonadditivity/BellOutput.lean
+index 283d474f..5421b150 100644
+--- a/Nonadditivity/BellOutput.lean
++++ b/Nonadditivity/BellOutput.lean
+@@ -3,10 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.Entropy
+-import Nonadditivity.EntropyProducts
+-import Nonadditivity.StateEnsembles
+-import Nonadditivity.Channels
+ import Nonadditivity.EntropyMixtures
+ import Nonadditivity.PureChannelEntropy
+ import Nonadditivity.ChannelReindex
+diff --git a/Nonadditivity/CollinsYounProduct.lean b/Nonadditivity/CollinsYounProduct.lean
+index 7e253683..b1ef2737 100644
+--- a/Nonadditivity/CollinsYounProduct.lean
++++ b/Nonadditivity/CollinsYounProduct.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.CollinsYoun
+ import Nonadditivity.RegularFubini
+ 
+ /-! # The product Collins--Youn inequality
+diff --git a/Nonadditivity/ComplementaryAdjoint.lean b/Nonadditivity/ComplementaryAdjoint.lean
+index 80d411cd..15f1254f 100644
+--- a/Nonadditivity/ComplementaryAdjoint.lean
++++ b/Nonadditivity/ComplementaryAdjoint.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.Channels
+ import Nonadditivity.BlockConstruction
+ import Mathlib.Tactic.Ring
+ 
+diff --git a/Nonadditivity/DampedPositivity.lean b/Nonadditivity/DampedPositivity.lean
+index 10a0be73..5285af40 100644
+--- a/Nonadditivity/DampedPositivity.lean
++++ b/Nonadditivity/DampedPositivity.lean
+@@ -5,7 +5,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ 
+ import Nonadditivity.StrictEntropy
+ import Nonadditivity.DampedChannel
+-import Nonadditivity.ConditionalStates
+ import Nonadditivity.PositiveHolevo
+ 
+ /-! # Invertible damping preserves a nonuniform output
+diff --git a/Nonadditivity/EntropyContinuity.lean b/Nonadditivity/EntropyContinuity.lean
+index 95f22790..dbfde9d2 100644
+--- a/Nonadditivity/EntropyContinuity.lean
++++ b/Nonadditivity/EntropyContinuity.lean
+@@ -3,9 +3,7 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.EntropyMixtures
+ import Nonadditivity.HaarMomentTail
+-import Nonadditivity.AdjointPurity
+ import Mathlib.Topology.UniformSpace.HeineCantor
+ 
+ /-!
+diff --git a/Nonadditivity/FiniteRealization.lean b/Nonadditivity/FiniteRealization.lean
+index 130a5eea..95a0d83e 100644
+--- a/Nonadditivity/FiniteRealization.lean
++++ b/Nonadditivity/FiniteRealization.lean
+@@ -3,8 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.AdjointPurity
+-import Nonadditivity.Channels
+ import Nonadditivity.Net
+ import Nonadditivity.QuantumHolevo
+ import Mathlib.Analysis.InnerProductSpace.PiL2
+diff --git a/Nonadditivity/FiniteSetFactorization.lean b/Nonadditivity/FiniteSetFactorization.lean
+index c3b74999..b277ab2f 100644
+--- a/Nonadditivity/FiniteSetFactorization.lean
++++ b/Nonadditivity/FiniteSetFactorization.lean
+@@ -3,8 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.PositiveLinearization
+-import Nonadditivity.RegularCoefficientEnergy
+ import Nonadditivity.RegularDilation
+ import Nonadditivity.MatrixNormReindex
+ import Mathlib.LinearAlgebra.Matrix.Kronecker
+diff --git a/Nonadditivity/FreeBridge.lean b/Nonadditivity/FreeBridge.lean
+index 7757a254..b6c1d0f1 100644
+--- a/Nonadditivity/FreeBridge.lean
++++ b/Nonadditivity/FreeBridge.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.FreeModel
+-import Nonadditivity.TensorPowers
+ import Nonadditivity.Net
+ import Nonadditivity.BlockConstruction
+ import Mathlib.Data.Fin.Tuple.Basic
+diff --git a/Nonadditivity/GaussianConstruction.lean b/Nonadditivity/GaussianConstruction.lean
+index 87b81143..d00d9535 100644
+--- a/Nonadditivity/GaussianConstruction.lean
++++ b/Nonadditivity/GaussianConstruction.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.GaussianCertificates
+-import Nonadditivity.GaussianRectangularAlgebra
+ import Nonadditivity.GaussianSampleEvaluation
+ import Nonadditivity.InitialNetReduction
+ 
+diff --git a/Nonadditivity/GeneralBell.lean b/Nonadditivity/GeneralBell.lean
+index 6710dd3e..1c9bed23 100644
+--- a/Nonadditivity/GeneralBell.lean
++++ b/Nonadditivity/GeneralBell.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.BellOutput
+-import Nonadditivity.AdjointPurity
+ import Nonadditivity.Conversion
+ 
+ /-! # Bell witnesses for arbitrary Kraus channels
+diff --git a/Nonadditivity/HaarChainMultiplicity.lean b/Nonadditivity/HaarChainMultiplicity.lean
+index 9836b03f..9741a357 100644
+--- a/Nonadditivity/HaarChainMultiplicity.lean
++++ b/Nonadditivity/HaarChainMultiplicity.lean
+@@ -5,7 +5,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ 
+ import Nonadditivity.HaarCoreChainLabels
+ import Nonadditivity.HaarPathChainProfiles
+-import Nonadditivity.HaarPathMultiplicity
+ 
+ /-! # Edge multiplicities in the actual maximal-chain decomposition
+ 
+diff --git a/Nonadditivity/HaarNonbacktrackingFirstStep.lean b/Nonadditivity/HaarNonbacktrackingFirstStep.lean
+index e3b66ee0..44862881 100644
+--- a/Nonadditivity/HaarNonbacktrackingFirstStep.lean
++++ b/Nonadditivity/HaarNonbacktrackingFirstStep.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.HaarNonbacktrackingSupport
+-import Nonadditivity.FreeCreation
+ 
+ /-! # The first step of a non-returning free-group path -/
+ 
+diff --git a/Nonadditivity/HaarOperatorCurry.lean b/Nonadditivity/HaarOperatorCurry.lean
+index 835fd701..2cd4ba76 100644
+--- a/Nonadditivity/HaarOperatorCurry.lean
++++ b/Nonadditivity/HaarOperatorCurry.lean
+@@ -5,7 +5,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ 
+ import Nonadditivity.HaarOperatorPolynomial
+ import Nonadditivity.HaarTensorReplacement
+-import Nonadditivity.RegularFubini
+ import Mathlib.Algebra.MonoidAlgebra.MapDomain
+ 
+ /-! # The operator coefficients of a mixed free-group polynomial
+diff --git a/Nonadditivity/HaarPrescribedConsequences.lean b/Nonadditivity/HaarPrescribedConsequences.lean
+index 7af3d3b8..1c75ef37 100644
+--- a/Nonadditivity/HaarPrescribedConsequences.lean
++++ b/Nonadditivity/HaarPrescribedConsequences.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.HaarPrescribedBound
+-import Nonadditivity.HolevoRateLimit
+ import Nonadditivity.Dimensions
+ 
+ /-! # Asymptotic consequences for the prescribed-dimension channels
+diff --git a/Nonadditivity/HaarRefinedCoefficientBound.lean b/Nonadditivity/HaarRefinedCoefficientBound.lean
+index cc96edb8..91e0600f 100644
+--- a/Nonadditivity/HaarRefinedCoefficientBound.lean
++++ b/Nonadditivity/HaarRefinedCoefficientBound.lean
+@@ -5,7 +5,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ 
+ import Nonadditivity.HaarRefinedCoefficientFibre
+ import Nonadditivity.HaarProfileSingletonWeight
+-import Nonadditivity.HaarPaletteDecoder
+ import Nonadditivity.HaarActualScanWords
+ import Nonadditivity.HaarDecodedCoefficientBound
+ 
+diff --git a/Nonadditivity/HaarSharpCounting.lean b/Nonadditivity/HaarSharpCounting.lean
+index 67bade2a..b306244b 100644
+--- a/Nonadditivity/HaarSharpCounting.lean
++++ b/Nonadditivity/HaarSharpCounting.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.HaarPathCounting
+ import Nonadditivity.HaarPathClassStats
+ import Mathlib.Algebra.BigOperators.Ring.Finset
+ 
+diff --git a/Nonadditivity/HaarTensorEvaluation.lean b/Nonadditivity/HaarTensorEvaluation.lean
+index 739769ca..09db9043 100644
+--- a/Nonadditivity/HaarTensorEvaluation.lean
++++ b/Nonadditivity/HaarTensorEvaluation.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.HaarTensorReplacement
+-import Nonadditivity.MatrixNormReindex
+ 
+ /-! # Partial substitution agrees with literal tensor evaluation
+ 
+diff --git a/Nonadditivity/HaarWeingartenInverse.lean b/Nonadditivity/HaarWeingartenInverse.lean
+index 1a6d53c7..4caa49d0 100644
+--- a/Nonadditivity/HaarWeingartenInverse.lean
++++ b/Nonadditivity/HaarWeingartenInverse.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.HaarPermutationSupport
+-import Nonadditivity.WeightedMatrixInverse
+ import Nonadditivity.HaarWeingartenInverseSum
+ import Nonadditivity.HaarWeingartenCycles
+ import Mathlib.Order.Interval.Finset.Nat
+diff --git a/Nonadditivity/HolevoTensorSuperadditivity.lean b/Nonadditivity/HolevoTensorSuperadditivity.lean
+index 5ffb50e9..f7414cff 100644
+--- a/Nonadditivity/HolevoTensorSuperadditivity.lean
++++ b/Nonadditivity/HolevoTensorSuperadditivity.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.HolevoBits
+-import Nonadditivity.ChannelReindex
+ 
+ /-! # Holevo superadditivity for genuine tensor-product channels
+ 
+diff --git a/Nonadditivity/Main.lean b/Nonadditivity/Main.lean
+index 45ac8e55..5e5dfc9e 100644
+--- a/Nonadditivity/Main.lean
++++ b/Nonadditivity/Main.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.Scalar
+ import Nonadditivity.Entropy
+ import Nonadditivity.Holevo
+ import Nonadditivity.Net
+@@ -21,8 +20,10 @@ This original component module connects density-matrix purity to entropy
+ and records the numerical gap implications. The subsequently added
+ `Qualitative` module proves actual finite-channel realization from explicit
+ limiting-norm and convergence hypotheses; its Bell and conversion steps are
+-proved internally. The full unconditional manuscript theorem and its
+-quantitative finite-matrix approximation remain open in this project.
++proved internally. The later `ExactQualitative` and `HaarPrescribedBound`
++modules prove the unconditional channel endpoints and prescribed finite
++dimensions. Broader manuscript claims retain the scope recorded in
++`docs/FORMALIZATION_STATUS.md`.
+ -/
+ 
+ noncomputable section
+diff --git a/Nonadditivity/NetPolynomial.lean b/Nonadditivity/NetPolynomial.lean
+index 027731af..4526be1b 100644
+--- a/Nonadditivity/NetPolynomial.lean
++++ b/Nonadditivity/NetPolynomial.lean
+@@ -5,10 +5,8 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ 
+ import Nonadditivity.CollinsYounProduct
+ import Nonadditivity.ObservableDimension
+-import Nonadditivity.MatrixRegularRestriction
+ import Nonadditivity.PrescribedTest
+ import Nonadditivity.RegularFactorization
+-import Nonadditivity.MatrixNormReindex
+ 
+ /-! # A finite family of observable tests as one actual polynomial
+ 
+diff --git a/Nonadditivity/OperationalCodingTheorem.lean b/Nonadditivity/OperationalCodingTheorem.lean
+index 9d0bfb2b..71d57d8d 100644
+--- a/Nonadditivity/OperationalCodingTheorem.lean
++++ b/Nonadditivity/OperationalCodingTheorem.lean
+@@ -6,7 +6,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ import Nonadditivity.QuantumCodingHSW
+ import Nonadditivity.OperationalBlocking
+ import Nonadditivity.OperationalWeakConverse
+-import Nonadditivity.HolevoRateLimit
+ 
+ /-! # The operational classical coding theorem
+ 
+diff --git a/Nonadditivity/OperationalHolevoConverse.lean b/Nonadditivity/OperationalHolevoConverse.lean
+index 693e8293..b0384aed 100644
+--- a/Nonadditivity/OperationalHolevoConverse.lean
++++ b/Nonadditivity/OperationalHolevoConverse.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.OperationalNaimark
+-import Nonadditivity.QuantumCodingContinuity
+ import Nonadditivity.QuantumCodingTraceDistance
+ 
+ /-! # Entropy estimates for actual finite quantum codes -/
+diff --git a/Nonadditivity/PositiveHolevo.lean b/Nonadditivity/PositiveHolevo.lean
+index 85bc1506..16b64ac1 100644
+--- a/Nonadditivity/PositiveHolevo.lean
++++ b/Nonadditivity/PositiveHolevo.lean
+@@ -3,9 +3,7 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.BlockConstruction
+ import Nonadditivity.HolevoBits
+-import Nonadditivity.EntropyMixtures
+ import Mathlib.LinearAlgebra.Eigenspace.Triangularizable
+ import Mathlib.Analysis.Complex.Polynomial.Basic
+ 
+diff --git a/Nonadditivity/ProductMomentBridge.lean b/Nonadditivity/ProductMomentBridge.lean
+index 895109af..d1a1f27b 100644
+--- a/Nonadditivity/ProductMomentBridge.lean
++++ b/Nonadditivity/ProductMomentBridge.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.HaarWordExpansion
+-import Nonadditivity.CollinsYoun
+ import Nonadditivity.ProductHaagerupProduct
+ 
+ /-! # Matrix coefficient energy and free trace moments
+diff --git a/Nonadditivity/Qualitative.lean b/Nonadditivity/Qualitative.lean
+index 531643b5..0d119d35 100644
+--- a/Nonadditivity/Qualitative.lean
++++ b/Nonadditivity/Qualitative.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.BlockConstruction
+ import Nonadditivity.BlockScalars
+ import Nonadditivity.FiniteChannelRealization
+ import Nonadditivity.FreeBridge
+diff --git a/Nonadditivity/QuantumCodingChannelWords.lean b/Nonadditivity/QuantumCodingChannelWords.lean
+index fc37f7ff..cb659feb 100644
+--- a/Nonadditivity/QuantumCodingChannelWords.lean
++++ b/Nonadditivity/QuantumCodingChannelWords.lean
+@@ -6,7 +6,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ import Nonadditivity.QuantumCodingFamilySpectrum
+ import Nonadditivity.OperationalCapacity
+ import Nonadditivity.OperationalReindex
+-import Nonadditivity.ChannelReindex
+ 
+ /-! # Word coordinates for actual channel tensor powers
+ 
+diff --git a/Nonadditivity/QuantumCodingPacking.lean b/Nonadditivity/QuantumCodingPacking.lean
+index 9ff4b234..c48dc21e 100644
+--- a/Nonadditivity/QuantumCodingPacking.lean
++++ b/Nonadditivity/QuantumCodingPacking.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.QuantumCodingSampling
+-import Nonadditivity.QuantumCodingSequential
+ import Nonadditivity.QuantumCodingDecoderBound
+ 
+ /-! # Finite random packing with actual projective quantum decoders -/
+diff --git a/Nonadditivity/RegularCoefficientEnergy.lean b/Nonadditivity/RegularCoefficientEnergy.lean
+index 182cb22c..d1651461 100644
+--- a/Nonadditivity/RegularCoefficientEnergy.lean
++++ b/Nonadditivity/RegularCoefficientEnergy.lean
+@@ -85,7 +85,9 @@ theorem liftOperator_single [DecidableEq G] (T : E →L[ℂ] E) (g : G) (x : E)
+ def reindexFunction (e : G ≃ G) (f : VectorHilbert G E) : VectorHilbert G E :=
+   ⟨fun g => f (e g), by
+     apply memℓp_gen
+-    exact e.summable_iff.mpr (f.property.summable (by norm_num))⟩
++    exact (e.summable_iff
++      (f := fun g : G => ‖f g‖ ^ (2 : ℝ≥0∞).toReal)).mpr
++      (f.property.summable (by norm_num))⟩
+ 
+ def reindexIsometry (e : G ≃ G) : VectorHilbert G E ≃ₗᵢ[ℂ] VectorHilbert G E where
+   toFun := reindexFunction e
+diff --git a/Nonadditivity/RegularDilation.lean b/Nonadditivity/RegularDilation.lean
+index 28f12756..ebb23e43 100644
+--- a/Nonadditivity/RegularDilation.lean
++++ b/Nonadditivity/RegularDilation.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.RegularCoefficientEnergy
+ import Nonadditivity.MatrixRegularRestriction
+ 
+ /-! # Hermitian dilation of literal matrix-valued regular polynomials
+diff --git a/Nonadditivity/RegularFubini.lean b/Nonadditivity/RegularFubini.lean
+index baa89f7b..45fae640 100644
+--- a/Nonadditivity/RegularFubini.lean
++++ b/Nonadditivity/RegularFubini.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.MatrixRegularRestriction
+ import Nonadditivity.CollinsYounTensor
+ 
+ /-! # Fubini isometry for the actual regular representation
+diff --git a/Nonadditivity/StructuredFiniteChannel.lean b/Nonadditivity/StructuredFiniteChannel.lean
+index 06fc33f8..3aab490f 100644
+--- a/Nonadditivity/StructuredFiniteChannel.lean
++++ b/Nonadditivity/StructuredFiniteChannel.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.InitialNetReduction
+-import Nonadditivity.ComplementaryAdjoint
+ 
+ /-! # From the actual paired net polynomial to the actual block channel
+ 
+diff --git a/Nonadditivity/StructuredHaarModel.lean b/Nonadditivity/StructuredHaarModel.lean
+index b7d2ae03..788cca01 100644
+--- a/Nonadditivity/StructuredHaarModel.lean
++++ b/Nonadditivity/StructuredHaarModel.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.StructuredLinearization
+-import Nonadditivity.HaarModel
+ import Mathlib.MeasureTheory.Function.LocallyIntegrable
+ import Mathlib.MeasureTheory.Integral.Average
+ 
+diff --git a/Nonadditivity/StructuredLinearization.lean b/Nonadditivity/StructuredLinearization.lean
+index 5034d03d..04c8c608 100644
+--- a/Nonadditivity/StructuredLinearization.lean
++++ b/Nonadditivity/StructuredLinearization.lean
+@@ -3,9 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.TensorPartitionReduction
+-import Nonadditivity.WordBallReduction
+-import Nonadditivity.PolynomialDilation
+ import Nonadditivity.InitialNetReduction
+ import Nonadditivity.StructuredReductionCosts
+ 
+diff --git a/Nonadditivity/TensorPowers.lean b/Nonadditivity/TensorPowers.lean
+index 562710d6..af72ab1f 100644
+--- a/Nonadditivity/TensorPowers.lean
++++ b/Nonadditivity/TensorPowers.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.EntropyProducts
+ import Nonadditivity.PureChannelEntropy
+ 
+ /-!
+diff --git a/Nonadditivity/UniversalFactorization.lean b/Nonadditivity/UniversalFactorization.lean
+index 425ae25e..4bd8e4b4 100644
+--- a/Nonadditivity/UniversalFactorization.lean
++++ b/Nonadditivity/UniversalFactorization.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.UniversalFactorizationGram
+ import Nonadditivity.UniversalFactorizationPolynomialDilation
+ 
+ /-!
+diff --git a/Nonadditivity/WeightedBell.lean b/Nonadditivity/WeightedBell.lean
+index e6715f32..d4c72d82 100644
+--- a/Nonadditivity/WeightedBell.lean
++++ b/Nonadditivity/WeightedBell.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.BellOutput
+ import Nonadditivity.WeightedBellScalar
+ 
+ /-! # Bell entropy for genuinely weighted random-unitary complementary channels
+diff --git a/Nonadditivity/WeightedBlock.lean b/Nonadditivity/WeightedBlock.lean
+index d0afe996..d96b089b 100644
+--- a/Nonadditivity/WeightedBlock.lean
++++ b/Nonadditivity/WeightedBlock.lean
+@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+ import Nonadditivity.CanonicalBlockBell
+-import Nonadditivity.ComplementaryAdjoint
+ import Nonadditivity.WeightedCertificate
+ import Mathlib.Topology.Instances.Matrix
+ 
+diff --git a/Nonadditivity/WeightedParameters.lean b/Nonadditivity/WeightedParameters.lean
+index 5020f11a..eb6f797e 100644
+--- a/Nonadditivity/WeightedParameters.lean
++++ b/Nonadditivity/WeightedParameters.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.BlockScalars
+ import Nonadditivity.WeightedBlock
+ import Nonadditivity.WeightedBellScalar
+ 
+diff --git a/Nonadditivity/WeylPowersTwirl.lean b/Nonadditivity/WeylPowersTwirl.lean
+index 2330b54a..d5deda73 100644
+--- a/Nonadditivity/WeylPowersTwirl.lean
++++ b/Nonadditivity/WeylPowersTwirl.lean
+@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
+ All rights reserved. See COPYRIGHT.md for licensing and attribution.
+ -/
+ 
+-import Nonadditivity.WeylTensor
+ import Nonadditivity.WeylPowersIndex
+ 
+ /-! Exact independent local Weyl twirls for every positive tensor power. -/

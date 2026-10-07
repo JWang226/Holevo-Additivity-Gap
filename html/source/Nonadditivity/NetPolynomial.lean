@@ -5,10 +5,8 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 
 import Nonadditivity.CollinsYounProduct
 import Nonadditivity.ObservableDimension
-import Nonadditivity.MatrixRegularRestriction
 import Nonadditivity.PrescribedTest
 import Nonadditivity.RegularFactorization
-import Nonadditivity.MatrixNormReindex
 
 /-! # A finite family of observable tests as one actual polynomial
 

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "audit": {
+    "path": "verification/statement-audit-delta-20261007.json",
+    "sha256": "b6cba322673bb0ec5ff161e9601da606140340d52dac4fa9e0144c5b24cf8852"
+  },
+  "scope": "Historical independent reviews continued by the current cleanup delta; not machine-certified semantic equivalence."
+}

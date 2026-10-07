@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.QuantumCodingSampling
-import Nonadditivity.QuantumCodingSequential
 import Nonadditivity.QuantumCodingDecoderBound
 
 /-! # Finite random packing with actual projective quantum decoders -/

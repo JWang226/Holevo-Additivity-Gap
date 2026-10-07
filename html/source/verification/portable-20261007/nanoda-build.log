@@ -1,0 +1,60 @@
+Cloning into '/home/runner/work/Holevo-Additivity-Gap/Holevo-Additivity-Gap/.verify-work/run-20261007T054148Z-gbGEHG/nanoda-source'...
+HEAD is now at 3a24072 Merge pull request #34 from scottdhughes/fix/pretty-printer-binder-prefix
+info: syncing channel updates for 1.90.0-x86_64-unknown-linux-gnu
+info: latest update on 2025-09-18 for version 1.90.0 (1159e78c4 2025-09-14)
+info: downloading 3 components
+
+  1.90.0-x86_64-unknown-linux-gnu installed - rustc 1.90.0 (1159e78c4 2025-09-14)
+
+Verified source, package, Cargo.lock and Rust pins.
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded cpufeatures v0.3.1
+  Downloaded equivalent v1.0.1
+  Downloaded cfg-if v1.0.0
+  Downloaded autocfg v1.1.0
+  Downloaded itoa v1.0.15
+  Downloaded chacha20 v0.10.2
+  Downloaded getrandom v0.4.3
+  Downloaded rustc-hash v1.1.0
+  Downloaded quote v1.0.35
+  Downloaded rand_core v0.10.1
+  Downloaded semver v1.0.27
+  Downloaded unicode-ident v1.0.12
+  Downloaded ryu v1.0.20
+  Downloaded serde_derive v1.0.228
+  Downloaded num-traits v0.2.19
+  Downloaded serde v1.0.228
+  Downloaded proc-macro2 v1.0.103
+  Downloaded serde_core v1.0.228
+  Downloaded num-integer v0.1.47
+  Downloaded rand v0.10.2
+  Downloaded num-bigint v0.5.1
+  Downloaded memchr v2.7.6
+  Downloaded serde_json v1.0.145
+  Downloaded indexmap v2.13.0
+  Downloaded hashbrown v0.16.1
+  Downloaded syn v2.0.111
+  Downloaded libc v0.2.180
+   Compiling proc-macro2 v1.0.103
+   Compiling unicode-ident v1.0.12
+   Compiling serde_core v1.0.228
+   Compiling autocfg v1.1.0
+   Compiling serde v1.0.228
+   Compiling serde_json v1.0.145
+   Compiling num-traits v0.2.19
+   Compiling itoa v1.0.15
+   Compiling equivalent v1.0.1
+   Compiling memchr v2.7.6
+   Compiling quote v1.0.35
+   Compiling syn v2.0.111
+   Compiling num-integer v0.1.47
+   Compiling ryu v1.0.20
+   Compiling hashbrown v0.16.1
+   Compiling rustc-hash v1.1.0
+   Compiling semver v1.0.27
+   Compiling indexmap v2.13.0
+   Compiling serde_derive v1.0.228
+   Compiling num-bigint v0.5.1
+   Compiling nanoda_lib v0.4.19 (/home/runner/work/Holevo-Additivity-Gap/Holevo-Additivity-Gap/.verify-work/run-20261007T054148Z-gbGEHG/nanoda-source)
+    Finished `release` profile [optimized] target(s) in 20.35s

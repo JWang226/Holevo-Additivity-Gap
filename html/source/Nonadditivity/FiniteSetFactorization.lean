@@ -3,8 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
 All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
-import Nonadditivity.PositiveLinearization
-import Nonadditivity.RegularCoefficientEnergy
 import Nonadditivity.RegularDilation
 import Nonadditivity.MatrixNormReindex
 import Mathlib.LinearAlgebra.Matrix.Kronecker

@@ -3,7 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
 All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
-import Nonadditivity.HaarPathCounting
 import Nonadditivity.HaarPathClassStats
 import Mathlib.Algebra.BigOperators.Ring.Finset
 

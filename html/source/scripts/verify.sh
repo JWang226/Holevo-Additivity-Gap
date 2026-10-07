@@ -9,6 +9,7 @@ set -euo pipefail
 usage() {
   cat <<'EOF'
 Usage: bash scripts/verify.sh [all|lean|comparator|nanoda] [--nanoda-bin /absolute/path]
+                              [--source-certificate REPO_RELATIVE_JSON]
 
   all         Build/audit Lean, compare statements/replay in Lean, then run Nanoda.
   lean        Fetch the locked mathlib cache, build All, and audit proof axioms.
@@ -16,6 +17,9 @@ Usage: bash scripts/verify.sh [all|lean|comparator|nanoda] [--nanoda-bin /absolu
   nanoda      Run acceptance/rejection controls and all five Nanoda proof checks.
 
 The default mode is all. Comparator and Nanoda run unsandboxed on trusted sources.
+--source-certificate is optional and valid only for lean/all. It selects recorded
+current-source evidence for both Lean release validations; omission preserves the
+strict historical baseline check. The certificate path must name a local .json file.
 Nanoda is built from the recorded source/Rust pins unless --nanoda-bin is supplied.
 The supplied-binary option is valid only for all/nanoda; its provenance is the
 caller's responsibility. Every run creates fresh logs under .verify-work/run-*.
@@ -27,6 +31,7 @@ die() { printf 'ERROR: %s\n' "$*" >&2; exit 2; }
 mode=all
 mode_seen=false
 nanoda_bin=
+source_certificate=
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -h|--help) usage; exit 0 ;;
@@ -40,6 +45,11 @@ while [[ $# -gt 0 ]]; do
       [[ -z "$nanoda_bin" ]] || die "--nanoda-bin may be supplied only once."
       nanoda_bin=$2
       shift 2 ;;
+    --source-certificate)
+      [[ $# -ge 2 && -n "$2" ]] || die "--source-certificate requires a repository-relative JSON path."
+      [[ -z "$source_certificate" ]] || die "--source-certificate may be supplied only once."
+      source_certificate=$2
+      shift 2 ;;
     *) die "Unknown argument: $1 (use --help)." ;;
   esac
 done
@@ -49,8 +59,33 @@ if [[ -n "$nanoda_bin" ]]; then
   [[ -f "$nanoda_bin" && -x "$nanoda_bin" ]] || die "Nanoda binary is not an executable file: $nanoda_bin"
 fi
 
+if [[ -n "$source_certificate" ]]; then
+  [[ "$mode" == all || "$mode" == lean ]] || die "--source-certificate requires all or lean mode."
+fi
+
 repo_root=$(cd -- "$(dirname -- "$0")/.." && pwd -P)
 cd "$repo_root"
+if [[ -n "$source_certificate" ]]; then
+  command -v python3 >/dev/null 2>&1 || die 'Python 3 is required to validate the certificate path.'
+  python3 - "$repo_root" "$source_certificate" <<'PY_CERTIFICATE_PATH' || die 'Invalid --source-certificate path.'
+from pathlib import Path, PurePosixPath
+import sys
+root = Path(sys.argv[1]).resolve()
+name = sys.argv[2]
+relative = PurePosixPath(name)
+if (relative.is_absolute() or "\\" in name or ":" in name
+        or any(part in {"", ".", ".."} for part in name.split("/"))
+        or relative.suffix != ".json"):
+    raise SystemExit("Use a normalized repository-relative .json path.")
+path = root / name
+try:
+    if not path.is_file():
+        raise ValueError("not a regular file")
+    path.resolve().relative_to(root)
+except (ValueError, OSError, RuntimeError):
+    raise SystemExit("Missing or nonlocal certificate JSON file: " + name)
+PY_CERTIFICATE_PATH
+fi
 export PATH="$HOME/.elan/bin:$HOME/.cargo/bin:$PATH"
 for required in python3 git lake; do
   command -v "$required" >/dev/null 2>&1 || die "Missing $required; see docs/verify.md prerequisites."
@@ -75,9 +110,9 @@ finish_run() {
   return "$status"
 }
 trap finish_run EXIT
-python3 - "$run_dir" "$mode" "$nanoda_bin" <<'PY'
+python3 - "$run_dir" "$mode" "$nanoda_bin" "$source_certificate" <<'PY'
 import datetime, json, pathlib, sys
-directory, mode, binary = sys.argv[1:]
+directory, mode, binary, source_certificate = sys.argv[1:]
 pathlib.Path(directory, "run-info.json").write_text(json.dumps({
     "started_at_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
     "mode": mode,
@@ -85,6 +120,7 @@ pathlib.Path(directory, "run-info.json").write_text(json.dumps({
     "nanoda_binary_source": ("not_requested" if mode not in ("all", "nanoda")
                              else "caller_supplied" if binary else "build_from_recorded_pin"),
     "supplied_nanoda_binary": binary or None,
+    "source_certificate": source_certificate or None,
     "note": "Invocation metadata only; success requires the requested stages to complete.",
 }, indent=2) + "\n")
 PY
@@ -101,7 +137,11 @@ run_stage() {
 }
 
 if [[ "$mode" == all || "$mode" == lean ]]; then
-  run_stage lean ./verification/lean/run.sh
+  lean_command=(./verification/lean/run.sh)
+  if [[ -n "$source_certificate" ]]; then
+    lean_command+=(--source-certificate "$source_certificate")
+  fi
+  run_stage lean "${lean_command[@]}"
 fi
 
 if [[ "$mode" == comparator || "$mode" == nanoda ]]; then

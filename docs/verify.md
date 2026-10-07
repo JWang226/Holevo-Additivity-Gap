@@ -80,20 +80,24 @@ Such a run records `caller_supplied` binary provenance. The default builds from 
 
 Fresh logs are saved in `.verify-work/run-<UTC>-<unique suffix>/`. Comparator and Nanoda success reports record the five cases, six theorem names, tool pins, source and artifact hashes, and unsandboxed status. Each run uses fresh report paths; no earlier success report is reused. The Lean stage also retains detailed logs in `.verify-work/logs/lean-*`.
 
-The [verification index](../verification/README.md) describes the retained portable records and the release's explicit evidence selection. Current cleanup build/type evidence is in [verification/elaboration-20261006](../verification/elaboration-20261006/README.md). Fresh release evidence is intended for `verification/portable-20261007`; publication requires the actual successful run and matching evidence checks. The preserved October 2 records retain their original bindings. Source/artifact hashes identify the exact checked inputs, including changes beyond the report's recorded base Git commit.
+The [current full-run summary](../verification/portable-20261007/run-summary.json) records successful all-mode proof verification on source commit `38b36070`. The [overall GitHub job record](../verification/github-actions-release-all-38b36070.json) and [verbatim excerpt](../verification/github-actions-release-all-38b36070-excerpt.log) retain the later statement-recorder failure and skipped website step. [Normal Lean CI](../verification/github-actions-release-38b36070.json) also passed on that source commit. The [verification index](../verification/README.md) distinguishes these records from the preserved October 2 evidence and the narrower [cleanup build/type certificate](../verification/elaboration-20261006/README.md).
 
-Once the current release records have been captured, check their freshness:
+The completed Linux expected-statement applications and root-axiom probes were recovered from the hash-verified job artifact after the recorder rejected universe annotations in printed axiom names. These checks used the same fresh Linux project objects, whose declaration export matched the frozen metadata. No proof commands were rerun. The [recovery provenance](../verification/statement-audit-20261007/recovery.json) binds the original outputs and source commit; it explicitly records that the original recorder driver's argument list was not retained. Source/artifact hashes identify the exact checked inputs, including changes beyond a report's recorded base Git commit.
+
+Check the retained release records' freshness:
 
 ```sh
 python3 verification/check_reports.py
 python3 verification/check_statement_audit.py
 ```
 
-These commands validate the selected source, tool and evidence hashes. They do
-not repeat the portable verification or the semantic review. The
-[statement-review continuation](STATEMENT_AUDIT_DELTA.md) preserves the historical
-qualifications and records its incremental exact-type and axiom checks separately
-from the full build, Comparator and Nanoda run.
+Both evidence checks pass for the release records. They validate selected
+source, tool and evidence hashes without repeating proof checks or semantic
+review. The [statement-review continuation](STATEMENT_AUDIT_DELTA.md) retains
+six qualified findings and records its incremental exact-type and axiom checks
+separately from the full build, Comparator and Nanoda run. It does not claim a
+complete semantic audit, machine-certified English–Lean equivalence or
+independent human certification.
 
 ## Tool pins
 

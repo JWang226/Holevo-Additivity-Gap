@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.StructuredLinearization
-import Nonadditivity.HaarModel
 import Mathlib.MeasureTheory.Function.LocallyIntegrable
 import Mathlib.MeasureTheory.Integral.Average
 

@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.HaarNonbacktrackingSupport
-import Nonadditivity.FreeCreation
 
 /-! # The first step of a non-returning free-group path -/
 

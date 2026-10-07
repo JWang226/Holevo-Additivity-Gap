@@ -1,0 +1,31 @@
+/-
+Copyright (c) 2026 the Nonadditivity project contributors.
+All rights reserved. See COPYRIGHT.md for licensing and attribution.
+-/
+import Nonadditivity.HaarPrescribedBound
+import Nonadditivity.OperationalCodingTheorem
+import Nonadditivity.OperationalConsequences
+import Nonadditivity.PrescribedCostCapacity
+import Nonadditivity.WeylPowersEntropy
+
+set_option pp.universes true
+set_option pp.explicit true
+
+#check @Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound
+#print axioms Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound
+
+#check @Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum
+#print axioms Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum
+
+#check @Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio
+#print axioms Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio
+
+#check @Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits
+#print axioms Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits
+
+#check @Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds
+#print axioms Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds
+
+#check @Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower
+#print axioms Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower
+

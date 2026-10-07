@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.HolevoBits
-import Nonadditivity.ChannelReindex
 
 /-! # Holevo superadditivity for genuine tensor-product channels
 

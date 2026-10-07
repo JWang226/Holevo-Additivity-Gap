@@ -5,7 +5,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 
 import Nonadditivity.HaarRefinedCoefficientFibre
 import Nonadditivity.HaarProfileSingletonWeight
-import Nonadditivity.HaarPaletteDecoder
 import Nonadditivity.HaarActualScanWords
 import Nonadditivity.HaarDecodedCoefficientBound
 

@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.HaarWordExpansion
-import Nonadditivity.CollinsYoun
 import Nonadditivity.ProductHaagerupProduct
 
 /-! # Matrix coefficient energy and free trace moments

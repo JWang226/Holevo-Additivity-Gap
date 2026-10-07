@@ -8,11 +8,13 @@ mathematical assertion about the six production theorems.
 """
 from __future__ import annotations
 
+from copy import deepcopy
 import importlib.util
 import json
 from pathlib import Path
 import tempfile
 import unittest
+import zipfile
 
 CHECKER = Path(__file__).resolve().parents[1] / "verification/check_statement_audit.py"
 SPEC = importlib.util.spec_from_file_location("statement_audit", CHECKER)
@@ -73,6 +75,7 @@ class StatementAuditControls(unittest.TestCase):
         self.evidence = {
             "status": "passed", "scope": check.SCOPE, "source_commit": "a" * 40,
             "theorem_names": self.targets.copy(), "permitted_axioms": sorted(check.AXIOMS),
+            "root_axioms": {name: sorted(check.AXIOMS) for name in self.targets},
             "inputs": sources.copy(), "logs": {self.log: check.digest(self.root / self.log)},
             "commands": [{"command": ["synthetic-command", "--not-executed"],
                           "exit_code": 0, "log": self.log}],
@@ -326,6 +329,450 @@ class StatementAuditControls(unittest.TestCase):
         content = path.read_text().replace('"schema_version": 1,', '"schema_version": 1, "schema_version": 1,', 1)
         path.write_text(content)
         self.reject("Duplicate JSON key: schema_version")
+
+
+
+class DeltaAuditControls(unittest.TestCase):
+    """Exercise the new selector and bounded continuation using synthetic evidence."""
+    delta_path = "verification/statement-audit-delta-fixture.json"
+    review_path = "verification/statement-delta/delta-review.json"
+    comparison_path = "verification/statement-delta/public-types.json"
+    report_path = "docs/DELTA_FIXTURE.md"
+    patch_path = "verification/statement-delta/proof.patch"
+    write = StatementAuditControls.write
+    write_json = StatementAuditControls.write_json
+
+    def setUp(self):
+        fixture = StatementAuditControls("runTest")
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
+        self.root = fixture.root
+        self.targets = fixture.targets
+        metadata = json.loads((self.root / "metadata/declarations.json").read_text())
+        for index, item in enumerate(metadata["declarations"]):
+            item.update(type_sha256=f"{index + 1:064x}", is_private=False,
+                        is_internal=False, is_internal_detail=False)
+            fixture.audit["entries"][index]["type_sha256"] = item["type_sha256"]
+            fixture.audit["entries"][index]["verdict"] = "qualified"
+            fixture.audit["entries"][index]["qualifications"] = ["Synthetic retained limitation."]
+        fixture.write_json("metadata/declarations.json", metadata)
+        fixture.reseal_fixture_source("metadata/declarations.json")
+        self.parent = deepcopy(fixture.audit)
+        self.parent_bytes = (self.root / check.AUDIT_PATH).read_bytes()
+        self.write("Nonadditivity/Fixture.lean", "-- Synthetic redundant local import cleanup\n")
+        sources = {name: check.digest(self.root / name) for name in self.parent["source_bindings"]}
+        proof_names = sorted(name for name in sources if name.endswith(".lean")
+                             and (name.startswith("Nonadditivity/")
+                                  or name in {"Nonadditivity.lean", "All.lean", "Audit.lean"}))
+        changed = [{"path": "Nonadditivity/Fixture.lean",
+                    "before_sha256": self.parent["source_bindings"]["Nonadditivity/Fixture.lean"],
+                    "after_sha256": sources["Nonadditivity/Fixture.lean"],
+                    "kind": "redundant_local_imports_and_comments",
+                    "review": "Synthetic comment-only cleanup, no mathematical claim."}]
+        self.write(self.report_path, "Synthetic delta review; no mathematical assertion.\n")
+        self.write(self.patch_path, "Synthetic comment-only patch.\n")
+        self.review = {
+            "schema_version": 1, "review_kind": "bounded_cleanup_source_delta_review",
+            "machine_equivalence_certified": False, "before_commit": "c" * 40,
+            "proof_source_inventory": proof_names, "changed_proof_sources": deepcopy(changed),
+            "patch": {"path": self.patch_path, "sha256": check.digest(self.root / self.patch_path)},
+            "semantic_report": self.report_path,
+        }
+        self.write_json(self.review_path, self.review)
+        self.write("scripts/compare_public_types.py", "# Synthetic checker identity\n")
+        challenge_names = set(check.CONFIGS) | {
+            str(Path(name).with_suffix(".lean")) for name in check.CONFIGS}
+        self.comparison = {
+            "schema_version": 1, "status": "passed",
+            "scope": "exact_public_declaration_inventory_and_decoded_kernel_type_bytes",
+            "before_commit": "c" * 40, "before_export_path": "metadata/declarations.json",
+            "before_export_sha256": self.parent["source_bindings"]["metadata/declarations.json"],
+            "after_export_path": "metadata/declarations.json",
+            "after_export_sha256": sources["metadata/declarations.json"],
+            "selection": {"all_false": ["is_private", "is_internal", "is_internal_detail"]},
+            "identity_fields": ["name", "kind", "module", "file", "level_parameters"],
+            "checker": {"path": "scripts/compare_public_types.py",
+                        "sha256": check.digest(self.root / "scripts/compare_public_types.py")},
+            "missing_public_declarations": [], "added_public_declarations": [], "differences": [],
+            "expected_public_declarations": 6, "before_public_declarations": 6,
+            "after_public_declarations": 6, "compared_public_declarations": 6,
+            "after_source_sha256": {name: sources[name] for name in proof_names},
+            "challenge_sha256": {name: sources[name] for name in challenge_names},
+            "challenge_root_types": {
+                entry["declaration"]: {"before_type_sha256": entry["type_sha256"],
+                                       "after_type_sha256": entry["type_sha256"]}
+                for entry in self.parent["entries"]},
+        }
+        self.write_json(self.comparison_path, self.comparison)
+        self.evidence_path = "verification/statement-delta/checks.json"
+        log = "verification/statement-delta/checks.log"
+        self.write(log, "Synthetic current check log; no Lean execution.\n")
+        self.evidence = deepcopy(fixture.evidence)
+        self.evidence.update(source_commit="b" * 40, inputs=sources.copy(),
+                             logs={log: check.digest(self.root / log)},
+                             commands=[{"command": ["synthetic-check"], "exit_code": 0, "log": log}])
+        self.write_json(self.evidence_path, self.evidence)
+        entries = deepcopy(self.parent["entries"])
+        for entry in entries:
+            entry.update(historical_report=entry["report"], report=self.report_path,
+                         delta_finding="Synthetic preserved endpoint with retained limitations.")
+        reports = self.parent["report_bindings"] | {
+            name: check.digest(self.root / name)
+            for name in (self.report_path, self.review_path, self.patch_path)}
+        self.audit = {
+            "schema_version": 2, "review_kind": "incremental_ai_source_semantics_review",
+            "machine_equivalence_certified": False, "reviewed_commit": "b" * 40,
+            "parent_audit": {"path": check.AUDIT_PATH, "sha256": check.digest(self.root / check.AUDIT_PATH)},
+            "source_bindings": sources, "report_bindings": reports, "entries": entries,
+            "changed_sources": changed, "meaning_carrying_definition_changes": [],
+            "source_delta_review": {"path": self.review_path, "sha256": check.digest(self.root / self.review_path)},
+            "public_type_comparison": {"path": self.comparison_path,
+                                       "sha256": check.digest(self.root / self.comparison_path)},
+            "mechanical_evidence": {"path": self.evidence_path,
+                                    "sha256": check.digest(self.root / self.evidence_path)},
+        }
+        self.save_audit()
+
+    def save_audit(self):
+        self.write_json(self.delta_path, self.audit)
+        self.write_json(check.CURRENT_AUDIT_PATH, {
+            "schema_version": 1, "audit": {"path": self.delta_path,
+                                            "sha256": check.digest(self.root / self.delta_path)}})
+
+    def save_comparison(self):
+        self.write_json(self.comparison_path, self.comparison)
+        self.audit["public_type_comparison"]["sha256"] = check.digest(self.root / self.comparison_path)
+        self.save_audit()
+
+    def save_review(self):
+        self.write_json(self.review_path, self.review)
+        sha = check.digest(self.root / self.review_path)
+        self.audit["source_delta_review"]["sha256"] = sha
+        self.audit["report_bindings"][self.review_path] = sha
+        self.save_audit()
+
+    def reject(self, message):
+        with self.assertRaisesRegex(ValueError, message):
+            check.load_audit(self.root)
+
+    def test_current_delta_is_accepted_without_restamping_parent(self):
+        loaded = check.load_audit(self.root)
+        self.assertEqual(loaded["schema_version"], 2)
+        self.assertEqual((self.root / check.AUDIT_PATH).read_bytes(), self.parent_bytes)
+        with self.assertRaisesRegex(ValueError, "Stale source bindings"):
+            check.load_audit(self.root, check.AUDIT_PATH)
+
+    def test_invalid_present_selector_does_not_fall_back(self):
+        for selector in ({}, {"schema_version": True},
+                         {"schema_version": 1, "audit": {"path": "../outside", "sha256": "1" * 64}},
+                         {"schema_version": 1, "audit": {"path": self.delta_path, "sha256": "1" * 64}}):
+            with self.subTest(selector=selector):
+                self.write_json(check.CURRENT_AUDIT_PATH, selector)
+                with self.assertRaises(ValueError):
+                    check.load_audit(self.root)
+
+    def test_broken_selector_symlink_cannot_trigger_historical_fallback(self):
+        selector = self.root / check.CURRENT_AUDIT_PATH
+        selector.unlink()
+        selector.symlink_to(self.root / "missing-selector.json")
+        with self.assertRaisesRegex(ValueError, "Missing bound file"):
+            check.load_audit(self.root)
+
+    def test_selected_manifest_mutation_is_rejected(self):
+        path = self.root / self.delta_path
+        path.write_bytes(path.read_bytes() + b" ")
+        self.reject("Stale selected statement audit")
+
+    def test_historical_manifest_reports_and_logs_are_preserved(self):
+        names = {check.AUDIT_PATH: "Stale historical statement audit",
+                 next(iter(self.parent["report_bindings"])): "Stale report bindings",
+                 "verification/statement-audit-20261006/exact-types.log": "Stale historical mechanical logs"}
+        for name, message in names.items():
+            with self.subTest(file=name):
+                path = self.root / name
+                old = path.read_bytes()
+                path.write_bytes(old + b"changed\n")
+                try:
+                    self.reject(message)
+                finally:
+                    path.write_bytes(old)
+
+    def test_incomplete_or_mislabelled_source_delta_is_rejected(self):
+        original = deepcopy(self.audit["changed_sources"])
+        for changes, message in (([], "Missing reviewed source delta"),
+                                 (original + deepcopy(original), "Wrong or duplicate reviewed source change"),
+                                 ([original[0] | {"kind": "release_metadata_only"}], "kind does not match"),
+                                 ([original[0] | {"before_sha256": "0" * 64}], "Incorrect reviewed delta hashes")):
+            with self.subTest(changes=changes):
+                self.audit["changed_sources"] = changes
+                self.save_audit()
+                self.reject(message)
+
+    def test_meaning_carrying_changes_and_qualification_upgrades_are_rejected(self):
+        self.audit["meaning_carrying_definition_changes"] = ["Synthetic changed formula"]
+        self.save_audit()
+        self.reject("does not admit meaning-carrying")
+        self.audit["meaning_carrying_definition_changes"] = []
+        self.audit["entries"][0]["qualifications"] = []
+        self.save_audit()
+        self.reject("changed historical qualifications")
+        self.audit["entries"][0]["qualifications"] = self.parent["entries"][0]["qualifications"]
+        self.audit["entries"][0]["verdict"] = "consistent"
+        self.save_audit()
+        self.reject("changed historical verdict")
+
+    def test_proof_inventory_and_reviewed_delta_must_be_complete(self):
+        original = deepcopy(self.review)
+        for field, value, message in (("proof_source_inventory", self.review["proof_source_inventory"][:-1], "proof inventory differs"),
+                                      ("changed_proof_sources", [], "Proof-source delta review is incomplete"),
+                                      ("machine_equivalence_certified", True, "Unexpected source delta review")):
+            with self.subTest(field=field):
+                self.review = original | {field: value}
+                self.save_review()
+                self.reject(message)
+
+    def test_public_count_challenge_bindings_and_root_types_must_match(self):
+        original = deepcopy(self.comparison)
+        for mutate, message in (
+            (lambda value: value.update(expected_public_declarations=5, before_public_declarations=5,
+                                         after_public_declarations=5, compared_public_declarations=5),
+             "count differs from the current export"),
+            (lambda value: value["challenge_sha256"].pop(check.CONFIGS[0]), "challenge coverage differs"),
+            (lambda value: value["challenge_root_types"][self.targets[0]].update(after_type_sha256="0" * 64),
+             "Delta root type changed"),
+            (lambda value: value.update(selection={"all_false": ["is_private"]}), "public selection"),
+        ):
+            with self.subTest(message=message):
+                self.comparison = deepcopy(original)
+                mutate(self.comparison)
+                self.save_comparison()
+                self.reject(message)
+
+    def test_public_comparison_checker_and_current_source_must_remain_fresh(self):
+        for name, message in (("scripts/compare_public_types.py", "Stale public comparison checker"),
+                              ("Nonadditivity/Fixture.lean", "Stale source bindings")):
+            with self.subTest(file=name):
+                path = self.root / name
+                old = path.read_bytes()
+                path.write_bytes(old + b"changed\n")
+                try:
+                    self.reject(message)
+                finally:
+                    path.write_bytes(old)
+
+    def test_mechanical_root_axiom_coverage_and_closure_are_checked(self):
+        original = deepcopy(self.evidence)
+        for mutate, message in (
+            (lambda value: value["root_axioms"].pop(self.targets[0]), "root axiom coverage differs"),
+            (lambda value: value["root_axioms"][self.targets[0]].append("sorryAx"), "root axiom closure"),
+        ):
+            with self.subTest(message=message):
+                self.evidence = deepcopy(original)
+                mutate(self.evidence)
+                self.write_json(self.evidence_path, self.evidence)
+                self.audit["mechanical_evidence"]["sha256"] = check.digest(self.root / self.evidence_path)
+                self.save_audit()
+                self.reject(message)
+
+
+
+class RootAxiomParserControls(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        recorder = CHECKER.parent / "statement-audit-20261007/record_checks.py"
+        cls.recorder = {"__file__": str(recorder), "__name__": "statement_recorder_controls"}
+        exec(compile(recorder.read_bytes(), str(recorder), "exec"), cls.recorder)
+        cls.roots = {"Synthetic.root" + str(index): "synthetic config" for index in range(6)}
+
+    def parse(self, text):
+        return self.recorder["parse_root_axioms"](text, self.roots)
+
+    def log(self, tokens="propext,\n Classical.choice.{u},\n Quot.sound.{u}"):
+        return "\n".join("'" + name + "' depends on axioms: [" + tokens + "]"
+                         for name in self.roots) + "\n"
+
+    def test_actual_universe_printing_canonicalizes_all_six_closures(self):
+        for tokens in ("propext,\n Classical.choice.{u},\n Quot.sound.{u}",
+                       "propext, Classical.choice, Quot.sound",
+                       "propext, Classical.choice.{u_1}, Quot.sound.{v'}"):
+            with self.subTest(tokens=tokens):
+                self.assertEqual(self.parse(self.log(tokens)),
+                                 {name: sorted(check.AXIOMS) for name in self.roots})
+
+    def test_unknown_and_malformed_axiom_tokens_are_rejected(self):
+        for token in ("sorryAx", "Untrusted.choice.{u}", "Classical.choiceExtra.{u}",
+                      "Classical.choice.{}", "Classical.choice.{u, v}",
+                      "Classical.choice.{u + 1}", "Classical.choice.{0}",
+                      "Classical.choice.{u}.suffix", "Classical.choice.{u", "propext.{u}"):
+            with self.subTest(token=token):
+                with self.assertRaisesRegex(ValueError, "Unknown or malformed root axiom token"):
+                    self.parse(self.log("propext, " + token + ", Quot.sound.{u}"))
+        with self.assertRaisesRegex(ValueError, "Unknown or malformed root axiom token"):
+            self.parse(self.log("propext, Classical.choice.{u},, Quot.sound.{u}"))
+
+    def test_decorated_and_undecorated_duplicates_are_rejected(self):
+        for duplicate in ("Classical.choice", "Classical.choice.{v}"):
+            with self.subTest(duplicate=duplicate):
+                with self.assertRaisesRegex(ValueError, "Duplicate root axiom token"):
+                    self.parse(self.log("propext, Classical.choice.{u}, " + duplicate + ", Quot.sound.{u}"))
+
+    def test_root_coverage_and_exact_closure_are_preserved(self):
+        lines = self.log().split("'Synthetic.root")
+        # Remove an entire valid root record; roots themselves remain the configured six.
+        missing = "'Synthetic.root".join(lines[:-1])
+        with self.assertRaisesRegex(ValueError, "exactly the six permitted closures"):
+            self.parse(missing)
+        with self.assertRaisesRegex(ValueError, "exactly the six permitted closures"):
+            self.parse(self.log("propext, Classical.choice.{u}"))
+        with self.assertRaisesRegex(ValueError, "Wrong or duplicate root axiom record"):
+            self.parse(self.log().replace("Synthetic.root0", "Synthetic.unknown", 1))
+        with self.assertRaisesRegex(ValueError, "Wrong or duplicate root axiom record"):
+            self.parse(self.log() + "'Synthetic.root0' depends on axioms: [propext, Classical.choice, Quot.sound]\n")
+
+    def test_malformed_extra_axiom_record_is_not_silently_ignored(self):
+        for malformed in ("'Synthetic.extra' depends on axioms: [propext\n",
+                          "Synthetic.extra depends on axioms: [propext]\n",
+                          "'Synthetic.extra' depends on axioms: [propext] trailing text\n"):
+            with self.subTest(malformed=malformed):
+                with self.assertRaisesRegex(ValueError, "Malformed root axiom record"):
+                    self.parse(self.log() + malformed)
+
+
+class CaptureRecoveryControls(unittest.TestCase):
+    """Integrity controls for retained outputs; no proof command is executed."""
+    @classmethod
+    def setUpClass(cls):
+        recovery = CHECKER.parent / "statement-audit-20261007/recover_checks.py"
+        cls.recovery = {"__file__": str(recovery), "__name__": "capture_recovery_controls"}
+        exec(compile(recovery.read_bytes(), str(recovery), "exec"), cls.recovery)
+
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory(prefix="capture-recovery-controls-")
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name).resolve()
+
+    def archive(self, names=("verification/probe.log",)):
+        path = self.root / "evidence.zip"
+        with zipfile.ZipFile(path, "w") as archive:
+            for name in names:
+                archive.writestr(name, b"Synthetic retained output; no Lean execution.\n")
+        return path, {"sha256": self.recovery["sha"](path.read_bytes()), "size_in_bytes": path.stat().st_size}
+
+    def test_verified_whole_archive_accepts_original_and_rejects_changed_bytes(self):
+        path, artifact = self.archive()
+        entries = self.recovery["verified_archive"](path, artifact)
+        self.assertEqual(set(entries), {"verification/probe.log"})
+        path.write_bytes(path.read_bytes() + b"changed")
+        with self.assertRaisesRegex(ValueError, "ZIP differs"):
+            self.recovery["verified_archive"](path, artifact)
+
+    def test_duplicate_and_escaping_archive_entries_are_rejected(self):
+        import warnings
+        for names in (("../outside",), ("/absolute",), ("verification/../outside",),
+                      ("verification/probe.log", "verification/probe.log")):
+            with self.subTest(names=names), warnings.catch_warnings():
+                warnings.simplefilter("ignore", UserWarning)
+                path, artifact = self.archive(names)
+                with self.assertRaisesRegex(ValueError, "Unsafe or duplicate recovery ZIP entry"):
+                    self.recovery["verified_archive"](path, artifact)
+
+    def test_execution_recorder_and_current_input_bytes_must_match(self):
+        original_name = self.recovery["OUT"] + "/record_checks.py"
+        blobs = {original_name: b"# Exact executed recorder\n", "Proof.lean": b"-- exact input\n"}
+        (self.root / "Proof.lean").write_bytes(blobs["Proof.lean"])
+        previous_root = self.recovery["ROOT"]
+        self.recovery["ROOT"] = self.root
+        self.addCleanup(self.recovery.__setitem__, "ROOT", previous_root)
+        result = self.recovery["match_current_inputs"](blobs, blobs[original_name])
+        self.assertEqual(result["Proof.lean"], self.recovery["sha"](blobs["Proof.lean"]))
+        with self.assertRaisesRegex(ValueError, "Archived recorder differs"):
+            self.recovery["match_current_inputs"](blobs, b"# Different recorder\n")
+        (self.root / "Proof.lean").write_bytes(b"-- changed input\n")
+        with self.assertRaisesRegex(ValueError, "Current recovery input differs"):
+            self.recovery["match_current_inputs"](blobs, blobs[original_name])
+
+    def fixture_commands(self):
+        root = self.recovery["ROOT"]
+        out = self.recovery["OUT"]
+        checker_name = "scripts/check_challenges.py"
+        helper = {"__file__": str(root / checker_name), "__name__": "synthetic_recovery_generator"}
+        exec(compile((root / checker_name).read_bytes(), checker_name, "exec"), helper)
+        report = {"status": "passed", "method": "local_lean_elaboration_and_solution_against_explicit_expected_type",
+                  "baseline_modules_recompiled": False, "comparator_execution": "not_run",
+                  "nanoda_execution": "not_run", "theorems_checked": 6,
+                  "challenge_modules_checked": 5, "checks": []}
+        entries = {}
+        for name in sorted(check.CONFIGS):
+            stem = Path(name).stem
+            source = str(Path(name).with_suffix(".lean"))
+            config = json.loads((root / name).read_text())
+            generated = ".lake/challenge-checks/StatementChecks/" + stem + ".lean"
+            entries[out + "/" + stem + ".lean"] = helper["proof_check_source"](
+                (root / source).read_text(), config, stem).encode()
+            item = {"config": name, "config_sha256": check.digest(root / name),
+                    "challenge_source": source, "challenge_source_sha256": check.digest(root / source),
+                    "theorem_names": config["theorem_names"], "generated_statement_check": generated}
+            for field, argv, suffix in (
+                ("challenge_elaboration", ["./lean.sh", "-o", ".lake/challenge-checks/expected/" + stem + ".olean", source], "_expected.log"),
+                ("proof_against_expected_statement", ["./lean.sh", "--root=.lake/challenge-checks", generated], "_statement.log"),
+            ):
+                item[field] = {"status": "passed", "exit_code": 0, "command": argv,
+                               "log": ".lake/challenge-checks/" + stem + suffix}
+                entries[out + "/" + stem + suffix] = b""
+            report["checks"].append(item)
+        progress = "".join(Path(name).stem + ": expected statement and solution/type check passed\n"
+                           for name in sorted(check.CONFIGS))
+        progress += "Saved .lake/challenge-checks.json. Comparator execution remains not_run.\n"
+        entries[out + "/check-challenges.log"] = progress.encode()
+        entries[out + "/challenge-checks.json"] = json.dumps(report).encode()
+        return entries, report
+
+    def test_all_ten_preserved_child_commands_and_generated_sources_are_required(self):
+        entries, report = self.fixture_commands()
+        commands, retained = self.recovery["statement_commands"](entries, report)
+        self.assertEqual(len(commands), 10)
+        self.assertEqual(len(retained), 17)
+        self.assertTrue(all(item["command"][0] == "./lean.sh" and item["exit_code"] == 0 for item in commands))
+        for field, value in (("exit_code", 1), ("exit_code", False), ("command", ["invented-command"]),
+                             ("status", "failed")):
+            with self.subTest(field=field, value=value):
+                changed = deepcopy(report)
+                changed["checks"][0]["proof_against_expected_statement"][field] = value
+                with self.assertRaisesRegex(ValueError, "child command did not pass exactly"):
+                    self.recovery["statement_commands"](entries, changed)
+        generated = self.recovery["OUT"] + "/A_PrescribedDimensions.lean"
+        changed_entries = entries | {generated: entries[generated] + b"-- changed source\n"}
+        with self.assertRaisesRegex(ValueError, "generated check differs"):
+            self.recovery["statement_commands"](changed_entries, report)
+
+    def test_mismatched_config_and_incomplete_driver_success_are_rejected(self):
+        entries, report = self.fixture_commands()
+        changed = deepcopy(report)
+        changed["checks"][0]["config_sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "source/configuration binding differs"):
+            self.recovery["statement_commands"](entries, changed)
+        entries[self.recovery["OUT"] + "/check-challenges.log"] = b"Partial synthetic execution\n"
+        with self.assertRaisesRegex(ValueError, "driver log does not record complete success"):
+            self.recovery["statement_commands"](entries, report)
+
+    def test_root_exit_inference_requires_the_exact_success_guard_and_failure_order(self):
+        original = b'''def run(command, log):
+    result = subprocess.run(command)
+    if result.returncode:
+        raise ValueError("failed")
+    return {"exit_code": result.returncode}
+def main():
+    run(["./lean.sh", OUT + "/Roots.lean"], OUT + "/roots.log")
+    require(False, "The root axiom probe did not record exactly the six permitted closures")
+'''
+        self.assertEqual(self.recovery["check_root_failure_flow"](original),
+                         ["./lean.sh", self.recovery["OUT"] + "/Roots.lean"])
+        with self.assertRaisesRegex(ValueError, "does not reject a nonzero"):
+            self.recovery["check_root_failure_flow"](original.replace(b"if result.returncode:", b"if False:"))
+        lines = original.splitlines(keepends=True)
+        lines[-2], lines[-1] = lines[-1], lines[-2]
+        with self.assertRaisesRegex(ValueError, "does not establish that the root probe returned"):
+            self.recovery["check_root_failure_flow"](b"".join(lines))
 
 
 if __name__ == "__main__":

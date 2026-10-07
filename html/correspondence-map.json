@@ -24,12 +24,18 @@
     },
     "source_page": "manuscript.html"
   },
-  "metadata_sha256": "15b3d893285deb68108ef5cd92ff37b8f60c8584cbc1f178adf8726df8ca791c",
+  "metadata_sha256": "cb0ec7d1998cd13f994eb524e8745fee74195aa14cbed659d7eb51285d06769a",
   "mapping_source_sha256": "7dbada3fd5299d6bdaaa0eefc9a04e930d123c41665c2a4b354ad1fbff0ec574",
   "statement_audit_manifest": {
-    "source_url": "source/verification/statement-audit.json",
-    "sha256": "effd4226f443659a0bfa3c4410d3a4aefe793e32dd58eb6768230364d1136c9c",
-    "review_kind": "independent_ai_source_semantics_review",
+    "source_url": "source/verification/statement-audit-delta-20261007.json",
+    "sha256": "b6cba322673bb0ec5ff161e9601da606140340d52dac4fa9e0144c5b24cf8852",
+    "review_kind": "incremental_ai_source_semantics_review",
+    "review_date": "2026-10-07",
+    "reviewed_commit": "38b360705c55fe4ee28e52f6cc493495fb7c1955",
+    "parent_audit": {
+      "path": "verification/statement-audit.json",
+      "sha256": "effd4226f443659a0bfa3c4410d3a4aefe793e32dd58eb6768230364d1136c9c"
+    },
     "machine_equivalence_certified": false
   },
   "counts": {
@@ -234,13 +240,15 @@
       "statement_audits": [
         {
           "declaration": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",
-          "report": "docs/AUDIT_PRESCRIBED.md",
-          "report_page": "docs/docs--AUDIT_PRESCRIBED.html",
+          "report": "docs/STATEMENT_AUDIT_DELTA.md",
+          "report_page": "docs/docs--STATEMENT_AUDIT_DELTA.html",
           "verdict": "qualified",
           "qualifications": [
             "Combines thm:main with eq:constructed-holevo-lower and the resulting positivity on one channel witness.",
             "The concrete Weyl representation agrees up to harmless phase and label reindexing."
-          ]
+          ],
+          "historical_report": "docs/AUDIT_PRESCRIBED.md",
+          "historical_report_page": "docs/docs--AUDIT_PRESCRIBED.html"
         }
       ]
     },
@@ -326,7 +334,7 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/2190eda6b36f2c50ea335862.html",
-          "source_page": "modules/Nonadditivity.OperationalCodingTheorem.html#L50"
+          "source_page": "modules/Nonadditivity.OperationalCodingTheorem.html#L49"
         },
         {
           "declaration": "Nonadditivity.ActualConsequences.FiniteQuantumChannel.normalizedPowerHolevo_tendsto_classicalCapacity",
@@ -334,20 +342,22 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/08f6c95d467f0abfc1266e30.html",
-          "source_page": "modules/Nonadditivity.OperationalCodingTheorem.html#L84"
+          "source_page": "modules/Nonadditivity.OperationalCodingTheorem.html#L83"
         }
       ],
       "statement_audits": [
         {
           "declaration": "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum",
-          "report": "docs/AUDIT_CODING.md",
-          "report_page": "docs/docs--AUDIT_CODING.html",
+          "report": "docs/STATEMENT_AUDIT_DELTA.md",
+          "report_page": "docs/docs--STATEMENT_AUDIT_DELTA.html",
           "verdict": "qualified",
           "qualifications": [
             "The root requires nonempty physical spaces; broader helper definitions also totalize empty carriers.",
             "Quantifies over finite Kraus realizations; a converse representation theorem for abstract CPTP maps is outside this root.",
             "The exported root states the supremum identity; convergence to the capacity is a separate theorem."
-          ]
+          ],
+          "historical_report": "docs/AUDIT_CODING.md",
+          "historical_report_page": "docs/docs--AUDIT_CODING.html"
         }
       ]
     },
@@ -747,13 +757,15 @@
       "statement_audits": [
         {
           "declaration": "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio",
-          "report": "docs/AUDIT_SEPARATION.md",
-          "report_page": "docs/docs--AUDIT_SEPARATION.html",
+          "report": "docs/STATEMENT_AUDIT_DELTA.md",
+          "report_page": "docs/docs--STATEMENT_AUDIT_DELTA.html",
           "verdict": "qualified",
           "qualifications": [
             "A stronger common-witness conjunction of the two source corollaries, proved using the alternative deterministic construction.",
             "This root does not include the corollaries' quantitative prescribed-dimension or sequence assertions."
-          ]
+          ],
+          "historical_report": "docs/AUDIT_SEPARATION.md",
+          "historical_report_page": "docs/docs--AUDIT_SEPARATION.html"
         }
       ]
     },
@@ -1292,7 +1304,7 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/4c52514f80869eefceafecb6.html",
-          "source_page": "modules/Nonadditivity.HaarPrescribedConsequences.html#L136"
+          "source_page": "modules/Nonadditivity.HaarPrescribedConsequences.html#L135"
         }
       ],
       "statement_audits": []
@@ -1679,23 +1691,27 @@
       "statement_audits": [
         {
           "declaration": "Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds",
-          "report": "docs/AUDIT_INPUT_COST.md",
-          "report_page": "docs/docs--AUDIT_INPUT_COST.html",
+          "report": "docs/STATEMENT_AUDIT_DELTA.md",
+          "report_page": "docs/docs--STATEMENT_AUDIT_DELTA.html",
           "verdict": "qualified",
           "qualifications": [
             "The total channel family agrees with the manuscript construction parameters eventually; its finite initial completion is outside the asymptotic claim.",
             "Channel selection is from a joint proved existential; uniqueness or choice-independent information values are not asserted."
-          ]
+          ],
+          "historical_report": "docs/AUDIT_INPUT_COST.md",
+          "historical_report_page": "docs/docs--AUDIT_INPUT_COST.html"
         },
         {
           "declaration": "Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower",
-          "report": "docs/AUDIT_INPUT_COST.md",
-          "report_page": "docs/docs--AUDIT_INPUT_COST.html",
+          "report": "docs/STATEMENT_AUDIT_DELTA.md",
+          "report_page": "docs/docs--STATEMENT_AUDIT_DELTA.html",
           "verdict": "qualified",
           "qualifications": [
             "The total channel family agrees with the manuscript construction parameters eventually; its finite initial completion is outside the asymptotic claim.",
             "Channel selection is from a joint proved existential; uniqueness or choice-independent information values are not asserted."
-          ]
+          ],
+          "historical_report": "docs/AUDIT_INPUT_COST.md",
+          "historical_report_page": "docs/docs--AUDIT_INPUT_COST.html"
         }
       ]
     },
@@ -1849,7 +1865,7 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/03d116c524ebe8ca6a60b897.html",
-          "source_page": "modules/Nonadditivity.CollinsYounProduct.html#L380"
+          "source_page": "modules/Nonadditivity.CollinsYounProduct.html#L379"
         }
       ],
       "statement_audits": []
@@ -2342,7 +2358,7 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/997830f106645266ed15776c.html",
-          "source_page": "modules/Nonadditivity.BellOutput.html#L303"
+          "source_page": "modules/Nonadditivity.BellOutput.html#L299"
         },
         {
           "declaration": "Nonadditivity.BlockBell.block_complementary_bell_entropy_le",
@@ -2510,15 +2526,17 @@
       "statement_audits": [
         {
           "declaration": "Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits",
-          "report": "docs/AUDIT_WEYL.md",
-          "report_page": "docs/docs--AUDIT_WEYL.html",
+          "report": "docs/STATEMENT_AUDIT_DELTA.md",
+          "report_page": "docs/docs--STATEMENT_AUDIT_DELTA.html",
           "verdict": "qualified",
           "qualifications": [
             "minimumEntropy is a real infimum. A formal attainment or pure-minimizer bridge to the manuscript's minimum was not located.",
             "Quantifies over finite Kraus realizations; no converse representation bridge from abstract CPTP maps is included.",
             "Covers every positive self-power; the distinct-channel identity is outside this root.",
             "Weyl conventions agree after phase cancellation and label reindexing."
-          ]
+          ],
+          "historical_report": "docs/AUDIT_WEYL.md",
+          "historical_report_page": "docs/docs--AUDIT_WEYL.html"
         }
       ]
     },
@@ -2691,7 +2709,7 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/d70309497a845e372f39b160.html",
-          "source_page": "modules/Nonadditivity.UniversalFactorization.html#L63"
+          "source_page": "modules/Nonadditivity.UniversalFactorization.html#L62"
         },
         {
           "declaration": "Nonadditivity.UniversalFactorization.regular_error_transfer",
@@ -2699,7 +2717,7 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/52335f48e156b63bbd4370cd.html",
-          "source_page": "modules/Nonadditivity.UniversalFactorization.html#L43"
+          "source_page": "modules/Nonadditivity.UniversalFactorization.html#L42"
         }
       ],
       "statement_audits": []
@@ -3211,7 +3229,7 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/99e8bb6aae7f7741f1f4deef.html",
-          "source_page": "modules/Nonadditivity.HaarSharpCounting.html#L97"
+          "source_page": "modules/Nonadditivity.HaarSharpCounting.html#L96"
         }
       ],
       "statement_audits": []
@@ -3388,7 +3406,7 @@
           "role": "theorem",
           "kind": "theorem",
           "page": "declarations/af212ad5e405403a8873fad3.html",
-          "source_page": "modules/Nonadditivity.HaarRefinedCoefficientBound.html#L30"
+          "source_page": "modules/Nonadditivity.HaarRefinedCoefficientBound.html#L29"
         }
       ],
       "statement_audits": []

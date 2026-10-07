@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.HaarPermutationSupport
-import Nonadditivity.WeightedMatrixInverse
 import Nonadditivity.HaarWeingartenInverseSum
 import Nonadditivity.HaarWeingartenCycles
 import Mathlib.Order.Interval.Finset.Nat

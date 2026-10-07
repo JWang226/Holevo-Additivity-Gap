@@ -6,7 +6,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 import Nonadditivity.QuantumCodingHSW
 import Nonadditivity.OperationalBlocking
 import Nonadditivity.OperationalWeakConverse
-import Nonadditivity.HolevoRateLimit
 
 /-! # The operational classical coding theorem
 

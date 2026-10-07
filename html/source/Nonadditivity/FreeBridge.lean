@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.FreeModel
-import Nonadditivity.TensorPowers
 import Nonadditivity.Net
 import Nonadditivity.BlockConstruction
 import Mathlib.Data.Fin.Tuple.Basic

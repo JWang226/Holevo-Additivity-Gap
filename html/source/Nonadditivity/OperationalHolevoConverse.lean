@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.OperationalNaimark
-import Nonadditivity.QuantumCodingContinuity
 import Nonadditivity.QuantumCodingTraceDistance
 
 /-! # Entropy estimates for actual finite quantum codes -/

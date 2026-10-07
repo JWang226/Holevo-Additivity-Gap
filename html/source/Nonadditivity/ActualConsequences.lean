@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.HaarModel
-import Nonadditivity.HolevoBits
 import Nonadditivity.PositiveHolevo
 import Nonadditivity.Asymptotics
 

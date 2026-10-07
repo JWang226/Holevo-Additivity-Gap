@@ -3,9 +3,6 @@ Copyright (c) 2026 the Nonadditivity project contributors.
 All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
-import Nonadditivity.TensorPartitionReduction
-import Nonadditivity.WordBallReduction
-import Nonadditivity.PolynomialDilation
 import Nonadditivity.InitialNetReduction
 import Nonadditivity.StructuredReductionCosts
 

@@ -36,7 +36,9 @@ The explicit certificate selects the current cleanup's recorded source evidence;
 
 The cleanup’s [full Lean build and source certificate](verification/elaboration-20261006/source-certificate.json) cover all 369 modules, with no proof holes and only `propext`, `Classical.choice`, and `Quot.sound`. [Fresh public-type comparison](verification/elaboration-20261006/public-types.json) checks all 5,323 public declarations and six challenge roots. [Cleanup and timing reproduction](docs/ELABORATION_CLEANUP.md).
 
-The [verification index](verification/README.md#portable-verification) distinguishes the current release's selected portable evidence from the preserved October 2 Comparator/Lean replay and Nanoda records. Fresh portable verification and the [statement-review continuation](docs/STATEMENT_AUDIT_DELTA.md) must pass their evidence checks before release publication. Historical evidence keeps its original source bindings.
+The [current portable run](verification/portable-20261007/run-summary.json) passed a fresh 369-module Lean rebuild/audit, Comparator/Lean replay and Nanoda for five configurations/six roots, and all 13 controls on source commit `38b36070`. The [overall GitHub job](verification/github-actions-release-all-38b36070.json) failed afterward in statement-axiom recording; that failure remains recorded.
+
+The [statement-review continuation](docs/STATEMENT_AUDIT_DELTA.md) retains six qualified correspondence findings. Its successful Linux type/axiom checks were [recovered from completed command outputs](verification/statement-audit-20261007/recovery.json), with no proof commands rerun. Current evidence freshness checks pass; [verification details](verification/README.md) distinguish these records from the preserved October 2 evidence. No complete semantic audit or independent human certification is claimed.
 
 The principal endpoints are proved; **the full manuscript is not formalized**. The revised manuscript incorporates the [two counting repairs](docs/CORRECTIONS.md). See [formalization status](docs/FORMALIZATION_STATUS.md) for the exact scope.
 

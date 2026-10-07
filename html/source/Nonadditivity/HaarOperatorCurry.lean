@@ -5,7 +5,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 
 import Nonadditivity.HaarOperatorPolynomial
 import Nonadditivity.HaarTensorReplacement
-import Nonadditivity.RegularFubini
 import Mathlib.Algebra.MonoidAlgebra.MapDomain
 
 /-! # The operator coefficients of a mixed free-group polynomial

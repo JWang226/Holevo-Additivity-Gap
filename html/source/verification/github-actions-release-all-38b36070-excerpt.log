@@ -1,0 +1,58 @@
+# Selected verbatim log lines from GitHub Actions run 37577412179, attempt 1.
+# Commit: 38b360705c55fe4ee28e52f6cc493495fb7c1955
+# Job: 112649303307 (verify), overall conclusion: FAILURE
+# Job interval: 2026-10-07T05:39:42Z to 2026-10-07T06:57:32Z
+# Scope: all-mode proof verification and archive passed; statement capture failed; site step skipped.
+# https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/37577412179
+2026-10-07T05:39:52.1122549Z 38b360705c55fe4ee28e52f6cc493495fb7c1955
+2026-10-07T05:39:53.7771018Z 38b360705c55fe4ee28e52f6cc493495fb7c1955
+2026-10-07T05:39:59.7271930Z STATIC RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 327 unchanged baseline proof bodies.
+2026-10-07T05:41:56.6259117Z STATIC RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 327 unchanged baseline proof bodies.
+2026-10-07T06:10:50.0532867Z AUDIT PASSED: 9107 project declarations, 7219 theorems; transitive axioms [propext, Quot.sound, Classical.choice].
+2026-10-07T06:10:52.0799862Z BUILD PASSED: 369 project modules.
+2026-10-07T06:10:59.7511874Z DECLARATIONS PASSED: 49 exact names, source modules, roles, and transitive axioms.
+2026-10-07T06:10:59.7512478Z RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 327 unchanged baseline proof bodies.
+2026-10-07T06:11:21.1501044Z LEAN REPRODUCTION PASSED. Comparator was not run.
+2026-10-07T06:11:21.1575827Z STAGE PASSED: lean
+2026-10-07T06:26:46.6887322Z LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/A_PrescribedDimensions.json
+2026-10-07T06:30:32.8535378Z LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/B_OperationalCoding.json
+2026-10-07T06:35:19.5636476Z LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/C_SmallInformationSeparation.json
+2026-10-07T06:38:02.6948463Z LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/D_WeylAllUses.json
+2026-10-07T06:44:49.7792403Z LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/E_InputCost.json
+2026-10-07T06:44:49.8746320Z STAGE PASSED: comparator
+2026-10-07T06:45:20.3716716Z STAGE PASSED: nanoda-build
+2026-10-07T06:45:31.4790090Z STAGE PASSED: nanoda-controls
+2026-10-07T06:48:26.7228948Z NANODA PASSED (UNSANDBOXED): ComparatorChallenges/A_PrescribedDimensions.json
+2026-10-07T06:49:30.9611013Z NANODA PASSED (UNSANDBOXED): ComparatorChallenges/B_OperationalCoding.json
+2026-10-07T06:51:26.3083408Z NANODA PASSED (UNSANDBOXED): ComparatorChallenges/C_SmallInformationSeparation.json
+2026-10-07T06:52:20.5038900Z NANODA PASSED (UNSANDBOXED): ComparatorChallenges/D_WeylAllUses.json
+2026-10-07T06:55:21.6057057Z NANODA PASSED (UNSANDBOXED): ComparatorChallenges/E_InputCost.json
+2026-10-07T06:55:21.7140244Z STAGE PASSED: nanoda
+2026-10-07T06:55:21.7153129Z VERIFICATION PASSED: all
+2026-10-07T06:55:21.8404961Z Retained verified current-source portable evidence: verification/portable-20261007
+2026-10-07T06:56:48.0240959Z DECLARATION EXPORT PASSED: 9107 constants, 366 defining modules; metadata/declarations.json
+2026-10-07T06:56:48.0241558Z Theorems: 7219; source metadata and direct expression references exported.
+2026-10-07T06:57:28.2081864Z STATEMENT DELTA CAPTURE FAILED: The root axiom probe did not record exactly the six permitted closures
+2026-10-07T06:57:28.2166399Z ##[error]Process completed with exit code 1.
+
+# Selected verbatim root-axiom lines from the retained artifact entry:
+# verification/statement-audit-20261007/roots.log
+# Artifact root-log SHA-256: 06af1ca3f23c37b242ac08cd9ba2ea052faee7cce4317486a7d4f5c3267d2dee
+'Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]

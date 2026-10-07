@@ -8,7 +8,6 @@
   ],
   "Nonadditivity.ActualConsequences": [
     "Nonadditivity.HaarModel",
-    "Nonadditivity.HolevoBits",
     "Nonadditivity.PositiveHolevo",
     "Nonadditivity.Asymptotics"
   ],
@@ -31,10 +30,6 @@
     "Mathlib.Tactic.NormNum"
   ],
   "Nonadditivity.BellOutput": [
-    "Nonadditivity.Entropy",
-    "Nonadditivity.EntropyProducts",
-    "Nonadditivity.StateEnsembles",
-    "Nonadditivity.Channels",
     "Nonadditivity.EntropyMixtures",
     "Nonadditivity.PureChannelEntropy",
     "Nonadditivity.ChannelReindex"
@@ -91,7 +86,6 @@
     "Nonadditivity.CollinsYoun"
   ],
   "Nonadditivity.CollinsYounProduct": [
-    "Nonadditivity.CollinsYoun",
     "Nonadditivity.RegularFubini"
   ],
   "Nonadditivity.CollinsYounTensor": [
@@ -99,7 +93,6 @@
     "Nonadditivity.MatrixRegularRestriction"
   ],
   "Nonadditivity.ComplementaryAdjoint": [
-    "Nonadditivity.Channels",
     "Nonadditivity.BlockConstruction",
     "Mathlib.Tactic.Ring"
   ],
@@ -133,7 +126,6 @@
   "Nonadditivity.DampedPositivity": [
     "Nonadditivity.StrictEntropy",
     "Nonadditivity.DampedChannel",
-    "Nonadditivity.ConditionalStates",
     "Nonadditivity.PositiveHolevo"
   ],
   "Nonadditivity.DampedRealization": [
@@ -172,9 +164,7 @@
     "Mathlib.Tactic.Ring"
   ],
   "Nonadditivity.EntropyContinuity": [
-    "Nonadditivity.EntropyMixtures",
     "Nonadditivity.HaarMomentTail",
-    "Nonadditivity.AdjointPurity",
     "Mathlib.Topology.UniformSpace.HeineCantor"
   ],
   "Nonadditivity.EntropyMixtures": [
@@ -221,8 +211,6 @@
     "Mathlib.GroupTheory.GroupAction.Basic"
   ],
   "Nonadditivity.FiniteRealization": [
-    "Nonadditivity.AdjointPurity",
-    "Nonadditivity.Channels",
     "Nonadditivity.Net",
     "Nonadditivity.QuantumHolevo",
     "Mathlib.Analysis.InnerProductSpace.PiL2",
@@ -233,8 +221,6 @@
     "Mathlib.GroupTheory.GroupAction.Basic"
   ],
   "Nonadditivity.FiniteSetFactorization": [
-    "Nonadditivity.PositiveLinearization",
-    "Nonadditivity.RegularCoefficientEnergy",
     "Nonadditivity.RegularDilation",
     "Nonadditivity.MatrixNormReindex",
     "Mathlib.LinearAlgebra.Matrix.Kronecker",
@@ -242,7 +228,6 @@
   ],
   "Nonadditivity.FreeBridge": [
     "Nonadditivity.FreeModel",
-    "Nonadditivity.TensorPowers",
     "Nonadditivity.Net",
     "Nonadditivity.BlockConstruction",
     "Mathlib.Data.Fin.Tuple.Basic"
@@ -291,7 +276,6 @@
   ],
   "Nonadditivity.GaussianConstruction": [
     "Nonadditivity.GaussianCertificates",
-    "Nonadditivity.GaussianRectangularAlgebra",
     "Nonadditivity.GaussianSampleEvaluation",
     "Nonadditivity.InitialNetReduction"
   ],
@@ -332,7 +316,6 @@
   ],
   "Nonadditivity.GeneralBell": [
     "Nonadditivity.BellOutput",
-    "Nonadditivity.AdjointPurity",
     "Nonadditivity.Conversion"
   ],
   "Nonadditivity.HaarActualScanWords": [
@@ -386,8 +369,7 @@
   ],
   "Nonadditivity.HaarChainMultiplicity": [
     "Nonadditivity.HaarCoreChainLabels",
-    "Nonadditivity.HaarPathChainProfiles",
-    "Nonadditivity.HaarPathMultiplicity"
+    "Nonadditivity.HaarPathChainProfiles"
   ],
   "Nonadditivity.HaarChainReindex": [
     "Nonadditivity.HaarRepresentativePositions",
@@ -558,8 +540,7 @@
     "Nonadditivity.CollinsYounTensor"
   ],
   "Nonadditivity.HaarNonbacktrackingFirstStep": [
-    "Nonadditivity.HaarNonbacktrackingSupport",
-    "Nonadditivity.FreeCreation"
+    "Nonadditivity.HaarNonbacktrackingSupport"
   ],
   "Nonadditivity.HaarNonbacktrackingLastReturn": [
     "Nonadditivity.HaarNonbacktrackingRenewal"
@@ -591,7 +572,6 @@
   "Nonadditivity.HaarOperatorCurry": [
     "Nonadditivity.HaarOperatorPolynomial",
     "Nonadditivity.HaarTensorReplacement",
-    "Nonadditivity.RegularFubini",
     "Mathlib.Algebra.MonoidAlgebra.MapDomain"
   ],
   "Nonadditivity.HaarOperatorPathBridge": [
@@ -839,7 +819,6 @@
   ],
   "Nonadditivity.HaarPrescribedConsequences": [
     "Nonadditivity.HaarPrescribedBound",
-    "Nonadditivity.HolevoRateLimit",
     "Nonadditivity.Dimensions"
   ],
   "Nonadditivity.HaarPrescribedDimension": [
@@ -913,7 +892,6 @@
   "Nonadditivity.HaarRefinedCoefficientBound": [
     "Nonadditivity.HaarRefinedCoefficientFibre",
     "Nonadditivity.HaarProfileSingletonWeight",
-    "Nonadditivity.HaarPaletteDecoder",
     "Nonadditivity.HaarActualScanWords",
     "Nonadditivity.HaarDecodedCoefficientBound"
   ],
@@ -946,7 +924,6 @@
     "Mathlib.Tactic.IntervalCases"
   ],
   "Nonadditivity.HaarSharpCounting": [
-    "Nonadditivity.HaarPathCounting",
     "Nonadditivity.HaarPathClassStats",
     "Mathlib.Algebra.BigOperators.Ring.Finset"
   ],
@@ -975,8 +952,7 @@
     "Mathlib.Algebra.BigOperators.Intervals"
   ],
   "Nonadditivity.HaarTensorEvaluation": [
-    "Nonadditivity.HaarTensorReplacement",
-    "Nonadditivity.MatrixNormReindex"
+    "Nonadditivity.HaarTensorReplacement"
   ],
   "Nonadditivity.HaarTensorReplacement": [
     "Nonadditivity.ProductMomentBridge"
@@ -1007,7 +983,6 @@
   ],
   "Nonadditivity.HaarWeingartenInverse": [
     "Nonadditivity.HaarPermutationSupport",
-    "Nonadditivity.WeightedMatrixInverse",
     "Nonadditivity.HaarWeingartenInverseSum",
     "Nonadditivity.HaarWeingartenCycles",
     "Mathlib.Order.Interval.Finset.Nat"
@@ -1050,8 +1025,7 @@
     "Mathlib.Analysis.Subadditive"
   ],
   "Nonadditivity.HolevoTensorSuperadditivity": [
-    "Nonadditivity.HolevoBits",
-    "Nonadditivity.ChannelReindex"
+    "Nonadditivity.HolevoBits"
   ],
   "Nonadditivity.InitialNetReduction": [
     "Nonadditivity.NetPolynomialSupport",
@@ -1078,7 +1052,6 @@
     "Lean.Elab.Tactic.Omega"
   ],
   "Nonadditivity.Main": [
-    "Nonadditivity.Scalar",
     "Nonadditivity.Entropy",
     "Nonadditivity.Holevo",
     "Nonadditivity.Net",
@@ -1114,10 +1087,8 @@
   "Nonadditivity.NetPolynomial": [
     "Nonadditivity.CollinsYounProduct",
     "Nonadditivity.ObservableDimension",
-    "Nonadditivity.MatrixRegularRestriction",
     "Nonadditivity.PrescribedTest",
-    "Nonadditivity.RegularFactorization",
-    "Nonadditivity.MatrixNormReindex"
+    "Nonadditivity.RegularFactorization"
   ],
   "Nonadditivity.NetPolynomialSupport": [
     "Nonadditivity.NetPolynomial",
@@ -1194,8 +1165,7 @@
   "Nonadditivity.OperationalCodingTheorem": [
     "Nonadditivity.QuantumCodingHSW",
     "Nonadditivity.OperationalBlocking",
-    "Nonadditivity.OperationalWeakConverse",
-    "Nonadditivity.HolevoRateLimit"
+    "Nonadditivity.OperationalWeakConverse"
   ],
   "Nonadditivity.OperationalConsequences": [
     "Nonadditivity.OperationalCodingTheorem",
@@ -1213,7 +1183,6 @@
   ],
   "Nonadditivity.OperationalHolevoConverse": [
     "Nonadditivity.OperationalNaimark",
-    "Nonadditivity.QuantumCodingContinuity",
     "Nonadditivity.QuantumCodingTraceDistance"
   ],
   "Nonadditivity.OperationalNaimark": [
@@ -1245,9 +1214,7 @@
     "Mathlib.GroupTheory.FreeGroup.Reduce"
   ],
   "Nonadditivity.PositiveHolevo": [
-    "Nonadditivity.BlockConstruction",
     "Nonadditivity.HolevoBits",
-    "Nonadditivity.EntropyMixtures",
     "Mathlib.LinearAlgebra.Eigenspace.Triangularizable",
     "Mathlib.Analysis.Complex.Polynomial.Basic"
   ],
@@ -1316,7 +1283,6 @@
   ],
   "Nonadditivity.ProductMomentBridge": [
     "Nonadditivity.HaarWordExpansion",
-    "Nonadditivity.CollinsYoun",
     "Nonadditivity.ProductHaagerupProduct"
   ],
   "Nonadditivity.ProductPolynomialReduction": [
@@ -1339,7 +1305,6 @@
     "Mathlib.Analysis.InnerProductSpace.Rayleigh"
   ],
   "Nonadditivity.Qualitative": [
-    "Nonadditivity.BlockConstruction",
     "Nonadditivity.BlockScalars",
     "Nonadditivity.FiniteChannelRealization",
     "Nonadditivity.FreeBridge"
@@ -1362,8 +1327,7 @@
   "Nonadditivity.QuantumCodingChannelWords": [
     "Nonadditivity.QuantumCodingFamilySpectrum",
     "Nonadditivity.OperationalCapacity",
-    "Nonadditivity.OperationalReindex",
-    "Nonadditivity.ChannelReindex"
+    "Nonadditivity.OperationalReindex"
   ],
   "Nonadditivity.QuantumCodingConditionalTypicality": [
     "Nonadditivity.QuantumCodingTypicality"
@@ -1394,7 +1358,6 @@
   ],
   "Nonadditivity.QuantumCodingPacking": [
     "Nonadditivity.QuantumCodingSampling",
-    "Nonadditivity.QuantumCodingSequential",
     "Nonadditivity.QuantumCodingDecoderBound"
   ],
   "Nonadditivity.QuantumCodingPackingAverages": [
@@ -1461,7 +1424,6 @@
     "Mathlib.Analysis.InnerProductSpace.Positive"
   ],
   "Nonadditivity.RegularDilation": [
-    "Nonadditivity.RegularCoefficientEnergy",
     "Nonadditivity.MatrixRegularRestriction"
   ],
   "Nonadditivity.RegularFactorization": [
@@ -1469,7 +1431,6 @@
     "Nonadditivity.RegularShiftedDilation"
   ],
   "Nonadditivity.RegularFubini": [
-    "Nonadditivity.MatrixRegularRestriction",
     "Nonadditivity.CollinsYounTensor"
   ],
   "Nonadditivity.RegularRestriction": [
@@ -1525,8 +1486,7 @@
     "Mathlib.Algebra.Order.Floor.Div"
   ],
   "Nonadditivity.StructuredFiniteChannel": [
-    "Nonadditivity.InitialNetReduction",
-    "Nonadditivity.ComplementaryAdjoint"
+    "Nonadditivity.InitialNetReduction"
   ],
   "Nonadditivity.StructuredHaarConsequences": [
     "Nonadditivity.StructuredHaarModel",
@@ -1535,14 +1495,10 @@
   ],
   "Nonadditivity.StructuredHaarModel": [
     "Nonadditivity.StructuredLinearization",
-    "Nonadditivity.HaarModel",
     "Mathlib.MeasureTheory.Function.LocallyIntegrable",
     "Mathlib.MeasureTheory.Integral.Average"
   ],
   "Nonadditivity.StructuredLinearization": [
-    "Nonadditivity.TensorPartitionReduction",
-    "Nonadditivity.WordBallReduction",
-    "Nonadditivity.PolynomialDilation",
     "Nonadditivity.InitialNetReduction",
     "Nonadditivity.StructuredReductionCosts"
   ],
@@ -1560,11 +1516,9 @@
     "Mathlib.Data.Nat.Log"
   ],
   "Nonadditivity.TensorPowers": [
-    "Nonadditivity.EntropyProducts",
     "Nonadditivity.PureChannelEntropy"
   ],
   "Nonadditivity.UniversalFactorization": [
-    "Nonadditivity.UniversalFactorizationGram",
     "Nonadditivity.UniversalFactorizationPolynomialDilation"
   ],
   "Nonadditivity.UniversalFactorizationGram": [
@@ -1589,7 +1543,6 @@
     "Nonadditivity.HaarMomentTail"
   ],
   "Nonadditivity.WeightedBell": [
-    "Nonadditivity.BellOutput",
     "Nonadditivity.WeightedBellScalar"
   ],
   "Nonadditivity.WeightedBellScalar": [
@@ -1597,7 +1550,6 @@
   ],
   "Nonadditivity.WeightedBlock": [
     "Nonadditivity.CanonicalBlockBell",
-    "Nonadditivity.ComplementaryAdjoint",
     "Nonadditivity.WeightedCertificate",
     "Mathlib.Topology.Instances.Matrix"
   ],
@@ -1616,7 +1568,6 @@
     "Mathlib.Tactic"
   ],
   "Nonadditivity.WeightedParameters": [
-    "Nonadditivity.BlockScalars",
     "Nonadditivity.WeightedBlock",
     "Nonadditivity.WeightedBellScalar"
   ],
@@ -1656,7 +1607,6 @@
     "Nonadditivity.WeylPowersEntropy"
   ],
   "Nonadditivity.WeylPowersTwirl": [
-    "Nonadditivity.WeylTensor",
     "Nonadditivity.WeylPowersIndex"
   ],
   "Nonadditivity.WeylTensor": [

@@ -4,7 +4,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 -/
 
 import Nonadditivity.HaarTensorReplacement
-import Nonadditivity.MatrixNormReindex
 
 /-! # Partial substitution agrees with literal tensor evaluation
 

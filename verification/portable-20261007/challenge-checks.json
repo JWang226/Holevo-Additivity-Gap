@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-07T06:10:59.798945+00:00",
+  "status": "passed",
+  "method": "local_lean_elaboration_and_solution_against_explicit_expected_type",
+  "baseline_modules_recompiled": false,
+  "comparator_execution": "not_run",
+  "nanoda_execution": "not_run",
+  "intentional_challenge_placeholders": 6,
+  "checks": [
+    {
+      "config": "ComparatorChallenges/A_PrescribedDimensions.json",
+      "config_sha256": "7f5f44a0c7bdee31b5633dcdfe87fe3c9a90aabc65ff8b167489404332307a75",
+      "challenge_source": "ComparatorChallenges/A_PrescribedDimensions.lean",
+      "challenge_source_sha256": "3db9dec5f2473e5ff76703258735b5d75836555c40ea8be7babc5ee74a43278e",
+      "theorem_names": [
+        "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound"
+      ],
+      "generated_statement_check": ".lake/challenge-checks/StatementChecks/A_PrescribedDimensions.lean",
+      "challenge_elaboration": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "-o",
+          ".lake/challenge-checks/expected/A_PrescribedDimensions.olean",
+          "ComparatorChallenges/A_PrescribedDimensions.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/A_PrescribedDimensions_expected.log"
+      },
+      "proof_against_expected_statement": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "--root=.lake/challenge-checks",
+          ".lake/challenge-checks/StatementChecks/A_PrescribedDimensions.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/A_PrescribedDimensions_statement.log"
+      }
+    },
+    {
+      "config": "ComparatorChallenges/B_OperationalCoding.json",
+      "config_sha256": "dd80623b945a2c41ba2a2fec81382c0e23096aacaf0e5d6bbefb98c14948fc06",
+      "challenge_source": "ComparatorChallenges/B_OperationalCoding.lean",
+      "challenge_source_sha256": "df0510a19dc3ed2ea5b750095d81cc18e40db430b10ee571a84de83bdd26e1a9",
+      "theorem_names": [
+        "Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum"
+      ],
+      "generated_statement_check": ".lake/challenge-checks/StatementChecks/B_OperationalCoding.lean",
+      "challenge_elaboration": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "-o",
+          ".lake/challenge-checks/expected/B_OperationalCoding.olean",
+          "ComparatorChallenges/B_OperationalCoding.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/B_OperationalCoding_expected.log"
+      },
+      "proof_against_expected_statement": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "--root=.lake/challenge-checks",
+          ".lake/challenge-checks/StatementChecks/B_OperationalCoding.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/B_OperationalCoding_statement.log"
+      }
+    },
+    {
+      "config": "ComparatorChallenges/C_SmallInformationSeparation.json",
+      "config_sha256": "d49a693fec153af4eba4a64b143dcfa4846f43cb555af8d38484fe8b03689aab",
+      "challenge_source": "ComparatorChallenges/C_SmallInformationSeparation.lean",
+      "challenge_source_sha256": "e3e54a1982f5a61a02efb24232f41029a1c80951d116c32e823b4aa499bdac6d",
+      "theorem_names": [
+        "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio"
+      ],
+      "generated_statement_check": ".lake/challenge-checks/StatementChecks/C_SmallInformationSeparation.lean",
+      "challenge_elaboration": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "-o",
+          ".lake/challenge-checks/expected/C_SmallInformationSeparation.olean",
+          "ComparatorChallenges/C_SmallInformationSeparation.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/C_SmallInformationSeparation_expected.log"
+      },
+      "proof_against_expected_statement": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "--root=.lake/challenge-checks",
+          ".lake/challenge-checks/StatementChecks/C_SmallInformationSeparation.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/C_SmallInformationSeparation_statement.log"
+      }
+    },
+    {
+      "config": "ComparatorChallenges/D_WeylAllUses.json",
+      "config_sha256": "163884a64188e2a8415feaec6f35972e397f1cd01b65793c2ba8ec2819a41d98",
+      "challenge_source": "ComparatorChallenges/D_WeylAllUses.lean",
+      "challenge_source_sha256": "f7ab8498753d8b9262530b474cb57794da71e8e12811d50ab783b5f61e2a0d9b",
+      "theorem_names": [
+        "Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits"
+      ],
+      "generated_statement_check": ".lake/challenge-checks/StatementChecks/D_WeylAllUses.lean",
+      "challenge_elaboration": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "-o",
+          ".lake/challenge-checks/expected/D_WeylAllUses.olean",
+          "ComparatorChallenges/D_WeylAllUses.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/D_WeylAllUses_expected.log"
+      },
+      "proof_against_expected_statement": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "--root=.lake/challenge-checks",
+          ".lake/challenge-checks/StatementChecks/D_WeylAllUses.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/D_WeylAllUses_statement.log"
+      }
+    },
+    {
+      "config": "ComparatorChallenges/E_InputCost.json",
+      "config_sha256": "8e2f1a97e5f3051f3ebab7e543dc4515799c0748e3e4f9790b84d74c3f324d91",
+      "challenge_source": "ComparatorChallenges/E_InputCost.lean",
+      "challenge_source_sha256": "c6fa18619310fe829efd9d8aaf14e3d219b854d14757983d6a6d3dba397fd1ec",
+      "theorem_names": [
+        "Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds",
+        "Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower"
+      ],
+      "generated_statement_check": ".lake/challenge-checks/StatementChecks/E_InputCost.lean",
+      "challenge_elaboration": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "-o",
+          ".lake/challenge-checks/expected/E_InputCost.olean",
+          "ComparatorChallenges/E_InputCost.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/E_InputCost_expected.log"
+      },
+      "proof_against_expected_statement": {
+        "status": "passed",
+        "command": [
+          "./lean.sh",
+          "--root=.lake/challenge-checks",
+          ".lake/challenge-checks/StatementChecks/E_InputCost.lean"
+        ],
+        "exit_code": 0,
+        "log": ".lake/challenge-checks/E_InputCost_statement.log"
+      }
+    }
+  ],
+  "challenge_modules_checked": 5,
+  "theorems_checked": 6
+}

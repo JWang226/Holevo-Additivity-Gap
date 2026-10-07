@@ -1,0 +1,70 @@
+<!doctype html>
+<!-- Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved. See COPYRIGHT.md for attribution. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A reader guide to Lean proofs of Holevo additivity gaps, exact source statements, and reproducible verification.">
+<title>Reproduce the elaboration cleanup · Holevo Additivity Gap</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body data-root="../"><header class="top"><div class="top-inner">
+<a class="brand" href="../index.html">Holevo Additivity Gap <span>in Lean 4</span></a>
+<nav aria-label="Main navigation"><a href="../index.html">Overview</a><a href="../guide/introduction.html">Start here</a><a href="../concepts/index.html">Concepts</a><a href="../results.html">Results</a><a href="../correspondence.html">Paper ↔ Lean</a><a href="../route.html">Proof route</a><a href="../verify.html">Verify</a></nav><h2 class="lean-explorer-heading" id="lean-explorer-heading">Lean explorer</h2><nav class="technical-nav" aria-labelledby="lean-explorer-heading"><a href="../dependencies.html">Proof map</a><a href="../declarations.html">Declarations</a><a href="../modules.html">Modules</a><a href="../imports.html">Imports</a><a href="../docs/index.html" aria-current="page">Documents</a><a href="../about.html">About</a></nav>
+<div class="search-wrap"><label class="hidden" for="site-search">Search concepts, results and Lean declarations</label><input id="site-search" type="search" placeholder="Search concepts, results, or Lean declarations…" autocomplete="off" spellcheck="false" aria-label="Search concepts, results and Lean declarations"><label class="internal-toggle"><input id="search-internal" type="checkbox"> Include Lean internal, generated-detail or private constants</label><div id="search-results" class="search-results" hidden></div></div>
+</div></header><main><article class="prose"><div class="breadcrumb"><a href="../docs/index.html">Documents</a> / docs/ELABORATION_CLEANUP.md</div><p class="eyebrow">Repository document</p><h1>Reproduce the elaboration cleanup</h1><p><a href="../source/docs/ELABORATION_CLEANUP.md">Download exact Markdown</a> · <a href="https://github.com/JWang226/Holevo-Additivity-Gap/blob/main/docs/ELABORATION_CLEANUP.md">View on GitHub</a></p><div class="document-body"><h2 id="reproduce-the-elaboration-cleanup">Reproduce the elaboration cleanup</h2>
+<p>The <a href="../docs/verification--elaboration-20261006--README.html">cleanup evidence</a> records one full before build, three isolated A/B interventions, and one full after build on the same Ubuntu 22.04 runner. The timed baseline already includes the 50 redundant-import removals. Their speed contribution was not measured.</p>
+<h3 id="repeat-the-full-snapshots">Repeat the full snapshots</h3>
+<p>Use a fresh checkout on Linux with Git, elan, Python 3.11+, GNU time and the repository&#x27;s normal native build prerequisites. The measured snapshots are immutable commits, distinct from the later report/publication commit:</p>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>git clone https://github.com/JWang226/Holevo-Additivity-Gap.git Holevo-Additivity-Gap-elab
+cd Holevo-Additivity-Gap-elab
+git checkout --detach 743cc95bc4c0b1bca891994def26d9e5f8c7aad6
+elan toolchain install &quot;$(cat lean-toolchain)&quot;
+lake exe cache get
+ELAB_REPRO_OUTPUT=$(mktemp -d)
+python3 scripts/elaboration_test.py --label before \
+  --output &quot;$ELAB_REPRO_OUTPUT/before&quot; --time-bin /usr/bin/time
+git checkout --detach e943a85f0234a573477a10871f60a2d9583fa47b
+python3 scripts/elaboration_test.py --label after \
+  --output &quot;$ELAB_REPRO_OUTPUT/after&quot; --time-bin /usr/bin/time \
+  --prior-summary &quot;$ELAB_REPRO_OUTPUT/before/summary.json&quot;</code></pre></div>
+<p>Both invocations recompile all 369 own modules through the existing serial <code>build.sh</code> driver, then profile their own worst eight modules serially without writing compiler artifacts. Lean keeps its default internal threading. Cached Mathlib/dependency objects are inputs; neither <code>lake clean</code>, <code>lake update</code>, nor an upstream source rebuild is part of the timed test. Setup is outside timing. Do not change sources or build artifacts while a measurement is running.</p>
+<p>A repeat run gives new observations, not the recorded numbers. Keep the same host, compiler/time binaries, cache and scheduling policy for a comparable pair. On macOS, supply an installed GNU time executable rather than BSD <code>/usr/bin/time</code>; macOS timings are not interchangeable with the Linux evidence.</p>
+<p>The <a href="../docs/docs--LINUX_ELABORATION_PROTOCOL.html">continuation protocol</a> documents the guarded same-runner A/B procedure, six fixed request slots and source-only candidates. For a new workflow run use a fresh control branch whose first request has sequence 1. The historical control branch has already reached sequence 4. Use the full baseline SHA above as <code>baseline_ref</code>; the cleanup publication branch advances after measurement and is not an immutable baseline.</p>
+<h3 id="recheck-proof-and-statement-integrity">Recheck proof and statement integrity</h3>
+<p>Switch from the detached measured snapshot to the cleanup publication branch; the measured commit deliberately predates the certificate/report tooling. The explicit certificate selects the current source evidence. The normal historical baseline validation remains unchanged when the option is omitted:</p>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>git switch codex/cleanup-elaboration-20261006
+bash scripts/verify.sh lean \
+  --source-certificate verification/elaboration-20261006/source-certificate.json</code></pre></div>
+<p>This prepares pinned dependencies, performs a fresh full proof build/axiom audit, then runs the normal manuscript-mapping and local challenge checks. The certificate validates the archived Linux rebuild and all 5,323 public canonical kernel types; it does not substitute for the new build.</p>
+<p>After that build, independently re-export and compare current public types:</p>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>mkdir -p .verify-work
+ELAB_TYPE_RECHECK=$(mktemp -d .verify-work/cleanup-recheck-XXXXXX)
+python3 scripts/export_declarations.py --fresh \
+  --output &quot;$ELAB_TYPE_RECHECK/declarations.json&quot;
+python3 scripts/compare_public_types.py \
+  --after-export &quot;$ELAB_TYPE_RECHECK/declarations.json&quot; \
+  --report &quot;$ELAB_TYPE_RECHECK/public-types.json&quot;</code></pre></div>
+<p>Use a new report path on every run. The scratch export leaves the hash-bound published <code>metadata/declarations.json</code> unchanged. Compression streams may differ across zlib versions; the comparison independently decodes canonical type bytes. It compares exact public names, roles, defining modules/files, universe parameters and types against reviewed commit <code>a92c087e85603032cd0ece7b766b1f192b17a69e</code>. All six challenge roots and ten challenge/configuration files are covered.</p>
+<p>Comparator and Nanoda remain independently runnable:</p>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>bash scripts/verify.sh comparator
+bash scripts/verify.sh nanoda
+# Or perform fresh Lean, Comparator/replay and Nanoda checks together:
+bash scripts/verify.sh all \
+  --source-certificate verification/elaboration-20261006/source-certificate.json</code></pre></div>
+<p>The elaboration cleanup did not rerun Comparator or Nanoda. Earlier portable records retain their historical source/checker bindings. The certificate is explicitly limited to a Lean rebuild and exact public types; it does not claim new English-to-Lean review or complete manuscript formalization.</p>
+<h3 id="regenerate-the-archived-comparison">Regenerate the archived comparison</h3>
+<p>This command reads recorded measurements and committed sources; it runs no compiler or proof checker. Run it from the cleanup publication branch:</p>
+<div class="command"><button class="copy" type="button" aria-label="Copy command">Copy</button><pre><code>mkdir -p .verify-work
+ELAB_COMPARISON_RECHECK=$(mktemp -d .verify-work/cleanup-comparison-XXXXXX)
+python3 scripts/compare_elaboration.py --repo . \
+  --before verification/elaboration-20261006/before/summary.json \
+  --after verification/elaboration-20261006/after/summary.json \
+  --after-supplemental-profiles verification/elaboration-20261006/matched-profiles/summary.json \
+  --dead-code-json verification/elaboration-20261006/dead-code.json \
+  --api-check verification/elaboration-20261006/public-types.json \
+  --ab-summary verification/elaboration-20261006/ab/trial-1.json \
+  --ab-summary verification/elaboration-20261006/ab/trial-2.json \
+  --ab-summary verification/elaboration-20261006/ab/trial-3.json \
+  --output &quot;$ELAB_COMPARISON_RECHECK&quot;</code></pre></div>
+<p>The raw <code>trials/N/result.json</code> files and explicit <code>reviews/trial-N.json</code> records are inputs to <code>scripts/convert_ab_trial.py</code>. Its <code>--help</code> lists the required source/state/snapshot bindings. Trial 3 additionally needs <code>--failed-intervention --decision reverted</code>; aborted candidate times are retained only as diagnostics, with no candidate medians or speed comparison.</p>
+<h3 id="method-and-limitations">Method and limitations</h3>
+<p>The applied skill files are <code>lean-elaboration-test/SKILL.md</code> and <code>lean-elaboration/SKILL.md</code> from <a href="https://github.com/scottnarmstrong/LeanAutoformalizationSkills/tree/70bb859295edc2abb9ad81f8f6e31ab2adf8ca07/skills">LeanAutoformalizationSkills</a>. The repository harness and report tools are original implementations of that workflow. The modern <code>module</code>-header expectation is <strong>unmet</strong>: all 369 production files remain in legacy syntax. This is a recorded scope adaptation, not a pass of the skill&#x27;s zero-legacy-files criterion. No file-size cap is introduced. Existing heartbeat/recursion settings are inventoried; this cleanup changes none.</p>
+<p>The two full snapshots are descriptive. Repeated isolated A/B supplies the performance evidence for the retained summand annotation. Per-module GNU CPU is user + system time; wall time and CPU totals are distinct. Profiler categories are exclusive counters rather than a complete elapsed-time partition. Cached artifact guards compare recorded stat provenance and cannot detect a mutation perfectly restored between snapshots. Dedicated audit work is retained.</p>
+<p>A cancelled macOS pilot and macOS diagnostic probes are excluded from the Linux before/after measurements. The diagnostic probe with a temporary <code>sorry</code> is not a production proof; both successful full builds permit no proof holes. Raw source/checker hashes, commands and archive receipts identify the actual evidence.</p></div></article></main>
+<footer><p>Reader documentation for exact Lean sources; the source and its declared context determine what is proved.</p><p>Lean 4.29.0-rc6 · Mathlib <code>f156f7ab…</code> · Only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code> permitted in solution dependencies.</p><p class="footer-links"><a href="../about.html">About these pages</a><a href="../generation.json">Generation record</a><a href="https://github.com/JWang226/Holevo-Additivity-Gap">GitHub repository</a></p></footer><script src="../assets/search-data.js"></script><script src="../assets/site.js"></script></body></html>

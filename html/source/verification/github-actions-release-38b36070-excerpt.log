@@ -1,0 +1,30 @@
+# Selected verbatim log lines from GitHub Actions run 37577412043, attempt 1.
+# Commit: 38b360705c55fe4ee28e52f6cc493495fb7c1955
+# Job: 112649303057 (verify), conclusion: success
+# Job interval: 2026-10-07T05:39:42Z to 2026-10-07T06:18:05Z
+# The complete log and artifacts remain available at the run URL.
+# https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/37577412043
+2026-10-07T05:39:51.3563889Z 38b360705c55fe4ee28e52f6cc493495fb7c1955
+2026-10-07T05:39:53.4307824Z 38b360705c55fe4ee28e52f6cc493495fb7c1955
+2026-10-07T05:39:58.1256153Z ##[group]Run python scripts/validate_release.py --static-only --source-certificate verification/elaboration-20261006/source-certificate.json
+2026-10-07T05:40:00.2181090Z STATIC RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 327 unchanged baseline proof bodies.
+2026-10-07T05:40:00.2181990Z Source integrity: full_rebuild_and_exact_public_types
+2026-10-07T05:40:12.0986306Z Lean (version 4.29.0-rc6, x86_64-unknown-linux-gnu, commit 00659f8e6071d7e46131ed643bf8003b99b044e9, Release)
+2026-10-07T05:40:43.2564166Z info: mathlib: checking out revision 'f156f7abd91ac67adb22bf999e5a71ba22e22e41'
+2026-10-07T05:41:37.2196934Z ##[group]Run ./check.sh
+2026-10-07T05:41:37.4283222Z Lean (version 4.29.0-rc6, x86_64-unknown-linux-gnu, commit 00659f8e6071d7e46131ed643bf8003b99b044e9, Release)
+2026-10-07T06:12:57.1006335Z Checking Audit.lean
+2026-10-07T06:17:21.4688125Z AUDIT PASSED: 9107 project declarations, 7219 theorems; transitive axioms [propext, Quot.sound, Classical.choice].
+2026-10-07T06:17:21.4688265Z Checking All.lean
+2026-10-07T06:17:24.3368054Z BUILD PASSED: 369 project modules.
+2026-10-07T06:17:24.3605423Z ##[group]Run python scripts/validate_release.py --source-certificate verification/elaboration-20261006/source-certificate.json
+2026-10-07T06:17:33.3612848Z DECLARATIONS PASSED: 49 exact names, source modules, roles, and transitive axioms.
+2026-10-07T06:17:33.3613868Z RELEASE CHECKS PASSED: 25 mappings, 49 declarations, 327 unchanged baseline proof bodies.
+2026-10-07T06:17:33.3614614Z Source integrity: full_rebuild_and_exact_public_types
+2026-10-07T06:17:33.3891570Z ##[group]Run python scripts/check_challenges.py
+2026-10-07T06:17:39.1206320Z A_PrescribedDimensions: expected statement and solution/type check passed
+2026-10-07T06:17:44.5535568Z B_OperationalCoding: expected statement and solution/type check passed
+2026-10-07T06:17:50.1993279Z C_SmallInformationSeparation: expected statement and solution/type check passed
+2026-10-07T06:17:55.6127644Z D_WeylAllUses: expected statement and solution/type check passed
+2026-10-07T06:18:01.2534235Z E_InputCost: expected statement and solution/type check passed
+2026-10-07T06:18:01.2542991Z Saved .lake/challenge-checks.json. Comparator execution remains not_run.

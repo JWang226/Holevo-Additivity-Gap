@@ -1,0 +1,1034 @@
+{
+  "schema_version": 1,
+  "source_commit_before_sweep": "a92c087e85603032cd0ece7b766b1f192b17a69e",
+  "private_declaration_sweep": {
+    "private_records": 405,
+    "user_written_private_declarations": 81,
+    "safe_deletions": 0,
+    "unreferenced_generated_private_records": 224
+  },
+  "module_sweep": {
+    "local_modules": 369,
+    "mathematical_modules": 366,
+    "all_local_closure": 369,
+    "audit_local_closure": 368,
+    "unreachable_local_modules": [],
+    "safe_whole_module_removals": [],
+    "redundant_local_direct_imports": 50,
+    "redundant_external_direct_imports": 191,
+    "redundant_umbrella_direct_imports": 341,
+    "standalone_dead_script_candidates": [],
+    "lean_run": false
+  },
+  "removed_redundant_local_imports": [
+    {
+      "file": "Nonadditivity/ActualConsequences.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.HolevoBits",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.ActualConsequences",
+        "Nonadditivity.PositiveHolevo",
+        "Nonadditivity.HolevoBits"
+      ]
+    },
+    {
+      "file": "Nonadditivity/BellOutput.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.Entropy",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.BellOutput",
+        "Nonadditivity.EntropyProducts",
+        "Nonadditivity.Entropy"
+      ]
+    },
+    {
+      "file": "Nonadditivity/BellOutput.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.EntropyProducts",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.BellOutput",
+        "Nonadditivity.EntropyMixtures",
+        "Nonadditivity.EntropyProducts"
+      ]
+    },
+    {
+      "file": "Nonadditivity/BellOutput.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.StateEnsembles",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.BellOutput",
+        "Nonadditivity.EntropyMixtures",
+        "Nonadditivity.StateEnsembles"
+      ]
+    },
+    {
+      "file": "Nonadditivity/BellOutput.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.Channels",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.BellOutput",
+        "Nonadditivity.PureChannelEntropy",
+        "Nonadditivity.Channels"
+      ]
+    },
+    {
+      "file": "Nonadditivity/CollinsYounProduct.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.CollinsYoun",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.CollinsYounProduct",
+        "Nonadditivity.RegularFubini",
+        "Nonadditivity.CollinsYounTensor",
+        "Nonadditivity.CollinsYoun"
+      ]
+    },
+    {
+      "file": "Nonadditivity/ComplementaryAdjoint.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.Channels",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.ComplementaryAdjoint",
+        "Nonadditivity.BlockConstruction",
+        "Nonadditivity.BlockBell",
+        "Nonadditivity.ConjugateChannel",
+        "Nonadditivity.Channels"
+      ]
+    },
+    {
+      "file": "Nonadditivity/DampedPositivity.lean",
+      "removed_line": 8,
+      "import": "Nonadditivity.ConditionalStates",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.DampedPositivity",
+        "Nonadditivity.PositiveHolevo",
+        "Nonadditivity.BlockConstruction",
+        "Nonadditivity.Conversion",
+        "Nonadditivity.SwitchChannel",
+        "Nonadditivity.ChannelEntropy",
+        "Nonadditivity.ConditionalStates"
+      ]
+    },
+    {
+      "file": "Nonadditivity/EntropyContinuity.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.EntropyMixtures",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.EntropyContinuity",
+        "Nonadditivity.HaarMomentTail",
+        "Nonadditivity.HaarModel",
+        "Nonadditivity.ComplementaryAdjoint",
+        "Nonadditivity.BlockConstruction",
+        "Nonadditivity.BlockBell",
+        "Nonadditivity.BellOutput",
+        "Nonadditivity.EntropyMixtures"
+      ]
+    },
+    {
+      "file": "Nonadditivity/EntropyContinuity.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.AdjointPurity",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.EntropyContinuity",
+        "Nonadditivity.HaarMomentTail",
+        "Nonadditivity.HaarModel",
+        "Nonadditivity.Qualitative",
+        "Nonadditivity.FiniteChannelRealization",
+        "Nonadditivity.FiniteRealization",
+        "Nonadditivity.AdjointPurity"
+      ]
+    },
+    {
+      "file": "Nonadditivity/FiniteRealization.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.AdjointPurity",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.FiniteRealization",
+        "Nonadditivity.QuantumHolevo",
+        "Nonadditivity.AdjointPurity"
+      ]
+    },
+    {
+      "file": "Nonadditivity/FiniteRealization.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.Channels",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.FiniteRealization",
+        "Nonadditivity.QuantumHolevo",
+        "Nonadditivity.Channels"
+      ]
+    },
+    {
+      "file": "Nonadditivity/FiniteSetFactorization.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.PositiveLinearization",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.FiniteSetFactorization",
+        "Nonadditivity.RegularCoefficientEnergy",
+        "Nonadditivity.PositiveLinearization"
+      ]
+    },
+    {
+      "file": "Nonadditivity/FiniteSetFactorization.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.RegularCoefficientEnergy",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.FiniteSetFactorization",
+        "Nonadditivity.RegularDilation",
+        "Nonadditivity.RegularCoefficientEnergy"
+      ]
+    },
+    {
+      "file": "Nonadditivity/FreeBridge.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.TensorPowers",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.FreeBridge",
+        "Nonadditivity.BlockConstruction",
+        "Nonadditivity.BlockBell",
+        "Nonadditivity.TensorPowers"
+      ]
+    },
+    {
+      "file": "Nonadditivity/GaussianConstruction.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.GaussianRectangularAlgebra",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.GaussianConstruction",
+        "Nonadditivity.GaussianSampleEvaluation",
+        "Nonadditivity.GaussianRectangularAlgebra"
+      ]
+    },
+    {
+      "file": "Nonadditivity/GeneralBell.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.AdjointPurity",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.GeneralBell",
+        "Nonadditivity.Conversion",
+        "Nonadditivity.SwitchChannel",
+        "Nonadditivity.ChannelEntropy",
+        "Nonadditivity.QuantumHolevo",
+        "Nonadditivity.AdjointPurity"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HaarChainMultiplicity.lean",
+      "removed_line": 8,
+      "import": "Nonadditivity.HaarPathMultiplicity",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HaarChainMultiplicity",
+        "Nonadditivity.HaarCoreChainLabels",
+        "Nonadditivity.HaarPathChainPartition",
+        "Nonadditivity.HaarPathChainCount",
+        "Nonadditivity.HaarPathChains",
+        "Nonadditivity.HaarPathGraph",
+        "Nonadditivity.HaarPathMultiplicity"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HaarNonbacktrackingFirstStep.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.FreeCreation",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HaarNonbacktrackingFirstStep",
+        "Nonadditivity.HaarNonbacktrackingSupport",
+        "Nonadditivity.HaarNonbacktrackingLastReturn",
+        "Nonadditivity.HaarNonbacktrackingRenewal",
+        "Nonadditivity.HaarNonbacktracking",
+        "Nonadditivity.CollinsYounTensor",
+        "Nonadditivity.CollinsYoun",
+        "Nonadditivity.FreeCreation"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HaarOperatorCurry.lean",
+      "removed_line": 8,
+      "import": "Nonadditivity.RegularFubini",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HaarOperatorCurry",
+        "Nonadditivity.HaarTensorReplacement",
+        "Nonadditivity.ProductMomentBridge",
+        "Nonadditivity.ProductHaagerupProduct",
+        "Nonadditivity.RegularFubini"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HaarPrescribedConsequences.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.HolevoRateLimit",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HaarPrescribedConsequences",
+        "Nonadditivity.HaarPrescribedBound",
+        "Nonadditivity.HaarPrescribedDimension",
+        "Nonadditivity.HaarExpectationFromMoment",
+        "Nonadditivity.StructuredHaarConsequences",
+        "Nonadditivity.HaarConsequences",
+        "Nonadditivity.HolevoRateLimit"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HaarRefinedCoefficientBound.lean",
+      "removed_line": 8,
+      "import": "Nonadditivity.HaarPaletteDecoder",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HaarRefinedCoefficientBound",
+        "Nonadditivity.HaarActualScanWords",
+        "Nonadditivity.HaarPaletteDecoder"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HaarSharpCounting.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.HaarPathCounting",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HaarSharpCounting",
+        "Nonadditivity.HaarPathClassStats",
+        "Nonadditivity.HaarPathRefinedCounting",
+        "Nonadditivity.HaarPathCounting"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HaarTensorEvaluation.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.MatrixNormReindex",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HaarTensorEvaluation",
+        "Nonadditivity.HaarTensorReplacement",
+        "Nonadditivity.ProductMomentBridge",
+        "Nonadditivity.HaarWordExpansion",
+        "Nonadditivity.StructuredHaarModel",
+        "Nonadditivity.StructuredLinearization",
+        "Nonadditivity.InitialNetReduction",
+        "Nonadditivity.NetPolynomialSupport",
+        "Nonadditivity.NetPolynomial",
+        "Nonadditivity.MatrixNormReindex"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HaarWeingartenInverse.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.WeightedMatrixInverse",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HaarWeingartenInverse",
+        "Nonadditivity.HaarWeingartenInverseSum",
+        "Nonadditivity.WeightedMatrixInverse"
+      ]
+    },
+    {
+      "file": "Nonadditivity/HolevoTensorSuperadditivity.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.ChannelReindex",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.HolevoTensorSuperadditivity",
+        "Nonadditivity.HolevoBits",
+        "Nonadditivity.Qualitative",
+        "Nonadditivity.BlockConstruction",
+        "Nonadditivity.BlockBell",
+        "Nonadditivity.BellOutput",
+        "Nonadditivity.ChannelReindex"
+      ]
+    },
+    {
+      "file": "Nonadditivity/Main.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.Scalar",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.Main",
+        "Nonadditivity.Dimensions",
+        "Nonadditivity.Scalar"
+      ]
+    },
+    {
+      "file": "Nonadditivity/NetPolynomial.lean",
+      "removed_line": 8,
+      "import": "Nonadditivity.MatrixRegularRestriction",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.NetPolynomial",
+        "Nonadditivity.CollinsYounProduct",
+        "Nonadditivity.RegularFubini",
+        "Nonadditivity.MatrixRegularRestriction"
+      ]
+    },
+    {
+      "file": "Nonadditivity/NetPolynomial.lean",
+      "removed_line": 10,
+      "import": "Nonadditivity.MatrixNormReindex",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.NetPolynomial",
+        "Nonadditivity.RegularFactorization",
+        "Nonadditivity.FiniteSetFactorization",
+        "Nonadditivity.MatrixNormReindex"
+      ]
+    },
+    {
+      "file": "Nonadditivity/OperationalCodingTheorem.lean",
+      "removed_line": 9,
+      "import": "Nonadditivity.HolevoRateLimit",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.OperationalCodingTheorem",
+        "Nonadditivity.OperationalBlocking",
+        "Nonadditivity.OperationalBlockingFlatten",
+        "Nonadditivity.OperationalBlockingCodes",
+        "Nonadditivity.HolevoRateLimit"
+      ]
+    },
+    {
+      "file": "Nonadditivity/OperationalHolevoConverse.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.QuantumCodingContinuity",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.OperationalHolevoConverse",
+        "Nonadditivity.QuantumCodingTraceDistance",
+        "Nonadditivity.QuantumCodingContinuity"
+      ]
+    },
+    {
+      "file": "Nonadditivity/PositiveHolevo.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.BlockConstruction",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.PositiveHolevo",
+        "Nonadditivity.HolevoBits",
+        "Nonadditivity.Qualitative",
+        "Nonadditivity.BlockConstruction"
+      ]
+    },
+    {
+      "file": "Nonadditivity/PositiveHolevo.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.EntropyMixtures",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.PositiveHolevo",
+        "Nonadditivity.HolevoBits",
+        "Nonadditivity.Qualitative",
+        "Nonadditivity.BlockConstruction",
+        "Nonadditivity.BlockBell",
+        "Nonadditivity.BellOutput",
+        "Nonadditivity.EntropyMixtures"
+      ]
+    },
+    {
+      "file": "Nonadditivity/ProductMomentBridge.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.CollinsYoun",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.ProductMomentBridge",
+        "Nonadditivity.ProductHaagerupProduct",
+        "Nonadditivity.RegularFubini",
+        "Nonadditivity.CollinsYounTensor",
+        "Nonadditivity.CollinsYoun"
+      ]
+    },
+    {
+      "file": "Nonadditivity/Qualitative.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.BlockConstruction",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.Qualitative",
+        "Nonadditivity.FreeBridge",
+        "Nonadditivity.BlockConstruction"
+      ]
+    },
+    {
+      "file": "Nonadditivity/QuantumCodingChannelWords.lean",
+      "removed_line": 9,
+      "import": "Nonadditivity.ChannelReindex",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.QuantumCodingChannelWords",
+        "Nonadditivity.OperationalReindex",
+        "Nonadditivity.ChannelReindex"
+      ]
+    },
+    {
+      "file": "Nonadditivity/QuantumCodingPacking.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.QuantumCodingSequential",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.QuantumCodingPacking",
+        "Nonadditivity.QuantumCodingDecoderBound",
+        "Nonadditivity.QuantumCodingSequential"
+      ]
+    },
+    {
+      "file": "Nonadditivity/RegularDilation.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.RegularCoefficientEnergy",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.RegularDilation",
+        "Nonadditivity.MatrixRegularRestriction",
+        "Nonadditivity.RegularCoefficientEnergy"
+      ]
+    },
+    {
+      "file": "Nonadditivity/RegularFubini.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.MatrixRegularRestriction",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.RegularFubini",
+        "Nonadditivity.CollinsYounTensor",
+        "Nonadditivity.MatrixRegularRestriction"
+      ]
+    },
+    {
+      "file": "Nonadditivity/StructuredFiniteChannel.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.ComplementaryAdjoint",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.StructuredFiniteChannel",
+        "Nonadditivity.InitialNetReduction",
+        "Nonadditivity.HaarMomentTail",
+        "Nonadditivity.HaarModel",
+        "Nonadditivity.ComplementaryAdjoint"
+      ]
+    },
+    {
+      "file": "Nonadditivity/StructuredHaarModel.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.HaarModel",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.StructuredHaarModel",
+        "Nonadditivity.StructuredLinearization",
+        "Nonadditivity.InitialNetReduction",
+        "Nonadditivity.HaarMomentTail",
+        "Nonadditivity.HaarModel"
+      ]
+    },
+    {
+      "file": "Nonadditivity/StructuredLinearization.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.TensorPartitionReduction",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.StructuredLinearization",
+        "Nonadditivity.StructuredReductionCosts",
+        "Nonadditivity.TensorPartitionReduction"
+      ]
+    },
+    {
+      "file": "Nonadditivity/StructuredLinearization.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.WordBallReduction",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.StructuredLinearization",
+        "Nonadditivity.StructuredReductionCosts",
+        "Nonadditivity.WordBallReduction"
+      ]
+    },
+    {
+      "file": "Nonadditivity/StructuredLinearization.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.PolynomialDilation",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.StructuredLinearization",
+        "Nonadditivity.InitialNetReduction",
+        "Nonadditivity.NetPolynomialSupport",
+        "Nonadditivity.PolynomialDilation"
+      ]
+    },
+    {
+      "file": "Nonadditivity/TensorPowers.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.EntropyProducts",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.TensorPowers",
+        "Nonadditivity.PureChannelEntropy",
+        "Nonadditivity.EntropyProducts"
+      ]
+    },
+    {
+      "file": "Nonadditivity/UniversalFactorization.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.UniversalFactorizationGram",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.UniversalFactorization",
+        "Nonadditivity.UniversalFactorizationPolynomialDilation",
+        "Nonadditivity.UniversalFactorizationGram"
+      ]
+    },
+    {
+      "file": "Nonadditivity/WeightedBell.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.BellOutput",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.WeightedBell",
+        "Nonadditivity.WeightedBellScalar",
+        "Nonadditivity.GeneralBell",
+        "Nonadditivity.BellOutput"
+      ]
+    },
+    {
+      "file": "Nonadditivity/WeightedBlock.lean",
+      "removed_line": 7,
+      "import": "Nonadditivity.ComplementaryAdjoint",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.WeightedBlock",
+        "Nonadditivity.WeightedCertificate",
+        "Nonadditivity.InitialNetReduction",
+        "Nonadditivity.HaarMomentTail",
+        "Nonadditivity.HaarModel",
+        "Nonadditivity.ComplementaryAdjoint"
+      ]
+    },
+    {
+      "file": "Nonadditivity/WeightedParameters.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.BlockScalars",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.WeightedParameters",
+        "Nonadditivity.WeightedBlock",
+        "Nonadditivity.WeightedCertificate",
+        "Nonadditivity.InitialNetReduction",
+        "Nonadditivity.HaarMomentTail",
+        "Nonadditivity.HaarModel",
+        "Nonadditivity.Qualitative",
+        "Nonadditivity.BlockScalars"
+      ]
+    },
+    {
+      "file": "Nonadditivity/WeylPowersTwirl.lean",
+      "removed_line": 6,
+      "import": "Nonadditivity.WeylTensor",
+      "provider_path_after_prior_removals": [
+        "Nonadditivity.WeylPowersTwirl",
+        "Nonadditivity.WeylPowersIndex",
+        "Nonadditivity.HolevoTensorSuperadditivity",
+        "Nonadditivity.HolevoBits",
+        "Nonadditivity.Qualitative",
+        "Nonadditivity.FiniteChannelRealization",
+        "Nonadditivity.Conversion",
+        "Nonadditivity.WeylTensor"
+      ]
+    }
+  ],
+  "retained_candidates_after_reduction": [],
+  "deliberately_retained": {
+    "external_import_candidates": 191,
+    "exhaustive_facade_import_candidates": 341,
+    "reason": "Retain direct upstream providers until profiles justify narrowing, and retain the explicit exhaustive facade as the proof inventory."
+  },
+  "scope_comment_updated": "Nonadditivity/Main.lean",
+  "local_module_closures_preserved": true,
+  "proof_edits": "Only exact import-line deletions and the specified module documentation replacement; proof statements and bodies are untouched.",
+  "noncomment_nonstring_code_digest_excluding_imports": {
+    "All.lean": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Audit.lean": "3efe67dc0c480cfc90c8b20ec284d1a0295b1b7b6214dc3060760e1d7ca21106",
+    "Nonadditivity.lean": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Nonadditivity/ActualConsequences.lean": "9a0d339f4adc7a1f6c478f014db8aae96d1d572b11b3564e233860d91a551a81",
+    "Nonadditivity/AdjointPurity.lean": "4a0d892779a9b89fb6795f27d3bfd25e5a850dc14d8f8da0fec75ebd0cc8b91a",
+    "Nonadditivity/Asymptotics.lean": "5477df15e4ae8f08a16be6c4998e537b5ab4b66e7914ffff8e3f7cd661fcaa28",
+    "Nonadditivity/BellOutput.lean": "73b6332a6acaba16ff5e5a3ac82449f5727043d135289f10e59aec3b85b16ae6",
+    "Nonadditivity/BlockBell.lean": "a8b3ec16df5cd2179b948cb06d80bdc3acb1a460750023e75318e7e6b265082e",
+    "Nonadditivity/BlockConstruction.lean": "477328e3dddf8122097561253e269988196300d9145c315d23fcc0b5e206f825",
+    "Nonadditivity/BlockScalars.lean": "445f78e2911acfa3ea62f6bf175f4aaa80930031df974133b811ac1ffc834638",
+    "Nonadditivity/CanonicalBlockBell.lean": "4990b784055cfcb41a5b0f8624550e5cb9db912ab79ec27812791736dcf3ca4d",
+    "Nonadditivity/ChannelEntropy.lean": "9dc9d55e77bdd3bc9e984cb1aaf8ab3e10693925ce3ff8b93358b9d8e98bfb73",
+    "Nonadditivity/ChannelExtensions.lean": "fd6dc67f0315374867566930b1dbef2ae1868f756a5b92101646ef518c6d4b3c",
+    "Nonadditivity/ChannelReindex.lean": "1eb9dce3ab36c794d0a500b4878d528ef407d165402afddf59afe2fe9de8b3c8",
+    "Nonadditivity/ChannelTensorControl.lean": "a50d535e700cfbc536fa934a98085cd405cacbe47b6ab23cbd49d10257bea7f1",
+    "Nonadditivity/Channels.lean": "8cfe49d65f51f7b79421eb48c3038fa9d0e9e142c6d0517d57db1cbc4f3e1f37",
+    "Nonadditivity/CollinsYoun.lean": "df09034d55245ecfc85b4afc9cef8a317cbc530426752774f183c0efc017adb3",
+    "Nonadditivity/CollinsYounOne.lean": "3b1776f172a0b839084c340bd90352d9ecb19e8e6d1eb9ff0131ed094e568013",
+    "Nonadditivity/CollinsYounProduct.lean": "f16b176c1fd2138f3c493b55112563106af8b7446808f112027fd0470b7f41d5",
+    "Nonadditivity/CollinsYounTensor.lean": "0e73f1d0e82f5b0ba41ef99668fcf8f11ee3ad779e6bc6dc6fc7d51b15520af3",
+    "Nonadditivity/ComplementaryAdjoint.lean": "6c414888fc6cce965de76deea7a2eaf28d265413d2714739443643bba32de6df",
+    "Nonadditivity/ComplexRealTrace.lean": "05b63341c8b657d340948166a249079d6c0a275d8b165d27b41f1c727decc4a1",
+    "Nonadditivity/ConditionalStates.lean": "dbc56918b57065a2fafe1f8eda8a0e5fe88ffd8ac13a1e7c1e66e016b1685261",
+    "Nonadditivity/ConjugateChannel.lean": "a9387b39e416cb7109ecbc992c3a5c3997b22a1a44df6b755af18ab0036eaf21",
+    "Nonadditivity/Conversion.lean": "606ea9ee090c8ca044ac66d16359fa712d35d1d826af43f236d54c4a88457ec2",
+    "Nonadditivity/DampedBellStability.lean": "aeafca2935a9082ad379cbff8db408a1b7849022d23e813255df260f5c275807",
+    "Nonadditivity/DampedChannel.lean": "8310c58bdffb20be8c5c023a30dcf11840d28fde76be97813365d69e9955b7c6",
+    "Nonadditivity/DampedPositivity.lean": "c8ae3384ded82b72ecc7dd27ccbb1fdf846fb0b8d4e7d6b97e8fecf6fc5e1144",
+    "Nonadditivity/DampedRealization.lean": "9669c291bc3ad980278c3affa04b5c5d098334c487e5398003f28e0bc13a379b",
+    "Nonadditivity/DampingNet.lean": "525d4d9574df0a476ecbcfb89da75e380a416acbab5a6682b88144dbc6ef7d29",
+    "Nonadditivity/DeterministicConsequences.lean": "2d687d6a8ff2401d46c6c8d5f07fcf36c24aef24df88cb2d7286bb77347642a2",
+    "Nonadditivity/DeterministicQualitative.lean": "7ff64375f45dd34779b4c3e47cc7ebafea0d4a7ba29a3af2866b06b987b2e083",
+    "Nonadditivity/Dimensions.lean": "e9f16c4e66054a1b701ac9e35ecc8ea0b5f1d4252db57716c40f09f43c38a3b6",
+    "Nonadditivity/Entropy.lean": "fe66499f7a4502a466ac1934199424ac35f9b77c11eec4ab14e34be0b88922cb",
+    "Nonadditivity/EntropyContinuity.lean": "ab644754342e8be370fd5c22030502e028c414e0c6d66f35118756de0e0a65dd",
+    "Nonadditivity/EntropyMixtures.lean": "d5473a8bbe68e37664cffa407e77cfc42f240399e3be1c606c8b2ff12b99be6c",
+    "Nonadditivity/EntropyProducts.lean": "164012e722046e5e2f6fd14ad315fd4a4e777f893669e0aedb4a2ed14846ecfd",
+    "Nonadditivity/EntropyStability.lean": "16b8241daf2bd6da6cc2cd1643ccc5b30b148b9208db6b2decc29660a7be0c51",
+    "Nonadditivity/ExactQualitative.lean": "62f66fbf8f18a4303520419afd92e504afb2f25ade22e31dcf899364717f21ef",
+    "Nonadditivity/FiniteBlockModel.lean": "81dfef76af1fe78de0798a32b704e4374ce69395247adccf36ebec69101da7b5",
+    "Nonadditivity/FiniteChannelRealization.lean": "0a4ce78fd2a683bdd6c900625952c2fdd6646c0c5598c8e0a7f62adc51d24b24",
+    "Nonadditivity/FiniteFreeModel.lean": "b69efd9e84644cf24c83b471cd040bb782ac7e6e50c4bb0b9a53768e0607ad77",
+    "Nonadditivity/FiniteMomentMatching.lean": "c5c52d5efe9aa54eb99d5b0e093fab76f7058e050f42c299b5ade43effbd0b87",
+    "Nonadditivity/FiniteRealization.lean": "076c97dd7b034ca32d3733af3ec0cf6294729df5e856b16f0e4e718b18c7337d",
+    "Nonadditivity/FiniteRegularMatrix.lean": "e69233940a663c5d14438841e1638d61df410149b926a29f98ba878585d16dd0",
+    "Nonadditivity/FiniteSetFactorization.lean": "50a20b53558f423c2ad90d15a9f36adf2930c80fec2fafc40c0704c14a88cf18",
+    "Nonadditivity/FreeBridge.lean": "fd625bbad8797d280faee148eda8fced0ede42c6c004c33bdd4171cad2171bf1",
+    "Nonadditivity/FreeCreation.lean": "60fbeb51629b31c0dc74734fc791496d5b6b71595a4e667e0faf1714515120d0",
+    "Nonadditivity/FreeEmbedding.lean": "0bdd82099d3e66f7c2d0117bb73ef2394e78b813b8cca5e7e179534ab5f494fc",
+    "Nonadditivity/FreeGroupCut.lean": "3d1df08fb9b0b5efa963330ba88de1184b37da5bfe9970ecb116da3dfbf9d9a1",
+    "Nonadditivity/FreeModel.lean": "3d6c21c7a9ec6ffa17fda0b3ac775975d4bf23b89ca9b3c86c8f5bbc54a42955",
+    "Nonadditivity/GapFractionAsymptotics.lean": "47cce44db9b6eeb0321be436c441fb4a0fcc981d27812d159f29946ade6ae20b",
+    "Nonadditivity/GaussianCertificates.lean": "dc6bf7d6ee3ce87c95860ac054d17c775266aa50066cd2d88f56b82497a72210",
+    "Nonadditivity/GaussianChannelBounds.lean": "ddab31afa10a8ee5b0fd386f8295d7fb8ab7bc209d404fb894135c497304b5b5",
+    "Nonadditivity/GaussianConsequences.lean": "5f66ebb64fd0b8bf0df78ccd430c81d390c0b78f7e26869543ae8f02ca82d03a",
+    "Nonadditivity/GaussianConstruction.lean": "56a7618850036313f573ec3b2a94c6d916f12ae005906e6c16e9377a3b0df374",
+    "Nonadditivity/GaussianNetRealization.lean": "69707927cce2424669ee3a4155a2cd22339090ea63c7a00932cd949361d7a46d",
+    "Nonadditivity/GaussianNormalization.lean": "1c33b424e95fd181945c321f1b0521f88981ad02b1611f1c400b7709a7bf2851",
+    "Nonadditivity/GaussianQuadratic.lean": "57cb1339dbf9cbec13950cc78b2368b2a4a4b14baaac6386446e751988ebf467",
+    "Nonadditivity/GaussianRectangular.lean": "aa8b33d672f76d9eeb88e4dbb7302ebed5e884b1fe20238ee538d597285d44de",
+    "Nonadditivity/GaussianRectangularAlgebra.lean": "66b543d231fa0042c825c6f1c5bda45b694db1ce055b4724efada2173d74d557",
+    "Nonadditivity/GaussianSampleEvaluation.lean": "0a31b78380d486b4afedce760483d546bd9a092c0f3e0335de26eb3de9e392b9",
+    "Nonadditivity/GaussianScalar.lean": "59ccf43bbdf8af2c6c35fee99f8fcd9f0a119f8076636fe39e3feabc85043741",
+    "Nonadditivity/GeneralBell.lean": "bc6bcc00b36986e7595707dae1384580b024f0fe7d38c4de5738e8fdc38a4d6c",
+    "Nonadditivity/HaarActualScanWords.lean": "a6f0b8447ab58dc11656fc1fde6c0e3dd7022221b0abf01dfde65fc59d82e099",
+    "Nonadditivity/HaarAveraging.lean": "b0305f6a1474315e86c5569ffbca256345e72f5865ec00896ea4765f101330a7",
+    "Nonadditivity/HaarBranchCoefficients.lean": "cbd59af0cde70983d6e0689badc25f044aa77ba241c17b758e0529c953352e0d",
+    "Nonadditivity/HaarBranchContractions.lean": "f608350968452e15ab1cbfaca5a3d6c59d4ddb00c0e66ffebd8867542c0ba0b6",
+    "Nonadditivity/HaarBranchGraphBudget.lean": "fc354a28aea36c10ab5b7611b2bd21adef5d8e5b4413d2ffb82b9ca463931f77",
+    "Nonadditivity/HaarBranchTimeSum.lean": "98f72b6740df2f0d6d4f39f84f5dcdf8a526d2f1c13fd44ccd9dfa9f8c1b2b9c",
+    "Nonadditivity/HaarCanonicalTransport.lean": "36e74b76d3831f74caac52682f0d97ad76fb42c89692bef81d9638e73339d324",
+    "Nonadditivity/HaarChainColoring.lean": "fc465cd4d8fd94cf1021b6cfe0092c966d955bb360d26928aa702bbe06420fe5",
+    "Nonadditivity/HaarChainColoringFibre.lean": "1d7ecca6ed4c3755e67c63e40ddef254fab39e6f544ea4f97082da3c6228b083",
+    "Nonadditivity/HaarChainColoringPalettes.lean": "4c277b8a9e4b1b69bab2a2337a06499f7391510755a1967a7ec2f862115700d5",
+    "Nonadditivity/HaarChainColoringPath.lean": "8432a52c36d48e196753307a75221012a2849c7583183099fd644280e229c730",
+    "Nonadditivity/HaarChainMultiplicity.lean": "8eb1c9641c121b5ee5338075366d8164077e9d963ce84784ce1a57d7eb7fcc7d",
+    "Nonadditivity/HaarChainReindex.lean": "ffe31ffd041875efa11a78ebf22d82c6198a43aa1c98e93bdb0349415d7e3c88",
+    "Nonadditivity/HaarCoefficientBounds.lean": "87e00ab5a1452af7fcf5d70bb17c14181a7f8fa55f5311e01d913f40e0055d83",
+    "Nonadditivity/HaarCoefficientRows.lean": "b9d59c10e9acff74b47d571f1e583e962811d142189d258e57fdb92c0804ba02",
+    "Nonadditivity/HaarColumnMoments.lean": "ebc9b86ec77905f34e6d52c826d5bb90f2f88a88f86afa61ed8cd0519093b8f0",
+    "Nonadditivity/HaarConsequences.lean": "c25d467931e920e7d27631c8c31721f497708f0387a51880f84fd96805aecbba",
+    "Nonadditivity/HaarCoreChainAddress.lean": "a0b7c669e603b340515a7f63a47394f6f92ab86283e4c295a80dee661e778a25",
+    "Nonadditivity/HaarCoreChainEndpoints.lean": "92813217c01d06dcb519465c28a5658d16b73be874ec9645a7918eb701f6d315",
+    "Nonadditivity/HaarCoreChainLabels.lean": "7f8dbcf35a83615d3d51ca1cb52954f982b15c83c5d1352875d1dc08b194825a",
+    "Nonadditivity/HaarCoreChainMultiplicity.lean": "8d9145a1828fc9e550bfeac5078db270a45dfdd8ebee71576f20bb18ed4819cc",
+    "Nonadditivity/HaarCoreChainReverseAddress.lean": "e6579e60ef709ae15d9082cf5d2d76dee0cee601480e150b518220af6c53410f",
+    "Nonadditivity/HaarCoreChainWords.lean": "a45183f1ecf7a3a484e95d8f92fa5c67f38947081b03c6f86f285a1a6de2f76a",
+    "Nonadditivity/HaarDecodedCoefficientBound.lean": "db4691db325bc3262fc2fc1a6ad572cd53e5771e3acd62bcfb78a1d05027ca6e",
+    "Nonadditivity/HaarEncodingSlack.lean": "61b3e7d9fe2498cb864f104264ff74f92811314bcf136b2a5a2d81a94e50eb89",
+    "Nonadditivity/HaarEntryBound.lean": "2191b1d7e0964e9f738120a3f90da57caea1098d6bbbac94a8d4541f5022d918",
+    "Nonadditivity/HaarExpectationFromMoment.lean": "b7a9ac1aa6482816fd7f784c58cb3a905681633a6bc0e42b20119621d35b4725",
+    "Nonadditivity/HaarFiniteFaithfulness.lean": "9405c132a875642ed2e6f9f519d1158a384551fdf9e1506b545ed2ab2dfa788f",
+    "Nonadditivity/HaarFiniteSymmetry.lean": "4463fb2965dab008a29212825b7aea61f0c305c0b2fd11639e4d7044e129395c",
+    "Nonadditivity/HaarFourthMoments.lean": "569bcb45f8901116b83617404d0c1aa77f9f91388fd7066c97f17e3ccb084956",
+    "Nonadditivity/HaarHybridMoments.lean": "cbe23873359cd9eaa69cdf62650c322f96b83f4abd77fbc9a1ab2ffefbd0a456",
+    "Nonadditivity/HaarInputScaling.lean": "e2eaeab6984f29efc95aca2f48cbfa286447a26b7511a3ccecbcbe07e967867b",
+    "Nonadditivity/HaarInvariantCommutant.lean": "1b3e1ebb21315c632420dd824f44fb0c60707a325087e7eb0dc7106cf5225ba7",
+    "Nonadditivity/HaarInvariantSpanning.lean": "e7684295baa2d3f33ad9741ebd675773e33913dbdb3292009d644ecf28f967a9",
+    "Nonadditivity/HaarInvariantTensor.lean": "3da86da03878b3f5b9ecd7b0ec445bf106c968f906c3955eb689fff573768ec9",
+    "Nonadditivity/HaarIteratedExpectation.lean": "ae8927971755771726e3c16e3c40b1c392c9ad81da012da6d34756a505b96e36",
+    "Nonadditivity/HaarIteratedMoments.lean": "38caef61020825a799896d2d2c2923bac4e916a7d1cca44c5c08a12f446003ab",
+    "Nonadditivity/HaarMarkedCompositions.lean": "fb91cc0f6cdd7a174f44f604fbbe0ecb002398e269a13ded618d2be2f0db4edc",
+    "Nonadditivity/HaarMatchingCount.lean": "f6a47b879b3338a762b9def6e386f8b4517630535fe64ac982b906ef90e14c26",
+    "Nonadditivity/HaarMatchingFibers.lean": "9d643637acc4ec3ac2f89cbaf14f44c9851de108dfbfcfe0acc5aad3e9c8a9f8",
+    "Nonadditivity/HaarMatchingSharp.lean": "a0e96f3ebd92954d9e83cd29845c67bd29944bcb31afc3578959de3de09eb297",
+    "Nonadditivity/HaarMatchingSingletons.lean": "ce30205486f9d9d2cb1a1ed3ac10a9fe0208917e3a6e31fafa0b7ef9c7ec30f4",
+    "Nonadditivity/HaarMixedMoments.lean": "a5befb8c2518dbe84444f6a54b7f841584a4ce872650560cc2d5a28050cfe051",
+    "Nonadditivity/HaarMixedWordExpansion.lean": "0cdab54a020dc4296f0a898ac49d5b41e8e31929782f004f4a0b02ce296f7c46",
+    "Nonadditivity/HaarModel.lean": "512a6dee2f796ba2b99f9608a5fc7846dd6a150fe703befb3522d5dde658195f",
+    "Nonadditivity/HaarMomentConstants.lean": "7fa7bb7603a9c1622c17933f5abce80815e1c9ba9b6b513c928b7aa1e34ef5a9",
+    "Nonadditivity/HaarMomentExpectation.lean": "a3b1de0b46c875cf28a2ae0970a6060e6972be047425b4361608948280697a7b",
+    "Nonadditivity/HaarMomentSlack.lean": "c8739feca56c9884d7d96d47b98510cf397999df7f3a81972888c3db946d7413",
+    "Nonadditivity/HaarMomentTail.lean": "ed2434ef47223e94adcd7c2b4a147cfef0f3c81e30e0fd0a34f675268c8b15a6",
+    "Nonadditivity/HaarMoments.lean": "63e997bc5be479e3896d55acb3f38fa97940dd177ab46fc95e9e10bd73383a96",
+    "Nonadditivity/HaarNonbacktracking.lean": "0ab27c00e2d7b77d74f97d55c8c96cfdfeeac022925269cdd99d0dc939032fe5",
+    "Nonadditivity/HaarNonbacktrackingFirstStep.lean": "0981371cd632ebd3bce117a6c07531c73b33099fa9ebef40baaf881a69a461c2",
+    "Nonadditivity/HaarNonbacktrackingLastReturn.lean": "b8d281301c366020e54c20a7613809d72e57c5ed84c8f5250b5b3b4a96875c5d",
+    "Nonadditivity/HaarNonbacktrackingListSegmentation.lean": "6143c86043c60709689e005ca3339693e1ce75d87b5c2ab3863e63d72b37eb20",
+    "Nonadditivity/HaarNonbacktrackingRenewal.lean": "53db2f2f1069500f37e676d210fc47fd784da5242e5faf6f473d2c2f1e8056d2",
+    "Nonadditivity/HaarNonbacktrackingSegmentation.lean": "22be49bd7a3e9f77616a9cd6ed0bef2f9ced8d1ad9e5858107e8d16e32658135",
+    "Nonadditivity/HaarNonbacktrackingSupport.lean": "fd392f500dcfcaa10cdab5ad2521ace484f9c0d3e1f48f19f8d37e2a1678f028",
+    "Nonadditivity/HaarOnePairAssembly.lean": "2177d630864851a5bb7396a6258bd483442e3f4cee2267228c66ff3d07002ff9",
+    "Nonadditivity/HaarOperatorCoefficient.lean": "eb7e74ab4c757d7a8750cb7d8f99db1aff350ca7d472cd4779496b243329d2e2",
+    "Nonadditivity/HaarOperatorCurry.lean": "ed160d3cb37b5802ba0b8d04752810366f749a31f86af9f32d3c6e21778df802",
+    "Nonadditivity/HaarOperatorPathBridge.lean": "6356817fe67802c05e36495c80a676abb076da0d0417728ce5bbcdc7516d1c7d",
+    "Nonadditivity/HaarOperatorPathSum.lean": "f51cb84f847b45aad1d4690d2819fd1d61804e062daec1398a7b7846f5248d56",
+    "Nonadditivity/HaarOperatorPolynomial.lean": "5fec83dfb0da27defee82796f0b09a7737bdd397f8a5cbcb53c8dc6abf0da743",
+    "Nonadditivity/HaarPairEntryBound.lean": "1ae60a1e6fd8c487b5f90e6fff03963cc176f6eb68934ec0bd38a186fa00f179",
+    "Nonadditivity/HaarPaletteDecoder.lean": "aebfaa8fdbcf0d37fea27344bd36be3888adff808f9f29fe62ec7b9f17a33fd0",
+    "Nonadditivity/HaarPathBalance.lean": "f28a53c15cc8095e66922409048fcdff8e18393430e65c818e240818d97044a9",
+    "Nonadditivity/HaarPathChainCount.lean": "cb8e3e7d6c68f2807f581073f24005a67941db55e97c79312c8f78c21c468d7c",
+    "Nonadditivity/HaarPathChainPartition.lean": "34f894d62aec3c0193a34af9ba517bdba42b00d7b979c1823a539031db6060ff",
+    "Nonadditivity/HaarPathChainProfiles.lean": "31efe08812a99b64e5245d1ad89911c57e6469b368345bb4dc874083225c5aae",
+    "Nonadditivity/HaarPathChains.lean": "f09fd39a45e753fb935f310ead212b01d537614b323c4b16be0bfc6971e1e087",
+    "Nonadditivity/HaarPathClassAssembly.lean": "f84ce949a537b1628adaa05aa6db06b9da547aa85e68281e199c37d9fb621588",
+    "Nonadditivity/HaarPathClassData.lean": "01d61c13615e780e20b7d687a0c574f6cadf7888c38caef44088eecd96212627",
+    "Nonadditivity/HaarPathClassStats.lean": "edbb700d35c602da093d7da12a12c3dd18f7babc9bb5d816a183478c477dfb29",
+    "Nonadditivity/HaarPathClassSums.lean": "76a5d40844424619f0c8f603348b4d6fe91c3295ed419fd1416bfc4e01fc29e6",
+    "Nonadditivity/HaarPathClasses.lean": "994934799502231db12f543b5bc2c0ff73bcbd6e9ed6758bab57cf6411f0ae9e",
+    "Nonadditivity/HaarPathCodes.lean": "aa4625312137f68638b7dce1291f10a4c9af4d2dc8687fdf762515c7d4dc9d84",
+    "Nonadditivity/HaarPathCoefficientWords.lean": "370cc45407b4b61de0fc5a39a78438233ca8346b758f791d13807441797f6563",
+    "Nonadditivity/HaarPathColorMarks.lean": "59628c5b310cfda7c42bffc5db0fe03407e1eb1847cf51d1ce2c3593a83bc7b4",
+    "Nonadditivity/HaarPathColorNormalization.lean": "ab0503308dc1441374f4168d263670773643d6d082d51b78e1b673ca32cb8bec",
+    "Nonadditivity/HaarPathColorRelabel.lean": "9e49d2783d92453fd641a4940a52ed1e33b37b9b61f255fa5ae556ef4c3d1780",
+    "Nonadditivity/HaarPathCounting.lean": "3bfac8720369fa12f460462dea7f7bf2800cdad202e81587b8edc4af3661fce8",
+    "Nonadditivity/HaarPathDecomposition.lean": "401da91f875c9bc1408fc8a1f78c4401ec34e9a90286604599d0b6066b9953cc",
+    "Nonadditivity/HaarPathExpansion.lean": "cd3ccd8ab9c9aab0ba62fc0327d310182df745cf837034c8f5031787c2e69044",
+    "Nonadditivity/HaarPathExploration.lean": "0dfd9f105f7d8973608681ec6b318b043eb1eb9fcfef5816429a20f8ffa490e7",
+    "Nonadditivity/HaarPathExplorationBlocks.lean": "5ff917368b52e2419d2716ad62e10033750ba1ff73a18c9b3f69e66ffdd54023",
+    "Nonadditivity/HaarPathExplorationCounterexample.lean": "ed8f5d1c86cddb9c80219f159d3936de21fc576a0acf9512420affb41751b3fc",
+    "Nonadditivity/HaarPathFreshRuns.lean": "af4baf9e48966941f2a364e2e8fd61d17c54ea32a8ace211fe2b733c56319f0b",
+    "Nonadditivity/HaarPathGraph.lean": "835c14f1492c1bfbeebff25e0177fb082fafb626ab75a3b31916c0356319cc4b",
+    "Nonadditivity/HaarPathInternalColors.lean": "d9f44c0095afde55084a599ca3025fad820c000e845527c63cc0cbb5a2f523dd",
+    "Nonadditivity/HaarPathInvolution.lean": "91863e2ca67f3af9bcd20ff28e33c29eda55173ccdf94b90a353c029ad362ae2",
+    "Nonadditivity/HaarPathLocalPhase.lean": "9d240018cb920ee59a18fef3a73ce3fe3440030ced13e52a53acac14d0148e63",
+    "Nonadditivity/HaarPathMarks.lean": "69bf3b36d46e40c740b800a36656a0a457fbb565c5581ec1490b97f216bca833",
+    "Nonadditivity/HaarPathMultiplicity.lean": "1aee8213a8449f1ce453f1d5cb3c995472bb7b1ff3b4321ecfb091b8823cb2fa",
+    "Nonadditivity/HaarPathNormalizedFresh.lean": "7f9051b5870e992a1ac0dc3ca17a86e3117ad5a10f159fd7aba5e472e6a92efb",
+    "Nonadditivity/HaarPathNormalizedTree.lean": "51bfe492f383d7a121f699cb780c7c5b31f561492ac0b4818eb0d15f01e9811b",
+    "Nonadditivity/HaarPathNormalizedTreeColors.lean": "8d24882613a34940391e7d0bd60475cfed77a42c0265a48e104b48b91ab07fac",
+    "Nonadditivity/HaarPathPrefixTree.lean": "e8f907535eb492fd0e9e246de45f62288a2f9713737d8426df2e391a4ae30719",
+    "Nonadditivity/HaarPathProfileReverse.lean": "2c68b7079e75e9b9f30ee179f51acac5851e9abbab739c2b390b60df42e1a475",
+    "Nonadditivity/HaarPathProfiles.lean": "893d225d7012bf9b89e9284abfeedde74985b7a5de8bb4878fec24d1c1a99019",
+    "Nonadditivity/HaarPathRecoloring.lean": "1b6acb386654104a6661f809abd0de7fa3501318d06b88af0a42075406287faf",
+    "Nonadditivity/HaarPathReconstruction.lean": "e5aa3e5edec721819a2a0139fab14c5aa093acb0eeb2ff8360c73fde60ec67a2",
+    "Nonadditivity/HaarPathReconstructionFresh.lean": "fe6c026fce2f6b9222b5b95cac4678d861109a9cb70dbb0cb8911e1cf102cd77",
+    "Nonadditivity/HaarPathReconstructionTree.lean": "369f1db1ac1fe1ac42e0f2ac4f0eb49586f000930f1568cd80da1829156abec6",
+    "Nonadditivity/HaarPathRefined.lean": "24730775bcb76bdcf1ad125c6413d774ae0e37127eee30305cc474125389d83d",
+    "Nonadditivity/HaarPathRefinedCounting.lean": "2035e6701c2255e40441968ea941d6eddfbca83a9386e600408ec12ed8602d5e",
+    "Nonadditivity/HaarPathRelabel.lean": "795fbaee7e6d1b820ae857f8a39a7df675bd76573bc89d199208c8ca4e77adce",
+    "Nonadditivity/HaarPathRunCounterexample.lean": "0bf303cc56a2c53532b2d66ede2d18cdba24ed7938739e81b9172f8b8bcd320c",
+    "Nonadditivity/HaarPathRuns.lean": "37db4f99d38b15b3d32cf93a95ddf56c3e124d0656c940fac411aabcae4fddae",
+    "Nonadditivity/HaarPathSample.lean": "8852d87b87c5f4677fa66c29c94c3a5540738cc87b2e0dfcd1a0bd6317eea503",
+    "Nonadditivity/HaarPathScalarSummation.lean": "d37ef44f9df20e9223e194ae5d148753604f16385c9ff489b1747811d4a3c846",
+    "Nonadditivity/HaarPathSupport.lean": "a8c273e8967c1fc79b8fed414c04a8fc5ed77fae444aade89d9ee3e2323d5b28",
+    "Nonadditivity/HaarPathTransport.lean": "f78f024816f855dc330fcacc718d9b071b1112f26e3143c6f0e329d9a11fcb20",
+    "Nonadditivity/HaarPathTree.lean": "49277b04cb281236e6c134c4e915106bc48f9796aa50e0b0831135ff082d9095",
+    "Nonadditivity/HaarPathTreeSegment.lean": "fc47c7df35557c23724b6ae22ea025c44c78cd06288fbabb3547c44094aa751c",
+    "Nonadditivity/HaarPathVertexFibre.lean": "fd1fd07ab1b3c84ed186e0d7496d4e6be22c51ccb56cbe405007a4bd9b793268",
+    "Nonadditivity/HaarPathVertexNames.lean": "ea25a75c48cd4cf713187d8fbbcb601c99fea04b097c0ae13f9650c85ae26faf",
+    "Nonadditivity/HaarPathWeightBudget.lean": "3aeeac8ee9fc07940e91070577afb5113c5c261e892eca9400892681256b859f",
+    "Nonadditivity/HaarPathWeightTransport.lean": "76430cf7a0951953544e93ec0b1a198aea447035e242c2f21393af9d52acbc07",
+    "Nonadditivity/HaarPathWeights.lean": "704df63d6bf4c30fe45dd2294992df29d1a8b86de23e6bf82a36d9018807b1be",
+    "Nonadditivity/HaarPermutationSupport.lean": "b0ae47bacc076563e006fc090f2f76baf95ecb8dfeb6dd5b56eb03d3d2326c4b",
+    "Nonadditivity/HaarPrescribedBound.lean": "c8e28438bde338e5c26c75b034ec934520386584141357c6d3631059631d1ca0",
+    "Nonadditivity/HaarPrescribedConsequences.lean": "36d615de874c79bdbbb3a6b1d067ff0f37aee0925ec310402e7ab5595e068f05",
+    "Nonadditivity/HaarPrescribedDimension.lean": "8df59952d3740bf04834437ec2048f4488924a4385d69ae13cf57d5e6895b522",
+    "Nonadditivity/HaarPrescribedProbability.lean": "25b18fa6a5423281b42869779c6f44146f2c8c73a63bd28fea28fbcad8932eac",
+    "Nonadditivity/HaarPrescribedRatio.lean": "3c7575f9bde9c2514174fdbf8602ef140a65ec4aa005ca363fa2f243a13bb570",
+    "Nonadditivity/HaarPrescribedScaling.lean": "1c03df5f26d43d31c898fa669a77389d91a217fd099d83c50a5a15ef16ae26dc",
+    "Nonadditivity/HaarProfileAssignmentBound.lean": "f7d0e99af869066b2e6aa6add134e73a1e4bdc2d13f74e1a1ff70addb0db64c8",
+    "Nonadditivity/HaarProfileBlockCoefficients.lean": "90284164460314b2ef1b880b347f9667d7260c8880746c8596e98dbf06e93ee0",
+    "Nonadditivity/HaarProfileCoefficient.lean": "cc656655e0191c1206a5e7353e16c107111451b0e8be3118c7fb9ddf9b1933fe",
+    "Nonadditivity/HaarProfileCompositionBound.lean": "2c6c34db1d0c66a5f8da71335852073a5032e00e3de8f4b670aa7577144b381b",
+    "Nonadditivity/HaarProfileDecodedCoefficients.lean": "d90aecbbb3e22845f53d4ab5b8b7db5b5a170d50e7870e9824b5c0f408d79d06",
+    "Nonadditivity/HaarProfileOrientation.lean": "31eec8bcf9359c43b89b42441c1518f2d3ed0b193a1a87499aa8cc9f7f259794",
+    "Nonadditivity/HaarProfilePadding.lean": "67dcdbadf4bface24a7724f346657fd2474557953f299afe19629f7fec5e094b",
+    "Nonadditivity/HaarProfilePatternBound.lean": "d033f23d8f11522536781d65ad401e8650b7dd5f59b75ed0c1f6a132715ed574",
+    "Nonadditivity/HaarProfilePermutations.lean": "ef3fc22884a2b7e09a6e38078ac0d7e9f3b7e00c0d475b8700657768eef03840",
+    "Nonadditivity/HaarProfileSingletonWeight.lean": "374e2085a0adeb80ce78fe245e68a88995fb428e7415d3c2054d9484b8d351a1",
+    "Nonadditivity/HaarProfileWordReverse.lean": "e47fedfc78ee811d6a0a2f11587b58b7d6f044c73f027602f0ecd8c3ac4ed335",
+    "Nonadditivity/HaarRecursiveSample.lean": "0d2a07c533415cd8495ca22acff1cfb7bdf33db6e99b11094bb0dff64c3715aa",
+    "Nonadditivity/HaarReducedChunks.lean": "f6077a77a47221745f8db4588e23ad01be3aca333313f9ed3dc0a7f87b42a640",
+    "Nonadditivity/HaarRefinedCoefficientBound.lean": "fe72a66c85f43c45798162a0ef0c82ca38ebc2ce51cacd34a3d718205fca1835",
+    "Nonadditivity/HaarRefinedCoefficientFibre.lean": "b82d119213fc96a0b398b6da14a36d8eaae4397118c7c3e6a86ec1af7f9b4330",
+    "Nonadditivity/HaarRefinedPaletteFibre.lean": "4ea999eb16fd4b8e5f3938ebcd43da7e0eab7f2a8bcde9286d4a47b08360bcb8",
+    "Nonadditivity/HaarRefinedVertexFibre.lean": "c453a1a354bb1a8ab0681de07a80aa9a0b99ddce09bd08ba97d3f1b2efdf5a18",
+    "Nonadditivity/HaarRefinedWeight.lean": "9524529ff1349cd0f81087249ba74138e1ded2d00db528e1597e67b3e9121c23",
+    "Nonadditivity/HaarRepresentativePositions.lean": "b487ccc12b8105216a6a67858d036e1d65ffbe1cf0904d476dcb5598f5617ecb",
+    "Nonadditivity/HaarSharpBound.lean": "89f9b5e89fa99a3eec254863a1bae5ea2e9b5a4b8329a2912adc310958f22914",
+    "Nonadditivity/HaarSharpConstants.lean": "4be346ed9dfcd8f1e17e2bc1ea2387f0f1d1de1209b597ccfcaa7cee03163b88",
+    "Nonadditivity/HaarSharpCounting.lean": "22b8630e4cc26a55f9555c52110e863c2351b413defbd5eac0af14e9a63dc45b",
+    "Nonadditivity/HaarSharpPathWeight.lean": "5b3498a9430a5407a3a3041a6b36bf94c0c94c3a5fa73e71bfccc3695b60e659",
+    "Nonadditivity/HaarSharpSummation.lean": "c96aeff1b709db171adaaeff077df64c8b8637b837cd74f9b294405bb76d7d4e",
+    "Nonadditivity/HaarSkeletonSegmentation.lean": "9d5a8d7ec85173eb705e311e2c3c41b012fbf01fe8c847aef91503216b3ea7ef",
+    "Nonadditivity/HaarStationaryCoefficients.lean": "190d35ccff78030d6a22e10775963b117775eeffab1dbf81b8c8fbf69f8848b7",
+    "Nonadditivity/HaarTensorConstants.lean": "c252bf6fec643f4a81d5f9d5e8c298529ac7e25167af727fb3094b1517591d25",
+    "Nonadditivity/HaarTensorEvaluation.lean": "dbd0a79b247b3c59845480d86b192852d057433c3d42e70db8d4f510206428ec",
+    "Nonadditivity/HaarTensorReplacement.lean": "727b85edd6ffc07c368edae43c1522ab12319777cbdccf965f31ca5aa9c238e1",
+    "Nonadditivity/HaarTimeCompositionReverse.lean": "c4d53bb929dd91ad8de924ea62ce76381b0d2f470aaea3bba6c532bcdee0f003",
+    "Nonadditivity/HaarTimeCompositions.lean": "3fbc85cb270fa303e82c6bd09f32952310f3c247f1913b0eb5e3b8e93c593b7c",
+    "Nonadditivity/HaarVacuumFunctional.lean": "e4838449160f7273cad030d35267a3ac5f2abe78bd7440e27dd561c7048f637d",
+    "Nonadditivity/HaarWeingartenCounting.lean": "6bbf16b2bc39286d25bbbe69577e9cf7d104183784665ed013e7d3cb0931486d",
+    "Nonadditivity/HaarWeingartenCycles.lean": "c5c0eeb2d0869c40b42a87034482240511cabbff82b074a23b9defc35342f836",
+    "Nonadditivity/HaarWeingartenGram.lean": "087c79eb934e588ab4af9b2d21f87960631c9d7757a29c4d734299494cd2e546",
+    "Nonadditivity/HaarWeingartenInverse.lean": "ad0541ae1ac44ce582981c957d1fb3739d9ada60fee7d5d8312a185339f5318c",
+    "Nonadditivity/HaarWeingartenInverseSum.lean": "fd3deef537814ee498e74f820fd89545b5e9570d1b4e9048fa891e8f4769c98a",
+    "Nonadditivity/HaarWeingartenMomentBound.lean": "2b4e580dc4040789cc6299b9df8bfd6529da60c0236842b2aa81d9d044404981",
+    "Nonadditivity/HaarWeingartenSymmetry.lean": "5b6f9f781bba103482c036288d748eeec67dcf25dd0c703965ef3ea706dbf58c",
+    "Nonadditivity/HaarWordExpansion.lean": "ba9ffd2a4b6bb144387144db6f0558c560708dd0f65a09c0f2f6b780625ffd49",
+    "Nonadditivity/HaarWordPhase.lean": "ee30f004481dac3eb4837ef7bf9e9ffbb6d67bfe08ae7af6335edc1c2ec03f05",
+    "Nonadditivity/Holevo.lean": "750c4d3ae257ebb4d21296a17d82c75756d3b8feaa08bd675f8c73d7dc81ade7",
+    "Nonadditivity/HolevoBits.lean": "9bb998e16d5259131e37de69a737c87e30f6d13f4d27839f8a1e6de4295c0f28",
+    "Nonadditivity/HolevoPowerGap.lean": "8904f4139991ab1355214dde5331f179ebdc0fad2eca7e9f9a46096b1e89f9a2",
+    "Nonadditivity/HolevoRateLimit.lean": "01e0eaaacf17d06b9a066a625375aed6e900df2a5756dfbe3832c819955a05b9",
+    "Nonadditivity/HolevoTensorSuperadditivity.lean": "44e6e6b3243439de89794a1a5e96ef2215d0238645a481597a69598fe863836e",
+    "Nonadditivity/InitialNetReduction.lean": "3dfd1135f10c6346e78f640efd27ef64eb0177289999b1cd739b2148806c84e4",
+    "Nonadditivity/Linearization.lean": "5c30e681e909670ddfd45164cfee5719ed96821c899fade4297b549c9697fafa",
+    "Nonadditivity/Main.lean": "a5d833a300ae7d3702701e02bc6cffb0303b36130eb9f573e1fe8f622f8710c8",
+    "Nonadditivity/MatrixNormReindex.lean": "24d0b6a3b7c1de6db888cc546b5c44b1c3a26aeddd8ce102004b08df8ab47aa7",
+    "Nonadditivity/MatrixRegularRestriction.lean": "af2e989917569e77423b085637f92b877a554f62f1d712453073481f076eb0fb",
+    "Nonadditivity/MatrixShortEmbedding.lean": "b02a08a82b446ce550320c0cc47205e12f9283b5dc06118f779f7821cb8c8133",
+    "Nonadditivity/Net.lean": "9ab0f298fe462979a49b36a27936ab767545ddc0edf68326e569a0d55067b999",
+    "Nonadditivity/NetPolynomial.lean": "29e40b27f4c7c763c48af4730590ab705dacf32f6918d4f098bca505ced976f8",
+    "Nonadditivity/NetPolynomialSupport.lean": "3c40ddf635e09bca6134f15b9e6990cff027cb0957481e81a60e431876fd220f",
+    "Nonadditivity/NoncommutativeCS.lean": "5e80fd8f23d1f553fad0ee7d82c79444edc3d946b9a0c868266aac974c29e456",
+    "Nonadditivity/NoncommutativeCSAssignmentProducts.lean": "862ba89454bfd37173ac93de343470bcf73eb389eaf34c257c77a1b033fbcce9",
+    "Nonadditivity/NoncommutativeCSAssignments.lean": "54167041983d37de9e4e008b686b54418494c18f65f9e8655cb31e51d1809b3d",
+    "Nonadditivity/NoncommutativeCSBlocks.lean": "0438f6f06837be0883500be036d87447fb45b8777633bdcd074b6a3780e530c2",
+    "Nonadditivity/NoncommutativeCSCrossing.lean": "7a4c91a346765c1d6c425eab0219ba3f7ec7d60e0c9c681bde560c03f4da37af",
+    "Nonadditivity/NoncommutativeCSEndpointSkeleton.lean": "af3c8f41665312b45cac288eb823e6bfa2bcf8c2af01b0becf7b6bb5bb2ca316",
+    "Nonadditivity/NoncommutativeCSEndpointTrace.lean": "2119315cb8f25e4c7e0fd661af097772feab0f5d410d679ca1b76564b4fa14cb",
+    "Nonadditivity/NoncommutativeCSMemory.lean": "90531f1a630223ae415a197c0f2ad4324a667d283d37f2064b916e4f56240c04",
+    "Nonadditivity/NoncommutativeCSPaths.lean": "272c0a3dfd34dabf3d835737522c4b4d68d6790c9d932290c27b01028409f132",
+    "Nonadditivity/NoncommutativeCSSingletons.lean": "7086c82d1da2330b94b17987fb92d4df8fa9cf35b42dd08b2c0c52f4910c0af6",
+    "Nonadditivity/NoncommutativeCSSkeletonDecoration.lean": "c3bcde5e60bd035effe7964356bf37c7bd85f57ad29723785cc2d2d002016198",
+    "Nonadditivity/ObservableDimension.lean": "5b4c84f3c8e3cdd997f241a1d7f776e30fada0ad6af2bf06edcba07a16a93055",
+    "Nonadditivity/OneBlockRealization.lean": "04504c018e5302c4f70972532370c00eecabdc949cbf23886b3816be767fcef3",
+    "Nonadditivity/OperationalBlockRates.lean": "42842e9ea450d45c94ee0426155736bf14c23f8756640731e76ac74893e9b341",
+    "Nonadditivity/OperationalBlocking.lean": "786a47e9aa17cbc17754ad5d308cda5f78049a7ea570d6132f2436695ca8cdac",
+    "Nonadditivity/OperationalBlockingCodes.lean": "72bf9827c9d0051c7b0d86e589a19066d511158614390437340b8c39594f646b",
+    "Nonadditivity/OperationalBlockingFlatten.lean": "b8d8b70ed820159776f57183a38568740b505ad3ea456524ca65c15ae9041f1f",
+    "Nonadditivity/OperationalCapacity.lean": "5fa29a29c86b4defe8ec73f230787a8bf71569020fb693d48b8c4de882c60b69",
+    "Nonadditivity/OperationalCodingTheorem.lean": "66513b5d3abca28abdb30923c9bd07aab83d66c56a2c4070a6a41ab3a8700227",
+    "Nonadditivity/OperationalConsequences.lean": "2d1e86ddf3877f3901971ff07a7d10c5f15bfb9b089f45ce622aa268377caca0",
+    "Nonadditivity/OperationalConverse.lean": "c7d750e97c5ce7a9be3b23ab26fac7e56ae244990aa6bbfe4871896a798354c2",
+    "Nonadditivity/OperationalFlaggedEntropy.lean": "f8d6ae7918812f9255f3962a2059937894916a36121fe94f9d71f9c72a9563ba",
+    "Nonadditivity/OperationalHolevoConverse.lean": "a516417c284ab3ed531604a25fa9038c31e91f6b46001ac17b2c3db4eadd5e38",
+    "Nonadditivity/OperationalNaimark.lean": "989dcfaebd746e89266368bc796c8a35dec34bbe7c0958e83d7a409ae0433845",
+    "Nonadditivity/OperationalProjectedCode.lean": "f0685724fc343441625fefc9f81cff28e4aa1d88192cd2eac744a1a87f747f28",
+    "Nonadditivity/OperationalReindex.lean": "8334ef5f6796856665d85f31d60fc95e2ccaf914f9a9865e19031ce76efa63eb",
+    "Nonadditivity/OperationalStrongConverse.lean": "9e4e0fe5908e04d905189df4b6d090d0367cf9b64ad847bb9b7edece70c8ad08",
+    "Nonadditivity/OperationalWeakConverse.lean": "823bc53721503972d8ff1c235704be9f02ed2858c8e932f9cbdd899da35d12b2",
+    "Nonadditivity/PolynomialDilation.lean": "6ef6338cb8d0f53c3366e421af7293a84e46fc990316727adb99378dcecd074e",
+    "Nonadditivity/PolynomialReduction.lean": "0e228fa8d9240df540e1b9bdf37b8d70ede89bdd6dd023cb0d3d27eaa1aa39e9",
+    "Nonadditivity/PositiveHolevo.lean": "429b32021019cb871e5d57c94fecf93a748686f6e399533d286046ec23c2c7cf",
+    "Nonadditivity/PositiveLinearization.lean": "434c68e0dfc05406178c12db868b5993e819ed998726717a1222fe1427cfc74d",
+    "Nonadditivity/PrescribedCostCapacity.lean": "d25192ad93cd86fca8f14309377df2b87a38d74de98fbde962109fd53b9d3b7b",
+    "Nonadditivity/PrescribedCostDimensions.lean": "11e741ce4f456abedbf2120553074fc349729ff5c364ea78d4fd91f4e208ab94",
+    "Nonadditivity/PrescribedCostInformation.lean": "8e4b550594b40a1d14f52dfefe888bcabbddc121d88cdd02f5f6907b7acde50f",
+    "Nonadditivity/PrescribedCostLogarithms.lean": "2f43737a870de0ca45dcf7f4ec96ac2185ef4aa2f719c5070faa15bf1207b862",
+    "Nonadditivity/PrescribedCostScalars.lean": "e56c1901a4d7152c230feaa0b8af631afd187ead42573764f0af08301923dec1",
+    "Nonadditivity/PrescribedCostScaling.lean": "20e3077c9005abe8e3ae253c37aab4304f95c8d48e95facc3d7aa95d04960a99",
+    "Nonadditivity/PrescribedTest.lean": "5966cd3557bb9f7dcc8d9b1281936fdd9499c397eb2442ab0c353da0ba098f40",
+    "Nonadditivity/Probability.lean": "7df37dbbcbb46685de85321c06f5812e4952e9c90fe3ddbeb2a86a08d23657fc",
+    "Nonadditivity/ProbabilityQuantitative.lean": "3a1b51229189ebcebdc44e298c91479c7a1de28a21e05e74dde4ed353fd0fe47",
+    "Nonadditivity/ProductHaagerupBall.lean": "b21b84a7b4691838b982e41ce56cfd0b09302e9889ecadc2d2aa17e860a53c6c",
+    "Nonadditivity/ProductHaagerupCreation.lean": "c9f8ea9022a0e5350175c3fc93e25adf0f77657b73273413e031cbf8bab1b9b1",
+    "Nonadditivity/ProductHaagerupHomogeneous.lean": "d2ad7defbb9aa2435abdec775b1cee5a2e11ffb75ca7d7bda164f7aa6eab3c75",
+    "Nonadditivity/ProductHaagerupIndex.lean": "78d4a74130b9e2f0b9a2167a9ab92a60b8f09714a301bb079dd3c8f23fc5c59a",
+    "Nonadditivity/ProductHaagerupProduct.lean": "adad39bf8e376d93959e18aec2667941b050433e579089c68dfe739ffdae94e1",
+    "Nonadditivity/ProductHaagerupReindex.lean": "1c5d5577662115f3ff3aa756fd2d2372e5167af16335d060a113ce197c869148",
+    "Nonadditivity/ProductHaagerupWords.lean": "34796000443210ab9d95de96c02bc703bebbd46e7925dc74324a35e3034029c6",
+    "Nonadditivity/ProductMomentBridge.lean": "f5c0424890788bb60d324ef12c61539149f4a64376f7b7621e9815d160390aa8",
+    "Nonadditivity/ProductPolynomialReduction.lean": "9bfe6eba2eb6df891bc2fd529f71f21a7a6e86d81772d4ebe07e39c6890f188b",
+    "Nonadditivity/PureChannelEntropy.lean": "39243f63e06a9a0e469cd68050287def5e94fc6c761898438cc85e18655567ff",
+    "Nonadditivity/Purity.lean": "8460b436acd53bdb50e2b69ee8622a4232cef52e2e7d782254d9f6eb04f80d30",
+    "Nonadditivity/QuadraticNet.lean": "f6e3b68f1dcac03241dc385d8a28350884d7db14a1dab2063294a2efa71f6f23",
+    "Nonadditivity/Qualitative.lean": "1275c44dc3939a5ed0ed3f70d4b6380b69d501e1fc6e4babca62f2c57219d309",
+    "Nonadditivity/Quantitative.lean": "0d11a0eb86f3dce0956def04b57eb3d2aed8a0096bd58f49f6eb2efb0e1e869c",
+    "Nonadditivity/QuantitativeNet.lean": "7af0621a2311a5ae471314fa3e97016082dfdc2c0902aad70323e8ac9a714a20",
+    "Nonadditivity/QuantumCodingChannelWords.lean": "fa3589c985d351741017fd28254bad195a41da06c24eb09e4da506bc554d5b19",
+    "Nonadditivity/QuantumCodingConditionalTypicality.lean": "92539833c96d1735ca62579d7d2005c925c25071b12c788a19aff116dd0356b3",
+    "Nonadditivity/QuantumCodingContinuity.lean": "8f2bee0f60c46c819c83c2f4143266abee661339f0c3c8488ef44e6cec0d39ac",
+    "Nonadditivity/QuantumCodingDecoderBound.lean": "cc330bcaa8ba5e25c4428f5b0b5e138fe34d2d2876fc203934a1f38d5b93fc5f",
+    "Nonadditivity/QuantumCodingEnsembleTypicality.lean": "1ef813475ca9c9386f4a5548489941c3358d22c8200f705d3e1f52feb42f0a74",
+    "Nonadditivity/QuantumCodingFamilySpectrum.lean": "c571ad97e2b623e0a90c1ba154a048a04357fa76a4d172d4cec0df433cb64a51",
+    "Nonadditivity/QuantumCodingGentle.lean": "3ebe656cac5af696ecdccb39855bd86b67120b64e9989962d81c7133116798f7",
+    "Nonadditivity/QuantumCodingHSW.lean": "6496ae2c8634726ec0580d155b96ccb65c90148217cecbdcaf184620e2d22433",
+    "Nonadditivity/QuantumCodingPacking.lean": "3124dfb25b7f5c7782f2f8649e0c3bf54ec86dfacc184ceae5bd1085a09abc1e",
+    "Nonadditivity/QuantumCodingPackingAverages.lean": "4a6646a313f3fa8087ac383188a686c1b741e74c9f237b44779e84d5bf703955",
+    "Nonadditivity/QuantumCodingRates.lean": "4143362020fe017e07733ea344b04a9b286f4f8bfb3a38bc5ea8e7d976f5b29f",
+    "Nonadditivity/QuantumCodingSampling.lean": "354a9c5111ca4fbfa0fc52c8a783cff554816e2b8b7dc5bc0269f790bc85d694",
+    "Nonadditivity/QuantumCodingSequential.lean": "a9f5eb8bcb1aecf8fdf1f6700ead3dd2365b5baf436b6ba669696f462a9071f3",
+    "Nonadditivity/QuantumCodingSpectral.lean": "d45e2fbd5c5c7c9dcaf8e27478188e900cf9b4e97480b60b5c10dfda58f2404f",
+    "Nonadditivity/QuantumCodingTensorSpectrum.lean": "89ee3f8b58364f05930b1af340e3de25073c9c9e4412ead3414d8e128ee1d402",
+    "Nonadditivity/QuantumCodingTraceDistance.lean": "bfd5664207fa0b41163ffc306a5e25ff977000eb55fc7798689d802303fad2ce",
+    "Nonadditivity/QuantumCodingTraceUnion.lean": "bf57aeb49739a44a48264669ada16d04845309f160134046fb2b2c72fb6b6c68",
+    "Nonadditivity/QuantumCodingTypicalProjectors.lean": "d2678f10c4008b76a95a1331b380b77e5145721d3d407ddc5a9dfa8e234909e4",
+    "Nonadditivity/QuantumCodingTypicalTests.lean": "937742d8b88f84d4eff15e55623a40da3adcb0d7030dffda1d06c9f6dd803714",
+    "Nonadditivity/QuantumCodingTypicality.lean": "2f70a4310fd4df15a0ae0bfc66d85d64e74644cf45d09eb60bd8cff082a77200",
+    "Nonadditivity/QuantumCodingUnion.lean": "b15660f460e3ca462d9670569d78abe00fe6e4d7642f2fcf48d9145017cf5ac6",
+    "Nonadditivity/QuantumHolevo.lean": "8a55a8328657839f02c053d2809fd3975ec356e571819dd02928b508e9c45e1e",
+    "Nonadditivity/RegularCoefficientEnergy.lean": "d665e6f49c1844d088a8a4f79f3b1174d000e2d0e76672fbbf770a3f98f5dbcb",
+    "Nonadditivity/RegularDilation.lean": "dfd29b1d9ed847aad3ab6c598424083977c997ee4924fb64f73879c5d2d56680",
+    "Nonadditivity/RegularFactorization.lean": "713cedef0afde2e2273502c9126060e106f73231b5c6ad0d4d0efeeace4e9813",
+    "Nonadditivity/RegularFubini.lean": "c8074f429b7e7dd3f2f13c7a8ad6b84ba7eed658ad915760314f09cbc8fe886b",
+    "Nonadditivity/RegularRestriction.lean": "cf4466ab45407f7ec18a97fbad1cd4cb927f0373b7e7fe26780b29d1733cc98a",
+    "Nonadditivity/RegularShiftedDilation.lean": "29d6dcc487e3a410567be9704b09066dc8e56089282b7162c93bcb4c706524cc",
+    "Nonadditivity/RegularizedHolevo.lean": "f0a2ff108d46780ed5ee77d8bcf797e5899ac3ba5988746acac18047be27ac4e",
+    "Nonadditivity/Scalar.lean": "1f5175184b73617918454e3b48bee48e09fd287912e7dcbfe1b25648e2297559",
+    "Nonadditivity/ShiftNorm.lean": "854893cbd266e720920bc64fe6d6199ef903ad051010bbe0722aad45833cb1ba",
+    "Nonadditivity/ShortEmbeddingNorm.lean": "f3a7976438ed2614073974fd5129fb776f2e316e1006d13a9335f3c5b98a1835",
+    "Nonadditivity/SmallEnvironment.lean": "15877dc6eba848b66d01d93ed820f1a975b5cf4565f511fa19ace5ce1515aee6",
+    "Nonadditivity/SpectralDamping.lean": "3e1f842f52c2797ea1f6e96d6e4885f4a07b3853562b2430636fcf54be4e1a57",
+    "Nonadditivity/StateEnsembles.lean": "d8f06ae14ace5f7136198051ade90712335416c1bf1b9ed3b152531ce8672a26",
+    "Nonadditivity/StrictEntropy.lean": "66a449d9ebf9821526f518b23465403d9bf02499950cccbd797a493dc7eec3d3",
+    "Nonadditivity/StructuredCostBounds.lean": "15377e1e1bf3e174df127a85192e0479682943f34e14d398ce154a03467b4228",
+    "Nonadditivity/StructuredFiniteChannel.lean": "dffd17d18a1d69fd1c67bd0e7bdc5df181fb18bb3db64db3232cdc859cd03668",
+    "Nonadditivity/StructuredHaarConsequences.lean": "f3ef2d68284acbb88243429cdb4b85315f35d2781981882b1d542381144a8c1f",
+    "Nonadditivity/StructuredHaarModel.lean": "9cb1ba67b26fde223bf55e48417da2b7b1eb3a6265009407a611a9d399134700",
+    "Nonadditivity/StructuredLinearization.lean": "16641edbb6c9e95fc2ef609bb41ce1085fd679e620b765aff34ca342f4133cfe",
+    "Nonadditivity/StructuredReductionCosts.lean": "ddef48e2b09fb8edaa03f52a3e6786e8af0dc7b9ef9586ca8ed937025668d8d0",
+    "Nonadditivity/SwitchChannel.lean": "2d88f9f1803b48c83518c93d9f90b93d318e2f41acc83bf492f3ac751c90822b",
+    "Nonadditivity/TensorPartitionReduction.lean": "23c8d839adab48a9026fcfc000b0e3b05685c98a2f294189ad6d1b18f060fe64",
+    "Nonadditivity/TensorPowers.lean": "7f74ed4928f5b146cb27fe4689013919b88b9ce026b92804d38c688f458dc825",
+    "Nonadditivity/UniversalFactorization.lean": "6dea8da4152a5d4e5ee6cd8271e06fdcb381dcc5917b63d3afd03f0657ab6201",
+    "Nonadditivity/UniversalFactorizationGram.lean": "3162ef45f778110052bb6971aff0b18216e5cd20aee9f8ea80459db405995bd1",
+    "Nonadditivity/UniversalFactorizationOperators.lean": "d2e6ed2356fb6f819ff521cb06022ef0bb8f8bff63c3321bef073299cf7c5caf",
+    "Nonadditivity/UniversalFactorizationPolynomialDilation.lean": "3fd794b90fe109d6899c896f3fd2fe02aa91c729b0ad3c39f5958003c33b993e",
+    "Nonadditivity/UniversalShiftedDilation.lean": "5241ebc16bba61e6c1bbff0bf8cb4f65f3c25bd391805a386a64224b5b29d54a",
+    "Nonadditivity/UpperHaarRealization.lean": "7eb150ca515c7c12397f3947a41f9131c6a4b12321014ee94798fa93c1d77f16",
+    "Nonadditivity/WeightedBell.lean": "e04e5b0f0a9c7c3e86c731a38009a0026c6c6fd43a7187c0c3c74d699aebe850",
+    "Nonadditivity/WeightedBellScalar.lean": "35534b150f2130e9333dce761e639d7e64ec2973e2c69f470f141c96b92cf2a2",
+    "Nonadditivity/WeightedBlock.lean": "c04ecb09621ced0ed0ef4f6115991d1df5b12709d682a6643b0870eea7cf483c",
+    "Nonadditivity/WeightedBlockBell.lean": "62fb05f621780d808afe5c05cad929e82a6d48bb946d2570d7e38306c8fadf4a",
+    "Nonadditivity/WeightedCertificate.lean": "b80ac1eac9a77eacb8c151c1c510a158e0cfaf6a04ba3ac4c47ce937d35e87de",
+    "Nonadditivity/WeightedMatrixInverse.lean": "2279726ef7dca3e49ea2d9f0e331293d85f811d73f6b427d04320db12e997b5d",
+    "Nonadditivity/WeightedParameters.lean": "862c9c1c6d9d1bb82aad829048c42abf30257bb5c957372738ff8d98669d8984",
+    "Nonadditivity/WeightedPositivity.lean": "05a25745bf629e3740c6a1aef1a3a1407854e5f9c18e9662953b6a89b0ed002c",
+    "Nonadditivity/Weyl.lean": "40f76b2de20e4a935a814a1cbdf7225405fd617932b185d5bd53374ad732bc94",
+    "Nonadditivity/WeylPowersChannels.lean": "5b73f9c5a71028cb73b5d95913cef60c72a4253c852de27c7bbe55381ca98f39",
+    "Nonadditivity/WeylPowersControl.lean": "f2d892fdf33f702efb3759c2faa80a966a68802b6df4f2dba4c3e11948712c3c",
+    "Nonadditivity/WeylPowersEntropy.lean": "7aa3f324b274b1a3da0e5489ab21d8d0984f4617bce102570cdd2338f444fcb1",
+    "Nonadditivity/WeylPowersIndex.lean": "81bd8e4f45e3cb638f7f81c98d2651ebccf2e6c338d6c432c58285d4695efa46",
+    "Nonadditivity/WeylPowersRegularized.lean": "8112c6500447870ed740320dab91afc9c235172c44fe4f2a679d870984bb1f26",
+    "Nonadditivity/WeylPowersTwirl.lean": "e735158fc36c35059906c55fa47d3ceacc1a5a0ef39302410866c06a3a77cd99",
+    "Nonadditivity/WeylTensor.lean": "06b9aa839482e51c0835d527d71d3f204403cc6a12d6605172a428fe70a76153",
+    "Nonadditivity/WordBallReduction.lean": "7a1dc018a94693ee2eb1b24be7aa72827cd1c570361c82d9339112dbadf83ec4"
+  },
+  "changed_source_files": [
+    "Nonadditivity/ActualConsequences.lean",
+    "Nonadditivity/BellOutput.lean",
+    "Nonadditivity/CollinsYounProduct.lean",
+    "Nonadditivity/ComplementaryAdjoint.lean",
+    "Nonadditivity/DampedPositivity.lean",
+    "Nonadditivity/EntropyContinuity.lean",
+    "Nonadditivity/FiniteRealization.lean",
+    "Nonadditivity/FiniteSetFactorization.lean",
+    "Nonadditivity/FreeBridge.lean",
+    "Nonadditivity/GaussianConstruction.lean",
+    "Nonadditivity/GeneralBell.lean",
+    "Nonadditivity/HaarChainMultiplicity.lean",
+    "Nonadditivity/HaarNonbacktrackingFirstStep.lean",
+    "Nonadditivity/HaarOperatorCurry.lean",
+    "Nonadditivity/HaarPrescribedConsequences.lean",
+    "Nonadditivity/HaarRefinedCoefficientBound.lean",
+    "Nonadditivity/HaarSharpCounting.lean",
+    "Nonadditivity/HaarTensorEvaluation.lean",
+    "Nonadditivity/HaarWeingartenInverse.lean",
+    "Nonadditivity/HolevoTensorSuperadditivity.lean",
+    "Nonadditivity/Main.lean",
+    "Nonadditivity/NetPolynomial.lean",
+    "Nonadditivity/OperationalCodingTheorem.lean",
+    "Nonadditivity/OperationalHolevoConverse.lean",
+    "Nonadditivity/PositiveHolevo.lean",
+    "Nonadditivity/ProductMomentBridge.lean",
+    "Nonadditivity/Qualitative.lean",
+    "Nonadditivity/QuantumCodingChannelWords.lean",
+    "Nonadditivity/QuantumCodingPacking.lean",
+    "Nonadditivity/RegularDilation.lean",
+    "Nonadditivity/RegularFubini.lean",
+    "Nonadditivity/StructuredFiniteChannel.lean",
+    "Nonadditivity/StructuredHaarModel.lean",
+    "Nonadditivity/StructuredLinearization.lean",
+    "Nonadditivity/TensorPowers.lean",
+    "Nonadditivity/UniversalFactorization.lean",
+    "Nonadditivity/WeightedBell.lean",
+    "Nonadditivity/WeightedBlock.lean",
+    "Nonadditivity/WeightedParameters.lean",
+    "Nonadditivity/WeylPowersTwirl.lean"
+  ],
+  "status": "sweep_validated_by_complete_baseline_build",
+  "baseline_validation": {
+    "summary_path": "verification/elaboration-20261006/before/summary.json",
+    "summary_sha256": "732e5b426ea87cf69ef103fa4cd2eb1411de030700abfab19cb01429046da111",
+    "source_commit": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+    "measured_modules": 369,
+    "errors": 0,
+    "sorry_warnings": 0,
+    "scope": "Full baseline build validates the swept sources. A final fresh public-type comparison and after build are recorded separately."
+  }
+}

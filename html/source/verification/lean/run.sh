@@ -10,6 +10,7 @@ cd "$project_dir"
 usage() {
   cat <<'HELP'
 Usage: ./verification/lean/run.sh [--check-prerequisites | --help]
+                                  [--source-certificate REPO_RELATIVE_JSON]
 
 Requires Linux or macOS, Bash, Git, elan, and Python 3.11 or later with venv/pip.
 Install elan from https://github.com/leanprover/elan and add ~/.elan/bin to PATH.
@@ -20,6 +21,9 @@ mathlib cache, and installs requirements-validation.txt in .verify-work/python-e
 It rebuilds every project proof module, audits transitive axioms, validates the
 metadata/declaration mapping, and checks all five challenge modules locally.
 It never runs lake update. This is a Lean check; it does not run Comparator.
+--source-certificate optionally selects recorded current-source evidence for both
+release validations. Without it, strict historical baseline validation is retained.
+The path must name a repository-relative local .json file.
 
 Results and logs: .verify-work/logs/lean-<UTC timestamp>-<process ID>/
 Any failed step returns a nonzero exit code. --check-prerequisites downloads
@@ -27,14 +31,24 @@ nothing, builds nothing, and does not claim that any proof was verified.
 HELP
 }
 
-case "${1:-}" in
-  --help) usage; exit 0 ;;
-  ""|--check-prerequisites) ;;
-  *) usage >&2; exit 2 ;;
-esac
-[[ $# -le 1 ]] || { usage >&2; exit 2; }
-
 fail() { printf 'Lean reproduction stopped: %s\n' "$*" >&2; exit 2; }
+check_prerequisites=false
+source_certificate=
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --help) usage; exit 0 ;;
+    --check-prerequisites)
+      [[ "$check_prerequisites" == false ]] || fail "--check-prerequisites may be supplied only once."
+      check_prerequisites=true
+      shift ;;
+    --source-certificate)
+      [[ $# -ge 2 && -n "$2" ]] || fail "--source-certificate requires a repository-relative JSON path."
+      [[ -z "$source_certificate" ]] || fail "--source-certificate may be supplied only once."
+      source_certificate=$2
+      shift 2 ;;
+    *) usage >&2; fail "Unknown argument: $1" ;;
+  esac
+done
 case "$(uname -s)" in Linux|Darwin) ;; *) fail 'Linux or macOS is required.' ;; esac
 command -v git >/dev/null || fail 'Git is missing.'
 if [[ -d "$HOME/.elan/bin" ]]; then
@@ -50,7 +64,27 @@ else
 fi
 "$repro_python" -c 'import ensurepip, sys, venv; sys.exit(0 if sys.version_info >= (3, 11) else 1)' \
   || fail 'Python 3.11 or later with venv/pip is required.'
-if [[ "${1:-}" == --check-prerequisites ]]; then
+if [[ -n "$source_certificate" ]]; then
+  "$repro_python" - "$project_dir" "$source_certificate" <<'PY_CERTIFICATE_PATH' || fail 'Invalid --source-certificate path.'
+from pathlib import Path, PurePosixPath
+import sys
+root = Path(sys.argv[1]).resolve()
+name = sys.argv[2]
+relative = PurePosixPath(name)
+if (relative.is_absolute() or "\\" in name or ":" in name
+        or any(part in {"", ".", ".."} for part in name.split("/"))
+        or relative.suffix != ".json"):
+    raise SystemExit("Use a normalized repository-relative .json path.")
+path = root / name
+try:
+    if not path.is_file():
+        raise ValueError("not a regular file")
+    path.resolve().relative_to(root)
+except (ValueError, OSError, RuntimeError):
+    raise SystemExit("Missing or nonlocal certificate JSON file: " + name)
+PY_CERTIFICATE_PATH
+fi
+if [[ "$check_prerequisites" == true ]]; then
   printf '%s\n' 'Lean prerequisites found. No proof verification has run.'
   exit 0
 fi
@@ -108,7 +142,11 @@ run_step elan-version elan --version
 run_step python-environment "$repro_python" -m venv .verify-work/python-env
 export PATH="$project_dir/.verify-work/python-env/bin:$PATH"
 run_step validator-dependencies python3 -m pip install -r requirements-validation.txt
-run_step static-release python3 scripts/validate_release.py --static-only
+validator_command=(python3 scripts/validate_release.py)
+if [[ -n "$source_certificate" ]]; then
+  validator_command+=("--source-certificate=$source_certificate")
+fi
+run_step static-release "${validator_command[@]}" --static-only
 run_step install-toolchain elan toolchain install "$toolchain"
 run_step lean-version elan run "$toolchain" lean --version
 run_step dependency-cache elan run "$toolchain" lake exe cache get
@@ -117,7 +155,7 @@ check_manifest
 lean_prefix=$(elan run "$toolchain" lean --print-prefix)
 export NONADDITIVITY_LEAN="$lean_prefix/bin/lean"
 run_step proof-build-and-audit ./check.sh
-run_step metadata-declarations python3 scripts/validate_release.py
+run_step metadata-declarations "${validator_command[@]}"
 run_step challenge-statements python3 scripts/check_challenges.py
 check_manifest
 printf '\nLEAN REPRODUCTION PASSED. Comparator was not run.\n'

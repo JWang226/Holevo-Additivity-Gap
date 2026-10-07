@@ -6,7 +6,6 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution.
 import Nonadditivity.QuantumCodingFamilySpectrum
 import Nonadditivity.OperationalCapacity
 import Nonadditivity.OperationalReindex
-import Nonadditivity.ChannelReindex
 
 /-! # Word coordinates for actual channel tensor powers
 
