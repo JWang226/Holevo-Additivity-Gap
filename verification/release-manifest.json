@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-10-07T07:25:51.360949+00:00",
+  "generated_at_utc": "2026-10-07T07:32:33.074692+00:00",
   "hash_algorithm": "sha256",
   "excludes": [
     "verification/release-manifest.json",
@@ -12,7 +12,7 @@
     ".verify-work/"
   ],
   "files": {
-    ".github/workflows/docs.yml": "01a946eab6ce78d6f432c6ad4f1ce9cd823dcbdd33bdad4e0f68fdf76eb750ba",
+    ".github/workflows/docs.yml": "7a8d5d9b87a9475d56ce6bc76c4c3d60ab908493fce912fadef7f0660a47aeb5",
     ".github/workflows/elaboration.yml": "7baf000a01d1a05f9eb5f1e3fdd07c9f0815ce01f98f850285358a14325a7772",
     ".github/workflows/lean.yml": "72d68226f69e7cb78d09aa741b1e0d7105e127951e332d78410b3b97d26df701",
     ".github/workflows/release-verify.yml": "8958eed95a0fea4455bb27df6953e171944a0d568fde3bfa383866ac1b890849",
