@@ -76,6 +76,92 @@ def parse_root_axioms(text: str, roots: dict) -> dict[str, list[str]]:
     return axioms
 
 
+def make_evidence(actual: str, sources: dict, inputs: dict, logs: dict, commands: list,
+                  roots: dict, axioms: dict) -> dict:
+    """Construct the common bounded mechanical record from observed outputs."""
+    evidence = {
+        "schema_version": 1, "status": "passed", "scope": namespace["SCOPE"],
+        "checked_at_utc": datetime.now(timezone.utc).isoformat(), "source_commit": actual,
+        "theorem_names": list(roots), "permitted_axioms": sorted(namespace["AXIOMS"]),
+        "inputs": inputs, "logs": logs, "commands": commands, "root_axioms": axioms,
+        "compiled_sources_from_scratch": False, "comparator_rerun": False, "nanoda_rerun": False,
+        "notes": ["Actual incremental expected-statement applications and type/axiom probe; project objects reused.",
+                  "Fresh full project rebuild, Comparator and Nanoda executions have separate release records.",
+                  "Generated check sources and original command outputs are copied exactly; commands retain their execution paths."],
+    }
+    return evidence
+
+
+def make_audit(actual: str, public_types: str, parent: dict, parent_sha: str,
+               sources: dict, review: dict) -> dict:
+    """Construct the common continuation, preserving its historical findings."""
+    reports = dict(parent["report_bindings"])
+    reports[REPORT] = digest(REPORT)
+    reports[OUT + "/delta-review.json"] = digest(OUT + "/delta-review.json")
+    reports[OUT + "/proof-source-delta.patch"] = digest(OUT + "/proof-source-delta.patch")
+    entries = deepcopy(parent["entries"])
+    decls = {item["name"]: item for item in namespace["read_json"](ROOT, "metadata/declarations.json")["declarations"]}
+    context = ["Nonadditivity/Channels.lean", "Nonadditivity/ActualConsequences.lean",
+               "Nonadditivity/QuantumHolevo.lean", "Nonadditivity/StateEnsembles.lean",
+               "Nonadditivity/RegularCoefficientEnergy.lean", "paper/nonadditivity.tex",
+               "metadata/declarations.json", "metadata/results.json"]
+    for entry in entries:
+        entry["historical_report"] = entry["report"]
+        entry["report"] = REPORT
+        entry["reviewer"] = "cleanup-delta-ai-reviewer"
+        entry["reviewed_files"] = sorted(set(context + [decls[entry["declaration"]]["file"],
+                                            entry["config"], str(Path(entry["config"]).with_suffix(".lean"))]))
+        entry["delta_finding"] = "No changed root statement or meaning-carrying definition; reviewed cleanup preserves this endpoint with every historical qualification retained. See the per-root context in the delta report."
+    changes = []
+    proof_changes = {item["path"]: item for item in review["changed_proof_sources"]}
+    for name in sorted(sources):
+        if sources[name] == parent["source_bindings"][name]:
+            continue
+        if name in proof_changes:
+            kind = proof_changes[name]["kind"]
+            explanation = "Reviewed exact source patch: " + kind.replace("_", " ") + "; data-valued definitions and all theorem types preserved."
+        elif name == "metadata/declarations.json":
+            kind, explanation = "fresh_declaration_export", "Fresh complete declaration metadata; exact canonical public types checked against the historical export."
+        elif name == "metadata/results.json":
+            kind, explanation = "release_metadata_only", "Current evidence references only; the recorder verified every other top-level mathematical/result-map field unchanged."
+        else:
+            raise ValueError("An unreviewed source input changed: " + name)
+        changes.append({"path": name, "before_sha256": parent["source_bindings"][name],
+                        "after_sha256": sources[name], "kind": kind, "review": explanation})
+    audit = {
+        "schema_version": 2, "review_kind": "incremental_ai_source_semantics_review",
+        "review_date": datetime.now(timezone.utc).date().isoformat(),
+        "machine_equivalence_certified": False, "reviewed_commit": actual,
+        "parent_audit": {"path": namespace["AUDIT_PATH"], "sha256": parent_sha},
+        "method": {"scope": "AI source-delta review and six endpoint-definition-context checks; historical independent reviews retained, not repeated in full.",
+                   "review_report": REPORT, "cross_review": "Release integration cross-check; no independent human certification."},
+        "source_bindings": sources, "report_bindings": reports, "changed_sources": changes,
+        "source_delta_review": {"path": OUT + "/delta-review.json", "sha256": digest(OUT + "/delta-review.json")},
+        "meaning_carrying_definition_changes": [], "entries": entries,
+        "public_type_comparison": {"path": public_types, "sha256": digest(public_types)},
+        "mechanical_evidence": {"path": OUT + "/checks.json"},
+    }
+    return audit
+
+
+def publish_records(evidence: dict, audit: dict) -> None:
+    """Validate new evidence and publish a new selector without changing its parent."""
+    require = namespace["require"]
+    require(not (ROOT / DELTA).exists() and not (ROOT / OUT / "checks.json").exists()
+            and not (ROOT / namespace["CURRENT_AUDIT_PATH"]).exists(),
+            "Current statement records already exist; preserve them and create a versioned successor")
+    write_json(OUT + "/checks.json", evidence)
+    audit["mechanical_evidence"]["sha256"] = digest(OUT + "/checks.json")
+    namespace["check_delta"](ROOT, audit, audit["source_bindings"], audit["report_bindings"])
+    namespace["check_mechanical"](ROOT, audit, audit["source_bindings"], namespace["current_targets"](ROOT))
+    write_json(DELTA, audit)
+    namespace["load_audit"](ROOT, DELTA)
+    write_json(namespace["CURRENT_AUDIT_PATH"], {
+        "schema_version": 1, "audit": {"path": DELTA, "sha256": digest(DELTA)},
+        "scope": "Historical independent reviews continued by the current cleanup delta; not machine-certified semantic equivalence.",
+    })
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-commit", required=True,
@@ -143,72 +229,9 @@ def main() -> int:
         for item in challenge_report["checks"]:
             name = OUT + "/" + Path(item["generated_statement_check"]).name
             logs[name] = digest(name)
-        evidence = {
-            "schema_version": 1, "status": "passed", "scope": namespace["SCOPE"],
-            "checked_at_utc": datetime.now(timezone.utc).isoformat(), "source_commit": actual,
-            "theorem_names": list(roots), "permitted_axioms": sorted(namespace["AXIOMS"]),
-            "inputs": inputs, "logs": logs, "commands": commands, "root_axioms": axioms,
-            "compiled_sources_from_scratch": False, "comparator_rerun": False, "nanoda_rerun": False,
-            "notes": ["Actual incremental expected-statement applications and type/axiom probe; project objects reused.",
-                      "Fresh full project rebuild, Comparator and Nanoda executions have separate release records.",
-                      "Generated check sources and original command outputs are copied exactly; commands retain their execution paths."],
-        }
-        write_json(OUT + "/checks.json", evidence)
-        reports = dict(parent["report_bindings"])
-        reports[REPORT] = digest(REPORT)
-        reports[OUT + "/delta-review.json"] = digest(OUT + "/delta-review.json")
-        reports[OUT + "/proof-source-delta.patch"] = digest(OUT + "/proof-source-delta.patch")
-        entries = deepcopy(parent["entries"])
-        decls = {item["name"]: item for item in namespace["read_json"](ROOT, "metadata/declarations.json")["declarations"]}
-        context = ["Nonadditivity/Channels.lean", "Nonadditivity/ActualConsequences.lean",
-                   "Nonadditivity/QuantumHolevo.lean", "Nonadditivity/StateEnsembles.lean",
-                   "Nonadditivity/RegularCoefficientEnergy.lean", "paper/nonadditivity.tex",
-                   "metadata/declarations.json", "metadata/results.json"]
-        for entry in entries:
-            entry["historical_report"] = entry["report"]
-            entry["report"] = REPORT
-            entry["reviewer"] = "cleanup-delta-ai-reviewer"
-            entry["reviewed_files"] = sorted(set(context + [decls[entry["declaration"]]["file"],
-                                                entry["config"], str(Path(entry["config"]).with_suffix(".lean"))]))
-            entry["delta_finding"] = "No changed root statement or meaning-carrying definition; reviewed cleanup preserves this endpoint with every historical qualification retained. See the per-root context in the delta report."
-        changes = []
-        proof_changes = {item["path"]: item for item in review["changed_proof_sources"]}
-        for name in sorted(sources):
-            if sources[name] == parent["source_bindings"][name]:
-                continue
-            if name in proof_changes:
-                kind = proof_changes[name]["kind"]
-                explanation = "Reviewed exact source patch: " + kind.replace("_", " ") + "; data-valued definitions and all theorem types preserved."
-            elif name == "metadata/declarations.json":
-                kind, explanation = "fresh_declaration_export", "Fresh complete declaration metadata; exact canonical public types checked against the historical export."
-            elif name == "metadata/results.json":
-                kind, explanation = "release_metadata_only", "Current evidence references only; the recorder verified every other top-level mathematical/result-map field unchanged."
-            else:
-                raise ValueError("An unreviewed source input changed: " + name)
-            changes.append({"path": name, "before_sha256": parent["source_bindings"][name],
-                            "after_sha256": sources[name], "kind": kind, "review": explanation})
-        audit = {
-            "schema_version": 2, "review_kind": "incremental_ai_source_semantics_review",
-            "review_date": datetime.now(timezone.utc).date().isoformat(),
-            "machine_equivalence_certified": False, "reviewed_commit": actual,
-            "parent_audit": {"path": namespace["AUDIT_PATH"], "sha256": parent_sha},
-            "method": {"scope": "AI source-delta review and six endpoint-definition-context checks; historical independent reviews retained, not repeated in full.",
-                       "review_report": REPORT, "cross_review": "Release integration cross-check; no independent human certification."},
-            "source_bindings": sources, "report_bindings": reports, "changed_sources": changes,
-            "source_delta_review": {"path": OUT + "/delta-review.json", "sha256": digest(OUT + "/delta-review.json")},
-            "meaning_carrying_definition_changes": [], "entries": entries,
-            "public_type_comparison": {"path": args.public_types, "sha256": digest(args.public_types)},
-            "mechanical_evidence": {"path": OUT + "/checks.json", "sha256": digest(OUT + "/checks.json")},
-        }
-        # Validate all actual evidence before publishing a selected current record.
-        namespace["check_delta"](ROOT, audit, sources, reports)
-        namespace["check_mechanical"](ROOT, audit, sources, roots)
-        write_json(DELTA, audit)
-        namespace["load_audit"](ROOT, DELTA)
-        write_json(namespace["CURRENT_AUDIT_PATH"], {
-            "schema_version": 1, "audit": {"path": DELTA, "sha256": digest(DELTA)},
-            "scope": "Historical independent reviews continued by the current cleanup delta; not machine-certified semantic equivalence.",
-        })
+        evidence = make_evidence(actual, sources, inputs, logs, commands, roots, axioms)
+        audit = make_audit(actual, args.public_types, parent, parent_sha, sources, review)
+        publish_records(evidence, audit)
         print(f"Recorded current statement applications, six root closures and delta continuation: {DELTA}")
         return 0
     except (OSError, ValueError, KeyError, subprocess.CalledProcessError) as error:

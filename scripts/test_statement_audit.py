@@ -14,6 +14,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import zipfile
 
 CHECKER = Path(__file__).resolve().parents[1] / "verification/check_statement_audit.py"
 SPEC = importlib.util.spec_from_file_location("statement_audit", CHECKER)
@@ -635,6 +636,143 @@ class RootAxiomParserControls(unittest.TestCase):
             with self.subTest(malformed=malformed):
                 with self.assertRaisesRegex(ValueError, "Malformed root axiom record"):
                     self.parse(self.log() + malformed)
+
+
+class CaptureRecoveryControls(unittest.TestCase):
+    """Integrity controls for retained outputs; no proof command is executed."""
+    @classmethod
+    def setUpClass(cls):
+        recovery = CHECKER.parent / "statement-audit-20261007/recover_checks.py"
+        cls.recovery = {"__file__": str(recovery), "__name__": "capture_recovery_controls"}
+        exec(compile(recovery.read_bytes(), str(recovery), "exec"), cls.recovery)
+
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory(prefix="capture-recovery-controls-")
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name).resolve()
+
+    def archive(self, names=("verification/probe.log",)):
+        path = self.root / "evidence.zip"
+        with zipfile.ZipFile(path, "w") as archive:
+            for name in names:
+                archive.writestr(name, b"Synthetic retained output; no Lean execution.\n")
+        return path, {"sha256": self.recovery["sha"](path.read_bytes()), "size_in_bytes": path.stat().st_size}
+
+    def test_verified_whole_archive_accepts_original_and_rejects_changed_bytes(self):
+        path, artifact = self.archive()
+        entries = self.recovery["verified_archive"](path, artifact)
+        self.assertEqual(set(entries), {"verification/probe.log"})
+        path.write_bytes(path.read_bytes() + b"changed")
+        with self.assertRaisesRegex(ValueError, "ZIP differs"):
+            self.recovery["verified_archive"](path, artifact)
+
+    def test_duplicate_and_escaping_archive_entries_are_rejected(self):
+        import warnings
+        for names in (("../outside",), ("/absolute",), ("verification/../outside",),
+                      ("verification/probe.log", "verification/probe.log")):
+            with self.subTest(names=names), warnings.catch_warnings():
+                warnings.simplefilter("ignore", UserWarning)
+                path, artifact = self.archive(names)
+                with self.assertRaisesRegex(ValueError, "Unsafe or duplicate recovery ZIP entry"):
+                    self.recovery["verified_archive"](path, artifact)
+
+    def test_execution_recorder_and_current_input_bytes_must_match(self):
+        original_name = self.recovery["OUT"] + "/record_checks.py"
+        blobs = {original_name: b"# Exact executed recorder\n", "Proof.lean": b"-- exact input\n"}
+        (self.root / "Proof.lean").write_bytes(blobs["Proof.lean"])
+        previous_root = self.recovery["ROOT"]
+        self.recovery["ROOT"] = self.root
+        self.addCleanup(self.recovery.__setitem__, "ROOT", previous_root)
+        result = self.recovery["match_current_inputs"](blobs, blobs[original_name])
+        self.assertEqual(result["Proof.lean"], self.recovery["sha"](blobs["Proof.lean"]))
+        with self.assertRaisesRegex(ValueError, "Archived recorder differs"):
+            self.recovery["match_current_inputs"](blobs, b"# Different recorder\n")
+        (self.root / "Proof.lean").write_bytes(b"-- changed input\n")
+        with self.assertRaisesRegex(ValueError, "Current recovery input differs"):
+            self.recovery["match_current_inputs"](blobs, blobs[original_name])
+
+    def fixture_commands(self):
+        root = self.recovery["ROOT"]
+        out = self.recovery["OUT"]
+        checker_name = "scripts/check_challenges.py"
+        helper = {"__file__": str(root / checker_name), "__name__": "synthetic_recovery_generator"}
+        exec(compile((root / checker_name).read_bytes(), checker_name, "exec"), helper)
+        report = {"status": "passed", "method": "local_lean_elaboration_and_solution_against_explicit_expected_type",
+                  "baseline_modules_recompiled": False, "comparator_execution": "not_run",
+                  "nanoda_execution": "not_run", "theorems_checked": 6,
+                  "challenge_modules_checked": 5, "checks": []}
+        entries = {}
+        for name in sorted(check.CONFIGS):
+            stem = Path(name).stem
+            source = str(Path(name).with_suffix(".lean"))
+            config = json.loads((root / name).read_text())
+            generated = ".lake/challenge-checks/StatementChecks/" + stem + ".lean"
+            entries[out + "/" + stem + ".lean"] = helper["proof_check_source"](
+                (root / source).read_text(), config, stem).encode()
+            item = {"config": name, "config_sha256": check.digest(root / name),
+                    "challenge_source": source, "challenge_source_sha256": check.digest(root / source),
+                    "theorem_names": config["theorem_names"], "generated_statement_check": generated}
+            for field, argv, suffix in (
+                ("challenge_elaboration", ["./lean.sh", "-o", ".lake/challenge-checks/expected/" + stem + ".olean", source], "_expected.log"),
+                ("proof_against_expected_statement", ["./lean.sh", "--root=.lake/challenge-checks", generated], "_statement.log"),
+            ):
+                item[field] = {"status": "passed", "exit_code": 0, "command": argv,
+                               "log": ".lake/challenge-checks/" + stem + suffix}
+                entries[out + "/" + stem + suffix] = b""
+            report["checks"].append(item)
+        progress = "".join(Path(name).stem + ": expected statement and solution/type check passed\n"
+                           for name in sorted(check.CONFIGS))
+        progress += "Saved .lake/challenge-checks.json. Comparator execution remains not_run.\n"
+        entries[out + "/check-challenges.log"] = progress.encode()
+        entries[out + "/challenge-checks.json"] = json.dumps(report).encode()
+        return entries, report
+
+    def test_all_ten_preserved_child_commands_and_generated_sources_are_required(self):
+        entries, report = self.fixture_commands()
+        commands, retained = self.recovery["statement_commands"](entries, report)
+        self.assertEqual(len(commands), 10)
+        self.assertEqual(len(retained), 17)
+        self.assertTrue(all(item["command"][0] == "./lean.sh" and item["exit_code"] == 0 for item in commands))
+        for field, value in (("exit_code", 1), ("exit_code", False), ("command", ["invented-command"]),
+                             ("status", "failed")):
+            with self.subTest(field=field, value=value):
+                changed = deepcopy(report)
+                changed["checks"][0]["proof_against_expected_statement"][field] = value
+                with self.assertRaisesRegex(ValueError, "child command did not pass exactly"):
+                    self.recovery["statement_commands"](entries, changed)
+        generated = self.recovery["OUT"] + "/A_PrescribedDimensions.lean"
+        changed_entries = entries | {generated: entries[generated] + b"-- changed source\n"}
+        with self.assertRaisesRegex(ValueError, "generated check differs"):
+            self.recovery["statement_commands"](changed_entries, report)
+
+    def test_mismatched_config_and_incomplete_driver_success_are_rejected(self):
+        entries, report = self.fixture_commands()
+        changed = deepcopy(report)
+        changed["checks"][0]["config_sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "source/configuration binding differs"):
+            self.recovery["statement_commands"](entries, changed)
+        entries[self.recovery["OUT"] + "/check-challenges.log"] = b"Partial synthetic execution\n"
+        with self.assertRaisesRegex(ValueError, "driver log does not record complete success"):
+            self.recovery["statement_commands"](entries, report)
+
+    def test_root_exit_inference_requires_the_exact_success_guard_and_failure_order(self):
+        original = b'''def run(command, log):
+    result = subprocess.run(command)
+    if result.returncode:
+        raise ValueError("failed")
+    return {"exit_code": result.returncode}
+def main():
+    run(["./lean.sh", OUT + "/Roots.lean"], OUT + "/roots.log")
+    require(False, "The root axiom probe did not record exactly the six permitted closures")
+'''
+        self.assertEqual(self.recovery["check_root_failure_flow"](original),
+                         ["./lean.sh", self.recovery["OUT"] + "/Roots.lean"])
+        with self.assertRaisesRegex(ValueError, "does not reject a nonzero"):
+            self.recovery["check_root_failure_flow"](original.replace(b"if result.returncode:", b"if False:"))
+        lines = original.splitlines(keepends=True)
+        lines[-2], lines[-1] = lines[-1], lines[-2]
+        with self.assertRaisesRegex(ValueError, "does not establish that the root probe returned"):
+            self.recovery["check_root_failure_flow"](b"".join(lines))
 
 
 if __name__ == "__main__":
