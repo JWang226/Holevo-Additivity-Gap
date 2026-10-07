@@ -29,17 +29,21 @@ anchors. Status and scope come from `metadata/results.json`. The map supports
 local search and status filters, remains readable without JavaScript, and has a
 downloadable `correspondence-map.json` with source hashes and all link targets.
 
-The six challenge roots also have independent AI source-semantics reviews in
-`docs/STATEMENT_AUDIT.md` and its linked reports. Relevant correspondence rows and
-result pages display report links and recorded verdicts. The downloadable map
-retains each reviewed declaration, report, verdict, and qualification, plus the
-source URL and hash of `verification/statement-audit.json`. These reviews do not
-machine-certify English–Lean equivalence.
+The six challenge roots have historical independent AI source-semantics reviews
+in `docs/STATEMENT_AUDIT.md` and its linked reports. The cleanup release adds
+`docs/STATEMENT_AUDIT_DELTA.md`, which reviews the cleanup changes and continues
+the historical qualifications without repeating the complete historical review.
+Relevant correspondence rows and result pages link both kinds of reports.
+The downloadable map retains each reviewed declaration, verdict, qualification,
+and the selected manifest's source URL, hash, review date, and parent record.
+These reviews do not machine-certify English–Lean equivalence.
 
-Every build validates the audit's source, report, and mechanical-evidence hashes
-before displaying it. Exact downloads include the manifest, reports, freshness
-checker, negative controls, logs, and mechanical probe. Existing proof-source
-downloads are reused. To check only the recorded audit's freshness:
+Every build validates the selected audit's source, report, and mechanical-evidence
+hashes before displaying it. `verification/statement-audit-current.json` selects
+the cleanup delta manifest; when absent, the checker selects the historical
+`verification/statement-audit.json`. Exact downloads preserve both the current
+and parent manifests, reports, controls, logs, and mechanical probes. Existing
+proof-source downloads are reused. To check only the selected audit's freshness:
 
 ```sh
 python3 verification/check_statement_audit.py
@@ -49,6 +53,18 @@ This checks hashes, references, and recorded provenance; it does not redo the
 semantic review or run proof checks. Its mechanical record covers incremental
 exact-type applications and axiom checks with existing compiled dependencies.
 The Verify page retains separate Lean, Comparator, and Nanoda reproducers.
+For the cleanup sources, the Lean and combined commands explicitly pass
+`--source-certificate verification/elaboration-20261006/source-certificate.json`;
+both still execute the fresh Lean build and local statement checks.
+
+Current portable evidence is selected by
+`metadata/results.json`'s `portable_verification_current.directory`; an absent
+selector uses the historical `verification/portable-20261002` directory.
+`verification_current` selects the retained CI record and, for the cleanup
+release, its source certificate. The generator validates selected portable
+freshness, reads dates and counts from the records, and preserves historical
+downloads. It does not re-execute any proof checker. Finalize hash-bound release
+metadata and evidence before generating the site.
 
 Use `$...$` for inline mathematics and a separate pair of `$$` lines for
 display mathematics. KaTeX 0.19.0, its fonts, and its original MIT license are

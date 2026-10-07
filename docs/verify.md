@@ -4,7 +4,7 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution. -->
 
 The portable workflow follows [QMDL](https://github.com/JWang226/QMDL). It works on macOS and Linux without landrun or systemd.
 
-On the cleanup branch, Lean and `all` use the explicit current-source certificate shown below. Without it, the validator retains the strict historical byte-equality gate. [Cleanup evidence and elaboration reproduction](ELABORATION_CLEANUP.md) explain its Lean/type-only scope; historical portable reports retain their original bindings.
+For this release, Lean and `all` use the explicit current-source certificate shown below. The certificate selects recorded rebuild/type evidence; both commands still rebuild and audit the project sources. Without it, the validator retains the strict historical byte-equality gate. [Cleanup evidence and elaboration reproduction](ELABORATION_CLEANUP.md) explain the certificate's Lean/type-only scope; historical portable reports retain their original bindings.
 
 ## Prerequisites
 
@@ -15,9 +15,12 @@ Lean is pinned to `4.29.0-rc6`, Mathlib to the committed `lake-manifest.json`, a
 ## Get the repository
 
 ```sh
-git clone --branch codex/cleanup-elaboration-20261006 https://github.com/JWang226/Holevo-Additivity-Gap.git
+git clone https://github.com/JWang226/Holevo-Additivity-Gap.git
 cd Holevo-Additivity-Gap
 ```
+
+The default branch is `main`. To reproduce a particular published release,
+check out its actual tag or commit before running the commands below.
 
 ## Run checks separately
 
@@ -55,7 +58,7 @@ bash scripts/verify.sh all \
   --source-certificate verification/elaboration-20261006/source-certificate.json
 ```
 
-`all` is also the default when the mode is omitted; the cleanup branch still needs the explicit certificate option. All requested stages must finish successfully before the wrapper prints `VERIFICATION PASSED: all`. Any failed stage returns a nonzero exit code and retains its log. Use `bash scripts/verify.sh --help` for usage.
+`all` is also the default when the mode is omitted; the current cleanup sources still need the explicit certificate option. All requested stages must finish successfully before the wrapper prints `VERIFICATION PASSED: all`. Any failed stage returns a nonzero exit code and retains its log. Use `bash scripts/verify.sh --help` for usage.
 
 The existing `verification/lean/run.sh`, `verification/comparator/run.sh`, and `verification/nanoda/run.sh` entry points remain available. The latter two delegate to the portable workflow.
 
@@ -77,7 +80,20 @@ Such a run records `caller_supplied` binary provenance. The default builds from 
 
 Fresh logs are saved in `.verify-work/run-<UTC>-<unique suffix>/`. Comparator and Nanoda success reports record the five cases, six theorem names, tool pins, source and artifact hashes, and unsandboxed status. Each run uses fresh report paths; no earlier success report is reused. The Lean stage also retains detailed logs in `.verify-work/logs/lean-*`.
 
-Historical portable records are linked in [verification/README.md](../verification/README.md); current cleanup evidence is in [verification/elaboration-20261006](../verification/elaboration-20261006/README.md). The source/artifact hashes identify the exact checked inputs, including changes beyond the report’s recorded base Git commit.
+The [verification index](../verification/README.md) describes the retained portable records and the release's explicit evidence selection. Current cleanup build/type evidence is in [verification/elaboration-20261006](../verification/elaboration-20261006/README.md). Fresh release evidence is intended for `verification/portable-20261007`; publication requires the actual successful run and matching evidence checks. The preserved October 2 records retain their original bindings. Source/artifact hashes identify the exact checked inputs, including changes beyond the report's recorded base Git commit.
+
+Once the current release records have been captured, check their freshness:
+
+```sh
+python3 verification/check_reports.py
+python3 verification/check_statement_audit.py
+```
+
+These commands validate the selected source, tool and evidence hashes. They do
+not repeat the portable verification or the semantic review. The
+[statement-review continuation](STATEMENT_AUDIT_DELTA.md) preserves the historical
+qualifications and records its incremental exact-type and axiom checks separately
+from the full build, Comparator and Nanoda run.
 
 ## Tool pins
 

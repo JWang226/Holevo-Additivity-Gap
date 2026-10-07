@@ -23,6 +23,7 @@ import json
 import os
 from pathlib import Path, PurePosixPath
 import re
+import shlex
 import sys
 from urllib.parse import unquote, urlsplit
 from correspondence import manuscript_locations, validate_correspondence
@@ -31,8 +32,10 @@ from correspondence import manuscript_locations, validate_correspondence
 ROOT = Path(__file__).resolve().parents[2]
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "verification"))
-from check_reports import load_records
-from check_statement_audit import AUDIT_PATH, load_audit
+from check_reports import load_records, portable_directory
+from check_statement_audit import CURRENT_AUDIT_PATH, load_audit, selected_audit_path
+sys.path.insert(0, str(ROOT / "scripts"))
+from source_certificate import load_source_certificate
 OUT = ROOT / "html"
 REPO = "https://github.com/JWang226/Holevo-Additivity-Gap"
 SITE = "https://JWang226.github.io/Holevo-Additivity-Gap/"
@@ -218,8 +221,12 @@ class Site:
         self.ci_record = self.meta["verification_current"]["record"]
         self.ci_excerpt = self.meta["verification_current"]["log_excerpt"]
         self.ci = json.loads(self.read(self.ci_record))
+        self.portable_directory = portable_directory()
         self.portable = load_records()
-        self.statement_audit = load_audit()
+        self.portable_summary = json.loads(self.read(self.portable_directory + "/run-summary.json"))
+        self.statement_audit_path = selected_audit_path()
+        self.statement_audit = load_audit(audit_path=self.statement_audit_path)
+        self.statement_delta = self.statement_audit.get("schema_version") == 2
         self.statement_audits_by_result: dict[str, list[dict]] = defaultdict(list)
         for entry in self.statement_audit["entries"]:
             for result_id in entry["result_ids"]:
@@ -229,6 +236,10 @@ class Site:
             raise ValueError("Current CI metadata disagrees with the retained verification record")
         proof_paths = list((ROOT / "Nonadditivity").glob("*.lean"))
         proof_paths += [ROOT / name for name in ["Nonadditivity.lean", "Audit.lean", "All.lean"]]
+        self.source_certificate_path = self.meta["verification_current"].get("source_certificate")
+        if self.source_certificate_path is not None:
+            load_source_certificate(ROOT, self.source_certificate_path,
+                                    {path.relative_to(ROOT).as_posix() for path in proof_paths})
         for path in sorted(proof_paths):
             rel = path.relative_to(ROOT).as_posix()
             source = self.read(rel)
@@ -254,19 +265,36 @@ class Site:
                 self.headers[ref["declaration"]] = declaration_header(self.modules[module_name]["source"], ref["declaration"])
         doc_paths = ["README.md", "PROOF-PATH.md", "COPYRIGHT.md", "THIRD_PARTY_NOTICES.md", "verification/README.md", "ComparatorChallenges/README.md"]
         doc_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "docs").glob("*.md"))]
+        if self.source_certificate_path:
+            doc_paths += ["verification/elaboration-20261006/README.md",
+                          "verification/elaboration-20261006/comparison/ELABORATION_COMPARISON.md"]
         for rel in doc_paths:
             self.docs[rel] = self.read(rel)
             self.emit("source/" + rel, self.docs[rel])
         source_paths = ["paper/nonadditivity.tex", "formalization.yaml", "metadata/results.json", "metadata/declarations.json", self.ci_record, self.ci_excerpt, "Audit.lean", "All.lean", "Nonadditivity.lean", "lean-toolchain", "lake-manifest.json", "verification/lean/run.sh", "verification/comparator/run.sh", "requirements-validation.txt", "check.sh", "scripts/verify.sh", "scripts/test_nanoda_check.py", "verification/kernel_common.py", "verification/check_reports.py", "verification/comparator/check_local.py", "verification/comparator/ReplayExports.lean", "verification/nanoda/check_nanoda.py", "verification/nanoda/toolchain.json", "verification/nanoda/run.sh"]
-        source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "verification/portable-20261002").glob("*")) if p.is_file()]
+        for directory in {"verification/portable-20261002", self.portable_directory}:
+            source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / directory).glob("*")) if p.is_file()]
         # Historical CI evidence remains downloadable when repository documents
         # retain links to an earlier checked source commit.
         for pattern in ["github-actions-*.json", "github-actions-*-excerpt.log"]:
             source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "verification").glob(pattern))]
         source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / "ComparatorChallenges").glob("*")) if p.suffix in {".lean", ".json"}]
-        source_paths += [AUDIT_PATH, "verification/check_statement_audit.py", "scripts/test_statement_audit.py",
+        source_paths += [self.statement_audit_path, "verification/check_statement_audit.py", "scripts/test_statement_audit.py",
                          *self.statement_audit["report_bindings"], self.statement_audit["mechanical_evidence"]["path"],
                          *self.statement_audit_evidence["logs"], *self.statement_audit_evidence["inputs"]]
+        if (ROOT / CURRENT_AUDIT_PATH).is_file():
+            source_paths.append(CURRENT_AUDIT_PATH)
+        if self.statement_delta:
+            parent_path = self.statement_audit["parent_audit"]["path"]
+            parent = json.loads(self.read(parent_path))
+            evidence_path = parent["mechanical_evidence"]["path"]
+            evidence = json.loads(self.read(evidence_path))
+            source_paths += [parent_path, *parent["report_bindings"], evidence_path,
+                             *evidence["logs"], *evidence["inputs"]]
+        if self.source_certificate_path:
+            certificate = json.loads(self.read(self.source_certificate_path))
+            source_paths += [self.source_certificate_path, "scripts/source_certificate.py", "scripts/compare_public_types.py",
+                             *[certificate[key]["path"] for key in ("build_summary", "audit_log", "public_type_comparison")]]
         for rel in sorted(set(source_paths)):
             # Proof sources and Markdown reports already have exact downloads.
             # Add only missing artifacts, including the small mechanical probe.
@@ -510,13 +538,28 @@ class Site:
 
     def statement_audit_links(self, result_id: str, page: str) -> str:
         reports: dict[tuple[str, str], int] = defaultdict(int)
+        historical_reports: set[str] = set()
         for entry in self.statement_audits_by_result.get(result_id, []):
             reports[(entry["report"], entry["verdict"])] += 1
+            if entry.get("historical_report"):
+                historical_reports.add(entry["historical_report"])
         if not reports:
             return ""
         links = [self.link(self.doc_url(report), esc(verdict + (f" ({count} roots)" if count > 1 else "")), page)
                  for (report, verdict), count in reports.items()]
-        return '<p class="small"><strong>Independent AI review:</strong> ' + ' · '.join(links) + '.</p>'
+        if self.statement_delta:
+            links += [self.link(self.doc_url(report), "Historical root review", page)
+                      for report in sorted(historical_reports)]
+        label = "Historical AI review + cleanup delta" if self.statement_delta else "Independent AI review"
+        return '<p class="small"><strong>' + label + ':</strong> ' + ' · '.join(links) + '.</p>'
+
+    def statement_review_description(self, page: str) -> str:
+        text = self.link(self.doc_url("docs/STATEMENT_AUDIT.md"), "Independent AI reviews of the six challenge roots", page)
+        text += ' compare the manuscript, Lean statements, and relevant definitions, with qualifications retained.'
+        if self.statement_delta:
+            text += ' The ' + self.link(self.doc_url("docs/STATEMENT_AUDIT_DELTA.md"), "cleanup delta review", page)
+            text += ' examines the cleanup changes and continues those historical qualifications; it does not repeat the complete historical review.'
+        return text + ' These reviews do not machine-certify English–Lean equivalence.'
 
     def tag(self, status: str) -> str:
         return f'<span class="tag {status.replace("_", "-")}">{esc(status.replace("_", " "))}</span>'
@@ -619,26 +662,32 @@ class Site:
 
     def build_verify(self) -> None:
         page = "verify.html"
+        certificate_option = (' --source-certificate ' + shlex.quote(self.source_certificate_path)) if self.source_certificate_path else ''
         content = '<p class="eyebrow">Reproducible verification</p><h1>Check the formal proofs.</h1><p class="lead">Run Lean, Comparator, or Nanoda separately, or run all three together. Works on macOS and Linux, following <a href="https://github.com/JWang226/QMDL">QMDL</a>’s local verification approach.</p>'
         content += '<h2>Get the repository</h2><p>Install Git, <a href="https://github.com/leanprover/elan">elan</a>, Python 3.11+ with <code>venv</code>/<code>pip</code>, and native C/C++ build tools. Nanoda’s pinned-source build also needs <a href="https://rustup.rs/">Rustup</a>. Dependency downloads need network access. Tool versions are pinned.</p>'
         content += command('git clone https://github.com/JWang226/Holevo-Additivity-Gap.git\ncd Holevo-Additivity-Gap')
         content += '<h2>Run checks separately</h2><p>Choose a command below. Each mode prepares its own dependencies and builds the proof modules it needs; no prior <code>all</code> run is required.</p>'
         for mode, meaning in [("lean", "Rebuild all project sources, audit transitive axioms, validate mappings, and check six local expected types."), ("comparator", "Use pinned Comparator APIs to compare expected types and referenced definitions, enforce the axiom policy, then replay exports in Lean’s kernel."), ("nanoda", "Build the pinned independent Rust kernel, run acceptance/rejection controls, and check the six exported solution theorem roots.")]:
             content += '<h3 id="run-' + mode + '">' + esc({"lean": "Lean", "comparator": "Comparator", "nanoda": "Nanoda"}[mode]) + '</h3>'
-            content += command('bash scripts/verify.sh ' + mode) + '<p>' + esc(meaning) + '</p>'
+            content += command('bash scripts/verify.sh ' + mode + (certificate_option if mode == "lean" else '')) + '<p>' + esc(meaning) + '</p>'
         content += '<p>Lean and Comparator modes do not require Rust. Nanoda mode checks solution proofs; run Comparator as well to compare their expected statements.</p>'
-        content += '<h2>Run all checks</h2>' + command('bash scripts/verify.sh all')
+        content += '<h2>Run all checks</h2>' + command('bash scripts/verify.sh all' + certificate_option)
+        if self.source_certificate_path:
+            content += '<p>The Lean stage explicitly selects the cleanup ' + self.link("source/" + self.source_certificate_path, "source certificate", page) + '. It still rebuilds all project sources and executes the local mapping and expected-type checks.</p>'
         content += '<p>No landrun or systemd is required. Success ends with <code>VERIFICATION PASSED: &lt;mode&gt;</code>. Every requested stage must pass; a failure exits nonzero. Fresh logs and source-bound reports are written to <code>.verify-work/run-*</code>. The Lean stage also keeps detailed logs under <code>.verify-work/logs/lean-*</code>.</p>'
         content += '<p>' + self.link(self.doc_url("docs/verify.md"), "Full commands, prerequisites, expected output, and tool pins →", page) + ' · ' + self.link("source/scripts/verify.sh", "Read the wrapper", page) + '</p>'
-        content += '<h2 id="evidence">Recorded evidence</h2><p>The October 2 portable run rebuilt all 369 project modules, audited 9,107 declarations and 7,219 theorem constants, and passed all five Comparator configurations and six Nanoda roots. The checker controls accepted a valid proof and rejected missing targets, extra axioms, proof holes, invalid proof terms, and a mismatched expected statement.</p>'
+        summary = self.portable_summary
+        content += '<h2 id="evidence">Recorded evidence</h2><p>The portable run completed on <code>' + esc(summary["completed_at_utc"].split("T", 1)[0]) + '</code>. It rebuilt all ' + str(summary["project_modules_rebuilt"]) + ' project modules, audited ' + f'{summary["audited_project_declarations"]:,}' + ' declarations and ' + f'{summary["audited_theorem_constants"]:,}' + ' theorem constants, and passed all ' + str(summary["challenge_configurations"]) + ' Comparator configurations and ' + str(summary["theorem_roots"]) + ' Nanoda roots. The checker controls accepted a valid proof and rejected missing targets, extra axioms, proof holes, invalid proof terms, and a mismatched expected statement.</p>'
         content += '<table><thead><tr><th>Check</th><th>Recorded result</th></tr></thead><tbody>'
-        for label, value in [("Project-source rebuild", "369 modules rebuilt; pinned Mathlib cache reused"), ("Transitive axiom audit", "9,107 declarations; only propext, Classical.choice, Quot.sound"), ("Theorem constants", "7,219, including generated helpers"), ("Manuscript mapping", "49 declaration references and six local expected types checked"), ("Comparator APIs + Lean replay", "Passed: five configurations, six theorem roots; unsandboxed"), ("Independent Nanoda kernel", "Passed: six theorem roots; pinned source/Rust build; unsandboxed"), ("Upstream sandboxed CLI", "Not run; not part of this portable workflow")]:
+        for label, value in [("Project-source rebuild", f'{summary["project_modules_rebuilt"]} modules rebuilt; pinned Mathlib cache reused'), ("Transitive axiom audit", f'{summary["audited_project_declarations"]:,} declarations; only propext, Classical.choice, Quot.sound'), ("Theorem constants", f'{summary["audited_theorem_constants"]:,}, including generated helpers'), ("Manuscript mapping", f'{summary["mapped_declarations_checked"]} declaration references and {summary["theorem_roots"]} local expected types checked'), ("Comparator APIs + Lean replay", f'Passed: {summary["challenge_configurations"]} configurations, {summary["theorem_roots"]} theorem roots; unsandboxed'), ("Independent Nanoda kernel", f'Passed: {summary["theorem_roots"]} theorem roots; pinned source/Rust build; unsandboxed'), ("Upstream sandboxed CLI", "Not run; not part of this portable workflow")]:
             content += '<tr><td>' + esc(label) + '</td><td>' + esc(value) + '</td></tr>'
-        content += '</tbody></table><p>' + self.link(self.doc_url("verification/README.md"), "Execution details and retained logs", page) + ' · ' + self.link("source/verification/portable-20261002/comparator-result.json", "Comparator record", page) + ' · ' + self.link("source/verification/portable-20261002/nanoda-result.json", "Nanoda record", page) + ' · ' + self.link("source/verification/portable-20261002/run-summary.json", "Full-run summary", page) + '</p>'
-        content += '<p>These reports identify the checked inputs by source and artifact hashes, including changes beyond their base Git commit. The site build rejects stale records. The earlier full source-build ' + '<a href="' + esc(self.ci["url"]) + '">GitHub Actions evidence</a> remains preserved at its original commit.</p>'
-        content += '<h2>Statement review freshness</h2><p>' + self.link(self.doc_url("docs/STATEMENT_AUDIT.md"), "Independent AI reviews of the six challenge roots", page) + ' compare the manuscript, Lean statements, and relevant definitions, with qualifications retained. They do not machine-certify English–Lean equivalence.</p>'
+        content += '</tbody></table><p>' + self.link(self.doc_url("verification/README.md"), "Execution details and retained logs", page) + ' · ' + self.link("source/" + self.portable_directory + "/comparator-result.json", "Comparator record", page) + ' · ' + self.link("source/" + self.portable_directory + "/nanoda-result.json", "Nanoda record", page) + ' · ' + self.link("source/" + self.portable_directory + "/run-summary.json", "Full-run summary", page) + '</p>'
+        content += '<p>These reports identify the checked inputs by source and artifact hashes, including changes beyond their base Git commit. The site build rejects stale selected records. The retained full source-build ' + '<a href="' + esc(self.ci["url"]) + '">GitHub Actions evidence</a> remains bound to its recorded commit.</p>'
+        if self.source_certificate_path:
+            content += '<p>' + self.link(self.doc_url("verification/elaboration-20261006/README.md"), "Cleanup findings and before/after measurements", page) + ' are recorded separately from the portable proof checks.</p>'
+        content += '<h2>Statement review freshness</h2><p>' + self.statement_review_description(page) + '</p>'
         content += command('python3 verification/check_statement_audit.py')
-        content += '<p>This command checks recorded hashes, references, and mechanical provenance. It does not redo the semantic review or execute Lean, Comparator, or Nanoda. The attached mechanical evidence records incremental exact-type applications and axiom checks using existing compiled dependencies.</p><p>' + self.link("source/" + AUDIT_PATH, "Review manifest", page) + ' · ' + self.link("source/" + self.statement_audit["mechanical_evidence"]["path"], "Mechanical evidence", page) + ' · ' + self.link("source/verification/check_statement_audit.py", "Freshness checker", page) + '</p>'
+        content += '<p>This command checks the selected recorded hashes, references, and mechanical provenance. It does not redo the semantic review or execute Lean, Comparator, or Nanoda. The attached mechanical evidence records incremental exact-type applications and axiom checks using existing compiled dependencies.</p><p>' + self.link("source/" + self.statement_audit_path, "Current review manifest", page) + ' · ' + self.link("source/" + self.statement_audit["mechanical_evidence"]["path"], "Mechanical evidence", page) + ' · ' + self.link("source/verification/check_statement_audit.py", "Freshness checker", page) + '</p>'
         content += '<h2>Trust and scope</h2><p>Comparator and Nanoda run <strong>unsandboxed on trusted local sources</strong>. Comparator mode calls the pinned APIs directly; it does not claim a sandboxed upstream CLI run. Nanoda supplies an independent kernel implementation. Neither check replaces review of the expected statements, challenge imports, or their correspondence to the manuscript.</p><p>The six intentional expected-statement placeholders are excluded from the solution build. Solution proof dependencies permit only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>. The principal endpoints are proved; the full manuscript is not formalized.</p>'
         content += '<p>' + self.link(self.doc_url("ComparatorChallenges/README.md"), "Challenge trust assumptions", page) + ' · ' + self.link(self.doc_url("docs/FORMALIZATION_STATUS.md"), "Formalization scope", page) + '</p>'
         self.page(page, "Verify", content, "Verify")
@@ -726,7 +775,7 @@ class Site:
         content += f'<p>This map covers {len(self.results)} selected claims and proof ingredients. Numbers and source locations refer to the revised manuscript included in this repository, which incorporates the two counting repairs; the arXiv version may differ. <a href="https://arxiv.org/abs/2609.18222">Read the arXiv paper</a> or ' + self.link("manuscript.html", "browse the revised source", page) + '.</p>'
         content += '<div class="correspondence-summary">' + ''.join('<span><strong>' + str(counts[status]) + '</strong> ' + esc(status.replace('_', ' ')) + '</span>' for status in counts) + '</div>'
         content += f'<p class="small">The {len(references)} mapped declaration references include {theorem_count} theorems and {predicate_count} unproved predicates. The full manuscript is not formalized. Each row states its scope and whether the formalization uses an alternative argument, a specialization, or a corrected proof. Lean checks the formal statements; this reading map does not certify English–Lean equivalence.</p>'
-        content += '<p class="small">' + self.link(self.doc_url("docs/STATEMENT_AUDIT.md"), "Independent AI source-semantics reviews", page) + ' cover the six challenge roots. Relevant rows link their reports and recorded verdicts; these reviews do not machine-certify English–Lean equivalence.</p>'
+        content += '<p class="small">' + self.statement_review_description(page) + ' Relevant rows link the reports and recorded verdicts.</p>'
         content += '<p class="small">' + self.link("correspondence-map.json", "Download the correspondence data", page) + ' · ' + self.link(self.doc_url("docs/PROOF_MAP.md"), "Detailed repository proof map", page) + ' · ' + self.link("verify.html", "Verification evidence", page) + '</p>'
         content += '<div id="correspondence-controls" hidden role="search" aria-label="Filter manuscript correspondences"><label>Find a claim<input id="correspondence-query" type="search" placeholder="Theorem, label, concept, or Lean name…" autocomplete="off"></label><label>Formalization status<select id="correspondence-status"><option value="all">All records</option><option value="proved">Proved</option><option value="corrected">Corrected proof</option><option value="not_formalized">Not formalized</option></select></label><button id="correspondence-reset" type="button">Reset</button></div>'
         content += f'<p id="correspondence-count" aria-live="polite">{len(self.results)} correspondence records</p><p id="correspondence-empty" hidden>No matching records. Clear the search or choose another status.</p><div class="correspondence-table-wrap" tabindex="0" role="region" aria-label="Manuscript-to-Lean correspondence table; scroll horizontally on a narrow screen"><table class="correspondence-table"><thead><tr><th scope="col">Manuscript statement</th><th scope="col">Manuscript argument</th><th scope="col">Informal proof guide</th><th scope="col">Lean statements and scope</th></tr></thead><tbody>'
@@ -777,7 +826,10 @@ class Site:
                             "reader_page": "results/" + result_id + ".html", "lean": declaration_records,
                             "statement_audits": [{"declaration": audit["declaration"], "report": audit["report"],
                                                   "report_page": self.doc_url(audit["report"]),
-                                                  "verdict": audit["verdict"], "qualifications": audit["qualifications"]}
+                                                  "verdict": audit["verdict"], "qualifications": audit["qualifications"],
+                                                  **({"historical_report": audit["historical_report"],
+                                                      "historical_report_page": self.doc_url(audit["historical_report"])}
+                                                     if audit.get("historical_report") else {})}
                                                  for audit in self.statement_audits_by_result.get(result_id, [])]})
         content += '</tbody></table></div><h2 id="guide-crosswalk">Where the reading guide meets the manuscript</h2><div class="table-scroll"><table><thead><tr><th>Guide chapter</th><th>Manuscript passages</th></tr></thead><tbody>'
         crosswalk = {"introduction": [("sec:introduction", "§1 · introduction and main results")],
@@ -798,9 +850,13 @@ class Site:
                   "manuscript": {**self.meta["manuscript"], "source_page": "manuscript.html"},
                   "metadata_sha256": self.inputs["metadata/results.json"],
                   "mapping_source_sha256": self.inputs["tools/docs-site/correspondence.json"],
-                  "statement_audit_manifest": {"source_url": "source/" + AUDIT_PATH,
-                                               "sha256": self.inputs[AUDIT_PATH],
+                  "statement_audit_manifest": {"source_url": "source/" + self.statement_audit_path,
+                                               "sha256": self.inputs[self.statement_audit_path],
                                                "review_kind": self.statement_audit["review_kind"],
+                                               "review_date": self.statement_audit["review_date"],
+                                               "reviewed_commit": self.statement_audit["reviewed_commit"],
+                                               **({"parent_audit": self.statement_audit["parent_audit"]}
+                                                  if self.statement_delta else {}),
                                                "machine_equivalence_certified": False},
                   "counts": {**counts, "records": len(records), "declaration_references": len(references),
                              "theorem_references": theorem_count, "unproved_predicate_references": predicate_count},
@@ -1276,6 +1332,10 @@ class Site:
             "header_fallbacks": [name for name, (header, line) in self.headers.items() if header is None],
             "search_entries": len(self.search), "module_import_edges": sum(sum(x in self.modules for x in m["imports"]) for m in self.modules.values()),
             "evidence_commit": self.ci["commit"], "evidence_run": self.ci["url"],
+            "portable_evidence_directory": self.portable_directory,
+            "portable_evidence_completed_at_utc": self.portable_summary["completed_at_utc"],
+            "statement_audit_manifest": self.statement_audit_path,
+            "source_certificate": self.source_certificate_path,
             "proof_verification_performed_by_site_generator": False,
             "input_sha256": dict(sorted(self.inputs.items())),
         }))

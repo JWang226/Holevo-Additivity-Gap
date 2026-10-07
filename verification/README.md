@@ -1,6 +1,6 @@
 # Verification evidence
 
-## Current cleanup branch
+## Current cleanup and release verification
 
 The October 6–7 [elaboration cleanup](elaboration-20261006/README.md) completed
 two full 369-module Linux rebuilds, three guarded cleanup trials, and an exact
@@ -8,17 +8,25 @@ comparison of all 5,323 public types and six challenge roots. See its
 [before/after report](elaboration-20261006/comparison/ELABORATION_COMPARISON.md)
 and [reproducer commands](../docs/ELABORATION_CLEANUP.md).
 
-On `codex/cleanup-elaboration-20261006`, select the current source evidence:
+For the current sources, select the rebuild/type evidence explicitly:
 
 ```sh
 bash scripts/verify.sh lean \
   --source-certificate verification/elaboration-20261006/source-certificate.json
 ```
 
-The historical sections below describe the reviewed `main` release. Their
-records remain unchanged; historical source-freshness checks intentionally do
-not pass for the edited cleanup sources. Comparator and Nanoda were not rerun
-in this cleanup, and the website remains the reviewed release.
+The cleanup measurement publication did not rerun Comparator or Nanoda. Its
+certificate retains that narrower scope. The full release selects its portable
+evidence separately through `portable_verification_current.directory` in
+[release metadata](../metadata/results.json), pointing to
+`verification/portable-20261007`. `python3 verification/check_reports.py`
+accepts those records only when their source/checker hashes, scope, controls,
+and retained evidence hashes match the current checkout.
+
+The October 2 sections below describe the earlier reviewed release. Their
+records remain unchanged; their historical source-freshness checks intentionally
+do not pass for edited cleanup sources. Selecting current evidence never changes
+the source bindings or execution claims in those historical files.
 
 ## Full project-source build on GitHub
 
@@ -41,12 +49,25 @@ each commit's workflow status is separately visible in GitHub Actions.
 
 ## Portable verification
 
-For the reviewed `main` checkout, run `bash scripts/verify.sh all` to rebuild/audit the Lean
+For the current checkout, run the following command to rebuild/audit the Lean
 proof library, compare all five challenge configurations with pinned Comparator
 and replay their six theorem roots in Lean, then check their exports with pinned
-Nanoda. Individual modes are `lean`, `comparator`, and `nanoda`.
+Nanoda:
+
+```sh
+bash scripts/verify.sh all \
+  --source-certificate verification/elaboration-20261006/source-certificate.json
+```
+
+Individual modes are `lean`, `comparator`, and `nanoda`; only `lean` and `all`
+accept the certificate option. Each run writes new reports. The current release's
+retained files are under [portable-20261007](portable-20261007/); the evidence
+checker uses the explicit metadata selector rather than choosing the newest
+directory or reusing a historical success record.
 No landrun or systemd is needed. Comparator and Nanoda run unsandboxed.
 See [reproducer commands](../docs/verify.md) for prerequisites and trust scope.
+
+### Preserved October 2 run
 
 The October 2, 2026 native macOS `all` run passed. It rebuilt all 369 project
 modules and audited 9,107 declarations / 7,219 theorem constants, checked the
@@ -62,17 +83,16 @@ Retained evidence:
 - [Comparator report](portable-20261002/comparator-result.json) and [log](portable-20261002/comparator.log).
 - [Nanoda report](portable-20261002/nanoda-result.json), [log](portable-20261002/nanoda.log), [build receipt](portable-20261002/nanoda-build.json), and [controls log](portable-20261002/nanoda-controls.log).
 
-The source/artifact hashes identify the exact checked inputs. The base Git
-commit alone does not identify the uncommitted checker additions present at
-execution. `python3 verification/check_reports.py` checks those hashes and the
-recorded scope against the current tree; it does not rerun proof checking.
-The website build performs the same evidence freshness check. The historical
-CI records retain their original execution status. No sandboxed upstream CLI
-execution is claimed.
+The historical source/artifact hashes identify the exact inputs checked on
+October 2. The base Git commit alone does not identify the uncommitted checker
+additions present at execution. The evidence checker and website validate the
+selected current records against the current tree; neither reruns proof checking.
+The October 2 portable files and historical CI records retain their original
+execution status and hashes. No sandboxed upstream CLI execution is claimed.
 
 ## Reproduce the declaration browser
 
-For the reviewed `main` checkout, after the Lean reproducer succeeds, export the compiled project constants and
+After the current Lean reproducer succeeds, export the compiled project constants and
 rebuild the offline website:
 
 ```sh
