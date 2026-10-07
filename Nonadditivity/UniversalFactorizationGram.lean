@@ -14,18 +14,6 @@ set_option maxHeartbeats 1000000
 set_option linter.unusedSectionVars false
 namespace Nonadditivity.UniversalFactorization
 open scoped BigOperators Matrix Matrix.Norms.L2Operator ComplexOrder MatrixOrder
-/-- Factor the operator sandwich before specializing the finite index type to a support. -/
-private theorem sandwich_rectLift_place
-    {ζ ι E F : Type*} [Fintype ζ] [DecidableEq ζ] [Fintype ι] [DecidableEq ι]
-    [NormedAddCommGroup E] [InnerProductSpace ℂ E] [CompleteSpace E]
-    [NormedAddCommGroup F] [InnerProductSpace ℂ F] [CompleteSpace F]
-    (C : F →L[ℂ] Space (ζ × ι) E) (g h : ζ) (A : Matrix ι ι ℂ) :
-    C.adjoint.comp ((rectLift (FiniteSetFactorization.place g h A)).comp C) =
-      ((rectLift (FiniteSetFactorization.selector g)).comp C).adjoint.comp
-        ((rectLift A).comp ((rectLift (FiniteSetFactorization.selector h)).comp C)) := by
-  simp only [FiniteSetFactorization.place, rectLift_mul, rectLift_adjoint,
-    ContinuousLinearMap.adjoint_comp, ContinuousLinearMap.comp_assoc]
-
 section Assembly
 open FiniteSetFactorization
 variable {G ι E : Type*} [Group G] [DecidableEq G] [Fintype ι] [DecidableEq ι]
@@ -75,7 +63,8 @@ theorem evaluate_place (S : Finset G) (g h : Support S) (A : Matrix ι ι ℂ) :
   have heq : evaluate π S (place g h A) =
       ((rectLift (selector g)).comp (column π S)).adjoint.comp
         ((rectLift A).comp ((rectLift (selector h)).comp (column π S))) := by
-    exact sandwich_rectLift_place (column π S) g h A
+    simp only [evaluate, place, rectLift_mul, rectLift_adjoint,
+      ContinuousLinearMap.adjoint_comp, ContinuousLinearMap.comp_assoc]
   rw [heq, select_column π, select_column π, shift_adjoint π, ← ContinuousLinearMap.comp_assoc, ← rectLift_shift π,
     ContinuousLinearMap.comp_assoc, shift_mul π]
   rfl
