@@ -1,0 +1,72 @@
+Nonadditivity/NoncommutativeCSAssignments.lean:27:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.sum_assignment_insert`:
+  [DecidableEq J]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq J] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/NoncommutativeCSAssignments.lean:91:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_open`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/NoncommutativeCSAssignments.lean:99:21: warning: This simp argument is unused:
+  variableCount
+
+Hint: Omit it from the simp argument list.
+  simp [coefficient,̵ ̵v̵a̵r̵i̵a̵b̵l̵e̵C̵o̵u̵n̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/NoncommutativeCSAssignments.lean:101:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_close`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/NoncommutativeCSAssignments.lean:108:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_middle`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/NoncommutativeCSAssignments.lean:114:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_singleton`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/NoncommutativeCSAssignments.lean:121:21: warning: This simp argument is unused:
+  variableCount
+
+Hint: Omit it from the simp argument list.
+  simp [coefficient,̵ ̵v̵a̵r̵i̵a̵b̵l̵e̵C̵o̵u̵n̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/NoncommutativeCSAssignments.lean:129:58: warning: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_open, Fin.removeNth_insertNth, i̵t̵e̵_̵apply,̵ ̵a̵p̵p̵l̵y̵_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/NoncommutativeCSAssignments.lean:137:34: warning: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_close, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/NoncommutativeCSAssignments.lean:144:37: warning: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_diagonal, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/NoncommutativeCSAssignments.lean:151:37: warning: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_diagonal, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite, map_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

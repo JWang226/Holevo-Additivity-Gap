@@ -1,0 +1,12 @@
+Nonadditivity/HaarPathFreshRuns.lean:59:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.prefixSamePattern_extend_firstVisit`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathFreshRuns.lean:113:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidence_at_fresh_vertex_unique`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

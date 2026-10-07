@@ -1,0 +1,11 @@
+{
+  "baseline_sha": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+  "candidate_sha": "19009365349aa79885ff88af5648b52dde754ec1",
+  "mode": "profile",
+  "modules": [
+    "Nonadditivity.NetPolynomial"
+  ],
+  "repetitions": 3,
+  "schema_version": 1,
+  "sequence": 2
+}

@@ -1,0 +1,24 @@
+Nonadditivity/HaarProfilePermutations.lean:25:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.labelEquiv_map`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarProfilePermutations.lean:85:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_count`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarProfilePermutations.lean:90:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_first`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarProfilePermutations.lean:93:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_last`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

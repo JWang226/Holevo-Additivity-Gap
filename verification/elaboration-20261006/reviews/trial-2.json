@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "module": "Nonadditivity.NetPolynomial",
+  "baseline_sha": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+  "candidate_sha": "19009365349aa79885ff88af5648b52dde754ec1",
+  "trial_result_sha256": "4342393d9fcf5a9391d4aa1dc37f7116078735f726c7e0370bcefc5c00e2c060",
+  "decision": "reverted",
+  "relevant_phase": "tactic execution",
+  "intervention": "Give the spectral endpoint theorem explicit algebra and element arguments",
+  "rationale": "The public theorem header is unchanged, but all six valid guarded profiles show no qualifying gain: median tactic execution25.6 to25.2 seconds saves0.4 seconds(1.56%), below both thresholds. Wall28.81 to28.94 and CPU69.03 to69.26 do not improve. Typeclass inference29.7 to30.2 and type checking2.6 to2.73 are reported rather than hidden. This null candidate is fully reverted; no intermediate compiled exact-type comparison is claimed.",
+  "statements_changed": false,
+  "other_phases_regressed": false,
+  "statement_review_scope": "Manual comparison of source declaration headers. Final-state compiled public-type comparison is separate; this review does not assert English-to-Lean equivalence."
+}

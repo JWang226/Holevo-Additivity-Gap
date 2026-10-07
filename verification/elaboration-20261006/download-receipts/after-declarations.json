@@ -1,0 +1,31 @@
+{
+  "repository": "JWang226/Holevo-Additivity-Gap",
+  "artifact_id": 11454182665,
+  "zip_sha256": "c6d8ffa1aeaabfff380403716eee5801881c051de61ff01893c687bd4a908df6",
+  "files": {
+    "metadata/declarations.json": {
+      "bytes": 53326245,
+      "sha256": "5f99bcc8696f3d086580c5b8e7a0c47503f306bccb0feb085e4b816457931d24"
+    },
+    ".lake/export-declarations.log": {
+      "bytes": 141,
+      "sha256": "86c9b312612011b5ae95a7984a9c89a46ecc4b7460640777a1d3c65ca27092a2"
+    },
+    ".lake/export-declarations-progress.json": {
+      "bytes": 167,
+      "sha256": "b365b47466f944d865e7c2b4b1b01b0a52214e03d0349f5767848d7a2989d0e9"
+    },
+    ".lake/declarations.records.jsonl": {
+      "bytes": 75505369,
+      "sha256": "4c5fff85f6cb356224be861371fe4ecc94791886ee1b051370116a89b238966b"
+    },
+    ".lake/declarations.checkpoint.json": {
+      "bytes": 42565,
+      "sha256": "6f166ace8ec6c5e06041b5d6d4bd082910092ee65f54ff33ff1f28114c166ee9"
+    },
+    ".lake/declarations.raw.json": {
+      "bytes": 75505419,
+      "sha256": "902aab1291dd2a132a2706bc94afe446ecc2c6d162ad20a0d315cf512b0f60e2"
+    }
+  }
+}

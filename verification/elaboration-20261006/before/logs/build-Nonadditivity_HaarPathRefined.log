@@ -1,0 +1,20 @@
+Nonadditivity/HaarPathRefined.lean:23:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.refl`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathRefined.lean:25:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.trans`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathRefined.lean:68:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.coreChainProfile_eq_of_colorList_eq`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

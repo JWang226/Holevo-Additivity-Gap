@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "scope": "Exact downloaded export bytes; large raw JSON/log streams stored as deterministic gzip with independently verified decoded SHA-256.",
+  "files": [
+    {
+      "downloaded_path": ".lake/export-declarations-progress.json",
+      "original_sha256": "b365b47466f944d865e7c2b4b1b01b0a52214e03d0349f5767848d7a2989d0e9",
+      "original_bytes": 167,
+      "archive_path": "verification/elaboration-20261006/declaration-export/export-declarations-progress.json",
+      "archive_sha256": "b365b47466f944d865e7c2b4b1b01b0a52214e03d0349f5767848d7a2989d0e9",
+      "archive_bytes": 167,
+      "encoding": "identity"
+    },
+    {
+      "downloaded_path": ".lake/declarations.checkpoint.json",
+      "original_sha256": "6f166ace8ec6c5e06041b5d6d4bd082910092ee65f54ff33ff1f28114c166ee9",
+      "original_bytes": 42565,
+      "archive_path": "verification/elaboration-20261006/declaration-export/declarations.checkpoint.json",
+      "archive_sha256": "6f166ace8ec6c5e06041b5d6d4bd082910092ee65f54ff33ff1f28114c166ee9",
+      "archive_bytes": 42565,
+      "encoding": "identity"
+    },
+    {
+      "downloaded_path": ".lake/export-declarations.log",
+      "original_sha256": "86c9b312612011b5ae95a7984a9c89a46ecc4b7460640777a1d3c65ca27092a2",
+      "original_bytes": 141,
+      "archive_path": "verification/elaboration-20261006/declaration-export/export-declarations.log",
+      "archive_sha256": "86c9b312612011b5ae95a7984a9c89a46ecc4b7460640777a1d3c65ca27092a2",
+      "archive_bytes": 141,
+      "encoding": "identity"
+    },
+    {
+      "downloaded_path": ".lake/declarations.records.jsonl",
+      "original_sha256": "4c5fff85f6cb356224be861371fe4ecc94791886ee1b051370116a89b238966b",
+      "original_bytes": 75505369,
+      "archive_path": "verification/elaboration-20261006/declaration-export/declarations.records.jsonl.gz",
+      "archive_sha256": "db6a7984bd4550930325a0d3a10277a2ca08e30ae94cfc6a4e539592e1662b49",
+      "archive_bytes": 8415325,
+      "encoding": "gzip"
+    },
+    {
+      "downloaded_path": ".lake/declarations.raw.json",
+      "original_sha256": "902aab1291dd2a132a2706bc94afe446ecc2c6d162ad20a0d315cf512b0f60e2",
+      "original_bytes": 75505419,
+      "archive_path": "verification/elaboration-20261006/declaration-export/declarations.raw.json.gz",
+      "archive_sha256": "4b9b6f7352818e3c06d571ff42335a3ee36f2ba9d5062472827345928ebdc069",
+      "archive_bytes": 8415062,
+      "encoding": "gzip"
+    },
+    {
+      "downloaded_path": "metadata/declarations.json",
+      "original_sha256": "5f99bcc8696f3d086580c5b8e7a0c47503f306bccb0feb085e4b816457931d24",
+      "original_bytes": 53326245,
+      "archive_path": "metadata/declarations.json",
+      "archive_sha256": "5f99bcc8696f3d086580c5b8e7a0c47503f306bccb0feb085e4b816457931d24",
+      "archive_bytes": 53326245,
+      "encoding": "identity"
+    }
+  ]
+}

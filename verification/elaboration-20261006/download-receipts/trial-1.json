@@ -1,0 +1,207 @@
+{
+  "repository": "JWang226/Holevo-Additivity-Gap",
+  "artifact_id": 11451348666,
+  "zip_sha256": "8268b9f7dc1ae667e3a0681b76fe8dfed6bfb163d3f8cbd0a210c7e6546ee7e0",
+  "files": {
+    "request.json": {
+      "bytes": 274,
+      "sha256": "463715ef8685fe3a88b92e78c85d954a90acc8ed1544ba8a8736007412266ace"
+    },
+    "result.json": {
+      "bytes": 87600,
+      "sha256": "e44ff0f06f8314118967c66fdb438044e149968ebe0a1ef6dd6e84a7ea61b198"
+    },
+    "run-1-baseline/Nonadditivity_RegularCoefficientEnergy/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-1-baseline/Nonadditivity_RegularCoefficientEnergy/driver.log": {
+      "bytes": 1453,
+      "sha256": "a43565ff7bc367a97fc42d80f488b98e7e9349a72f0fc4b43f4e1200eb856cdf"
+    },
+    "run-1-baseline/Nonadditivity_RegularCoefficientEnergy/logs/profile-Nonadditivity_RegularCoefficientEnergy.log": {
+      "bytes": 1453,
+      "sha256": "a43565ff7bc367a97fc42d80f488b98e7e9349a72f0fc4b43f4e1200eb856cdf"
+    },
+    "run-1-baseline/Nonadditivity_RegularCoefficientEnergy/measurements.jsonl": {
+      "bytes": 8053,
+      "sha256": "cabd6adfd2f1bc629ef999115f831b0c0b28d4ab7fda1a616eb6083e8bb85db3"
+    },
+    "run-1-baseline/Nonadditivity_RegularCoefficientEnergy/result.json": {
+      "bytes": 10312,
+      "sha256": "241f6983181867a8722d5d7a61a9eb4e200b73c8c0bfb8ac9d7acd2ebb7c3c55"
+    },
+    "run-1-baseline/Nonadditivity_RegularCoefficientEnergy/timed-compiler": {
+      "bytes": 419,
+      "sha256": "7624b6a848a49e2f4deefde0089d0770f3270e73a0f6b53bd7948ecb2032658c"
+    },
+    "run-1-baseline/Nonadditivity_RegularCoefficientEnergy/timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt": {
+      "bytes": 849,
+      "sha256": "cd3c88434c5a974a4faaf0ea19703b2f02da17c62a5c7017006926ed8013b3ba"
+    },
+    "run-1-baseline/Nonadditivity_RegularCoefficientEnergy/wrapper-config.json": {
+      "bytes": 125535,
+      "sha256": "cfc322730d044122f623f8255915ffb05b3a78183574bfc349631df3457853a1"
+    },
+    "run-1-candidate/Nonadditivity_RegularCoefficientEnergy/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-1-candidate/Nonadditivity_RegularCoefficientEnergy/driver.log": {
+      "bytes": 1349,
+      "sha256": "d9573e8b9cf3367e14ce340ce699d266720572e48d6fa741f6e988978257d727"
+    },
+    "run-1-candidate/Nonadditivity_RegularCoefficientEnergy/logs/profile-Nonadditivity_RegularCoefficientEnergy.log": {
+      "bytes": 1349,
+      "sha256": "d9573e8b9cf3367e14ce340ce699d266720572e48d6fa741f6e988978257d727"
+    },
+    "run-1-candidate/Nonadditivity_RegularCoefficientEnergy/measurements.jsonl": {
+      "bytes": 7548,
+      "sha256": "a4bc93d18058f7c856222ccc103d6506281c05cf4c99031fd049c712bf2ade49"
+    },
+    "run-1-candidate/Nonadditivity_RegularCoefficientEnergy/result.json": {
+      "bytes": 9591,
+      "sha256": "7f61b3ecbdc073d5059796f611affd94b8d2d808a843bd62560c0400c427df01"
+    },
+    "run-1-candidate/Nonadditivity_RegularCoefficientEnergy/timed-compiler": {
+      "bytes": 420,
+      "sha256": "b3ee5dfeb6bf1c8e3afdfb4878eed4c6796951338fd009b760929bc11e0148df"
+    },
+    "run-1-candidate/Nonadditivity_RegularCoefficientEnergy/timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt": {
+      "bytes": 849,
+      "sha256": "839be82f1c7bb3acebefc6b61750178ee373b559026cfb68593823679b27d6e8"
+    },
+    "run-1-candidate/Nonadditivity_RegularCoefficientEnergy/wrapper-config.json": {
+      "bytes": 125536,
+      "sha256": "447be79b0f04edb912b321715d0d40780dc8380abf97659d6cd4f937b0c0df18"
+    },
+    "run-2-baseline/Nonadditivity_RegularCoefficientEnergy/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-2-baseline/Nonadditivity_RegularCoefficientEnergy/driver.log": {
+      "bytes": 1350,
+      "sha256": "e5b1801b4bdb4fccf034b3f01bc03f2217744acf11cdfed0ea2cbacedab12d7a"
+    },
+    "run-2-baseline/Nonadditivity_RegularCoefficientEnergy/logs/profile-Nonadditivity_RegularCoefficientEnergy.log": {
+      "bytes": 1350,
+      "sha256": "e5b1801b4bdb4fccf034b3f01bc03f2217744acf11cdfed0ea2cbacedab12d7a"
+    },
+    "run-2-baseline/Nonadditivity_RegularCoefficientEnergy/measurements.jsonl": {
+      "bytes": 7480,
+      "sha256": "e29e43a4c4f8f29324e0a7445f9059cabcec6d548d2f4e815665975bb426aeed"
+    },
+    "run-2-baseline/Nonadditivity_RegularCoefficientEnergy/result.json": {
+      "bytes": 9523,
+      "sha256": "4525b360d59b5b7a5d057944c7fbc12200977c30db673f5d3dd4c2e69d125e42"
+    },
+    "run-2-baseline/Nonadditivity_RegularCoefficientEnergy/timed-compiler": {
+      "bytes": 419,
+      "sha256": "d5b899bcf55564129f138d25c8cddf9fc4d3580932e2648ab6d5680a818da90a"
+    },
+    "run-2-baseline/Nonadditivity_RegularCoefficientEnergy/timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt": {
+      "bytes": 849,
+      "sha256": "ea952ad06d905b51133ce76a3979f21290997f90923e76b5c91d77ba44aafcb1"
+    },
+    "run-2-baseline/Nonadditivity_RegularCoefficientEnergy/wrapper-config.json": {
+      "bytes": 125535,
+      "sha256": "53e889b4ca54ff8ebc7f7b3c86b745b9e6abc023a72b4911a0954b239d4f4b8d"
+    },
+    "run-2-candidate/Nonadditivity_RegularCoefficientEnergy/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-2-candidate/Nonadditivity_RegularCoefficientEnergy/driver.log": {
+      "bytes": 1351,
+      "sha256": "a62e50b09b3e0e62dd64e8531e3ac4ffc7516a8a17517e556d02c117880f960e"
+    },
+    "run-2-candidate/Nonadditivity_RegularCoefficientEnergy/logs/profile-Nonadditivity_RegularCoefficientEnergy.log": {
+      "bytes": 1351,
+      "sha256": "a62e50b09b3e0e62dd64e8531e3ac4ffc7516a8a17517e556d02c117880f960e"
+    },
+    "run-2-candidate/Nonadditivity_RegularCoefficientEnergy/measurements.jsonl": {
+      "bytes": 7428,
+      "sha256": "6665c0cb1f18d0aae73e69ef64d2e7802ecb2759c1e04704c88601df9a184771"
+    },
+    "run-2-candidate/Nonadditivity_RegularCoefficientEnergy/result.json": {
+      "bytes": 9471,
+      "sha256": "880b4d4e56d7bc7559b97b31a002a57b4ec5f282347a8d067549d02b263cbb04"
+    },
+    "run-2-candidate/Nonadditivity_RegularCoefficientEnergy/timed-compiler": {
+      "bytes": 420,
+      "sha256": "e1d249b6104da293d6c1c6ee68a80007c5d3a8fd9ee5e1ff81bf92703d7c9888"
+    },
+    "run-2-candidate/Nonadditivity_RegularCoefficientEnergy/timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt": {
+      "bytes": 849,
+      "sha256": "4b41647ece97bf347b255e9f7acb4e43bc6382f4eb06cda1bdf93c5e04d49a35"
+    },
+    "run-2-candidate/Nonadditivity_RegularCoefficientEnergy/wrapper-config.json": {
+      "bytes": 125536,
+      "sha256": "69e1ded18ef15b5cd60cb0c472ed6fcc0e93d0d9081200417da81ba9cb15846f"
+    },
+    "run-3-baseline/Nonadditivity_RegularCoefficientEnergy/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-3-baseline/Nonadditivity_RegularCoefficientEnergy/driver.log": {
+      "bytes": 1398,
+      "sha256": "bafb64d6db3b19a660a79b7d0c33514b15df99652de6dda4be3a3cdc0a4f473b"
+    },
+    "run-3-baseline/Nonadditivity_RegularCoefficientEnergy/logs/profile-Nonadditivity_RegularCoefficientEnergy.log": {
+      "bytes": 1398,
+      "sha256": "bafb64d6db3b19a660a79b7d0c33514b15df99652de6dda4be3a3cdc0a4f473b"
+    },
+    "run-3-baseline/Nonadditivity_RegularCoefficientEnergy/measurements.jsonl": {
+      "bytes": 7740,
+      "sha256": "a40ec9b32213071ca3cf0772e693474e27b027c7c2f73f58616608b65c0ecc82"
+    },
+    "run-3-baseline/Nonadditivity_RegularCoefficientEnergy/result.json": {
+      "bytes": 9891,
+      "sha256": "48154a7a647b612380b380a7cfaf76e6d4fdfc8b7691ae197b3aa3f1283fe03d"
+    },
+    "run-3-baseline/Nonadditivity_RegularCoefficientEnergy/timed-compiler": {
+      "bytes": 419,
+      "sha256": "1f1881133da58443a41f3a9d642052a910708efadcfaca324623cd8538780139"
+    },
+    "run-3-baseline/Nonadditivity_RegularCoefficientEnergy/timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt": {
+      "bytes": 849,
+      "sha256": "aa139bd0b2c39596906ef6ff746aa0f49e6eb43018049a9976e60e5ac7b5b362"
+    },
+    "run-3-baseline/Nonadditivity_RegularCoefficientEnergy/wrapper-config.json": {
+      "bytes": 125535,
+      "sha256": "c3edcce1599bc8032c6f2c5c2c509d3f1ab85860d4bb5dceb253bf6e15f49cb8"
+    },
+    "run-3-candidate/Nonadditivity_RegularCoefficientEnergy/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-3-candidate/Nonadditivity_RegularCoefficientEnergy/driver.log": {
+      "bytes": 1514,
+      "sha256": "5c45a045ce30cbc9dd43864c42b025d7ce7e45e962c77b02d8f5e3936b8dadfc"
+    },
+    "run-3-candidate/Nonadditivity_RegularCoefficientEnergy/logs/profile-Nonadditivity_RegularCoefficientEnergy.log": {
+      "bytes": 1514,
+      "sha256": "5c45a045ce30cbc9dd43864c42b025d7ce7e45e962c77b02d8f5e3936b8dadfc"
+    },
+    "run-3-candidate/Nonadditivity_RegularCoefficientEnergy/measurements.jsonl": {
+      "bytes": 8497,
+      "sha256": "dfe534d298c0944ff70a8f453688c8476503990f649c06aa10f32318a2d8647f"
+    },
+    "run-3-candidate/Nonadditivity_RegularCoefficientEnergy/result.json": {
+      "bytes": 10864,
+      "sha256": "f47f19b245513ceb6cd21b6f8bdab59ca0855a6298914f88eb0ca220c69db580"
+    },
+    "run-3-candidate/Nonadditivity_RegularCoefficientEnergy/timed-compiler": {
+      "bytes": 420,
+      "sha256": "7be6d80f38cd49311c9b28f1048323fcf4f264ba7e270dadf781952645856be6"
+    },
+    "run-3-candidate/Nonadditivity_RegularCoefficientEnergy/timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt": {
+      "bytes": 849,
+      "sha256": "f99c05dfbfde5e1191b80eec4dff85994e69b8aca89bb16fba1561325be4ba36"
+    },
+    "run-3-candidate/Nonadditivity_RegularCoefficientEnergy/wrapper-config.json": {
+      "bytes": 125536,
+      "sha256": "ad5c238500f5c2a3981cb79e8094b076f9a81cdf32956d129f7cc1c47f3464db"
+    }
+  }
+}

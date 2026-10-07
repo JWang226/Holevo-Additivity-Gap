@@ -1,0 +1,6 @@
+Nonadditivity/HaarActualScanWords.lean:29:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarActualScanWords.scanWords_eq_actual_chunks`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

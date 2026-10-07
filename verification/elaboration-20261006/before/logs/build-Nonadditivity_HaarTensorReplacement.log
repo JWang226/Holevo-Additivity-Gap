@@ -1,0 +1,23 @@
+Nonadditivity/HaarTensorReplacement.lean:44:32: warning: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, mul_one, ← Matrix.mul_kronecker_mul,
+  ̲  ̲ ̲ ̲M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵,̵ ̵Matrix.mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/HaarTensorReplacement.lean:44:48: warning: This simp argument is unused:
+  Matrix.mul_one
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, mul_one, ← Matrix.mul_kronecker_mul,
+  ̲  ̲ ̲ ̲M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵o̵n̵e̵]̵M̲a̲t̲r̲i̲x̲.̲o̲n̲e̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/HaarTensorReplacement.lean:58:48: warning: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, ← Matrix.mul_kronecker_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵o̵n̵e̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵]̵M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲o̲n̲e̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

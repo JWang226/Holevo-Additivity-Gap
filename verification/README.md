@@ -1,5 +1,25 @@
 # Verification evidence
 
+## Current cleanup branch
+
+The October 6–7 [elaboration cleanup](elaboration-20261006/README.md) completed
+two full 369-module Linux rebuilds, three guarded cleanup trials, and an exact
+comparison of all 5,323 public types and six challenge roots. See its
+[before/after report](elaboration-20261006/comparison/ELABORATION_COMPARISON.md)
+and [reproducer commands](../docs/ELABORATION_CLEANUP.md).
+
+On `codex/cleanup-elaboration-20261006`, select the current source evidence:
+
+```sh
+bash scripts/verify.sh lean \
+  --source-certificate verification/elaboration-20261006/source-certificate.json
+```
+
+The historical sections below describe the reviewed `main` release. Their
+records remain unchanged; historical source-freshness checks intentionally do
+not pass for the edited cleanup sources. Comparator and Nanoda were not rerun
+in this cleanup, and the website remains the reviewed release.
+
 ## Full project-source build on GitHub
 
 [GitHub Actions run 36956367986, attempt 1](https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/36956367986)
@@ -21,7 +41,7 @@ each commit's workflow status is separately visible in GitHub Actions.
 
 ## Portable verification
 
-Run `bash scripts/verify.sh all` from a clean clone to rebuild/audit the Lean
+For the reviewed `main` checkout, run `bash scripts/verify.sh all` to rebuild/audit the Lean
 proof library, compare all five challenge configurations with pinned Comparator
 and replay their six theorem roots in Lean, then check their exports with pinned
 Nanoda. Individual modes are `lean`, `comparator`, and `nanoda`.
@@ -52,7 +72,7 @@ execution is claimed.
 
 ## Reproduce the declaration browser
 
-After the Lean reproducer succeeds, export the compiled project constants and
+For the reviewed `main` checkout, after the Lean reproducer succeeds, export the compiled project constants and
 rebuild the offline website:
 
 ```sh

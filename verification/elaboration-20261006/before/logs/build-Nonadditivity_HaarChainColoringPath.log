@@ -1,0 +1,12 @@
+Nonadditivity/HaarChainColoringPath.lean:26:8: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.path_vertex`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarChainColoringPath.lean:27:8: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.path_colors`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

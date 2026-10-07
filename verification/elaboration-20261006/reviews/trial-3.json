@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "module": "Nonadditivity.UniversalFactorizationGram",
+  "baseline_sha": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+  "candidate_sha": "e91f6a11ff41d523d0af96b81844a02a74f74ec7",
+  "trial_result_sha256": "2f961aaf87dc8c6535e9ac0a7b79dcbf7d9685d07ee65f8ed4b13482bea7b75f",
+  "decision": "reverted",
+  "relevant_phase": "type checking",
+  "intervention": "Extract the operator sandwich into a generic private helper",
+  "rationale": "The public evaluate_place header is unchanged. All three baseline controls pass, while all three candidate elaborations fail at the existing heartbeat limit. Source/artifact guards remain intact. The candidate is fully reverted. Its partial phase/CPU/wall measurements do not establish a valid speed regression, null result, or improvement; performance comparison is excluded.",
+  "statements_changed": false,
+  "other_phases_regressed": null,
+  "statement_review_scope": "Manual comparison of source declaration headers. Final-state compiled public-type comparison is separate; this review does not assert English-to-Lean equivalence.",
+  "failure_reason": "All three candidate runs hit deterministic whnf/tactic-execution timeouts at the unchanged 1,000,000-heartbeat limit (UniversalFactorizationGram lines78/81); all three baseline controls passed."
+}

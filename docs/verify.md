@@ -4,6 +4,8 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution. -->
 
 The portable workflow follows [QMDL](https://github.com/JWang226/QMDL). It works on macOS and Linux without landrun or systemd.
 
+On the cleanup branch, Lean and `all` use the explicit current-source certificate shown below. Without it, the validator retains the strict historical byte-equality gate. [Cleanup evidence and elaboration reproduction](ELABORATION_CLEANUP.md) explain its Lean/type-only scope; historical portable reports retain their original bindings.
+
 ## Prerequisites
 
 Install Bash, Git, [elan](https://github.com/leanprover/elan), Python 3.11 or newer with `venv`/`pip`, and native C/C++ build tools. Nanoda’s pinned-source build also needs [Rustup](https://rustup.rs/). Add `~/.elan/bin` and, when using Rustup, `~/.cargo/bin` to `PATH`. On macOS, the compiler is supplied by Xcode Command Line Tools (`xcode-select --install`); on Debian/Ubuntu, install `build-essential` and `python3-venv`. Network access is needed to download pinned dependencies.
@@ -13,7 +15,7 @@ Lean is pinned to `4.29.0-rc6`, Mathlib to the committed `lake-manifest.json`, a
 ## Get the repository
 
 ```sh
-git clone https://github.com/JWang226/Holevo-Additivity-Gap.git
+git clone --branch codex/cleanup-elaboration-20261006 https://github.com/JWang226/Holevo-Additivity-Gap.git
 cd Holevo-Additivity-Gap
 ```
 
@@ -24,7 +26,8 @@ Each mode prepares its own dependencies and builds the proof modules it needs. R
 ### Lean
 
 ```sh
-bash scripts/verify.sh lean
+bash scripts/verify.sh lean \
+  --source-certificate verification/elaboration-20261006/source-certificate.json
 ```
 
 Rebuilds all 369 project modules, audits 9,107 declarations, validates manuscript mappings, and checks six local challenge types. Rust is not required.
@@ -48,10 +51,11 @@ Builds pinned Nanoda, runs acceptance/rejection controls, and checks all six sol
 ## Run all checks
 
 ```sh
-bash scripts/verify.sh all
+bash scripts/verify.sh all \
+  --source-certificate verification/elaboration-20261006/source-certificate.json
 ```
 
-`all` is also the default when the mode is omitted. All requested stages must finish successfully before the wrapper prints `VERIFICATION PASSED: all`. Any failed stage returns a nonzero exit code and retains its log. Use `bash scripts/verify.sh --help` for usage.
+`all` is also the default when the mode is omitted; the cleanup branch still needs the explicit certificate option. All requested stages must finish successfully before the wrapper prints `VERIFICATION PASSED: all`. Any failed stage returns a nonzero exit code and retains its log. Use `bash scripts/verify.sh --help` for usage.
 
 The existing `verification/lean/run.sh`, `verification/comparator/run.sh`, and `verification/nanoda/run.sh` entry points remain available. The latter two delegate to the portable workflow.
 
@@ -73,7 +77,7 @@ Such a run records `caller_supplied` binary provenance. The default builds from 
 
 Fresh logs are saved in `.verify-work/run-<UTC>-<unique suffix>/`. Comparator and Nanoda success reports record the five cases, six theorem names, tool pins, source and artifact hashes, and unsandboxed status. Each run uses fresh report paths; no earlier success report is reused. The Lean stage also retains detailed logs in `.verify-work/logs/lean-*`.
 
-Published records are linked in [verification/README.md](../verification/README.md). The source/artifact hashes identify the exact checked inputs, including changes beyond the report’s recorded base Git commit.
+Historical portable records are linked in [verification/README.md](../verification/README.md); current cleanup evidence is in [verification/elaboration-20261006](../verification/elaboration-20261006/README.md). The source/artifact hashes identify the exact checked inputs, including changes beyond the report’s recorded base Git commit.
 
 ## Tool pins
 

@@ -1,0 +1,18 @@
+Nonadditivity/HaarPathClassData.lean:33:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.incidenceVertex_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathClassData.lean:38:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.firstVisit_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathClassData.lean:51:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.edgeAt_eq_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

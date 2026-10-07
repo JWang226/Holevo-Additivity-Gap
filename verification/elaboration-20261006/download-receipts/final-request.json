@@ -1,0 +1,15 @@
+{
+  "repository": "JWang226/Holevo-Additivity-Gap",
+  "artifact_id": 11452422399,
+  "zip_sha256": "10a4aa915ae21a6ba3fd8784b8835dc92db080c802e484377c3f804037866580",
+  "files": {
+    "request.json": {
+      "bytes": 183,
+      "sha256": "eadea3b04121bafd7415dab7448d464a84aeedece0112c8f539c44c9b74ffd1a"
+    },
+    "result.json": {
+      "bytes": 635,
+      "sha256": "908fe304563695c35d7a590de1dc64feb1ef6c9b6ee70ee08d06564a3a332ffb"
+    }
+  }
+}

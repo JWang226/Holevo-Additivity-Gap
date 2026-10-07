@@ -1,0 +1,15 @@
+Nonadditivity/HaarProfileAssignmentBound.lean:63:12: warning: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Nonadditivity/HaarProfileAssignmentBound.lean:69:8: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Nonadditivity/HaarProfileAssignmentBound.lean:72:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Nonadditivity/HaarProfileAssignmentBound.lean:75:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Nonadditivity/HaarProfileAssignmentBound.lean:82:8: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

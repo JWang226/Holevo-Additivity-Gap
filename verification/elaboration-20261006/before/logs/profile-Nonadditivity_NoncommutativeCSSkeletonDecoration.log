@@ -1,0 +1,53 @@
+import took 1.88s
+simp took 101ms
+tactic execution of Lean.Parser.Tactic.simpa took 243ms
+simp took 160ms
+tactic execution of Lean.Parser.Tactic.simpAll took 214ms
+simp took 194ms
+simp took 128ms
+simp took 363ms
+simp took 120ms
+simp took 209ms
+simp took 121ms
+simp took 202ms
+simp took 119ms
+simp took 210ms
+simp took 125ms
+simp took 202ms
+simp took 204ms
+simp took 122ms
+simp took 204ms
+simp took 118ms
+simp took 194ms
+simp took 128ms
+tactic execution of Lean.Parser.Tactic.simpAll took 122ms
+simp took 160ms
+simp took 194ms
+simp took 128ms
+tactic execution of Lean.Parser.Tactic.simpAll took 453ms
+simp took 160ms
+simp took 265ms
+simp took 133ms
+cumulative profiling times:
+	attribute application 0.185ms
+	blocked (unaccounted) 934ms
+	compilation (IR) 1.37ms
+	compilation (LCNF base) 18.9ms
+	compilation (LCNF impure) 2.78ms
+	compilation (LCNF mono) 9.91ms
+	congr simp thm 35.6ms
+	elaboration 290ms
+	fix level params 3.17ms
+	import 1.88s
+	initialization 34ms
+	instantiate metavars 7.73ms
+	interpretation 373ms
+	let-to-have transformation 0.492ms
+	linting 28.7ms
+	parsing 15.2ms
+	process pre-definitions 58.6ms
+	share common exprs 7.72ms
+	simp 6.05s
+	tactic execution 1.52s
+	type checking 334ms
+	typeclass inference 10.9s

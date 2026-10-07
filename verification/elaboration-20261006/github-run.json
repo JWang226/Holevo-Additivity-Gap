@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "repository": "JWang226/Holevo-Additivity-Gap",
+  "run_id": 37543825590,
+  "job_id": 112542946296,
+  "workflow_commit": "43d6892195189623418557c6f5621105a216b1cc",
+  "baseline_source_commit": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+  "after_source_commit": "e943a85f0234a573477a10871f60a2d9583fa47b",
+  "artifacts": [
+    {
+      "id": 11451581703,
+      "name": "elaboration-before",
+      "zip_sha256": "f537fe8fb18ebafd6165983af4aa7c836a19dec08c52adaa09657a33197eeff2"
+    },
+    {
+      "id": 11451348666,
+      "name": "elaboration-request-1",
+      "zip_sha256": "8268b9f7dc1ae667e3a0681b76fe8dfed6bfb163d3f8cbd0a210c7e6546ee7e0"
+    },
+    {
+      "id": 11451628694,
+      "name": "elaboration-request-2",
+      "zip_sha256": "afaf27d8ad411d314141aab899c931f39a31e60f5ccef7b09a7d871c031590e9"
+    },
+    {
+      "id": 11452393122,
+      "name": "elaboration-request-3",
+      "zip_sha256": "7f1eebe662bf2bb5ade59fc929c79201a1a03530c23abf8929bab47226b7e633"
+    },
+    {
+      "id": 11452422399,
+      "name": "elaboration-request-4",
+      "zip_sha256": "10a4aa915ae21a6ba3fd8784b8835dc92db080c802e484377c3f804037866580"
+    },
+    {
+      "id": 11454177644,
+      "name": "elaboration-after-and-continuation",
+      "zip_sha256": "121951fc7897a69246861d69123148a930502fbaa5a150282733996995947680"
+    },
+    {
+      "id": 11454182665,
+      "name": "elaboration-after-declarations",
+      "zip_sha256": "c6d8ffa1aeaabfff380403716eee5801881c051de61ff01893c687bd4a908df6"
+    }
+  ],
+  "receipt_scope": "Downloaded bytes checked against ZIP SHA-256 returned by GitHub API; per-file SHA-256 recorded during extraction. Original runner paths are preserved in evidence.",
+  "workflow_status": "completed",
+  "workflow_conclusion": "success"
+}

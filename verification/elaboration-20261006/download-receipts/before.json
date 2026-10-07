@@ -1,0 +1,3107 @@
+{
+  "repository": "JWang226/Holevo-Additivity-Gap",
+  "artifact_id": 11451581703,
+  "zip_sha256": "f537fe8fb18ebafd6165983af4aa7c836a19dec08c52adaa09657a33197eeff2",
+  "files": {
+    "ELABORATION_REPORT_2026-10-06_before.md": {
+      "bytes": 18152,
+      "sha256": "f6a258ff9ace07c6092b6f6e0b70d1ce92d7fff6919ba3d3a01801214cf24ac4"
+    },
+    "artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "artifacts-after.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "artifacts-before.json": {
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "build.log": {
+      "bytes": 631353,
+      "sha256": "32ea84565b427daa0f834e370815633ced7bddc6e75ad6756d4e9e3221c60aab"
+    },
+    "build.time.txt": {
+      "bytes": 814,
+      "sha256": "031844f8ec804caff63d328e0aa5f67a9350ade2488e002c652775b184ef2ae1"
+    },
+    "dependencies-after.json": {
+      "bytes": 2081254,
+      "sha256": "d32081f3e4d6c77772bda49e0c6001e353ab81f713a361ec2d8f0b2791e6f136"
+    },
+    "dependencies-before.json": {
+      "bytes": 2081254,
+      "sha256": "d32081f3e4d6c77772bda49e0c6001e353ab81f713a361ec2d8f0b2791e6f136"
+    },
+    "logs/build-All.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Audit.log": {
+      "bytes": 578435,
+      "sha256": "72f22179253dd464c9a1e1d6acebd7507ca4d60777d2cb0b403fdb05fde1abc0"
+    },
+    "logs/build-Nonadditivity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ActualConsequences.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_AdjointPurity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Asymptotics.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_BellOutput.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_BlockBell.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_BlockConstruction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_BlockScalars.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_CanonicalBlockBell.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ChannelEntropy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ChannelExtensions.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ChannelReindex.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ChannelTensorControl.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Channels.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_CollinsYoun.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_CollinsYounOne.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_CollinsYounProduct.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_CollinsYounTensor.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ComplementaryAdjoint.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ComplexRealTrace.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ConditionalStates.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ConjugateChannel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Conversion.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_DampedBellStability.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_DampedPositivity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_DampedChannel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_DampedRealization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_DampingNet.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_DeterministicConsequences.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_DeterministicQualitative.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Dimensions.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Entropy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_EntropyContinuity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_EntropyMixtures.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_EntropyProducts.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_EntropyStability.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ExactQualitative.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FiniteBlockModel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FiniteChannelRealization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FiniteFreeModel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FiniteMomentMatching.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FiniteRealization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FiniteRegularMatrix.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FiniteSetFactorization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FreeBridge.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FreeCreation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FreeEmbedding.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FreeGroupCut.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_FreeModel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GapFractionAsymptotics.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianCertificates.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianChannelBounds.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianConstruction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianConsequences.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianNetRealization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianNormalization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianQuadratic.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianRectangular.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianRectangularAlgebra.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianSampleEvaluation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GaussianScalar.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_GeneralBell.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarActualScanWords.log": {
+      "bytes": 427,
+      "sha256": "245798ae6cd4d6f1d57f8c653566d621fd248770784d8bf5075e4c555e75a658"
+    },
+    "logs/build-Nonadditivity_HaarAveraging.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarBranchCoefficients.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarBranchContractions.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarBranchGraphBudget.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarBranchTimeSum.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCanonicalTransport.log": {
+      "bytes": 673,
+      "sha256": "6fd2738f822d9a23dc917fa63663bc3c8c63e3b2f94a4a7cd6d34a67ce393f18"
+    },
+    "logs/build-Nonadditivity_HaarChainColoring.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarChainColoringFibre.log": {
+      "bytes": 426,
+      "sha256": "91e8ef757a4f4a7d5ee621c327405b8427d91c13c7c13d4c456d98d33d9270f3"
+    },
+    "logs/build-Nonadditivity_HaarChainColoringPalettes.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarChainColoringPath.log": {
+      "bytes": 854,
+      "sha256": "1ee9a143655e7057062057deeee657188bc4a959e2ceccea8e1e8cfe8d8f3d89"
+    },
+    "logs/build-Nonadditivity_HaarChainMultiplicity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarChainReindex.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCoefficientBounds.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCoefficientRows.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarColumnMoments.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarConsequences.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCoreChainAddress.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCoreChainEndpoints.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCoreChainLabels.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCoreChainMultiplicity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCoreChainReverseAddress.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarCoreChainWords.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarDecodedCoefficientBound.log": {
+      "bytes": 450,
+      "sha256": "27b2a0a613c1b5be42e73e60def31cc0a9d31601b9248ba4ba8d029edb7724ef"
+    },
+    "logs/build-Nonadditivity_HaarEncodingSlack.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarEntryBound.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarExpectationFromMoment.log": {
+      "bytes": 874,
+      "sha256": "09eec7ab7ecc7297941783fc3e62be543eca18718a7b89a694c3a40c8db514e2"
+    },
+    "logs/build-Nonadditivity_HaarFiniteFaithfulness.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarFiniteSymmetry.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarFourthMoments.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarHybridMoments.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarInputScaling.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarInvariantCommutant.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarInvariantSpanning.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarInvariantTensor.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarIteratedExpectation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarIteratedMoments.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMarkedCompositions.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMatchingCount.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMatchingFibers.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMatchingSharp.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMatchingSingletons.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMixedMoments.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMixedWordExpansion.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMomentConstants.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarModel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMomentExpectation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMomentSlack.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMomentTail.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarMoments.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarNonbacktracking.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarNonbacktrackingFirstStep.log": {
+      "bytes": 445,
+      "sha256": "111b42d8cc425c5989d86ad364e002df4631f40f2c76fa3f289d9d2cad6058c5"
+    },
+    "logs/build-Nonadditivity_HaarNonbacktrackingLastReturn.log": {
+      "bytes": 910,
+      "sha256": "7e3efe7518beaef0bf1cd6afdb28fb52a10e8a369a5b243188a7f788386cdb88"
+    },
+    "logs/build-Nonadditivity_HaarNonbacktrackingListSegmentation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarNonbacktrackingRenewal.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarNonbacktrackingSegmentation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarNonbacktrackingSupport.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarOnePairAssembly.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarOperatorCoefficient.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarOperatorCurry.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarOperatorPathBridge.log": {
+      "bytes": 322,
+      "sha256": "a572b15864a8c26a01e9c8bc75b6ffea7106048e9d5eb17d416f43b0229ad491"
+    },
+    "logs/build-Nonadditivity_HaarOperatorPathSum.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarOperatorPolynomial.log": {
+      "bytes": 433,
+      "sha256": "4d555cad8ddb9bbb70976b6018091e28b23f941f81cc194e27c48baaeeda1278"
+    },
+    "logs/build-Nonadditivity_HaarPairEntryBound.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPaletteDecoder.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathBalance.log": {
+      "bytes": 541,
+      "sha256": "98fea38b614e68899ed90b88e91dcfe790d4a9b13abf35c54fad77c9da264890"
+    },
+    "logs/build-Nonadditivity_HaarPathChainCount.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathChainPartition.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathChainProfiles.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathChains.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathClassAssembly.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathClassData.log": {
+      "bytes": 1291,
+      "sha256": "911930eecbf23b6f00b50c9e35f7ee70f11032099ba37525deddb0b500e7c2c2"
+    },
+    "logs/build-Nonadditivity_HaarPathClassStats.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathClassSums.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathClasses.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathCoefficientWords.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathColorMarks.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathColorNormalization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathCodes.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathColorRelabel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathCounting.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathDecomposition.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathExpansion.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathExploration.log": {
+      "bytes": 871,
+      "sha256": "f36fc7c3abce28bd6984633569777a6f49826b2fb750ad1d9a7e38c8a7687de2"
+    },
+    "logs/build-Nonadditivity_HaarPathExplorationBlocks.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathFreshRuns.log": {
+      "bytes": 874,
+      "sha256": "e7dab471d42f88e896b0b7283670604acc7e66e67947b4bc8c0f9fecf5e1ec82"
+    },
+    "logs/build-Nonadditivity_HaarPathExplorationCounterexample.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathGraph.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathInternalColors.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathInvolution.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathLocalPhase.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathMarks.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathMultiplicity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathNormalizedFresh.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathNormalizedTree.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathNormalizedTreeColors.log": {
+      "bytes": 336,
+      "sha256": "490cf0b17d5f2d04114815942557ec988e1de17bce9935d8bb6afbf792d70dd1"
+    },
+    "logs/build-Nonadditivity_HaarPathPrefixTree.log": {
+      "bytes": 867,
+      "sha256": "4e0bdfff96cd6a089f6ae810e08161acc7e749eef7cc4a7d597a9d31a3a5f73b"
+    },
+    "logs/build-Nonadditivity_HaarPathProfileReverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathProfiles.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathRecoloring.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathReconstruction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathReconstructionFresh.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathReconstructionTree.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathRefined.log": {
+      "bytes": 1315,
+      "sha256": "fb36d6521f1c88992024d8e77a3b894bfc6d7e1164fff48b9e3210bdd937b936"
+    },
+    "logs/build-Nonadditivity_HaarPathRefinedCounting.log": {
+      "bytes": 418,
+      "sha256": "63d6b11b0db27f15d04d0234dfaace337b748ca80e56e706019257f70bcbee31"
+    },
+    "logs/build-Nonadditivity_HaarPathRelabel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathRunCounterexample.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathRuns.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathSample.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathScalarSummation.log": {
+      "bytes": 604,
+      "sha256": "b7f6ad4eb1c46d5a1a27cd17175e9e45d852d8a5c1eae430c6e6355cb5ad885e"
+    },
+    "logs/build-Nonadditivity_HaarPathSupport.log": {
+      "bytes": 2316,
+      "sha256": "2bf3d635b225a0fffa196d3af672225d4d2f9dd9dd5fd96ef8a5d37d666e9fbf"
+    },
+    "logs/build-Nonadditivity_HaarPathTransport.log": {
+      "bytes": 3703,
+      "sha256": "87672b2dc4ee8dbe7bcef97a1d866ab60a853e88ee17fa9201a19b500c8b4705"
+    },
+    "logs/build-Nonadditivity_HaarPathTree.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPathTreeSegment.log": {
+      "bytes": 1867,
+      "sha256": "290852850dd7a0568f433c320b97ccac1fa4f461c160002d04aa133f26b1823c"
+    },
+    "logs/build-Nonadditivity_HaarPathVertexFibre.log": {
+      "bytes": 1259,
+      "sha256": "e6c68e86716ae5bd2270be1cae747ea839a1e8256761710c6d9b743eb3179146"
+    },
+    "logs/build-Nonadditivity_HaarPathVertexNames.log": {
+      "bytes": 593,
+      "sha256": "a50e2a2a70041c8649dc4028aadb26c4aa8a0261b3822e16c357fd77df23d923"
+    },
+    "logs/build-Nonadditivity_HaarPathWeightBudget.log": {
+      "bytes": 159,
+      "sha256": "c6b33422ef7361bd2ec010221f9c07502a790feae5969e76e5c411acb98ca71d"
+    },
+    "logs/build-Nonadditivity_HaarPathWeightTransport.log": {
+      "bytes": 404,
+      "sha256": "9b6d87f860c9dce41d570af668cb5678c0083e4ed042df00c5fbdea634f7d789"
+    },
+    "logs/build-Nonadditivity_HaarPathWeights.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPermutationSupport.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPrescribedBound.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPrescribedDimension.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPrescribedConsequences.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPrescribedProbability.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPrescribedRatio.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarPrescribedScaling.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarProfileAssignmentBound.log": {
+      "bytes": 886,
+      "sha256": "497cb17a18bba5279635667ec916aa50fb5f2916a71914d7d1ae7859d36a2dc2"
+    },
+    "logs/build-Nonadditivity_HaarProfileBlockCoefficients.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarProfileCoefficient.log": {
+      "bytes": 453,
+      "sha256": "f1362c6e7c0c9f4150641079ebbf8bfbe1ec2830558579c665b7084facbfee2f"
+    },
+    "logs/build-Nonadditivity_HaarProfileCompositionBound.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarProfileDecodedCoefficients.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarProfileOrientation.log": {
+      "bytes": 452,
+      "sha256": "01995f00cd604bec9287b6b13553db362a5ba57772f82758bd6ba55e5b83f393"
+    },
+    "logs/build-Nonadditivity_HaarProfilePadding.log": {
+      "bytes": 456,
+      "sha256": "360b2f749bccb10f77075e59289d2a332fbb269e2ee09d616cb295e2a7dc4e5f"
+    },
+    "logs/build-Nonadditivity_HaarProfilePatternBound.log": {
+      "bytes": 201,
+      "sha256": "da15a3c74b9e576906023ed5bd9c3ba0aa64e3d494d5ca9a77ce57208aaf4479"
+    },
+    "logs/build-Nonadditivity_HaarProfilePermutations.log": {
+      "bytes": 1723,
+      "sha256": "621881e85a6c288796cd7fa2e3b5433a8d8ef03508e7ab5b68d6992bcfacf6a0"
+    },
+    "logs/build-Nonadditivity_HaarProfileSingletonWeight.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarProfileWordReverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarRecursiveSample.log": {
+      "bytes": 158,
+      "sha256": "dbedbd7bb77efa6294b1b25faeab6bd86db9f6453bf0c8305d66aa4897abafdd"
+    },
+    "logs/build-Nonadditivity_HaarReducedChunks.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarRefinedCoefficientBound.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarRefinedCoefficientFibre.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarRefinedPaletteFibre.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarRefinedVertexFibre.log": {
+      "bytes": 422,
+      "sha256": "41b149eda333fd4450de2573d45dabc7dc3ffd5b9a14ddbb24161415578c2bda"
+    },
+    "logs/build-Nonadditivity_HaarRefinedWeight.log": {
+      "bytes": 166,
+      "sha256": "425b8e4dabe5858118efee5f7024ec6257ac2c7e701632b8223a3cec88d0fdef"
+    },
+    "logs/build-Nonadditivity_HaarRepresentativePositions.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarSharpBound.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarSharpConstants.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarSharpCounting.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarSharpPathWeight.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarSharpSummation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarSkeletonSegmentation.log": {
+      "bytes": 320,
+      "sha256": "53d27a7341248639811736df9071241f71b2877ea1ca77393f7231dfd55fc1fb"
+    },
+    "logs/build-Nonadditivity_HaarStationaryCoefficients.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarTensorConstants.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarTensorEvaluation.log": {
+      "bytes": 318,
+      "sha256": "0b2bd7eba48024cfc84187322be891695cc37cddd20d6795e7627c4863b1f0f0"
+    },
+    "logs/build-Nonadditivity_HaarTensorReplacement.log": {
+      "bytes": 1330,
+      "sha256": "1b4310e28328042ba1e7eb7590b78d80c4e26fa9f0c96c732a4256cf4ffb54a8"
+    },
+    "logs/build-Nonadditivity_HaarTimeCompositionReverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarTimeCompositions.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarVacuumFunctional.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWeingartenCycles.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWeingartenCounting.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWeingartenGram.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWeingartenInverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWeingartenInverseSum.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWeingartenMomentBound.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWeingartenSymmetry.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWordExpansion.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HaarWordPhase.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Holevo.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HolevoBits.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HolevoPowerGap.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HolevoRateLimit.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_HolevoTensorSuperadditivity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_InitialNetReduction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Linearization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Main.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_MatrixNormReindex.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_MatrixRegularRestriction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_MatrixShortEmbedding.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Net.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NetPolynomial.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NetPolynomialSupport.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCS.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSAssignmentProducts.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSAssignments.log": {
+      "bytes": 4138,
+      "sha256": "c0ffd8cd9969e20081cf9fccf3b33bab295e483a278e732e89d7453a2aec0831"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSCrossing.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSBlocks.log": {
+      "bytes": 380,
+      "sha256": "b6c65f753e8ffff954a47231dcbfc74487bd581b4802c48a14ba5aa4891f01dc"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSEndpointSkeleton.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSEndpointTrace.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSMemory.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSPaths.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSSingletons.log": {
+      "bytes": 330,
+      "sha256": "0ec8900d086a99b59012af11b50307c5bdd61d3e4e1dd7852233e75b49219d1c"
+    },
+    "logs/build-Nonadditivity_NoncommutativeCSSkeletonDecoration.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ObservableDimension.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OneBlockRealization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalBlockRates.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalBlocking.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalBlockingCodes.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalBlockingFlatten.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalCapacity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalCodingTheorem.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalConsequences.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalConverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalFlaggedEntropy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalHolevoConverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalNaimark.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalProjectedCode.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalReindex.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalStrongConverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_OperationalWeakConverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PolynomialDilation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PolynomialReduction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PositiveHolevo.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PositiveLinearization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PrescribedCostCapacity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PrescribedCostDimensions.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PrescribedCostInformation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PrescribedCostLogarithms.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PrescribedCostScalars.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PrescribedCostScaling.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PrescribedTest.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Probability.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductHaagerupBall.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProbabilityQuantitative.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductHaagerupCreation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductHaagerupHomogeneous.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductHaagerupIndex.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductHaagerupProduct.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductHaagerupReindex.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductHaagerupWords.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductMomentBridge.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_PureChannelEntropy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ProductPolynomialReduction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Purity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuadraticNet.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Qualitative.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Quantitative.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantitativeNet.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingConditionalTypicality.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingContinuity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingDecoderBound.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingChannelWords.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingEnsembleTypicality.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingFamilySpectrum.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingGentle.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingHSW.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingPacking.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingPackingAverages.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingRates.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingSampling.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingSequential.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingSpectral.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingTensorSpectrum.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingTraceDistance.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingTraceUnion.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingTypicalProjectors.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingTypicalTests.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingTypicality.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumCodingUnion.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_QuantumHolevo.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_RegularCoefficientEnergy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_RegularFactorization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_RegularDilation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_RegularFubini.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_RegularRestriction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_RegularShiftedDilation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_RegularizedHolevo.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Scalar.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ShiftNorm.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_ShortEmbeddingNorm.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_SmallEnvironment.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_SpectralDamping.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_StateEnsembles.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_StrictEntropy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_StructuredFiniteChannel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_StructuredCostBounds.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_StructuredHaarConsequences.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_StructuredHaarModel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_StructuredLinearization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_StructuredReductionCosts.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_SwitchChannel.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_TensorPartitionReduction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_TensorPowers.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_UniversalFactorizationGram.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_UniversalFactorizationOperators.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_UniversalFactorization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_UniversalFactorizationPolynomialDilation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_UniversalShiftedDilation.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_UpperHaarRealization.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeightedBell.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeightedBellScalar.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeightedBlock.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeightedBlockBell.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeightedCertificate.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeightedMatrixInverse.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeightedParameters.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeightedPositivity.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_Weyl.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeylPowersChannels.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeylPowersEntropy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeylPowersIndex.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeylPowersControl.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeylPowersRegularized.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeylPowersTwirl.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WeylTensor.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/build-Nonadditivity_WordBallReduction.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "logs/profile-Nonadditivity_CollinsYounTensor.log": {
+      "bytes": 5629,
+      "sha256": "264fdc484e27de53552eaf88874bd94129dd2682eff83485067544c75930aea7"
+    },
+    "logs/profile-Audit.log": {
+      "bytes": 582440,
+      "sha256": "332375edb1f0a37216260252884d7442e5eacfd678420f7b818161d3b01322ae"
+    },
+    "logs/profile-Nonadditivity_InitialNetReduction.log": {
+      "bytes": 5426,
+      "sha256": "885e4f7ac7bd86d1b5111e121925d4b092ff1ab6788e0aea9ee1d72966fbb004"
+    },
+    "logs/profile-Nonadditivity_NetPolynomial.log": {
+      "bytes": 5400,
+      "sha256": "5cfbffe3c9a5e86ea388856733eaf24faabbf6aa588c70547b4ccd922a9e5ecd"
+    },
+    "logs/profile-Nonadditivity_NoncommutativeCSSkeletonDecoration.log": {
+      "bytes": 1223,
+      "sha256": "5295748512d3614abae2f0d9da99db4e1ea9998fa46a9e6a78df58993a6a59f6"
+    },
+    "logs/profile-Nonadditivity_RegularCoefficientEnergy.log": {
+      "bytes": 1600,
+      "sha256": "221a22eae86670bd4a37b9fc497e62bde72b4c87908653ef70cb991c62cfad52"
+    },
+    "logs/profile-Nonadditivity_RegularFactorization.log": {
+      "bytes": 14727,
+      "sha256": "18523d81bd26097330ff7d4426a7731378a6f269ad3cb8a76d3851f6f1fdc0d0"
+    },
+    "logs/profile-Nonadditivity_UniversalFactorizationGram.log": {
+      "bytes": 3812,
+      "sha256": "5895359159ee247d99bbedaff9529c538c90362748adc62240f6505321c4c2d1"
+    },
+    "profile-driver-Audit.log": {
+      "bytes": 582440,
+      "sha256": "332375edb1f0a37216260252884d7442e5eacfd678420f7b818161d3b01322ae"
+    },
+    "profile-driver-Nonadditivity.CollinsYounTensor.log": {
+      "bytes": 5629,
+      "sha256": "264fdc484e27de53552eaf88874bd94129dd2682eff83485067544c75930aea7"
+    },
+    "profile-driver-Nonadditivity.InitialNetReduction.log": {
+      "bytes": 5426,
+      "sha256": "885e4f7ac7bd86d1b5111e121925d4b092ff1ab6788e0aea9ee1d72966fbb004"
+    },
+    "measurements.jsonl": {
+      "bytes": 754968,
+      "sha256": "0bdedf42e91439f7f84808694d6892b64ffc8a2f4081ae2684d187e9dd3aa130"
+    },
+    "profile-driver-Nonadditivity.NetPolynomial.log": {
+      "bytes": 5400,
+      "sha256": "5cfbffe3c9a5e86ea388856733eaf24faabbf6aa588c70547b4ccd922a9e5ecd"
+    },
+    "profile-driver-Nonadditivity.NoncommutativeCSSkeletonDecoration.log": {
+      "bytes": 1223,
+      "sha256": "5295748512d3614abae2f0d9da99db4e1ea9998fa46a9e6a78df58993a6a59f6"
+    },
+    "profile-driver-Nonadditivity.RegularCoefficientEnergy.log": {
+      "bytes": 1600,
+      "sha256": "221a22eae86670bd4a37b9fc497e62bde72b4c87908653ef70cb991c62cfad52"
+    },
+    "profile-driver-Nonadditivity.RegularFactorization.log": {
+      "bytes": 14727,
+      "sha256": "18523d81bd26097330ff7d4426a7731378a6f269ad3cb8a76d3851f6f1fdc0d0"
+    },
+    "profile-driver-Nonadditivity.UniversalFactorizationGram.log": {
+      "bytes": 3812,
+      "sha256": "5895359159ee247d99bbedaff9529c538c90362748adc62240f6505321c4c2d1"
+    },
+    "snapshot-before.json": {
+      "bytes": 523006,
+      "sha256": "dac83701bee817c57256bb9135b46092f537978b75c88a741ebdf7342584501d"
+    },
+    "summary.json": {
+      "bytes": 1022383,
+      "sha256": "732e5b426ea87cf69ef103fa4cd2eb1411de030700abfab19cb01429046da111"
+    },
+    "timed-compiler": {
+      "bytes": 364,
+      "sha256": "dd99f8c5dd1e7112fe4da69052931da3056b899607c55ca9a8cfcf31bac90a50"
+    },
+    "timings/build-Audit.time.txt": {
+      "bytes": 907,
+      "sha256": "4bac54087d60c2f8fb42ef58a31a948516c2d31cd8447522005cefab49cba19d"
+    },
+    "timings/build-All.time.txt": {
+      "bytes": 898,
+      "sha256": "98e5b36c1c9548308ef795dfa550de93623752b3e0c7f927bee22999ffad7605"
+    },
+    "timings/build-Nonadditivity.time.txt": {
+      "bytes": 916,
+      "sha256": "61d814d2ec02e8dcb1de1a6bee290c70e570700b60c357cb47c73b4cfd33f991"
+    },
+    "timings/build-Nonadditivity_ActualConsequences.time.txt": {
+      "bytes": 959,
+      "sha256": "01cc742d7ec91178b3130d17d5c58a1ee55aa23ee281504bb17ddb9e644956f0"
+    },
+    "timings/build-Nonadditivity_AdjointPurity.time.txt": {
+      "bytes": 949,
+      "sha256": "1d64688e681df87ea9e3903a6dc326e05e55faa2337117772634f197ce80dbf8"
+    },
+    "timings/build-Nonadditivity_Asymptotics.time.txt": {
+      "bytes": 947,
+      "sha256": "7b6d8f685224cb72eba7219148d341603333011ed2e5002c6966596a53745506"
+    },
+    "timings/build-Nonadditivity_BellOutput.time.txt": {
+      "bytes": 944,
+      "sha256": "f68a7790a8386a65518077612366b21a8dac54c1a1b572f6bee3fce76a792585"
+    },
+    "timings/build-Nonadditivity_BlockBell.time.txt": {
+      "bytes": 941,
+      "sha256": "0305d0b8d578949d66020c62f9df7163e51c05399adad457936fdd8be48cc2cf"
+    },
+    "timings/build-Nonadditivity_BlockConstruction.time.txt": {
+      "bytes": 957,
+      "sha256": "cc0881be66a088054f9511be078444430630997e26abb39e178bb0594fd55da9"
+    },
+    "timings/build-Nonadditivity_BlockScalars.time.txt": {
+      "bytes": 947,
+      "sha256": "6afa6ff91071875f5ffa40e968d8b0c393c734ce5015dab539287219cc50f295"
+    },
+    "timings/build-Nonadditivity_CanonicalBlockBell.time.txt": {
+      "bytes": 959,
+      "sha256": "be244aa7a6a4e124479ed722e054fba7dfc40f3089fba174bab6da2f203e08cd"
+    },
+    "timings/build-Nonadditivity_ChannelEntropy.time.txt": {
+      "bytes": 951,
+      "sha256": "afb393f566fe38d8acc633f260703cd44462c10feb6e9189760b37bb09332575"
+    },
+    "timings/build-Nonadditivity_ChannelExtensions.time.txt": {
+      "bytes": 957,
+      "sha256": "7e7f1f916adaefb94737e1737b104b7c456127b05a75d38c29f3c8574d32887f"
+    },
+    "timings/build-Nonadditivity_ChannelReindex.time.txt": {
+      "bytes": 951,
+      "sha256": "9f219c7ea961ffc4097f8e2a9810fffad8e3df9397e328b2a2fb28cb72186ac3"
+    },
+    "timings/build-Nonadditivity_ChannelTensorControl.time.txt": {
+      "bytes": 963,
+      "sha256": "a371863c935ce4090bf062aac94628db2cccfe8bb971b5cd7e0d759f6a87f06a"
+    },
+    "timings/build-Nonadditivity_CollinsYoun.time.txt": {
+      "bytes": 948,
+      "sha256": "ae58f1a5f7875ebd2110a8e49e2d3c09d57dbc2455e14eef28ce804bb7a6c27a"
+    },
+    "timings/build-Nonadditivity_Channels.time.txt": {
+      "bytes": 941,
+      "sha256": "3a0acca27810cd0282d9e5d35fbedc270ad1c39955faf16e2e8fff72a547b320"
+    },
+    "timings/build-Nonadditivity_CollinsYounOne.time.txt": {
+      "bytes": 951,
+      "sha256": "7b82eab797f73ef1958b68830a554d144d5c9ca5f87919e66714194e75a539da"
+    },
+    "timings/build-Nonadditivity_CollinsYounProduct.time.txt": {
+      "bytes": 962,
+      "sha256": "212d7f0fafea36b7f77eced6ea5329190eed5805a2df0dcaebfe02c47f4935d6"
+    },
+    "timings/build-Nonadditivity_CollinsYounTensor.time.txt": {
+      "bytes": 961,
+      "sha256": "cd2d064e49b9de70d9a150981310810871b46cf6401b60107f3e4e474ea5dc45"
+    },
+    "timings/build-Nonadditivity_ComplementaryAdjoint.time.txt": {
+      "bytes": 964,
+      "sha256": "f64098c5b77a72efbd3cfbdbe08861a5807c7f94beb5e1f9f8414cbd850d44ff"
+    },
+    "timings/build-Nonadditivity_ConditionalStates.time.txt": {
+      "bytes": 957,
+      "sha256": "d027e4d04af92ac5cbd52fdbabe6b27bfe7cb7d15e34fb04488020248ab3562b"
+    },
+    "timings/build-Nonadditivity_ComplexRealTrace.time.txt": {
+      "bytes": 955,
+      "sha256": "4c0937a58be300f2a5ba1040655d295074d7d0977e81f73babfd997efb1e964a"
+    },
+    "timings/build-Nonadditivity_ConjugateChannel.time.txt": {
+      "bytes": 955,
+      "sha256": "bebcbc9c1e03202c4095b65299130d67ab9088b4619befeb2321c5775f1d744c"
+    },
+    "timings/build-Nonadditivity_Conversion.time.txt": {
+      "bytes": 943,
+      "sha256": "eec3e46f3300338b85e39257de301c0716ee473a59aa00982a5e624af943e808"
+    },
+    "timings/build-Nonadditivity_DampedBellStability.time.txt": {
+      "bytes": 963,
+      "sha256": "8042668213f8a0b483ae369f8ae36f9f2f0691192b40911b7abe0101c85ecce8"
+    },
+    "timings/build-Nonadditivity_DampedChannel.time.txt": {
+      "bytes": 951,
+      "sha256": "8fdb278a97048930eb738593061905086918453af238100cc69a90602d0ac83d"
+    },
+    "timings/build-Nonadditivity_DampedPositivity.time.txt": {
+      "bytes": 955,
+      "sha256": "9978792a21cb798863bc75dac7aae43b410cf32416ce0d35adac451efe2eaa47"
+    },
+    "timings/build-Nonadditivity_DampedRealization.time.txt": {
+      "bytes": 957,
+      "sha256": "2a4371e470207de920f90fd5c6b70b7b8347055cc716c74ab8467c61184ad30d"
+    },
+    "timings/build-Nonadditivity_DampingNet.time.txt": {
+      "bytes": 943,
+      "sha256": "7e34350a4c65f101b5d99690bdc3f27fe58df1296bf0a5e18ee09c063c52eae7"
+    },
+    "timings/build-Nonadditivity_DeterministicConsequences.time.txt": {
+      "bytes": 973,
+      "sha256": "ddbb7bbd987d895492447c17247d60e40217b86f9883ae41f42c7f57d51eb7cf"
+    },
+    "timings/build-Nonadditivity_DeterministicQualitative.time.txt": {
+      "bytes": 971,
+      "sha256": "694b1f9b156ab4b2e98f7005ea2ffbae1e90d6a7ad95296cde89388b8c092dfd"
+    },
+    "timings/build-Nonadditivity_Dimensions.time.txt": {
+      "bytes": 943,
+      "sha256": "1659ec3dc4370417c3b32b52501e1af7c3f3d0bf2333ea9816b81cbfba3f77b3"
+    },
+    "timings/build-Nonadditivity_Entropy.time.txt": {
+      "bytes": 939,
+      "sha256": "a3a9e178725d757765387ffb437e95da838afcac12fb715c63878acccd6dbf82"
+    },
+    "timings/build-Nonadditivity_EntropyContinuity.time.txt": {
+      "bytes": 957,
+      "sha256": "d40c83bfc2f39685269987deb81b5baeae67ffabce393e8cfcc70e34f0211fae"
+    },
+    "timings/build-Nonadditivity_EntropyMixtures.time.txt": {
+      "bytes": 954,
+      "sha256": "a1ae57a42678c56512f99047b2896e24e6759730fdb2a9c7e37daf7251eef46b"
+    },
+    "timings/build-Nonadditivity_EntropyProducts.time.txt": {
+      "bytes": 953,
+      "sha256": "05c2dbec47f1b4686ee7d569968aff09b1594ae0538f12670d3d60e68b771155"
+    },
+    "timings/build-Nonadditivity_EntropyStability.time.txt": {
+      "bytes": 955,
+      "sha256": "0b0600a3232ce4fb80c26fb29c315fda08ee44ddedce159dbf3244e1c4d4e229"
+    },
+    "timings/build-Nonadditivity_ExactQualitative.time.txt": {
+      "bytes": 955,
+      "sha256": "f7fa6cb560bce56ba301ecb2d6c496214479be666e96c3b2b2a35c675caf6da7"
+    },
+    "timings/build-Nonadditivity_FiniteBlockModel.time.txt": {
+      "bytes": 956,
+      "sha256": "5934aae47ce401816f537784bc29a99855f23b46762005aeefed869d079da150"
+    },
+    "timings/build-Nonadditivity_FiniteChannelRealization.time.txt": {
+      "bytes": 971,
+      "sha256": "08c17789acdc87a54031af061d5a4e57b832b9dd10b94fdff9803e5a1fc1a907"
+    },
+    "timings/build-Nonadditivity_FiniteFreeModel.time.txt": {
+      "bytes": 953,
+      "sha256": "2157728981b58ac883af7e81cf75ef630acb94b8e3194de2ace6243386d46516"
+    },
+    "timings/build-Nonadditivity_FiniteMomentMatching.time.txt": {
+      "bytes": 966,
+      "sha256": "7d07413d092f0a1980dfcbebe5fabeb5e878e35b7f0bc97343b62512e3b64040"
+    },
+    "timings/build-Nonadditivity_FiniteRealization.time.txt": {
+      "bytes": 959,
+      "sha256": "cec041af68c4192d2969d83da1d926cd315762e33bba5283d33097c85167136d"
+    },
+    "timings/build-Nonadditivity_FiniteRegularMatrix.time.txt": {
+      "bytes": 961,
+      "sha256": "7047eb88f8c8ea438a48fd4f80b3c853a9b15461fecb1b09e4890b0a37da7d22"
+    },
+    "timings/build-Nonadditivity_FiniteSetFactorization.time.txt": {
+      "bytes": 970,
+      "sha256": "53718ba36b952978f1640286a6511b0cd2df7626495f9e918d0c18829f411419"
+    },
+    "timings/build-Nonadditivity_FreeBridge.time.txt": {
+      "bytes": 943,
+      "sha256": "c7966503bf5a3d4ee1ad8e40dcf399fabcc9aa63c8b66c8f569c3e3252461ed9"
+    },
+    "timings/build-Nonadditivity_FreeCreation.time.txt": {
+      "bytes": 949,
+      "sha256": "2c8be4449e187b87470f3dfdf53bce2870f73ada5a4f76649d84c6d4a484cb01"
+    },
+    "timings/build-Nonadditivity_FreeEmbedding.time.txt": {
+      "bytes": 951,
+      "sha256": "0f569e3ab3a524ba578b4f3c9dfe0114ad142d1fb919e0d9173ec817f47400c6"
+    },
+    "timings/build-Nonadditivity_FreeGroupCut.time.txt": {
+      "bytes": 947,
+      "sha256": "64ffa1899acfd77586f307229da6e9169db030f12c0004e88d2ffccb8cc92a66"
+    },
+    "timings/build-Nonadditivity_FreeModel.time.txt": {
+      "bytes": 942,
+      "sha256": "c6856eb12212d5db940669b4b8088888f662d2640a1b8552780652576bc087e5"
+    },
+    "timings/build-Nonadditivity_GapFractionAsymptotics.time.txt": {
+      "bytes": 967,
+      "sha256": "5162177283058018c8cb8b317b108824bee72e68b96aeefd8ceecbe1b90e340e"
+    },
+    "timings/build-Nonadditivity_GaussianCertificates.time.txt": {
+      "bytes": 964,
+      "sha256": "54ac41600114bf1703a2d69a9d14af81bf269a1f4d42023a20113465380928e9"
+    },
+    "timings/build-Nonadditivity_GaussianChannelBounds.time.txt": {
+      "bytes": 965,
+      "sha256": "1953f2b3deeae255617f0d3d7fab16a7ccce12cdf2ecf6e276b6bdd3af718a0d"
+    },
+    "timings/build-Nonadditivity_GaussianConsequences.time.txt": {
+      "bytes": 963,
+      "sha256": "44bf5d653960180af220cf2a2cce79b97de2a4f204b4f8f30df86165d70f96df"
+    },
+    "timings/build-Nonadditivity_GaussianConstruction.time.txt": {
+      "bytes": 963,
+      "sha256": "c7d89c7ecc8a16ac130155eb050e0c267b1a2bc2e01349c0a1d9120d09beefdb"
+    },
+    "timings/build-Nonadditivity_GaussianNetRealization.time.txt": {
+      "bytes": 967,
+      "sha256": "959f38687327b4ffb54384583622e20c5b17d268bf576b06af9c6444560f4949"
+    },
+    "timings/build-Nonadditivity_GaussianNormalization.time.txt": {
+      "bytes": 967,
+      "sha256": "ec32fb06946248a8e33660d89fadfffb5c5b9521e42f49639e483a02f5b46403"
+    },
+    "timings/build-Nonadditivity_GaussianQuadratic.time.txt": {
+      "bytes": 960,
+      "sha256": "3a85bb3365c10f1e9c6f9862614db9dba5d97d61d806603ddebffa7a71e94aa3"
+    },
+    "timings/build-Nonadditivity_GaussianRectangularAlgebra.time.txt": {
+      "bytes": 978,
+      "sha256": "702cb81aa006b63ad041574112019f5942a39cb00a5d6d4a724f4d5c7d00dc3f"
+    },
+    "timings/build-Nonadditivity_GaussianRectangular.time.txt": {
+      "bytes": 961,
+      "sha256": "911bb3407d5e1771af88c03bf6e28f4d1cba9003c40fd02378148c09ebaa644a"
+    },
+    "timings/build-Nonadditivity_GaussianSampleEvaluation.time.txt": {
+      "bytes": 971,
+      "sha256": "e459aebc2bd55671f764cb5e82808d57e7a3fffa756f3f02b8811882b88616e8"
+    },
+    "timings/build-Nonadditivity_GaussianScalar.time.txt": {
+      "bytes": 951,
+      "sha256": "53e500f233022d62cfb65fbae97199acebe2b240f741829f6b69b344af2f75b4"
+    },
+    "timings/build-Nonadditivity_GeneralBell.time.txt": {
+      "bytes": 947,
+      "sha256": "ad9db867f68f6807c282fdc2edb8677c9f27cc838c9de2b7291152e51ed275b8"
+    },
+    "timings/build-Nonadditivity_HaarActualScanWords.time.txt": {
+      "bytes": 961,
+      "sha256": "5c1c9147d03ed15baa90dae3498a9aa00d057a7c891ab77fdf01d3f2f381a20d"
+    },
+    "timings/build-Nonadditivity_HaarAveraging.time.txt": {
+      "bytes": 949,
+      "sha256": "3fe9b185f3f01a50206d34fb9fac69f96002f2373d16b0d902fdd243cdf58c77"
+    },
+    "timings/build-Nonadditivity_HaarBranchCoefficients.time.txt": {
+      "bytes": 967,
+      "sha256": "ad6083ba588a39856d6abbe7a114799d164dc3ca2247306e787357ef3b222360"
+    },
+    "timings/build-Nonadditivity_HaarBranchGraphBudget.time.txt": {
+      "bytes": 965,
+      "sha256": "ab4385f541e0376795defa9940d0980a43756510c16cb0a98eae37706efa7de8"
+    },
+    "timings/build-Nonadditivity_HaarBranchContractions.time.txt": {
+      "bytes": 968,
+      "sha256": "3c2a1a6eb043fdbe68f95899798fd1958acef6e9eef009354c127278fe01a42f"
+    },
+    "timings/build-Nonadditivity_HaarBranchTimeSum.time.txt": {
+      "bytes": 958,
+      "sha256": "f314d5bb8b555c9d29e1a484bda4f452790a545fbd6f4176e6383d1bca331dc4"
+    },
+    "timings/build-Nonadditivity_HaarCanonicalTransport.time.txt": {
+      "bytes": 969,
+      "sha256": "bf3ae8e392c5e6461207b84257cc332231ce40ecf4e6addc4f08b1b4e5be3fe7"
+    },
+    "timings/build-Nonadditivity_HaarChainColoring.time.txt": {
+      "bytes": 958,
+      "sha256": "dc56041ba6f5593a163bf2f84906edd842dcd6086700dead6a9a79233c2fc492"
+    },
+    "timings/build-Nonadditivity_HaarChainColoringFibre.time.txt": {
+      "bytes": 967,
+      "sha256": "b348cb09b2ac06221f43994e1a2344d2f2e0ea9d1eb1bae0e56e6f76e7eba80f"
+    },
+    "timings/build-Nonadditivity_HaarChainColoringPalettes.time.txt": {
+      "bytes": 973,
+      "sha256": "a3b96852bfc974b0fff0d52959cbe92a76b4fa1700e25e4d9d7d1a4082731d53"
+    },
+    "timings/build-Nonadditivity_HaarChainColoringPath.time.txt": {
+      "bytes": 965,
+      "sha256": "e55ec003625e2b786a94e2e01d225679eef267a361cf52b32ad0e4cb83c8602b"
+    },
+    "timings/build-Nonadditivity_HaarChainMultiplicity.time.txt": {
+      "bytes": 965,
+      "sha256": "58782a2d8bde4a16646a4839040b7ce42f67a29a1a9e4c33fff53555058180c0"
+    },
+    "timings/build-Nonadditivity_HaarChainReindex.time.txt": {
+      "bytes": 955,
+      "sha256": "3624b47f4efbda671abf0b26995ce48444a2b1be69f93866ba7bd219e5928276"
+    },
+    "timings/build-Nonadditivity_HaarCoefficientBounds.time.txt": {
+      "bytes": 965,
+      "sha256": "0838baec0f01558ebf685c84f54f71648d23aa6384df4b61c501983d7e4a440e"
+    },
+    "timings/build-Nonadditivity_HaarCoefficientRows.time.txt": {
+      "bytes": 962,
+      "sha256": "8d1b6621e1cf069d09292c2775eb9dcc8246360a2ec8ff99b79e37a5b51a2e17"
+    },
+    "timings/build-Nonadditivity_HaarColumnMoments.time.txt": {
+      "bytes": 960,
+      "sha256": "4189559b65484fc44863acaa04cb41cad7ca5040eea7456993604a1dfddba044"
+    },
+    "timings/build-Nonadditivity_HaarConsequences.time.txt": {
+      "bytes": 955,
+      "sha256": "28b7e0a8912b34bae9a9293d5dbb536fc1387045c23945490c5d284dda002952"
+    },
+    "timings/build-Nonadditivity_HaarCoreChainAddress.time.txt": {
+      "bytes": 963,
+      "sha256": "e41d1de232f37e3abbe20b9a05eaeb8b94437ef6755196e22acb21c440f9f630"
+    },
+    "timings/build-Nonadditivity_HaarCoreChainEndpoints.time.txt": {
+      "bytes": 967,
+      "sha256": "f0ba66535ac2b9d89d09f5276a1c6fb2182bc4f1e0ee370a6a90e1fefca93169"
+    },
+    "timings/build-Nonadditivity_HaarCoreChainLabels.time.txt": {
+      "bytes": 961,
+      "sha256": "ba4e30974dd7a0b3384efde0ab1eda0df878bb157f3421d3f13ed94856de8179"
+    },
+    "timings/build-Nonadditivity_HaarCoreChainMultiplicity.time.txt": {
+      "bytes": 973,
+      "sha256": "f28e8609fb6240d049353bcfe7deecb95c3b1c15e6259902b100d3df04f04905"
+    },
+    "timings/build-Nonadditivity_HaarCoreChainReverseAddress.time.txt": {
+      "bytes": 977,
+      "sha256": "2cc7296a5cee76d4b3fcb5775b5b3be5b78a13acb2f4bad00134cffbb01814fa"
+    },
+    "timings/build-Nonadditivity_HaarCoreChainWords.time.txt": {
+      "bytes": 959,
+      "sha256": "896fec315856d739c0a275ac478a062f0d9a315db682aad83224dfb853f30542"
+    },
+    "timings/build-Nonadditivity_HaarDecodedCoefficientBound.time.txt": {
+      "bytes": 977,
+      "sha256": "ce2f0d41dd7b5ef5b3665a07d8c773e4436cba2db4a1b5d5a3c13a42f89e9350"
+    },
+    "timings/build-Nonadditivity_HaarEncodingSlack.time.txt": {
+      "bytes": 957,
+      "sha256": "e0b78856dd17a8fdc334f82a97d8e838fd9907b635b5746b6587701f007c5e59"
+    },
+    "timings/build-Nonadditivity_HaarEntryBound.time.txt": {
+      "bytes": 951,
+      "sha256": "5696827ffdc9910097826ae5be566ea25cd7b57e75434c98aa71cd1890ff9da1"
+    },
+    "timings/build-Nonadditivity_HaarExpectationFromMoment.time.txt": {
+      "bytes": 973,
+      "sha256": "b711b21ca2f2c7152243b390e29deca6c597c835d37e9b9eab78f095202fcc10"
+    },
+    "timings/build-Nonadditivity_HaarFiniteFaithfulness.time.txt": {
+      "bytes": 967,
+      "sha256": "39a745cb90f801054340c819e501827f6170ecca94071082c753bde3ac79c151"
+    },
+    "timings/build-Nonadditivity_HaarFiniteSymmetry.time.txt": {
+      "bytes": 959,
+      "sha256": "9b3005d31af7328758913012dc8a4162f48f98415b45a2a1bd317f66afbade0a"
+    },
+    "timings/build-Nonadditivity_HaarFourthMoments.time.txt": {
+      "bytes": 959,
+      "sha256": "7cdc3401b59fde3361c214bde735baf6b6b742e3eb1358ae42cacaa3c985cd23"
+    },
+    "timings/build-Nonadditivity_HaarHybridMoments.time.txt": {
+      "bytes": 959,
+      "sha256": "4293840c3c6a797fd0a6b095813a3cafbd3c715056aa48603fe90dea9958dd68"
+    },
+    "timings/build-Nonadditivity_HaarInputScaling.time.txt": {
+      "bytes": 955,
+      "sha256": "a4f0268326c354cbd2834c45c3b05c2b7352859515d1a374aa33d8985a18dda9"
+    },
+    "timings/build-Nonadditivity_HaarInvariantCommutant.time.txt": {
+      "bytes": 967,
+      "sha256": "5686fbba479459c5a4dd2cf291f817d8ef72984d9a0f4209393750cec7cf1ab4"
+    },
+    "timings/build-Nonadditivity_HaarInvariantSpanning.time.txt": {
+      "bytes": 965,
+      "sha256": "c5c3646c51535061e34fb7022d7459e01be4d565ba79454f5c07aad7136ee1f9"
+    },
+    "timings/build-Nonadditivity_HaarInvariantTensor.time.txt": {
+      "bytes": 962,
+      "sha256": "4fc0728c2b641da5d8c630af429e18494febcf2415a4c88d4be688892157beb2"
+    },
+    "timings/build-Nonadditivity_HaarIteratedExpectation.time.txt": {
+      "bytes": 969,
+      "sha256": "123976dfd5b410a738c07cd659e941d23ccfe6e0ed7099b7fe40ef5b0fd35529"
+    },
+    "timings/build-Nonadditivity_HaarIteratedMoments.time.txt": {
+      "bytes": 962,
+      "sha256": "539af62080f9a65c6012268a6ea849a7cd03ee32b05da927b24e6c3755cdec59"
+    },
+    "timings/build-Nonadditivity_HaarMarkedCompositions.time.txt": {
+      "bytes": 967,
+      "sha256": "4622bbaf68d27647b1f1a1dfde97afdeea5bccb6beb9cd3d4a9386546f229731"
+    },
+    "timings/build-Nonadditivity_HaarMatchingCount.time.txt": {
+      "bytes": 957,
+      "sha256": "0b60a10b8bd3238e142bd3d7463f56db0a9eb787e7bca77a1676bf7df06d69eb"
+    },
+    "timings/build-Nonadditivity_HaarMatchingFibers.time.txt": {
+      "bytes": 959,
+      "sha256": "7a2ff4713b7043d138fcc857581c6eb395fce7e4df01d2d7dea18d5ff19205fe"
+    },
+    "timings/build-Nonadditivity_HaarMatchingSharp.time.txt": {
+      "bytes": 957,
+      "sha256": "11812745b7f8dc7271272ac78f379ee9cfd2b6c1d2723a1fcdbae1675b1f7336"
+    },
+    "timings/build-Nonadditivity_HaarMatchingSingletons.time.txt": {
+      "bytes": 967,
+      "sha256": "f7c6a69a87c533e912ecac3d9f5b6e4409fd19f769ebbf47d810251e80eaf188"
+    },
+    "timings/build-Nonadditivity_HaarMixedMoments.time.txt": {
+      "bytes": 955,
+      "sha256": "bd67db88e7a08a56ef0bec645446f47141660fb02c6030448aba823be8822eee"
+    },
+    "timings/build-Nonadditivity_HaarMixedWordExpansion.time.txt": {
+      "bytes": 967,
+      "sha256": "e81022a6e431a000e344158dd59ce61acede407c8da3603a9b1723eaa1470bdd"
+    },
+    "timings/build-Nonadditivity_HaarModel.time.txt": {
+      "bytes": 941,
+      "sha256": "bf9d41e3274db21f29a81785415fdf9a40a7291d23fc0c025204dfbfa06c8216"
+    },
+    "timings/build-Nonadditivity_HaarMomentConstants.time.txt": {
+      "bytes": 962,
+      "sha256": "8f0856e4602a8bb4c7f27e33753d011f88340340fb65480ae957c15bb22420d4"
+    },
+    "timings/build-Nonadditivity_HaarMomentExpectation.time.txt": {
+      "bytes": 965,
+      "sha256": "20b3391550dbf16f791b777ebc15ab98d5968323178999cb131652ce85be00a4"
+    },
+    "timings/build-Nonadditivity_HaarMomentSlack.time.txt": {
+      "bytes": 953,
+      "sha256": "f0c7842c31f167afd5b44c5e7687e56fd073cb6fa4c55d6b01336ab2af2cc375"
+    },
+    "timings/build-Nonadditivity_HaarMomentTail.time.txt": {
+      "bytes": 951,
+      "sha256": "fcc81ecb323eeee0314b29cb5032d47bb67bd15797eb86ef777a7577754a2390"
+    },
+    "timings/build-Nonadditivity_HaarMoments.time.txt": {
+      "bytes": 945,
+      "sha256": "9ff871c0575a898f8117868f3c8c8cbb0840d20e4cb23ac571cea5a2b39674d8"
+    },
+    "timings/build-Nonadditivity_HaarNonbacktracking.time.txt": {
+      "bytes": 963,
+      "sha256": "102e0bac2f18c60645a008945c66ae0ea6493f771ae861e358a88108e18d865e"
+    },
+    "timings/build-Nonadditivity_HaarNonbacktrackingFirstStep.time.txt": {
+      "bytes": 979,
+      "sha256": "400d73a7af64b49d4cbd3ea6b56db73430d88b2186a0b7bcab7921b7b9a3ad34"
+    },
+    "timings/build-Nonadditivity_HaarNonbacktrackingLastReturn.time.txt": {
+      "bytes": 981,
+      "sha256": "4d82257ba4de52ce9818271b89eb04110529dac8db46ed8f70d52eb5273b63e5"
+    },
+    "timings/build-Nonadditivity_HaarNonbacktrackingListSegmentation.time.txt": {
+      "bytes": 993,
+      "sha256": "05d18b28a21c2d9f24c81528d61dd3b4f4f1e526208e3ad35f8e7fb51beb5a80"
+    },
+    "timings/build-Nonadditivity_HaarNonbacktrackingRenewal.time.txt": {
+      "bytes": 978,
+      "sha256": "e87b937143f780fd9166424e2289dcd979fa7f6c628f639a09f18d1bf6c9eb21"
+    },
+    "timings/build-Nonadditivity_HaarNonbacktrackingSegmentation.time.txt": {
+      "bytes": 985,
+      "sha256": "4ffd7d1e4fda4964e3f875d7ef7b63424966a593b89bda2d69e732e56a7b08fe"
+    },
+    "timings/build-Nonadditivity_HaarNonbacktrackingSupport.time.txt": {
+      "bytes": 975,
+      "sha256": "869342698a2091647519ae68e27031a267df1ded20c3537f7b326738b5e065eb"
+    },
+    "timings/build-Nonadditivity_HaarOnePairAssembly.time.txt": {
+      "bytes": 961,
+      "sha256": "18ccce576452f598de4f309e5edf99e528db752b11205147e7312c41f6de2799"
+    },
+    "timings/build-Nonadditivity_HaarOperatorCoefficient.time.txt": {
+      "bytes": 971,
+      "sha256": "4b57bb2783cd29fd9db047615738f4321e8bdabbf69d0454bc687f6eb293190c"
+    },
+    "timings/build-Nonadditivity_HaarOperatorCurry.time.txt": {
+      "bytes": 958,
+      "sha256": "e7f7141ca2e7cfe2cec8a26bcf07249220a47699eb6dd27408e51e209b213eb0"
+    },
+    "timings/build-Nonadditivity_HaarOperatorPathBridge.time.txt": {
+      "bytes": 967,
+      "sha256": "8dbf76d983a32ffaaae08e6711fa371f81dccce206bfdedda2c929a9a0684e77"
+    },
+    "timings/build-Nonadditivity_HaarOperatorPathSum.time.txt": {
+      "bytes": 962,
+      "sha256": "cf4a864e96337a15dbffd397525a2f0cadd1b313cd47455f6bb1976b53e56626"
+    },
+    "timings/build-Nonadditivity_HaarOperatorPolynomial.time.txt": {
+      "bytes": 969,
+      "sha256": "239e33006aeec03924c30fd15617875feb1615732e87c37d96e2135544780142"
+    },
+    "timings/build-Nonadditivity_HaarPairEntryBound.time.txt": {
+      "bytes": 959,
+      "sha256": "2f82b1bcd3aa3945fa78019f135c240dbbba7e306431a46eb9387018ad0f8185"
+    },
+    "timings/build-Nonadditivity_HaarPaletteDecoder.time.txt": {
+      "bytes": 959,
+      "sha256": "3f6eae9625ebe37dcf2697a8cb3ef46430c443249a3391d85e30231360575149"
+    },
+    "timings/build-Nonadditivity_HaarPathBalance.time.txt": {
+      "bytes": 953,
+      "sha256": "e3f950a77d2e9cfb9dcbb3b38417137e097bbb963fba919c47fde732e617f07d"
+    },
+    "timings/build-Nonadditivity_HaarPathChainCount.time.txt": {
+      "bytes": 959,
+      "sha256": "7d0fa8d3b9d07615b6490a367cc79d4c9ad4824c5571a4cfdec045461a2c0c72"
+    },
+    "timings/build-Nonadditivity_HaarPathChainPartition.time.txt": {
+      "bytes": 967,
+      "sha256": "40d1a5d50d7eb466f460b70c630a4dd807953412ff328ced40192fbb91007bb2"
+    },
+    "timings/build-Nonadditivity_HaarPathChainProfiles.time.txt": {
+      "bytes": 965,
+      "sha256": "0ff1ed27eee4a113622bf4870c43f29183a7cb478cfc97ef608fdfb635ade455"
+    },
+    "timings/build-Nonadditivity_HaarPathChains.time.txt": {
+      "bytes": 951,
+      "sha256": "a6637398fdd15d12d9fd2db84d113582dd54cb81b1309f9819a3eb673dffbbb8"
+    },
+    "timings/build-Nonadditivity_HaarPathClassAssembly.time.txt": {
+      "bytes": 965,
+      "sha256": "a84f32c568c43f10f0c9332bfab742477d43e4f350c2d90d19402a4481cd18ae"
+    },
+    "timings/build-Nonadditivity_HaarPathClassData.time.txt": {
+      "bytes": 957,
+      "sha256": "33ffb1e2395a8b910e8628d8ac21ffaa3b5529a488768bfa12ff9368160c99e7"
+    },
+    "timings/build-Nonadditivity_HaarPathClassStats.time.txt": {
+      "bytes": 959,
+      "sha256": "a2cd509022aa53acc30eb7696b505fa1a6bc11ce83e8e3521dc1571091f4cf78"
+    },
+    "timings/build-Nonadditivity_HaarPathClasses.time.txt": {
+      "bytes": 953,
+      "sha256": "3af23e0a02e80ff92a5069ecc9ddddb97e1a1763fefc3ca608677aae3ad98ec6"
+    },
+    "timings/build-Nonadditivity_HaarPathCodes.time.txt": {
+      "bytes": 949,
+      "sha256": "cb308cd417e9fdae82fe615da7dc6189afdb254b9ae74c178f44f271ba0678eb"
+    },
+    "timings/build-Nonadditivity_HaarPathClassSums.time.txt": {
+      "bytes": 957,
+      "sha256": "8154812be3c5aa10bc0c3e8997a6b9f85227b96116cde43e9b72049050c532ba"
+    },
+    "timings/build-Nonadditivity_HaarPathCoefficientWords.time.txt": {
+      "bytes": 971,
+      "sha256": "6ae60eb37045a10bb5e7341e7700e7f527ded4c7f78503e19a3578ca6bb7c788"
+    },
+    "timings/build-Nonadditivity_HaarPathColorMarks.time.txt": {
+      "bytes": 959,
+      "sha256": "7dca367177baf2960d86ce2a1fe8ec2d460d2a0285ba284e64e87b65a3a406c4"
+    },
+    "timings/build-Nonadditivity_HaarPathColorNormalization.time.txt": {
+      "bytes": 975,
+      "sha256": "ce074d746897946f79eb3a0e001aa214f8f784bfee2e9d3f1d84f4aec894ef40"
+    },
+    "timings/build-Nonadditivity_HaarPathColorRelabel.time.txt": {
+      "bytes": 963,
+      "sha256": "beea2ba53183f5bfb46c3a5bea6f6704ad0c025a75fbb3c5093ac4f4032703bf"
+    },
+    "timings/build-Nonadditivity_HaarPathCounting.time.txt": {
+      "bytes": 955,
+      "sha256": "1f27b00ef28904b8a5efe5904fe8388bcaf70475c688c1c23300ada9ba3ee27a"
+    },
+    "timings/build-Nonadditivity_HaarPathDecomposition.time.txt": {
+      "bytes": 965,
+      "sha256": "4018dd819f00aa3e3e0df25523503bdf073752ad9f52b2afdd81e0d54c8b900d"
+    },
+    "timings/build-Nonadditivity_HaarPathExpansion.time.txt": {
+      "bytes": 958,
+      "sha256": "16079ef353721e310320a75c9399a15fd0ab65529816e29759994e249a8f62ea"
+    },
+    "timings/build-Nonadditivity_HaarPathExploration.time.txt": {
+      "bytes": 961,
+      "sha256": "44804fdfc73b8b5acc64456341cc431c73060e7f97a90de1e8e54284c45f0e89"
+    },
+    "timings/build-Nonadditivity_HaarPathExplorationBlocks.time.txt": {
+      "bytes": 973,
+      "sha256": "96d4a03db7534d33efb3bf6854b193e0680fdab8486f0c9836093d75286a7909"
+    },
+    "timings/build-Nonadditivity_HaarPathExplorationCounterexample.time.txt": {
+      "bytes": 989,
+      "sha256": "3cd35ac9ec35c42f6e7daf6f41961083a19bd2c27da6ef1b22f0d2531ade6f70"
+    },
+    "timings/build-Nonadditivity_HaarPathFreshRuns.time.txt": {
+      "bytes": 957,
+      "sha256": "da48fe31296db69c88cf4618e88e665210dc616a15c80247e3783fe9fb924ce6"
+    },
+    "timings/build-Nonadditivity_HaarPathGraph.time.txt": {
+      "bytes": 950,
+      "sha256": "c656ac999fed3fad98f49b0bbf5241c952d92b4f66cb99d8c6f7c4afaadd0e68"
+    },
+    "timings/build-Nonadditivity_HaarPathInternalColors.time.txt": {
+      "bytes": 967,
+      "sha256": "1a28616eadc48350e8e8ca8c04ebaf3dfde2253a43d5bd1089e0e1db3f3ca4b9"
+    },
+    "timings/build-Nonadditivity_HaarPathInvolution.time.txt": {
+      "bytes": 959,
+      "sha256": "9085e0b684cafe40332ece9b8519ae0505b1dc34280b5119912e332572c79c0e"
+    },
+    "timings/build-Nonadditivity_HaarPathLocalPhase.time.txt": {
+      "bytes": 959,
+      "sha256": "d6ab3c76aef1858f7d798f07723f4383462a54c6cb9ee0282fd79ac683405c56"
+    },
+    "timings/build-Nonadditivity_HaarPathMarks.time.txt": {
+      "bytes": 949,
+      "sha256": "4ba02e97b4cea9f92f9c4eb98a67d72f4b9ee16a98b8af9f8e54f1317fc95aac"
+    },
+    "timings/build-Nonadditivity_HaarPathNormalizedFresh.time.txt": {
+      "bytes": 969,
+      "sha256": "375678a8541392aa6ccd9247ccf6328789d18e23f308aad00ffb38106616a520"
+    },
+    "timings/build-Nonadditivity_HaarPathMultiplicity.time.txt": {
+      "bytes": 963,
+      "sha256": "0a24ee9d430edaeee916255e63f31456c6bb6064b4c2631d90e45d19ef585641"
+    },
+    "timings/build-Nonadditivity_HaarPathNormalizedTree.time.txt": {
+      "bytes": 967,
+      "sha256": "c262b0f1c5c347a4ff46a219de1e9c743cd30f454e658ad589e119df156f0965"
+    },
+    "timings/build-Nonadditivity_HaarPathNormalizedTreeColors.time.txt": {
+      "bytes": 979,
+      "sha256": "98861ec823c0c4602d0a0e8ff98cfe0dc9c295e14ab043fb5ee05a0093113a0a"
+    },
+    "timings/build-Nonadditivity_HaarPathPrefixTree.time.txt": {
+      "bytes": 959,
+      "sha256": "c6356c66c3f9b9d48f3f138375d7426343539a6ca07072a7937e04ec833feead"
+    },
+    "timings/build-Nonadditivity_HaarPathProfileReverse.time.txt": {
+      "bytes": 967,
+      "sha256": "5b37e93fd8c961a16ca0c167ea935b73acf398dbe03365cb6b974e201c9fe8c1"
+    },
+    "timings/build-Nonadditivity_HaarPathProfiles.time.txt": {
+      "bytes": 955,
+      "sha256": "cb13e933706244fedc105e80eaa0464582b20dfbe6003856d846a07206c10974"
+    },
+    "timings/build-Nonadditivity_HaarPathRecoloring.time.txt": {
+      "bytes": 959,
+      "sha256": "34a68cb7a8afc6a18d951ae3f5873c97ef2b76bbc273f3393ee13f74786b8daa"
+    },
+    "timings/build-Nonadditivity_HaarPathReconstructionFresh.time.txt": {
+      "bytes": 977,
+      "sha256": "9017f607eeae914ee1455bfd7152872248bd5c60a566ab8d52a3c5d3dbf41475"
+    },
+    "timings/build-Nonadditivity_HaarPathReconstruction.time.txt": {
+      "bytes": 967,
+      "sha256": "1cab64f1f57df4e36cd1647d6317f37137e5dac4a4b2f46f6117151c69243bd6"
+    },
+    "timings/build-Nonadditivity_HaarPathReconstructionTree.time.txt": {
+      "bytes": 975,
+      "sha256": "7def05ac334fb3f65c2d6292cba742781e9072292669de2b9a3e237ac9a31149"
+    },
+    "timings/build-Nonadditivity_HaarPathRefined.time.txt": {
+      "bytes": 953,
+      "sha256": "76fc8966b61b7e047d61d2119ae36fede7ebca13fdd79aaf5f7d1178514917e0"
+    },
+    "timings/build-Nonadditivity_HaarPathRefinedCounting.time.txt": {
+      "bytes": 969,
+      "sha256": "e8ae5425466c90c7c70cc4930e2d94bca910a30b987254ab7e4d4855c9e2597b"
+    },
+    "timings/build-Nonadditivity_HaarPathRelabel.time.txt": {
+      "bytes": 953,
+      "sha256": "aadf0b00db64ac4ec06efeedc4f2f4884f3f5cfb93a48fdd880298e8a5185a0d"
+    },
+    "timings/build-Nonadditivity_HaarPathRunCounterexample.time.txt": {
+      "bytes": 973,
+      "sha256": "f18ca519100ec73ec9888a4e302d3077848b5ff2756ee515519ffe21e270c21a"
+    },
+    "timings/build-Nonadditivity_HaarPathRuns.time.txt": {
+      "bytes": 947,
+      "sha256": "f11392096b28f69051ad2a42df9899975f1b6344ec9ec0c170ff875cd900ce9d"
+    },
+    "timings/build-Nonadditivity_HaarPathSample.time.txt": {
+      "bytes": 951,
+      "sha256": "aa7c24488ca21971c504a7e0218f4d1cecb7b264c0b1191cf3b65357b7466965"
+    },
+    "timings/build-Nonadditivity_HaarPathScalarSummation.time.txt": {
+      "bytes": 970,
+      "sha256": "3fb2a9f0436c74673a753f089f121fa84695ec59f233a2c1f9afcf739ca93640"
+    },
+    "timings/build-Nonadditivity_HaarPathSupport.time.txt": {
+      "bytes": 953,
+      "sha256": "003051ad4a037be1102176b0a72ff2c5d3de5452e55b17d6494e47df9c27f4ce"
+    },
+    "timings/build-Nonadditivity_HaarPathTransport.time.txt": {
+      "bytes": 957,
+      "sha256": "42fb94120c30af62a7f48fc5ed5f68a01ec6f8c5b2e1c32923de66fe39aabc61"
+    },
+    "timings/build-Nonadditivity_HaarPathTree.time.txt": {
+      "bytes": 947,
+      "sha256": "871eab59073756803b094ede28318d1d20a7d0cd2e128fedc42b230c356f7162"
+    },
+    "timings/build-Nonadditivity_HaarPathTreeSegment.time.txt": {
+      "bytes": 961,
+      "sha256": "c59798a2c6b25c0f23a649b3b5a4761a0753b94c4184b76ff2206005c8d177f7"
+    },
+    "timings/build-Nonadditivity_HaarPathVertexFibre.time.txt": {
+      "bytes": 961,
+      "sha256": "501ee37e6e65faff09daa2e14b277888026875893682d089fc55a358d04ceec3"
+    },
+    "timings/build-Nonadditivity_HaarPathVertexNames.time.txt": {
+      "bytes": 961,
+      "sha256": "2b364de615367c8793494bc565ca94728f36cb0b4a88bbf9a809bb21128903a5"
+    },
+    "timings/build-Nonadditivity_HaarPathWeightBudget.time.txt": {
+      "bytes": 963,
+      "sha256": "59e169d1b2737c0c049f1902c8641b609424cd3b4520563052dc618cfa9726d8"
+    },
+    "timings/build-Nonadditivity_HaarPathWeightTransport.time.txt": {
+      "bytes": 969,
+      "sha256": "9e3bc794e06dd0b3eaeb1f2b62e469879524cf9ee7315d552ca56c08ddcff169"
+    },
+    "timings/build-Nonadditivity_HaarPathWeights.time.txt": {
+      "bytes": 956,
+      "sha256": "bef4a75c88c2b28d81390c1dbd66fb61ccd6edf38f3a324b438dea2fd8ea5735"
+    },
+    "timings/build-Nonadditivity_HaarPermutationSupport.time.txt": {
+      "bytes": 967,
+      "sha256": "ef1e98b437b1d8aceda45da8301d6d6c57755d355769393f6fd85a8918b9ee86"
+    },
+    "timings/build-Nonadditivity_HaarPrescribedBound.time.txt": {
+      "bytes": 962,
+      "sha256": "b8127f61fc4c9fccc912cbb88a92271f4df469063e1421cfd8ea1e2bffae1e12"
+    },
+    "timings/build-Nonadditivity_HaarPrescribedConsequences.time.txt": {
+      "bytes": 975,
+      "sha256": "87913b58089b42f0528a1bd2a8bb82877b0f97cf2e3357e062c0ef88fe50cfbe"
+    },
+    "timings/build-Nonadditivity_HaarPrescribedRatio.time.txt": {
+      "bytes": 961,
+      "sha256": "08ef55b759a914dac41d6d2ff29912273c64d4b04dcc5b9cc5a3e2ca42c1aa4b"
+    },
+    "timings/build-Nonadditivity_HaarPrescribedProbability.time.txt": {
+      "bytes": 973,
+      "sha256": "99897c64c589a5de53ec05ffd0d0a46a38b110ec4bc068c579b8d4ebb5ed7287"
+    },
+    "timings/build-Nonadditivity_HaarPrescribedDimension.time.txt": {
+      "bytes": 969,
+      "sha256": "ebf71423c32db2197c5ea48d1228cd739be26061e557c62d31d2c61659bf49bc"
+    },
+    "timings/build-Nonadditivity_HaarPrescribedScaling.time.txt": {
+      "bytes": 965,
+      "sha256": "62b29d21ab0ecf97c52c63365efe21d1121d899356d74761972b366ea9d75ef5"
+    },
+    "timings/build-Nonadditivity_HaarProfileAssignmentBound.time.txt": {
+      "bytes": 975,
+      "sha256": "fbf0b0964c858d6811ebcd81a0b3ffe1fc6588732f65103ba587347ad4f1078f"
+    },
+    "timings/build-Nonadditivity_HaarProfileBlockCoefficients.time.txt": {
+      "bytes": 979,
+      "sha256": "96b05935b189cfee6a5d38cf7efc767eb0b1fbe84540a93e335bb371c1b995d2"
+    },
+    "timings/build-Nonadditivity_HaarProfileCoefficient.time.txt": {
+      "bytes": 967,
+      "sha256": "8b9a8c723aa0453d39b8a885cb7fa2abdf62f77efe0e9c79cd8fff21c6717d47"
+    },
+    "timings/build-Nonadditivity_HaarProfileCompositionBound.time.txt": {
+      "bytes": 977,
+      "sha256": "7229da2d6f7bb0bfa8f110d53be69b50d0b0fc138e9bcc8687b615d738a4ee2c"
+    },
+    "timings/build-Nonadditivity_HaarProfileDecodedCoefficients.time.txt": {
+      "bytes": 983,
+      "sha256": "a1eb6ff74fb7fd21667bd81a2e7957bbe1c6890b2e1c972c144f4aa01db47a75"
+    },
+    "timings/build-Nonadditivity_HaarProfileOrientation.time.txt": {
+      "bytes": 967,
+      "sha256": "28a2543eb9e3d7ef273a19ef4f4df210eb2c5c2f0d389cbc6115819628180644"
+    },
+    "timings/build-Nonadditivity_HaarProfilePadding.time.txt": {
+      "bytes": 959,
+      "sha256": "0e9a05108a5cb162c3e94e21f78cf7048fdc073c33149adb4d9fcf77d88d744a"
+    },
+    "timings/build-Nonadditivity_HaarProfilePatternBound.time.txt": {
+      "bytes": 971,
+      "sha256": "720fe45152c77826604c30affe7f2ea49b863c839df6a67f1a77010981652ef9"
+    },
+    "timings/build-Nonadditivity_HaarProfilePermutations.time.txt": {
+      "bytes": 969,
+      "sha256": "6ca03d0bb974520db945245d9ccb2bf4c50ddb2529340f34db37a689f90a09aa"
+    },
+    "timings/build-Nonadditivity_HaarProfileSingletonWeight.time.txt": {
+      "bytes": 976,
+      "sha256": "ea8eaf7750ec65d941190a3812a4954d22fe214f2a0c3db78f608666136a5e3f"
+    },
+    "timings/build-Nonadditivity_HaarProfileWordReverse.time.txt": {
+      "bytes": 967,
+      "sha256": "17e0aadbc3cc10d4266d44e89b19ab20035b874bd51b4feb9d8fcb8408588f8d"
+    },
+    "timings/build-Nonadditivity_HaarRecursiveSample.time.txt": {
+      "bytes": 961,
+      "sha256": "c2f362885bd9cad7e695f686e689b2259103c5a81c091ab6de196c74ba2f8931"
+    },
+    "timings/build-Nonadditivity_HaarReducedChunks.time.txt": {
+      "bytes": 957,
+      "sha256": "aa108e2a1ca0d749e2ca687b440cdb6c6d5ddaae9ed9d205e5896fa0ec68dc71"
+    },
+    "timings/build-Nonadditivity_HaarRefinedCoefficientBound.time.txt": {
+      "bytes": 977,
+      "sha256": "ea950607e1f9b2fa14592653413a9e001faa9857b4f89fc0c2f3a1b8ff2cd60b"
+    },
+    "timings/build-Nonadditivity_HaarRefinedCoefficientFibre.time.txt": {
+      "bytes": 977,
+      "sha256": "bb2ee2e7740f47efb58aa44ec82cdb21ed2292486e5a0362300c3a76032f6447"
+    },
+    "timings/build-Nonadditivity_HaarRefinedPaletteFibre.time.txt": {
+      "bytes": 969,
+      "sha256": "72dfd8d33abcbb92a0594c27279eacb51cb959a805ae2437945d67e2ac511e0c"
+    },
+    "timings/build-Nonadditivity_HaarRefinedVertexFibre.time.txt": {
+      "bytes": 967,
+      "sha256": "4d14f56f15777e977057afb5b644af0019c9cdf8f4163a851bb402ec862cbfed"
+    },
+    "timings/build-Nonadditivity_HaarRefinedWeight.time.txt": {
+      "bytes": 957,
+      "sha256": "39eb20b96c26b3c407d21bb69c7e7be93034a4e1f66193938139b4cb717a61ca"
+    },
+    "timings/build-Nonadditivity_HaarRepresentativePositions.time.txt": {
+      "bytes": 977,
+      "sha256": "02064a4234a049ae0bb3e6d4a5e5ae8b383256beb021cd4aa93e112547bbeb51"
+    },
+    "timings/build-Nonadditivity_HaarSharpBound.time.txt": {
+      "bytes": 952,
+      "sha256": "9cbc44bc4f28932104af0e49fa30d09b6f36ad68ef452c943be71c2df9a4092a"
+    },
+    "timings/build-Nonadditivity_HaarSharpConstants.time.txt": {
+      "bytes": 960,
+      "sha256": "e4e627895ab22fdac0f4cb4f4591953139384fec96f885ad1d73d3442b3fc740"
+    },
+    "timings/build-Nonadditivity_HaarSharpCounting.time.txt": {
+      "bytes": 957,
+      "sha256": "994f34ba97dae4a620025ab706c2eb0655f931e27482319f41e915cfcaa0e5f2"
+    },
+    "timings/build-Nonadditivity_HaarSharpPathWeight.time.txt": {
+      "bytes": 961,
+      "sha256": "778c98d3cadc73b9a640d0226a0abe108791e0b9b9f1b773e07bf721fa1142bc"
+    },
+    "timings/build-Nonadditivity_HaarSharpSummation.time.txt": {
+      "bytes": 960,
+      "sha256": "095e324fbd842217f0b1dfd7c0bcb95d78a9381d5d695903f8c763df0b45b62d"
+    },
+    "timings/build-Nonadditivity_HaarSkeletonSegmentation.time.txt": {
+      "bytes": 971,
+      "sha256": "cc10af500cd9ae9e79c8b8761a36c6697c7bdf10cc18e239b4664f5643496f97"
+    },
+    "timings/build-Nonadditivity_HaarStationaryCoefficients.time.txt": {
+      "bytes": 975,
+      "sha256": "babc287b6d4ef9eab1bf4448e017b0746ef91f0feb4a80b84a6b4b2f6389e64d"
+    },
+    "timings/build-Nonadditivity_HaarTensorConstants.time.txt": {
+      "bytes": 962,
+      "sha256": "ea0e3096af868b05ce5269cf210e5e99460635da4a39cd2a49cfb2bb8aec29d9"
+    },
+    "timings/build-Nonadditivity_HaarTensorEvaluation.time.txt": {
+      "bytes": 963,
+      "sha256": "d1311e29e6991dc9b634ac3fe7272b6f48400e9a54e1dedfa3dd25caf2edaff3"
+    },
+    "timings/build-Nonadditivity_HaarTensorReplacement.time.txt": {
+      "bytes": 968,
+      "sha256": "1e875f6d84f004293eafb1a5b3f3689bc3207a176f867d6e87ba867b1abb3923"
+    },
+    "timings/build-Nonadditivity_HaarTimeCompositionReverse.time.txt": {
+      "bytes": 975,
+      "sha256": "e3c48e6bc71383e32e045219131c066c058003586fa5e05ed092e458653e4079"
+    },
+    "timings/build-Nonadditivity_HaarTimeCompositions.time.txt": {
+      "bytes": 963,
+      "sha256": "e06df65e3f62482429499f414643c73f9ccda5bca5ad6578de9f8cd125c728f4"
+    },
+    "timings/build-Nonadditivity_HaarVacuumFunctional.time.txt": {
+      "bytes": 963,
+      "sha256": "e2b0ade239b437ffdf15a19d04e843bc4d5cad278087f50a1dfd5dccbd3046bd"
+    },
+    "timings/build-Nonadditivity_HaarWeingartenCounting.time.txt": {
+      "bytes": 967,
+      "sha256": "1b70499718c78e07c1be771b488e803972ce831741e668b6a7896671c8352048"
+    },
+    "timings/build-Nonadditivity_HaarWeingartenCycles.time.txt": {
+      "bytes": 963,
+      "sha256": "3db7519ef52c582aa2fcd2cff42009cc7cb1919dc736b2b33eaef187ef599987"
+    },
+    "timings/build-Nonadditivity_HaarWeingartenGram.time.txt": {
+      "bytes": 959,
+      "sha256": "72536bae1c58ea6cc199738053eecbcbddf615da46ce9e1ca22ab44d9fbd6113"
+    },
+    "timings/build-Nonadditivity_HaarWeingartenInverse.time.txt": {
+      "bytes": 965,
+      "sha256": "fa704e96477d42a08b6417e75739df860973d73f3d2a7560c0d79e7e7221b13e"
+    },
+    "timings/build-Nonadditivity_HaarWeingartenInverseSum.time.txt": {
+      "bytes": 971,
+      "sha256": "5ff8455f55466053a8d51c2a68e72cf5b28f8b77ef9fb412f835ea50d60eb805"
+    },
+    "timings/build-Nonadditivity_HaarWeingartenMomentBound.time.txt": {
+      "bytes": 973,
+      "sha256": "74dd05deb0dfdb4c8d5c0661d2a25bc36bfd2374e2f9fede6f95d0ecb6ce1ff8"
+    },
+    "timings/build-Nonadditivity_HaarWeingartenSymmetry.time.txt": {
+      "bytes": 967,
+      "sha256": "1cc9411566ce4d87fe526f73c4580722a5bfa1b56f95db7b67dff294e17412c7"
+    },
+    "timings/build-Nonadditivity_HaarWordExpansion.time.txt": {
+      "bytes": 960,
+      "sha256": "b4f7804d5fbba957395b97fafd73e729793e91fa31462a9090bf8de42720ac7b"
+    },
+    "timings/build-Nonadditivity_HaarWordPhase.time.txt": {
+      "bytes": 950,
+      "sha256": "150a77668724cc9c7b2a34c6650f7e7647eac5ac5b2445f8dd676f211eb6e351"
+    },
+    "timings/build-Nonadditivity_Holevo.time.txt": {
+      "bytes": 935,
+      "sha256": "9bb1ce42c96caede9ccc9485139d752e64f515f8e5273c1715c6aebd196f444d"
+    },
+    "timings/build-Nonadditivity_HolevoBits.time.txt": {
+      "bytes": 943,
+      "sha256": "0e9dee8ae87bb7d8fc5e155cd9f1eb254029cce2a7308d25daec670f9def67c3"
+    },
+    "timings/build-Nonadditivity_HolevoPowerGap.time.txt": {
+      "bytes": 951,
+      "sha256": "570c472c6850d35b9e058c5a8c41413949d480c56c6bfb0a4684c005b7480aa5"
+    },
+    "timings/build-Nonadditivity_HolevoRateLimit.time.txt": {
+      "bytes": 953,
+      "sha256": "8c04af78da13ee1ce154d473cdd15698a1bfaeba43c2360f9e7b46bb08fab0d0"
+    },
+    "timings/build-Nonadditivity_HolevoTensorSuperadditivity.time.txt": {
+      "bytes": 978,
+      "sha256": "36dcf8ba43dd713e5bb2dda29263330da29209e954516fd27da98a41398162e9"
+    },
+    "timings/build-Nonadditivity_InitialNetReduction.time.txt": {
+      "bytes": 965,
+      "sha256": "8af360da2f0668559f1891dccfc4e43a0aab11aa4e6ee00087887099913406ea"
+    },
+    "timings/build-Nonadditivity_Linearization.time.txt": {
+      "bytes": 952,
+      "sha256": "aa4bd8aa47dbcc483b5a1a1d1c3ace3f4d5631d526efba5bf0ad002ac590f59c"
+    },
+    "timings/build-Nonadditivity_Main.time.txt": {
+      "bytes": 931,
+      "sha256": "3bedade16f0beaabad3cdaabe458436b32e66e888ef589b3ea7c1fc0f6772ad7"
+    },
+    "timings/build-Nonadditivity_MatrixNormReindex.time.txt": {
+      "bytes": 957,
+      "sha256": "6bdf582d59ec5fde4b96c11536ee051ad86565fcfe9b3cc22ade80a5f7171d6b"
+    },
+    "timings/build-Nonadditivity_MatrixRegularRestriction.time.txt": {
+      "bytes": 974,
+      "sha256": "5a48be7e0d5aa38132fa461bcd80e189beb62aeee1436c5161adba8c69a5de5d"
+    },
+    "timings/build-Nonadditivity_MatrixShortEmbedding.time.txt": {
+      "bytes": 963,
+      "sha256": "db9ec69a350ab66fccd7990c1c3cd66846d86e45615d1fad12d29db65a5e0b08"
+    },
+    "timings/build-Nonadditivity_Net.time.txt": {
+      "bytes": 931,
+      "sha256": "22d40af19cfbcc6d240e3241501b6ef11b33cc3f2512523f7cb253fbab300d11"
+    },
+    "timings/build-Nonadditivity_NetPolynomial.time.txt": {
+      "bytes": 954,
+      "sha256": "37d9f1c56290d03d6103138ae87954e4c7b24351e73c1b9c348a712dbe0dcae0"
+    },
+    "timings/build-Nonadditivity_NetPolynomialSupport.time.txt": {
+      "bytes": 963,
+      "sha256": "0393732973205139af53c83768472e7eb090c13b87674a461a17c1bb0462e57e"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCS.time.txt": {
+      "bytes": 957,
+      "sha256": "a5b52f40ba8e53c4b8db2de6ea9382b220850747442a4cd6c817d009142a2b43"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSAssignmentProducts.time.txt": {
+      "bytes": 992,
+      "sha256": "7908f732b1358d767044898d86755402884305fd65c39933f64331d6198e72ec"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSAssignments.time.txt": {
+      "bytes": 980,
+      "sha256": "f4820e40b6260a3081d34cb341d3f2eeb2ee1596e215db6914c315de1fc1fd35"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSBlocks.time.txt": {
+      "bytes": 968,
+      "sha256": "08a2a2d649e70e109995716aa0a4305f1b83fa9d5b095a9c2af846173d6ea4b3"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSCrossing.time.txt": {
+      "bytes": 972,
+      "sha256": "9cde901589175d2c2ce269c99150560248050c7e7eeafc20ed7bf27897fe9834"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSEndpointSkeleton.time.txt": {
+      "bytes": 988,
+      "sha256": "dc6a9d533501800f9a9ac223e4bc3d6c9c76e2b3e8a479eb82e1f677eb0473f1"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSEndpointTrace.time.txt": {
+      "bytes": 982,
+      "sha256": "74da13bb1b57b39f83ac9ccf3f282fdd4693200e04d9a9a07231e67548c7f4e4"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSMemory.time.txt": {
+      "bytes": 969,
+      "sha256": "d699ba1f00a1999e4c96d1f67fec4d949c05a35e858b48ed818c4f5f6207f264"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSSingletons.time.txt": {
+      "bytes": 976,
+      "sha256": "c3532a9d846af7ea8064504204e5f0cd7a16319f7ce82599c79d457f23e99e41"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSPaths.time.txt": {
+      "bytes": 966,
+      "sha256": "2c393cc4ffcb1d003b8ab682207c89f053683cacbe2326e2f62da37fc219af57"
+    },
+    "timings/build-Nonadditivity_NoncommutativeCSSkeletonDecoration.time.txt": {
+      "bytes": 994,
+      "sha256": "cd0299ae6111a20ad7b5b2034b27df7f4085c8e335875da5fbdd9d6bf63bcc4d"
+    },
+    "timings/build-Nonadditivity_ObservableDimension.time.txt": {
+      "bytes": 961,
+      "sha256": "2e0bdf281a9ab88c814137b6481630d64eca9b2a98946b6b6e9743795cd72291"
+    },
+    "timings/build-Nonadditivity_OneBlockRealization.time.txt": {
+      "bytes": 961,
+      "sha256": "1e10de4ba1679ea2adfb6e4bca60fc884a81f7f6a5621cc5dd79176afc87d4a6"
+    },
+    "timings/build-Nonadditivity_OperationalBlockRates.time.txt": {
+      "bytes": 965,
+      "sha256": "f9eb66f3985bf08c9b2cf31decc2a22ef99127b765b12a5a8c968d17ceff34c2"
+    },
+    "timings/build-Nonadditivity_OperationalBlocking.time.txt": {
+      "bytes": 961,
+      "sha256": "d0b021afe1377dee761872ee3b9287ae944bf400c0bc824eff648d6a5ae33a92"
+    },
+    "timings/build-Nonadditivity_OperationalBlockingCodes.time.txt": {
+      "bytes": 971,
+      "sha256": "afdfb2039342fe7f5eb99b785548f9ec4dbd848ff4d92fcbb49f90c9ffa566c4"
+    },
+    "timings/build-Nonadditivity_OperationalBlockingFlatten.time.txt": {
+      "bytes": 975,
+      "sha256": "174081d6d678c7c8c2dd7d640b6473d03e3ea2c99e808741592632f88816ed13"
+    },
+    "timings/build-Nonadditivity_OperationalCapacity.time.txt": {
+      "bytes": 963,
+      "sha256": "35b4258615695385d9a79c7c5bbba2df5dbccb2a6ece0d2756b3f7e02616adf1"
+    },
+    "timings/build-Nonadditivity_OperationalCodingTheorem.time.txt": {
+      "bytes": 971,
+      "sha256": "47253a0ad1cece3a4536aba57692562edee2bd9671f8daca9f396334536202d3"
+    },
+    "timings/build-Nonadditivity_OperationalConsequences.time.txt": {
+      "bytes": 969,
+      "sha256": "358c4a1627d95e8e72c08ff82371382a4af68a4f4aad02eabafccee53076f30b"
+    },
+    "timings/build-Nonadditivity_OperationalConverse.time.txt": {
+      "bytes": 961,
+      "sha256": "1ccfa56a7c5d8c18122d92e94e01ae53847ef875f38f09c6ad8cbd02e09a15e3"
+    },
+    "timings/build-Nonadditivity_OperationalFlaggedEntropy.time.txt": {
+      "bytes": 973,
+      "sha256": "f7a353ad1b48347672f3a7cc34cdf0cb7264e7b3476018f5476bd7a696e1b57e"
+    },
+    "timings/build-Nonadditivity_OperationalHolevoConverse.time.txt": {
+      "bytes": 973,
+      "sha256": "897185dd50f0a19ccd3003fc32099c618ec007e40fd24aae261b21e14f735e81"
+    },
+    "timings/build-Nonadditivity_OperationalNaimark.time.txt": {
+      "bytes": 960,
+      "sha256": "211a922da3e23877e7b527b07a3bac6bd6d446db81178bcb4006771a29d9662f"
+    },
+    "timings/build-Nonadditivity_OperationalProjectedCode.time.txt": {
+      "bytes": 971,
+      "sha256": "df3224a97e0b9ab9da18dde6d311570c274866db2695a83641ebc36dcab17a79"
+    },
+    "timings/build-Nonadditivity_OperationalReindex.time.txt": {
+      "bytes": 959,
+      "sha256": "7aee40470c79412fef23101801c0377bdfc23c9e127e64ec65bd44668a3aad43"
+    },
+    "timings/build-Nonadditivity_OperationalStrongConverse.time.txt": {
+      "bytes": 973,
+      "sha256": "a87215cc28ac75fea8fefa436cf9bcb3c7a422894b7176e20be69e4f666fc780"
+    },
+    "timings/build-Nonadditivity_OperationalWeakConverse.time.txt": {
+      "bytes": 970,
+      "sha256": "1585f1d870a79fcc6cb9263f472e3738992c278e031b28bf742215097d2b6608"
+    },
+    "timings/build-Nonadditivity_PolynomialDilation.time.txt": {
+      "bytes": 959,
+      "sha256": "a115e187a6c215f5fe07ab915cbcad01e3e3622b055346dcb7fd0c949983bde1"
+    },
+    "timings/build-Nonadditivity_PolynomialReduction.time.txt": {
+      "bytes": 964,
+      "sha256": "6f737b2d0ff01df1c7387fe30dbeb1dd7cd2d57b0225bb3ed153ff4d35f544c8"
+    },
+    "timings/build-Nonadditivity_PositiveHolevo.time.txt": {
+      "bytes": 953,
+      "sha256": "9c02639995221712faf250d1d8ad085264e74b011dcbe7da31370da482749641"
+    },
+    "timings/build-Nonadditivity_PositiveLinearization.time.txt": {
+      "bytes": 968,
+      "sha256": "40bf8d944a50bed29ee1662e5823ae58b002ffe60b4de9cba56c6ccdcc438ec9"
+    },
+    "timings/build-Nonadditivity_PrescribedCostCapacity.time.txt": {
+      "bytes": 967,
+      "sha256": "9d5db7fe788074b3dde7f3b789f477f006c880609b7ccbeabd16f0b1ddf3789c"
+    },
+    "timings/build-Nonadditivity_PrescribedCostDimensions.time.txt": {
+      "bytes": 971,
+      "sha256": "e3e420e06d595df106442564e7a8ebfd3eff5f916db74ed2448cbdda6dbbe57c"
+    },
+    "timings/build-Nonadditivity_PrescribedCostInformation.time.txt": {
+      "bytes": 973,
+      "sha256": "088b68c1978f04c472a9ef3fd43fe745c42242048b51e8414e076fe59ee5efe1"
+    },
+    "timings/build-Nonadditivity_PrescribedCostLogarithms.time.txt": {
+      "bytes": 971,
+      "sha256": "ac6f0aa62605a160d72c7cdb0489f2182da9a9c31c03454aed24339a83c930fd"
+    },
+    "timings/build-Nonadditivity_PrescribedCostScalars.time.txt": {
+      "bytes": 965,
+      "sha256": "c830874f93eecdcaf89b5c7520691ede90fe1f8b566b01008d9a8d2d8790f5ca"
+    },
+    "timings/build-Nonadditivity_PrescribedCostScaling.time.txt": {
+      "bytes": 965,
+      "sha256": "aa117b552c73dad8f02c1de493e7d9ee99375d4d817c6eb619186b28ccbdf601"
+    },
+    "timings/build-Nonadditivity_Probability.time.txt": {
+      "bytes": 945,
+      "sha256": "62605ce3859ee17deadf81e287eb2f0debdb0ac4825578b98f112c8c5543b88f"
+    },
+    "timings/build-Nonadditivity_PrescribedTest.time.txt": {
+      "bytes": 954,
+      "sha256": "08c25f848917c1c530738ab8c4594bc73c0bf3d163460061ba83ce3747f10728"
+    },
+    "timings/build-Nonadditivity_ProbabilityQuantitative.time.txt": {
+      "bytes": 969,
+      "sha256": "8d8e55f068a7d5c2d38f9ec2007c06f535777ad030f5562b93111480334c71ea"
+    },
+    "timings/build-Nonadditivity_ProductHaagerupBall.time.txt": {
+      "bytes": 961,
+      "sha256": "b7b3b51553ed265f603dbc5a9703b5c893efdd916e54981fe388410ad2ab3b3b"
+    },
+    "timings/build-Nonadditivity_ProductHaagerupHomogeneous.time.txt": {
+      "bytes": 975,
+      "sha256": "51b20b5e12012d5f953cd75de35482d23254b92f7ac4ad17df777fbeb0bb91df"
+    },
+    "timings/build-Nonadditivity_ProductHaagerupCreation.time.txt": {
+      "bytes": 971,
+      "sha256": "9f4023d6a8e1f234020269ad4507d3865c4b4657e01030479b3ae2b3fa2037aa"
+    },
+    "timings/build-Nonadditivity_ProductHaagerupIndex.time.txt": {
+      "bytes": 963,
+      "sha256": "897f1753959fdba7a9f7d46dcb9655634cc58977f6b2bdbbbccb784f7359380b"
+    },
+    "timings/build-Nonadditivity_ProductHaagerupProduct.time.txt": {
+      "bytes": 969,
+      "sha256": "5b533be41292d6d405b91f4c16d29145745c7d86eff02b4e225e3944837c6a97"
+    },
+    "timings/build-Nonadditivity_ProductHaagerupReindex.time.txt": {
+      "bytes": 967,
+      "sha256": "8d0ab77370d9ea6b3aefd63f241432dad8835f476bca9021691ee015731f7c63"
+    },
+    "timings/build-Nonadditivity_ProductHaagerupWords.time.txt": {
+      "bytes": 965,
+      "sha256": "b79632cfb07fb5829edcfd4d662b50cdce0b545dac78f292bc9d33fd1e3047cd"
+    },
+    "timings/build-Nonadditivity_ProductMomentBridge.time.txt": {
+      "bytes": 965,
+      "sha256": "56059f02906dd383d6c0ae11f16182371ec9ec486e8d453d0c7a7617f687a46b"
+    },
+    "timings/build-Nonadditivity_ProductPolynomialReduction.time.txt": {
+      "bytes": 977,
+      "sha256": "532338fc2ed7ca56d06421a43ef2ff0573aa01a7f0fb3c6f2976cb973b58e131"
+    },
+    "timings/build-Nonadditivity_PureChannelEntropy.time.txt": {
+      "bytes": 959,
+      "sha256": "52c086def320756a807f51b1529be4c868ac90d29423802e47015c2267f18c9f"
+    },
+    "timings/build-Nonadditivity_Purity.time.txt": {
+      "bytes": 935,
+      "sha256": "383cefd3d9f8bf2a4d42363b337d09b312628bd08f03bade119309ad7f27eba8"
+    },
+    "timings/build-Nonadditivity_QuadraticNet.time.txt": {
+      "bytes": 947,
+      "sha256": "13320cc3bdcbcd3bb0d6d49e76a0369b145438a600f142595ed2bce2d1be7479"
+    },
+    "timings/build-Nonadditivity_Qualitative.time.txt": {
+      "bytes": 945,
+      "sha256": "6f877cf010eaf6e57678538e4f1374d0a1629b7c80c710919174ff948f8de628"
+    },
+    "timings/build-Nonadditivity_Quantitative.time.txt": {
+      "bytes": 950,
+      "sha256": "d961ee6a82fdc2f13b8fdf89ac4eb34174954a5b1bd41c67bed243a1b64c1e69"
+    },
+    "timings/build-Nonadditivity_QuantitativeNet.time.txt": {
+      "bytes": 954,
+      "sha256": "2d45eaaaa4085954f74de3588d726560317be8b05205766bafb66118e5f97bd4"
+    },
+    "timings/build-Nonadditivity_QuantumCodingChannelWords.time.txt": {
+      "bytes": 973,
+      "sha256": "916d4f909b63047f539dc896e65d5b7cdcc7d1aa12bde3b4271d78e0235a5574"
+    },
+    "timings/build-Nonadditivity_QuantumCodingConditionalTypicality.time.txt": {
+      "bytes": 991,
+      "sha256": "f4d8b11177960af946dd61c6fb646d128c1c38524be0b75678d30a1a2969dc7c"
+    },
+    "timings/build-Nonadditivity_QuantumCodingContinuity.time.txt": {
+      "bytes": 971,
+      "sha256": "c43b373de25bbe4acf58838ba439eba75a7b9d90fe60911142145acb6ea3a8bd"
+    },
+    "timings/build-Nonadditivity_QuantumCodingDecoderBound.time.txt": {
+      "bytes": 974,
+      "sha256": "7acaa7d2d0b2b04353dfa4bbfc1968cc8814ae083352d5a9c70756ad75417d7e"
+    },
+    "timings/build-Nonadditivity_QuantumCodingEnsembleTypicality.time.txt": {
+      "bytes": 985,
+      "sha256": "64999b54629de0639578aa21b0689334f3087f2f3fb9c57696746b66a7009af0"
+    },
+    "timings/build-Nonadditivity_QuantumCodingFamilySpectrum.time.txt": {
+      "bytes": 977,
+      "sha256": "c6d376dd2a22b376e8609ce2fd15e0168b22e1c3a27e5c22c8fc96460a33276b"
+    },
+    "timings/build-Nonadditivity_QuantumCodingGentle.time.txt": {
+      "bytes": 963,
+      "sha256": "a3e75f1d0c7ecf6740689a93bc358a2b90addd2e418fff5f17b05567277f5c77"
+    },
+    "timings/build-Nonadditivity_QuantumCodingHSW.time.txt": {
+      "bytes": 955,
+      "sha256": "fd205a844fdcfd664016a6da55e9d3b682c2efb7d57870b9ed4e5aa46ecb68de"
+    },
+    "timings/build-Nonadditivity_QuantumCodingPacking.time.txt": {
+      "bytes": 963,
+      "sha256": "f301450e1465ac8098c16b854eb92f04d4474290edd61715ac98d7972ac9d9e3"
+    },
+    "timings/build-Nonadditivity_QuantumCodingPackingAverages.time.txt": {
+      "bytes": 979,
+      "sha256": "30d833fafc8bf9e2b141643abeb4ff8ead789f80095c0f41fb1d4eedd211d0d5"
+    },
+    "timings/build-Nonadditivity_QuantumCodingRates.time.txt": {
+      "bytes": 959,
+      "sha256": "8565d46a2f6c6ee61557c27e8a20aa735278f348dab1e7e67dbf076916467e75"
+    },
+    "timings/build-Nonadditivity_QuantumCodingSampling.time.txt": {
+      "bytes": 965,
+      "sha256": "afce766364d332451ba2bdb1eca3d6c9e31c504bfbc4d093e1cde5aba2b51668"
+    },
+    "timings/build-Nonadditivity_QuantumCodingSequential.time.txt": {
+      "bytes": 969,
+      "sha256": "eba064563e8c3962aa4705c89e25d54987e8335b8102ecb2ae5f5a0d5a674b0f"
+    },
+    "timings/build-Nonadditivity_QuantumCodingSpectral.time.txt": {
+      "bytes": 965,
+      "sha256": "99b42572fac640555dfc093c179e462d1b6006c3f53de6c86d82f18359396e55"
+    },
+    "timings/build-Nonadditivity_QuantumCodingTensorSpectrum.time.txt": {
+      "bytes": 977,
+      "sha256": "7b1a13ef81a09b5f0082cf79c1ae1eaccff1b721fb4d4008d4f482204bae8bc9"
+    },
+    "timings/build-Nonadditivity_QuantumCodingTraceDistance.time.txt": {
+      "bytes": 975,
+      "sha256": "bea68497a33be68c3354e8772c7f1655bfe7284634e118fdf8b4f40657a5ed13"
+    },
+    "timings/build-Nonadditivity_QuantumCodingTraceUnion.time.txt": {
+      "bytes": 969,
+      "sha256": "8ec70eaa927e1433d70969a4441419aed4434f4a3421473583b9c45d592438fd"
+    },
+    "timings/build-Nonadditivity_QuantumCodingTypicalProjectors.time.txt": {
+      "bytes": 983,
+      "sha256": "995d2f30c03cc8358f63dbea5b7b80804903b1bee444f92665b1e404f0584be7"
+    },
+    "timings/build-Nonadditivity_QuantumCodingTypicalTests.time.txt": {
+      "bytes": 973,
+      "sha256": "0106a5c449ced99d004714302cc6b9d1f1618978ce8562ad7a8089f38e223609"
+    },
+    "timings/build-Nonadditivity_QuantumCodingTypicality.time.txt": {
+      "bytes": 971,
+      "sha256": "b636fa5fe054146f0c0398b262ec9410e4e993af7cf370a893d8f6b201b187e2"
+    },
+    "timings/build-Nonadditivity_QuantumCodingUnion.time.txt": {
+      "bytes": 959,
+      "sha256": "8872a2a179729209a31caa957eea68a3f8f2e45add2f70e67193fed921407491"
+    },
+    "timings/build-Nonadditivity_QuantumHolevo.time.txt": {
+      "bytes": 949,
+      "sha256": "91df6d7d54d20609007346ee03c982f9384ae7bb904d864509582bcbc0ac4d31"
+    },
+    "timings/build-Nonadditivity_RegularCoefficientEnergy.time.txt": {
+      "bytes": 973,
+      "sha256": "2805ce238e3f38d9d06a20f4db40fc18a47a0de05a11d47f9bab313d8189a4cd"
+    },
+    "timings/build-Nonadditivity_RegularDilation.time.txt": {
+      "bytes": 956,
+      "sha256": "43854f90c7ef38434c049cef5d10ac804f40bf444e61a3cd6c0c9909c52a18fb"
+    },
+    "timings/build-Nonadditivity_RegularFactorization.time.txt": {
+      "bytes": 969,
+      "sha256": "007c9cdabd82709ab68f60538fe39998cb58fee50d96b7f569e930442eb73404"
+    },
+    "timings/build-Nonadditivity_RegularFubini.time.txt": {
+      "bytes": 952,
+      "sha256": "3ee913a91fdb9cbd2ffbeb32e1d420b806c7b645db116ee8b3e9db927928fcf2"
+    },
+    "timings/build-Nonadditivity_RegularRestriction.time.txt": {
+      "bytes": 962,
+      "sha256": "bfabb2811fc922e25c4bad24c9983a703c84eed70df7c8fc2c08948f8fda4ca9"
+    },
+    "timings/build-Nonadditivity_RegularShiftedDilation.time.txt": {
+      "bytes": 969,
+      "sha256": "d7cc58e44ccb7a096165c3d607a7c197e7ddefc368d43212ff56b45dcb663d87"
+    },
+    "timings/build-Nonadditivity_RegularizedHolevo.time.txt": {
+      "bytes": 957,
+      "sha256": "c00613a7bb681dc6c657c3153d28ba68d57d58740239cba0ca87e2898661d953"
+    },
+    "timings/build-Nonadditivity_Scalar.time.txt": {
+      "bytes": 935,
+      "sha256": "8b0eb9a64e6b416f36c5f0b2f6a5014267217dde5e14fdf2417fab767b6641d3"
+    },
+    "timings/build-Nonadditivity_ShiftNorm.time.txt": {
+      "bytes": 943,
+      "sha256": "e0813efe212760292467da4b674754459007888b2359d1cc88c41bd9be91a20e"
+    },
+    "timings/build-Nonadditivity_ShortEmbeddingNorm.time.txt": {
+      "bytes": 959,
+      "sha256": "2bffb850f66efb9944d06f4397104ff90176ad79d9c5ce8b6552d6473881d682"
+    },
+    "timings/build-Nonadditivity_SmallEnvironment.time.txt": {
+      "bytes": 955,
+      "sha256": "16951e778188119c84d3ebef02da2e587085a8bf18eda759ac393d82ead7f424"
+    },
+    "timings/build-Nonadditivity_SpectralDamping.time.txt": {
+      "bytes": 955,
+      "sha256": "2dcc943df34b40aa9c2f265115f052ec7c24582ab02fe1018cc7748cc4907133"
+    },
+    "timings/build-Nonadditivity_StateEnsembles.time.txt": {
+      "bytes": 951,
+      "sha256": "269388251a5e62551412b7d01197920bc0d2a4195e760536d1697404d76bbf1c"
+    },
+    "timings/build-Nonadditivity_StrictEntropy.time.txt": {
+      "bytes": 949,
+      "sha256": "8bd8c0a50b08994d951724c839205f65b8081555e5c11d4d0ae1386c1dfdd001"
+    },
+    "timings/build-Nonadditivity_StructuredCostBounds.time.txt": {
+      "bytes": 966,
+      "sha256": "af3a39d589cbc1f78a8225df8d23a9606b7445e1d8643f025168979d739c760a"
+    },
+    "timings/build-Nonadditivity_StructuredFiniteChannel.time.txt": {
+      "bytes": 969,
+      "sha256": "81b5adf985c8ec3d8cb6a71dd7b5cbcc9639aa64be78e08457dbfd86d2f91673"
+    },
+    "timings/build-Nonadditivity_StructuredHaarConsequences.time.txt": {
+      "bytes": 976,
+      "sha256": "e1c203be2454b3188f1d05bf987b98d4706b267a7ddb1c2ada8ee7b742cb3515"
+    },
+    "timings/build-Nonadditivity_StructuredHaarModel.time.txt": {
+      "bytes": 962,
+      "sha256": "bfcfd63c21cae089b67c2d68dad8b558e68c3c72d69f32bee1045f074fa1159d"
+    },
+    "timings/build-Nonadditivity_StructuredLinearization.time.txt": {
+      "bytes": 971,
+      "sha256": "628e0a0b436a802eb0a983a942b4a8626779e49ebb46b8288f2187bbf75bd640"
+    },
+    "timings/build-Nonadditivity_StructuredReductionCosts.time.txt": {
+      "bytes": 971,
+      "sha256": "3d5c4c39cfd8252563d49750f38d739bae6d5e9d3cafea657ae7a8af1741b00f"
+    },
+    "timings/build-Nonadditivity_SwitchChannel.time.txt": {
+      "bytes": 949,
+      "sha256": "7b81f5b6ea070ac7413cee4f41594a52d3ecdc891f89be9bf5d0fe08c62379c5"
+    },
+    "timings/build-Nonadditivity_TensorPartitionReduction.time.txt": {
+      "bytes": 973,
+      "sha256": "4d00f908456bfebe833c48ba50eb5740a153f9716be84d0024ca85956c35cefe"
+    },
+    "timings/build-Nonadditivity_TensorPowers.time.txt": {
+      "bytes": 947,
+      "sha256": "f8930f8538c3317393d27cd496b8fcc9a4dc7eedda6cfe1ea6647a1a69382314"
+    },
+    "timings/build-Nonadditivity_UniversalFactorization.time.txt": {
+      "bytes": 967,
+      "sha256": "ecf58f099de7decba85a9784e6cf13420fc760137f5da2ab286a091881b25ff3"
+    },
+    "timings/build-Nonadditivity_UniversalFactorizationGram.time.txt": {
+      "bytes": 979,
+      "sha256": "e6c7a150f147f4e2bab6fa05ec48f4269ee27f0a1814c13a792cc3626c39d379"
+    },
+    "timings/build-Nonadditivity_UniversalFactorizationOperators.time.txt": {
+      "bytes": 987,
+      "sha256": "53abe4c31d8a5b5156e5d503b194ad43feeeec0feefbbe8dcea835644a574cc5"
+    },
+    "timings/build-Nonadditivity_UniversalFactorizationPolynomialDilation.time.txt": {
+      "bytes": 1005,
+      "sha256": "5503c7deaf1f2d07ef2727d0c3ea95026925185ea10326a4484f0b13bcba2af3"
+    },
+    "timings/build-Nonadditivity_UniversalShiftedDilation.time.txt": {
+      "bytes": 974,
+      "sha256": "2ec2a1622ab15706faf23dcb0b21d46efee8bd4b14a55821ec483b7ec2ee69f1"
+    },
+    "timings/build-Nonadditivity_UpperHaarRealization.time.txt": {
+      "bytes": 964,
+      "sha256": "564ac4087233c77a732194ef2c81ec284ab54ef677ce35289e7b3fca69784d21"
+    },
+    "timings/build-Nonadditivity_WeightedBell.time.txt": {
+      "bytes": 947,
+      "sha256": "bb0591d5c95f41f74a13dc3545c726a04950e583b263ba81ef1f3631982de877"
+    },
+    "timings/build-Nonadditivity_WeightedBellScalar.time.txt": {
+      "bytes": 960,
+      "sha256": "4891b8d9dbfce8d4f14f50926a59cb4fca01041f438e50cf326abd6c813fab0c"
+    },
+    "timings/build-Nonadditivity_WeightedBlockBell.time.txt": {
+      "bytes": 957,
+      "sha256": "1f96a3831f28218d68a4c15b784d91a96738fddcf03a368f65c5205495694855"
+    },
+    "timings/build-Nonadditivity_WeightedBlock.time.txt": {
+      "bytes": 949,
+      "sha256": "db9610a96c877dc249e1e5d2662b2a465b818d2355e1c5eb63b659e214a8b6bf"
+    },
+    "timings/build-Nonadditivity_WeightedCertificate.time.txt": {
+      "bytes": 961,
+      "sha256": "11b057877f0f65e8744cc6af4ce6f575e61fc8eebb17bf9adb7a67f635298a92"
+    },
+    "timings/build-Nonadditivity_WeightedMatrixInverse.time.txt": {
+      "bytes": 965,
+      "sha256": "8c47bc6d60091f9cb0ecd60c24adeaf4775ded886dd8a07e74648950f8f641c6"
+    },
+    "timings/build-Nonadditivity_WeightedParameters.time.txt": {
+      "bytes": 959,
+      "sha256": "8d560d25525667e283e9bbbeac7450cec2d35a5062b5a281a036d4ce76ddddee"
+    },
+    "timings/build-Nonadditivity_WeightedPositivity.time.txt": {
+      "bytes": 959,
+      "sha256": "e62d84dfe3bbabc20eaece2942241cc3ef0bd4bbe79123d8c47596857b6715e0"
+    },
+    "timings/build-Nonadditivity_Weyl.time.txt": {
+      "bytes": 933,
+      "sha256": "134f62c0a6f595621cb11fef53cdedcbb78141d9431f6cbad5be1ffaf221e0c3"
+    },
+    "timings/build-Nonadditivity_WeylPowersControl.time.txt": {
+      "bytes": 957,
+      "sha256": "99952dc1f8ded7e74fcedfc0dcd3bee7a0c6086a0372aa3b52854ca7ba6d70c5"
+    },
+    "timings/build-Nonadditivity_WeylPowersChannels.time.txt": {
+      "bytes": 959,
+      "sha256": "98bf565bf0d2e0743166efd5ae6632bd3492dd45122739096c83e32c856494f4"
+    },
+    "timings/build-Nonadditivity_WeylPowersEntropy.time.txt": {
+      "bytes": 957,
+      "sha256": "6b9415ce458436f70182b276e1f8962ef26fcb83c9f90a02ecc79abf90082c1d"
+    },
+    "timings/build-Nonadditivity_WeylPowersIndex.time.txt": {
+      "bytes": 953,
+      "sha256": "217fb4d9e7402d5863416dcd9db7a6bb87893dad545bf969d2f2169bf54f8c38"
+    },
+    "timings/build-Nonadditivity_WeylPowersRegularized.time.txt": {
+      "bytes": 965,
+      "sha256": "2a642463249878404076cd6e93fea390005b744f470d22d0459e9156ea7009e6"
+    },
+    "timings/build-Nonadditivity_WeylPowersTwirl.time.txt": {
+      "bytes": 954,
+      "sha256": "3abd7f8efbeeb1254d80f8f035b4b572b7fef0d91248accb9d639b2b75fce3fa"
+    },
+    "timings/build-Nonadditivity_WeylTensor.time.txt": {
+      "bytes": 944,
+      "sha256": "6dbd9983efb4ca6f7c2abfa373f13e1e02a8d7c516947b626c6f6cccb2ec7a60"
+    },
+    "timings/build-Nonadditivity_WordBallReduction.time.txt": {
+      "bytes": 960,
+      "sha256": "acb757043c2dd10a73c6b92126fd1e35d4d81475b38c918e67cccafafa594db8"
+    },
+    "timings/profile-Audit.time.txt": {
+      "bytes": 819,
+      "sha256": "562bfe54b6a6a936a88a7d9fb6dca28605ff884e5f55983778f634c46be136ab"
+    },
+    "timings/profile-Nonadditivity_CollinsYounTensor.time.txt": {
+      "bytes": 844,
+      "sha256": "b802ca2fde8f736336806d06b2048092d83808eeed12daf87d6c9b36b191b6c8"
+    },
+    "timings/profile-Nonadditivity_InitialNetReduction.time.txt": {
+      "bytes": 846,
+      "sha256": "07a888c36b9a51628bc6bf1a2aa3b5b44b8ade139c3e7de815e77a2e9b7b7409"
+    },
+    "timings/profile-Nonadditivity_NetPolynomial.time.txt": {
+      "bytes": 840,
+      "sha256": "bce31e773693e6aa22b13d28cab9df45daf3453120735105036c00283b16644e"
+    },
+    "timings/profile-Nonadditivity_NoncommutativeCSSkeletonDecoration.time.txt": {
+      "bytes": 860,
+      "sha256": "cd5c31c6e9b73b6a5a1fba2ac37c5e2882097883d11cafa47e6ac869dc076a40"
+    },
+    "timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt": {
+      "bytes": 849,
+      "sha256": "a8139e622ce83ca82f971400d078202b971bde7b1ee85b50b896b3fb728508e3"
+    },
+    "timings/profile-Nonadditivity_RegularFactorization.time.txt": {
+      "bytes": 849,
+      "sha256": "a6cf1682c91832a078b599924d84de48f169aea6d67af39cb2cc0fcd71511a59"
+    },
+    "timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt": {
+      "bytes": 853,
+      "sha256": "367e0c1a6df66908c467b5333382deb7b492a518652e8067b34e4a675cbfc921"
+    },
+    "wrapper-config.json": {
+      "bytes": 125479,
+      "sha256": "1118ccd0144883911822a99b1bdebb5b9dbfea755874710232bfa02c3e46efc5"
+    }
+  }
+}

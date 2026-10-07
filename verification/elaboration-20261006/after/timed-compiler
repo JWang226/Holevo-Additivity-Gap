@@ -1,0 +1,3 @@
+#!/opt/hostedtoolcache/Python/3.11.17/x64/bin/python
+import subprocess, sys
+sys.exit(subprocess.run(['/opt/hostedtoolcache/Python/3.11.17/x64/bin/python', '/home/runner/work/Holevo-Additivity-Gap/Holevo-Additivity-Gap/scripts/elaboration_test.py', '_compiler', '/home/runner/work/_temp/elaboration-evidence/after/wrapper-config.json'] + sys.argv[1:]).returncode)

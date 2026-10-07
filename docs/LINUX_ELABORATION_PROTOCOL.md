@@ -1,9 +1,9 @@
 # Same-runner elaboration measurement
 
-Install `elaboration.yml` as `.github/workflows/elaboration.yml`, and both Python
-files as `scripts/`. The workflow definition can be on `main`; its dispatched
-baseline branch must also contain the helper and unchanged measurement harness.
-No proof source, release metadata, or dependency pin is changed by installation.
+The workflow is `.github/workflows/elaboration.yml`; its harness and fixed
+continuation helper are in `scripts/`. The workflow definition can be on `main`;
+the dispatched baseline must contain both scripts. Select an immutable full SHA
+for an exact repeat. A later cleanup publication commit is a different snapshot.
 
 The job uses Ubuntu 22.04, the repository's pinned Lean/cache setup, GNU time,
 and one serial build driver. Setup is outside timing. Baseline, A/B trials,
@@ -15,10 +15,14 @@ Dispatch explicitly (replace the branch names):
 
 ```sh
 gh workflow run elaboration.yml --repo JWang226/Holevo-Additivity-Gap --ref main \
-  -f baseline_ref=codex/cleanup-elaboration-20261006 \
-  -f after_ref=codex/elaboration-candidates-20261006 \
-  -f control_ref=codex/elaboration-control-20261006
+  -f baseline_ref=743cc95bc4c0b1bca891994def26d9e5f8c7aad6 \
+  -f after_ref=YOUR_CANDIDATE_BRANCH \
+  -f control_ref=YOUR_FRESH_CONTROL_BRANCH
 ```
+
+Use a fresh control branch starting at sequence 1; the historical control
+branch is already at sequence 4. The candidate branch must descend from the
+selected baseline and remain limited to permitted proof-source changes.
 
 Read the uploaded `elaboration-before` artifact. Its `summary.json` identifies
 the measured full baseline SHA, coverage, per-file timings, and eight warm phase
@@ -88,7 +92,10 @@ Those supplemental results are separate from the original full after summary.
 Only after all measurements, `python scripts/export_declarations.py --fresh`
 exports the types from the freshly compiled after objects. The
 `elaboration-after-declarations` artifact contains `metadata/declarations.json`
-and exporter logs/checkpoints. Use decoded canonical kernel types to compare
+and selected exporter logs/checkpoints when hidden-file upload is enabled.
+The historical run used the older workflow definition; its artifact inventory
+and preserved export identify the files actually retained. Use decoded canonical
+kernel types to compare
 the public API against the original reviewed export; generated proof helpers
 may change. The exporter is not a proof rebuild or an independent kernel check.
 

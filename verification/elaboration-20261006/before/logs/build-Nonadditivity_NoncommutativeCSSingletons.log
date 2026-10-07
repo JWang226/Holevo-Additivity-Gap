@@ -1,0 +1,6 @@
+Nonadditivity/NoncommutativeCSSingletons.lean:105:14: warning: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Nonadditivity/NoncommutativeCSSingletons.lean:115:14: warning: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

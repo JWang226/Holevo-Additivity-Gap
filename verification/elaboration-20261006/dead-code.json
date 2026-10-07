@@ -1021,5 +1021,14 @@
     "Nonadditivity/WeightedParameters.lean",
     "Nonadditivity/WeylPowersTwirl.lean"
   ],
-  "status": "awaiting_fresh_full_build"
+  "status": "sweep_validated_by_complete_baseline_build",
+  "baseline_validation": {
+    "summary_path": "verification/elaboration-20261006/before/summary.json",
+    "summary_sha256": "732e5b426ea87cf69ef103fa4cd2eb1411de030700abfab19cb01429046da111",
+    "source_commit": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+    "measured_modules": 369,
+    "errors": 0,
+    "sorry_warnings": 0,
+    "scope": "Full baseline build validates the swept sources. A final fresh public-type comparison and after build are recorded separately."
+  }
 }

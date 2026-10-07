@@ -1,0 +1,130 @@
+import took 2.17s
+typeclass inference of SeminormedAddGroup took 152ms
+typeclass inference of SeminormedAddGroup took 142ms
+typeclass inference of SeminormedAddGroup took 144ms
+typeclass inference of SeminormedAddGroup took 142ms
+typeclass inference of TopologicalSpace took 107ms
+simp took 125ms
+typeclass inference of SeminormedAddGroup took 141ms
+typeclass inference of SeminormedAddGroup took 142ms
+typeclass inference of SeminormedAddCommGroup took 103ms
+typeclass inference of SeminormedAddCommGroup took 103ms
+typeclass inference of SeminormedAddCommGroup took 104ms
+tactic execution of Lean.Parser.Tactic.refine took 115ms
+typeclass inference of Nontrivial took 546ms
+simp took 1.61s
+typeclass inference of SeminormedAddCommGroup took 100ms
+typeclass inference of SeminormedAddCommGroup took 104ms
+typeclass inference of Nontrivial took 886ms
+simp took 4.48s
+typeclass inference of SeminormedAddCommGroup took 101ms
+typeclass inference of AddMonoid took 620ms
+typeclass inference of DistribSMul took 122ms
+typeclass inference of SeminormedAddCommGroup took 102ms
+tactic execution of Lean.Parser.Tactic.refine took 179ms
+tactic execution of Lean.Parser.Tactic.refine took 182ms
+typeclass inference of SeminormedAddCommGroup took 100ms
+typeclass inference of SeminormedAddCommGroup took 101ms
+typeclass inference of SeminormedAddGroup took 151ms
+typeclass inference of SeminormedAddGroup took 149ms
+typeclass inference of TopologicalSpace took 110ms
+typeclass inference of AddCommMonoid took 109ms
+simp took 184ms
+typeclass inference of Algebra took 262ms
+typeclass inference of Algebra took 164ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 133ms
+typeclass inference of SeminormedAddCommGroup took 106ms
+typeclass inference of UniformSpace took 111ms
+typeclass inference of PseudoMetricSpace took 112ms
+typeclass inference of Algebra took 197ms
+typeclass inference of Algebra took 167ms
+typeclass inference of SeminormedAddCommGroup took 109ms
+typeclass inference of UniformSpace took 112ms
+typeclass inference of PseudoMetricSpace took 111ms
+typeclass inference of Algebra took 177ms
+typeclass inference of Algebra took 321ms
+typeclass inference of Module took 135ms
+typeclass inference of IsScalarTower took 226ms
+typeclass inference of Algebra took 297ms
+tactic execution of Lean.Parser.Tactic.exact took 129ms
+type checking took 164ms
+typeclass inference of SeminormedAddCommGroup took 100ms
+typeclass inference of SeminormedAddCommGroup took 100ms
+typeclass inference of SeminormedAddCommGroup took 103ms
+typeclass inference of TopologicalSpace took 122ms
+typeclass inference of AddCommMonoid took 121ms
+typeclass inference of TopologicalSpace took 114ms
+typeclass inference of AddCommMonoid took 116ms
+typeclass inference of CoeFun took 277ms
+typeclass inference of CoeFun took 265ms
+typeclass inference of SeminormedAddCommGroup took 103ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 269ms
+typeclass inference of SeminormedAddCommGroup took 110ms
+typeclass inference of SeminormedAddCommGroup took 105ms
+typeclass inference of AddMonoidHomClass took 503ms
+elaboration took 112ms
+typeclass inference of CoeFun took 277ms
+typeclass inference of CoeFun took 271ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 387ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 121ms
+typeclass inference of UniformSpace took 111ms
+typeclass inference of PseudoMetricSpace took 115ms
+typeclass inference of Algebra took 313ms
+typeclass inference of TopologicalSpace took 116ms
+typeclass inference of AddCommMonoid took 117ms
+typeclass inference of Neg took 302ms
+typeclass inference of Neg took 205ms
+typeclass inference of Neg took 206ms
+typeclass inference of Algebra took 234ms
+type checking took 156ms
+typeclass inference of Neg took 204ms
+typeclass inference of Algebra took 238ms
+typeclass inference of TopologicalSpace took 117ms
+typeclass inference of AddCommMonoid took 114ms
+typeclass inference of PseudoMetricSpace took 114ms
+tactic execution of Lean.Parser.Tactic.rcases took 8.15s
+tactic execution of Lean.Parser.Tactic.exact took 209ms
+typeclass inference of Algebra took 249ms
+typeclass inference of Algebra took 232ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.93s
+tactic execution of Lean.Parser.Tactic.exact took 206ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.93s
+type checking took 320ms
+typeclass inference of Algebra took 132ms
+typeclass inference of Algebra took 128ms
+typeclass inference of Algebra took 106ms
+typeclass inference of Algebra took 111ms
+typeclass inference of Neg took 353ms
+typeclass inference of TopologicalSpace took 117ms
+typeclass inference of AddCommMonoid took 117ms
+typeclass inference of SeminormedAddCommGroup took 105ms
+typeclass inference of Algebra took 328ms
+tactic execution of Lean.Parser.Tactic.exact took 320ms
+type checking took 169ms
+typeclass inference of Neg took 288ms
+tactic execution of Lean.Parser.Tactic.obtain took 3.5s
+tactic execution of Lean.Parser.Tactic.obtain took 3.57s
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 2.13s
+cumulative profiling times:
+	attribute application 17.3ms
+	compilation (IR) 0.497ms
+	compilation (LCNF base) 9.83ms
+	compilation (LCNF impure) 1.17ms
+	compilation (LCNF mono) 4.56ms
+	congr simp thm 24.1ms
+	elaboration 1s
+	fix level params 12.6ms
+	import 2.17s
+	initialization 41.6ms
+	instantiate metavars 31.4ms
+	interpretation 803ms
+	let-to-have transformation 4.72ms
+	linting 64.6ms
+	norm_num 3.52ms
+	parsing 48.8ms
+	process pre-definitions 78ms
+	share common exprs 51.7ms
+	simp 6.96s
+	tactic execution 25.2s
+	type checking 2.8s
+	typeclass inference 30.4s

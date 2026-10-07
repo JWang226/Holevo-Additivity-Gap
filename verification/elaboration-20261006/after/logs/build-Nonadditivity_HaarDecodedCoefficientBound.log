@@ -1,0 +1,6 @@
+Nonadditivity/HaarDecodedCoefficientBound.lean:29:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarDecodedCoefficientBound.blockFactors_segmentedListProduct`:
+  [Fintype I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

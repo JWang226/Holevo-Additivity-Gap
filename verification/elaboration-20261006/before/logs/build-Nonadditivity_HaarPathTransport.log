@@ -1,0 +1,56 @@
+Nonadditivity/HaarPathTransport.lean:23:8: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.source_incidenceDart`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathTransport.lean:28:8: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.color_incidenceDart`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathTransport.lean:33:8: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidenceDart_flip`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathTransport.lean:38:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.dart_eq_iff_source_color_target`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathTransport.lean:42:69: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Nonadditivity/HaarPathTransport.lean:44:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidenceDart_mem`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathTransport.lean:50:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.exists_incidenceDart`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathTransport.lean:86:8: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.vertexPerm_apply`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Nonadditivity/HaarPathTransport.lean:187:0: warning: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.symm`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`

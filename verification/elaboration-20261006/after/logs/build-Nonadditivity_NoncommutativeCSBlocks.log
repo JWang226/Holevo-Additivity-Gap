@@ -1,0 +1,8 @@
+Nonadditivity/NoncommutativeCSBlocks.lean:127:54: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  simp_all [blocks, blockFactors, List.mapIdx_cons, Nat.add_a̵s̵s̵o̵c̵,̵
+  ̵ ̵ ̵ ̵ ̵ ̵ ̵N̵a̵t̵.̵a̵d̵d̵_̵left_comm, Nat.add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,67 @@
+import took 20.2s
+typeclass inference of AddCommMonoid took 155ms
+elaboration took 106ms
+typeclass inference of AddCommMonoid took 209ms
+typeclass inference of CoeFun took 381ms
+typeclass inference of CoeFun took 365ms
+elaboration took 152ms
+typeclass inference of Module took 119ms
+typeclass inference of ContinuousAdd took 243ms
+typeclass inference of ContinuousAdd took 389ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 266ms
+tactic execution of Lean.Parser.Tactic.Conv.rewrite took 341ms
+typeclass inference of AddCommMonoid took 386ms
+typeclass inference of Nonempty took 596ms
+simp took 104ms
+type checking took 225ms
+typeclass inference of Monoid took 103ms
+typeclass inference of HAdd took 295ms
+typeclass inference of HAdd took 189ms
+typeclass inference of ContinuousAdd took 366ms
+simp took 172ms
+type checking took 349ms
+typeclass inference of HSMul took 104ms
+typeclass inference of HSMul took 361ms
+typeclass inference of SMulCommClass took 358ms
+typeclass inference of ContinuousConstSMul took 144ms
+typeclass inference took 158ms
+typeclass inference of LinearMap.CompatibleSMul took 407ms
+simp took 273ms
+type checking took 309ms
+typeclass inference of Monoid took 148ms
+typeclass inference of AddCommMonoid took 344ms
+typeclass inference of ContinuousAdd took 259ms
+simp took 364ms
+type checking took 230ms
+typeclass inference of Monoid took 130ms
+typeclass inference of AddCommMonoid took 204ms
+typeclass inference of Module took 133ms
+typeclass inference of CoeFun took 519ms
+typeclass inference of CoeFun took 372ms
+typeclass inference of Module took 117ms
+typeclass inference of Module took 105ms
+typeclass inference of Module took 166ms
+tactic execution of Lean.Parser.Tactic.refine took 360ms
+simp took 425ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.46s
+type checking took 38.2s
+.verify-work/cleanup-20261006/gram-tc-triage/probe-after-place.lean:72:0: warning: using 'exit' to interrupt Lean
+cumulative profiling times:
+	attribute application 49.5ms
+	blocked (unaccounted) 1.5ms
+	congr simp thm 44.1ms
+	elaboration 772ms
+	fix level params 6.59ms
+	import 20.2s
+	initialization 61.8ms
+	instantiate metavars 4.27ms
+	interpretation 3.89s
+	let-to-have transformation 2.41ms
+	linting 82.5ms
+	parsing 24.8ms
+	process pre-definitions 67.3ms
+	share common exprs 30.3ms
+	simp 1.37s
+	tactic execution 2.72s
+	type checking 39.5s
+	typeclass inference 15.5s

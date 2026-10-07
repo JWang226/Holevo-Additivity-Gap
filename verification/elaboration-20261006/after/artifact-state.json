@@ -1,0 +1,1847 @@
+{
+  ".lake/build/lib/lean/All.olean": {
+    "inode": 9564975,
+    "mtime_ns": 1791333835948168396,
+    "size": 1808
+  },
+  ".lake/build/lib/lean/Audit.olean": {
+    "inode": 9564973,
+    "mtime_ns": 1791333832933199473,
+    "size": 3048
+  },
+  ".lake/build/lib/lean/Nonadditivity.olean": {
+    "inode": 9564971,
+    "mtime_ns": 1791333572121683561,
+    "size": 45112
+  },
+  ".lake/build/lib/lean/Nonadditivity/ActualConsequences.olean": {
+    "inode": 9564306,
+    "mtime_ns": 1791331814174069468,
+    "size": 491216
+  },
+  ".lake/build/lib/lean/Nonadditivity/AdjointPurity.olean": {
+    "inode": 9564262,
+    "mtime_ns": 1791331723626049227,
+    "size": 284480
+  },
+  ".lake/build/lib/lean/Nonadditivity/Asymptotics.olean": {
+    "inode": 9564304,
+    "mtime_ns": 1791331810741105940,
+    "size": 692720
+  },
+  ".lake/build/lib/lean/Nonadditivity/BellOutput.olean": {
+    "inode": 9564252,
+    "mtime_ns": 1791331707727240697,
+    "size": 648472
+  },
+  ".lake/build/lib/lean/Nonadditivity/BlockBell.olean": {
+    "inode": 9564256,
+    "mtime_ns": 1791331713394172769,
+    "size": 470848
+  },
+  ".lake/build/lib/lean/Nonadditivity/BlockConstruction.olean": {
+    "inode": 9564278,
+    "mtime_ns": 1791331751135728124,
+    "size": 296568
+  },
+  ".lake/build/lib/lean/Nonadditivity/BlockScalars.olean": {
+    "inode": 9564284,
+    "mtime_ns": 1791331762237631474,
+    "size": 278464
+  },
+  ".lake/build/lib/lean/Nonadditivity/CanonicalBlockBell.olean": {
+    "inode": 9564308,
+    "mtime_ns": 1791331817548034479,
+    "size": 376312
+  },
+  ".lake/build/lib/lean/Nonadditivity/ChannelEntropy.olean": {
+    "inode": 9564268,
+    "mtime_ns": 1791331733620929390,
+    "size": 255024
+  },
+  ".lake/build/lib/lean/Nonadditivity/ChannelExtensions.olean": {
+    "inode": 9564258,
+    "mtime_ns": 1791331717284125839,
+    "size": 441344
+  },
+  ".lake/build/lib/lean/Nonadditivity/ChannelReindex.olean": {
+    "inode": 9564250,
+    "mtime_ns": 1791331703631289611,
+    "size": 319600
+  },
+  ".lake/build/lib/lean/Nonadditivity/ChannelTensorControl.olean": {
+    "inode": 9564272,
+    "mtime_ns": 1791331740129852744,
+    "size": 476952
+  },
+  ".lake/build/lib/lean/Nonadditivity/Channels.olean": {
+    "inode": 9564238,
+    "mtime_ns": 1791331684126533550,
+    "size": 965072
+  },
+  ".lake/build/lib/lean/Nonadditivity/CollinsYoun.olean": {
+    "inode": 9564312,
+    "mtime_ns": 1791331846864735500,
+    "size": 877792
+  },
+  ".lake/build/lib/lean/Nonadditivity/CollinsYounOne.olean": {
+    "inode": 9564316,
+    "mtime_ns": 1791331858779617015,
+    "size": 293688
+  },
+  ".lake/build/lib/lean/Nonadditivity/CollinsYounProduct.olean": {
+    "inode": 9564330,
+    "mtime_ns": 1791331951647735591,
+    "size": 1109648
+  },
+  ".lake/build/lib/lean/Nonadditivity/CollinsYounTensor.olean": {
+    "inode": 9564326,
+    "mtime_ns": 1791331925860978827,
+    "size": 1382456
+  },
+  ".lake/build/lib/lean/Nonadditivity/ComplementaryAdjoint.olean": {
+    "inode": 9564280,
+    "mtime_ns": 1791331754847693622,
+    "size": 512008
+  },
+  ".lake/build/lib/lean/Nonadditivity/ComplexRealTrace.olean": {
+    "inode": 9564332,
+    "mtime_ns": 1791331955391700013,
+    "size": 315256
+  },
+  ".lake/build/lib/lean/Nonadditivity/ConditionalStates.olean": {
+    "inode": 9564260,
+    "mtime_ns": 1791331719983093262,
+    "size": 89824
+  },
+  ".lake/build/lib/lean/Nonadditivity/ConjugateChannel.olean": {
+    "inode": 9564254,
+    "mtime_ns": 1791331710326209660,
+    "size": 134200
+  },
+  ".lake/build/lib/lean/Nonadditivity/Conversion.olean": {
+    "inode": 9564276,
+    "mtime_ns": 1791331747807765258,
+    "size": 278712
+  },
+  ".lake/build/lib/lean/Nonadditivity/DampedBellStability.olean": {
+    "inode": 9564338,
+    "mtime_ns": 1791331970489562058,
+    "size": 940480
+  },
+  ".lake/build/lib/lean/Nonadditivity/DampedChannel.olean": {
+    "inode": 9564336,
+    "mtime_ns": 1791331965072610993,
+    "size": 522736
+  },
+  ".lake/build/lib/lean/Nonadditivity/DampedPositivity.olean": {
+    "inode": 9564342,
+    "mtime_ns": 1791331977567497208,
+    "size": 375384
+  },
+  ".lake/build/lib/lean/Nonadditivity/DampedRealization.olean": {
+    "inode": 9564352,
+    "mtime_ns": 1791331998373306999,
+    "size": 434400
+  },
+  ".lake/build/lib/lean/Nonadditivity/DampingNet.olean": {
+    "inode": 9564344,
+    "mtime_ns": 1791331980703468052,
+    "size": 156880
+  },
+  ".lake/build/lib/lean/Nonadditivity/DeterministicConsequences.olean": {
+    "inode": 9564425,
+    "mtime_ns": 1791332349000344929,
+    "size": 316008
+  },
+  ".lake/build/lib/lean/Nonadditivity/DeterministicQualitative.olean": {
+    "inode": 9564417,
+    "mtime_ns": 1791332334882460730,
+    "size": 452464
+  },
+  ".lake/build/lib/lean/Nonadditivity/Dimensions.olean": {
+    "inode": 9564427,
+    "mtime_ns": 1791332351556324242,
+    "size": 222376
+  },
+  ".lake/build/lib/lean/Nonadditivity/Entropy.olean": {
+    "inode": 9564235,
+    "mtime_ns": 1791331678476617842,
+    "size": 832352
+  },
+  ".lake/build/lib/lean/Nonadditivity/EntropyContinuity.olean": {
+    "inode": 9564413,
+    "mtime_ns": 1791332327839518862,
+    "size": 318768
+  },
+  ".lake/build/lib/lean/Nonadditivity/EntropyMixtures.olean": {
+    "inode": 9564248,
+    "mtime_ns": 1791331700529328709,
+    "size": 388608
+  },
+  ".lake/build/lib/lean/Nonadditivity/EntropyProducts.olean": {
+    "inode": 9564240,
+    "mtime_ns": 1791331687660492711,
+    "size": 360352
+  },
+  ".lake/build/lib/lean/Nonadditivity/EntropyStability.olean": {
+    "inode": 9564415,
+    "mtime_ns": 1791332330906493548,
+    "size": 219552
+  },
+  ".lake/build/lib/lean/Nonadditivity/ExactQualitative.olean": {
+    "inode": 9564443,
+    "mtime_ns": 1791332380017090453,
+    "size": 499248
+  },
+  ".lake/build/lib/lean/Nonadditivity/FiniteBlockModel.olean": {
+    "inode": 9564411,
+    "mtime_ns": 1791332323979550717,
+    "size": 725040
+  },
+  ".lake/build/lib/lean/Nonadditivity/FiniteChannelRealization.olean": {
+    "inode": 9564288,
+    "mtime_ns": 1791331774656486528,
+    "size": 115296
+  },
+  ".lake/build/lib/lean/Nonadditivity/FiniteFreeModel.olean": {
+    "inode": 9564366,
+    "mtime_ns": 1791332104321357812,
+    "size": 246752
+  },
+  ".lake/build/lib/lean/Nonadditivity/FiniteMomentMatching.olean": {
+    "inode": 9564368,
+    "mtime_ns": 1791332112114300263,
+    "size": 643736
+  },
+  ".lake/build/lib/lean/Nonadditivity/FiniteRealization.olean": {
+    "inode": 9564286,
+    "mtime_ns": 1791331771649521943,
+    "size": 621568
+  },
+  ".lake/build/lib/lean/Nonadditivity/FiniteRegularMatrix.olean": {
+    "inode": 9564370,
+    "mtime_ns": 1791332115080275095,
+    "size": 156600
+  },
+  ".lake/build/lib/lean/Nonadditivity/FiniteSetFactorization.olean": {
+    "inode": 9564358,
+    "mtime_ns": 1791332028563034634,
+    "size": 1326072
+  },
+  ".lake/build/lib/lean/Nonadditivity/FreeBridge.olean": {
+    "inode": 9564292,
+    "mtime_ns": 1791331789844325417,
+    "size": 178768
+  },
+  ".lake/build/lib/lean/Nonadditivity/FreeCreation.olean": {
+    "inode": 9564310,
+    "mtime_ns": 1791331832287881450,
+    "size": 578104
+  },
+  ".lake/build/lib/lean/Nonadditivity/FreeEmbedding.olean": {
+    "inode": 9564391,
+    "mtime_ns": 1791332215182448717,
+    "size": 897336
+  },
+  ".lake/build/lib/lean/Nonadditivity/FreeGroupCut.olean": {
+    "inode": 9564445,
+    "mtime_ns": 1791332381771076032,
+    "size": 105680
+  },
+  ".lake/build/lib/lean/Nonadditivity/FreeModel.olean": {
+    "inode": 9564290,
+    "mtime_ns": 1791331786803355728,
+    "size": 285664
+  },
+  ".lake/build/lib/lean/Nonadditivity/GapFractionAsymptotics.olean": {
+    "inode": 9564447,
+    "mtime_ns": 1791332384457053986,
+    "size": 287192
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianCertificates.olean": {
+    "inode": 9564451,
+    "mtime_ns": 1791332396695955746,
+    "size": 691616
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianChannelBounds.olean": {
+    "inode": 9564455,
+    "mtime_ns": 1791332403602900424,
+    "size": 301472
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianConsequences.olean": {
+    "inode": 9564471,
+    "mtime_ns": 1791332439924632056,
+    "size": 186720
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianConstruction.olean": {
+    "inode": 9564467,
+    "mtime_ns": 1791332433292684947,
+    "size": 434784
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianNetRealization.olean": {
+    "inode": 9564463,
+    "mtime_ns": 1791332425162738627,
+    "size": 367640
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianNormalization.olean": {
+    "inode": 9564348,
+    "mtime_ns": 1791331988636398649,
+    "size": 637600
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianQuadratic.olean": {
+    "inode": 9564449,
+    "mtime_ns": 1791332389824011159,
+    "size": 744792
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianRectangular.olean": {
+    "inode": 9564457,
+    "mtime_ns": 1791332406844874823,
+    "size": 128440
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianRectangularAlgebra.olean": {
+    "inode": 9564459,
+    "mtime_ns": 1791332413220823530,
+    "size": 677648
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianSampleEvaluation.olean": {
+    "inode": 9564465,
+    "mtime_ns": 1791332428595719902,
+    "size": 253744
+  },
+  ".lake/build/lib/lean/Nonadditivity/GaussianScalar.olean": {
+    "inode": 9564469,
+    "mtime_ns": 1791332436749657377,
+    "size": 115768
+  },
+  ".lake/build/lib/lean/Nonadditivity/GeneralBell.olean": {
+    "inode": 9564334,
+    "mtime_ns": 1791331960203654565,
+    "size": 809656
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarActualScanWords.olean": {
+    "inode": 9564607,
+    "mtime_ns": 1791332759776719442,
+    "size": 165656
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarAveraging.olean": {
+    "inode": 9564611,
+    "mtime_ns": 1791332767910628281,
+    "size": 341016
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarBranchCoefficients.olean": {
+    "inode": 9564615,
+    "mtime_ns": 1791332780164503022,
+    "size": 236496
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarBranchContractions.olean": {
+    "inode": 9564617,
+    "mtime_ns": 1791332787837426217,
+    "size": 2066656
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarBranchGraphBudget.olean": {
+    "inode": 9564621,
+    "mtime_ns": 1791332797176329470,
+    "size": 170184
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarBranchTimeSum.olean": {
+    "inode": 9564619,
+    "mtime_ns": 1791332793608367743,
+    "size": 1196200
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCanonicalTransport.olean": {
+    "inode": 9564655,
+    "mtime_ns": 1791332916339161511,
+    "size": 950344
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarChainColoring.olean": {
+    "inode": 9564583,
+    "mtime_ns": 1791332720602161817,
+    "size": 522000
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarChainColoringFibre.olean": {
+    "inode": 9564601,
+    "mtime_ns": 1791332750282826688,
+    "size": 266696
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarChainColoringPalettes.olean": {
+    "inode": 9564589,
+    "mtime_ns": 1791332730458037437,
+    "size": 456872
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarChainColoringPath.olean": {
+    "inode": 9564599,
+    "mtime_ns": 1791332746998858276,
+    "size": 127856
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarChainMultiplicity.olean": {
+    "inode": 9564657,
+    "mtime_ns": 1791332919676129791,
+    "size": 320584
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarChainReindex.olean": {
+    "inode": 9564663,
+    "mtime_ns": 1791332928937043538,
+    "size": 251136
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCoefficientBounds.olean": {
+    "inode": 9564475,
+    "mtime_ns": 1791332453950522010,
+    "size": 287208
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCoefficientRows.olean": {
+    "inode": 9564477,
+    "mtime_ns": 1791332462505454602,
+    "size": 311544
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarColumnMoments.olean": {
+    "inode": 9564667,
+    "mtime_ns": 1791332940185939735,
+    "size": 1538632
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarConsequences.olean": {
+    "inode": 9564669,
+    "mtime_ns": 1791332943365911680,
+    "size": 181336
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCoreChainAddress.olean": {
+    "inode": 9564559,
+    "mtime_ns": 1791332676156701821,
+    "size": 149840
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCoreChainEndpoints.olean": {
+    "inode": 9564661,
+    "mtime_ns": 1791332925731073289,
+    "size": 157472
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCoreChainLabels.olean": {
+    "inode": 9564557,
+    "mtime_ns": 1791332673102728590,
+    "size": 181832
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCoreChainMultiplicity.olean": {
+    "inode": 9564659,
+    "mtime_ns": 1791332922697101443,
+    "size": 74280
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCoreChainReverseAddress.olean": {
+    "inode": 9564561,
+    "mtime_ns": 1791332679218674983,
+    "size": 139560
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarCoreChainWords.olean": {
+    "inode": 9564579,
+    "mtime_ns": 1791332713756251916,
+    "size": 180944
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarDecodedCoefficientBound.olean": {
+    "inode": 9564673,
+    "mtime_ns": 1791332949980850292,
+    "size": 220992
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarEncodingSlack.olean": {
+    "inode": 9564677,
+    "mtime_ns": 1791332957278782243,
+    "size": 486128
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarEntryBound.olean": {
+    "inode": 9564711,
+    "mtime_ns": 1791333017370239206,
+    "size": 432840
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarExpectationFromMoment.olean": {
+    "inode": 9564719,
+    "mtime_ns": 1791333034995081312,
+    "size": 398888
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarFiniteFaithfulness.olean": {
+    "inode": 9564713,
+    "mtime_ns": 1791333021144204661,
+    "size": 297440
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarFiniteSymmetry.olean": {
+    "inode": 9564715,
+    "mtime_ns": 1791333024868170573,
+    "size": 258640
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarFourthMoments.olean": {
+    "inode": 9564665,
+    "mtime_ns": 1791332934057994981,
+    "size": 1230552
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarHybridMoments.olean": {
+    "inode": 9564641,
+    "mtime_ns": 1791332874956562128,
+    "size": 533984
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarInputScaling.olean": {
+    "inode": 9564813,
+    "mtime_ns": 1791333223958483006,
+    "size": 322776
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarInvariantCommutant.olean": {
+    "inode": 9564691,
+    "mtime_ns": 1791332980738567775,
+    "size": 247784
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarInvariantSpanning.olean": {
+    "inode": 9564693,
+    "mtime_ns": 1791332984048536951,
+    "size": 155672
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarInvariantTensor.olean": {
+    "inode": 9564689,
+    "mtime_ns": 1791332976684605532,
+    "size": 467944
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarIteratedExpectation.olean": {
+    "inode": 9564649,
+    "mtime_ns": 1791332897787332089,
+    "size": 461040
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarIteratedMoments.olean": {
+    "inode": 9564647,
+    "mtime_ns": 1791332890155407127,
+    "size": 687672
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMarkedCompositions.olean": {
+    "inode": 9564523,
+    "mtime_ns": 1791332614717243877,
+    "size": 289288
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMatchingCount.olean": {
+    "inode": 9564681,
+    "mtime_ns": 1791332963652724455,
+    "size": 324496
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMatchingFibers.olean": {
+    "inode": 9564683,
+    "mtime_ns": 1791332965572708001,
+    "size": 171936
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMatchingSharp.olean": {
+    "inode": 9564685,
+    "mtime_ns": 1791332969119676040,
+    "size": 291568
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMatchingSingletons.olean": {
+    "inode": 9564679,
+    "mtime_ns": 1791332960223754581,
+    "size": 121256
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMixedMoments.olean": {
+    "inode": 9564687,
+    "mtime_ns": 1791332972398645478,
+    "size": 243520
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMixedWordExpansion.olean": {
+    "inode": 9564753,
+    "mtime_ns": 1791333096605548369,
+    "size": 296048
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarModel.olean": {
+    "inode": 9564296,
+    "mtime_ns": 1791331796574251279,
+    "size": 199024
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMomentConstants.olean": {
+    "inode": 9564643,
+    "mtime_ns": 1791332879411518333,
+    "size": 650992
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMomentExpectation.olean": {
+    "inode": 9564639,
+    "mtime_ns": 1791332868429623861,
+    "size": 129520
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMomentSlack.olean": {
+    "inode": 9564675,
+    "mtime_ns": 1791332953341819222,
+    "size": 313112
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMomentTail.olean": {
+    "inode": 9564346,
+    "mtime_ns": 1791331984142436433,
+    "size": 260432
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarMoments.olean": {
+    "inode": 9564609,
+    "mtime_ns": 1791332763890673255,
+    "size": 408264
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarNonbacktracking.olean": {
+    "inode": 9564479,
+    "mtime_ns": 1791332474645356777,
+    "size": 522992
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarNonbacktrackingFirstStep.olean": {
+    "inode": 9564493,
+    "mtime_ns": 1791332527322932764,
+    "size": 204776
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarNonbacktrackingLastReturn.olean": {
+    "inode": 9564485,
+    "mtime_ns": 1791332497460174154,
+    "size": 339136
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarNonbacktrackingListSegmentation.olean": {
+    "inode": 9564671,
+    "mtime_ns": 1791332946429883079,
+    "size": 84640
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarNonbacktrackingRenewal.olean": {
+    "inode": 9564483,
+    "mtime_ns": 1791332493591205027,
+    "size": 580536
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarNonbacktrackingSegmentation.olean": {
+    "inode": 9564535,
+    "mtime_ns": 1791332637796060501,
+    "size": 210720
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarNonbacktrackingSupport.olean": {
+    "inode": 9564491,
+    "mtime_ns": 1791332523898960023,
+    "size": 101088
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarOnePairAssembly.olean": {
+    "inode": 9564757,
+    "mtime_ns": 1791333107185457233,
+    "size": 377400
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarOperatorCoefficient.olean": {
+    "inode": 9564489,
+    "mtime_ns": 1791332520828984462,
+    "size": 473512
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarOperatorCurry.olean": {
+    "inode": 9564751,
+    "mtime_ns": 1791333091809590994,
+    "size": 412304
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarOperatorPathBridge.olean": {
+    "inode": 9564767,
+    "mtime_ns": 1791333132651243935,
+    "size": 376544
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarOperatorPathSum.olean": {
+    "inode": 9564775,
+    "mtime_ns": 1791333153115075717,
+    "size": 471936
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarOperatorPolynomial.olean": {
+    "inode": 9564487,
+    "mtime_ns": 1791332512186057102,
+    "size": 540528
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPairEntryBound.olean": {
+    "inode": 9564759,
+    "mtime_ns": 1791333110920425100,
+    "size": 303056
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPaletteDecoder.olean": {
+    "inode": 9564591,
+    "mtime_ns": 1791332733612001016,
+    "size": 202016
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathBalance.olean": {
+    "inode": 9564769,
+    "mtime_ns": 1791333136015215250,
+    "size": 286648
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathChainCount.olean": {
+    "inode": 9564549,
+    "mtime_ns": 1791332660760870598,
+    "size": 174256
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathChainPartition.olean": {
+    "inode": 9564551,
+    "mtime_ns": 1791332663806846307,
+    "size": 236848
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathChainProfiles.olean": {
+    "inode": 9564563,
+    "mtime_ns": 1791332682133646298,
+    "size": 123464
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathChains.olean": {
+    "inode": 9564545,
+    "mtime_ns": 1791332654747919447,
+    "size": 457152
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathClassAssembly.olean": {
+    "inode": 9564803,
+    "mtime_ns": 1791333205003641983,
+    "size": 164456
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathClassData.olean": {
+    "inode": 9564573,
+    "mtime_ns": 1791332700016423612,
+    "size": 279776
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathClassStats.olean": {
+    "inode": 9564789,
+    "mtime_ns": 1791333179354852272,
+    "size": 182208
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathClassSums.olean": {
+    "inode": 9564777,
+    "mtime_ns": 1791333156797044411,
+    "size": 148000
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathClasses.olean": {
+    "inode": 9564571,
+    "mtime_ns": 1791332696859466433,
+    "size": 245408
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathCodes.olean": {
+    "inode": 9564729,
+    "mtime_ns": 1791333050833943022,
+    "size": 127936
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathCoefficientWords.olean": {
+    "inode": 9564555,
+    "mtime_ns": 1791332670011753575,
+    "size": 176736
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathColorMarks.olean": {
+    "inode": 9564815,
+    "mtime_ns": 1791333227421454012,
+    "size": 242464
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathColorNormalization.olean": {
+    "inode": 9564723,
+    "mtime_ns": 1791333041268024642,
+    "size": 149384
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathColorRelabel.olean": {
+    "inode": 9564795,
+    "mtime_ns": 1791333190919760278,
+    "size": 93984
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathCounting.olean": {
+    "inode": 9564747,
+    "mtime_ns": 1791333079536688521,
+    "size": 158824
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathDecomposition.olean": {
+    "inode": 9564553,
+    "mtime_ns": 1791332666880778581,
+    "size": 279856
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathExpansion.olean": {
+    "inode": 9564765,
+    "mtime_ns": 1791333128806276423,
+    "size": 343824
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathExploration.olean": {
+    "inode": 9564567,
+    "mtime_ns": 1791332690463538389,
+    "size": 492480
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathExplorationBlocks.olean": {
+    "inode": 9564727,
+    "mtime_ns": 1791333047692971404,
+    "size": 271464
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathExplorationCounterexample.olean": {
+    "inode": 9564817,
+    "mtime_ns": 1791333230461428594,
+    "size": 77520
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathFreshRuns.olean": {
+    "inode": 9564721,
+    "mtime_ns": 1791333038257051828,
+    "size": 373432
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathGraph.olean": {
+    "inode": 9564543,
+    "mtime_ns": 1791332651123951236,
+    "size": 710744
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathInternalColors.olean": {
+    "inode": 9564581,
+    "mtime_ns": 1791332716944203752,
+    "size": 280008
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathInvolution.olean": {
+    "inode": 9564547,
+    "mtime_ns": 1791332657716894873,
+    "size": 99304
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathLocalPhase.olean": {
+    "inode": 9564771,
+    "mtime_ns": 1791333141789166875,
+    "size": 335224
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathMarks.olean": {
+    "inode": 9564731,
+    "mtime_ns": 1791333053978914625,
+    "size": 208760
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathMultiplicity.olean": {
+    "inode": 9564541,
+    "mtime_ns": 1791332647562981669,
+    "size": 203848
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathNormalizedFresh.olean": {
+    "inode": 9564733,
+    "mtime_ns": 1791333057158885911,
+    "size": 341448
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathNormalizedTree.olean": {
+    "inode": 9564741,
+    "mtime_ns": 1791333070097769726,
+    "size": 381064
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathNormalizedTreeColors.olean": {
+    "inode": 9564743,
+    "mtime_ns": 1791333073259741382,
+    "size": 252632
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathPrefixTree.olean": {
+    "inode": 9564819,
+    "mtime_ns": 1791333233582402005,
+    "size": 155232
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathProfileReverse.olean": {
+    "inode": 9564565,
+    "mtime_ns": 1791332686678596305,
+    "size": 150616
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathProfiles.olean": {
+    "inode": 9564495,
+    "mtime_ns": 1791332530961903847,
+    "size": 241136
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathRecoloring.olean": {
+    "inode": 9564593,
+    "mtime_ns": 1791332736876963395,
+    "size": 148904
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathReconstruction.olean": {
+    "inode": 9564735,
+    "mtime_ns": 1791333060277857874,
+    "size": 163360
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathReconstructionFresh.olean": {
+    "inode": 9564737,
+    "mtime_ns": 1791333063570828276,
+    "size": 180312
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathReconstructionTree.olean": {
+    "inode": 9564745,
+    "mtime_ns": 1791333076268716037,
+    "size": 137968
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathRefined.olean": {
+    "inode": 9564577,
+    "mtime_ns": 1791332706863341860,
+    "size": 188688
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathRefinedCounting.olean": {
+    "inode": 9564749,
+    "mtime_ns": 1791333082931662988,
+    "size": 291176
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathRelabel.olean": {
+    "inode": 9564797,
+    "mtime_ns": 1791333194193732628,
+    "size": 126056
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathRunCounterexample.olean": {
+    "inode": 9564821,
+    "mtime_ns": 1791333236611358004,
+    "size": 92856
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathRuns.olean": {
+    "inode": 9564521,
+    "mtime_ns": 1791332611359270329,
+    "size": 319256
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathSample.olean": {
+    "inode": 9564823,
+    "mtime_ns": 1791333240075327654,
+    "size": 129400
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathScalarSummation.olean": {
+    "inode": 9564787,
+    "mtime_ns": 1791333176037880607,
+    "size": 961632
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathSupport.olean": {
+    "inode": 9564773,
+    "mtime_ns": 1791333145528135797,
+    "size": 261168
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathTransport.olean": {
+    "inode": 9564575,
+    "mtime_ns": 1791332703668379149,
+    "size": 477424
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathTree.olean": {
+    "inode": 9564569,
+    "mtime_ns": 1791332693631497141,
+    "size": 346344
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathTreeSegment.olean": {
+    "inode": 9564739,
+    "mtime_ns": 1791333066895798430,
+    "size": 485440
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathVertexFibre.olean": {
+    "inode": 9564595,
+    "mtime_ns": 1791332740448926036,
+    "size": 270040
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathVertexNames.olean": {
+    "inode": 9564725,
+    "mtime_ns": 1791333044373999350,
+    "size": 244824
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathWeightBudget.olean": {
+    "inode": 9564791,
+    "mtime_ns": 1791333183157819805,
+    "size": 303000
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathWeightTransport.olean": {
+    "inode": 9564799,
+    "mtime_ns": 1791333197552704449,
+    "size": 329032
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPathWeights.olean": {
+    "inode": 9564763,
+    "mtime_ns": 1791333124645309640,
+    "size": 1280064
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPermutationSupport.olean": {
+    "inode": 9564703,
+    "mtime_ns": 1791333001636377588,
+    "size": 250072
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPrescribedBound.olean": {
+    "inode": 9564807,
+    "mtime_ns": 1791333212578578473,
+    "size": 509520
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPrescribedConsequences.olean": {
+    "inode": 9564809,
+    "mtime_ns": 1791333216165548368,
+    "size": 335704
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPrescribedDimension.olean": {
+    "inode": 9564805,
+    "mtime_ns": 1791333208258614712,
+    "size": 164496
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPrescribedProbability.olean": {
+    "inode": 9564829,
+    "mtime_ns": 1791333249791252908,
+    "size": 208048
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPrescribedRatio.olean": {
+    "inode": 9564831,
+    "mtime_ns": 1791333253187229049,
+    "size": 127352
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarPrescribedScaling.olean": {
+    "inode": 9564811,
+    "mtime_ns": 1791333219387521339,
+    "size": 156120
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfileAssignmentBound.olean": {
+    "inode": 9564527,
+    "mtime_ns": 1791332623851171838,
+    "size": 375136
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfileBlockCoefficients.olean": {
+    "inode": 9564503,
+    "mtime_ns": 1791332550610748100,
+    "size": 328352
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfileCoefficient.olean": {
+    "inode": 9564497,
+    "mtime_ns": 1791332535897864656,
+    "size": 181944
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfileCompositionBound.olean": {
+    "inode": 9564531,
+    "mtime_ns": 1791332630909116000,
+    "size": 294752
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfileDecodedCoefficients.olean": {
+    "inode": 9564529,
+    "mtime_ns": 1791332627071146375,
+    "size": 129368
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfileOrientation.olean": {
+    "inode": 9564499,
+    "mtime_ns": 1791332539764833969,
+    "size": 168968
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfilePadding.olean": {
+    "inode": 9564501,
+    "mtime_ns": 1791332543911801062,
+    "size": 208080
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfilePatternBound.olean": {
+    "inode": 9564525,
+    "mtime_ns": 1791332619843203459,
+    "size": 1337368
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfilePermutations.olean": {
+    "inode": 9564793,
+    "mtime_ns": 1791333187753783415,
+    "size": 347288
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfileSingletonWeight.olean": {
+    "inode": 9564783,
+    "mtime_ns": 1791333167841950582,
+    "size": 653112
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarProfileWordReverse.olean": {
+    "inode": 9564585,
+    "mtime_ns": 1791332723746121332,
+    "size": 212368
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarRecursiveSample.olean": {
+    "inode": 9564653,
+    "mtime_ns": 1791332910781214657,
+    "size": 434016
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarReducedChunks.olean": {
+    "inode": 9564605,
+    "mtime_ns": 1791332756489756718,
+    "size": 93288
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarRefinedCoefficientBound.olean": {
+    "inode": 9564785,
+    "mtime_ns": 1791333172026914897,
+    "size": 339200
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarRefinedCoefficientFibre.olean": {
+    "inode": 9564779,
+    "mtime_ns": 1791333160501012918,
+    "size": 118960
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarRefinedPaletteFibre.olean": {
+    "inode": 9564603,
+    "mtime_ns": 1791332753439791307,
+    "size": 140368
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarRefinedVertexFibre.olean": {
+    "inode": 9564597,
+    "mtime_ns": 1791332743915889685,
+    "size": 220184
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarRefinedWeight.olean": {
+    "inode": 9564801,
+    "mtime_ns": 1791333201052675088,
+    "size": 231936
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarRepresentativePositions.olean": {
+    "inode": 9564587,
+    "mtime_ns": 1791332726882080681,
+    "size": 278928
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarSharpBound.olean": {
+    "inode": 9564841,
+    "mtime_ns": 1791333274252078266,
+    "size": 510112
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarSharpConstants.olean": {
+    "inode": 9564835,
+    "mtime_ns": 1791333259941177302,
+    "size": 1293992
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarSharpCounting.olean": {
+    "inode": 9564833,
+    "mtime_ns": 1791333256679204516,
+    "size": 271376
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarSharpPathWeight.olean": {
+    "inode": 9564837,
+    "mtime_ns": 1791333263670146243,
+    "size": 302824
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarSharpSummation.olean": {
+    "inode": 9564839,
+    "mtime_ns": 1791333268171120221,
+    "size": 761504
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarSkeletonSegmentation.olean": {
+    "inode": 9564539,
+    "mtime_ns": 1791332644304007924,
+    "size": 409672
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarStationaryCoefficients.olean": {
+    "inode": 9564613,
+    "mtime_ns": 1791332775017559384,
+    "size": 428936
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarTensorConstants.olean": {
+    "inode": 9564645,
+    "mtime_ns": 1791332882952481537,
+    "size": 579896
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarTensorEvaluation.olean": {
+    "inode": 9564651,
+    "mtime_ns": 1791332905708256112,
+    "size": 371264
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarTensorReplacement.olean": {
+    "inode": 9564637,
+    "mtime_ns": 1791332865159653156,
+    "size": 615696
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarTimeCompositionReverse.olean": {
+    "inode": 9564537,
+    "mtime_ns": 1791332640856035700,
+    "size": 206288
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarTimeCompositions.olean": {
+    "inode": 9564519,
+    "mtime_ns": 1791332608048296357,
+    "size": 247584
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarVacuumFunctional.olean": {
+    "inode": 9564755,
+    "mtime_ns": 1791333102860494415,
+    "size": 467000
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWeingartenCounting.olean": {
+    "inode": 9564843,
+    "mtime_ns": 1791333276552057059,
+    "size": 230728
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWeingartenCycles.olean": {
+    "inode": 9564697,
+    "mtime_ns": 1791332991404470750,
+    "size": 334800
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWeingartenGram.olean": {
+    "inode": 9564695,
+    "mtime_ns": 1791332987630504505,
+    "size": 150360
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWeingartenInverse.olean": {
+    "inode": 9564709,
+    "mtime_ns": 1791333012834281155,
+    "size": 401640
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWeingartenInverseSum.olean": {
+    "inode": 9564707,
+    "mtime_ns": 1791333008452321648,
+    "size": 178688
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWeingartenMomentBound.olean": {
+    "inode": 9564701,
+    "mtime_ns": 1791332998419406323,
+    "size": 103896
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWeingartenSymmetry.olean": {
+    "inode": 9564699,
+    "mtime_ns": 1791332995040437629,
+    "size": 204736
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWordExpansion.olean": {
+    "inode": 9564481,
+    "mtime_ns": 1791332484101280676,
+    "size": 988312
+  },
+  ".lake/build/lib/lean/Nonadditivity/HaarWordPhase.olean": {
+    "inode": 9564761,
+    "mtime_ns": 1791333116493377380,
+    "size": 552392
+  },
+  ".lake/build/lib/lean/Nonadditivity/Holevo.olean": {
+    "inode": 9564845,
+    "mtime_ns": 1791333278513038979,
+    "size": 204056
+  },
+  ".lake/build/lib/lean/Nonadditivity/HolevoBits.olean": {
+    "inode": 9564300,
+    "mtime_ns": 1791331802790188100,
+    "size": 297312
+  },
+  ".lake/build/lib/lean/Nonadditivity/HolevoPowerGap.olean": {
+    "inode": 9564847,
+    "mtime_ns": 1791333281564010848,
+    "size": 180200
+  },
+  ".lake/build/lib/lean/Nonadditivity/HolevoRateLimit.olean": {
+    "inode": 9564423,
+    "mtime_ns": 1791332345447373685,
+    "size": 323688
+  },
+  ".lake/build/lib/lean/Nonadditivity/HolevoTensorSuperadditivity.olean": {
+    "inode": 9564419,
+    "mtime_ns": 1791332338841428042,
+    "size": 543048
+  },
+  ".lake/build/lib/lean/Nonadditivity/InitialNetReduction.olean": {
+    "inode": 9564393,
+    "mtime_ns": 1791332251720144139,
+    "size": 2002208
+  },
+  ".lake/build/lib/lean/Nonadditivity/Linearization.olean": {
+    "inode": 9564318,
+    "mtime_ns": 1791331866608538710,
+    "size": 1093552
+  },
+  ".lake/build/lib/lean/Nonadditivity/Main.olean": {
+    "inode": 9564851,
+    "mtime_ns": 1791333287684961938,
+    "size": 234304
+  },
+  ".lake/build/lib/lean/Nonadditivity/MatrixNormReindex.olean": {
+    "inode": 9564356,
+    "mtime_ns": 1791332016748141949,
+    "size": 86928
+  },
+  ".lake/build/lib/lean/Nonadditivity/MatrixRegularRestriction.olean": {
+    "inode": 9564324,
+    "mtime_ns": 1791331893185275629,
+    "size": 618096
+  },
+  ".lake/build/lib/lean/Nonadditivity/MatrixShortEmbedding.olean": {
+    "inode": 9564855,
+    "mtime_ns": 1791333296041895041,
+    "size": 131896
+  },
+  ".lake/build/lib/lean/Nonadditivity/Net.olean": {
+    "inode": 9564282,
+    "mtime_ns": 1791331759259644455,
+    "size": 838488
+  },
+  ".lake/build/lib/lean/Nonadditivity/NetPolynomial.olean": {
+    "inode": 9564383,
+    "mtime_ns": 1791332199994574662,
+    "size": 1518608
+  },
+  ".lake/build/lib/lean/Nonadditivity/NetPolynomialSupport.olean": {
+    "inode": 9564389,
+    "mtime_ns": 1791332212275472889,
+    "size": 293832
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCS.olean": {
+    "inode": 9564473,
+    "mtime_ns": 1791332448723563077,
+    "size": 583768
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSAssignmentProducts.olean": {
+    "inode": 9564511,
+    "mtime_ns": 1791332576563543431,
+    "size": 1161632
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSAssignments.olean": {
+    "inode": 9564509,
+    "mtime_ns": 1791332572093578706,
+    "size": 1729280
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSBlocks.olean": {
+    "inode": 9564533,
+    "mtime_ns": 1791332634509087152,
+    "size": 626096
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSCrossing.olean": {
+    "inode": 9564857,
+    "mtime_ns": 1791333305607818389,
+    "size": 619352
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSEndpointSkeleton.olean": {
+    "inode": 9564515,
+    "mtime_ns": 1791332586981461317,
+    "size": 1745984
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSEndpointTrace.olean": {
+    "inode": 9564513,
+    "mtime_ns": 1791332582362497652,
+    "size": 2226984
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSMemory.olean": {
+    "inode": 9564505,
+    "mtime_ns": 1791332559426678670,
+    "size": 1872328
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSPaths.olean": {
+    "inode": 9564507,
+    "mtime_ns": 1791332565854627951,
+    "size": 1226832
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSSingletons.olean": {
+    "inode": 9564781,
+    "mtime_ns": 1791333164303980619,
+    "size": 697760
+  },
+  ".lake/build/lib/lean/Nonadditivity/NoncommutativeCSSkeletonDecoration.olean": {
+    "inode": 9564517,
+    "mtime_ns": 1791332604960320398,
+    "size": 1956216
+  },
+  ".lake/build/lib/lean/Nonadditivity/ObservableDimension.olean": {
+    "inode": 9564374,
+    "mtime_ns": 1791332123722200723,
+    "size": 414280
+  },
+  ".lake/build/lib/lean/Nonadditivity/OneBlockRealization.olean": {
+    "inode": 9564859,
+    "mtime_ns": 1791333309018791814,
+    "size": 405208
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalBlockRates.olean": {
+    "inode": 9564865,
+    "mtime_ns": 1791333319605708585,
+    "size": 232448
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalBlocking.olean": {
+    "inode": 9564873,
+    "mtime_ns": 1791333332941602533,
+    "size": 250136
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalBlockingCodes.olean": {
+    "inode": 9564869,
+    "mtime_ns": 1791333325928658369,
+    "size": 315368
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalBlockingFlatten.olean": {
+    "inode": 9564871,
+    "mtime_ns": 1791333329401630744,
+    "size": 279656
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalCapacity.olean": {
+    "inode": 9564863,
+    "mtime_ns": 1791333316239735229,
+    "size": 541704
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalCodingTheorem.olean": {
+    "inode": 9564927,
+    "mtime_ns": 1791333431715804815,
+    "size": 72616
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalConsequences.olean": {
+    "inode": 9564941,
+    "mtime_ns": 1791333462268559828,
+    "size": 143744
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalConverse.olean": {
+    "inode": 9564861,
+    "mtime_ns": 1791333312616763783,
+    "size": 494544
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalFlaggedEntropy.olean": {
+    "inode": 9564919,
+    "mtime_ns": 1791333414335945447,
+    "size": 311560
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalHolevoConverse.olean": {
+    "inode": 9564917,
+    "mtime_ns": 1791333410987972652,
+    "size": 397168
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalNaimark.olean": {
+    "inode": 9564911,
+    "mtime_ns": 1791333399840062860,
+    "size": 398312
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalProjectedCode.olean": {
+    "inode": 9564921,
+    "mtime_ns": 1791333417172922394,
+    "size": 208160
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalReindex.olean": {
+    "inode": 9564867,
+    "mtime_ns": 1791333322516685508,
+    "size": 140816
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalStrongConverse.olean": {
+    "inode": 9564943,
+    "mtime_ns": 1791333465491534161,
+    "size": 191792
+  },
+  ".lake/build/lib/lean/Nonadditivity/OperationalWeakConverse.olean": {
+    "inode": 9564925,
+    "mtime_ns": 1791333428567830322,
+    "size": 558296
+  },
+  ".lake/build/lib/lean/Nonadditivity/PolynomialDilation.olean": {
+    "inode": 9564387,
+    "mtime_ns": 1791332208478504461,
+    "size": 348008
+  },
+  ".lake/build/lib/lean/Nonadditivity/PolynomialReduction.olean": {
+    "inode": 9564364,
+    "mtime_ns": 1791332101074385851,
+    "size": 936656
+  },
+  ".lake/build/lib/lean/Nonadditivity/PositiveHolevo.olean": {
+    "inode": 9564302,
+    "mtime_ns": 1791331806675149305,
+    "size": 735136
+  },
+  ".lake/build/lib/lean/Nonadditivity/PositiveLinearization.olean": {
+    "inode": 9564320,
+    "mtime_ns": 1791331875890448708,
+    "size": 802832
+  },
+  ".lake/build/lib/lean/Nonadditivity/PrescribedCostCapacity.olean": {
+    "inode": 9564955,
+    "mtime_ns": 1791333490064336284,
+    "size": 229024
+  },
+  ".lake/build/lib/lean/Nonadditivity/PrescribedCostDimensions.olean": {
+    "inode": 9564947,
+    "mtime_ns": 1791333472756476027,
+    "size": 261760
+  },
+  ".lake/build/lib/lean/Nonadditivity/PrescribedCostInformation.olean": {
+    "inode": 9564949,
+    "mtime_ns": 1791333476742443756,
+    "size": 333056
+  },
+  ".lake/build/lib/lean/Nonadditivity/PrescribedCostLogarithms.olean": {
+    "inode": 9564951,
+    "mtime_ns": 1791333479996417297,
+    "size": 144848
+  },
+  ".lake/build/lib/lean/Nonadditivity/PrescribedCostScalars.olean": {
+    "inode": 9564945,
+    "mtime_ns": 1791333469004506057,
+    "size": 244016
+  },
+  ".lake/build/lib/lean/Nonadditivity/PrescribedCostScaling.olean": {
+    "inode": 9564953,
+    "mtime_ns": 1791333484683379478,
+    "size": 319816
+  },
+  ".lake/build/lib/lean/Nonadditivity/PrescribedTest.olean": {
+    "inode": 9564378,
+    "mtime_ns": 1791332138063074858,
+    "size": 807064
+  },
+  ".lake/build/lib/lean/Nonadditivity/Probability.olean": {
+    "inode": 9564825,
+    "mtime_ns": 1791333242770306029,
+    "size": 133224
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProbabilityQuantitative.olean": {
+    "inode": 9564827,
+    "mtime_ns": 1791333245726283600,
+    "size": 135592
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductHaagerupBall.olean": {
+    "inode": 9564629,
+    "mtime_ns": 1791332830999976497,
+    "size": 198072
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductHaagerupCreation.olean": {
+    "inode": 9564623,
+    "mtime_ns": 1791332806966224362,
+    "size": 670400
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductHaagerupHomogeneous.olean": {
+    "inode": 9564627,
+    "mtime_ns": 1791332827445011368,
+    "size": 394232
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductHaagerupIndex.olean": {
+    "inode": 9564631,
+    "mtime_ns": 1791332833847947514,
+    "size": 262968
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductHaagerupProduct.olean": {
+    "inode": 9564633,
+    "mtime_ns": 1791332840348880933,
+    "size": 691752
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductHaagerupReindex.olean": {
+    "inode": 9564957,
+    "mtime_ns": 1791333495483293001,
+    "size": 349200
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductHaagerupWords.olean": {
+    "inode": 9564625,
+    "mtime_ns": 1791332820726080984,
+    "size": 655040
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductMomentBridge.olean": {
+    "inode": 9564635,
+    "mtime_ns": 1791332856999727487,
+    "size": 1127728
+  },
+  ".lake/build/lib/lean/Nonadditivity/ProductPolynomialReduction.olean": {
+    "inode": 9564385,
+    "mtime_ns": 1791332204970533497,
+    "size": 991176
+  },
+  ".lake/build/lib/lean/Nonadditivity/PureChannelEntropy.olean": {
+    "inode": 9564242,
+    "mtime_ns": 1791331690835452111,
+    "size": 188112
+  },
+  ".lake/build/lib/lean/Nonadditivity/Purity.olean": {
+    "inode": 9564849,
+    "mtime_ns": 1791333284627986364,
+    "size": 181712
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuadraticNet.olean": {
+    "inode": 9564461,
+    "mtime_ns": 1791332417219793093,
+    "size": 490384
+  },
+  ".lake/build/lib/lean/Nonadditivity/Qualitative.olean": {
+    "inode": 9564294,
+    "mtime_ns": 1791331793099289543,
+    "size": 172768
+  },
+  ".lake/build/lib/lean/Nonadditivity/Quantitative.olean": {
+    "inode": 9564395,
+    "mtime_ns": 1791332264240039893,
+    "size": 3051256
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantitativeNet.olean": {
+    "inode": 9564372,
+    "mtime_ns": 1791332118341247424,
+    "size": 509608
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingChannelWords.olean": {
+    "inode": 9564905,
+    "mtime_ns": 1791333389027150684,
+    "size": 364904
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingConditionalTypicality.olean": {
+    "inode": 9564887,
+    "mtime_ns": 1791333354846427161,
+    "size": 302560
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingContinuity.olean": {
+    "inode": 9564913,
+    "mtime_ns": 1791333403983029273,
+    "size": 586704
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingDecoderBound.olean": {
+    "inode": 9564901,
+    "mtime_ns": 1791333382472203534,
+    "size": 708112
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingEnsembleTypicality.olean": {
+    "inode": 9564889,
+    "mtime_ns": 1791333357811402805,
+    "size": 162424
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingFamilySpectrum.olean": {
+    "inode": 9564879,
+    "mtime_ns": 1791333342626525357,
+    "size": 234048
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingGentle.olean": {
+    "inode": 9564923,
+    "mtime_ns": 1791333424646862054,
+    "size": 755984
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingHSW.olean": {
+    "inode": 9564909,
+    "mtime_ns": 1791333395625097196,
+    "size": 350088
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingPacking.olean": {
+    "inode": 9564903,
+    "mtime_ns": 1791333385761177108,
+    "size": 269696
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingPackingAverages.olean": {
+    "inode": 9564885,
+    "mtime_ns": 1791333351763452144,
+    "size": 188504
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingRates.olean": {
+    "inode": 9564907,
+    "mtime_ns": 1791333392243124664,
+    "size": 221480
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingSampling.olean": {
+    "inode": 9564895,
+    "mtime_ns": 1791333368301317591,
+    "size": 386400
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingSequential.olean": {
+    "inode": 9564891,
+    "mtime_ns": 1791333361269374399,
+    "size": 359192
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingSpectral.olean": {
+    "inode": 9564875,
+    "mtime_ns": 1791333336402574949,
+    "size": 308256
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingTensorSpectrum.olean": {
+    "inode": 9564877,
+    "mtime_ns": 1791333339584549594,
+    "size": 278848
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingTraceDistance.olean": {
+    "inode": 9564915,
+    "mtime_ns": 1791333407075004309,
+    "size": 226968
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingTraceUnion.olean": {
+    "inode": 9564899,
+    "mtime_ns": 1791333377142246366,
+    "size": 457280
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingTypicalProjectors.olean": {
+    "inode": 9564883,
+    "mtime_ns": 1791333348834475680,
+    "size": 131296
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingTypicalTests.olean": {
+    "inode": 9564893,
+    "mtime_ns": 1791333364813345739,
+    "size": 169712
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingTypicality.olean": {
+    "inode": 9564881,
+    "mtime_ns": 1791333346103497624,
+    "size": 573056
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumCodingUnion.olean": {
+    "inode": 9564897,
+    "mtime_ns": 1791333372255285724,
+    "size": 463472
+  },
+  ".lake/build/lib/lean/Nonadditivity/QuantumHolevo.olean": {
+    "inode": 9564264,
+    "mtime_ns": 1791331726383015900,
+    "size": 93728
+  },
+  ".lake/build/lib/lean/Nonadditivity/RegularCoefficientEnergy.olean": {
+    "inode": 9564322,
+    "mtime_ns": 1791331885798353874,
+    "size": 627624
+  },
+  ".lake/build/lib/lean/Nonadditivity/RegularDilation.olean": {
+    "inode": 9564354,
+    "mtime_ns": 1791332013550170644,
+    "size": 731344
+  },
+  ".lake/build/lib/lean/Nonadditivity/RegularFactorization.olean": {
+    "inode": 9564362,
+    "mtime_ns": 1791332092592482340,
+    "size": 2071080
+  },
+  ".lake/build/lib/lean/Nonadditivity/RegularFubini.olean": {
+    "inode": 9564328,
+    "mtime_ns": 1791331942115826159,
+    "size": 1192104
+  },
+  ".lake/build/lib/lean/Nonadditivity/RegularRestriction.olean": {
+    "inode": 9564314,
+    "mtime_ns": 1791331854216658676,
+    "size": 663464
+  },
+  ".lake/build/lib/lean/Nonadditivity/RegularShiftedDilation.olean": {
+    "inode": 9564360,
+    "mtime_ns": 1791332044018895193,
+    "size": 853776
+  },
+  ".lake/build/lib/lean/Nonadditivity/RegularizedHolevo.olean": {
+    "inode": 9564421,
+    "mtime_ns": 1791332342143400773,
+    "size": 397200
+  },
+  ".lake/build/lib/lean/Nonadditivity/Scalar.olean": {
+    "inode": 9564298,
+    "mtime_ns": 1791331799582218367,
+    "size": 457800
+  },
+  ".lake/build/lib/lean/Nonadditivity/ShiftNorm.olean": {
+    "inode": 9564376,
+    "mtime_ns": 1791332131414132960,
+    "size": 437168
+  },
+  ".lake/build/lib/lean/Nonadditivity/ShortEmbeddingNorm.olean": {
+    "inode": 9564853,
+    "mtime_ns": 1791333292149926213,
+    "size": 257984
+  },
+  ".lake/build/lib/lean/Nonadditivity/SmallEnvironment.olean": {
+    "inode": 9564453,
+    "mtime_ns": 1791332400024928744,
+    "size": 391376
+  },
+  ".lake/build/lib/lean/Nonadditivity/SpectralDamping.olean": {
+    "inode": 9564350,
+    "mtime_ns": 1791331993506353602,
+    "size": 718904
+  },
+  ".lake/build/lib/lean/Nonadditivity/StateEnsembles.olean": {
+    "inode": 9564246,
+    "mtime_ns": 1791331697068372595,
+    "size": 423640
+  },
+  ".lake/build/lib/lean/Nonadditivity/StrictEntropy.olean": {
+    "inode": 9564340,
+    "mtime_ns": 1791331974021529865,
+    "size": 320792
+  },
+  ".lake/build/lib/lean/Nonadditivity/StructuredCostBounds.olean": {
+    "inode": 9564397,
+    "mtime_ns": 1791332277241932027,
+    "size": 1802864
+  },
+  ".lake/build/lib/lean/Nonadditivity/StructuredFiniteChannel.olean": {
+    "inode": 9564409,
+    "mtime_ns": 1791332317999600140,
+    "size": 268896
+  },
+  ".lake/build/lib/lean/Nonadditivity/StructuredHaarConsequences.olean": {
+    "inode": 9564717,
+    "mtime_ns": 1791333031276114435,
+    "size": 1034736
+  },
+  ".lake/build/lib/lean/Nonadditivity/StructuredHaarModel.olean": {
+    "inode": 9564407,
+    "mtime_ns": 1791332310684660124,
+    "size": 509720
+  },
+  ".lake/build/lib/lean/Nonadditivity/StructuredLinearization.olean": {
+    "inode": 9564405,
+    "mtime_ns": 1791332305986697116,
+    "size": 1190984
+  },
+  ".lake/build/lib/lean/Nonadditivity/StructuredReductionCosts.olean": {
+    "inode": 9564403,
+    "mtime_ns": 1791332293190801792,
+    "size": 306208
+  },
+  ".lake/build/lib/lean/Nonadditivity/SwitchChannel.olean": {
+    "inode": 9564270,
+    "mtime_ns": 1791331736605894040,
+    "size": 107584
+  },
+  ".lake/build/lib/lean/Nonadditivity/TensorPartitionReduction.olean": {
+    "inode": 9564399,
+    "mtime_ns": 1791332282379889948,
+    "size": 1097232
+  },
+  ".lake/build/lib/lean/Nonadditivity/TensorPowers.olean": {
+    "inode": 9564244,
+    "mtime_ns": 1791331693815414004,
+    "size": 430416
+  },
+  ".lake/build/lib/lean/Nonadditivity/UniversalFactorization.olean": {
+    "inode": 9564967,
+    "mtime_ns": 1791333563886749062,
+    "size": 293528
+  },
+  ".lake/build/lib/lean/Nonadditivity/UniversalFactorizationGram.olean": {
+    "inode": 9564961,
+    "mtime_ns": 1791333530869011451,
+    "size": 1001328
+  },
+  ".lake/build/lib/lean/Nonadditivity/UniversalFactorizationOperators.olean": {
+    "inode": 9564959,
+    "mtime_ns": 1791333504303222447,
+    "size": 699080
+  },
+  ".lake/build/lib/lean/Nonadditivity/UniversalFactorizationPolynomialDilation.olean": {
+    "inode": 9564965,
+    "mtime_ns": 1791333558865789010,
+    "size": 542696
+  },
+  ".lake/build/lib/lean/Nonadditivity/UniversalShiftedDilation.olean": {
+    "inode": 9564963,
+    "mtime_ns": 1791333540668933594,
+    "size": 423208
+  },
+  ".lake/build/lib/lean/Nonadditivity/UpperHaarRealization.olean": {
+    "inode": 9564969,
+    "mtime_ns": 1791333569109707466,
+    "size": 835648
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeightedBell.olean": {
+    "inode": 9564435,
+    "mtime_ns": 1791332365740206592,
+    "size": 353904
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeightedBellScalar.olean": {
+    "inode": 9564433,
+    "mtime_ns": 1791332362241233490,
+    "size": 569168
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeightedBlock.olean": {
+    "inode": 9564431,
+    "mtime_ns": 1791332358607263157,
+    "size": 402208
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeightedBlockBell.olean": {
+    "inode": 9564437,
+    "mtime_ns": 1791332368902181722,
+    "size": 164256
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeightedCertificate.olean": {
+    "inode": 9564429,
+    "mtime_ns": 1791332355227292653,
+    "size": 370384
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeightedMatrixInverse.olean": {
+    "inode": 9564705,
+    "mtime_ns": 1791333005040352995,
+    "size": 191592
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeightedParameters.olean": {
+    "inode": 9564439,
+    "mtime_ns": 1791332372243154305,
+    "size": 210032
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeightedPositivity.olean": {
+    "inode": 9564441,
+    "mtime_ns": 1791332375449127996,
+    "size": 204856
+  },
+  ".lake/build/lib/lean/Nonadditivity/Weyl.olean": {
+    "inode": 9564266,
+    "mtime_ns": 1791331730152970768,
+    "size": 556704
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeylPowersChannels.olean": {
+    "inode": 9564933,
+    "mtime_ns": 1791333445472694113,
+    "size": 238704
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeylPowersControl.olean": {
+    "inode": 9564931,
+    "mtime_ns": 1791333437833755369,
+    "size": 253824
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeylPowersEntropy.olean": {
+    "inode": 9564937,
+    "mtime_ns": 1791333455985609986,
+    "size": 228760
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeylPowersIndex.olean": {
+    "inode": 9564929,
+    "mtime_ns": 1791333434784779979,
+    "size": 81536
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeylPowersRegularized.olean": {
+    "inode": 9564939,
+    "mtime_ns": 1791333459074585264,
+    "size": 151432
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeylPowersTwirl.olean": {
+    "inode": 9564935,
+    "mtime_ns": 1791333452738636062,
+    "size": 553640
+  },
+  ".lake/build/lib/lean/Nonadditivity/WeylTensor.olean": {
+    "inode": 9564274,
+    "mtime_ns": 1791331743952808272,
+    "size": 509688
+  },
+  ".lake/build/lib/lean/Nonadditivity/WordBallReduction.olean": {
+    "inode": 9564401,
+    "mtime_ns": 1791332289040836140,
+    "size": 1070936
+  }
+}

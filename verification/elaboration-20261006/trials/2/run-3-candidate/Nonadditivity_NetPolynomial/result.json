@@ -1,0 +1,1611 @@
+{
+  "artifact_changes": [],
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/runner/work/_temp/elaboration-evidence/trials/2/run-3-candidate/Nonadditivity_NetPolynomial/timings/profile-Nonadditivity_NetPolynomial.time.txt",
+    "/home/runner/.elan/toolchains/leanprover--lean4---v4.29.0-rc6/bin/lean",
+    "--profile",
+    "Nonadditivity/NetPolynomial.lean"
+  ],
+  "diagnostics": {
+    "error_count": 0,
+    "errors": [],
+    "sorry_warning_count": 0,
+    "warning_count": 0,
+    "warning_kinds": {},
+    "warnings": []
+  },
+  "guard_errors": [],
+  "log": "/home/runner/work/_temp/elaboration-evidence/trials/2/run-3-candidate/Nonadditivity_NetPolynomial/logs/profile-Nonadditivity_NetPolynomial.log",
+  "module": "Nonadditivity.NetPolynomial",
+  "phase": "profile",
+  "profile": {
+    "all_reported_events": [
+      {
+        "category": "import",
+        "context": "",
+        "declaration": null,
+        "raw": "import took 2.14s",
+        "seconds": 2.14
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 144ms",
+        "seconds": 0.14400000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 144ms",
+        "seconds": 0.14400000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 108ms",
+        "seconds": 0.108
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 125ms",
+        "seconds": 0.125
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 142ms",
+        "seconds": 0.14200000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 142ms",
+        "seconds": 0.14200000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 100ms",
+        "seconds": 0.1
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.refine",
+        "raw": "tactic execution of Lean.Parser.Tactic.refine took 109ms",
+        "seconds": 0.109
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Nontrivial",
+        "raw": "typeclass inference of Nontrivial took 585ms",
+        "seconds": 0.585
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 1.64s",
+        "seconds": 1.64
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Nontrivial",
+        "raw": "typeclass inference of Nontrivial took 885ms",
+        "seconds": 0.885
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 4.09s",
+        "seconds": 4.09
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 100ms",
+        "seconds": 0.1
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddMonoid",
+        "raw": "typeclass inference of AddMonoid took 611ms",
+        "seconds": 0.611
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "DistribSMul",
+        "raw": "typeclass inference of DistribSMul took 121ms",
+        "seconds": 0.121
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 100ms",
+        "seconds": 0.1
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 103ms",
+        "seconds": 0.10300000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.refine",
+        "raw": "tactic execution of Lean.Parser.Tactic.refine took 176ms",
+        "seconds": 0.176
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.refine",
+        "raw": "tactic execution of Lean.Parser.Tactic.refine took 179ms",
+        "seconds": 0.179
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 158ms",
+        "seconds": 0.158
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 149ms",
+        "seconds": 0.149
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 106ms",
+        "seconds": 0.106
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 159ms",
+        "seconds": 0.159
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "UniformSpace",
+        "raw": "typeclass inference of UniformSpace took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 211ms",
+        "seconds": 0.211
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 163ms",
+        "seconds": 0.163
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 135ms",
+        "seconds": 0.135
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "UniformSpace",
+        "raw": "typeclass inference of UniformSpace took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 192ms",
+        "seconds": 0.192
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 165ms",
+        "seconds": 0.165
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "UniformSpace",
+        "raw": "typeclass inference of UniformSpace took 111ms",
+        "seconds": 0.111
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 166ms",
+        "seconds": 0.166
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 317ms",
+        "seconds": 0.317
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 134ms",
+        "seconds": 0.134
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "IsScalarTower",
+        "raw": "typeclass inference of IsScalarTower took 226ms",
+        "seconds": 0.226
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 292ms",
+        "seconds": 0.292
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 131ms",
+        "seconds": 0.131
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 136ms",
+        "seconds": 0.136
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 120ms",
+        "seconds": 0.12
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 103ms",
+        "seconds": 0.10300000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 118ms",
+        "seconds": 0.11800000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 115ms",
+        "seconds": 0.115
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 278ms",
+        "seconds": 0.278
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 268ms",
+        "seconds": 0.268
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 106ms",
+        "seconds": 0.106
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 268ms",
+        "seconds": 0.268
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddMonoidHomClass",
+        "raw": "typeclass inference of AddMonoidHomClass took 513ms",
+        "seconds": 0.513
+      },
+      {
+        "category": "elaboration",
+        "context": "",
+        "declaration": null,
+        "raw": "elaboration took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 271ms",
+        "seconds": 0.271
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 200ms",
+        "seconds": 0.2
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 240ms",
+        "seconds": 0.24
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "UniformSpace",
+        "raw": "typeclass inference of UniformSpace took 109ms",
+        "seconds": 0.109
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 289ms",
+        "seconds": 0.289
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 118ms",
+        "seconds": 0.11800000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 116ms",
+        "seconds": 0.116
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 305ms",
+        "seconds": 0.305
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 199ms",
+        "seconds": 0.199
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 272ms",
+        "seconds": 0.272
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 233ms",
+        "seconds": 0.233
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 141ms",
+        "seconds": 0.14100000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 207ms",
+        "seconds": 0.20700000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 237ms",
+        "seconds": 0.23700000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 104ms",
+        "seconds": 0.10400000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 113ms",
+        "seconds": 0.113
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rcases",
+        "raw": "tactic execution of Lean.Parser.Tactic.rcases took 8.08s",
+        "seconds": 8.08
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 207ms",
+        "seconds": 0.20700000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 260ms",
+        "seconds": 0.26
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 235ms",
+        "seconds": 0.23500000000000001
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 2s",
+        "seconds": 2.0
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 202ms",
+        "seconds": 0.202
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 2.02s",
+        "seconds": 2.02
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 309ms",
+        "seconds": 0.309
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 104ms",
+        "seconds": 0.10400000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 129ms",
+        "seconds": 0.129
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 129ms",
+        "seconds": 0.129
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 340ms",
+        "seconds": 0.34
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 117ms",
+        "seconds": 0.117
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 118ms",
+        "seconds": 0.11800000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 108ms",
+        "seconds": 0.108
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 308ms",
+        "seconds": 0.308
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 355ms",
+        "seconds": 0.355
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 153ms",
+        "seconds": 0.153
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 324ms",
+        "seconds": 0.324
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.obtain",
+        "raw": "tactic execution of Lean.Parser.Tactic.obtain took 3.62s",
+        "seconds": 3.62
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.obtain",
+        "raw": "tactic execution of Lean.Parser.Tactic.obtain took 3.61s",
+        "seconds": 3.61
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 2.17s",
+        "seconds": 2.17
+      }
+    ],
+    "categorized_s": 69.155576,
+    "dominant_above_action_floor": true,
+    "dominant_phase": "typeclass inference",
+    "events_over_100ms": [
+      {
+        "category": "import",
+        "context": "",
+        "declaration": null,
+        "raw": "import took 2.14s",
+        "seconds": 2.14
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 144ms",
+        "seconds": 0.14400000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 144ms",
+        "seconds": 0.14400000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 108ms",
+        "seconds": 0.108
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 125ms",
+        "seconds": 0.125
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 142ms",
+        "seconds": 0.14200000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 142ms",
+        "seconds": 0.14200000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 100ms",
+        "seconds": 0.1
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.refine",
+        "raw": "tactic execution of Lean.Parser.Tactic.refine took 109ms",
+        "seconds": 0.109
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Nontrivial",
+        "raw": "typeclass inference of Nontrivial took 585ms",
+        "seconds": 0.585
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 1.64s",
+        "seconds": 1.64
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Nontrivial",
+        "raw": "typeclass inference of Nontrivial took 885ms",
+        "seconds": 0.885
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 4.09s",
+        "seconds": 4.09
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 100ms",
+        "seconds": 0.1
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddMonoid",
+        "raw": "typeclass inference of AddMonoid took 611ms",
+        "seconds": 0.611
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "DistribSMul",
+        "raw": "typeclass inference of DistribSMul took 121ms",
+        "seconds": 0.121
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 100ms",
+        "seconds": 0.1
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 103ms",
+        "seconds": 0.10300000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.refine",
+        "raw": "tactic execution of Lean.Parser.Tactic.refine took 176ms",
+        "seconds": 0.176
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.refine",
+        "raw": "tactic execution of Lean.Parser.Tactic.refine took 179ms",
+        "seconds": 0.179
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 158ms",
+        "seconds": 0.158
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddGroup",
+        "raw": "typeclass inference of SeminormedAddGroup took 149ms",
+        "seconds": 0.149
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 106ms",
+        "seconds": 0.106
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 159ms",
+        "seconds": 0.159
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "UniformSpace",
+        "raw": "typeclass inference of UniformSpace took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 211ms",
+        "seconds": 0.211
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 163ms",
+        "seconds": 0.163
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 135ms",
+        "seconds": 0.135
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "UniformSpace",
+        "raw": "typeclass inference of UniformSpace took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 192ms",
+        "seconds": 0.192
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 165ms",
+        "seconds": 0.165
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "UniformSpace",
+        "raw": "typeclass inference of UniformSpace took 111ms",
+        "seconds": 0.111
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 166ms",
+        "seconds": 0.166
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 317ms",
+        "seconds": 0.317
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 134ms",
+        "seconds": 0.134
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "IsScalarTower",
+        "raw": "typeclass inference of IsScalarTower took 226ms",
+        "seconds": 0.226
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 292ms",
+        "seconds": 0.292
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 131ms",
+        "seconds": 0.131
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 136ms",
+        "seconds": 0.136
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 120ms",
+        "seconds": 0.12
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 103ms",
+        "seconds": 0.10300000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 118ms",
+        "seconds": 0.11800000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 115ms",
+        "seconds": 0.115
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 278ms",
+        "seconds": 0.278
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 268ms",
+        "seconds": 0.268
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 106ms",
+        "seconds": 0.106
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 268ms",
+        "seconds": 0.268
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddMonoidHomClass",
+        "raw": "typeclass inference of AddMonoidHomClass took 513ms",
+        "seconds": 0.513
+      },
+      {
+        "category": "elaboration",
+        "context": "",
+        "declaration": null,
+        "raw": "elaboration took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 271ms",
+        "seconds": 0.271
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 200ms",
+        "seconds": 0.2
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 240ms",
+        "seconds": 0.24
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "UniformSpace",
+        "raw": "typeclass inference of UniformSpace took 109ms",
+        "seconds": 0.109
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 289ms",
+        "seconds": 0.289
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 118ms",
+        "seconds": 0.11800000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 116ms",
+        "seconds": 0.116
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 305ms",
+        "seconds": 0.305
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 199ms",
+        "seconds": 0.199
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 272ms",
+        "seconds": 0.272
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 233ms",
+        "seconds": 0.233
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 141ms",
+        "seconds": 0.14100000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 207ms",
+        "seconds": 0.20700000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 237ms",
+        "seconds": 0.23700000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 104ms",
+        "seconds": 0.10400000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "PseudoMetricSpace",
+        "raw": "typeclass inference of PseudoMetricSpace took 113ms",
+        "seconds": 0.113
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rcases",
+        "raw": "tactic execution of Lean.Parser.Tactic.rcases took 8.08s",
+        "seconds": 8.08
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 207ms",
+        "seconds": 0.20700000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 260ms",
+        "seconds": 0.26
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 235ms",
+        "seconds": 0.23500000000000001
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 2s",
+        "seconds": 2.0
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 202ms",
+        "seconds": 0.202
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 2.02s",
+        "seconds": 2.02
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 309ms",
+        "seconds": 0.309
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 104ms",
+        "seconds": 0.10400000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 129ms",
+        "seconds": 0.129
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 129ms",
+        "seconds": 0.129
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 340ms",
+        "seconds": 0.34
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "TopologicalSpace",
+        "raw": "typeclass inference of TopologicalSpace took 117ms",
+        "seconds": 0.117
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 118ms",
+        "seconds": 0.11800000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 108ms",
+        "seconds": 0.108
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 308ms",
+        "seconds": 0.308
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 355ms",
+        "seconds": 0.355
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 153ms",
+        "seconds": 0.153
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 324ms",
+        "seconds": 0.324
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.obtain",
+        "raw": "tactic execution of Lean.Parser.Tactic.obtain took 3.62s",
+        "seconds": 3.62
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.obtain",
+        "raw": "tactic execution of Lean.Parser.Tactic.obtain took 3.61s",
+        "seconds": 3.61
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 2.17s",
+        "seconds": 2.17
+      }
+    ],
+    "phases_s": {
+      "attribute application": 0.0183,
+      "compilation (IR)": 0.000526,
+      "compilation (LCNF base)": 0.011,
+      "compilation (LCNF impure)": 0.00127,
+      "compilation (LCNF mono)": 0.00466,
+      "congr simp thm": 0.0234,
+      "elaboration": 1.01,
+      "fix level params": 0.0131,
+      "import": 2.14,
+      "initialization": 0.032299999999999995,
+      "instantiate metavars": 0.0303,
+      "interpretation": 0.8180000000000001,
+      "let-to-have transformation": 0.00456,
+      "linting": 0.066,
+      "norm_num": 0.0035600000000000002,
+      "parsing": 0.0454,
+      "process pre-definitions": 0.08140000000000001,
+      "share common exprs": 0.0518,
+      "simp": 6.57,
+      "tactic execution": 25.3,
+      "type checking": 2.73,
+      "typeclass inference": 30.2
+    }
+  },
+  "returncode": 0,
+  "source": "Nonadditivity/NetPolynomial.lean",
+  "source_sha256": "f5730aa99282b3abf2b6828390434085bcdb978c1500ed2b3b785370ebfe01ad",
+  "time_log": "/home/runner/work/_temp/elaboration-evidence/trials/2/run-3-candidate/Nonadditivity_NetPolynomial/timings/profile-Nonadditivity_NetPolynomial.time.txt",
+  "timing": {
+    "cpu_s": 69.26,
+    "max_rss_raw": 3814708,
+    "percent_cpu": 239.0,
+    "reported_exit_status": 0,
+    "sys_s": 1.28,
+    "user_s": 67.98,
+    "wall_s": 28.94
+  },
+  "valid": true
+}

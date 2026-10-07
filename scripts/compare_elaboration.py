@@ -10,6 +10,7 @@ See README.md beside this script for the evidence schema and reproduction CLI.
 from __future__ import annotations
 
 import argparse
+import copy
 from collections import Counter
 from datetime import datetime, timezone
 import hashlib
@@ -300,12 +301,122 @@ def compare_builds(before: dict, after: dict) -> dict:
                            "limitation": "Conservative screening heuristics adapted to actual GNU CPU and module wall measurements. Signals do not prove contention; their absence does not prove a quiet machine. Process invisibility is not a zero-load observation."}}
 
 
-def compare_profiles(before: dict, after: dict) -> dict:
-    old, new = before["profiles"], after["profiles"]
+def comparable_profile(record: dict) -> dict:
+    """Semantic measurement fields; raw paths/commands remain separately bound."""
+    fields = ("phase", "module", "source", "source_sha256", "returncode", "timing",
+              "profile", "guard_errors", "artifact_changes")
+    return {field: record.get(field) for field in fields}
+
+
+def supplemental_profiles(path: Path, before: dict, after: dict) -> dict:
+    """Validate the fixed continuation helper's serial after-profile supplement.
+
+    Do not edit either snapshot or rewrite its top-eight evidence. Supplementary
+    measurements are a separately bound input to the profile comparison only.
+    """
+    path = path.resolve()
+    data = load(path)
+    require(data.get("valid") is True, "Supplemental profile summary is invalid")
+    prov = after["summary"]["provenance"]
+    require(data.get("after_sha") == prov["commit"], "Supplemental after SHA differs from measured after commit")
+    for key in ("compiler_sha256", "time_sha256", "host"):
+        require(data.get(key) == prov[key], "Supplemental timing provenance differs: " + key)
+    require(set(data.get("baseline_top8_modules", [])) == set(before["profiles"]),
+            "Supplemental baseline top8 inventory differs")
+    require(set(data.get("after_top8_modules", [])) == set(after["profiles"]),
+            "Supplemental after top8 inventory differs")
+    requested = data.get("requested_modules")
+    require(isinstance(requested, list) and all(isinstance(x, str) for x in requested)
+            and len(requested) == len(set(requested)), "Invalid supplemental requested module inventory")
+    records = data.get("profiles")
+    require(isinstance(records, list), "Supplemental summary has no profile records")
+    hashes = {str(path): file_hash(path)}
+    indexed, duplicates, bound_raw = {}, [], []
+    for record in records:
+        require(isinstance(record, dict), "Invalid supplemental record")
+        name = record.get("module")
+        require(name in after["summary"]["modules"] and name not in indexed,
+                "Unexpected or duplicate supplemental module: " + str(name))
+        require(record.get("valid") is True and record.get("returncode") == 0
+                and record.get("guard_errors") == [], "Failed/unguarded supplemental profile: " + name)
+        require(record.get("phase") == "profile" and record.get("artifact_changes") == [],
+                "Supplemental profile has wrong phase or wrote artifacts: " + name)
+        source = after["summary"]["modules"][name]
+        require(record.get("source") == source and record.get("source_sha256") ==
+                after["summary"]["source_hashes_after"].get(source),
+                "Supplemental source differs from measured after source: " + name)
+        require(bool(record.get("profile", {}).get("phases_s")),
+                "Supplemental cumulative phases are missing: " + name)
+        for category, value in record["profile"]["phases_s"].items():
+            number(value, "Supplemental " + name + " " + category)
+        timing = record.get("timing", {})
+        for key in ("wall_s", "user_s", "sys_s", "cpu_s"):
+            number(timing.get(key), "Supplemental " + name + " " + key)
+        require(abs(timing["cpu_s"] - timing["user_s"] - timing["sys_s"]) < 1e-7,
+                "Supplemental CPU is not user + system: " + name)
+        command = record.get("command")
+        require(isinstance(command, list) and all(isinstance(arg, str) for arg in command)
+                and "--profile" in command and "-v" in command,
+                "Supplemental record has no GNU-time profile command: " + name)
+        require(command[0] == prov["time_bin"] and prov["compiler"] in command,
+                "Supplemental compiler/time command differs from full snapshot: " + name)
+        compiler_index = command.index(prov["compiler"])
+        require(not any(arg in {"-o", "-i", "-c", "-b"}
+                        or arg.startswith(("--o=", "--i=", "--c=", "--bc="))
+                        for arg in command[compiler_index + 1:]),
+                "Supplemental compiler command writes artifacts: " + name)
+        if name in after["profiles"]:
+            require(comparable_profile(record) == comparable_profile(after["profiles"][name]),
+                    "Supplemental duplicate disagrees with original after profile: " + name)
+            duplicates.append(name)
+        leaf = path.parent / name.replace(".", "_")
+        raw_result = leaf / "result.json"
+        if raw_result.is_file():
+            require(load(raw_result) == record, "Adjacent supplemental raw result differs: " + name)
+            hashes[str(raw_result.resolve())] = file_hash(raw_result)
+            bound_raw.append(str(raw_result.resolve()))
+        raw_records = leaf / "measurements.jsonl"
+        if raw_records.is_file():
+            raw = [json.loads(line, object_pairs_hook=unique_object) for line in raw_records.read_text().splitlines() if line.strip()]
+            require(len(raw) == 1 and comparable_profile(raw[0]) == comparable_profile(record),
+                    "Adjacent supplemental raw measurement differs: " + name)
+            hashes[str(raw_records.resolve())] = file_hash(raw_records)
+            bound_raw.append(str(raw_records.resolve()))
+        candidates = [leaf / "wrapper-config.json", leaf / "driver.log"]
+        for field, directory in (("log", "logs"), ("time_log", "timings")):
+            if isinstance(record.get(field), str):
+                candidates.append(leaf / directory / Path(record[field]).name)
+        for raw_path in candidates:
+            if raw_path.is_file():
+                hashes[str(raw_path.resolve())] = file_hash(raw_path)
+                bound_raw.append(str(raw_path.resolve()))
+        indexed[name] = copy.deepcopy(record)
+    require(set(indexed) == set(requested), "Supplemental requested modules differ from profile records")
+    edited = {name for name in after["summary"]["modules"]
+              if before["summary"]["source_hashes_before"].get(before["summary"]["modules"][name])
+              != after["summary"]["source_hashes_after"].get(after["summary"]["modules"][name])}
+    require(set(data.get("edited_modules", [])) == edited, "Supplemental edited-module inventory differs")
+    require((set(before["profiles"]) | edited) <= (set(after["profiles"]) | set(indexed)),
+            "Supplemental evidence leaves baseline top8 or edited modules unprofiled")
+    return {"provenance_label": "supplemental after warm profile", "profiles": indexed,
+            "summary": data, "path": str(path), "input_sha256": hashes,
+            "bound_adjacent_raw_files": bound_raw, "identical_duplicates": duplicates,
+            "scope": "Additional profiles used only in comparison; original after summary and its independently selected top8 are unchanged"}
+
+
+def compare_profiles(before: dict, after: dict, supplement: dict | None = None) -> dict:
+    old, new = before["profiles"], dict(after["profiles"])
+    labels = {name: "full after snapshot" for name in new}
+    if supplement:
+        for name, record in supplement["profiles"].items():
+            if name not in new:
+                new[name] = record
+                labels[name] = supplement["provenance_label"]
     rows, events = [], []
     for name in sorted(set(old) | set(new)):
         if name not in old or name not in new:
-            rows.append({"module": name, "matched": False, "available_side": "before" if name in old else "after"})
+            rows.append({"module": name, "matched": False, "available_side": "before" if name in old else "after",
+                         "after_provenance": labels.get(name)})
             continue
         b, a = old[name], new[name]
         require(b["returncode"] == a["returncode"] == 0 and not b.get("guard_errors") and not a.get("guard_errors"),
@@ -314,17 +425,50 @@ def compare_profiles(before: dict, after: dict) -> dict:
         for phase in sorted(set(b["profile"]["phases_s"]) | set(a["profile"]["phases_s"])):
             bv, av = b["profile"]["phases_s"].get(phase), a["profile"]["phases_s"].get(phase)
             phases[phase] = delta(bv, av) if bv is not None and av is not None else {"before": bv, "after": av, "delta": None, "percent": None}
-        rows.append({"module": name, "matched": True, "wall_s": delta(b["timing"]["wall_s"], a["timing"]["wall_s"]), "phases": phases})
+        rows.append({"module": name, "matched": True, "after_provenance": labels[name],
+                     "wall_s": delta(b["timing"]["wall_s"], a["timing"]["wall_s"]), "phases": phases})
     for side, indexed in (("before", old), ("after", new)):
         for name, record in sorted(indexed.items()):
             for event in sorted(record["profile"]["events_over_100ms"], key=lambda item: item["seconds"], reverse=True)[:10]:
-                events.append({"side": side, "module": name, **event})
+                events.append({"side": side, "module": name,
+                               "provenance": "full before snapshot" if side == "before" else labels[name], **event})
     return {"modules": rows, "events": events,
             "matched_count": sum(x["matched"] for x in rows),
             "caveat": "Serial, warm, own-file profiles omit olean output. Exclusive profiler phases are not a complete wall-time partition. Missing categories are not substituted with zero; unmatched modules do not establish phase changes."}
 
 
 def assess_ab(data: dict) -> dict:
+    if data.get("schema_version") == 1 and data.get("status") == "failed_intervention":
+        require(data.get("decision") == "reverted" and data.get("kept") is False,
+                "Failed intervention cannot be retained")
+        require(data.get("performance_comparison_excluded") is True
+                and isinstance(data.get("failure_reason"), str) and bool(data["failure_reason"].strip()),
+                "Failed intervention needs explicit exclusion and failure reason")
+        require(data.get("basis") in {"phase", "wall"}, "Failed intervention has invalid intended measurement basis")
+        old, new = data.get("before_runs"), data.get("after_runs")
+        require(isinstance(old, list) and isinstance(new, list) and len(old) == len(new) == 3,
+                "Failed intervention requires three attempts of each variant")
+        require(all(run.get("valid") is True and run.get("returncode") == 0 for run in old)
+                and all(run.get("valid") is False and type(run.get("returncode")) is int
+                        and run["returncode"] != 0 for run in new),
+                "Failed intervention does not establish valid controls and failed candidates")
+        diagnostics = data.get("diagnostic_failed_attempts")
+        require(isinstance(diagnostics, list) and len(diagnostics) == 3
+                and all(x.get("record", {}).get("guard_errors") == []
+                        and x["record"].get("artifact_changes") == []
+                        and x["record"].get("diagnostics", {}).get("error_count", 0) > 0
+                        for x in diagnostics), "Failed intervention needs guarded raw compiler failures")
+        return {"status": "failed_intervention", "module": data["module"], "intervention": data["intervention"],
+                "basis": data.get("basis"), "relevant_phase": data.get("relevant_phase"),
+                "before_runs": [number(run["wall_s"], "baseline diagnostic wall") for run in old],
+                "after_runs": [number(run["wall_s"], "failed-attempt diagnostic wall") for run in new],
+                "before_median_s": None, "after_median_s": None, "saving_s": None, "saving_percent": None,
+                "has_required_repetitions": True, "meets_2s_or_10percent_threshold": False,
+                "supports_retaining_edit": False, "reported_kept": False,
+                "failure_reason": data["failure_reason"], "performance_comparison_excluded": True,
+                "diagnostic_failed_attempts": data.get("diagnostic_failed_attempts", []),
+                "evidence": data,
+                "caveat": "Failed candidate times are diagnostic only. No candidate median, speed savings, speed-regression or null result is inferred from aborted elaborations."}
     require(data.get("schema_version") == 1 and data.get("status") == "completed", "Invalid A/B schema/status")
     require(data.get("basis") in {"phase", "wall"}, "A/B basis must be phase or wall")
     basis, phase = data["basis"], data.get("relevant_phase")
@@ -340,7 +484,7 @@ def assess_ab(data: dict) -> dict:
     threshold = (saving >= 2 or math.isclose(saving, 2, rel_tol=0, abs_tol=1e-9)
                  or percent is not None and (percent >= 10 or math.isclose(percent, 10, rel_tol=0, abs_tol=1e-9)))
     qualified = enough and threshold and data.get("matched_setup") is True and data.get("other_phases_regressed") is False and data.get("statements_changed") is False
-    return {"module": data["module"], "intervention": data["intervention"], "basis": basis,
+    return {"status": "completed", "module": data["module"], "intervention": data["intervention"], "basis": basis,
             "relevant_phase": phase, "before_runs": values["before"], "after_runs": values["after"],
             "before_median_s": old, "after_median_s": new, "saving_s": saving, "saving_percent": percent,
             "has_required_repetitions": enough, "meets_2s_or_10percent_threshold": threshold,
@@ -394,15 +538,20 @@ def report(data: dict) -> str:
     else:
         lines += ["No dead-code record was supplied; its findings are not inferred from timing data.", ""]
     lines += ["The verified build scope and six principal challenge roots do not establish full manuscript coverage or English-to-Lean equivalence. Existing attainment and representation qualifications remain separate mathematical scope limitations.", "", "## Setup and provenance", ""]
-    lines += table(["Field", "Before", "After"], [[key, b["provenance"].get(key), a["provenance"].get(key)] for key in
-                    ("commit", "started_utc", "finished_utc", "host", "platform", "compiler_version", "time_version", "cores", "driver_parallelism", "lean_internal_threads")])
+    setup_rows = []
+    for key in ("commit", "started_utc", "finished_utc", "host", "platform", "compiler_version", "time_version", "cores", "driver_parallelism", "lean_internal_threads"):
+        values = [summary["provenance"].get(key) for summary in (b, a)]
+        if key == "time_version":
+            values = [value.split("\n", 1)[0] if isinstance(value, str) else value for value in values]
+        setup_rows.append([key, *values])
+    lines += table(["Field", "Before", "After"], setup_rows)
     lines += ["", "Compiler and GNU time hashes, host, core count, driver parallelism and Lean internal-thread policy match. The retained provenance reports the exact RSS interpretation and process-visibility availability. An unavailable process inventory is not evidence of an idle host.", "", "## Size snapshot", ""]
     lines += table(["Scope", "Before files", "After files", "Before physical lines", "After physical lines", "Before code lines", "After code lines"],
                    [[scope, b["size"][scope]["counted_files"], a["size"][scope]["counted_files"], b["size"][scope]["total_lines"], a["size"][scope]["total_lines"], b["size"][scope]["code_lines"], a["size"][scope]["code_lines"]]
                     for scope in ("git_tree", "git_build_scope", "working_build_scope")])
     lines += ["", "The full Git tree includes Lean files outside the production build. Cost per line uses the committed own build scope; comment-only files are excluded according to the measured snapshot.", "", "## Headline timing and build health", ""]
     timing_rows = []
-    for key in ("wall_s", "user_s", "sys_s", "percent_cpu", "max_rss_raw"):
+    for key in ("wall_s", "cpu_s", "user_s", "sys_s", "percent_cpu", "max_rss_raw"):
         d = delta(b["build"]["timing"][key], a["build"]["timing"][key])
         timing_rows.append([key, fmt(d["before"]), fmt(d["after"]), fmt(d["delta"]), fmt(d["percent"])])
     for key in ("cpu_s", "observed_cpu_parallelism"):
@@ -414,7 +563,8 @@ def report(data: dict) -> str:
                     ("error_count", "warning_count", "sorry_warning_count", "unauthorized_sorry_tokens")]
                    + [["complete measured jobs", b["coverage"]["measured"], a["coverage"]["measured"]], ["build exit", b["build"]["returncode"], a["build"]["returncode"]]])
     for side, summary in (("Before", b), ("After", a)):
-        lines += ["", side + " warning census: `" + json.dumps(summary["health"]["warning_kinds"], sort_keys=True) + "`."]
+        lines += ["", side + " warning census:", "", "```json",
+                  json.dumps(summary["health"]["warning_kinds"], indent=2, sort_keys=True), "```"]
     lines += ["", "## Heavy tail and top 30", ""]
     lines += table(["Wall threshold", "Before files", "After files", "Delta"], [["≥" + t + "s", x["before"], x["after"], x["after"] - x["before"]] for t, x in comparison["heavy_tail"].items()])
     lines += [""] + table(["Module", "Before wall s", "After wall s", "Delta wall s", "Before CPU s", "After CPU s", "Delta CPU s", "Source changed"],
@@ -439,17 +589,25 @@ def report(data: dict) -> str:
     profile_rows = []
     for item in data["profiles"]["modules"]:
         if not item["matched"]:
-            profile_rows.append([f"`{item['module']}`", "UNMATCHED (" + item["available_side"] + " only)", "—", "—", "—"])
+            profile_rows.append([f"`{item['module']}`", item.get("after_provenance") or "—", "UNMATCHED (" + item["available_side"] + " only)", "—", "—", "—"])
         else:
             for phase, d in item["phases"].items():
-                profile_rows.append([f"`{item['module']}`", phase, fmt(d["before"], 3), fmt(d["after"], 3), fmt(d["delta"], 3)])
-    lines += table(["Module", "Exclusive phase", "Before s", "After s", "Delta s"], profile_rows)
+                profile_rows.append([f"`{item['module']}`", item["after_provenance"], phase, fmt(d["before"], 3), fmt(d["after"], 3), fmt(d["delta"], 3)])
+    lines += table(["Module", "After profile provenance", "Exclusive phase", "Before s", "After s", "Delta s"], profile_rows)
+    if data.get("supplemental_profiles"):
+        lines += ["", data["supplemental_profiles"]["scope"] + ". Its summary and available adjacent raw records/logs have separate SHA-256 bindings in the accompanying JSON."]
     lines += ["", "### Largest retained events above 100 ms", ""]
-    lines += table(["Side", "Module", "Category", "Declaration/context", "Seconds"], [[x["side"], f"`{x['module']}`", x["category"], x.get("declaration") or x.get("context") or "unattributed", fmt(x["seconds"], 3)] for x in data["profiles"]["events"]])
+    lines += table(["Side", "Provenance", "Module", "Category", "Declaration/context", "Seconds"], [[x["side"], x["provenance"], f"`{x['module']}`", x["category"], x.get("declaration") or x.get("context") or "unattributed", fmt(x["seconds"], 3)] for x in data["profiles"]["events"]])
     lines += ["", "At most ten events per module and side appear here; full events remain in the measured JSON/raw logs. An anonymous elaboration event needs declaration tracing and statement/proof isolation before a proof-level cause is claimed.", "", "## Interventions and A/B evidence", ""]
     if data["ab"]:
-        lines += table(["Module", "Intervention", "Basis", "Runs B/A", "Median before s", "Median after s", "Saving s / %", "Threshold + evidence requirements", "Reported kept"],
-                       [[f"`{x['module']}`", x["intervention"], x["basis"] + (": " + x["relevant_phase"] if x["relevant_phase"] else ""), str(len(x["before_runs"])) + "/" + str(len(x["after_runs"])), fmt(x["before_median_s"]), fmt(x["after_median_s"]), fmt(x["saving_s"]) + " / " + fmt(x["saving_percent"]), "supported" if x["supports_retaining_edit"] else "not established", x["reported_kept"]] for x in data["ab"]])
+        lines += table(["Module", "Intervention", "Classification", "Basis", "Runs B/A", "Median before s", "Median after s", "Saving s / %", "Threshold + evidence requirements", "Reported kept"],
+                       [[f"`{x['module']}`", x["intervention"], "FAILED; performance comparison excluded" if x.get("status") == "failed_intervention" else "valid completed A/B", x["basis"] + (": " + x["relevant_phase"] if x["relevant_phase"] else ""), str(len(x["before_runs"])) + "/" + str(len(x["after_runs"])), fmt(x["before_median_s"]), fmt(x["after_median_s"]), fmt(x["saving_s"]) + " / " + fmt(x["saving_percent"]), "excluded failed attempt" if x.get("status") == "failed_intervention" else "supported" if x["supports_retaining_edit"] else "not established", x["reported_kept"]] for x in data["ab"]])
+        for failed in (x for x in data["ab"] if x.get("status") == "failed_intervention"):
+            lines += ["", f"Failed intervention in `{failed['module']}`: {failed['failure_reason']}",
+                      "Valid baseline control attempts and failed candidate attempts were retained. Candidate medians and savings are excluded; this is neither a valid speed regression nor a valid null result.", ""]
+            diagnostics = failed["diagnostic_failed_attempts"]
+            lines += table(["Candidate attempt", "Compiler exit", "Wall s (diagnostic)", "CPU s (diagnostic)", "Errors"],
+                           [[x["repetition"], x["record"]["returncode"], fmt(x["record"]["timing"]["wall_s"]), fmt(x["record"]["timing"]["cpu_s"]), "; ".join(x["record"].get("diagnostics", {}).get("errors", []))] for x in diagnostics])
     else:
         lines += ["No per-intervention A/B record was supplied. The full-build snapshots alone do not establish that any retained edit met the intervention threshold."]
     lines += ["", "A retained performance intervention requires a ≥2 second or ≥10% improvement in its relevant phase, with matching setup, unchanged statements and no transferred regression. A wall-time claim requires at least three runs on each side. Median values are used here; supplied raw evidence and reverted/null experiments must remain reviewable.", "", "## Parallelism, contention and size prediction", ""]
@@ -479,6 +637,8 @@ def main() -> int:
     parser.add_argument("--after", required=True, type=Path, help="Valid after summary.json")
     parser.add_argument("--before-measurements", type=Path)
     parser.add_argument("--after-measurements", type=Path)
+    parser.add_argument("--after-supplemental-profiles", type=Path,
+                        help="Fixed continuation matched-profiles/summary.json; original after top8 stays unchanged")
     parser.add_argument("--before-commit", help="Optional expected full before SHA")
     parser.add_argument("--after-commit", help="Optional expected full after SHA")
     parser.add_argument("--initial-commit", help="Optional expected source SHA before dead sweep")
@@ -497,7 +657,12 @@ def main() -> int:
                 "snapshots": {"before": before, "after": after}, "comparison": compare_builds(before, after),
                 "profiles": compare_profiles(before, after), "source_census": {}, "ab": [],
                 "input_sha256": {**before["input_sha256"], **after["input_sha256"]},
-                "dead_code": None, "api_check": None}
+                "dead_code": None, "api_check": None, "supplemental_profiles": None}
+        if args.after_supplemental_profiles:
+            supplement = supplemental_profiles(args.after_supplemental_profiles, before, after)
+            data["supplemental_profiles"] = supplement
+            data["input_sha256"].update(supplement["input_sha256"])
+            data["profiles"] = compare_profiles(before, after, supplement)
         for side, snapshot in (("before", before), ("after", after)):
             summary = snapshot["summary"]
             paths = sorted(summary["size"]["git_build_scope"]["per_file"])

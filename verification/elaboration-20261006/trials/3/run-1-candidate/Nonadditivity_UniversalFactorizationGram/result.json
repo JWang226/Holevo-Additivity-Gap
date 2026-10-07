@@ -1,0 +1,1219 @@
+{
+  "artifact_changes": [],
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/runner/work/_temp/elaboration-evidence/trials/3/run-1-candidate/Nonadditivity_UniversalFactorizationGram/timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt",
+    "/home/runner/.elan/toolchains/leanprover--lean4---v4.29.0-rc6/bin/lean",
+    "--profile",
+    "Nonadditivity/UniversalFactorizationGram.lean"
+  ],
+  "diagnostics": {
+    "error_count": 2,
+    "errors": [
+      "(deterministic) timeout at `whnf`, maximum number of heartbeats (1000000) has been reached",
+      "(deterministic) timeout at `\u00abtactic execution\u00bb`, maximum number of heartbeats (1000000) has been reached"
+    ],
+    "sorry_warning_count": 0,
+    "warning_count": 0,
+    "warning_kinds": {},
+    "warnings": []
+  },
+  "guard_errors": [],
+  "log": "/home/runner/work/_temp/elaboration-evidence/trials/3/run-1-candidate/Nonadditivity_UniversalFactorizationGram/logs/profile-Nonadditivity_UniversalFactorizationGram.log",
+  "module": "Nonadditivity.UniversalFactorizationGram",
+  "phase": "profile",
+  "profile": {
+    "all_reported_events": [
+      {
+        "category": "import",
+        "context": "",
+        "declaration": null,
+        "raw": "import took 1.98s",
+        "seconds": 1.98
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 158ms",
+        "seconds": 0.158
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 161ms",
+        "seconds": 0.161
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 161ms",
+        "seconds": 0.161
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 154ms",
+        "seconds": 0.154
+      },
+      {
+        "category": "elaboration",
+        "context": "",
+        "declaration": null,
+        "raw": "elaboration took 144ms",
+        "seconds": 0.14400000000000002
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 139ms",
+        "seconds": 0.139
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 21.4s",
+        "seconds": 21.4
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 174ms",
+        "seconds": 0.17400000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 165ms",
+        "seconds": 0.165
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "ContinuousAdd",
+        "raw": "typeclass inference of ContinuousAdd took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 136ms",
+        "seconds": 0.136
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.Conv.rewrite",
+        "raw": "tactic execution of Lean.Parser.Tactic.Conv.rewrite took 131ms",
+        "seconds": 0.131
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 116ms",
+        "seconds": 0.116
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Nonempty",
+        "raw": "typeclass inference of Nonempty took 127ms",
+        "seconds": 0.127
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HSMul",
+        "raw": "typeclass inference of HSMul took 162ms",
+        "seconds": 0.162
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "LinearMap.CompatibleSMul",
+        "raw": "typeclass inference of LinearMap.CompatibleSMul took 164ms",
+        "seconds": 0.164
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 108ms",
+        "seconds": 0.108
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 124ms",
+        "seconds": 0.124
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 274ms",
+        "seconds": 0.274
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 259ms",
+        "seconds": 0.259
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.refine",
+        "raw": "tactic execution of Lean.Parser.Tactic.refine took 133ms",
+        "seconds": 0.133
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 86.3s",
+        "seconds": 86.3
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 399ms",
+        "seconds": 0.399
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 115ms",
+        "seconds": 0.115
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 354ms",
+        "seconds": 0.354
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 219ms",
+        "seconds": 0.219
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 115ms",
+        "seconds": 0.115
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 113ms",
+        "seconds": 0.113
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Add",
+        "raw": "typeclass inference of Add took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 587ms",
+        "seconds": 0.587
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 119ms",
+        "seconds": 0.11900000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 597ms",
+        "seconds": 0.597
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NormedAddCommGroup",
+        "raw": "typeclass inference of NormedAddCommGroup took 163ms",
+        "seconds": 0.163
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "DistribSMul",
+        "raw": "typeclass inference of DistribSMul took 225ms",
+        "seconds": 0.225
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": null,
+        "raw": "typeclass inference took 133ms",
+        "seconds": 0.133
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": null,
+        "raw": "typeclass inference took 132ms",
+        "seconds": 0.132
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HAdd",
+        "raw": "typeclass inference of HAdd took 132ms",
+        "seconds": 0.132
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HAdd",
+        "raw": "typeclass inference of HAdd took 134ms",
+        "seconds": 0.134
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 173ms",
+        "seconds": 0.17300000000000001
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 751ms",
+        "seconds": 0.751
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 114ms",
+        "seconds": 0.114
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HAdd",
+        "raw": "typeclass inference of HAdd took 126ms",
+        "seconds": 0.126
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HSMul",
+        "raw": "typeclass inference of HSMul took 162ms",
+        "seconds": 0.162
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.change",
+        "raw": "tactic execution of Lean.Parser.Tactic.change took 136ms",
+        "seconds": 0.136
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 149ms",
+        "seconds": 0.149
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 147ms",
+        "seconds": 0.147
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 145ms",
+        "seconds": 0.145
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 146ms",
+        "seconds": 0.146
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 153ms",
+        "seconds": 0.153
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 330ms",
+        "seconds": 0.33
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommGroup",
+        "raw": "typeclass inference of AddCommGroup took 494ms",
+        "seconds": 0.494
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Semiring",
+        "raw": "typeclass inference of Semiring took 328ms",
+        "seconds": 0.328
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 2.15s",
+        "seconds": 2.15
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 142ms",
+        "seconds": 0.14200000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 115ms",
+        "seconds": 0.115
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 113ms",
+        "seconds": 0.113
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Add",
+        "raw": "typeclass inference of Add took 108ms",
+        "seconds": 0.108
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 114ms",
+        "seconds": 0.114
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 155ms",
+        "seconds": 0.155
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 288ms",
+        "seconds": 0.28800000000000003
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 468ms",
+        "seconds": 0.468
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NormedAddCommGroup",
+        "raw": "typeclass inference of NormedAddCommGroup took 144ms",
+        "seconds": 0.14400000000000002
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 293ms",
+        "seconds": 0.293
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 772ms",
+        "seconds": 0.772
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 599ms",
+        "seconds": 0.599
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 132ms",
+        "seconds": 0.132
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 275ms",
+        "seconds": 0.275
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 281ms",
+        "seconds": 0.281
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 269ms",
+        "seconds": 0.269
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 290ms",
+        "seconds": 0.29
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 788ms",
+        "seconds": 0.788
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 906ms",
+        "seconds": 0.906
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 176ms",
+        "seconds": 0.176
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 114ms",
+        "seconds": 0.114
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 165ms",
+        "seconds": 0.165
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 138ms",
+        "seconds": 0.138
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 285ms",
+        "seconds": 0.28500000000000003
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 412ms",
+        "seconds": 0.41200000000000003
+      }
+    ],
+    "categorized_s": 148.92029,
+    "dominant_above_action_floor": true,
+    "dominant_phase": "tactic execution",
+    "events_over_100ms": [
+      {
+        "category": "import",
+        "context": "",
+        "declaration": null,
+        "raw": "import took 1.98s",
+        "seconds": 1.98
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 158ms",
+        "seconds": 0.158
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 161ms",
+        "seconds": 0.161
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 161ms",
+        "seconds": 0.161
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 154ms",
+        "seconds": 0.154
+      },
+      {
+        "category": "elaboration",
+        "context": "",
+        "declaration": null,
+        "raw": "elaboration took 144ms",
+        "seconds": 0.14400000000000002
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 139ms",
+        "seconds": 0.139
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 21.4s",
+        "seconds": 21.4
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 174ms",
+        "seconds": 0.17400000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 165ms",
+        "seconds": 0.165
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "ContinuousAdd",
+        "raw": "typeclass inference of ContinuousAdd took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 136ms",
+        "seconds": 0.136
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.Conv.rewrite",
+        "raw": "tactic execution of Lean.Parser.Tactic.Conv.rewrite took 131ms",
+        "seconds": 0.131
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 116ms",
+        "seconds": 0.116
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Nonempty",
+        "raw": "typeclass inference of Nonempty took 127ms",
+        "seconds": 0.127
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HSMul",
+        "raw": "typeclass inference of HSMul took 162ms",
+        "seconds": 0.162
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "LinearMap.CompatibleSMul",
+        "raw": "typeclass inference of LinearMap.CompatibleSMul took 164ms",
+        "seconds": 0.164
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 108ms",
+        "seconds": 0.108
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 124ms",
+        "seconds": 0.124
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 274ms",
+        "seconds": 0.274
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 259ms",
+        "seconds": 0.259
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.refine",
+        "raw": "tactic execution of Lean.Parser.Tactic.refine took 133ms",
+        "seconds": 0.133
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 86.3s",
+        "seconds": 86.3
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 399ms",
+        "seconds": 0.399
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 115ms",
+        "seconds": 0.115
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 354ms",
+        "seconds": 0.354
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 219ms",
+        "seconds": 0.219
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 115ms",
+        "seconds": 0.115
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 113ms",
+        "seconds": 0.113
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Add",
+        "raw": "typeclass inference of Add took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 587ms",
+        "seconds": 0.587
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 119ms",
+        "seconds": 0.11900000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 597ms",
+        "seconds": 0.597
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NormedAddCommGroup",
+        "raw": "typeclass inference of NormedAddCommGroup took 163ms",
+        "seconds": 0.163
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "DistribSMul",
+        "raw": "typeclass inference of DistribSMul took 225ms",
+        "seconds": 0.225
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": null,
+        "raw": "typeclass inference took 133ms",
+        "seconds": 0.133
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": null,
+        "raw": "typeclass inference took 132ms",
+        "seconds": 0.132
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HAdd",
+        "raw": "typeclass inference of HAdd took 132ms",
+        "seconds": 0.132
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HAdd",
+        "raw": "typeclass inference of HAdd took 134ms",
+        "seconds": 0.134
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 173ms",
+        "seconds": 0.17300000000000001
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 751ms",
+        "seconds": 0.751
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 114ms",
+        "seconds": 0.114
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HAdd",
+        "raw": "typeclass inference of HAdd took 126ms",
+        "seconds": 0.126
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "HSMul",
+        "raw": "typeclass inference of HSMul took 162ms",
+        "seconds": 0.162
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.change",
+        "raw": "tactic execution of Lean.Parser.Tactic.change took 136ms",
+        "seconds": 0.136
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Neg",
+        "raw": "typeclass inference of Neg took 102ms",
+        "seconds": 0.10200000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 149ms",
+        "seconds": 0.149
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 147ms",
+        "seconds": 0.147
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 145ms",
+        "seconds": 0.145
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 146ms",
+        "seconds": 0.146
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 153ms",
+        "seconds": 0.153
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 330ms",
+        "seconds": 0.33
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommGroup",
+        "raw": "typeclass inference of AddCommGroup took 494ms",
+        "seconds": 0.494
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Semiring",
+        "raw": "typeclass inference of Semiring took 328ms",
+        "seconds": 0.328
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Module",
+        "raw": "typeclass inference of Module took 2.15s",
+        "seconds": 2.15
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 142ms",
+        "seconds": 0.14200000000000002
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 115ms",
+        "seconds": 0.115
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 113ms",
+        "seconds": 0.113
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Add",
+        "raw": "typeclass inference of Add took 108ms",
+        "seconds": 0.108
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 114ms",
+        "seconds": 0.114
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 155ms",
+        "seconds": 0.155
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 288ms",
+        "seconds": 0.28800000000000003
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 468ms",
+        "seconds": 0.468
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NormedAddCommGroup",
+        "raw": "typeclass inference of NormedAddCommGroup took 144ms",
+        "seconds": 0.14400000000000002
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 293ms",
+        "seconds": 0.293
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 772ms",
+        "seconds": 0.772
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 112ms",
+        "seconds": 0.112
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 599ms",
+        "seconds": 0.599
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 132ms",
+        "seconds": 0.132
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 275ms",
+        "seconds": 0.275
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 281ms",
+        "seconds": 0.281
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "CoeFun",
+        "raw": "typeclass inference of CoeFun took 269ms",
+        "seconds": 0.269
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 290ms",
+        "seconds": 0.29
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 788ms",
+        "seconds": 0.788
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 906ms",
+        "seconds": 0.906
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 176ms",
+        "seconds": 0.176
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 114ms",
+        "seconds": 0.114
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddCommMonoid",
+        "raw": "typeclass inference of AddCommMonoid took 101ms",
+        "seconds": 0.101
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 165ms",
+        "seconds": 0.165
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 138ms",
+        "seconds": 0.138
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "Algebra",
+        "raw": "typeclass inference of Algebra took 285ms",
+        "seconds": 0.28500000000000003
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 412ms",
+        "seconds": 0.41200000000000003
+      }
+    ],
+    "phases_s": {
+      "attribute application": 0.00645,
+      "congr simp thm": 0.0299,
+      "elaboration": 1.24,
+      "fix level params": 0.0155,
+      "import": 1.98,
+      "initialization": 0.032100000000000004,
+      "instantiate metavars": 0.015,
+      "interpretation": 0.539,
+      "let-to-have transformation": 0.0029100000000000003,
+      "linting": 0.0432,
+      "norm_num": 0.00239,
+      "parsing": 0.024300000000000002,
+      "process pre-definitions": 0.0529,
+      "ring": 0.00644,
+      "share common exprs": 0.054200000000000005,
+      "simp": 0.676,
+      "tactic execution": 93.8,
+      "type checking": 22.8,
+      "typeclass inference": 27.6
+    }
+  },
+  "returncode": 1,
+  "source": "Nonadditivity/UniversalFactorizationGram.lean",
+  "source_sha256": "bfc9ac9dc9b60c18cd61e9c1fe40b9f5b31029b00e709d9358670763bc9db572",
+  "time_log": "/home/runner/work/_temp/elaboration-evidence/trials/3/run-1-candidate/Nonadditivity_UniversalFactorizationGram/timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt",
+  "timing": {
+    "cpu_s": 148.48000000000002,
+    "max_rss_raw": 4546104,
+    "percent_cpu": 154.0,
+    "reported_exit_status": 1,
+    "sys_s": 1.52,
+    "user_s": 146.96,
+    "wall_s": 96.09
+  },
+  "valid": false
+}

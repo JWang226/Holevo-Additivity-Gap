@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "scope": "untracked diagnostic probes only; not a Linux timing snapshot, successful proof artifact, or release verification",
+  "reindex": {
+    "original_log": "/Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/cleanup-20261006/tc-leaf-triage/mac-reindex-trace-corrected.log",
+    "log_sha256": "9a4fa4090fdd7c4f5a711432555e232e536a01d1c3693a5606ff9465ad026e40",
+    "trace_source_sha256": "d48efd4626c15712068548a5d383e62fdc3a17ce8c330b39ebb194029777ebd1",
+    "exit_code": 0,
+    "errors": 0,
+    "earlier_parse_failed_probe_excluded": true
+  },
+  "gram": "Prefix/#exit and body-sorry isolation probes are detailed in mac-probe-receipts.json. The sorry warning is intentional in the diagnostic probe. No probe source is a production source or part of either successful 369-module build."
+}

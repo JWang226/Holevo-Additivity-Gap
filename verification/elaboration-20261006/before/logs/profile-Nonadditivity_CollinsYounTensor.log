@@ -1,0 +1,139 @@
+import took 1.99s
+simp took 2.2s
+simp took 1.46s
+typeclass inference of CoeFun took 167ms
+typeclass inference of CoeFun took 164ms
+typeclass inference of CoeFun took 164ms
+typeclass inference of CoeFun took 156ms
+typeclass inference of CoeFun took 167ms
+typeclass inference of CoeFun took 193ms
+tactic execution of Lean.Parser.Tactic.change took 121ms
+elaboration took 333ms
+typeclass inference of CoeFun took 175ms
+typeclass inference of CoeFun took 169ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 174ms
+typeclass inference of CoeFun took 170ms
+typeclass inference of CoeFun took 161ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 179ms
+typeclass inference of CoeFun took 187ms
+typeclass inference of CoeFun took 164ms
+typeclass inference of CoeFun took 170ms
+typeclass inference of CoeFun took 159ms
+typeclass inference of CoeFun took 166ms
+typeclass inference of CoeFun took 161ms
+typeclass inference of CoeFun took 166ms
+typeclass inference of CoeFun took 160ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 523ms
+typeclass inference of NormedAddCommGroup took 159ms
+typeclass inference of NormedAddGroup took 157ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.22s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 156ms
+typeclass inference of CoeFun took 278ms
+typeclass inference of CoeFun took 163ms
+tactic execution of Lean.Parser.Tactic.exact took 489ms
+typeclass inference of CoeFun took 270ms
+typeclass inference of CoeFun took 186ms
+typeclass inference of CoeFun took 163ms
+typeclass inference of CoeFun took 161ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 167ms
+typeclass inference of CoeFun took 190ms
+typeclass inference of CoeFun took 166ms
+typeclass inference of CoeFun took 169ms
+typeclass inference of CoeFun took 163ms
+typeclass inference of CoeFun took 168ms
+typeclass inference of CoeFun took 240ms
+typeclass inference of CoeFun took 181ms
+typeclass inference of CoeFun took 171ms
+typeclass inference of CoeFun took 179ms
+typeclass inference of CoeFun took 169ms
+simp took 442ms
+typeclass inference of CoeFun took 175ms
+typeclass inference of CoeFun took 253ms
+typeclass inference of CoeFun took 188ms
+typeclass inference of CoeFun took 217ms
+typeclass inference of CoeFun took 290ms
+typeclass inference of CoeFun took 283ms
+typeclass inference of CoeFun took 242ms
+typeclass inference of CoeFun took 216ms
+typeclass inference of CoeFun took 292ms
+typeclass inference of CoeFun took 273ms
+typeclass inference of CoeFun took 287ms
+typeclass inference of CoeFun took 278ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 450ms
+type checking took 266ms
+typeclass inference of CoeFun took 181ms
+typeclass inference of CoeFun took 174ms
+typeclass inference of CoeFun took 183ms
+typeclass inference of CoeFun took 174ms
+typeclass inference of CoeFun took 172ms
+typeclass inference of CoeFun took 165ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 592ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.12s
+typeclass inference of TopologicalSpace took 106ms
+typeclass inference of AddCommMonoid took 110ms
+typeclass inference of TopologicalSpace took 116ms
+typeclass inference of AddCommMonoid took 120ms
+typeclass inference of CoeFun took 299ms
+typeclass inference of CoeFun took 281ms
+typeclass inference of TopologicalSpace took 109ms
+typeclass inference of AddCommMonoid took 110ms
+typeclass inference of TopologicalSpace took 109ms
+typeclass inference of AddCommMonoid took 107ms
+typeclass inference of Module took 116ms
+typeclass inference of Module took 105ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 247ms
+typeclass inference of AddMonoidHomClass took 369ms
+simp took 146ms
+typeclass inference of CoeFun took 179ms
+typeclass inference of CoeFun took 170ms
+typeclass inference of CoeFun took 180ms
+typeclass inference of CoeFun took 171ms
+type checking took 101ms
+typeclass inference of TopologicalSpace took 108ms
+typeclass inference of AddCommMonoid took 106ms
+simp took 796ms
+typeclass inference of TopologicalSpace took 111ms
+typeclass inference of AddCommMonoid took 115ms
+typeclass inference of TopologicalSpace took 111ms
+typeclass inference of AddCommMonoid took 116ms
+elaboration took 111ms
+typeclass inference of CoeFun took 275ms
+typeclass inference of CoeFun took 267ms
+tactic execution of Lean.Parser.Tactic.refine took 151ms
+typeclass inference of NormedAddCommGroup took 158ms
+typeclass inference of NormedAddGroup took 154ms
+typeclass inference of AddZeroClass took 126ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 715ms
+simp took 148ms
+type checking took 114ms
+typeclass inference of TopologicalSpace took 106ms
+typeclass inference of AddCommMonoid took 115ms
+typeclass inference of TopologicalSpace took 125ms
+typeclass inference of AddCommMonoid took 112ms
+typeclass inference of TopologicalSpace took 110ms
+typeclass inference of AddCommMonoid took 116ms
+cumulative profiling times:
+	attribute application 19.1ms
+	compilation (IR) 0.63ms
+	compilation (LCNF base) 4.31ms
+	compilation (LCNF impure) 1.31ms
+	compilation (LCNF mono) 4.6ms
+	congr simp thm 54.5ms
+	dsimp 2.44ms
+	elaboration 1.66s
+	fix level params 20ms
+	import 1.99s
+	initialization 33.8ms
+	instantiate metavars 50.1ms
+	interpretation 1.64s
+	let-to-have transformation 10ms
+	linting 73.7ms
+	norm_num 9.76ms
+	parsing 48.8ms
+	process pre-definitions 86.4ms
+	ring 67.5ms
+	share common exprs 83.1ms
+	simp 6.73s
+	tactic execution 7.75s
+	type checking 1.56s
+	typeclass inference 45.2s

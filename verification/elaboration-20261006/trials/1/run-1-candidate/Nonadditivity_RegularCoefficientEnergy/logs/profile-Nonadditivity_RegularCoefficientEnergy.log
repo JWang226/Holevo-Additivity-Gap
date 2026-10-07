@@ -1,0 +1,39 @@
+import took 1.97s
+typeclass inference of SeminormedAddCommGroup took 104ms
+tactic execution of Lean.Parser.Tactic.change took 110ms
+typeclass inference of MulHomClass took 232ms
+typeclass inference of StarHomClass took 345ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 254ms
+typeclass inference of AddMonoidHomClass took 189ms
+typeclass inference of MulActionHomClass took 305ms
+typeclass inference of OneHomClass took 142ms
+typeclass inference of AddMonoidHomClass took 183ms
+simp took 122ms
+type checking took 137ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 491ms
+typeclass inference of SeminormedAddCommGroup took 103ms
+typeclass inference of SeminormedAddCommGroup took 103ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 350ms
+cumulative profiling times:
+	attribute application 9.24ms
+	compilation (IR) 0.321ms
+	compilation (LCNF base) 7.26ms
+	compilation (LCNF impure) 0.7ms
+	compilation (LCNF mono) 3.8ms
+	congr simp thm 8.33ms
+	elaboration 372ms
+	fix level params 4.43ms
+	import 1.97s
+	initialization 38.3ms
+	instantiate metavars 4.82ms
+	interpretation 416ms
+	let-to-have transformation 1.03ms
+	linting 14.7ms
+	norm_num 8.18ms
+	parsing 16.8ms
+	process pre-definitions 39.5ms
+	share common exprs 14.4ms
+	simp 415ms
+	tactic execution 1.12s
+	type checking 626ms
+	typeclass inference 8.46s

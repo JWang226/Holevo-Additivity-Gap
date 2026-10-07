@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "baseline_sha": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+  "after_sha": "e943a85f0234a573477a10871f60a2d9583fa47b",
+  "kept_trial": 1,
+  "reverted_valid_null_trials": [
+    2
+  ],
+  "reverted_failed_trials": [
+    3
+  ],
+  "retained_intervention_source_sha": "cf909eb32401c25c071ddbfbc9037037ffa8b7cb",
+  "retained_candidate_and_final_git_tree": "0111d2b5aaa550469eb65ffe80e51cac0d214d75",
+  "final_request_sequence": 4,
+  "net_modified_module_since_timed_baseline": "Nonadditivity.RegularCoefficientEnergy",
+  "heartbeat_or_recursion_policy_edits": 0,
+  "scope": "Final selection identity only; successful full after build and type comparison are separate evidence."
+}

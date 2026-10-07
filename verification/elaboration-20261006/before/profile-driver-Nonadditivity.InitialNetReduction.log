@@ -1,0 +1,126 @@
+import took 2.15s
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 298ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 305ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 103ms
+tactic execution of Lean.Parser.Tactic.refine took 160ms
+typeclass inference of TopologicalSpace took 110ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 436ms
+type checking took 119ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 145ms
+type checking took 123ms
+typeclass inference of Nonempty took 200ms
+simp took 119ms
+typeclass inference of Nonempty took 163ms
+typeclass inference of CoeFun took 291ms
+typeclass inference of CoeFun took 201ms
+typeclass inference of AddMonoidHomClass took 429ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 178ms
+type checking took 148ms
+typeclass inference of CoeFun took 179ms
+typeclass inference of CoeFun took 166ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 920ms
+typeclass inference of TopologicalSpace took 102ms
+typeclass inference of AddCommMonoid took 123ms
+typeclass inference of TopologicalSpace took 102ms
+typeclass inference of AddCommMonoid took 109ms
+typeclass inference of TopologicalSpace took 173ms
+typeclass inference of AddCommMonoid took 176ms
+typeclass inference of TopologicalSpace took 178ms
+typeclass inference of AddCommMonoid took 176ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.26s
+typeclass inference of AddMonoid took 642ms
+typeclass inference of AddCommMonoid took 108ms
+typeclass inference of UniformSpace took 107ms
+typeclass inference of PseudoMetricSpace took 103ms
+typeclass inference of DistribSMul took 340ms
+simp took 106ms
+typeclass inference of TopologicalSpace took 102ms
+typeclass inference of AddCommMonoid took 104ms
+typeclass inference of AddCommMonoid took 105ms
+typeclass inference of UniformSpace took 103ms
+typeclass inference of PseudoMetricSpace took 103ms
+typeclass inference of HSMul took 173ms
+typeclass inference of CharP took 595ms
+typeclass inference of Module took 238ms
+simp took 251ms
+typeclass inference of NormedAddCommGroup took 198ms
+typeclass inference of AddMonoid took 603ms
+typeclass inference of AddCommMonoid took 104ms
+typeclass inference of UniformSpace took 101ms
+typeclass inference of PseudoMetricSpace took 101ms
+typeclass inference of DistribSMul took 327ms
+typeclass inference of AddCommMonoid took 105ms
+typeclass inference of DistribSMul took 167ms
+typeclass inference of MulAction took 158ms
+typeclass inference of MulAction took 183ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 953ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 447ms
+typeclass inference of AddMonoid took 351ms
+typeclass inference of DistribSMul took 212ms
+type checking took 234ms
+typeclass inference of CoeFun took 284ms
+typeclass inference of CoeFun took 269ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 276ms
+typeclass inference of AddGroup took 413ms
+typeclass inference of StarAddMonoid took 122ms
+typeclass inference of UniformSpace took 103ms
+typeclass inference of PseudoMetricSpace took 102ms
+typeclass inference of Algebra took 266ms
+typeclass inference of UniformSpace took 105ms
+typeclass inference of PseudoMetricSpace took 103ms
+typeclass inference of Algebra took 281ms
+tactic execution of Lean.Parser.Tactic.rcases took 146ms
+tactic execution of Lean.Parser.Tactic.exact took 213ms
+typeclass inference of Algebra took 229ms
+tactic execution of Lean.Parser.Tactic.exact took 176ms
+simp took 118ms
+tactic execution of Lean.Parser.Tactic.simpa took 136ms
+type checking took 218ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 162ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 519ms
+simp took 346ms
+tactic execution of Lean.Parser.Tactic.refine took 185ms
+elaboration took 654ms
+tactic execution of Lean.Parser.Tactic.change took 236ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 263ms
+simp took 1.72s
+simp took 629ms
+simp took 1.24s
+tactic execution of Lean.Parser.Tactic.exact took 1.27s
+tactic execution of Lean.Parser.Tactic.exact took 113ms
+typeclass inference of SeminormedAddCommGroup took 103ms
+typeclass inference of PseudoMetricSpace took 101ms
+typeclass inference of SeminormedAddCommGroup took 106ms
+typeclass inference of PseudoMetricSpace took 107ms
+typeclass inference of SeminormedAddCommGroup took 101ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_Linarith_Frontend___elabRules_Mathlib_Tactic_nlinarith_1._boxed took 415ms
+typeclass inference of Nonempty took 255ms
+typeclass inference of Neg took 353ms
+typeclass inference of SeminormedAddCommGroup took 114ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 8.11s
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 4.37s
+type checking took 123ms
+cumulative profiling times:
+	attribute application 19.4ms
+	compilation (IR) 0.705ms
+	compilation (LCNF base) 5.85ms
+	compilation (LCNF impure) 1.69ms
+	compilation (LCNF mono) 6.55ms
+	congr simp thm 65.3ms
+	elaboration 1.59s
+	fix level params 11ms
+	import 2.15s
+	initialization 33.6ms
+	instantiate metavars 40.9ms
+	interpretation 1.46s
+	let-to-have transformation 3.52ms
+	linting 92.8ms
+	norm_num 42ms
+	parsing 59.1ms
+	process pre-definitions 106ms
+	ring 33.3ms
+	share common exprs 77.2ms
+	simp 6.34s
+	tactic execution 22s
+	type checking 2.04s
+	typeclass inference 34.7s

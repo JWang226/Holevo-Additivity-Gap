@@ -137,7 +137,7 @@ class InterventionTests(unittest.TestCase):
 
 
 class ReportTests(unittest.TestCase):
-    def test_rendering_keeps_missing_api_and_ab_claims_explicit(self):
+    def report_fixture(self):
         before, after = snapshot([10]), snapshot([9])
         for item in (before, after):
             summary = item["summary"]
@@ -159,11 +159,32 @@ class ReportTests(unittest.TestCase):
                 "comparison": comparison.compare_builds(before, after), "source_census": {"before": census, "after": census},
                 "profiles": comparison.compare_profiles(before, after), "dead_code": None, "ab": [],
                 "api_check": None, "invocation": ["python3", "compare_elaboration.py"]}
-        rendered = comparison.report(data)
+        return data
+
+    def test_rendering_keeps_missing_api_and_ab_claims_explicit(self):
+        rendered = comparison.report(self.report_fixture())
         self.assertIn("No validated public-type comparison record", rendered)
         self.assertIn("No per-intervention A/B record", rendered)
         self.assertIn("pre-elaboration baseline", rendered)
         self.assertIn("Every compiler invocation is timed", rendered)
+
+    def test_failed_intervention_renders_diagnostics_with_medians_excluded(self):
+        data = self.report_fixture()
+        failure = {"schema_version": 1, "status": "failed_intervention", "decision": "reverted", "kept": False,
+                   "module": "Project.File0", "intervention": "Private helper experiment", "basis": "phase",
+                   "relevant_phase": "elaboration", "performance_comparison_excluded": True,
+                   "failure_reason": "All three candidates reached deterministic heartbeat timeouts.",
+                   "before_runs": [{"valid": True, "returncode": 0, "wall_s": 55} for _ in range(3)],
+                   "after_runs": [{"valid": False, "returncode": 1, "wall_s": 150} for _ in range(3)],
+                   "diagnostic_failed_attempts": [{"repetition": i, "record": {"returncode": 1,
+                      "guard_errors": [], "artifact_changes": [], "timing": {"wall_s": 150., "cpu_s": 148.},
+                      "diagnostics": {"error_count": 2, "errors": ["whnf timeout", "tactic timeout"]}}} for i in (1, 2, 3)]}
+        data["ab"] = [comparison.assess_ab(failure)]
+        rendered = comparison.report(data)
+        self.assertIn("FAILED; performance comparison excluded", rendered)
+        self.assertIn("neither a valid speed regression nor a valid null result", rendered)
+        self.assertIn("150.00", rendered)
+        self.assertIn("CPU s (diagnostic)", rendered)
 
 
 class SnapshotEvidenceTests(unittest.TestCase):
@@ -211,6 +232,105 @@ class SnapshotEvidenceTests(unittest.TestCase):
             dep_path.write_text(json.dumps(dep))
             with self.assertRaisesRegex(ValueError, "Cached dependency artifacts changed"):
                 comparison.read_snapshot(path, None)
+
+
+class SupplementalProfileTests(unittest.TestCase):
+    def fixture(self):
+        before, after = snapshot([10, 9]), snapshot([9, 8])
+        sources = {name: item["source"] for name, item in after["builds"].items()}
+        for side, item in (("before", before), ("after", after)):
+            item["summary"]["modules"] = dict(sources)
+            item["summary"]["source_hashes_before"] = {path: "a" * 64 for path in sources.values()}
+            item["summary"]["source_hashes_after"] = {path: "a" * 64 for path in sources.values()}
+            item["summary"]["provenance"].update({"commit": ("a" if side == "before" else "b") * 40,
+                "time_bin": "/usr/bin/time", "compiler": "/toolchain/bin/lean"})
+        def record(name):
+            return {"module": name, "source": sources[name], "source_sha256": "a" * 64,
+                    "phase": "profile", "valid": True, "returncode": 0,
+                    "guard_errors": [], "artifact_changes": [], "timing": timing(),
+                    "profile": {"phases_s": {"import": 2}, "events_over_100ms": []},
+                    "command": ["/usr/bin/time", "-v", "-o", "/raw/time.txt", "/toolchain/bin/lean", "--profile", sources[name]]}
+        first, second = "Project.File0", "Project.File1"
+        before["profiles"] = {first: record(first)}
+        after["profiles"] = {second: record(second)}
+        before["summary"]["profiles"] = list(before["profiles"].values())
+        after["summary"]["profiles"] = list(after["profiles"].values())
+        summary = {"valid": True, "after_sha": "b" * 40,
+                   "compiler_sha256": "same", "time_sha256": "same", "host": "same",
+                   "requested_modules": [first], "baseline_top8_modules": [first], "after_top8_modules": [second],
+                   "edited_modules": [], "profiles": [record(first)]}
+        return before, after, summary
+
+    def write_summary(self, root, summary, raw=False):
+        path = Path(root) / "summary.json"
+        path.write_text(json.dumps(summary))
+        if raw:
+            record = summary["profiles"][0]
+            leaf = path.parent / record["module"].replace(".", "_")
+            leaf.mkdir()
+            (leaf / "result.json").write_text(json.dumps(record))
+            raw_record = {key: value for key, value in record.items() if key != "valid"}
+            (leaf / "measurements.jsonl").write_text(json.dumps(raw_record) + "\n")
+        return path
+
+    def test_merge_preserves_original_after_summary_and_labels_supplement(self):
+        before, after, summary = self.fixture()
+        original = copy.deepcopy(after)
+        with tempfile.TemporaryDirectory() as directory:
+            path = self.write_summary(directory, summary, raw=True)
+            supplement = comparison.supplemental_profiles(path, before, after)
+            joined = comparison.compare_profiles(before, after, supplement)
+        self.assertEqual(after, original)
+        self.assertEqual(joined["matched_count"], 1)
+        self.assertEqual(joined["modules"][0]["after_provenance"], "supplemental after warm profile")
+        self.assertEqual(len(supplement["input_sha256"]), 3)
+
+    def test_commit_tools_host_and_source_tampering_are_rejected(self):
+        for key in ("after_sha", "compiler_sha256", "time_sha256", "host", "source_sha256"):
+            before, after, summary = self.fixture()
+            if key == "source_sha256":
+                summary["profiles"][0][key] = "f" * 64
+            else:
+                summary[key] = "different"
+            with tempfile.TemporaryDirectory() as directory:
+                path = self.write_summary(directory, summary)
+                with self.assertRaises(ValueError):
+                    comparison.supplemental_profiles(path, before, after)
+
+    def test_failed_guarded_record_and_incomplete_baseline_matching_are_rejected(self):
+        for mutate in (lambda data: data["profiles"][0].update({"guard_errors": ["changed"]}),
+                       lambda data: data["profiles"][0].update({"valid": False}),
+                       lambda data: data.update({"requested_modules": [], "profiles": []})):
+            before, after, summary = self.fixture()
+            mutate(summary)
+            with tempfile.TemporaryDirectory() as directory:
+                with self.assertRaises(ValueError):
+                    comparison.supplemental_profiles(self.write_summary(directory, summary), before, after)
+
+    def test_adjacent_raw_measurement_disagreement_is_rejected(self):
+        before, after, summary = self.fixture()
+        with tempfile.TemporaryDirectory() as directory:
+            path = self.write_summary(directory, summary, raw=True)
+            raw_path = path.parent / "Project_File0/measurements.jsonl"
+            raw = json.loads(raw_path.read_text())
+            raw["timing"]["wall_s"] += 1
+            raw_path.write_text(json.dumps(raw) + "\n")
+            with self.assertRaisesRegex(ValueError, "raw measurement differs"):
+                comparison.supplemental_profiles(path, before, after)
+
+    def test_duplicate_agreement_is_preserved_but_disagreement_rejected(self):
+        before, after, summary = self.fixture()
+        after["profiles"] = copy.deepcopy(before["profiles"])
+        after["summary"]["profiles"] = list(after["profiles"].values())
+        summary["after_top8_modules"] = list(after["profiles"])
+        with tempfile.TemporaryDirectory() as directory:
+            path = self.write_summary(directory, summary)
+            result = comparison.supplemental_profiles(path, before, after)
+            self.assertEqual(result["identical_duplicates"], ["Project.File0"])
+            summary["profiles"][0]["timing"]["wall_s"] += 1
+            path = self.write_summary(directory, summary)
+            with self.assertRaisesRegex(ValueError, "duplicate disagrees"):
+                comparison.supplemental_profiles(path, before, after)
 
 
 if __name__ == "__main__":

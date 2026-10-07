@@ -1,0 +1,4 @@
+{
+  "scope": "Excluded pilot; not the Linux before snapshot",
+  "reason": "Cancelled incomplete macOS pilot (five production module measurements) after wall/CPU contention symptoms; source timestamp guard cancellation is preserved. Linux run37543825590 supplies both complete snapshots. No timings in this directory participate in before/after comparison."
+}

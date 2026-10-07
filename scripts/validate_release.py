@@ -182,7 +182,7 @@ def imports(path: Path) -> set[str]:
     return result
 
 
-def static_checks(root: Path) -> tuple[dict, dict]:
+def static_checks(root: Path, *, certificate_path: str | None = None) -> tuple[dict, dict]:
     metadata_bytes = {name: local_file(root, name).read_bytes() for name in ("metadata/results.json", "formalization.yaml")}
     data = json.loads(metadata_bytes["metadata/results.json"])
     formalization = yaml.safe_load(metadata_bytes["formalization.yaml"])
@@ -255,14 +255,32 @@ def static_checks(root: Path) -> tuple[dict, dict]:
     require(len(historical) == baseline["compiled_modules"], "Historical proof manifest module count mismatch")
     proof_files = sorted((root / "Nonadditivity").rglob("*.lean")) + [root / name for name in ("Nonadditivity.lean", "Audit.lean", "All.lean")]
     require({p.relative_to(root).as_posix() for p in proof_files} == set(historical) | {"All.lean"}, "Release proof file inventory differs from baseline plus All.lean")
+    current_certificate = None
+    if certificate_path is not None:
+        from source_certificate import load_source_certificate
+        current_certificate = load_source_certificate(
+            root, certificate_path, {p.relative_to(root).as_posix() for p in proof_files})
+    source_integrity = current_certificate or {
+        "method": "historical_baseline_byte_equality",
+        "path": "verification/baseline-verification.json",
+        "sha256": sha256(root / "verification/baseline-verification.json"),
+    }
+    proof_source_sha256, historical_matches = {}, 0
     proof_modules = {".".join(p.relative_to(root).with_suffix("").parts): p for p in proof_files}
     all_imports = {}
     for module, path in proof_modules.items():
         raw = path.read_bytes()
         require(raw.startswith(HEADER), f"Missing standard copyright header: {path.relative_to(root)}")
         relative = path.relative_to(root).as_posix()
+        proof_source_sha256[relative] = hashlib.sha256(raw).hexdigest()
+        if current_certificate is not None:
+            require(proof_source_sha256[relative] == current_certificate["proof_source_sha256"][relative],
+                    f"Proof source changed after certificate validation: {relative}")
         if relative in historical:
-            require(hashlib.sha256(raw[len(HEADER):]).hexdigest() == historical[relative], f"Proof body differs from audited baseline: {relative}")
+            matches = hashlib.sha256(raw[len(HEADER):]).hexdigest() == historical[relative]
+            historical_matches += int(matches)
+            if current_certificate is None:
+                require(matches, f"Proof body differs from audited baseline: {relative}")
         code = lean_code(raw.decode("utf-8"))
         require(not re.search(r"(?<![\w.])(?:sorry|admit)(?!\w)", code), f"Placeholder in proof source: {relative}")
         require(not re.search(r"(?m)^\s*(?:private\s+)?axiom\b", code), f"Project axiom in source: {relative}")
@@ -283,7 +301,8 @@ def static_checks(root: Path) -> tuple[dict, dict]:
     return data, {
         "result_rows": len(ids), "unique_mapped_declarations": len(refs),
         "comparator_configurations": len(configs), "comparator_targets": target_count,
-        "baseline_proof_bodies_unchanged": len(historical), "proof_modules_including_all": len(proof_files),
+        "baseline_proof_bodies_unchanged": historical_matches, "proof_modules_including_all": len(proof_files),
+        "source_integrity": source_integrity, "proof_source_sha256": proof_source_sha256,
         "manuscript_sha256": sha256(manuscript),
         "schema_validation": "repository consistency schema for v0.3-style metadata",
         "comparator_executed": False,
@@ -295,19 +314,26 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--static-only", action="store_true", help="Skip Lean declaration checks; no proof verification is claimed")
+    parser.add_argument("--source-certificate", metavar="REPO_RELATIVE_JSON",
+                        help="Use completed hash-bound current rebuild/type evidence; default retains strict historical byte equality")
     args = parser.parse_args()
     root = args.root.resolve()
     try:
-        data, report = static_checks(root)
+        data, report = static_checks(root, certificate_path=args.source_certificate)
         report["lean_declaration_check"] = "not_run" if args.static_only else "passed"
         if not args.static_only:
             check_declarations(root, data)
         require(all(sha256(root / name) == digest for name, digest in report["metadata_sha256"].items()), "Metadata changed during validation; rerun with stable input files")
+        require(all(sha256(root / name) == expected for name, expected in report["proof_source_sha256"].items()),
+                "Proof sources changed during release validation")
+        require(sha256(root / report["source_integrity"]["path"]) == report["source_integrity"]["sha256"],
+                "Source-integrity record changed during release validation")
         report["validated_at_utc"] = datetime.now(timezone.utc).isoformat()
         (root / ".lake").mkdir(exist_ok=True)
         (root / ".lake/release-validation.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
         kind = "STATIC RELEASE CHECKS" if args.static_only else "RELEASE CHECKS"
         print(f"{kind} PASSED: {report['result_rows']} mappings, {report['unique_mapped_declarations']} declarations, {report['baseline_proof_bodies_unchanged']} unchanged baseline proof bodies.")
+        print("Source integrity: " + report["source_integrity"]["method"])
         if args.static_only:
             print("Lean declarations were not checked; run without --static-only after compiling the proof library.")
     except (OSError, ValueError, KeyError, jsonschema.ValidationError) as exc:

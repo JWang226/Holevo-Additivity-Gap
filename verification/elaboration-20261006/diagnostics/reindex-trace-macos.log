@@ -1,0 +1,2391 @@
+import took 24.6s
+typeclass inference of Module took 180ms
+typeclass inference of SeminormedAddGroup took 255ms
+typeclass inference of SeminormedAddGroup took 281ms
+typeclass inference of TopologicalSpace took 356ms
+typeclass inference of AddCommMonoid took 177ms
+typeclass inference of SeminormedAddCommGroup took 101ms
+[Meta.synthInstance] ✅️ NormedField ℂ
+  [Meta.synthInstance] new goal NormedField ℂ
+    [Meta.synthInstance.instances] #[@NontriviallyNormedField.toNormedField, @DenselyNormedField.toNormedField, Complex.instNormedField]
+  [Meta.synthInstance] ✅️ apply Complex.instNormedField to NormedField ℂ
+    [Meta.synthInstance.tryResolve] ✅️ NormedField ℂ ≟ NormedField ℂ
+    [Meta.synthInstance.answer] ✅️ NormedField ℂ
+  [Meta.synthInstance] result Complex.instNormedField
+[Meta.synthInstance] ✅️ SeminormedAddCommGroup E
+  [Meta.synthInstance] new goal SeminormedAddCommGroup E
+    [Meta.synthInstance.instances] #[@NormedAddCommGroup.toSeminormedAddCommGroup, @NonUnitalSeminormedRing.toSeminormedAddCommGroup]
+  [Meta.synthInstance] ✅️ apply @NonUnitalSeminormedRing.toSeminormedAddCommGroup to SeminormedAddCommGroup E
+    [Meta.synthInstance.tryResolve] ✅️ SeminormedAddCommGroup E ≟ SeminormedAddCommGroup E
+    [Meta.synthInstance] new goal NonUnitalSeminormedRing E
+      [Meta.synthInstance.instances] #[@SeminormedRing.toNonUnitalSeminormedRing, @NonUnitalNormedRing.toNonUnitalSeminormedRing, @NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing]
+  [Meta.synthInstance] ✅️ apply @NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing to NonUnitalSeminormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalSeminormedRing E ≟ NonUnitalSeminormedRing E
+    [Meta.synthInstance] new goal NonUnitalSeminormedCommRing E
+      [Meta.synthInstance.instances] #[@NonUnitalNormedCommRing.toNonUnitalSeminormedCommRing, @SeminormedCommRing.toNonUnitalSeminormedCommRing]
+  [Meta.synthInstance] ✅️ apply @SeminormedCommRing.toNonUnitalSeminormedCommRing to NonUnitalSeminormedCommRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalSeminormedCommRing E ≟ NonUnitalSeminormedCommRing E
+    [Meta.synthInstance] new goal SeminormedCommRing E
+      [Meta.synthInstance.instances] #[@NormedCommRing.toSeminormedCommRing]
+  [Meta.synthInstance] ✅️ apply @NormedCommRing.toSeminormedCommRing to SeminormedCommRing E
+    [Meta.synthInstance.tryResolve] ✅️ SeminormedCommRing E ≟ SeminormedCommRing E
+    [Meta.synthInstance] new goal NormedCommRing E
+      [Meta.synthInstance.instances] #[@NormedField.toNormedCommRing, @CommCStarAlgebra.toNormedCommRing]
+  [Meta.synthInstance] ✅️ apply @CommCStarAlgebra.toNormedCommRing to NormedCommRing E
+    [Meta.synthInstance.tryResolve] ✅️ NormedCommRing E ≟ NormedCommRing E
+    [Meta.synthInstance] no instances for CommCStarAlgebra E
+      [Meta.synthInstance.instances] #[]
+  [Meta.synthInstance] ✅️ apply @NormedField.toNormedCommRing to NormedCommRing E
+    [Meta.synthInstance.tryResolve] ✅️ NormedCommRing E ≟ NormedCommRing E
+    [Meta.synthInstance] new goal NormedField E
+      [Meta.synthInstance.instances] #[@NontriviallyNormedField.toNormedField, @DenselyNormedField.toNormedField]
+  [Meta.synthInstance] ✅️ apply @DenselyNormedField.toNormedField to NormedField E
+    [Meta.synthInstance.tryResolve] ✅️ NormedField E ≟ NormedField E
+    [Meta.synthInstance] new goal DenselyNormedField E
+      [Meta.synthInstance.instances] #[@RCLike.toDenselyNormedField]
+  [Meta.synthInstance] ✅️ apply @RCLike.toDenselyNormedField to DenselyNormedField E
+    [Meta.synthInstance.tryResolve] ✅️ DenselyNormedField E ≟ DenselyNormedField E
+    [Meta.synthInstance] no instances for RCLike E
+      [Meta.synthInstance.instances] #[]
+  [Meta.synthInstance] ✅️ apply @NontriviallyNormedField.toNormedField to NormedField E
+    [Meta.synthInstance.tryResolve] ✅️ NormedField E ≟ NormedField E
+    [Meta.synthInstance] new goal NontriviallyNormedField E
+      [Meta.synthInstance.instances] #[@DenselyNormedField.toNontriviallyNormedField]
+  [Meta.synthInstance] ✅️ apply @DenselyNormedField.toNontriviallyNormedField to NontriviallyNormedField E
+    [Meta.synthInstance.tryResolve] ✅️ NontriviallyNormedField E ≟ NontriviallyNormedField E
+  [Meta.synthInstance] ✅️ apply @NonUnitalNormedCommRing.toNonUnitalSeminormedCommRing to NonUnitalSeminormedCommRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalSeminormedCommRing E ≟ NonUnitalSeminormedCommRing E
+    [Meta.synthInstance] new goal NonUnitalNormedCommRing E
+      [Meta.synthInstance.instances] #[@NormedCommRing.toNonUnitalNormedCommRing, @NonUnitalCommCStarAlgebra.toNonUnitalNormedCommRing]
+  [Meta.synthInstance] ✅️ apply @NonUnitalCommCStarAlgebra.toNonUnitalNormedCommRing to NonUnitalNormedCommRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalNormedCommRing E ≟ NonUnitalNormedCommRing E
+    [Meta.synthInstance] new goal NonUnitalCommCStarAlgebra E
+      [Meta.synthInstance.instances] #[CommCStarAlgebra.toNonUnitalCommCStarAlgebra]
+  [Meta.synthInstance] ✅️ apply CommCStarAlgebra.toNonUnitalCommCStarAlgebra to NonUnitalCommCStarAlgebra E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalCommCStarAlgebra E ≟ NonUnitalCommCStarAlgebra E
+    [Meta.synthInstance] no instances for CommCStarAlgebra E
+      [Meta.synthInstance.instances] #[]
+  [Meta.synthInstance] ✅️ apply @NormedCommRing.toNonUnitalNormedCommRing to NonUnitalNormedCommRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalNormedCommRing E ≟ NonUnitalNormedCommRing E
+  [Meta.synthInstance] ✅️ apply @NonUnitalNormedRing.toNonUnitalSeminormedRing to NonUnitalSeminormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalSeminormedRing E ≟ NonUnitalSeminormedRing E
+    [Meta.synthInstance] new goal NonUnitalNormedRing E
+      [Meta.synthInstance.instances] #[@NormedRing.toNonUnitalNormedRing, @NonUnitalNormedCommRing.toNonUnitalNormedRing, @NonUnitalCStarAlgebra.toNonUnitalNormedRing]
+  [Meta.synthInstance] ✅️ apply @NonUnitalCStarAlgebra.toNonUnitalNormedRing to NonUnitalNormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalNormedRing E ≟ NonUnitalNormedRing E
+    [Meta.synthInstance] new goal NonUnitalCStarAlgebra E
+      [Meta.synthInstance.instances] #[CStarAlgebra.toNonUnitalCStarAlgebra, @NonUnitalCommCStarAlgebra.toNonUnitalCStarAlgebra]
+  [Meta.synthInstance] ✅️ apply @NonUnitalCommCStarAlgebra.toNonUnitalCStarAlgebra to NonUnitalCStarAlgebra E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalCStarAlgebra E ≟ NonUnitalCStarAlgebra E
+  [Meta.synthInstance] ✅️ apply CStarAlgebra.toNonUnitalCStarAlgebra to NonUnitalCStarAlgebra E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalCStarAlgebra E ≟ NonUnitalCStarAlgebra E
+    [Meta.synthInstance] new goal CStarAlgebra E
+      [Meta.synthInstance.instances] #[@CommCStarAlgebra.toCStarAlgebra]
+  [Meta.synthInstance] ✅️ apply @CommCStarAlgebra.toCStarAlgebra to CStarAlgebra E
+    [Meta.synthInstance.tryResolve] ✅️ CStarAlgebra E ≟ CStarAlgebra E
+    [Meta.synthInstance] no instances for CommCStarAlgebra E
+      [Meta.synthInstance.instances] #[]
+  [Meta.synthInstance] ✅️ apply @NonUnitalNormedCommRing.toNonUnitalNormedRing to NonUnitalNormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalNormedRing E ≟ NonUnitalNormedRing E
+  [Meta.synthInstance] ✅️ apply @NormedRing.toNonUnitalNormedRing to NonUnitalNormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalNormedRing E ≟ NonUnitalNormedRing E
+    [Meta.synthInstance] new goal NormedRing E
+      [Meta.synthInstance.instances] #[@NormedDivisionRing.toNormedRing, @NormedCommRing.toNormedRing, @CStarAlgebra.toNormedRing]
+  [Meta.synthInstance] ✅️ apply @CStarAlgebra.toNormedRing to NormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NormedRing E ≟ NormedRing E
+  [Meta.synthInstance] ✅️ apply @NormedCommRing.toNormedRing to NormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NormedRing E ≟ NormedRing E
+  [Meta.synthInstance] ✅️ apply @NormedDivisionRing.toNormedRing to NormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NormedRing E ≟ NormedRing E
+    [Meta.synthInstance] new goal NormedDivisionRing E
+      [Meta.synthInstance.instances] #[@NormedField.toNormedDivisionRing]
+  [Meta.synthInstance] ✅️ apply @NormedField.toNormedDivisionRing to NormedDivisionRing E
+    [Meta.synthInstance.tryResolve] ✅️ NormedDivisionRing E ≟ NormedDivisionRing E
+  [Meta.synthInstance] ✅️ apply @SeminormedRing.toNonUnitalSeminormedRing to NonUnitalSeminormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ NonUnitalSeminormedRing E ≟ NonUnitalSeminormedRing E
+    [Meta.synthInstance] new goal SeminormedRing E
+      [Meta.synthInstance.instances] #[@NormedRing.toSeminormedRing, @SeminormedCommRing.toSeminormedRing]
+  [Meta.synthInstance] ✅️ apply @SeminormedCommRing.toSeminormedRing to SeminormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ SeminormedRing E ≟ SeminormedRing E
+  [Meta.synthInstance] ✅️ apply @NormedRing.toSeminormedRing to SeminormedRing E
+    [Meta.synthInstance.tryResolve] ✅️ SeminormedRing E ≟ SeminormedRing E
+  [Meta.synthInstance] ✅️ apply @NormedAddCommGroup.toSeminormedAddCommGroup to SeminormedAddCommGroup E
+    [Meta.synthInstance.tryResolve] ✅️ SeminormedAddCommGroup E ≟ SeminormedAddCommGroup E
+    [Meta.synthInstance] new goal NormedAddCommGroup E
+      [Meta.synthInstance.instances] #[@NonUnitalNormedRing.toNormedAddCommGroup, inst✝]
+  [Meta.synthInstance] ✅️ apply inst✝ to NormedAddCommGroup E
+    [Meta.synthInstance.tryResolve] ✅️ NormedAddCommGroup E ≟ NormedAddCommGroup E
+    [Meta.synthInstance.answer] ✅️ NormedAddCommGroup E
+  [Meta.synthInstance.resume] propagating NormedAddCommGroup
+        E to subgoal NormedAddCommGroup E of SeminormedAddCommGroup E
+    [Meta.synthInstance.resume] size: 1
+    [Meta.synthInstance.answer] ✅️ SeminormedAddCommGroup E
+  [Meta.synthInstance] result NormedAddCommGroup.toSeminormedAddCommGroup
+[Meta.synthInstance] ✅️ NormedAddCommGroup E
+  [Meta.synthInstance] new goal NormedAddCommGroup E
+    [Meta.synthInstance.instances] #[@NonUnitalNormedRing.toNormedAddCommGroup, inst✝¹]
+  [Meta.synthInstance] ✅️ apply inst✝¹ to NormedAddCommGroup E
+    [Meta.synthInstance.tryResolve] ✅️ NormedAddCommGroup E ≟ NormedAddCommGroup E
+    [Meta.synthInstance.answer] ✅️ NormedAddCommGroup E
+  [Meta.synthInstance] result inst✝¹
+[Meta.synthInstance] ✅️ CoeSort (AddSubgroup (PreLp fun x => E)) (Type (max u_1 u_2))
+  [Meta.synthInstance] new goal CoeSort (AddSubgroup (PreLp fun x => E)) _tc.1
+    [Meta.synthInstance.instances] #[@SetLike.instCoeSortType]
+  [Meta.synthInstance] ✅️ apply @SetLike.instCoeSortType to CoeSort (AddSubgroup (PreLp fun x => E)) (Type ?u.22892)
+    [Meta.synthInstance.tryResolve] ✅️ CoeSort (AddSubgroup (PreLp fun x => E))
+          (Type ?u.22892) ≟ CoeSort (AddSubgroup (PreLp fun x => E)) (Type ?u.22892)
+    [Meta.synthInstance] new goal SetLike (AddSubgroup (PreLp fun x => E)) _tc.1
+      [Meta.synthInstance.instances] #[@AddSubgroup.instSetLike]
+  [Meta.synthInstance] ✅️ apply @AddSubgroup.instSetLike to SetLike (AddSubgroup (PreLp fun x => E)) (PreLp fun x => E)
+    [Meta.synthInstance.tryResolve] ✅️ SetLike (AddSubgroup (PreLp fun x => E))
+          (PreLp fun x => E) ≟ SetLike (AddSubgroup (PreLp fun x => E)) (PreLp fun x => E)
+    [Meta.synthInstance.answer] ✅️ SetLike (AddSubgroup (PreLp fun x => E)) (PreLp fun x => E)
+  [Meta.synthInstance.resume] propagating SetLike (AddSubgroup (PreLp fun x => E))
+        (PreLp fun x =>
+          E) to subgoal SetLike (AddSubgroup (PreLp fun x => E))
+        (PreLp fun x => E) of CoeSort (AddSubgroup (PreLp fun x => E)) (Type (max u_1 u_2))
+    [Meta.synthInstance.resume] size: 1
+    [Meta.synthInstance.answer] ✅️ CoeSort (AddSubgroup (PreLp fun x => E)) (Type (max u_1 u_2))
+  [Meta.synthInstance] result SetLike.instCoeSortType
+[Meta.synthInstance] ✅️ NormedAddCommGroup E
+  [Meta.synthInstance] result inst✝¹ (cached)
+[Meta.synthInstance] ✅️ CoeSort (AddSubgroup (PreLp fun x => E)) (Type (max u_1 u_2))
+  [Meta.synthInstance] result SetLike.instCoeSortType (cached)
+[Meta.synthInstance] ✅️ CoeFun ↥(VectorHilbert G E) fun x => G → E
+  [Meta.synthInstance] new goal CoeFun (↥(VectorHilbert G E)) _tc.1
+    [Meta.synthInstance.instances] #[@DFunLike.hasCoeToFun, @lp.coeFun]
+  [Meta.synthInstance] ✅️ apply @lp.coeFun to CoeFun ↥(VectorHilbert G E) fun x => G → E
+    [Meta.synthInstance.tryResolve] ✅️ CoeFun ↥(VectorHilbert G E) fun x =>
+          G → E ≟ CoeFun ↥(lp (fun x => E) 2) fun x => G → E
+    [Meta.synthInstance.answer] ✅️ CoeFun ↥(VectorHilbert G E) fun x => G → E
+  [Meta.synthInstance] result lp.coeFun
+[Meta.synthInstance] ✅️ CoeFun (G ≃ G) fun x => G → G
+  [Meta.synthInstance] new goal CoeFun (G ≃ G) _tc.1
+    [Meta.synthInstance.instances] #[@DFunLike.hasCoeToFun]
+  [Meta.synthInstance] ✅️ apply @DFunLike.hasCoeToFun to CoeFun (G ≃ G) fun x => (a : ?m.15) → ?m.16 a
+    [Meta.synthInstance.tryResolve] ✅️ CoeFun (G ≃ G) fun x =>
+          (a : ?m.15) → ?m.16 a ≟ CoeFun (G ≃ G) fun x => (a : ?m.15) → ?m.16 a
+    [Meta.synthInstance] new goal DFunLike (G ≃ G) _tc.2 _tc.3
+      [Meta.synthInstance.instances] #[@EquivLike.toFunLike]
+  [Meta.synthInstance] ✅️ apply @EquivLike.toFunLike to DFunLike (G ≃ G) ?m.19 fun x => ?m.20
+    [Meta.synthInstance.tryResolve] ✅️ DFunLike (G ≃ G) ?m.19 fun x => ?m.20 ≟ DFunLike (G ≃ G) ?m.19 fun x => ?m.20
+    [Meta.synthInstance] new goal EquivLike (G ≃ G) _tc.2 _tc.3
+      [Meta.synthInstance.instances] #[@Equiv.instEquivLike]
+  [Meta.synthInstance] ✅️ apply @Equiv.instEquivLike to EquivLike (G ≃ G) G G
+    [Meta.synthInstance.tryResolve] ✅️ EquivLike (G ≃ G) G G ≟ EquivLike (G ≃ G) G G
+    [Meta.synthInstance.answer] ✅️ EquivLike (G ≃ G) G G
+  [Meta.synthInstance.resume] propagating EquivLike (G ≃ G) G
+        G to subgoal EquivLike (G ≃ G) G G of DFunLike (G ≃ G) G fun x => G
+    [Meta.synthInstance.resume] size: 1
+    [Meta.synthInstance.answer] ✅️ DFunLike (G ≃ G) G fun x => G
+  [Meta.synthInstance.resume] propagating FunLike (G ≃ G) G
+        G to subgoal DFunLike (G ≃ G) G fun x => G of CoeFun (G ≃ G) fun x => G → G
+    [Meta.synthInstance.resume] size: 2
+    [Meta.synthInstance.answer] ✅️ CoeFun (G ≃ G) fun x => G → G
+  [Meta.synthInstance] result DFunLike.hasCoeToFun
+[Meta.synthInstance] ✅️ (i : G) → NormedAddCommGroup ((fun x => E) (e i))
+  [Meta.synthInstance] new goal (i : G) → NormedAddCommGroup ((fun x => E) (e i))
+    [Meta.synthInstance.instances] #[@NonUnitalNormedRing.toNormedAddCommGroup, inst✝¹]
+  [Meta.synthInstance] ✅️ apply inst✝¹ to (i : G) → NormedAddCommGroup ((fun x => E) (e i))
+    [Meta.synthInstance.tryResolve] ✅️ NormedAddCommGroup ((fun x => E) (e i)) ≟ NormedAddCommGroup E
+    [Meta.synthInstance.answer] ✅️ (i : G) → NormedAddCommGroup ((fun x => E) (e i))
+  [Meta.synthInstance] result fun i => inst✝¹
+[Meta.synthInstance] ✅️ (i : G) → NormedAddCommGroup ((fun x => E) (e i))
+  [Meta.synthInstance] new goal (i : G) → NormedAddCommGroup ((fun x => E) (e i))
+    [Meta.synthInstance.instances] #[@NonUnitalNormedRing.toNormedAddCommGroup, inst✝¹]
+  [Meta.synthInstance] ✅️ apply inst✝¹ to (i : G) → NormedAddCommGroup ((fun x => E) (e i))
+    [Meta.synthInstance.tryResolve] ✅️ NormedAddCommGroup ((fun x => E) (e i)) ≟ NormedAddCommGroup E
+    [Meta.synthInstance.answer] ✅️ (i : G) → NormedAddCommGroup ((fun x => E) (e i))
+  [Meta.synthInstance] result fun i => inst✝¹
+[Meta.synthInstance] 💥️ AddCommMonoid ?m.19
+  [Meta.synthInstance] new goal AddCommMonoid ?m.19
+    [Meta.synthInstance.instances] #[@AddCancelCommMonoid.toAddCommMonoid, @AddSubmonoidClass.toAddCommMonoid, @AddCommMonoid.ofIsAddCommutative, @SubtractionCommMonoid.toAddCommMonoid, @AddCommGroup.toAddCommMonoid, @AddCommMonoidWithOne.toAddCommMonoid, @NonUnitalNonAssocSemiring.toAddCommMonoid, @LinearOrderedAddCommMonoidWithTop.toAddCommMonoid, @LinearOrderedAddCommGroupWithTop.toAddCommMonoid, @ESeminormedAddCommMonoid.toAddCommMonoid, @Derivation.instAddCommMonoid, @AlternatingMap.instAddCommMonoid, @DMatrix.instAddCommMonoid, @Submodule.pointwiseAddCommMonoid, Real.instAddCommMonoid, @WithBot.addCommMonoid, @MeasureTheory.Measure.instAddCommMonoid, @instAddCommMonoidColex, instAddCommMonoidFormalMultilinearSeries, @Matrix.addCommMonoid, @Additive.addCommMonoid, @instAddCommMonoidLex, @ContinuousAddMonoidHom.instAddCommMonoid, @OreLocalization.instAddCommMonoidOreLocalization, @ContinuousMap.instAddCommMonoidOfContinuousAdd, Rat.addCommMonoid, @MulOpposite.instAddCommMonoid, @ULift.addCommMonoid, instAddCommMonoidEReal, @AddChar.instAddCommMonoid, @IterateAddAct.instAddCommMonoid, @ContinuousMultilinearMap.addCommMonoid, @MeasureTheory.SimpleFunc.instAddCommMonoid, @AddOpposite.instAddCommMonoid, @MeasureTheory.OuterMeasure.addCommMonoid, @Submodule.addCommMonoid, @AddSubmonoid.toAddCommMonoid, @AddSubmonoid.center.addCommMonoid, @Nonneg.addCommMonoid, @Seminorm.instAddCommMonoid, @DomAddAct.instAddCommMonoidOfAddOpposite, Int.instAddCommMonoid, @BoxIntegral.BoxAdditiveMap.instAddCommMonoid, @SetSemiring.instAddCommMonoid, @ZeroHom.instAddCommMonoid, @LinearMap.addCommMonoid, @ContinuousMapZero.instAddCommMonoid, @AddOreLocalization.instAddCommMonoid, @MultilinearMap.addCommMonoid, @MeasureTheory.AEEqFun.instAddCommMonoid, FreeAlgebra.instAddCommMonoid, @ContinuousLinearMap.addCommMonoid, instAddCommMonoidRestrictScalars, @LinearPMap.instAddCommMonoid, @instAddCommMonoidWeakBilin, instAddCommMonoidWeakDual, @StieltjesFunction.instAddCommMonoid, @instAddCommMonoidUniformFun, @WithZero.instAddCommMonoid, @Filter.Germ.instAddCommMonoid, Nat.instAddCommMonoid, @SeparationQuotient.instAddCommMonoid, @MonoidAlgebra.addCommMonoid, ENNReal.instAddCommMonoid, @PositiveLinearMap.instAddCommMonoid, @TensorProduct.addCommMonoid, @DFinsupp.addCommMonoid, @instAddCommMonoidUniformOnFun, @ZeroAtInftyContinuousMap.instAddCommMonoid, @Shrink.instAddCommMonoid, @MulActionHom.instAddCommMonoid, @AddMonoid.End.instAddCommMonoid, @Unitization.instAddCommMonoid, @OrderDual.instAddCommMonoid, @AddMonoidAlgebra.addAddCommMonoid, @AddMonoidHom.instAddCommMonoid, instAddCommMonoidWeakSpace, @Prod.instAddCommMonoid, @AddCon.addCommMonoid, Fin.addCommMonoid, instAddCommMonoidDirectSum, @QuadraticMap.instAddCommMonoid, @BoundedContinuousFunction.instAddCommMonoid, @Finsupp.instAddCommMonoid, @ContinuousAlternatingMap.addCommMonoid, @ModuleCon.instAddCommMonoidQuotient, @WithTop.addCommMonoid, @Pi.addCommMonoid]
+  [Meta.synthInstance] 💥️ apply @Pi.addCommMonoid to AddCommMonoid ?m.19
+    [Meta.synthInstance.tryResolve] 💥️ AddCommMonoid ?m.19 ≟ AddCommMonoid ((i : ?m.26) → ?m.27 i)
+[Meta.synthInstance] 💥️ TopologicalSpace ?m.19
+  [Meta.synthInstance] new goal TopologicalSpace ?m.19
+    [Meta.synthInstance.instances] #[@UniformSpace.toTopologicalSpace, @UpgradedStandardBorel.toTopologicalSpace, sierpinskiSpace, WithLp.instProdTopologicalSpace, PiLp.topologicalSpace, @Matrix.SpecialLinearGroup.instTopologicalSpace, instTopologicalSpaceZerothHomotopy, @instTopologicalSpaceMatrix, @instTopologicalSpaceAdditive, @ContinuousMap.compactOpen, @MulOpposite.instTopologicalSpaceMulOpposite, @ULift.topologicalSpace, EReal.instTopologicalSpace, @ContinuousMultilinearMap.instTopologicalSpace, @Units.instTopologicalSpaceUnits, @AddOpposite.instTopologicalSpaceAddOpposite, @instTopologicalSpaceSum, @instTopologicalSpaceSubtype, NNReal.instTopologicalSpace, instTopologicalSpacePEmpty, instTopologicalSpaceInt, @T2Quotient.instTopologicalSpace, @ContinuousMapZero.instTopologicalSpace, @ContinuousLinearMap.topologicalSpace, @instTopologicalSpaceMultiplicative, @QuotientModule.Quotient.topologicalSpace, @topologicalRingQuotientTopology, @QuotientGroup.instTopologicalSpace, @QuotientAddGroup.instTopologicalSpace, instTopologicalSpaceEmpty, @WeakBilin.instTopologicalSpace, @instTopologicalSpaceQuotient, instTopologicalSpaceWeakDual, instTopologicalSpacePUnit, UniformFun.topologicalSpace, instTopologicalSpaceNat, instTopologicalSpaceSeparationQuotient, @Path.instTopologicalSpace, ENNReal.instTopologicalSpace, instTopologicalSpaceBool, instTopologicalSpaceSignType, UniformOnFun.topologicalSpace, @TopologicalSpace.Opens.CompleteCopy.inst, @instTopologicalSpaceQuot, @OrderDual.instTopologicalSpace, instTopologicalSpaceWeakSpace, @instTopologicalSpaceProd, @ConnectedComponents.instTopologicalSpace, @instTopologicalSpaceFin, @UniformConvergenceCLM.instTopologicalSpace, @instTopologicalSpaceSigma, @ContinuousAlternatingMap.instTopologicalSpace, @CofiniteTopology.instTopologicalSpace, @AddUnits.instTopologicalSpaceAddUnits, @Pi.topologicalSpace]
+  [Meta.synthInstance] 💥️ apply @Pi.topologicalSpace to TopologicalSpace ?m.19
+    [Meta.synthInstance.tryResolve] 💥️ TopologicalSpace ?m.19 ≟ TopologicalSpace ((i : ?m.26) → ?m.27 i)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] new goal AddCommMonoid ℝ
+    [Meta.synthInstance.instances] #[@AddCancelCommMonoid.toAddCommMonoid, @AddCommMonoid.ofIsAddCommutative, @SubtractionCommMonoid.toAddCommMonoid, @AddCommGroup.toAddCommMonoid, @AddCommMonoidWithOne.toAddCommMonoid, @NonUnitalNonAssocSemiring.toAddCommMonoid, @LinearOrderedAddCommMonoidWithTop.toAddCommMonoid, @LinearOrderedAddCommGroupWithTop.toAddCommMonoid, @ESeminormedAddCommMonoid.toAddCommMonoid, Real.instAddCommMonoid]
+  [Meta.synthInstance] ✅️ apply Real.instAddCommMonoid to AddCommMonoid ℝ
+    [Meta.synthInstance.tryResolve] ✅️ AddCommMonoid ℝ ≟ AddCommMonoid ℝ
+    [Meta.synthInstance.answer] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid (cached)
+[Meta.synthInstance] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] new goal AddCommMonoid ℝ
+    [Meta.synthInstance.instances] #[@AddCancelCommMonoid.toAddCommMonoid, @AddCommMonoid.ofIsAddCommutative, @SubtractionCommMonoid.toAddCommMonoid, @AddCommGroup.toAddCommMonoid, @AddCommMonoidWithOne.toAddCommMonoid, @NonUnitalNonAssocSemiring.toAddCommMonoid, @LinearOrderedAddCommMonoidWithTop.toAddCommMonoid, @LinearOrderedAddCommGroupWithTop.toAddCommMonoid, @ESeminormedAddCommMonoid.toAddCommMonoid, Real.instAddCommMonoid]
+  [Meta.synthInstance] ✅️ apply Real.instAddCommMonoid to AddCommMonoid ℝ
+    [Meta.synthInstance.tryResolve] ✅️ AddCommMonoid ℝ ≟ AddCommMonoid ℝ
+    [Meta.synthInstance.answer] ✅️ AddCommMonoid ℝ
+  [Meta.synthInstance] result Real.instAddCommMonoid
+[Meta.synthInstance] ✅️ TopologicalSpace ℝ
+  [Meta.synthInstance] new goal TopologicalSpace ℝ
+    [Meta.synthInstance.instances] #[@UniformSpace.toTopologicalSpace, @UpgradedStandardBorel.toTopologicalSpace]
+  [Meta.synthInstance] ✅️ apply @UpgradedStandardBorel.toTopologicalSpace to TopologicalSpace ℝ
+    [Meta.synthInstance.tryResolve] ✅️ TopologicalSpace ℝ ≟ TopologicalSpace ℝ
+    [Meta.synthInstance] no instances for UpgradedStandardBorel ℝ
+      [Meta.synthInstance.instances] #[]
+  [Meta.synthInstance] ✅️ apply @UniformSpace.toTopologicalSpace to TopologicalSpace ℝ
+    [Meta.synthInstance.tryResolve] ✅️ TopologicalSpace ℝ ≟ TopologicalSpace ℝ
+    [Meta.synthInstance] new goal UniformSpace ℝ
+      [Meta.synthInstance.instances] #[@PseudoEMetricSpace.toUniformSpace, @PseudoMetricSpace.toUniformSpace]
+  [Meta.synthInstance] ✅️ apply @PseudoMetricSpace.toUniformSpace to UniformSpace ℝ
+    [Meta.synthInstance.tryResolve] ✅️ UniformSpace ℝ ≟ UniformSpace ℝ
+    [Meta.synthInstance] new goal PseudoMetricSpace ℝ
+      [Meta.synthInstance.instances] #[@MetricSpace.toPseudoMetricSpace, @SeminormedAddGroup.toPseudoMetricSpace, @SeminormedGroup.toPseudoMetricSpace, @SeminormedAddCommGroup.toPseudoMetricSpace, @SeminormedCommGroup.toPseudoMetricSpace, @NonUnitalSeminormedRing.toPseudoMetricSpace, @SeminormedRing.toPseudoMetricSpace, @TopologicalSpace.UpgradedIsCompletelyPseudoMetrizableSpace.toPseudoMetricSpace, Real.pseudoMetricSpace]
+  [Meta.synthInstance] ✅️ apply Real.pseudoMetricSpace to PseudoMetricSpace ℝ
+    [Meta.synthInstance.tryResolve] ✅️ PseudoMetricSpace ℝ ≟ PseudoMetricSpace ℝ
+    [Meta.synthInstance.answer] ✅️ PseudoMetricSpace ℝ
+  [Meta.synthInstance.resume] propagating PseudoMetricSpace ℝ to subgoal PseudoMetricSpace ℝ of UniformSpace ℝ
+    [Meta.synthInstance.resume] size: 1
+    [Meta.synthInstance.answer] ✅️ UniformSpace ℝ
+  [Meta.synthInstance.resume] propagating UniformSpace ℝ to subgoal UniformSpace ℝ of TopologicalSpace ℝ
+    [Meta.synthInstance.resume] size: 2
+    [Meta.synthInstance.answer] ✅️ TopologicalSpace ℝ
+  [Meta.synthInstance] result PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+[Meta.synthInstance] ✅️ G → NormedAddCommGroup E
+  [Meta.synthInstance] new goal G → NormedAddCommGroup E
+    [Meta.synthInstance.instances] #[@NonUnitalNormedRing.toNormedAddCommGroup, inst✝¹]
+  [Meta.synthInstance] ✅️ apply inst✝¹ to G → NormedAddCommGroup E
+    [Meta.synthInstance.tryResolve] ✅️ NormedAddCommGroup E ≟ NormedAddCommGroup E
+    [Meta.synthInstance.answer] ✅️ G → NormedAddCommGroup E
+  [Meta.synthInstance] result fun i => inst✝¹
+[Meta.synthInstance] ✅️ G → NormedAddCommGroup E
+  [Meta.synthInstance] new goal G → NormedAddCommGroup E
+    [Meta.synthInstance.instances] #[@NonUnitalNormedRing.toNormedAddCommGroup, inst✝¹]
+  [Meta.synthInstance] ✅️ apply inst✝¹ to G → NormedAddCommGroup E
+    [Meta.synthInstance.tryResolve] ✅️ NormedAddCommGroup E ≟ NormedAddCommGroup E
+    [Meta.synthInstance.answer] ✅️ G → NormedAddCommGroup E
+  [Meta.synthInstance] result fun i => inst✝¹
+[Meta.synthInstance] ✅️ AddMonoidWithOne ℝ
+  [Meta.synthInstance] new goal AddMonoidWithOne ℝ
+    [Meta.synthInstance.instances] #[@AddCommMonoidWithOne.toAddMonoidWithOne, @AddGroupWithOne.toAddMonoidWithOne]
+  [Meta.synthInstance] ✅️ apply @AddGroupWithOne.toAddMonoidWithOne to AddMonoidWithOne ℝ
+    [Meta.synthInstance.tryResolve] ✅️ AddMonoidWithOne ℝ ≟ AddMonoidWithOne ℝ
+    [Meta.synthInstance] new goal AddGroupWithOne ℝ
+      [Meta.synthInstance.instances] #[@AddCommGroupWithOne.toAddGroupWithOne, @Ring.toAddGroupWithOne]
+  [Meta.synthInstance] ✅️ apply @Ring.toAddGroupWithOne to AddGroupWithOne ℝ
+    [Meta.synthInstance.tryResolve] ✅️ AddGroupWithOne ℝ ≟ AddGroupWithOne ℝ
+    [Meta.synthInstance] new goal Ring ℝ
+      [Meta.synthInstance.instances] #[@CommRing.toRing, @DivisionRing.toRing, @SeminormedRing.toRing, @NormedRing.toRing, Real.instRing]
+  [Meta.synthInstance] ✅️ apply Real.instRing to Ring ℝ
+    [Meta.synthInstance.tryResolve] ✅️ Ring ℝ ≟ Ring ℝ
+    [Meta.synthInstance.answer] ✅️ Ring ℝ
+  [Meta.synthInstance.resume] propagating Ring ℝ to subgoal Ring ℝ of AddGroupWithOne ℝ
+    [Meta.synthInstance.resume] size: 1
+    [Meta.synthInstance.answer] ✅️ AddGroupWithOne ℝ
+  [Meta.synthInstance.resume] propagating AddGroupWithOne ℝ to subgoal AddGroupWithOne ℝ of AddMonoidWithOne ℝ
+    [Meta.synthInstance.resume] size: 2
+    [Meta.synthInstance.answer] ✅️ AddMonoidWithOne ℝ
+  [Meta.synthInstance] result Real.instRing.toAddGroupWithOne.toAddMonoidWithOne
+[Meta.synthInstance] 💥️ Preorder ?α
+  [Meta.synthInstance] new goal Preorder ?α
+    [Meta.synthInstance.instances] #[@PartialOrder.toPreorder, Real.instPreorder, @WithBot.instPreorder, @Matrix.instPreOrder, @Additive.preorder, @Sum.Lex.preorder, Prod.Lex.instPreorder, Rat.instPreorder, @MulOpposite.instPreorder, @ULift.instPreorder, @MeasureTheory.SimpleFunc.instPreorder, @Units.instPreorder, @AddOpposite.instPreorder, @Sum.instPreorderSum, @Subtype.preorder, @OrderRingHom.instPreorder, @MeasureTheory.AEEqFun.instPreorder, @Multiplicative.preorder, @Associates.instPreorder, @WithZero.instPreorder, @Filter.Germ.instPreorder, Nat.instPreorder, @TopHom.instPreorder, @CauSeq.instPreorderAbs, @DFinsupp.instPreorder, OrderDual.instPreorder, @Prod.instPreorder, @Finsupp.preorder, @BotHom.instPreorder, @OrderHom.instPreorder, @AddUnits.instPreorder, @WithTop.instPreorder, @Pi.preorder]
+  [Meta.synthInstance] 💥️ apply @Pi.preorder to Preorder ?α
+    [Meta.synthInstance.tryResolve] 💥️ Preorder ?α ≟ Preorder ((i : ?m.39) → ?m.40 i)
+[Meta.synthInstance] 💥️ Preorder ?α
+  [Meta.synthInstance] new goal Preorder ?α
+    [Meta.synthInstance.instances] #[@PartialOrder.toPreorder, Real.instPreorder, @WithBot.instPreorder, @Matrix.instPreOrder, @Additive.preorder, @Sum.Lex.preorder, Prod.Lex.instPreorder, Rat.instPreorder, @MulOpposite.instPreorder, @ULift.instPreorder, @MeasureTheory.SimpleFunc.instPreorder, @Units.instPreorder, @AddOpposite.instPreorder, @Sum.instPreorderSum, @Subtype.preorder, @OrderRingHom.instPreorder, @MeasureTheory.AEEqFun.instPreorder, @Multiplicative.preorder, @Associates.instPreorder, @WithZero.instPreorder, @Filter.Germ.instPreorder, Nat.instPreorder, @TopHom.instPreorder, @CauSeq.instPreorderAbs, @DFinsupp.instPreorder, OrderDual.instPreorder, @Prod.instPreorder, @Finsupp.preorder, @BotHom.instPreorder, @OrderHom.instPreorder, @AddUnits.instPreorder, @WithTop.instPreorder, @Pi.preorder]
+  [Meta.synthInstance] 💥️ apply @Pi.preorder to Preorder ?α
+    [Meta.synthInstance.tryResolve] 💥️ Preorder ?α ≟ Preorder ((i : ?m.39) → ?m.40 i)
+[Meta.synthInstance] ✅️ Semiring ℝ
+  [Meta.synthInstance] new goal Semiring ℝ
+    [Meta.synthInstance.instances] #[@Ring.toSemiring, @CommSemiring.toSemiring, @DivisionSemiring.toSemiring, @IdemSemiring.toSemiring, Real.semiring]
+  [Meta.synthInstance] ✅️ apply Real.semiring to Semiring ℝ
+    [Meta.synthInstance.tryResolve] ✅️ Semiring ℝ ≟ Semiring ℝ
+    [Meta.synthInstance.answer] ✅️ Semiring ℝ
+  [Meta.synthInstance] result Real.semiring
+[Meta.synthInstance] ✅️ PartialOrder ℝ
+  [Meta.synthInstance] new goal PartialOrder ℝ
+    [Meta.synthInstance.instances] #[@CompleteLattice.toPartialOrder', @RCLike.toPartialOrder, @LinearOrder.toPartialOrder, @SemilatticeSup.toPartialOrder, @SemilatticeInf.toPartialOrder, @CompleteSemilatticeSup.toPartialOrder, @CompleteSemilatticeInf.toPartialOrder, @ConditionallyCompletePartialOrderInf.toPartialOrder, @ConditionallyCompletePartialOrderSup.toPartialOrder, @OmegaCompletePartialOrder.toPartialOrder, Real.partialOrder]
+  [Meta.synthInstance] ✅️ apply Real.partialOrder to PartialOrder ℝ
+    [Meta.synthInstance.tryResolve] ✅️ PartialOrder ℝ ≟ PartialOrder ℝ
+    [Meta.synthInstance.answer] ✅️ PartialOrder ℝ
+  [Meta.synthInstance] result Real.partialOrder
+[Meta.synthInstance] ✅️ IsOrderedRing ℝ
+  [Meta.synthInstance] new goal IsOrderedRing ℝ
+    [Meta.synthInstance.instances] #[@IsStrictOrderedRing.toIsOrderedRing, StarOrderedRing.toIsOrderedRing, Real.instIsOrderedRing]
+  [Meta.synthInstance] ✅️ apply Real.instIsOrderedRing to IsOrderedRing ℝ
+    [Meta.synthInstance.tryResolve] ✅️ IsOrderedRing ℝ ≟ IsOrderedRing ℝ
+    [Meta.synthInstance.answer] ✅️ IsOrderedRing ℝ
+  [Meta.synthInstance] result Real.instIsOrderedRing
+[Meta.synthInstance] ✅️ Nontrivial ℝ
+  [Meta.synthInstance] new goal Nontrivial ℝ
+    [Meta.synthInstance.instances] #[Infinite.instNontrivial, @IsStrictOrderedRing.toNontrivial, @GroupWithZero.toNontrivial, @IsDomain.toNontrivial, @DivisionRing.toNontrivial, @instNontrivialOfCharZero, @IsSimpleOrder.toNontrivial, @LinearOrderedAddCommGroupWithTop.toNontrivial, @IsSimpleRing.instNontrivial, @EuclideanDomain.toNontrivial, @IsLocalRing.toNontrivial, @IsSimpleGroup.toNontrivial, @IsSimpleAddGroup.toNontrivial, Real.instNontrivial]
+  [Meta.synthInstance] ✅️ apply Real.instNontrivial to Nontrivial ℝ
+    [Meta.synthInstance.tryResolve] ✅️ Nontrivial ℝ ≟ Nontrivial ℝ
+    [Meta.synthInstance.answer] ✅️ Nontrivial ℝ
+  [Meta.synthInstance] result Real.instNontrivial
+tactic execution of Lean.Parser.Tactic.exact took 20.3s
+cumulative profiling times:
+	attribute application 33.3ms
+	compilation (IR) 0.652ms
+	compilation (LCNF base) 20.6ms
+	compilation (LCNF impure) 4.61ms
+	compilation (LCNF mono) 13ms
+	congr simp thm 4.66ms
+	elaboration 267ms
+	fix level params 2.06ms
+	import 24.6s
+	initialization 126ms
+	instantiate metavars 1.42ms
+	interpretation 3.66s
+	let-to-have transformation 0.651ms
+	linting 27.5ms
+	norm_num 37.5ms
+	parsing 22.4ms
+	process pre-definitions 22.8ms
+	share common exprs 6.4ms
+	simp 201ms
+	tactic execution 20.7s
+	type checking 168ms
+	typeclass inference 3.16s

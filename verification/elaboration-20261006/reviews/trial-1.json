@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "module": "Nonadditivity.RegularCoefficientEnergy",
+  "baseline_sha": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
+  "candidate_sha": "cf909eb32401c25c071ddbfbc9037037ffa8b7cb",
+  "trial_result_sha256": "e44ff0f06f8314118967c66fdb438044e149968ebe0a1ef6dd6e84a7ea61b198",
+  "decision": "kept",
+  "relevant_phase": "tactic execution",
+  "intervention": "Give Equiv.summable_iff its explicit norm-power summand",
+  "rationale": "The single expression annotation preserves the public declaration header and existing summability proof. All six guarded profiles pass. Median tactic execution falls 9.24 to 1.14 seconds, wall17.92 to9.84 and CPU22.03 to13.91. Typeclass inference is unchanged8.52 to8.51; type checking increases0.022s and simp0.008s, with no material cost transfer. The final reapplied source has the same mathematical-source bytes as this candidate; final compiled public-type equality is checked separately.",
+  "statements_changed": false,
+  "other_phases_regressed": false,
+  "statement_review_scope": "Manual comparison of source declaration headers. Final-state compiled public-type comparison is separate; this review does not assert English-to-Lean equivalence."
+}

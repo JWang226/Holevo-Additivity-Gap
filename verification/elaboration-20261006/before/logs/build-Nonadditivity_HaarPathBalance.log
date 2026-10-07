@@ -1,0 +1,14 @@
+Nonadditivity/HaarPathBalance.lean:35:40: warning: This simp argument is unused:
+  visitCount
+
+Hint: Omit it from the simp argument list.
+  simp [v̵i̵s̵i̵t̵C̵o̵u̵n̵t̵,̵hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/HaarPathBalance.lean:63:42: warning: This simp argument is unused:
+  incomingCount
+
+Hint: Omit it from the simp argument list.
+  simp [i̵n̵c̵o̵m̵i̵n̵g̵C̵o̵u̵n̵t̵,̵hjv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

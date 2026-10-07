@@ -1,0 +1,46 @@
+interpretation of Mathlib.Tactic.useSyntax took 222ms
+import took 17.8s
+typeclass inference of AddCommMonoid took 311ms
+typeclass inference of MulOne took 335ms
+typeclass inference of AddCommMonoid took 157ms
+elaboration took 160ms
+typeclass inference of CoeFun took 304ms
+typeclass inference of CoeFun took 374ms
+elaboration took 104ms
+typeclass inference of ContinuousAdd took 125ms
+typeclass inference of ContinuousAdd took 122ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 156ms
+tactic execution of Lean.Parser.Tactic.Conv.rewrite took 125ms
+typeclass inference of AddCommMonoid took 163ms
+typeclass inference of Nonempty took 214ms
+type checking took 109ms
+typeclass inference of ContinuousAdd took 130ms
+simp took 113ms
+type checking took 153ms
+typeclass inference of HSMul took 293ms
+typeclass inference of SMulCommClass took 111ms
+typeclass inference of LinearMap.CompatibleSMul took 409ms
+simp took 207ms
+type checking took 156ms
+typeclass inference of AddCommMonoid took 153ms
+simp took 126ms
+type checking took 120ms
+.verify-work/cleanup-20261006/gram-tc-triage/probe-before-place.lean:61:0: warning: using 'exit' to interrupt Lean
+cumulative profiling times:
+	attribute application 5.77ms
+	congr simp thm 15.6ms
+	elaboration 566ms
+	fix level params 10.2ms
+	import 17.8s
+	initialization 85.3ms
+	instantiate metavars 1.08ms
+	interpretation 4.41s
+	let-to-have transformation 1.97ms
+	linting 16.8ms
+	parsing 13.3ms
+	process pre-definitions 90.6ms
+	share common exprs 37ms
+	simp 555ms
+	tactic execution 416ms
+	type checking 707ms
+	typeclass inference 6.49s

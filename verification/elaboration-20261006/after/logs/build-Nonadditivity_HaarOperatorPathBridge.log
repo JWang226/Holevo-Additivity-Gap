@@ -1,0 +1,6 @@
+Nonadditivity/HaarOperatorPathBridge.lean:132:11: warning: unused variable `z`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Nonadditivity/HaarOperatorPathBridge.lean:133:12: warning: unused variable `P`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

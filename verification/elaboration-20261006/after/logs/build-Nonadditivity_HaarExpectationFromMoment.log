@@ -1,0 +1,16 @@
+Nonadditivity/HaarExpectationFromMoment.lean:89:53: warning: This simp argument is unused:
+  Pi.inv_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [ProductPolynomialReduction.generator, P̵i̵.̵i̵n̵v̵_̵a̵p̵p̵l̵y̵,̵ ̵FreeGroup.norm_inv_eq,
+       ̵ ̵apply_ite FreeGroup.norm, FreeGroup.norm_of, FreeGroup.norm_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Nonadditivity/HaarExpectationFromMoment.lean:89:67: warning: This simp argument is unused:
+  FreeGroup.norm_inv_eq
+
+Hint: Omit it from the simp argument list.
+  simp only [ProductPolynomialReduction.generator, Pi.inv_apply, F̵r̵e̵e̵G̵r̵o̵u̵p̵.̵n̵o̵r̵m̵_̵i̵n̵v̵_̵e̵q̵,̵apply_ite FreeGroup.norm,
+  ̲  ̲ ̲ ̲FreeGroup.norm_of, FreeGroup.norm_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

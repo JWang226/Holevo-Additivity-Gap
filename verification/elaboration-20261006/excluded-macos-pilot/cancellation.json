@@ -1,0 +1,5 @@
+{
+  "reason": "Move the complete before/after experiment to one Linux runner: first four local modules show wall time 2.7\u20134.7 times CPU time. This incomplete Mac attempt is not the baseline report.",
+  "method": "Touch the measurement driver timestamp to invoke its own source-mutation termination guard; no driver bytes or proof source bytes changed.",
+  "valid_baseline": false
+}

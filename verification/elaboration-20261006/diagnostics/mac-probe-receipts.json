@@ -1,0 +1,38 @@
+[
+  {
+    "source": ".verify-work/cleanup-20261006/gram-tc-triage/probe-before-place.lean",
+    "source_sha256": "3f9f5e90c67ffeb45a3c612e64ec923d528cedf3ff9f68a45ae18b3fcf39f756",
+    "command": [
+      "/Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/lean.sh",
+      "--profile",
+      ".verify-work/cleanup-20261006/gram-tc-triage/probe-before-place.lean"
+    ],
+    "returncode": 0,
+    "log": ".verify-work/cleanup-20261006/gram-tc-triage/probe-before-place.mac.log",
+    "purpose": "Untracked diagnostic attribution only; not Linux performance evidence"
+  },
+  {
+    "source": ".verify-work/cleanup-20261006/gram-tc-triage/probe-after-place.lean",
+    "source_sha256": "e68c2d15ec6b06e39648575a4f0c0c0cf6134f83ab2257bf56c04073e4b44d15",
+    "command": [
+      "/Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/lean.sh",
+      "--profile",
+      ".verify-work/cleanup-20261006/gram-tc-triage/probe-after-place.lean"
+    ],
+    "returncode": 0,
+    "log": ".verify-work/cleanup-20261006/gram-tc-triage/probe-after-place.mac.log",
+    "purpose": "Untracked diagnostic attribution only; not Linux performance evidence"
+  },
+  {
+    "source": ".verify-work/cleanup-20261006/gram-tc-triage/probe-place-sorry.lean",
+    "source_sha256": "7b02d03f8e12496ed95866c7ae76f8a56a4a668d93ebdfdc946a6effaa114139",
+    "command": [
+      "/Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/lean.sh",
+      "--profile",
+      ".verify-work/cleanup-20261006/gram-tc-triage/probe-place-sorry.lean"
+    ],
+    "returncode": 0,
+    "log": ".verify-work/cleanup-20261006/gram-tc-triage/probe-place-sorry.mac.log",
+    "purpose": "Untracked diagnostic attribution only; not Linux performance evidence"
+  }
+]

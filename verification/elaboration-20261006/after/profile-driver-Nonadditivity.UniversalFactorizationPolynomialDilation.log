@@ -1,0 +1,44 @@
+import took 1.99s
+typeclass inference of CoeFun took 162ms
+typeclass inference of CoeFun took 163ms
+typeclass inference of AddMonoidHomClass took 342ms
+simp took 140ms
+typeclass inference of CoeFun took 169ms
+typeclass inference of CoeFun took 157ms
+simp took 155ms
+typeclass inference of Algebra took 182ms
+typeclass inference of DistribMulAction took 2.86s
+typeclass inference of StarHomClass took 860ms
+typeclass inference of Add took 127ms
+typeclass inference of Module took 295ms
+typeclass inference of AddHomClass took 1.25s
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 209ms
+typeclass inference of Algebra took 182ms
+typeclass inference of Semiring took 159ms
+typeclass inference of Algebra took 413ms
+typeclass inference of SMul took 197ms
+typeclass inference of Module took 291ms
+typeclass inference of MulActionHomClass took 872ms
+simp took 111ms
+typeclass inference of LinearMap.CompatibleSMul took 146ms
+tactic execution of Lean.Parser.Tactic.exact took 147ms
+tactic execution of Lean.Parser.Tactic.exact took 109ms
+type checking took 167ms
+cumulative profiling times:
+	attribute application 20.6ms
+	congr simp thm 6.93ms
+	elaboration 370ms
+	fix level params 4.31ms
+	import 1.99s
+	initialization 32.2ms
+	instantiate metavars 3.03ms
+	interpretation 347ms
+	let-to-have transformation 1.5ms
+	linting 18.4ms
+	parsing 9.42ms
+	process pre-definitions 10.2ms
+	share common exprs 13.2ms
+	simp 596ms
+	tactic execution 995ms
+	type checking 527ms
+	typeclass inference 14.7s

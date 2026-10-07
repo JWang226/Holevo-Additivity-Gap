@@ -1,0 +1,117 @@
+import took 1.99s
+typeclass inference of CoeFun took 159ms
+typeclass inference of CoeFun took 158ms
+typeclass inference of CoeFun took 162ms
+typeclass inference of CoeFun took 155ms
+elaboration took 141ms
+simp took 143ms
+type checking took 21.3s
+typeclass inference of CoeFun took 172ms
+typeclass inference of CoeFun took 165ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 124ms
+tactic execution of Lean.Parser.Tactic.Conv.rewrite took 127ms
+typeclass inference of AddCommMonoid took 119ms
+typeclass inference of Nonempty took 132ms
+typeclass inference of HSMul took 126ms
+typeclass inference of LinearMap.CompatibleSMul took 170ms
+simp took 115ms
+simp took 119ms
+Nonadditivity/UniversalFactorizationGram.lean:78:10: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+Nonadditivity/UniversalFactorizationGram.lean:81:2: error: (deterministic) timeout at `«tactic execution»`, maximum number of heartbeats (1000000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+typeclass inference of CoeFun took 282ms
+typeclass inference of CoeFun took 275ms
+tactic execution of Lean.Parser.Tactic.refine took 111ms
+tactic execution of Lean.Parser.Tactic.exact took 86.2s
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 574ms
+typeclass inference of Add took 119ms
+typeclass inference of HAdd took 131ms
+elaboration took 102ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 128ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 591ms
+typeclass inference of Add took 116ms
+typeclass inference of HAdd took 125ms
+elaboration took 106ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 213ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 133ms
+typeclass inference of AddCommMonoid took 110ms
+typeclass inference of Add took 105ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 558ms
+typeclass inference of AddCommMonoid took 133ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 582ms
+typeclass inference of NormedAddCommGroup took 162ms
+typeclass inference of DistribSMul took 213ms
+typeclass inference took 128ms
+typeclass inference took 128ms
+typeclass inference of HAdd took 129ms
+typeclass inference of HAdd took 129ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 171ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 722ms
+typeclass inference of AddCommMonoid took 115ms
+typeclass inference of HAdd took 126ms
+typeclass inference of HSMul took 159ms
+tactic execution of Lean.Parser.Tactic.change took 141ms
+typeclass inference of Neg took 101ms
+typeclass inference of Module took 147ms
+typeclass inference of Module took 143ms
+typeclass inference of Module took 143ms
+typeclass inference of Module took 148ms
+typeclass inference of Module took 141ms
+typeclass inference of SeminormedAddCommGroup took 313ms
+typeclass inference of AddCommGroup took 482ms
+typeclass inference of Semiring took 338ms
+typeclass inference of Module took 2.11s
+type checking took 123ms
+typeclass inference of AddCommMonoid took 110ms
+typeclass inference of AddCommMonoid took 110ms
+typeclass inference of Add took 105ms
+typeclass inference of AddCommMonoid took 113ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 160ms
+typeclass inference of Algebra took 282ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 461ms
+typeclass inference of NormedAddCommGroup took 146ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 310ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 769ms
+type checking took 112ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 574ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 117ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 285ms
+typeclass inference of CoeFun took 283ms
+typeclass inference of CoeFun took 259ms
+typeclass inference of Algebra took 301ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 766ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 886ms
+type checking took 166ms
+typeclass inference of AddCommMonoid took 114ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 161ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 129ms
+type checking took 111ms
+typeclass inference of Algebra took 279ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 493ms
+cumulative profiling times:
+	attribute application 7.01ms
+	congr simp thm 29.9ms
+	elaboration 1.27s
+	fix level params 15.1ms
+	import 1.99s
+	initialization 34.6ms
+	instantiate metavars 17.2ms
+	interpretation 531ms
+	let-to-have transformation 2.87ms
+	linting 40.3ms
+	norm_num 2.47ms
+	parsing 25ms
+	process pre-definitions 55.5ms
+	ring 6.47ms
+	share common exprs 54.8ms
+	simp 687ms
+	tactic execution 93.7s
+	type checking 22.8s
+	typeclass inference 27.9s

@@ -1,0 +1,155 @@
+import took 17.6s
+typeclass inference of AddCommMonoid took 233ms
+typeclass inference of AddCommMonoid took 170ms
+elaboration took 122ms
+typeclass inference of CoeFun took 316ms
+typeclass inference of CoeFun took 323ms
+elaboration took 146ms
+type checking took 428ms
+type checking took 143ms
+typeclass inference of UniformSpace took 297ms
+elaboration took 198ms
+typeclass inference of ContinuousAdd took 184ms
+typeclass inference of ContinuousAdd took 314ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 252ms
+tactic execution of Lean.Parser.Tactic.Conv.rewrite took 224ms
+typeclass inference of AddCommMonoid took 265ms
+typeclass inference of Nonempty took 191ms
+type checking took 161ms
+typeclass inference of HAdd took 149ms
+typeclass inference of HAdd took 129ms
+typeclass inference of ContinuousAdd took 344ms
+simp took 238ms
+type checking took 280ms
+typeclass inference of HSMul took 421ms
+typeclass inference of SMulCommClass took 107ms
+typeclass inference of LinearMap.CompatibleSMul took 290ms
+simp took 279ms
+type checking took 213ms
+typeclass inference of AddCommMonoid took 243ms
+typeclass inference of ContinuousAdd took 106ms
+simp took 162ms
+type checking took 305ms
+.verify-work/cleanup-20261006/gram-tc-triage/probe-place-sorry.lean:61:8: warning: declaration uses `sorry`
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 1.07s
+typeclass inference of Add took 221ms
+typeclass inference of HAdd took 193ms
+elaboration took 174ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 170ms
+simp took 189ms
+type checking took 323ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 1.23s
+typeclass inference of Add took 186ms
+typeclass inference of HAdd took 163ms
+elaboration took 175ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 276ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 175ms
+type checking took 168ms
+typeclass inference of AddCommMonoid took 136ms
+typeclass inference of Add took 179ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 776ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 102ms
+typeclass inference of AddCommMonoid took 315ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 125ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 805ms
+typeclass inference of AddCommMonoid took 116ms
+typeclass inference of NormedAddCommGroup took 235ms
+typeclass inference of DistribSMul took 353ms
+typeclass inference took 248ms
+typeclass inference took 207ms
+typeclass inference of HAdd took 297ms
+typeclass inference of HAdd took 259ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 291ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 995ms
+typeclass inference of AddCommMonoid took 130ms
+typeclass inference of HAdd took 149ms
+typeclass inference of HSMul took 207ms
+tactic execution of Lean.Parser.Tactic.change took 202ms
+typeclass inference of AddCommMonoid took 109ms
+typeclass inference of Neg took 130ms
+typeclass inference of Module took 187ms
+typeclass inference of AddCommMonoid took 129ms
+typeclass inference of Module took 108ms
+typeclass inference of Module took 132ms
+typeclass inference of Module took 110ms
+typeclass inference of Module took 123ms
+typeclass inference of Module took 101ms
+typeclass inference of Module took 105ms
+typeclass inference of Module took 100ms
+typeclass inference of SeminormedAddCommGroup took 193ms
+typeclass inference of AddCommGroup took 321ms
+typeclass inference of Semiring took 554ms
+typeclass inference of Module took 1.51s
+interpretation of Mathlib.Tactic.Module._aux_Mathlib_Tactic_Module___elabRules_Mathlib_Tactic_Module_tacticModule_1._boxed took 119ms
+type checking took 221ms
+typeclass inference of AddCommMonoid took 141ms
+typeclass inference of AddCommMonoid took 143ms
+typeclass inference of Add took 172ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 111ms
+typeclass inference of AddCommMonoid took 153ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 380ms
+typeclass inference of AddCommMonoid took 122ms
+typeclass inference of Semiring took 118ms
+typeclass inference of Algebra took 524ms
+typeclass inference of HAdd took 112ms
+typeclass inference of HAdd took 131ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 658ms
+typeclass inference of NormedAddCommGroup took 208ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 480ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.52s
+typeclass inference of AddCommMonoid took 141ms
+typeclass inference of AddCommGroup took 155ms
+type checking took 131ms
+typeclass inference of AddCommMonoid took 129ms
+typeclass inference of NonUnitalContinuousFunctionalCalculus took 908ms
+elaboration took 119ms
+typeclass inference of ContinuousAdd took 118ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 191ms
+typeclass inference of AddCommMonoid took 156ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 550ms
+type checking took 106ms
+typeclass inference of CoeFun took 472ms
+typeclass inference of CoeFun took 485ms
+typeclass inference of Semiring took 103ms
+typeclass inference of Algebra took 332ms
+typeclass inference of HAdd took 101ms
+elaboration took 152ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.05s
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 1.23s
+type checking took 219ms
+typeclass inference of AddCommMonoid took 112ms
+typeclass inference of AddCommMonoid took 146ms
+typeclass inference of AddCommMonoid took 150ms
+elaboration took 147ms
+typeclass inference of ContinuousAdd took 109ms
+typeclass inference of AddCommMonoid took 150ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 258ms
+tactic execution of Lean.Parser.Tactic.apply took 107ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 197ms
+type checking took 147ms
+typeclass inference of Semiring took 120ms
+typeclass inference of Algebra took 382ms
+typeclass inference of HAdd took 127ms
+typeclass inference of HAdd took 124ms
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 544ms
+type checking took 102ms
+cumulative profiling times:
+	attribute application 12.7ms
+	congr simp thm 47.1ms
+	elaboration 2.13s
+	fix level params 21.5ms
+	import 17.6s
+	initialization 61.2ms
+	instantiate metavars 22.4ms
+	interpretation 3.8s
+	let-to-have transformation 4.74ms
+	linting 101ms
+	norm_num 30.9ms
+	parsing 85ms
+	process pre-definitions 114ms
+	ring 38.4ms
+	share common exprs 80.9ms
+	simp 1.22s
+	tactic execution 11.3s
+	type checking 3.43s
+	typeclass inference 36.4s

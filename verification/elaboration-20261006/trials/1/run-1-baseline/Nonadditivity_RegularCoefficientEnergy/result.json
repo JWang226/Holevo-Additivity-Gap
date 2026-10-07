@@ -1,0 +1,323 @@
+{
+  "artifact_changes": [],
+  "command": [
+    "/usr/bin/time",
+    "-v",
+    "-o",
+    "/home/runner/work/_temp/elaboration-evidence/trials/1/run-1-baseline/Nonadditivity_RegularCoefficientEnergy/timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt",
+    "/home/runner/.elan/toolchains/leanprover--lean4---v4.29.0-rc6/bin/lean",
+    "--profile",
+    "Nonadditivity/RegularCoefficientEnergy.lean"
+  ],
+  "diagnostics": {
+    "error_count": 0,
+    "errors": [],
+    "sorry_warning_count": 0,
+    "warning_count": 0,
+    "warning_kinds": {},
+    "warnings": []
+  },
+  "guard_errors": [],
+  "log": "/home/runner/work/_temp/elaboration-evidence/trials/1/run-1-baseline/Nonadditivity_RegularCoefficientEnergy/logs/profile-Nonadditivity_RegularCoefficientEnergy.log",
+  "module": "Nonadditivity.RegularCoefficientEnergy",
+  "phase": "profile",
+  "profile": {
+    "all_reported_events": [
+      {
+        "category": "import",
+        "context": "",
+        "declaration": null,
+        "raw": "import took 1.97s",
+        "seconds": 1.97
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 8.1s",
+        "seconds": 8.1
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.change",
+        "raw": "tactic execution of Lean.Parser.Tactic.change took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "DistribMulAction",
+        "raw": "typeclass inference of DistribMulAction took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "MulHomClass",
+        "raw": "typeclass inference of MulHomClass took 255ms",
+        "seconds": 0.255
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "StarHomClass",
+        "raw": "typeclass inference of StarHomClass took 335ms",
+        "seconds": 0.335
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 258ms",
+        "seconds": 0.258
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddMonoidHomClass",
+        "raw": "typeclass inference of AddMonoidHomClass took 191ms",
+        "seconds": 0.191
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "MulActionHomClass",
+        "raw": "typeclass inference of MulActionHomClass took 293ms",
+        "seconds": 0.293
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "OneHomClass",
+        "raw": "typeclass inference of OneHomClass took 139ms",
+        "seconds": 0.139
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddMonoidHomClass",
+        "raw": "typeclass inference of AddMonoidHomClass took 180ms",
+        "seconds": 0.18
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 121ms",
+        "seconds": 0.121
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 127ms",
+        "seconds": 0.127
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 496ms",
+        "seconds": 0.496
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 103ms",
+        "seconds": 0.10300000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 359ms",
+        "seconds": 0.359
+      }
+    ],
+    "categorized_s": 21.659273,
+    "dominant_above_action_floor": true,
+    "dominant_phase": "tactic execution",
+    "events_over_100ms": [
+      {
+        "category": "import",
+        "context": "",
+        "declaration": null,
+        "raw": "import took 1.97s",
+        "seconds": 1.97
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.exact",
+        "raw": "tactic execution of Lean.Parser.Tactic.exact took 8.1s",
+        "seconds": 8.1
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.change",
+        "raw": "tactic execution of Lean.Parser.Tactic.change took 110ms",
+        "seconds": 0.11
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "DistribMulAction",
+        "raw": "typeclass inference of DistribMulAction took 107ms",
+        "seconds": 0.107
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "MulHomClass",
+        "raw": "typeclass inference of MulHomClass took 255ms",
+        "seconds": 0.255
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "StarHomClass",
+        "raw": "typeclass inference of StarHomClass took 335ms",
+        "seconds": 0.335
+      },
+      {
+        "category": "tactic execution",
+        "context": "",
+        "declaration": "Lean.Parser.Tactic.rewriteSeq",
+        "raw": "tactic execution of Lean.Parser.Tactic.rewriteSeq took 258ms",
+        "seconds": 0.258
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddMonoidHomClass",
+        "raw": "typeclass inference of AddMonoidHomClass took 191ms",
+        "seconds": 0.191
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "MulActionHomClass",
+        "raw": "typeclass inference of MulActionHomClass took 293ms",
+        "seconds": 0.293
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "OneHomClass",
+        "raw": "typeclass inference of OneHomClass took 139ms",
+        "seconds": 0.139
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "AddMonoidHomClass",
+        "raw": "typeclass inference of AddMonoidHomClass took 180ms",
+        "seconds": 0.18
+      },
+      {
+        "category": "simp",
+        "context": "",
+        "declaration": null,
+        "raw": "simp took 121ms",
+        "seconds": 0.121
+      },
+      {
+        "category": "type checking",
+        "context": "",
+        "declaration": null,
+        "raw": "type checking took 127ms",
+        "seconds": 0.127
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 496ms",
+        "seconds": 0.496
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 103ms",
+        "seconds": 0.10300000000000001
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "SeminormedAddCommGroup",
+        "raw": "typeclass inference of SeminormedAddCommGroup took 105ms",
+        "seconds": 0.105
+      },
+      {
+        "category": "typeclass inference",
+        "context": "",
+        "declaration": "NonUnitalContinuousFunctionalCalculus",
+        "raw": "typeclass inference of NonUnitalContinuousFunctionalCalculus took 359ms",
+        "seconds": 0.359
+      }
+    ],
+    "phases_s": {
+      "attribute application": 0.006889999999999999,
+      "compilation (IR)": 0.00031,
+      "compilation (LCNF base)": 0.00722,
+      "compilation (LCNF impure)": 0.0006929999999999999,
+      "compilation (LCNF mono)": 0.00367,
+      "congr simp thm": 0.00781,
+      "elaboration": 0.372,
+      "fix level params": 0.00456,
+      "import": 1.97,
+      "initialization": 0.033100000000000004,
+      "instantiate metavars": 0.00508,
+      "interpretation": 0.425,
+      "let-to-have transformation": 0.0010400000000000001,
+      "linting": 0.0166,
+      "norm_num": 0.008,
+      "parsing": 0.0185,
+      "process pre-definitions": 0.0419,
+      "share common exprs": 0.013900000000000001,
+      "simp": 0.401,
+      "tactic execution": 9.21,
+      "type checking": 0.612,
+      "typeclass inference": 8.5
+    }
+  },
+  "returncode": 0,
+  "source": "Nonadditivity/RegularCoefficientEnergy.lean",
+  "source_sha256": "f7e78bb53f225737c4071855e5ac373fb4052487a91d5c4306d005e6e825937a",
+  "time_log": "/home/runner/work/_temp/elaboration-evidence/trials/1/run-1-baseline/Nonadditivity_RegularCoefficientEnergy/timings/profile-Nonadditivity_RegularCoefficientEnergy.time.txt",
+  "timing": {
+    "cpu_s": 21.91,
+    "max_rss_raw": 3479276,
+    "percent_cpu": 122.0,
+    "reported_exit_status": 0,
+    "sys_s": 1.1,
+    "user_s": 20.81,
+    "wall_s": 17.92
+  },
+  "valid": true
+}

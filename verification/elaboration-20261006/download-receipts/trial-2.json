@@ -1,0 +1,207 @@
+{
+  "repository": "JWang226/Holevo-Additivity-Gap",
+  "artifact_id": 11451628694,
+  "zip_sha256": "afaf27d8ad411d314141aab899c931f39a31e60f5ccef7b09a7d871c031590e9",
+  "files": {
+    "request.json": {
+      "bytes": 263,
+      "sha256": "f064df48139fa2fc8aabb77de51bb94997deff74f34057ab2ddb45f458d96322"
+    },
+    "result.json": {
+      "bytes": 367091,
+      "sha256": "4342393d9fcf5a9391d4aa1dc37f7116078735f726c7e0370bcefc5c00e2c060"
+    },
+    "run-1-baseline/Nonadditivity_NetPolynomial/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-1-baseline/Nonadditivity_NetPolynomial/driver.log": {
+      "bytes": 5650,
+      "sha256": "c6d9d68505cd4c967d759ec4e6a1882990fe655bd48e3b2b6ff2dbf40f53fe27"
+    },
+    "run-1-baseline/Nonadditivity_NetPolynomial/logs/profile-Nonadditivity_NetPolynomial.log": {
+      "bytes": 5650,
+      "sha256": "c6d9d68505cd4c967d759ec4e6a1882990fe655bd48e3b2b6ff2dbf40f53fe27"
+    },
+    "run-1-baseline/Nonadditivity_NetPolynomial/measurements.jsonl": {
+      "bytes": 36716,
+      "sha256": "c8becff8af1d024363e0e048d8f824e260d365640c09e8f15ddf0d26c1b5e1f4"
+    },
+    "run-1-baseline/Nonadditivity_NetPolynomial/result.json": {
+      "bytes": 48695,
+      "sha256": "091b73749422e4818591b88da9e4a629b39fcf400493a22bd830efc5c7e27f60"
+    },
+    "run-1-baseline/Nonadditivity_NetPolynomial/timed-compiler": {
+      "bytes": 408,
+      "sha256": "3ac55eaa0db2f2279ef7b9d49dacdc8d8e00d0cac4d525c1ee9cc684a6bb3bda"
+    },
+    "run-1-baseline/Nonadditivity_NetPolynomial/timings/profile-Nonadditivity_NetPolynomial.time.txt": {
+      "bytes": 840,
+      "sha256": "0d6841b44b766a9bdab70b576ff47613d2734998163bfbd35becceb2efa0e1bc"
+    },
+    "run-1-baseline/Nonadditivity_NetPolynomial/wrapper-config.json": {
+      "bytes": 125524,
+      "sha256": "d4b032f179250722cb5db08ea8890353014e9994df30b6735f18bb62103f37f6"
+    },
+    "run-1-candidate/Nonadditivity_NetPolynomial/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-1-candidate/Nonadditivity_NetPolynomial/driver.log": {
+      "bytes": 5626,
+      "sha256": "20d579b01161ef8a1e3bff06c04a3b3228e170faf2a1f704bea0d85ad143b539"
+    },
+    "run-1-candidate/Nonadditivity_NetPolynomial/logs/profile-Nonadditivity_NetPolynomial.log": {
+      "bytes": 5626,
+      "sha256": "20d579b01161ef8a1e3bff06c04a3b3228e170faf2a1f704bea0d85ad143b539"
+    },
+    "run-1-candidate/Nonadditivity_NetPolynomial/measurements.jsonl": {
+      "bytes": 36556,
+      "sha256": "7b30804d194b978ec61f1bbd7fdafaa170982237eade4d77a10fc62d95dda8ac"
+    },
+    "run-1-candidate/Nonadditivity_NetPolynomial/result.json": {
+      "bytes": 48427,
+      "sha256": "e56e500827497a42ce5ae1b0bcef607126b1945d48bb28c52ee71a710387e8ba"
+    },
+    "run-1-candidate/Nonadditivity_NetPolynomial/timed-compiler": {
+      "bytes": 409,
+      "sha256": "eda21d1d0726e35c7c458bef80c98d23db4b2471f54fb8fa3f1aa8fb903265d6"
+    },
+    "run-1-candidate/Nonadditivity_NetPolynomial/timings/profile-Nonadditivity_NetPolynomial.time.txt": {
+      "bytes": 840,
+      "sha256": "ee5c8ebd1ac6e58f474e2f3cedf334662fb670a4ef3da72c6f3eb338da848e7a"
+    },
+    "run-1-candidate/Nonadditivity_NetPolynomial/wrapper-config.json": {
+      "bytes": 125525,
+      "sha256": "6ea6fd5bf402088c4acde347616b4485fe5fea59b24a7f529ece8fb3fcb912bb"
+    },
+    "run-2-baseline/Nonadditivity_NetPolynomial/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-2-baseline/Nonadditivity_NetPolynomial/driver.log": {
+      "bytes": 5743,
+      "sha256": "fcefc06c2ae0db580a7e5cd99e8d69e4c71e66253103659401e4aadef3fd8f1d"
+    },
+    "run-2-baseline/Nonadditivity_NetPolynomial/logs/profile-Nonadditivity_NetPolynomial.log": {
+      "bytes": 5743,
+      "sha256": "fcefc06c2ae0db580a7e5cd99e8d69e4c71e66253103659401e4aadef3fd8f1d"
+    },
+    "run-2-baseline/Nonadditivity_NetPolynomial/measurements.jsonl": {
+      "bytes": 37284,
+      "sha256": "8a4ee2a3fe8285e9dc55ae255b9760901d175657f27c95db1895aa7dd4668bfc"
+    },
+    "run-2-baseline/Nonadditivity_NetPolynomial/result.json": {
+      "bytes": 49371,
+      "sha256": "e199db5284f2a956ca28266ff7c5c009301fadc971313ddd36ba41bccfcd7011"
+    },
+    "run-2-baseline/Nonadditivity_NetPolynomial/timed-compiler": {
+      "bytes": 408,
+      "sha256": "f6757c3b3e8c2397ed15da60dab304be66c409e29de4d221ca1b654894365a78"
+    },
+    "run-2-baseline/Nonadditivity_NetPolynomial/timings/profile-Nonadditivity_NetPolynomial.time.txt": {
+      "bytes": 840,
+      "sha256": "a562fcd1ba8c7c2c746d930f6dbff747b5886a08f7a3b6b1d10265b04a7faa8e"
+    },
+    "run-2-baseline/Nonadditivity_NetPolynomial/wrapper-config.json": {
+      "bytes": 125524,
+      "sha256": "d64c43072fe2e6c12ad8f61d62d3f8d4ce2f85fb228303949400ac693689b96e"
+    },
+    "run-2-candidate/Nonadditivity_NetPolynomial/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-2-candidate/Nonadditivity_NetPolynomial/driver.log": {
+      "bytes": 5814,
+      "sha256": "686b0c745c8b5aa1c2dbbb32da250a655522c3169239fcce7150feaedec42860"
+    },
+    "run-2-candidate/Nonadditivity_NetPolynomial/logs/profile-Nonadditivity_NetPolynomial.log": {
+      "bytes": 5814,
+      "sha256": "686b0c745c8b5aa1c2dbbb32da250a655522c3169239fcce7150feaedec42860"
+    },
+    "run-2-candidate/Nonadditivity_NetPolynomial/measurements.jsonl": {
+      "bytes": 37546,
+      "sha256": "1c27463a2ed96632d23d2f08807ae0d497226f6fa4c427d447988ad0466bd549"
+    },
+    "run-2-candidate/Nonadditivity_NetPolynomial/result.json": {
+      "bytes": 49741,
+      "sha256": "972e2b27794a76d237ffe8d4f5bbef1b8c37e9764fe1c2069079f6294cfba0fa"
+    },
+    "run-2-candidate/Nonadditivity_NetPolynomial/timed-compiler": {
+      "bytes": 409,
+      "sha256": "a56c1ba258fcdfc3a85ed4cd53e15729bf80248c6cae43fd940e69392c24d069"
+    },
+    "run-2-candidate/Nonadditivity_NetPolynomial/timings/profile-Nonadditivity_NetPolynomial.time.txt": {
+      "bytes": 840,
+      "sha256": "cd90841cdf2e11fa3b18933ec12c1588f4925cf47862404a6eaac05302175b37"
+    },
+    "run-2-candidate/Nonadditivity_NetPolynomial/wrapper-config.json": {
+      "bytes": 125525,
+      "sha256": "1d5f08721958cd192fe683cc6510bafe6af044059743d0d4fa472d56d0301b81"
+    },
+    "run-3-baseline/Nonadditivity_NetPolynomial/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-3-baseline/Nonadditivity_NetPolynomial/driver.log": {
+      "bytes": 5543,
+      "sha256": "2cf8b3e11736474b27971154839c5000ec6fd8d0d769b5049a16e7b1df44de70"
+    },
+    "run-3-baseline/Nonadditivity_NetPolynomial/logs/profile-Nonadditivity_NetPolynomial.log": {
+      "bytes": 5543,
+      "sha256": "2cf8b3e11736474b27971154839c5000ec6fd8d0d769b5049a16e7b1df44de70"
+    },
+    "run-3-baseline/Nonadditivity_NetPolynomial/measurements.jsonl": {
+      "bytes": 36048,
+      "sha256": "cebccda5a74568fff93680970de3ff0744530693a07d6a328ca52616f55dae51"
+    },
+    "run-3-baseline/Nonadditivity_NetPolynomial/result.json": {
+      "bytes": 47703,
+      "sha256": "010c620251af9eaa76ef43a06495509080a8ca8a198075efe39a57f565264c60"
+    },
+    "run-3-baseline/Nonadditivity_NetPolynomial/timed-compiler": {
+      "bytes": 408,
+      "sha256": "5f24ee04b7d20f2e43a02ed2a38c48924bec53016c9a005e97d0f6743bd3de1b"
+    },
+    "run-3-baseline/Nonadditivity_NetPolynomial/timings/profile-Nonadditivity_NetPolynomial.time.txt": {
+      "bytes": 840,
+      "sha256": "6555971172451cc1d9e1b25b06f3ff3e63b9e0c320de1751ae256ff9eac8681c"
+    },
+    "run-3-baseline/Nonadditivity_NetPolynomial/wrapper-config.json": {
+      "bytes": 125524,
+      "sha256": "3f4aa9538a3f8776a6f528990ce220ba8e49b1fe1e289e903f8009ad2a8d96f9"
+    },
+    "run-3-candidate/Nonadditivity_NetPolynomial/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-3-candidate/Nonadditivity_NetPolynomial/driver.log": {
+      "bytes": 5736,
+      "sha256": "2a4add3eaa28bd61710200e8ab9c49043f98dd7db3ece93898441a7b1f75e8bd"
+    },
+    "run-3-candidate/Nonadditivity_NetPolynomial/logs/profile-Nonadditivity_NetPolynomial.log": {
+      "bytes": 5736,
+      "sha256": "2a4add3eaa28bd61710200e8ab9c49043f98dd7db3ece93898441a7b1f75e8bd"
+    },
+    "run-3-candidate/Nonadditivity_NetPolynomial/measurements.jsonl": {
+      "bytes": 37438,
+      "sha256": "2412433fb1d2cb49fc8b0a7c3b28c24c955cbbb8295958c18735db2c4d2780dd"
+    },
+    "run-3-candidate/Nonadditivity_NetPolynomial/result.json": {
+      "bytes": 49633,
+      "sha256": "f5be35de040ea8f99d43212423ebdf4dac37ea0fb202c1466816bdfcf4b8e869"
+    },
+    "run-3-candidate/Nonadditivity_NetPolynomial/timed-compiler": {
+      "bytes": 409,
+      "sha256": "0de6f7242bcc4ad8893d5a2cb83ac2667cb65e7bf8eb7948b2ec241d59406f0e"
+    },
+    "run-3-candidate/Nonadditivity_NetPolynomial/timings/profile-Nonadditivity_NetPolynomial.time.txt": {
+      "bytes": 840,
+      "sha256": "cf84028571422658529af4670d673f0af9eb2acb9a5fb96d03185d9829c0e45d"
+    },
+    "run-3-candidate/Nonadditivity_NetPolynomial/wrapper-config.json": {
+      "bytes": 125525,
+      "sha256": "aaac700f1880f611855d52952bfd6941c5e1a9e9d8566829a25624e9c22455dd"
+    }
+  }
+}

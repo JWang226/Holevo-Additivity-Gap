@@ -1,0 +1,207 @@
+{
+  "repository": "JWang226/Holevo-Additivity-Gap",
+  "artifact_id": 11452393122,
+  "zip_sha256": "7f1eebe662bf2bb5ade59fc929c79201a1a03530c23abf8929bab47226b7e633",
+  "files": {
+    "request.json": {
+      "bytes": 276,
+      "sha256": "9abaadf46aadd7b03200581932f2060edbf593b349717280c5e807956e54f778"
+    },
+    "run-1-baseline/Nonadditivity_UniversalFactorizationGram/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "result.json": {
+      "bytes": 273806,
+      "sha256": "2f961aaf87dc8c6535e9ac0a7b79dcbf7d9685d07ee65f8ed4b13482bea7b75f"
+    },
+    "run-1-baseline/Nonadditivity_UniversalFactorizationGram/driver.log": {
+      "bytes": 3729,
+      "sha256": "3fcd445ff0154adb3fb8b9de35d91af3edaae0caa015d4f4d85440a12f61f4e4"
+    },
+    "run-1-baseline/Nonadditivity_UniversalFactorizationGram/logs/profile-Nonadditivity_UniversalFactorizationGram.log": {
+      "bytes": 3729,
+      "sha256": "3fcd445ff0154adb3fb8b9de35d91af3edaae0caa015d4f4d85440a12f61f4e4"
+    },
+    "run-1-baseline/Nonadditivity_UniversalFactorizationGram/measurements.jsonl": {
+      "bytes": 24763,
+      "sha256": "1f17bccc4491d5edead75f54e187fd50efe621fde7c1ce3f7ac09819476ee5bb"
+    },
+    "run-1-baseline/Nonadditivity_UniversalFactorizationGram/result.json": {
+      "bytes": 32728,
+      "sha256": "47eea3ea69e3f6e88d3834a8b63f95285e6fc8a4600fe0c44f0a65d6e94d3344"
+    },
+    "run-1-baseline/Nonadditivity_UniversalFactorizationGram/timed-compiler": {
+      "bytes": 421,
+      "sha256": "a2c16532d2ed9db83202517f4bde336230ab3d22a67c98715c5da05c6d3ab124"
+    },
+    "run-1-baseline/Nonadditivity_UniversalFactorizationGram/timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt": {
+      "bytes": 853,
+      "sha256": "6e2981b9951d9d5087b362c9be1d5e00555b7ddac5f49f5bacae4a510a79cda7"
+    },
+    "run-1-baseline/Nonadditivity_UniversalFactorizationGram/wrapper-config.json": {
+      "bytes": 125537,
+      "sha256": "46a12eabc7ec266e764dbc48a4895bf27717ea5bddae7e66c6e7ae0d03b3e13c"
+    },
+    "run-1-candidate/Nonadditivity_UniversalFactorizationGram/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-1-candidate/Nonadditivity_UniversalFactorizationGram/driver.log": {
+      "bytes": 4961,
+      "sha256": "2cf0df0f8ce64e3ef5263b0950bb472a9822155ebc2f4d6c6887ea6046070d7f"
+    },
+    "run-1-candidate/Nonadditivity_UniversalFactorizationGram/logs/profile-Nonadditivity_UniversalFactorizationGram.log": {
+      "bytes": 4961,
+      "sha256": "2cf0df0f8ce64e3ef5263b0950bb472a9822155ebc2f4d6c6887ea6046070d7f"
+    },
+    "run-1-candidate/Nonadditivity_UniversalFactorizationGram/measurements.jsonl": {
+      "bytes": 28545,
+      "sha256": "19a507227efd6b8e042dc37e23253e00158188cf011330650a2704c5b76c11b2"
+    },
+    "run-1-candidate/Nonadditivity_UniversalFactorizationGram/result.json": {
+      "bytes": 37717,
+      "sha256": "a512b46d3edd05f84ec4de411f8afd5fe8728c6e37462844f4a09fed9b6cfaff"
+    },
+    "run-1-candidate/Nonadditivity_UniversalFactorizationGram/timed-compiler": {
+      "bytes": 422,
+      "sha256": "f96b333b073456b3e7e58ace1b7d1e87d5dcee6de37ab5311ab1ec934dd09241"
+    },
+    "run-1-candidate/Nonadditivity_UniversalFactorizationGram/timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt": {
+      "bytes": 892,
+      "sha256": "2b4aa853eb6fe98ff4f4c8ab28a2754ef533180668e45b1e92870158ed9879e0"
+    },
+    "run-2-baseline/Nonadditivity_UniversalFactorizationGram/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-1-candidate/Nonadditivity_UniversalFactorizationGram/wrapper-config.json": {
+      "bytes": 125538,
+      "sha256": "b7af9723be35953a32fc05324a9fcf94b502b1bdf168170ee3ae7b54d445f66b"
+    },
+    "run-2-baseline/Nonadditivity_UniversalFactorizationGram/driver.log": {
+      "bytes": 3800,
+      "sha256": "6254682443b25e58b8be51b38ed6672a54b1880cbfbe90f8d0462e8ab7f54b10"
+    },
+    "run-2-baseline/Nonadditivity_UniversalFactorizationGram/logs/profile-Nonadditivity_UniversalFactorizationGram.log": {
+      "bytes": 3800,
+      "sha256": "6254682443b25e58b8be51b38ed6672a54b1880cbfbe90f8d0462e8ab7f54b10"
+    },
+    "run-2-baseline/Nonadditivity_UniversalFactorizationGram/measurements.jsonl": {
+      "bytes": 24857,
+      "sha256": "264c2845ff33bb8d9ccd174f42c5be169470ea412af14c7d100e935fd444e479"
+    },
+    "run-2-baseline/Nonadditivity_UniversalFactorizationGram/result.json": {
+      "bytes": 32822,
+      "sha256": "d7dcea98fa2d348f8cb2c9b050946aa8bd1432418e64994b8abd0de14ed86b85"
+    },
+    "run-2-baseline/Nonadditivity_UniversalFactorizationGram/timed-compiler": {
+      "bytes": 421,
+      "sha256": "b567f0ec2607641ffe5f92538bdc8947428079b86f1addc86534fa9ac45b07ed"
+    },
+    "run-2-baseline/Nonadditivity_UniversalFactorizationGram/timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt": {
+      "bytes": 853,
+      "sha256": "2b333f5d228f6171839b02ccd5a83bd98f5bf6e123db16c0183a92496fbb6f74"
+    },
+    "run-2-baseline/Nonadditivity_UniversalFactorizationGram/wrapper-config.json": {
+      "bytes": 125537,
+      "sha256": "c7f4cb47705a4b3d2e2ae1ead446926d4772750e0a93dce1a43723807dac0e86"
+    },
+    "run-2-candidate/Nonadditivity_UniversalFactorizationGram/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-2-candidate/Nonadditivity_UniversalFactorizationGram/driver.log": {
+      "bytes": 5090,
+      "sha256": "c1c4642e31f1de88343551507b4fa0d7277eed4888dc23c8c3a6bb3c0e05d9c2"
+    },
+    "run-2-candidate/Nonadditivity_UniversalFactorizationGram/logs/profile-Nonadditivity_UniversalFactorizationGram.log": {
+      "bytes": 5090,
+      "sha256": "c1c4642e31f1de88343551507b4fa0d7277eed4888dc23c8c3a6bb3c0e05d9c2"
+    },
+    "run-2-candidate/Nonadditivity_UniversalFactorizationGram/measurements.jsonl": {
+      "bytes": 29881,
+      "sha256": "24c23000b7e9fa2c84957ec1a4f14b85b66f374c3f1960362c78426851fd6133"
+    },
+    "run-2-candidate/Nonadditivity_UniversalFactorizationGram/result.json": {
+      "bytes": 39593,
+      "sha256": "567e09901bcfe5689e65b8c949c7b0112561946eb66b7a1ebefce245438f2666"
+    },
+    "run-2-candidate/Nonadditivity_UniversalFactorizationGram/timed-compiler": {
+      "bytes": 422,
+      "sha256": "4a930aaac14f98e9690e0b1093999c64cc5ecd8539e356244465dea949cd2c57"
+    },
+    "run-2-candidate/Nonadditivity_UniversalFactorizationGram/timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt": {
+      "bytes": 892,
+      "sha256": "c1b605fcb56a6dbde531ab3ca20a939c787bc0b4a4b60108767b97641d1b27cd"
+    },
+    "run-2-candidate/Nonadditivity_UniversalFactorizationGram/wrapper-config.json": {
+      "bytes": 125538,
+      "sha256": "1bdf5352797fb1c83da98b9689b96f985d37331588b93ee30d4a15a5660a8d34"
+    },
+    "run-3-baseline/Nonadditivity_UniversalFactorizationGram/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-3-baseline/Nonadditivity_UniversalFactorizationGram/driver.log": {
+      "bytes": 3852,
+      "sha256": "3da3b06a965cb17319801111c3552e0ca65b09df57e519539288ca68108c1297"
+    },
+    "run-3-baseline/Nonadditivity_UniversalFactorizationGram/logs/profile-Nonadditivity_UniversalFactorizationGram.log": {
+      "bytes": 3852,
+      "sha256": "3da3b06a965cb17319801111c3552e0ca65b09df57e519539288ca68108c1297"
+    },
+    "run-3-baseline/Nonadditivity_UniversalFactorizationGram/measurements.jsonl": {
+      "bytes": 25397,
+      "sha256": "a8096adf2bca9e956d43bf29b13304dec9e71daa32ee5d9ece31361ae72e8fc6"
+    },
+    "run-3-baseline/Nonadditivity_UniversalFactorizationGram/result.json": {
+      "bytes": 33686,
+      "sha256": "ac171e0f61e4418afd914eeee8ebd20c93e20084b735d91c835abebb13238a28"
+    },
+    "run-3-baseline/Nonadditivity_UniversalFactorizationGram/timed-compiler": {
+      "bytes": 421,
+      "sha256": "5375ff75d05e4e75ed158f0a73a4a3c6d2a3a21f25becbe28253a4d66794a691"
+    },
+    "run-3-baseline/Nonadditivity_UniversalFactorizationGram/timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt": {
+      "bytes": 853,
+      "sha256": "d2cb4be05f6a1e3457f1401529fc57373e74aa98a8519e1e4596c805305db4b2"
+    },
+    "run-3-baseline/Nonadditivity_UniversalFactorizationGram/wrapper-config.json": {
+      "bytes": 125537,
+      "sha256": "51f034744af46cd6158c7e11c2fc5fd82cae05980ed83315cac2f316a7446ea2"
+    },
+    "run-3-candidate/Nonadditivity_UniversalFactorizationGram/artifact-state.json": {
+      "bytes": 55831,
+      "sha256": "4075deaa0ecddd7bd2f53556a8b53f83f7fafadba9c48f0407ae2240e32cd709"
+    },
+    "run-3-candidate/Nonadditivity_UniversalFactorizationGram/driver.log": {
+      "bytes": 5160,
+      "sha256": "b834637d527b70e6570059939b3e705db6dc898ccd7b67100149895a92b9923a"
+    },
+    "run-3-candidate/Nonadditivity_UniversalFactorizationGram/logs/profile-Nonadditivity_UniversalFactorizationGram.log": {
+      "bytes": 5160,
+      "sha256": "b834637d527b70e6570059939b3e705db6dc898ccd7b67100149895a92b9923a"
+    },
+    "run-3-candidate/Nonadditivity_UniversalFactorizationGram/measurements.jsonl": {
+      "bytes": 30308,
+      "sha256": "4d70108617a6472738c1ea27bcb428d97de17cae9a84e8f14786f873bdc57cf6"
+    },
+    "run-3-candidate/Nonadditivity_UniversalFactorizationGram/result.json": {
+      "bytes": 40128,
+      "sha256": "90cc348fd5f675aa73b68f0191c8bc8e176d18ac965eee926d9aa9f9ae55dadc"
+    },
+    "run-3-candidate/Nonadditivity_UniversalFactorizationGram/timed-compiler": {
+      "bytes": 422,
+      "sha256": "192d0a839d9d8526d8e706aabbdc4dcae282135c2e5db36ac6ce63b3b0d608cd"
+    },
+    "run-3-candidate/Nonadditivity_UniversalFactorizationGram/timings/profile-Nonadditivity_UniversalFactorizationGram.time.txt": {
+      "bytes": 892,
+      "sha256": "280ce39ffc7c603481ad44f8f8c9d7a8541348d14332dc5ae5ccb836f29ebe76"
+    },
+    "run-3-candidate/Nonadditivity_UniversalFactorizationGram/wrapper-config.json": {
+      "bytes": 125538,
+      "sha256": "f7e9ae1538ad3b6860a54ba6326e8d65a57fa7ef44e7a8aa0fb597e13d758a9e"
+    }
+  }
+}

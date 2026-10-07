@@ -1,0 +1,6 @@
+Nonadditivity/HaarPathNormalizedTreeColors.lean:43:48: warning: unused variable `hab`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Nonadditivity/HaarPathNormalizedTreeColors.lean:43:62: warning: unused variable `hbm`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
