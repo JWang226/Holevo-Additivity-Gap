@@ -574,5 +574,68 @@ class DeltaAuditControls(unittest.TestCase):
                 self.reject(message)
 
 
+
+class RootAxiomParserControls(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        recorder = CHECKER.parent / "statement-audit-20261007/record_checks.py"
+        cls.recorder = {"__file__": str(recorder), "__name__": "statement_recorder_controls"}
+        exec(compile(recorder.read_bytes(), str(recorder), "exec"), cls.recorder)
+        cls.roots = {"Synthetic.root" + str(index): "synthetic config" for index in range(6)}
+
+    def parse(self, text):
+        return self.recorder["parse_root_axioms"](text, self.roots)
+
+    def log(self, tokens="propext,\n Classical.choice.{u},\n Quot.sound.{u}"):
+        return "\n".join("'" + name + "' depends on axioms: [" + tokens + "]"
+                         for name in self.roots) + "\n"
+
+    def test_actual_universe_printing_canonicalizes_all_six_closures(self):
+        for tokens in ("propext,\n Classical.choice.{u},\n Quot.sound.{u}",
+                       "propext, Classical.choice, Quot.sound",
+                       "propext, Classical.choice.{u_1}, Quot.sound.{v'}"):
+            with self.subTest(tokens=tokens):
+                self.assertEqual(self.parse(self.log(tokens)),
+                                 {name: sorted(check.AXIOMS) for name in self.roots})
+
+    def test_unknown_and_malformed_axiom_tokens_are_rejected(self):
+        for token in ("sorryAx", "Untrusted.choice.{u}", "Classical.choiceExtra.{u}",
+                      "Classical.choice.{}", "Classical.choice.{u, v}",
+                      "Classical.choice.{u + 1}", "Classical.choice.{0}",
+                      "Classical.choice.{u}.suffix", "Classical.choice.{u", "propext.{u}"):
+            with self.subTest(token=token):
+                with self.assertRaisesRegex(ValueError, "Unknown or malformed root axiom token"):
+                    self.parse(self.log("propext, " + token + ", Quot.sound.{u}"))
+        with self.assertRaisesRegex(ValueError, "Unknown or malformed root axiom token"):
+            self.parse(self.log("propext, Classical.choice.{u},, Quot.sound.{u}"))
+
+    def test_decorated_and_undecorated_duplicates_are_rejected(self):
+        for duplicate in ("Classical.choice", "Classical.choice.{v}"):
+            with self.subTest(duplicate=duplicate):
+                with self.assertRaisesRegex(ValueError, "Duplicate root axiom token"):
+                    self.parse(self.log("propext, Classical.choice.{u}, " + duplicate + ", Quot.sound.{u}"))
+
+    def test_root_coverage_and_exact_closure_are_preserved(self):
+        lines = self.log().split("'Synthetic.root")
+        # Remove an entire valid root record; roots themselves remain the configured six.
+        missing = "'Synthetic.root".join(lines[:-1])
+        with self.assertRaisesRegex(ValueError, "exactly the six permitted closures"):
+            self.parse(missing)
+        with self.assertRaisesRegex(ValueError, "exactly the six permitted closures"):
+            self.parse(self.log("propext, Classical.choice.{u}"))
+        with self.assertRaisesRegex(ValueError, "Wrong or duplicate root axiom record"):
+            self.parse(self.log().replace("Synthetic.root0", "Synthetic.unknown", 1))
+        with self.assertRaisesRegex(ValueError, "Wrong or duplicate root axiom record"):
+            self.parse(self.log() + "'Synthetic.root0' depends on axioms: [propext, Classical.choice, Quot.sound]\n")
+
+    def test_malformed_extra_axiom_record_is_not_silently_ignored(self):
+        for malformed in ("'Synthetic.extra' depends on axioms: [propext\n",
+                          "Synthetic.extra depends on axioms: [propext]\n",
+                          "'Synthetic.extra' depends on axioms: [propext] trailing text\n"):
+            with self.subTest(malformed=malformed):
+                with self.assertRaisesRegex(ValueError, "Malformed root axiom record"):
+                    self.parse(self.log() + malformed)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -43,6 +43,39 @@ def run(command: list[str], log: str) -> dict:
     return {"command": command, "exit_code": result.returncode, "log": log}
 
 
+
+def parse_root_axioms(text: str, roots: dict) -> dict[str, list[str]]:
+    """Read complete closures, accepting Lean's printed single universe parameter.
+
+    Only the two universe-polymorphic permitted axioms may carry a suffix.
+    Strip it after full-token validation, and reject duplicate canonical names.
+    """
+    require = namespace["require"]
+    pattern = re.compile(r"^'([^'\n]+)' depends on axioms:\s*\[([^\]]*)\][ \t]*(?=\n|\Z)", re.MULTILINE)
+    records = list(pattern.finditer(text))
+    require(text.count("depends on axioms:") == len(records), "Malformed root axiom record")
+    axioms = {}
+    for record in records:
+        name, values = record.groups()
+        require(name in roots and name not in axioms, "Wrong or duplicate root axiom record")
+        canonical = []
+        for value in values.split(","):
+            token = value.strip()
+            match = re.fullmatch(
+                r"(propext|Classical\.choice|Quot\.sound)(?:\.\{([A-Za-z_][A-Za-z_0-9']*)\})?",
+                token)
+            require(match is not None and not (match.group(1) == "propext" and match.group(2)),
+                    "Unknown or malformed root axiom token: " + token)
+            axiom = match.group(1)
+            require(axiom not in canonical, "Duplicate root axiom token: " + axiom)
+            canonical.append(axiom)
+        axioms[name] = sorted(canonical)
+    require(set(axioms) == set(roots)
+            and all(set(values) == namespace["AXIOMS"] for values in axioms.values()),
+            "The root axiom probe did not record exactly the six permitted closures")
+    return axioms
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-commit", required=True,
@@ -101,12 +134,7 @@ def main() -> int:
         commands.append(run(["./lean.sh", OUT + "/Roots.lean"], OUT + "/roots.log"))
         text = (ROOT / OUT / "roots.log").read_text(encoding="utf-8")
         roots = namespace["current_targets"](ROOT)
-        axioms = {}
-        for name, values in re.findall(r"'([^']+)' depends on axioms:\s*\[([^\]]*)\]", text):
-            require(name in roots and name not in axioms, "Wrong or duplicate root axiom record")
-            axioms[name] = sorted(value.strip() for value in values.split(",") if value.strip())
-        require(set(axioms) == set(roots) and all(set(values) == namespace["AXIOMS"] for values in axioms.values()),
-                "The root axiom probe did not record exactly the six permitted closures")
+        axioms = parse_root_axioms(text, roots)
         require(not re.search(r"\berror:|\bsorryAx\b|declaration uses 'sorry'", text), "Root probe contains an error or hole")
         require(all(digest(name) == sha for name, sha in inputs.items()), "Statement-check inputs changed during execution")
         require(digest(namespace["AUDIT_PATH"]) == parent_sha, "Historical statement audit changed")
