@@ -1,11 +1,7 @@
 {
   "schema_version": 1,
-  "sequence": 3,
-  "mode": "profile",
+  "sequence": 4,
+  "mode": "final",
   "baseline_sha": "743cc95bc4c0b1bca891994def26d9e5f8c7aad6",
-  "candidate_sha": "e91f6a11ff41d523d0af96b81844a02a74f74ec7",
-  "modules": [
-    "Nonadditivity.UniversalFactorizationGram"
-  ],
-  "repetitions": 3
+  "after_sha": "e943a85f0234a573477a10871f60a2d9583fa47b"
 }
