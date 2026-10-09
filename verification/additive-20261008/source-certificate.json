@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "status": "passed",
+  "scope": "recorded_rebuild_and_public_types_with_additive_challenge_configuration",
+  "base_certificate": {
+    "path": "verification/elaboration-20261006/source-certificate.json",
+    "sha256": "d482d30565ea575adc84a777705f129ae8f08b4600a006cf843065bd943cce6a"
+  },
+  "historical_lakefile": {
+    "path": "verification/additive-20261008/base-lakefile.toml",
+    "sha256": "6199431f211399fe13fbec0233844e625156954d0e46c207acad72cfc8148c25"
+  },
+  "current_lakefile_sha256": "13e9607de092b21663e2a56313d80dda18b1c0dd363f402009ffbfe8444d7031",
+  "additional_challenge_sha256": {
+    "ComparatorChallenges/F_TwoUseSeparation.json": "48e27089aaa01b8141fd347e6abe4bef88961758c725908f2f5bc269fffad3f3",
+    "ComparatorChallenges/F_TwoUseSeparation.lean": "9a4369eb481f119184154652a2ae059eac7c75d2862d0d005f844f5e312c8572"
+  },
+  "additional_root": {
+    "name": "Nonadditivity.DeterministicConsequences.actual_small_large",
+    "kind": "theorem",
+    "module": "Nonadditivity.DeterministicConsequences",
+    "file": "Nonadditivity/DeterministicConsequences.lean",
+    "type_sha256": "9b1e8331cc1ad78d0a4faa2b9978dcf0ac0c0a74d2d91a7e022a16bac876ae2e"
+  },
+  "permitted_transitive_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "new_source_rebuild": "not_run",
+  "additional_expected_statement_check": "not_run",
+  "external_comparator_execution": "not_run",
+  "independent_kernel_execution": "not_run",
+  "notes": [
+    "The immutable predecessor records the full Linux rebuild, transitive axiom audit and exact comparison of all 5,323 public declaration types. All 369 production proof files are unchanged.",
+    "The historical Lake configuration is copied byte-for-byte from the predecessor source commit and checked against the measured driver and export bindings. The current parsed Lake configuration differs only by appending the isolated F challenge root.",
+    "The additional root actual_small_large was already a public theorem in the unchanged declaration export. Its expected statement and separate kernel execution are not certified by this configuration extension.",
+    "No new compiler, Comparator, Nanoda or manuscript-correspondence execution is claimed here. Subsequent fresh verification must check all six configurations and seven roots; the predecessor reports retain their original bindings."
+  ]
+}

@@ -15,6 +15,7 @@ import json
 from pathlib import Path, PurePosixPath
 import re
 import sys
+import tarfile
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT_PATH = "verification/statement-audit.json"
@@ -22,6 +23,9 @@ CURRENT_AUDIT_PATH = "verification/statement-audit-current.json"
 CONFIGS = tuple("ComparatorChallenges/" + stem + ".json" for stem in (
     "A_PrescribedDimensions", "B_OperationalCoding", "C_SmallInformationSeparation",
     "D_WeylAllUses", "E_InputCost"))
+ADDED_CONFIG = "ComparatorChallenges/F_TwoUseSeparation.json"
+ADDED_TARGET = "Nonadditivity.DeterministicConsequences.actual_small_large"
+CURRENT_CONFIGS = CONFIGS + (ADDED_CONFIG,)
 AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 VERDICTS = {"consistent", "qualified", "mismatch", "unresolved"}
 SCOPE = "incremental_exact_type_application_and_axiom_checks"
@@ -30,6 +34,12 @@ FIXED_SOURCES = {
     "metadata/declarations.json", "metadata/results.json", "lean-toolchain",
     "lake-manifest.json", "scripts/check_challenges.py", "lean.sh", "scripts/compiler.py",
     *CONFIGS, *(str(PurePosixPath(name).with_suffix(".lean")) for name in CONFIGS),
+}
+REVISION_SOURCES = {
+    ADDED_CONFIG, str(PurePosixPath(ADDED_CONFIG).with_suffix(".lean")),
+    "paper/arxiv-v2.json", "verification/manuscript-v2-20261008/source.tar.gz",
+    "lakefile.toml", "formalization.yaml", "verification/check_statement_audit.py",
+    "verification/kernel_common.py", "scripts/source_certificate.py",
 }
 
 
@@ -249,7 +259,7 @@ def check_delta(root: Path, audit: dict, sources: dict, reports: dict) -> None:
                 "Delta root type changed")
 
 
-def required_sources(root: Path = ROOT) -> set[str]:
+def required_sources(root: Path = ROOT, *, revision: bool = False) -> set[str]:
     """Discover proof sources afresh so adding a proof file invalidates coverage."""
     root = root.resolve()
     proof_root = root / "Nonadditivity"
@@ -265,15 +275,16 @@ def required_sources(root: Path = ROOT) -> set[str]:
                     "Proof-source directory symlink is not supported: " + path.relative_to(root).as_posix())
     sources = {path.relative_to(root).as_posix() for path in proof_root.rglob("*.lean")}
     require(bool(sources), "No Nonadditivity proof sources found")
-    return FIXED_SOURCES | sources
+    return FIXED_SOURCES | sources | (REVISION_SOURCES if revision else set())
 
 
-def current_targets(root: Path) -> dict[str, str]:
-    configs = {path.relative_to(root).as_posix()
-               for path in (root / "ComparatorChallenges").glob("*.json")}
-    require(configs == set(CONFIGS), "Expected the five current Comparator configurations")
+def current_targets(root: Path, configs: tuple = CONFIGS) -> dict[str, str]:
+    expected = set(configs)
+    found_configs = {path.relative_to(root).as_posix()
+                     for path in (root / "ComparatorChallenges").glob("*.json")}
+    require(found_configs == expected, "Unexpected Comparator configuration inventory")
     targets = {}
-    for filename in CONFIGS:
+    for filename in configs:
         config = read_json(root, filename)
         names = string_list(config.get("theorem_names"), filename + " theorem_names")
         require(config.get("challenge_module") == PurePosixPath(filename).with_suffix("").as_posix().replace("/", "."),
@@ -284,7 +295,7 @@ def current_targets(root: Path) -> dict[str, str]:
         for name in names:
             require(name not in targets, "Duplicate configured theorem: " + name)
             targets[name] = filename
-    require(len(targets) == 6, "Expected exactly six configured theorem targets")
+    require(len(targets) == len(configs) + 1, "Unexpected configured theorem target count")
     return targets
 
 
@@ -329,14 +340,139 @@ def check_mechanical(root: Path, audit: dict, sources: dict, targets: dict) -> N
         require(command["log"] in logs, "Mechanical command log is not hash-bound")
 
 
+def check_revision(root: Path, audit: dict, sources: dict, reports: dict) -> None:
+    """Check a new manuscript review and additive root without restamping history.
+
+    Semantic findings are recorded AI review, not a consequence of these hashes.
+    The production proof sources and existing expected statements must stay exact.
+    """
+    parent_path, parent = bound_reference(root, audit.get("parent_audit"), "historical statement audit")
+    require(parent_path == "verification/statement-audit-delta-20261007.json"
+            and parent.get("schema_version") == 2
+            and parent.get("review_kind") == "incremental_ai_source_semantics_review"
+            and parent.get("machine_equivalence_certified") is False,
+            "Unexpected manuscript revision parent")
+    ancestors = set()
+    record, path = parent, parent_path
+    while True:
+        require(path not in ancestors, "Cyclic historical review chain")
+        ancestors.add(path)
+        old_reports = hash_bindings(root, record.get("report_bindings"), "historical report bindings")
+        require(all(reports.get(name) == sha for name, sha in old_reports.items()),
+                "Revision review omitted a historical report binding")
+        _, old_evidence = bound_reference(root, record.get("mechanical_evidence"), "historical mechanical evidence")
+        hash_bindings(root, old_evidence.get("logs"), "historical mechanical logs")
+        if record.get("schema_version") == 1:
+            require(path == AUDIT_PATH and record.get("machine_equivalence_certified") is False,
+                    "Unexpected original historical review")
+            break
+        require(record.get("schema_version") == 2, "Unexpected historical review schema")
+        path, record = bound_reference(root, record.get("parent_audit"), "historical statement audit")
+
+    old_sources = parent.get("source_bindings")
+    require(isinstance(old_sources, dict)
+            and set(sources) == set(old_sources) | REVISION_SOURCES,
+            "Revision source-binding inventory differs")
+    require(audit.get("meaning_carrying_definition_changes") == [],
+            "This revision does not admit meaning-carrying definition changes")
+    mutable = {"paper/nonadditivity.tex", "metadata/results.json", "scripts/check_challenges.py"}
+    for name, sha in old_sources.items():
+        if name not in mutable:
+            require(sources[name] == sha, "Revision changed an existing proof or statement input: " + name)
+    changed = {name for name in sources if sources[name] != old_sources.get(name)}
+    changes = audit.get("changed_sources")
+    require(isinstance(changes, list) and bool(changes), "Missing reviewed revision delta")
+    found = set()
+    for item in changes:
+        require(isinstance(item, dict), "Invalid reviewed revision change")
+        name = item.get("path")
+        require(name in changed and name not in found, "Wrong or duplicate reviewed revision change")
+        found.add(name)
+        require(item.get("before_sha256") == old_sources.get(name)
+                and item.get("after_sha256") == sources[name], "Incorrect revision delta hashes")
+        require(isinstance(item.get("review"), str) and bool(item["review"].strip()),
+                "Missing revision change explanation")
+    require(found == changed, "Reviewed revision delta is incomplete")
+
+    provenance = read_json(root, "paper/arxiv-v2.json")
+    require(provenance.get("arxiv_id") == "2609.18222" and provenance.get("version") == "v2"
+            and provenance.get("source_url") == "https://arxiv.org/src/2609.18222v2"
+            and provenance.get("exact_upstream_bytes") is True
+            and provenance.get("archive_member") == "nonadditivity.tex"
+            and provenance.get("repository_file") == "paper/nonadditivity.tex"
+            and provenance.get("sha256") == sources["paper/nonadditivity.tex"],
+            "Unexpected arXiv v2 source provenance")
+    archive = provenance.get("source_archive")
+    require(isinstance(archive, dict)
+            and archive.get("path") == "verification/manuscript-v2-20261008/source.tar.gz"
+            and archive.get("sha256") == sources[archive["path"]],
+            "Unexpected bound arXiv source archive")
+    with tarfile.open(local_file(root, archive["path"]), "r:gz") as package:
+        members = [item for item in package.getmembers() if item.name == "nonadditivity.tex"]
+        require(len(members) == 1 and members[0].isfile(), "Missing or ambiguous arXiv manuscript member")
+        require(package.extractfile(members[0]).read() == local_file(root, "paper/nonadditivity.tex").read_bytes(),
+                "Repository manuscript differs from the exact arXiv v2 source")
+
+    review_path, review = bound_reference(root, audit.get("source_delta_review"), "source delta review")
+    require(reports.get(review_path) == audit["source_delta_review"]["sha256"]
+            and review.get("review_kind") == "arxiv_v2_and_additive_root_source_review"
+            and review.get("machine_equivalence_certified") is False,
+            "Unexpected manuscript revision review scope")
+    semantic_report = review.get("semantic_report")
+    require(semantic_report in reports and all(entry.get("report") == semantic_report for entry in audit["entries"]),
+            "Revision entries do not point to the bound semantic report")
+    require(review.get("changed_proof_sources") == [], "Revision review has changed production proofs")
+    require(review.get("changed_sources") == changes, "Revision review does not bind the complete reviewed delta")
+    patch = review.get("patch")
+    require(isinstance(patch, dict) and reports.get(patch.get("path")) == patch.get("sha256"),
+            "Revision source patch is not report-bound")
+
+    _, certificate = bound_reference(root, audit.get("source_certificate"), "additive source certificate")
+    require(certificate.get("schema_version") == 2 and certificate.get("status") == "passed",
+            "Expected an additive source certificate")
+    sys.path.insert(0, str(root / "scripts"))
+    from source_certificate import load_source_certificate
+    proof_names = {name for name in sources if name.endswith(".lean") and
+                   (name.startswith("Nonadditivity/") or name in {"Nonadditivity.lean", "All.lean", "Audit.lean"})}
+    load_source_certificate(root, audit["source_certificate"]["path"], proof_names)
+    parent_entries = {entry["declaration"]: entry for entry in parent["entries"]}
+    require(len(parent_entries) == 6, "Incomplete historical root coverage")
+    corrected = audit.get("correspondence_corrections")
+    correction_name = "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio"
+    require(isinstance(corrected, dict) and set(corrected) == {correction_name},
+            "Expected the explicit root C coverage correction")
+    for entry in audit["entries"]:
+        name = entry["declaration"]
+        if name == ADDED_TARGET:
+            require(entry["config"] == ADDED_CONFIG and entry["verdict"] == "qualified"
+                    and entry["result_ids"] == ["small-large-and-sequence"], "Unexpected additive root review")
+            continue
+        old = parent_entries.get(name)
+        require(isinstance(old, dict), "Revision has an unreviewed added target")
+        for field in ("id", "declaration", "config", "result_ids", "type_sha256", "verdict"):
+            require(entry.get(field) == old.get(field), "Revision changed historical root " + field)
+        require(entry.get("historical_report") == old["report"], "Wrong revision historical report")
+        if name != correction_name:
+            require(entry.get("qualifications") == old.get("qualifications")
+                    and entry.get("source_labels") == old.get("source_labels"),
+                    "Revision changed an unreviewed historical qualification")
+        else:
+            correction = corrected[name]
+            require(correction.get("historical_qualifications") == old.get("qualifications")
+                    and correction.get("current_qualifications") == entry.get("qualifications")
+                    and isinstance(correction.get("reason"), str) and bool(correction["reason"].strip()),
+                    "Incomplete root C correspondence correction")
+
+
 def load_audit(root: Path = ROOT, audit_path: str | None = None) -> dict:
     """Return a fresh audit record, preserving its human/AI semantic verdicts."""
     root = root.resolve()
     audit = read_json(root, selected_audit_path(root, audit_path))
     schema = audit.get("schema_version")
-    require(type(schema) is int and schema in {1, 2},
+    require(type(schema) is int and schema in {1, 2, 3},
             "Unsupported statement-audit schema")
-    expected_kind = "independent_ai_source_semantics_review" if schema == 1 else "incremental_ai_source_semantics_review"
+    expected_kind = {1: "independent_ai_source_semantics_review", 2: "incremental_ai_source_semantics_review",
+                     3: "manuscript_revision_and_additive_root_ai_review"}[schema]
     require(audit.get("review_kind") == expected_kind,
             "Unexpected statement-review kind")
     require(audit.get("machine_equivalence_certified") is False,
@@ -345,10 +481,10 @@ def load_audit(root: Path = ROOT, audit_path: str | None = None) -> dict:
     require(isinstance(commit, str) and re.fullmatch(r"[0-9a-f]{40}", commit) is not None,
             "Invalid reviewed source commit")
     sources = hash_bindings(root, audit.get("source_bindings"), "source bindings")
-    missing = required_sources(root) - sources.keys()
+    missing = required_sources(root, revision=schema == 3) - sources.keys()
     require(not missing, "Unbound current source files: " + ", ".join(sorted(missing)))
     reports = hash_bindings(root, audit.get("report_bindings"), "report bindings")
-    targets = current_targets(root)
+    targets = current_targets(root, CURRENT_CONFIGS if schema == 3 else CONFIGS)
 
     declarations = read_json(root, "metadata/declarations.json").get("declarations")
     require(isinstance(declarations, list), "Missing declaration metadata")
@@ -371,7 +507,7 @@ def load_audit(root: Path = ROOT, audit_path: str | None = None) -> dict:
     labels = set(re.findall(r"\\label\s*\{([^{}]+)\}", paper))
 
     entries = audit.get("entries")
-    require(isinstance(entries, list) and len(entries) == 6, "Expected six statement-audit entries")
+    require(isinstance(entries, list) and len(entries) == len(targets), "Unexpected statement-audit entry count")
     entry_ids, seen = set(), set()
     for entry in entries:
         require(isinstance(entry, dict), "Invalid statement-audit entry")
@@ -386,6 +522,8 @@ def load_audit(root: Path = ROOT, audit_path: str | None = None) -> dict:
         declaration = by_name.get(name)
         require(isinstance(declaration, dict) and declaration.get("kind") == "theorem",
                 "Audit target is not an exported theorem: " + name)
+        if schema == 3:
+            require(entry.get("type_sha256") == declaration.get("type_sha256"), "Revision root type differs: " + name)
         require(entry.get("config") == targets[name], "Audit target/config mismatch: " + name)
         report = entry.get("report")
         local_file(root, report)
@@ -421,6 +559,8 @@ def load_audit(root: Path = ROOT, audit_path: str | None = None) -> dict:
     require(seen == set(targets), "Audit does not cover the configured theorem targets")
     if schema == 2:
         check_delta(root, audit, sources, reports)
+    elif schema == 3:
+        check_revision(root, audit, sources, reports)
     check_mechanical(root, audit, sources, targets)
     return audit
 
@@ -436,8 +576,9 @@ def main() -> int:
         return 1
     counts = {verdict: sum(entry["verdict"] == verdict for entry in audit["entries"])
               for verdict in sorted(VERDICTS)}
-    mode = "cleanup delta continuation" if audit["schema_version"] == 2 else "historical review"
-    print("STATEMENT AUDIT RECORDS FRESH (" + mode + "): five configurations, six targets; "
+    mode = {1: "historical review", 2: "cleanup delta continuation", 3: "arXiv v2 and additive root review"}[audit["schema_version"]]
+    config_count = len({entry["config"] for entry in audit["entries"]})
+    print(f"STATEMENT AUDIT RECORDS FRESH ({mode}): {config_count} configurations, {len(audit['entries'])} targets; "
           + ", ".join(f"{count} {verdict}" for verdict, count in counts.items())
           + ". Recorded reviews, not machine-certified semantic equivalence.")
     return 0

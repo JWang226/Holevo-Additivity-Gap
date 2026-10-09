@@ -650,6 +650,17 @@ class CaptureRecoveryControls(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(prefix="capture-recovery-controls-")
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve()
+        # The frozen recovery protocol covers the historical five configurations.
+        # Exercise it on that explicit inventory, not the expanded live checkout.
+        production = CHECKER.parent.parent
+        for name in ["scripts/check_challenges.py", "Nonadditivity/PrescribedCostScaling.lean", *check.CONFIGS,
+                     *(str(Path(name).with_suffix(".lean")) for name in check.CONFIGS)]:
+            destination = self.root / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes((production / name).read_bytes())
+        previous_root = self.recovery["ROOT"]
+        self.recovery["ROOT"] = self.root
+        self.addCleanup(self.recovery.__setitem__, "ROOT", previous_root)
 
     def archive(self, names=("verification/probe.log",)):
         path = self.root / "evidence.zip"

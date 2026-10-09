@@ -66,6 +66,23 @@ def axiom_policy(value):
             and all(isinstance(item, str) for item in value) and set(value) == common.AXIOMS)
 
 
+def configured_targets():
+    """Read the current exact inventory; historical counts are not substitutes."""
+    require(len(common.DEFAULT_CONFIGS) == len(set(common.DEFAULT_CONFIGS)),
+            "Duplicate current portable configuration")
+    expected, seen = {}, set()
+    for name in common.DEFAULT_CONFIGS:
+        names = read_json(name).get("theorem_names")
+        require(isinstance(names, list) and bool(names)
+                and all(isinstance(target, str) and bool(target) for target in names),
+                "Invalid current portable theorem targets: " + name)
+        require(len(names) == len(set(names)) and not seen.intersection(names),
+                "Duplicate current portable theorem target: " + name)
+        expected[name] = names
+        seen.update(names)
+    return expected
+
+
 
 def portable_directory():
     """Select the explicit published evidence; never infer freshness from a date."""
@@ -86,13 +103,30 @@ def portable_directory():
     return directory
 
 
+def check_certificate_invocation(run, validation):
+    """Require the invoked source gate to be the explicitly selected gate."""
+    metadata = read_json("metadata/results.json")
+    current = metadata.get("verification_current", {})
+    require(isinstance(current, dict), "Invalid current source-certificate selection")
+    selected = current.get("source_certificate")
+    require(run.get("source_certificate") == selected,
+            "Portable invocation used a different source certificate")
+    if selected is not None:
+        sha = common.digest(local_file(selected))
+        integrity = validation.get("source_integrity")
+        require(isinstance(integrity, dict) and integrity.get("path") == selected
+                and integrity.get("sha256") == sha,
+                "Portable release validation used a different or stale source certificate")
+
+
 def load_records():
     directory = portable_directory()
     bindings = common.bindings()
     for hashes in bindings.values():
         for filename in hashes:
             local_file(filename)
-    expected = {name: read_json(name)["theorem_names"] for name in common.DEFAULT_CONFIGS}
+    expected = configured_targets()
+    theorem_count = sum(len(names) for names in expected.values())
     modes = {"comparator": "unsandboxed_comparator_lean_replay",
              "nanoda": "unsandboxed_independent_kernel"}
     records = {}
@@ -140,8 +174,8 @@ def load_records():
             or summary.get("mapped_declarations_checked") != 49
             or not axiom_policy(summary.get("permitted_axioms"))
             or summary.get("upstream_sandboxed_comparator") != "not_run"
-            or summary["challenge_configurations"] != 5
-            or summary["theorem_roots"] != 6):
+            or summary["challenge_configurations"] != len(expected)
+            or summary["theorem_roots"] != theorem_count):
         raise ValueError("Unexpected portable full-run summary")
     evidence = summary.get("evidence_sha256")
     require(isinstance(evidence, dict) and set(evidence) == EVIDENCE_FILES,
@@ -156,6 +190,7 @@ def load_records():
             and run.get("nanoda_binary_source") == "build_from_recorded_pin"
             and run.get("supplied_nanoda_binary") is None,
             "Unexpected portable all-run invocation or binary provenance")
+    check_certificate_invocation(run, read_json(directory + "/release-validation.json"))
     control_log = local_file(directory + "/nanoda-controls.log").read_text(encoding="utf-8")
     control_start = control_log.rfind("\n{\n")
     control_text = control_log[control_start + 1:] if control_start >= 0 else control_log
@@ -170,4 +205,6 @@ def load_records():
 
 if __name__ == "__main__":
     load_records()
-    print("PORTABLE EVIDENCE FRESH: five configurations, six roots, Comparator/Lean replay and Nanoda.")
+    targets = configured_targets()
+    print(f"PORTABLE EVIDENCE FRESH: {len(targets)} configurations, "
+          f"{sum(len(names) for names in targets.values())} roots, Comparator/Lean replay and Nanoda.")

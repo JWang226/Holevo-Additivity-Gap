@@ -1,0 +1,140 @@
+--- repository manuscript
++++ ../reviews/arxiv-2609.18222v2/source/nonadditivity.tex
+@@ -222,18 +222,11 @@
+ reducing the polynomial to degree one using the algebraic lemmas
+ in Appendix~\ref{app:operators}. The base generators are
+ evaluated at independent Haar matrices; the resulting $K$ unitaries
+-within a factor may be dependent. Lemma~\ref{lem:haar} makes the
+-two-generator Bordenave--Collins estimate explicit. It follows the
+-pair-by-pair replacement in the proof of \cite[Lemma~9.3]{BC} and
+-retains the moment range of \cite[Theorem~5.1]{BC}. Two intermediate
+-counting bounds, in the proofs of \cite[Lemmas~5.3 and~5.9]{BC}, fail
+-on explicit paths: one counts important exploration times, and the
+-other counts blocks between first and last edge visits. We replace
+-them by corrected bounds and a weighted enumeration of path classes,
+-which recover the same $N^{-1/2}$ error.
++within a factor may be dependent. Appendix~\ref{app:finite-threshold}
++establishes the explicit two-generator Haar estimate
++(Lemma~\ref{lem:haar}) needed for the dimension bound.
+ This gives $N=\lceil e^{b_Kn}\rceil$ with $b_K=O(\ln K)$ and entropy
+-error $O(1/n)$ for the whole block; Appendix~\ref{app:finite-threshold}
+-proves the estimate and checks the parameter bounds.
++error $O(1/n)$ for the whole block.
+ For fixed $K$, the final channel requires $\Theta_K(n^2)$ input
+ qubits and $n\log_2K$ output qubits.
+ 
+@@ -480,6 +473,21 @@
+ bound for all required observables at $N=\lceil e^{b_Kn}\rceil$,
+ yielding the quadratic input-qubit cost in Theorem~\ref{thm:main}.
+ 
++\paragraph{Concurrent work.}
++Two works appeared shortly after ours. Shou and Gorshkov
++construct a violation of $\smin$ additivity and extend it to large
++gaps in v2 \cite{SG26}. Cheng and Wu give a deterministic version of
++Hastings's random mixed-unitary setup using qudit Clifford unitaries,
++a binary measurement, and classical feedforward \cite{CW26}. They also obtain the separation in
++Corollary~\ref{cor:separation}: the product-state rate tends to zero
++while the rate using entanglement within pairs grows without bound.
++Haagerup's inequality is central to our proof and to Shou and
++Gorshkov's. Cheng and Wu prove a finite-word analogue of the needed
++norm bound and connect it to their explicit unitaries through moment
++estimates. Both concurrent constructions are deterministic, while
++ours uses random matrices. In both, the input-qubit cost is
++exponential in the gap, whereas ours is quadratic.
++
+ \paragraph{Limitations and open questions.}
+ The scaling considered in \cite[Section~2, Eq.~(11)]{HP} requires both input and
+ output qubit counts to grow linearly with the
+@@ -502,7 +510,7 @@
+ revision of this manuscript. In particular, the model proposed the
+ method developed in Section~\ref{sec:approximation}. The author takes
+ responsibility for the mathematical claims, references, and final
+-presentation. The principal results are autoformalized by GPT-6 Astra in Lean. A full project-source build and axiom audit have passed. Comparator configurations are supplied for independent checking; execution remains pending. See the \href{https://github.com/JWang226/Holevo-Additivity-Gap}{Lean Certificate}.
++presentation. The results and proofs are autoformalized by GPT-6 Astra in Lean, and checked against Comparator. See the \href{https://github.com/JWang226/Holevo-Additivity-Gap}{Lean Certificate}.
+ 
+ \section{Qualitative realization of unbounded Holevo gaps}
+ \label{sec:entropy}
+@@ -1991,6 +1999,17 @@
+ \section{The random-matrix estimate and parameter bounds}
+ \label{app:finite-threshold}
+ 
++Lemma~\ref{lem:haar} makes the two-generator Bordenave--Collins
++estimate explicit. Its proof follows the pair-by-pair replacement
++in \cite[Lemma~9.3]{BC}, retaining the moment range of
++\cite[Theorem~5.1]{BC}. Two intermediate counting bounds in the
++proofs of \cite[Lemmas~5.3 and~5.9]{BC} fail on explicit paths:
++one counts important exploration times, and the other counts blocks
++between first and last edge visits. We replace them with corrected
++bounds and a weighted enumeration of path classes, recovering the
++same $N^{-1/2}$ error. The remaining subsections check the parameter
++bounds used in Section~\ref{sec:approximation}.
++
+ \subsection{The two-generator Haar estimate}
+ 
+ \begin{lemma}[Explicit two-generator Haar estimate]
+@@ -2016,11 +2035,7 @@
+ \begin{proof}
+ The upper bound in \cite[Lemma~9.3]{BC}, specialized to $d=2$,
+ has $(1+cN^{-1/2})^k$ for a universal numerical constant $c$.
+-We follow its strategy of replacing one pair of Haar matrices at a
+-time, retaining the larger moment range of \cite[Theorem~5.1]{BC}.
+-For the one-pair estimate we use the repaired counting estimates
+-established below in place of two counting steps in
+-\cite[Section~5.2]{BC}; they give $c=1$.
++The corrected one-pair estimate below gives $c=1$.
+ Only the self-adjoint, two-generator case is needed here.
+ 
+ \emph{The estimate for one pair.}
+@@ -2196,20 +2211,17 @@
+ that the step entering it for the first time and the step leaving it
+ immediately afterwards receive fixed labels; at $x_0$, the first step
+ receives a fixed label. The mark of an important step $s$ records the
+-labels of $x_s$ and of the vertex at which the subsequent run along
+-already discovered tree edges ends, the local labels of step $s$ at
+-$x_{s-1}$ and at $x_s$, and the local label, at its source, of the next
+-step after that run (a default label if the path ends there). There are at most $64t^2$ marks. The local labels need not come from
++labels of $x_s$ and of the vertex at which the subsequent run of tree
++steps ends, the local labels of step $s$ at $x_{s-1}$ and at $x_s$,
++and the local label, at its source, of the step ending that run (a
++default label if the path ends first). There are at most $64t^2$ marks. The local labels need not come from
+ one compatible recoloring of the path, so step $s$ is labeled at both
+ endpoints. Reading the steps in order recovers the vertex sequence
+ and all local labels, hence the coarse class, as in
+-\cite[proof of Lemma~5.3]{BC}. Before the first important step, every
+-step visits a new vertex and uses the fixed labels. Between consecutive
+-important steps, and after the last important step, the path first follows the unique non-backtracking route
+-in the already discovered tree toward the recorded endpoint, then visits
+-new vertices. The first departure of this latter run uses the recorded
+-local label; subsequent steps use the fixed labels. Thus a coarse class
+-is determined by the function
++\cite[proof of Lemma~5.3]{BC}. Each step that is not important either
++visits a new vertex through the fixed labels or continues along the
++unique non-backtracking path in the current tree toward the recorded
++endpoint. Thus a coarse class is determined by the function
+ $c:\{1,\dots,t\}\to\{\varnothing\}\cup\{\text{marks}\}$ that records the mark of each important step and assigns
+ $\varnothing$ to every other step.
+ 
+@@ -2657,6 +2669,11 @@
+ Documenta Mathematica \textbf{27} (2022), 1299--1320.
+ \href{https://doi.org/10.4171/DM/898}{doi:10.4171/DM/898}.
+ 
++\bibitem[CW26]{CW26}
++H.-C. Cheng and P. Wu,
++\emph{Explicit channels with unbounded gains in classical communication using entangled inputs},
++\href{https://arxiv.org/abs/2609.26743}{arXiv:2609.26743} (2026).
++
+ \bibitem[DL25]{DL}
+ H. Derksen and B. Lovitz,
+ \emph{Constructive counterexamples to the additivity of minimum output R\'enyi entropy of quantum channels for all $p>1$},
+@@ -2790,6 +2807,11 @@
+ Communications in Mathematical Physics \textbf{246} (2004), 453--472.
+ \href{https://arxiv.org/abs/quant-ph/0305035}{arXiv:quant-ph/0305035}.
+ 
++\bibitem[SG26]{SG26}
++L. Shou and A.~V. Gorshkov,
++\emph{A constructive violation of additivity of minimum output von Neumann entropy},
++\href{https://arxiv.org/abs/2609.23946}{arXiv:2609.23946} (2026).
++
+ \bibitem[SS24]{SS}
+ K. Szczygielski and M. Studzi\'nski,
+ \emph{New constructive counterexamples to additivity of minimum output R\'enyi $p$-entropy of quantum channels},

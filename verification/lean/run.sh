@@ -19,7 +19,7 @@ On Debian/Ubuntu, Python's venv support may require the python3-venv package.
 The default run installs the toolchain in lean-toolchain, downloads the pinned
 mathlib cache, and installs requirements-validation.txt in .verify-work/python-env.
 It rebuilds every project proof module, audits transitive axioms, validates the
-metadata/declaration mapping, and checks all five challenge modules locally.
+metadata/declaration mapping, and checks all six challenge modules locally.
 It never runs lake update. This is a Lean check; it does not run Comparator.
 --source-certificate optionally selects recorded current-source evidence for both
 release validations. Without it, strict historical baseline validation is retained.

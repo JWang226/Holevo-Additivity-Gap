@@ -6,7 +6,7 @@ import hashlib
 import json
 import os
 import re
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,7 +15,7 @@ DEPENDENCIES = {"lean4export": "048394e1afeeb52b0fa27bcf3f1ade2ff0f0ab6d",
                 "Lean4Checker": "b7398199245524275543dec6113229c9bb4902e5"}
 REPOSITORY = "https://github.com/leanprover/comparator.git"
 DEFAULT_CONFIGS = ["ComparatorChallenges/" + name + ".json" for name in (
-    "A_PrescribedDimensions", "B_OperationalCoding", "C_SmallInformationSeparation", "D_WeylAllUses", "E_InputCost")]
+    "A_PrescribedDimensions", "B_OperationalCoding", "C_SmallInformationSeparation", "D_WeylAllUses", "E_InputCost", "F_TwoUseSeparation")]
 AXIOMS = {"propext", "Quot.sound", "Classical.choice"}
 
 
@@ -35,6 +35,111 @@ def output(arguments, cwd=ROOT):
     return subprocess.check_output(list(map(str, arguments)), cwd=cwd, text=True).strip()
 
 
+def certificate_artifacts():
+    """Bind the selected source gate and its retained evidence, without executing it.
+
+    The release validator checks the certificate's semantics. Portable checker
+    snapshots also retain the exact bytes on which that gate depends, including
+    the historical Lake file used by the explicitly additive certificate.
+    """
+    files = {}
+
+    def local_file(name):
+        if (not isinstance(name, str) or not name or "\\" in name or ":" in name
+                or PurePosixPath(name).is_absolute()
+                or any(part in {"", ".", ".."} for part in name.split("/"))):
+            raise ValueError("Unsafe source-certificate artifact path: " + str(name))
+        path = ROOT / name
+        if not path.is_file() or not path.resolve().is_relative_to(ROOT.resolve()):
+            raise ValueError("Missing or escaping source-certificate artifact: " + name)
+        return path
+
+    def add(name, expected=None):
+        path = local_file(name)
+        actual = digest(path)
+        if expected is not None and (not isinstance(expected, str)
+                or not re.fullmatch(r"[0-9a-f]{64}", expected) or actual != expected):
+            raise ValueError("Stale or invalid source-certificate artifact hash: " + name)
+        if name in files and files[name] != actual:
+            raise ValueError("Source-certificate artifact changed during snapshot: " + name)
+        files[name] = actual
+        return path
+
+    def unique_object(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError("Duplicate source-certificate artifact JSON key: " + key)
+            result[key] = value
+        return result
+
+    def read(path):
+        value = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_object)
+        if not isinstance(value, dict):
+            raise ValueError("Expected source-certificate artifact JSON object: " + str(path))
+        return value
+
+    def reference(value, label):
+        if not isinstance(value, dict) or set(value) != {"path", "sha256"}:
+            raise ValueError("Invalid source-certificate " + label + " reference")
+        if not isinstance(value["sha256"], str) or not re.fullmatch(r"[0-9a-f]{64}", value["sha256"]):
+            raise ValueError("Invalid source-certificate " + label + " hash")
+        return add(value["path"], value["sha256"])
+
+    metadata = read(add("metadata/results.json"))
+    if "verification_current" not in metadata:
+        return files
+    current = metadata["verification_current"]
+    if not isinstance(current, dict):
+        raise ValueError("Invalid current source-certificate selection")
+    if "source_certificate" not in current:
+        return files
+    name = current["source_certificate"]
+    if not isinstance(name, str) or PurePosixPath(name).suffix != ".json":
+        raise ValueError("Invalid current source-certificate selection")
+    certificate_path = add(name)
+    certificate = read(certificate_path)
+    historical_lakefile = None
+    schema = certificate.get("schema_version")
+    if type(schema) is int and schema == 2:
+        historical_lakefile = reference(certificate.get("historical_lakefile"), "historical Lake file")
+        certificate_path = reference(certificate.get("base_certificate"), "base certificate")
+        certificate = read(certificate_path)
+        schema = certificate.get("schema_version")
+    if type(schema) is not int or schema != 1:
+        raise ValueError("Unsupported source-certificate artifact schema")
+
+    summary = read(reference(certificate.get("build_summary"), "build summary"))
+    reference(certificate.get("audit_log"), "audit log")
+    comparison = read(reference(certificate.get("public_type_comparison"), "public-type comparison"))
+    reference(comparison.get("checker"), "public-type checker")
+    if (not isinstance(comparison.get("after_export_sha256"), str)
+            or not re.fullmatch(r"[0-9a-f]{64}", comparison["after_export_sha256"])):
+        raise ValueError("Invalid source-certificate public-type export hash")
+    add(comparison.get("after_export_path"), comparison.get("after_export_sha256"))
+
+    # Proof and challenge sources already have their complete current inventories
+    # in bindings(). Include the measured driver inputs as gate dependencies too.
+    drivers = summary.get("source_hashes_before")
+    if not isinstance(drivers, dict) or not drivers:
+        raise ValueError("Missing source-certificate measured input bindings")
+    proofs = {p.relative_to(ROOT).as_posix() for p in (ROOT / "Nonadditivity").rglob("*.lean")}
+    proofs.update(("Nonadditivity.lean", "Audit.lean", "All.lean"))
+    for driver, expected in drivers.items():
+        if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected):
+            raise ValueError("Invalid source-certificate measured input hash: " + driver)
+        if driver in proofs:
+            continue
+        if driver == "lakefile.toml" and historical_lakefile is not None:
+            if digest(historical_lakefile) != expected:
+                raise ValueError("Historical Lake file differs from source-certificate measured inputs")
+        else:
+            add(driver, expected)
+    if any(digest(local_file(name)) != sha for name, sha in files.items()):
+        raise ValueError("Source-certificate artifacts changed during snapshot")
+    return files
+
+
 def bindings():
     sources = sorted((ROOT / "Nonadditivity").rglob("*.lean"))
     sources += [ROOT / name for name in ("Nonadditivity.lean", "Audit.lean", "All.lean")]
@@ -46,11 +151,14 @@ def bindings():
         "lakefile.toml", "verification/lean/run.sh", "verification/comparator/run.sh",
         "verification/nanoda/run.sh", "verification/check_reports.py", "build.sh", "check.sh", "lean.sh",
         "scripts/compiler.py", "scripts/validate_release.py", "scripts/check_declarations.py",
-        "scripts/check_challenges.py", "requirements-validation.txt")]
+        "scripts/check_challenges.py", "requirements-validation.txt", "scripts/source_certificate.py",
+        "paper/nonadditivity.tex", "paper/arxiv-v2.json", "verification/manuscript-v2-20261008/source.tar.gz")]
     artifacts += sorted((ROOT / "ComparatorChallenges").glob("*.lean"))
     artifacts += sorted((ROOT / "ComparatorChallenges").glob("*.json"))
+    artifact_hashes = {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(artifacts)}
+    artifact_hashes.update(certificate_artifacts())
     return {"proof_source_sha256": {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(sources)},
-            "artifact_sha256": {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(artifacts)}}
+            "artifact_sha256": dict(sorted(artifact_hashes.items()))}
 
 
 def prepare_comparator():

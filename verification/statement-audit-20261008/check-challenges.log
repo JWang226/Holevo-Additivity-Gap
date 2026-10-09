@@ -1,0 +1,7 @@
+A_PrescribedDimensions: expected statement and solution/type check passed
+B_OperationalCoding: expected statement and solution/type check passed
+C_SmallInformationSeparation: expected statement and solution/type check passed
+D_WeylAllUses: expected statement and solution/type check passed
+E_InputCost: expected statement and solution/type check passed
+F_TwoUseSeparation: expected statement and solution/type check passed
+Saved .lake/challenge-checks.json. Comparator execution remains not_run.

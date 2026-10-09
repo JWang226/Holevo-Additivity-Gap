@@ -1,6 +1,38 @@
 # Verification evidence
 
-## Current cleanup and release verification
+## Current arXiv v2 and absolute-separation verification
+
+The manuscript is the exact source of [arXiv:2609.18222v2](https://arxiv.org/abs/2609.18222v2),
+bound by [provenance](../paper/arxiv-v2.json) to the archived upstream source.
+The current suite has six challenge configurations and seven theorem roots.
+F adds checking of the already proved absolute two-use separation theorem;
+the production Lean sources and public declaration inventory are unchanged.
+The [v2 semantic review](../docs/STATEMENT_AUDIT_V2.md) retains the earlier scope
+qualifications and records the revised exploration-mark prose separately.
+
+Current portable evidence is selected from [portable-20261008](portable-20261008/)
+through `portable_verification_current.directory` in
+[release metadata](../metadata/results.json). The
+[run summary](portable-20261008/run-summary.json) records status, timestamps,
+counts and exact checked inputs; Comparator and Nanoda have separate reports.
+The [selected statement continuation](statement-audit-delta-20261008.json)
+binds seven qualified entries to the v2 manuscript and its own mechanical evidence.
+Freshness validation is separate from executing the proof checks or semantic review.
+
+For the current sources, select the additive extension of the rebuild/type evidence:
+
+```sh
+bash scripts/verify.sh lean \
+  --source-certificate verification/additive-20261008/source-certificate.json
+```
+
+The [additive certificate](additive-20261008/source-certificate.json) preserves
+the unchanged cleanup certificate, binds the new challenge and Lake configuration,
+and records the existing theorem's exact inventory type. It does not itself
+claim a fresh source rebuild, expected-statement application, Comparator run or
+Nanoda run. See [its scope notes](additive-20261008/README.md).
+
+## Preserved cleanup and release verification
 
 The October 6–7 [elaboration cleanup](elaboration-20261006/README.md) completed
 two full 369-module Linux rebuilds, three guarded cleanup trials, and an exact
@@ -8,7 +40,7 @@ comparison of all 5,323 public types and six challenge roots. See its
 [before/after report](elaboration-20261006/comparison/ELABORATION_COMPARISON.md)
 and [reproducer commands](../docs/ELABORATION_CLEANUP.md).
 
-For the current sources, select the rebuild/type evidence explicitly:
+The original cleanup certificate remains available for its recorded source layout:
 
 ```sh
 bash scripts/verify.sh lean \
@@ -16,19 +48,17 @@ bash scripts/verify.sh lean \
 ```
 
 The cleanup measurement publication did not rerun Comparator or Nanoda. Its
-certificate retains that narrower scope. The full release selects its portable
-evidence separately through `portable_verification_current.directory` in
-[release metadata](../metadata/results.json), pointing to
-`verification/portable-20261007`. `python3 verification/check_reports.py`
-accepts those records only when their source/checker hashes, scope, controls,
-and retained evidence hashes match the current checkout.
+certificate retains that narrower scope. The October 7 portable evidence under
+`verification/portable-20261007` keeps its original source/checker bindings.
+The current evidence checker uses the explicit selected directory; it never
+reseals an older success record against the changed manuscript or challenge suite.
 
 The October 2 sections below describe the earlier reviewed release. Their
 records remain unchanged; their historical source-freshness checks intentionally
 do not pass for edited cleanup sources. Selecting current evidence never changes
 the source bindings or execution claims in those historical files.
 
-## Release-source Lean CI
+## Preserved release-source Lean CI
 
 [GitHub Actions run 37577412043, attempt 1](https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/37577412043)
 passed on release-source commit `38b360705c55fe4ee28e52f6cc493495fb7c1955`.
@@ -69,24 +99,24 @@ each commit's workflow status is separately visible in GitHub Actions.
 ## Portable verification
 
 For the current checkout, run the following command to rebuild/audit the Lean
-proof library, compare all five challenge configurations with pinned Comparator
-and replay their six theorem roots in Lean, then check their exports with pinned
+proof library, compare all six challenge configurations with pinned Comparator
+and replay their seven theorem roots in Lean, then check their exports with pinned
 Nanoda:
 
 ```sh
 bash scripts/verify.sh all \
-  --source-certificate verification/elaboration-20261006/source-certificate.json
+  --source-certificate verification/additive-20261008/source-certificate.json
 ```
 
 Individual modes are `lean`, `comparator`, and `nanoda`; only `lean` and `all`
 accept the certificate option. Each run writes new reports. The current release's
-retained files are under [portable-20261007](portable-20261007/); the evidence
+retained files are under [portable-20261008](portable-20261008/); the evidence
 checker uses the explicit metadata selector rather than choosing the newest
 directory or reusing a historical success record.
 No landrun or systemd is needed. Comparator and Nanoda run unsandboxed.
 See [reproducer commands](../docs/verify.md) for prerequisites and trust scope.
 
-### Current release run
+### Preserved October 7 release run
 
 The all-mode verifier and portable archive passed in
 [GitHub Actions run 37577412179](https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/37577412179)
@@ -105,13 +135,13 @@ and [verbatim excerpt](github-actions-release-all-38b36070-excerpt.log) retain
 the original success and failure markers. The portable records keep their
 original execution commit and source/checker bindings.
 
-Retained current proof evidence:
+Retained October 7 proof evidence:
 
 - [Full-run summary](portable-20261007/run-summary.json), [full log](portable-20261007/all.log), and [Lean build/audit log](portable-20261007/lean.log).
 - [Comparator report](portable-20261007/comparator-result.json) and [log](portable-20261007/comparator.log).
 - [Nanoda report](portable-20261007/nanoda-result.json), [log](portable-20261007/nanoda.log), [build receipt](portable-20261007/nanoda-build.json), and [controls log](portable-20261007/nanoda-controls.log).
 
-### Recovered statement checks
+### Preserved recovered statement checks
 
 The completed Linux expected-statement applications and six root-axiom probes
 were recovered from the hash-verified original artifact. They executed on
@@ -121,10 +151,10 @@ and reran no proof commands. The original recorder driver's argument list was
 not retained and was not reconstructed; this limit is explicit in the
 [recovery provenance](statement-audit-20261007/recovery.json).
 
-The [selected continuation](statement-audit-current.json) and
+The [October 7 continuation](statement-audit-delta-20261007.json) and
 [mechanical checks](statement-audit-20261007/checks.json) retain all six historical
-qualified correspondence findings. Both evidence freshness checks pass, as do
-44 statement-record and 17 portable-record regression tests. These records
+qualified correspondence findings. At that recovery publication, both evidence
+freshness checks, 44 statement-record tests and 17 portable-record tests passed. These records
 do not upgrade the failed GitHub job, repeat the full semantic review, establish
 machine-certified English–Lean equivalence, or claim independent human review.
 The earlier semantic reports and portable evidence remain unchanged.

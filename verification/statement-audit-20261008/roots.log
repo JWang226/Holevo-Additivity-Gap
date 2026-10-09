@@ -1,0 +1,64 @@
+Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound {K n : ℕ} (hK : 2 ≤ K)
+  (hn : Nonadditivity.Quantitative.n₀ K ≤ n) :
+  ∃ T,
+    Fintype.card T.Input = 2 * Nonadditivity.StructuredHaarConsequences.localDimension K n ^ n * K ^ (2 * n) ∧
+      Fintype.card T.Output = K ^ n ∧
+        0 < T.chi ∧
+          2 * ↑n / ↑K ≤ T.chi ∧
+            T.chi ≤
+                ↑n * Nonadditivity.Scalar.aK ↑K +
+                  2 * Nonadditivity.Scalar.log2 (Nonadditivity.StructuredHaarConsequences.kappa n) ∧
+              ↑n * Nonadditivity.Scalar.log2 ↑K / ↑K ≤ T.chiTwo ∧
+                ↑n * Nonadditivity.Scalar.deltaK ↑K -
+                    4 * Nonadditivity.Scalar.log2 (Nonadditivity.StructuredHaarConsequences.kappa n) ≤
+                  T.gap
+'Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum.{u_1, u_2, u_3} {ι : Type u_1} {ο : Type u_2}
+  {κ : Type u_3} [Fintype ι] [DecidableEq ι] [Nonempty ι] [Fintype ο] [DecidableEq ο] [Nonempty ο] [Fintype κ]
+  (T : Nonadditivity.Channels.KrausChannel ι ο κ) :
+  Nonadditivity.Operational.operationalCapacity T =
+    sSup (Set.range (Nonadditivity.RegularizedHolevo.normalizedPowerHolevo T))
+'Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio {ε : ℝ} (hε : 0 < ε)
+  (A R : ℝ) : ∃ T, 0 < T.chi ∧ T.chi ≤ ε ∧ A ≤ T.classicalCapacity - T.chi ∧ R ≤ T.twoUseRatio
+'Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits.{u_1, u_2} {ι : Type u_1} {κ : Type u_2}
+  [Fintype ι] [DecidableEq ι] [Nonempty ι] [Fintype κ] {d : ℕ} [NeZero d]
+  (T : Nonadditivity.Channels.KrausChannel ι (ZMod d) κ) (n : ℕ) :
+  (Nonadditivity.RegularizedHolevo.positiveTensorPower T.weylExtension n).holevoBits =
+    ↑(n + 1) * Nonadditivity.Scalar.log2 ↑d -
+      (Nonadditivity.RegularizedHolevo.positiveTensorPower T n).minimumEntropy / Real.log 2
+'Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds :
+  ∀ᶠ (K : ℕ) in Filter.atTop,
+    Nonadditivity.PrescribedCost.inputLogScale / 2 ≤
+        (Nonadditivity.PrescribedCost.growingFamily K).chi *
+          √(Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)) ∧
+      (Nonadditivity.PrescribedCost.growingFamily K).chi *
+          √(Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)) ≤
+        (9 / Real.log 2 + 1) * (2 * Nonadditivity.PrescribedCost.inputLogScale)
+'Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower :
+  ∀ᶠ (K : ℕ) in Filter.atTop,
+    1 / (8 * Real.log 2 * Nonadditivity.PrescribedCost.inputLogScale) ≤
+        (Nonadditivity.PrescribedCost.growingFamily K).chiTwo / 2 /
+          √(Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K)) ∧
+      1 / (8 * Real.log 2 * Nonadditivity.PrescribedCost.inputLogScale) ≤
+        (Nonadditivity.PrescribedCost.growingFamily K).classicalCapacity /
+          √(Nonadditivity.Scalar.log2 (Nonadditivity.PrescribedCost.inputQubits K))
+'Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Nonadditivity.DeterministicConsequences.actual_small_large {ε R : ℝ} (hε : 0 < ε) :
+  ∃ T, 0 < T.chi ∧ T.chi ≤ ε ∧ R ≤ T.chiTwo / 2
+'Nonadditivity.DeterministicConsequences.actual_small_large' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -46,13 +46,15 @@ are repaired without changing the manuscript's prescribed dimension. No
 optimality of that dimension is claimed. There are no placeholder proofs or project-specific axioms in the proof library.
 The isolated Comparator expected statements are documented separately.
 
-The revised manuscript is *Unbounded Holevo additivity gaps in finite
-dimensions*, supplied on October 2, 2026 UTC. Its repository SHA-256 is
-`3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98`.
-It incorporates both counting repairs. Two repository clarifications align
-the exploration encoding and verification status with the recorded Lean work;
-[metadata/results.json](../metadata/results.json) retains the supplied-file hash
-and adjustment provenance.
+The current manuscript is the exact upstream [arXiv v2](https://arxiv.org/abs/2609.18222v2)
+source of *Unbounded Holevo additivity gaps in finite dimensions*, without
+local wording changes. Its SHA-256 is
+`18c4c60a8494f4421e8e356d75dcee81df93beace7de3bfdc8274b719df68736`.
+It incorporates both counting repairs. The [revision provenance](../paper/arxiv-v2.json)
+binds the upstream source archive and extracted manuscript bytes. The
+[v2 statement review](STATEMENT_AUDIT_V2.md) qualifies the principal endpoint
+correspondence and revised exploration-mark prose; the full manuscript is not
+formalized.
 
 ## Reproduce the verification
 

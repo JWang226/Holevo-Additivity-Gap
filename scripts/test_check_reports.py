@@ -36,7 +36,7 @@ class PortableSelectionTests(unittest.TestCase):
         for index, name in enumerate(common.DEFAULT_CONFIGS):
             names = ["Synthetic.root" + str(index)]
             if index == 0:
-                names.append("Synthetic.sixthRoot")
+                names.append("Synthetic.additionalRoot")
             self.targets[name] = names
             self.write_json(name, {"theorem_names": names})
         self.write_evidence(check_reports.HISTORICAL_DIRECTORY)
@@ -92,6 +92,7 @@ class PortableSelectionTests(unittest.TestCase):
             "mode": "all", "sandboxed": False, "nanoda_binary_source": "build_from_recorded_pin",
             "supplied_nanoda_binary": None,
         })
+        self.write_json(directory + "/release-validation.json", {})
         self.write_json(directory + "/nanoda-controls.log", {
             "status": "passed", "checks": list(check_reports.CONTROLS),
         })
@@ -102,7 +103,8 @@ class PortableSelectionTests(unittest.TestCase):
                    "controls": list(check_reports.CONTROLS),
                    "mapped_declarations_checked": 49, "permitted_axioms": sorted(common.AXIOMS),
                    "upstream_sandboxed_comparator": "not_run",
-                   "challenge_configurations": 5, "theorem_roots": 6,
+                   "challenge_configurations": len(self.targets),
+                   "theorem_roots": sum(len(names) for names in self.targets.values()),
                    "evidence_sha256": {name: common.digest(self.root / directory / name)
                                        for name in check_reports.EVIDENCE_FILES}}
         self.write_json(directory + "/run-summary.json", summary)
@@ -119,6 +121,87 @@ class PortableSelectionTests(unittest.TestCase):
         (self.root / check_reports.HISTORICAL_DIRECTORY / "comparator-result.json").write_text("historical bytes untouched by selection")
         self.assertEqual(check_reports.portable_directory(), self.current)
         self.assertEqual(set(check_reports.load_records()), {"comparator", "nanoda"})
+
+    def certificate_fixture(self):
+        selected = "verification/synthetic-certificate.json"
+        self.write_json(selected, {"scope": "Synthetic fixture; no proof evidence"})
+        self.write_json("metadata/results.json", {
+            "portable_verification_current": {"directory": self.current},
+            "verification_current": {"source_certificate": selected},
+        })
+        self.write_evidence(self.current)
+        run = self.read_json(self.current + "/run-info.json")
+        run["source_certificate"] = selected
+        validation = {"source_integrity": {"path": selected, "sha256": common.digest(self.root / selected)}}
+        self.write_json(self.current + "/run-info.json", run)
+        self.write_json(self.current + "/release-validation.json", validation)
+        self.rehash_evidence()
+        return selected, run, validation
+
+    def rehash_evidence(self):
+        summary = self.read_json(self.current + "/run-summary.json")
+        summary["evidence_sha256"] = {name: common.digest(self.root / self.current / name)
+                                     for name in check_reports.EVIDENCE_FILES}
+        self.write_json(self.current + "/run-summary.json", summary)
+
+    def test_selected_certificate_matches_actual_invocation_and_validation(self):
+        self.certificate_fixture()
+        self.assertEqual(set(check_reports.load_records()), {"comparator", "nanoda"})
+
+    def test_wrong_or_missing_invoked_certificate_is_rejected_after_reseal(self):
+        selected, run, _ = self.certificate_fixture()
+        for value in (None, "verification/another.json"):
+            run["source_certificate"] = value
+            self.write_json(self.current + "/run-info.json", run)
+            self.rehash_evidence()
+            with self.assertRaisesRegex(ValueError, "invocation used a different source certificate"):
+                check_reports.load_records()
+
+    def test_wrong_or_stale_validation_certificate_is_rejected_after_reseal(self):
+        selected, _, validation = self.certificate_fixture()
+        for integrity in ({}, {"path": selected, "sha256": "0" * 64},
+                          {"path": "verification/another.json", "sha256": common.digest(self.root / selected)}):
+            validation["source_integrity"] = integrity
+            self.write_json(self.current + "/release-validation.json", validation)
+            self.rehash_evidence()
+            with self.assertRaisesRegex(ValueError, "different or stale source certificate"):
+                check_reports.load_records()
+
+    def test_old_five_configuration_six_root_summary_is_rejected(self):
+        self.select()
+        self.write_evidence(self.current)
+        summary = self.read_json(self.current + "/run-summary.json")
+        summary.update(challenge_configurations=5, theorem_roots=6)
+        self.write_json(self.current + "/run-summary.json", summary)
+        with self.assertRaisesRegex(ValueError, "Unexpected portable full-run summary"):
+            check_reports.load_records()
+
+    def test_missing_current_configuration_is_rejected(self):
+        self.select()
+        self.write_evidence(self.current)
+        filename = self.current + "/comparator-result.json"
+        report = self.read_json(filename)
+        report["cases"].pop(common.DEFAULT_CONFIGS[-1])
+        self.write_json(filename, report)
+        with self.assertRaisesRegex(ValueError, "Portable evidence is stale or has unexpected scope"):
+            check_reports.load_records()
+
+    def test_different_current_theorem_targets_are_rejected(self):
+        self.select()
+        self.write_evidence(self.current)
+        filename = self.current + "/comparator-result.json"
+        report = self.read_json(filename)
+        report["cases"][common.DEFAULT_CONFIGS[-1]]["theorem_names"] = ["Synthetic.otherRoot"]
+        self.write_json(filename, report)
+        with self.assertRaisesRegex(ValueError, "Unexpected recorded theorem targets"):
+            check_reports.load_records()
+
+    def test_duplicate_current_theorem_roots_are_rejected(self):
+        self.write_json(common.DEFAULT_CONFIGS[-1], {
+            "theorem_names": self.targets[common.DEFAULT_CONFIGS[0]],
+        })
+        with self.assertRaisesRegex(ValueError, "Duplicate current portable theorem target"):
+            check_reports.load_records()
 
     def test_invalid_present_selector_never_falls_back(self):
         for selection in (None, {}, {"directory": self.current, "extra": True},
@@ -185,6 +268,8 @@ class PortableSelectionTests(unittest.TestCase):
                            ("controls", ["unrelated control"] * 13),
                            ("permitted_axioms", sorted(common.AXIOMS) + ["sorryAx"]),
                            ("mapped_declarations_checked", 48),
+                           ("challenge_configurations", len(self.targets) - 1),
+                           ("theorem_roots", sum(len(names) for names in self.targets.values()) - 1),
                            ("upstream_sandboxed_comparator", "passed")):
             with self.subTest(field=key):
                 changed = copy.deepcopy(original)

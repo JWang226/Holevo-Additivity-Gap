@@ -2,17 +2,17 @@
 
 Two intermediate counting assertions used in the Haar-moment argument fail on explicit finite paths. The Lean development proves the counterexamples and replacement estimates. The principal channel bounds, prescribed dimensions, and original Haar moment range survive these corrections.
 
-The author's revised [manuscript source](../paper/nonadditivity.tex) **incorporates both counting repairs**. This note maps the repaired argument to the formalization. Its SHA-256 is:
+The exact published [arXiv v2 manuscript source](../paper/nonadditivity.tex) **incorporates both counting repairs**. This note maps the repaired estimates to the formalization, with the proof-encoding qualification below. Its SHA-256 is:
 
 ```text
-3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98
+18c4c60a8494f4421e8e356d75dcee81df93beace7de3bfdc8274b719df68736
 ```
 
 ## Location in the manuscript
 
 The affected argument is in the appendix **“The random-matrix estimate and parameter bounds”**, label `app:finite-threshold`, subsection **“The two-generator Haar estimate”**, in the proof of **“Explicit two-generator Haar estimate”**, label `lem:haar`. Its paragraphs *“Coefficient sums”* and *“Weighted class enumeration”* explain the failed counts and their repairs. The revised labels `eq:path-weight`, `eq:class-sum`, `eq:coefficient-sum`, and `eq:class-count` locate the path weight, class decomposition, coefficient bound, and weighted enumeration.
 
-The revised manuscript explicitly describes both false intermediate assertions and replaces the old `6400 e p^24 ρ^p / N` calculation with the error budget below. The final moment hypothesis, label `eq:haar-hypotheses`, is unchanged. The exploration mark records the endpoint of the run along already discovered tree edges and the source color of the next step, as in `HaarPathMarks.explorationMark`. The source also includes the nonzero-Hilbert-space qualification in `eq:linear-id` and restricts the one-pair estimate to finite-support matrix/free-factor polynomial coefficients.
+The v2 manuscript explicitly describes both false intermediate assertions and replaces the old `6400 e p^24 ρ^p / N` calculation with the error budget below. The final moment hypothesis, label `eq:haar-hypotheses`, is unchanged. Its exploration-mark prose now names the endpoint of a run of tree steps and the source label of the step ending that run. `HaarPathMarks.explorationMark` instead records the endpoint of the already-discovered old-tree run and the source color of the next step; `HaarPathExplorationBlocks`, `HaarPathReconstructionTree`, and `HaarPathReconstructionFresh` prove the old-tree/fresh-run reconstruction. These descriptions are not certified as literally equivalent encodings. The source also includes the nonzero-Hilbert-space qualification in `eq:linear-id` and restricts the one-pair estimate to finite-support matrix/free-factor polynomial coefficients. The exact upstream source is preserved; the [v2 correspondence review](STATEMENT_AUDIT_V2.md) records this scope qualification separately.
 
 ## 1. Important exploration times
 

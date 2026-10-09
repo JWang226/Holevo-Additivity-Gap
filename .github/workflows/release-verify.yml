@@ -10,9 +10,18 @@ on:
       - 'Nonadditivity/**'
       - '*.lean'
       - 'metadata/results.json'
+      - 'formalization.yaml'
+      - 'lakefile.toml'
+      - 'ComparatorChallenges/**'
+      - 'paper/**'
+      - 'verification/manuscript-v2-20261008/**'
+      - 'verification/additive-20261008/**'
+      - 'verification/kernel_common.py'
       - 'verification/check_reports.py'
       - 'verification/check_statement_audit.py'
-      - 'verification/statement-audit-20261007/record_checks.py'
+      - 'verification/statement-audit-20261008/**'
+      - 'verification/statement-audit-delta-20261008.json'
+      - 'verification/statement-audit-current.json'
       - 'scripts/**'
   workflow_dispatch:
 
@@ -40,7 +49,10 @@ jobs:
         run: |
           python scripts/test_check_reports.py
           python scripts/test_statement_audit.py
-          python scripts/validate_release.py --static-only --source-certificate verification/elaboration-20261006/source-certificate.json
+          python scripts/test_statement_revision.py
+          python scripts/test_source_certificate.py
+          python scripts/test_kernel_bindings.py
+          python scripts/validate_release.py --static-only --source-certificate verification/additive-20261008/source-certificate.json
       - name: Install pinned Lean and cached dependencies
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
         with:
@@ -55,15 +67,141 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p .verify-work
-          bash scripts/verify.sh all --source-certificate verification/elaboration-20261006/source-certificate.json 2>&1 | tee .verify-work/all-release.log
-      - name: Retain successful portable evidence
-        run: python scripts/archive_verification.py --full-log .verify-work/all-release.log
-      - name: Check the declaration export and record current statement applications
+          bash scripts/verify.sh all --source-certificate verification/additive-20261008/source-certificate.json 2>&1 | tee .verify-work/all-release.log
+      - name: Preserve published portable records and validate the fresh kernel reports
         run: |
-          python scripts/export_declarations.py --check
-          python verification/statement-audit-20261007/record_checks.py --source-commit "$GITHUB_SHA"
-          python verification/check_reports.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import re
+          import subprocess
+          import sys
+
+          root = Path.cwd()
+          sys.path.insert(0, str(root / "verification"))
+          import check_reports
+          import kernel_common as common
+
+          def require(condition, message):
+              if not condition:
+                  raise ValueError(message)
+
+          full_log = root / ".verify-work/all-release.log"
+          directories = re.findall(r"^Fresh logs: (.+)$", full_log.read_text(), re.MULTILINE)
+          require(len(directories) == 1, "The fresh full run must identify one report directory")
+          run = Path(directories[0]).resolve()
+          require(run.is_relative_to(root / ".verify-work") and run.name.startswith("run-"),
+                  "The fresh report directory is outside the verification workspace")
+          require((run / "result.txt").read_text().strip() == "VERIFICATION PASSED: all",
+                  "The fresh full verification run did not pass")
+          info = json.loads((run / "run-info.json").read_text())
+          require(info.get("mode") == "all" and info.get("sandboxed") is False
+                  and info.get("nanoda_binary_source") == "build_from_recorded_pin"
+                  and info.get("supplied_nanoda_binary") is None and info.get("source_certificate") ==
+                  "verification/additive-20261008/source-certificate.json",
+                  "The fresh run used an unexpected scope or source certificate")
+          check_reports.check_certificate_invocation(
+              info, json.loads((root / ".lake/release-validation.json").read_text()))
+          targets = check_reports.configured_targets()
+          require(len(targets) == 6 and sum(map(len, targets.values())) == 7,
+                  "The current release must check six configurations and seven roots")
+          snapshot = common.bindings()
+          for name, mode in (("comparator", "unsandboxed_comparator_lean_replay"),
+                             ("nanoda", "unsandboxed_independent_kernel")):
+              report = json.loads((run / (name + "-result.json")).read_text())
+              require(report.get("status") == "passed" and report.get("mode") == mode
+                      and report.get("sandboxed") is False
+                      and report.get("comparator_commit") == common.REVISION
+                      and report.get("checker_dependencies") == common.DEPENDENCIES
+                      and check_reports.axiom_policy(report.get("permitted_axioms"))
+                      and all(report.get(key) == value for key, value in snapshot.items()),
+                      "Fresh " + name + " report has stale inputs or an unexpected checker scope")
+              require(set(report["cases"]) == set(targets), "Fresh " + name + " configuration coverage differs")
+              for config, names in targets.items():
+                  case = report["cases"][config]
+                  require(case.get("status") == "passed" and case.get("theorem_names") == names
+                          and case.get("config_sha256") == common.digest(root / config),
+                          "Fresh " + name + " theorem coverage differs: " + config)
+                  if name == "nanoda":
+                      require(case.get("exported_theorems_present") is True,
+                              "Fresh Nanoda export omitted theorem roots: " + config)
+              if name == "nanoda":
+                  pin = json.loads((root / "verification/nanoda/toolchain.json").read_text())
+                  receipt = json.loads((run / "nanoda-build.json").read_text())
+                  require(report.get("nanoda") == pin and report.get("nanoda_build_receipt") == receipt
+                          and receipt.get("pin") == pin
+                          and receipt.get("binary_sha256") == report.get("nanoda_binary_sha256")
+                          and report.get("nanoda_binary_source") == "built_from_recorded_source_and_rust_pins"
+                          and report.get("unpermitted_axiom_hard_error") is True
+                          and report.get("unknown_pp_declar_hard_error") is True,
+                          "Fresh Nanoda report has unexpected build provenance or kernel controls")
+          published = root / check_reports.portable_directory()
+          if not published.exists():
+              subprocess.run([sys.executable, "scripts/archive_verification.py",
+                              "--full-log", str(full_log)], check=True)
+          check_reports.load_records()
+          result = {"status": "passed", "scope": "fresh_kernel_reports_and_retained_current_input_bindings",
+                    "fresh_run": str(run), "retained_directory": str(published),
+                    "challenge_configurations": 6, "theorem_roots": 7}
+          (root / ".verify-work/fresh-kernel-validation.json").write_text(json.dumps(result, indent=2) + "\n")
+          print("Fresh Comparator/Nanoda reports and retained current portable records match the exact inputs.")
+          PY
+      - name: Validate retained declarations and current statement applications without replacing evidence
+        run: |
+          if [[ ! -f verification/statement-audit-delta-20261008.json ]]; then
+            python verification/statement-audit-20261008/record_checks.py
+          fi
+          python scripts/validate_release.py --static-only --source-certificate verification/additive-20261008/source-certificate.json
           python verification/check_statement_audit.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import sys
+
+          root = Path.cwd()
+          sys.path.insert(0, str(root / "verification"))
+          import check_reports
+          import check_statement_audit
+          import kernel_common as common
+
+          def require(condition, message):
+              if not condition:
+                  raise ValueError(message)
+
+          selected = check_statement_audit.selected_audit_path(root)
+          require(selected == "verification/statement-audit-delta-20261008.json",
+                  "The current statement selector must identify the arXiv v2 and F review")
+          audit = check_statement_audit.load_audit(root)
+          require(audit["schema_version"] == 3 and len(audit["entries"]) == 7,
+                  "The selected statement review has the wrong revision scope")
+          targets = check_reports.configured_targets()
+          report = json.loads((root / ".lake/challenge-checks.json").read_text())
+          require(report.get("status") == "passed"
+                  and report.get("method") == "local_lean_elaboration_and_solution_against_explicit_expected_type"
+                  and report.get("challenge_modules_checked") == len(targets)
+                  and report.get("theorems_checked") == sum(map(len, targets.values())),
+                  "Fresh statement applications have incomplete scope")
+          checks = report.get("checks", [])
+          require(len(checks) == len(targets) and {item["config"] for item in checks} == set(targets),
+                  "Fresh statement applications have different configuration coverage")
+          for item in checks:
+              config = item["config"]
+              source = config.removesuffix(".json") + ".lean"
+              require(item.get("theorem_names") == targets[config]
+                      and item.get("config_sha256") == common.digest(root / config)
+                      and item.get("challenge_source") == source
+                      and item.get("challenge_source_sha256") == common.digest(root / source),
+                      "Fresh statement application has stale source bindings: " + config)
+              for stage in ("challenge_elaboration", "proof_against_expected_statement"):
+                  child = item[stage]
+                  require(child.get("status") == "passed" and type(child.get("exit_code")) is int
+                          and child["exit_code"] == 0 and (root / child["log"]).is_file(),
+                          "Fresh statement child check did not pass: " + config)
+          result = {"status": "passed", "scope": "retained_declaration_export_and_additive_certificate_with_fresh_statement_applications",
+                    "selected_audit": selected, "challenge_configurations": len(targets), "theorem_roots": 7}
+          (root / ".verify-work/fresh-statement-validation.json").write_text(json.dumps(result, indent=2) + "\n")
+          print("Unchanged declaration export, additive source certificate, selected review and fresh applications validated.")
+          PY
       - name: Generate and check release website
         run: |
           python tools/docs-site/build.py
@@ -76,14 +214,20 @@ jobs:
           include-hidden-files: true
           retention-days: 30
           path: |
-            verification/portable-20261007/
-            verification/statement-audit-20261007/
-            verification/statement-audit-delta-20261007.json
+            verification/portable-20261008/
+            verification/statement-audit-20261008/
+            verification/statement-audit-delta-20261008.json
             verification/statement-audit-current.json
+            verification/additive-20261008/
             .verify-work/all-release.log
+            .verify-work/fresh-*-validation.json
             .verify-work/run-*/*.json
             .verify-work/run-*/*.log
             .verify-work/run-*/result.txt
-            .lake/export-declarations.log
+            .verify-work/logs/lean-*/release-validation.json
             .lake/check.log
+            .lake/release-validation.json
+            .lake/release-declarations.log
+            .lake/challenge-checks.json
+            .lake/challenge-checks/
           if-no-files-found: warn

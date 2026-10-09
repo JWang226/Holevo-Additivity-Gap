@@ -1,0 +1,971 @@
+--- /dev/null
++++ b/ComparatorChallenges/F_TwoUseSeparation.json
+@@ -0,0 +1,13 @@
++{
++  "challenge_module": "ComparatorChallenges.F_TwoUseSeparation",
++  "solution_module": "Nonadditivity.DeterministicConsequences",
++  "theorem_names": [
++    "Nonadditivity.DeterministicConsequences.actual_small_large"
++  ],
++  "permitted_axioms": [
++    "propext",
++    "Quot.sound",
++    "Classical.choice"
++  ],
++  "enable_nanoda": false
++}
+--- /dev/null
++++ b/ComparatorChallenges/F_TwoUseSeparation.lean
+@@ -0,0 +1,17 @@
++/-
++Copyright (c) 2026 the Nonadditivity project contributors.
++All rights reserved. See COPYRIGHT.md for licensing and attribution.
++-/
++import Nonadditivity.ActualConsequences
++
++/-! Expected statement only: arbitrarily small positive one-use information and
++arbitrarily large two-use information. This challenge does not import its solution module. -/
++noncomputable section
++namespace Nonadditivity.DeterministicConsequences
++open ActualConsequences
++
++theorem actual_small_large {ε R : ℝ} (hε : 0<ε) :
++    ∃ T : FiniteQuantumChannel, 0<T.chi ∧ T.chi≤ε ∧ R≤T.chiTwo/2 := by
++  sorry
++
++end Nonadditivity.DeterministicConsequences
+--- a/formalization.yaml
++++ b/formalization.yaml
+@@ -27,7 +27,7 @@
+     Haar-convergence and background generalizations remain outside scope. Two intermediate counting estimates
+     have formal counterexamples and proved replacements; the revised manuscript incorporates those proof
+     corrections. See metadata/results.json and docs/FORMALIZATION_STATUS.md. The zero placeholder counts
+-    refer to the proof library and solutions; six intentional expected-statement placeholders are isolated
++    refer to the proof library and solutions; seven intentional expected-statement placeholders are isolated
+     in ComparatorChallenges and excluded from proof builds.'
+   sorry_count: 0
+   sorry_in_definitions: 0
+@@ -81,6 +81,15 @@
+     - Classical.choice
+     - Quot.sound
+     comparator_config: ComparatorChallenges/E_InputCost.json
++  - name: Small positive single-use information with large two-use information
++    declaration: Nonadditivity.DeterministicConsequences.actual_small_large
++    file: Nonadditivity/DeterministicConsequences.lean
++    sorry_count: 0
++    axioms:
++    - propext
++    - Classical.choice
++    - Quot.sound
++    comparator_config: ComparatorChallenges/F_TwoUseSeparation.json
+ automation:
+   model_attribution_source: Author attribution in the revised manuscript; not reconstructed from runtime logs.
+   methods:
+--- a/lakefile.toml
++++ b/lakefile.toml
+@@ -27,5 +27,6 @@
+   "ComparatorChallenges.B_OperationalCoding",
+   "ComparatorChallenges.C_SmallInformationSeparation",
+   "ComparatorChallenges.D_WeylAllUses",
+-  "ComparatorChallenges.E_InputCost"
++  "ComparatorChallenges.E_InputCost",
++  "ComparatorChallenges.F_TwoUseSeparation"
+ ]
+--- a/metadata/results.json
++++ b/metadata/results.json
+@@ -4,7 +4,7 @@
+   "copyright": "Copyright (c) 2026 the Nonadditivity project contributors. All rights reserved; see COPYRIGHT.md.",
+   "manuscript": {
+     "file": "paper/nonadditivity.tex",
+-    "sha256": "3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98",
++    "sha256": "18c4c60a8494f4421e8e356d75dcee81df93beace7de3bfdc8274b719df68736",
+     "title": "Unbounded Holevo additivity gaps in finite dimensions",
+     "authors": [
+       "Jinzhao Wang"
+@@ -13,14 +13,24 @@
+     "corrections_incorporated": true,
+     "publication_date": null,
+     "revision": {
+-      "received_at_utc": "2026-10-02T04:52:19.524994+00:00",
+-      "author_supplied_sha256": "09f797bd4ef6d1f582cc241c7860dc23cfb58e8d9d4352e8911be9c45e67b31f",
+-      "previous_sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
+-      "previous_commit": "ed99a01639d8b7605f1655a338df0048961bb188",
+-      "repository_adjustments": [
+-        "Limit the verification sentence to principal Lean endpoints and recorded build/audit success; Comparator execution remains pending. Author model attribution is retained.",
+-        "Align the exploration mark and reconstruction prose with the next-step color and old-tree run used by HaarPathMarks.explorationMark."
+-      ]
++      "source": "arXiv",
++      "arxiv_id": "2609.18222v2",
++      "source_url": "https://arxiv.org/src/2609.18222v2",
++      "submitted_at_utc": "2026-10-05T17:44:14Z",
++      "exact_upstream_bytes": true,
++      "provenance": "paper/arxiv-v2.json",
++      "previous_repository_revision": {
++        "received_at_utc": "2026-10-02T04:52:19.524994+00:00",
++        "author_supplied_sha256": "09f797bd4ef6d1f582cc241c7860dc23cfb58e8d9d4352e8911be9c45e67b31f",
++        "previous_sha256": "90e0b856882650a67fba7ee1fd11db117100eb8705ffc2f8b0077c6d4253db39",
++        "previous_commit": "ed99a01639d8b7605f1655a338df0048961bb188",
++        "repository_adjustments": [
++          "Limit the verification sentence to principal Lean endpoints and recorded build/audit success; Comparator execution remains pending. Author model attribution is retained.",
++          "Align the exploration mark and reconstruction prose with the next-step color and old-tree run used by HaarPathMarks.explorationMark."
++        ]
++      },
++      "previous_repository_sha256": "3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98",
++      "repository_adjustments": []
+     }
+   },
+   "formalization": {
+@@ -90,7 +100,8 @@
+     "formalization_metadata_example": "https://github.com/openai/ten-proofs/blob/main/formalization.yaml",
+     "repository": "https://github.com/JWang226/Holevo-Additivity-Gap",
+     "reader_documentation_style": "https://github.com/anthropics/fermats-last-theorem",
+-    "documentation_website": "https://JWang226.github.io/Holevo-Additivity-Gap/"
++    "documentation_website": "https://JWang226.github.io/Holevo-Additivity-Gap/",
++    "arxiv": "https://arxiv.org/abs/2609.18222v2"
+   },
+   "results": [
+     {
+@@ -264,7 +275,8 @@
+           "role": "theorem"
+         }
+       ],
+-      "notes": "All quantities belong to actual finite channels. This qualitative family uses the alternate deterministic construction."
++      "notes": "All quantities belong to actual finite channels. This qualitative family uses the alternate deterministic construction. The Comparator root checks the finite small-one-use/large-two-use existence theorem; the sequence and capacity-limit theorems are mapped separately.",
++      "comparator_config": "ComparatorChallenges/F_TwoUseSeparation.json"
+     },
+     {
+       "id": "fixed-k-scaling",
+@@ -749,14 +761,14 @@
+     }
+   ],
+   "comparator_challenges": {
+-    "configurations": 5,
+-    "theorem_targets": 6,
+-    "intentional_statement_placeholders": 6,
++    "configurations": 6,
++    "theorem_targets": 7,
++    "intentional_statement_placeholders": 7,
+     "imported_by_proof_library": false,
+-    "elaboration_status": "passed",
+-    "solution_proof_against_expected_statement_status": "passed",
+-    "external_comparator_execution": "not_run",
+-    "nanoda_execution": "not_run",
++    "elaboration_status": "see_selected_statement_evidence",
++    "solution_proof_against_expected_statement_status": "see_selected_statement_evidence",
++    "external_comparator_execution": "see_selected_portable_evidence",
++    "nanoda_execution": "see_selected_portable_evidence",
+     "comparator_revision": "a4f696825c583ed8a5b4060d9a0faa5b882d365b",
+     "readme": "ComparatorChallenges/README.md"
+   },
+@@ -772,11 +784,11 @@
+     "audited_theorem_constants": 7219,
+     "external_comparator_execution": "not_run",
+     "independent_kernel_execution": "not_run",
+-    "source_certificate": "verification/elaboration-20261006/source-certificate.json",
+-    "note": "The linked October 2 CI record is historical. Current cleanup rebuild/type evidence is selected by source_certificate; new portable verification is selected separately."
++    "source_certificate": "verification/additive-20261008/source-certificate.json",
++    "note": "The linked October 2 CI record is historical. The additive source certificate binds the unchanged proof project and the new F root; current execution and statement-review evidence are selected separately."
+   },
+   "portable_verification_current": {
+-    "directory": "verification/portable-20261007"
++    "directory": "verification/portable-20261008"
+   },
+   "statement_audit_current": {
+     "selector": "verification/statement-audit-current.json"
+@@ -785,6 +797,7 @@
+     "tag": "v1.0.0",
+     "portable_evidence": "verification/portable-20261007/run-summary.json",
+     "statement_review": "verification/statement-audit-delta-20261007.json",
+-    "scope": "Principal endpoints; full manuscript not formalized. Release publication requires all selected evidence checks and normal CI to pass."
++    "scope": "Principal endpoints; full manuscript not formalized. Release publication requires all selected evidence checks and normal CI to pass.",
++    "note": "Historical published v1.0.0 release record. The working revision uses the separately selected arXiv v2 manuscript and expanded verification suite."
+   }
+ }
+--- /dev/null
++++ b/paper/arxiv-v2.json
+@@ -0,0 +1,18 @@
++{
++  "schema_version": 1,
++  "arxiv_id": "2609.18222",
++  "version": "v2",
++  "version_url": "https://arxiv.org/abs/2609.18222v2",
++  "source_url": "https://arxiv.org/src/2609.18222v2",
++  "submitted_at_utc": "2026-10-05T17:44:14Z",
++  "source_archive": {
++    "path": "verification/manuscript-v2-20261008/source.tar.gz",
++    "sha256": "2f937a5753a1acba2a9526ea4878d6102f5a43a680c225334122fc387c0b271b"
++  },
++  "archive_member": "nonadditivity.tex",
++  "repository_file": "paper/nonadditivity.tex",
++  "sha256": "18c4c60a8494f4421e8e356d75dcee81df93beace7de3bfdc8274b719df68736",
++  "exact_upstream_bytes": true,
++  "previous_repository_sha256": "3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98",
++  "notes": "Exact published arXiv v2 source, without local wording corrections. Formalization scope and proof-encoding qualifications are documented separately; historical verification inputs are preserved."
++}
+--- a/paper/nonadditivity.tex
++++ b/paper/nonadditivity.tex
+@@ -222,18 +222,11 @@
+ reducing the polynomial to degree one using the algebraic lemmas
+ in Appendix~\ref{app:operators}. The base generators are
+ evaluated at independent Haar matrices; the resulting $K$ unitaries
+-within a factor may be dependent. Lemma~\ref{lem:haar} makes the
+-two-generator Bordenave--Collins estimate explicit. It follows the
+-pair-by-pair replacement in the proof of \cite[Lemma~9.3]{BC} and
+-retains the moment range of \cite[Theorem~5.1]{BC}. Two intermediate
+-counting bounds, in the proofs of \cite[Lemmas~5.3 and~5.9]{BC}, fail
+-on explicit paths: one counts important exploration times, and the
+-other counts blocks between first and last edge visits. We replace
+-them by corrected bounds and a weighted enumeration of path classes,
+-which recover the same $N^{-1/2}$ error.
++within a factor may be dependent. Appendix~\ref{app:finite-threshold}
++establishes the explicit two-generator Haar estimate
++(Lemma~\ref{lem:haar}) needed for the dimension bound.
+ This gives $N=\lceil e^{b_Kn}\rceil$ with $b_K=O(\ln K)$ and entropy
+-error $O(1/n)$ for the whole block; Appendix~\ref{app:finite-threshold}
+-proves the estimate and checks the parameter bounds.
++error $O(1/n)$ for the whole block.
+ For fixed $K$, the final channel requires $\Theta_K(n^2)$ input
+ qubits and $n\log_2K$ output qubits.
+ 
+@@ -480,6 +473,21 @@
+ bound for all required observables at $N=\lceil e^{b_Kn}\rceil$,
+ yielding the quadratic input-qubit cost in Theorem~\ref{thm:main}.
+ 
++\paragraph{Concurrent work.}
++Two works appeared shortly after ours. Shou and Gorshkov
++construct a violation of $\smin$ additivity and extend it to large
++gaps in v2 \cite{SG26}. Cheng and Wu give a deterministic version of
++Hastings's random mixed-unitary setup using qudit Clifford unitaries,
++a binary measurement, and classical feedforward \cite{CW26}. They also obtain the separation in
++Corollary~\ref{cor:separation}: the product-state rate tends to zero
++while the rate using entanglement within pairs grows without bound.
++Haagerup's inequality is central to our proof and to Shou and
++Gorshkov's. Cheng and Wu prove a finite-word analogue of the needed
++norm bound and connect it to their explicit unitaries through moment
++estimates. Both concurrent constructions are deterministic, while
++ours uses random matrices. In both, the input-qubit cost is
++exponential in the gap, whereas ours is quadratic.
++
+ \paragraph{Limitations and open questions.}
+ The scaling considered in \cite[Section~2, Eq.~(11)]{HP} requires both input and
+ output qubit counts to grow linearly with the
+@@ -502,7 +510,7 @@
+ revision of this manuscript. In particular, the model proposed the
+ method developed in Section~\ref{sec:approximation}. The author takes
+ responsibility for the mathematical claims, references, and final
+-presentation. The principal results are autoformalized by GPT-6 Astra in Lean. A full project-source build and axiom audit have passed. Comparator configurations are supplied for independent checking; execution remains pending. See the \href{https://github.com/JWang226/Holevo-Additivity-Gap}{Lean Certificate}.
++presentation. The results and proofs are autoformalized by GPT-6 Astra in Lean, and checked against Comparator. See the \href{https://github.com/JWang226/Holevo-Additivity-Gap}{Lean Certificate}.
+ 
+ \section{Qualitative realization of unbounded Holevo gaps}
+ \label{sec:entropy}
+@@ -1991,6 +1999,17 @@
+ \section{The random-matrix estimate and parameter bounds}
+ \label{app:finite-threshold}
+ 
++Lemma~\ref{lem:haar} makes the two-generator Bordenave--Collins
++estimate explicit. Its proof follows the pair-by-pair replacement
++in \cite[Lemma~9.3]{BC}, retaining the moment range of
++\cite[Theorem~5.1]{BC}. Two intermediate counting bounds in the
++proofs of \cite[Lemmas~5.3 and~5.9]{BC} fail on explicit paths:
++one counts important exploration times, and the other counts blocks
++between first and last edge visits. We replace them with corrected
++bounds and a weighted enumeration of path classes, recovering the
++same $N^{-1/2}$ error. The remaining subsections check the parameter
++bounds used in Section~\ref{sec:approximation}.
++
+ \subsection{The two-generator Haar estimate}
+ 
+ \begin{lemma}[Explicit two-generator Haar estimate]
+@@ -2016,11 +2035,7 @@
+ \begin{proof}
+ The upper bound in \cite[Lemma~9.3]{BC}, specialized to $d=2$,
+ has $(1+cN^{-1/2})^k$ for a universal numerical constant $c$.
+-We follow its strategy of replacing one pair of Haar matrices at a
+-time, retaining the larger moment range of \cite[Theorem~5.1]{BC}.
+-For the one-pair estimate we use the repaired counting estimates
+-established below in place of two counting steps in
+-\cite[Section~5.2]{BC}; they give $c=1$.
++The corrected one-pair estimate below gives $c=1$.
+ Only the self-adjoint, two-generator case is needed here.
+ 
+ \emph{The estimate for one pair.}
+@@ -2196,20 +2211,17 @@
+ that the step entering it for the first time and the step leaving it
+ immediately afterwards receive fixed labels; at $x_0$, the first step
+ receives a fixed label. The mark of an important step $s$ records the
+-labels of $x_s$ and of the vertex at which the subsequent run along
+-already discovered tree edges ends, the local labels of step $s$ at
+-$x_{s-1}$ and at $x_s$, and the local label, at its source, of the next
+-step after that run (a default label if the path ends there). There are at most $64t^2$ marks. The local labels need not come from
++labels of $x_s$ and of the vertex at which the subsequent run of tree
++steps ends, the local labels of step $s$ at $x_{s-1}$ and at $x_s$,
++and the local label, at its source, of the step ending that run (a
++default label if the path ends first). There are at most $64t^2$ marks. The local labels need not come from
+ one compatible recoloring of the path, so step $s$ is labeled at both
+ endpoints. Reading the steps in order recovers the vertex sequence
+ and all local labels, hence the coarse class, as in
+-\cite[proof of Lemma~5.3]{BC}. Before the first important step, every
+-step visits a new vertex and uses the fixed labels. Between consecutive
+-important steps, and after the last important step, the path first follows the unique non-backtracking route
+-in the already discovered tree toward the recorded endpoint, then visits
+-new vertices. The first departure of this latter run uses the recorded
+-local label; subsequent steps use the fixed labels. Thus a coarse class
+-is determined by the function
++\cite[proof of Lemma~5.3]{BC}. Each step that is not important either
++visits a new vertex through the fixed labels or continues along the
++unique non-backtracking path in the current tree toward the recorded
++endpoint. Thus a coarse class is determined by the function
+ $c:\{1,\dots,t\}\to\{\varnothing\}\cup\{\text{marks}\}$ that records the mark of each important step and assigns
+ $\varnothing$ to every other step.
+ 
+@@ -2657,6 +2669,11 @@
+ Documenta Mathematica \textbf{27} (2022), 1299--1320.
+ \href{https://doi.org/10.4171/DM/898}{doi:10.4171/DM/898}.
+ 
++\bibitem[CW26]{CW26}
++H.-C. Cheng and P. Wu,
++\emph{Explicit channels with unbounded gains in classical communication using entangled inputs},
++\href{https://arxiv.org/abs/2609.26743}{arXiv:2609.26743} (2026).
++
+ \bibitem[DL25]{DL}
+ H. Derksen and B. Lovitz,
+ \emph{Constructive counterexamples to the additivity of minimum output R\'enyi entropy of quantum channels for all $p>1$},
+@@ -2790,6 +2807,11 @@
+ Communications in Mathematical Physics \textbf{246} (2004), 453--472.
+ \href{https://arxiv.org/abs/quant-ph/0305035}{arXiv:quant-ph/0305035}.
+ 
++\bibitem[SG26]{SG26}
++L. Shou and A.~V. Gorshkov,
++\emph{A constructive violation of additivity of minimum output von Neumann entropy},
++\href{https://arxiv.org/abs/2609.23946}{arXiv:2609.23946} (2026).
++
+ \bibitem[SS24]{SS}
+ K. Szczygielski and M. Studzi\'nski,
+ \emph{New constructive counterexamples to additivity of minimum output R\'enyi $p$-entropy of quantum channels},
+--- a/scripts/check_challenges.py
++++ b/scripts/check_challenges.py
+@@ -28,6 +28,7 @@
+     'Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits': ' T n',
+     'Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds': '',
+     'Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower': '',
++    'Nonadditivity.DeterministicConsequences.actual_small_large': ' hε',
+ }
+ # E repeats this exact concrete definition instead of importing either target.
+ REPEATED_DEFINITION = 'def inputLogScale : ℝ := Real.sqrt (2/Real.log 2)\n'
+@@ -95,14 +96,14 @@
+         'method': 'local_lean_elaboration_and_solution_against_explicit_expected_type',
+         'baseline_modules_recompiled': False,
+         'comparator_execution': 'not_run', 'nanoda_execution': 'not_run',
+-        'intentional_challenge_placeholders': 6, 'checks': [],
++        'intentional_challenge_placeholders': 7, 'checks': [],
+     }
+     save_report(report)
+     seen = set()
+     try:
+         configs = sorted((ROOT / 'ComparatorChallenges').glob('*.json'))
+-        if len(configs) != 5:
+-            raise ValueError('Expected exactly five Comparator configurations')
++        if len(configs) != 6:
++            raise ValueError('Expected exactly six Comparator configurations')
+         for absolute_config in configs:
+             config_path = absolute_config.relative_to(ROOT)
+             config = json.loads(absolute_config.read_text(encoding='utf-8'))
+@@ -142,7 +143,7 @@
+             print(f'{stem}: expected statement and solution/type check passed', flush=True)
+             save_report(report)
+         if seen != set(APPLICATIONS):
+-            raise ValueError('Configurations do not cover the six expected theorems')
++            raise ValueError('Configurations do not cover the seven expected theorems')
+         report.update(status='passed', challenge_modules_checked=len(report['checks']),
+                       theorems_checked=len(seen))
+         save_report(report)
+--- a/scripts/source_certificate.py
++++ b/scripts/source_certificate.py
+@@ -10,9 +10,11 @@
+ 
+ import hashlib
+ import json
++from copy import deepcopy
+ from pathlib import Path, PurePosixPath
+ import re
+ import subprocess
++import tomllib
+ 
+ BEFORE_COMMIT = "a92c087e85603032cd0ece7b766b1f192b17a69e"
+ AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
+@@ -23,6 +25,11 @@
+ CONFIGS = tuple("ComparatorChallenges/" + name + ".json" for name in (
+     "A_PrescribedDimensions", "B_OperationalCoding", "C_SmallInformationSeparation",
+     "D_WeylAllUses", "E_InputCost"))
++ADDITIONAL_CONFIG = "ComparatorChallenges/F_TwoUseSeparation.json"
++ADDITIONAL_MODULE = "ComparatorChallenges.F_TwoUseSeparation"
++ADDITIONAL_ROOT = "Nonadditivity.DeterministicConsequences.actual_small_large"
++ADDITIONAL_SOLUTION = "Nonadditivity.DeterministicConsequences"
++ADDITIVE_SCOPE = "recorded_rebuild_and_public_types_with_additive_challenge_configuration"
+ 
+ 
+ def require(condition: bool, message: str) -> None:
+@@ -61,12 +68,14 @@
+     return value
+ 
+ 
+-def hash_bindings(root: Path, value: object, label: str) -> dict[str, str]:
++def hash_bindings(root: Path, value: object, label: str, *,
++                  historical_lakefile: Path | None = None) -> dict[str, str]:
+     require(isinstance(value, dict) and bool(value), "Missing " + label)
+     for name, sha256 in value.items():
+         require(isinstance(sha256, str) and re.fullmatch(r"[0-9a-f]{64}", sha256),
+                 "Invalid " + label + " hash: " + name)
+-        require(digest(local_file(root, name)) == sha256, "Stale " + label + ": " + name)
++        path = historical_lakefile if name == "lakefile.toml" and historical_lakefile is not None else local_file(root, name)
++        require(digest(path) == sha256, "Stale " + label + ": " + name)
+     return value
+ 
+ 
+@@ -105,8 +114,9 @@
+     require(offset == len(data), "Unexpected trailing Git snapshot data")
+ 
+ 
+-def load_source_certificate(root: Path, name: str, proof_paths: set[str]) -> dict:
+-    """Require full current-source coverage and fresh recorded rebuild/type evidence."""
++def _load_rebuild_certificate(root: Path, name: str, proof_paths: set[str], *,
++                              historical_lakefile: Path | None = None) -> dict:
++    """Validate the immutable rebuild record; only the additive loader supplies an old Lake file."""
+     certificate_path = local_file(root, name)
+     certificate_sha256 = digest(certificate_path)
+     certificate = read_json(certificate_path)
+@@ -140,7 +150,8 @@
+             and coverage.get("expected") == coverage.get("measured") == len(proof_paths)
+             and all(coverage.get(field) == [] for field in ("missing", "unexpected", "duplicates", "failed")),
+             "Measured rebuild lacks complete successful module coverage")
+-    measured_inputs = hash_bindings(root, summary.get("source_hashes_before"), "measured source/driver inputs")
++    measured_inputs = hash_bindings(root, summary.get("source_hashes_before"), "measured source/driver inputs",
++                                   historical_lakefile=historical_lakefile)
+     require(set(measured_inputs) == proof_paths | set(DRIVER_FILES),
+             "Measured source/driver inventory differs from complete proofs plus seven drivers")
+     require(summary.get("source_hashes_after") == measured_inputs
+@@ -175,7 +186,8 @@
+     reference(root, comparison.get("checker"), "public-type comparison script")
+     fresh_export = local_file(root, "metadata/declarations.json")
+     require(digest(fresh_export) == comparison.get("after_export_sha256"), "Stale compared declaration export")
+-    export_inputs = hash_bindings(root, comparison.get("after_source_sha256"), "compared export inputs")
++    export_inputs = hash_bindings(root, comparison.get("after_source_sha256"), "compared export inputs",
++                                 historical_lakefile=historical_lakefile)
+     require(all(export_inputs.get(path) == sha for path, sha in sources.items()),
+             "Compared export omits the checked proof sources")
+     expected_challenge_paths = set(CONFIGS) | {name.removesuffix(".json") + ".lean" for name in CONFIGS}
+@@ -222,3 +234,94 @@
+     require(digest(certificate_path) == certificate_sha256, "Certificate changed during validation")
+     return {"method": "full_rebuild_and_exact_public_types", "path": name,
+             "sha256": certificate_sha256, "source_commit": commit, "proof_source_sha256": sources}
++
++
++def _load_additive_certificate(root: Path, name: str, proof_paths: set[str], certificate: dict) -> dict:
++    """Allow one new isolated challenge while retaining every recorded proof/type binding.
++
++    The predecessor is validated against its own hash-bound Lake file. This is
++    not a fresh rebuild or expected-statement check. The portable workflow must
++    execute those checks separately against the extended configuration.
++    """
++    certificate_path = local_file(root, name)
++    certificate_sha256 = digest(certificate_path)
++    require(type(certificate.get("schema_version")) is int and certificate["schema_version"] == 2
++            and certificate.get("status") == "passed" and certificate.get("scope") == ADDITIVE_SCOPE,
++            "Unsupported or incomplete additive source certificate")
++    require(set(certificate.get("permitted_transitive_axioms", [])) == AXIOMS,
++            "Unexpected additive certificate axiom policy")
++    for flag in ("new_source_rebuild", "additional_expected_statement_check",
++                 "external_comparator_execution", "independent_kernel_execution"):
++        require(certificate.get(flag) == "not_run", "Additive certificate must not claim new proof execution")
++    base_path, base_sha256 = reference(root, certificate.get("base_certificate"), "base source certificate")
++    require(base_path != certificate_path, "Additive certificate cannot reference itself")
++    base = read_json(base_path)
++    require(type(base.get("schema_version")) is int and base["schema_version"] == 1,
++            "Additive certificate must reference an immutable schema-1 rebuild certificate")
++    old_lakefile, _ = reference(root, certificate.get("historical_lakefile"), "historical Lake configuration")
++    require(old_lakefile != root / "lakefile.toml", "Historical Lake configuration must be a separate retained file")
++    base_result = _load_rebuild_certificate(root, base_path.relative_to(root).as_posix(), proof_paths,
++                                          historical_lakefile=old_lakefile)
++    require(base_result["sha256"] == base_sha256, "Base source certificate changed during additive validation")
++
++    current_lakefile = local_file(root, "lakefile.toml")
++    current_lakefile_sha256 = digest(current_lakefile)
++    require(current_lakefile_sha256 == certificate.get("current_lakefile_sha256"),
++            "Stale additive Lake configuration")
++    old_config = tomllib.loads(old_lakefile.read_text())
++    expected_config = deepcopy(old_config)
++    libraries = expected_config.get("lean_lib", [])
++    challenges = [library for library in libraries if library.get("name") == "ComparatorChallenges"]
++    base_roots = [filename.removesuffix(".json").replace("/", ".") for filename in CONFIGS]
++    require(len(challenges) == 1 and challenges[0].get("roots") == base_roots,
++            "Unexpected historical challenge library roots")
++    challenges[0]["roots"] = base_roots + [ADDITIONAL_MODULE]
++    require(tomllib.loads(current_lakefile.read_text()) == expected_config,
++            "Lake configuration changed beyond appending the isolated F challenge root")
++
++    challenge_paths = {ADDITIONAL_CONFIG, ADDITIONAL_CONFIG.removesuffix(".json") + ".lean"}
++    additional_inputs = hash_bindings(root, certificate.get("additional_challenge_sha256"), "additional challenge inputs")
++    require(set(additional_inputs) == challenge_paths, "Unexpected additive challenge input inventory")
++    actual_configs = {path.relative_to(root).as_posix() for path in (root / "ComparatorChallenges").glob("*.json")}
++    require(actual_configs == set(CONFIGS) | {ADDITIONAL_CONFIG}, "Unexpected additive Comparator configuration inventory")
++    additional = read_json(local_file(root, ADDITIONAL_CONFIG))
++    require(set(additional) == {"challenge_module", "solution_module", "theorem_names", "permitted_axioms", "enable_nanoda"}
++            and additional["challenge_module"] == ADDITIONAL_MODULE
++            and additional["solution_module"] == ADDITIONAL_SOLUTION
++            and additional["theorem_names"] == [ADDITIONAL_ROOT]
++            and isinstance(additional["permitted_axioms"], list)
++            and len(additional["permitted_axioms"]) == 3 and set(additional["permitted_axioms"]) == AXIOMS
++            and additional["enable_nanoda"] is False,
++            "Unexpected additive challenge target, modules, or axiom policy")
++    declarations = read_json(local_file(root, "metadata/declarations.json")).get("declarations")
++    require(isinstance(declarations, list), "Missing unchanged public declaration export")
++    matches = [entry for entry in declarations if isinstance(entry, dict) and entry.get("name") == ADDITIONAL_ROOT]
++    require(len(matches) == 1 and matches[0].get("kind") == "theorem"
++            and matches[0].get("module") == ADDITIONAL_SOLUTION
++            and matches[0].get("file") == ADDITIONAL_SOLUTION.replace(".", "/") + ".lean"
++            and matches[0]["file"] in proof_paths
++            and all(matches[0].get(flag) is False for flag in PUBLIC_FLAGS),
++            "Additional root is not a previously compared public theorem")
++    require(isinstance(matches[0].get("type_sha256"), str)
++            and re.fullmatch(r"[0-9a-f]{64}", matches[0]["type_sha256"])
++            and certificate.get("additional_root") == {key: matches[0][key]
++                                                       for key in ("name", "kind", "module", "file", "type_sha256")},
++            "Additional root identity or type differs from the unchanged public export")
++    require(digest(certificate_path) == certificate_sha256
++            and digest(base_path) == base_sha256 and digest(current_lakefile) == current_lakefile_sha256
++            and all(digest(local_file(root, path)) == sha for path, sha in additional_inputs.items()),
++            "Additive source certificate inputs changed during validation")
++    return {"method": "recorded_rebuild_and_exact_public_types_with_additive_challenge", "path": name,
++            "sha256": certificate_sha256, "source_commit": base_result["source_commit"],
++            "proof_source_sha256": base_result["proof_source_sha256"],
++            "base_certificate": {"path": base_result["path"], "sha256": base_sha256},
++            "additional_root": ADDITIONAL_ROOT, "new_source_rebuild": "not_run",
++            "additional_expected_statement_check": "not_run"}
++
++
++def load_source_certificate(root: Path, name: str, proof_paths: set[str]) -> dict:
++    """Validate the selected rebuild certificate or its explicit additive successor."""
++    certificate = read_json(local_file(root, name))
++    if type(certificate.get("schema_version")) is int and certificate["schema_version"] == 2:
++        return _load_additive_certificate(root, name, proof_paths, certificate)
++    return _load_rebuild_certificate(root, name, proof_paths)
+--- a/verification/check_statement_audit.py
++++ b/verification/check_statement_audit.py
+@@ -15,6 +15,7 @@
+ from pathlib import Path, PurePosixPath
+ import re
+ import sys
++import tarfile
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ AUDIT_PATH = "verification/statement-audit.json"
+@@ -22,6 +23,9 @@
+ CONFIGS = tuple("ComparatorChallenges/" + stem + ".json" for stem in (
+     "A_PrescribedDimensions", "B_OperationalCoding", "C_SmallInformationSeparation",
+     "D_WeylAllUses", "E_InputCost"))
++ADDED_CONFIG = "ComparatorChallenges/F_TwoUseSeparation.json"
++ADDED_TARGET = "Nonadditivity.DeterministicConsequences.actual_small_large"
++CURRENT_CONFIGS = CONFIGS + (ADDED_CONFIG,)
+ AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
+ VERDICTS = {"consistent", "qualified", "mismatch", "unresolved"}
+ SCOPE = "incremental_exact_type_application_and_axiom_checks"
+@@ -30,6 +34,12 @@
+     "metadata/declarations.json", "metadata/results.json", "lean-toolchain",
+     "lake-manifest.json", "scripts/check_challenges.py", "lean.sh", "scripts/compiler.py",
+     *CONFIGS, *(str(PurePosixPath(name).with_suffix(".lean")) for name in CONFIGS),
++}
++REVISION_SOURCES = {
++    ADDED_CONFIG, str(PurePosixPath(ADDED_CONFIG).with_suffix(".lean")),
++    "paper/arxiv-v2.json", "verification/manuscript-v2-20261008/source.tar.gz",
++    "lakefile.toml", "formalization.yaml", "verification/check_statement_audit.py",
++    "verification/kernel_common.py", "scripts/source_certificate.py",
+ }
+ 
+ 
+@@ -249,7 +259,7 @@
+                 "Delta root type changed")
+ 
+ 
+-def required_sources(root: Path = ROOT) -> set[str]:
++def required_sources(root: Path = ROOT, *, revision: bool = False) -> set[str]:
+     """Discover proof sources afresh so adding a proof file invalidates coverage."""
+     root = root.resolve()
+     proof_root = root / "Nonadditivity"
+@@ -265,15 +275,16 @@
+                     "Proof-source directory symlink is not supported: " + path.relative_to(root).as_posix())
+     sources = {path.relative_to(root).as_posix() for path in proof_root.rglob("*.lean")}
+     require(bool(sources), "No Nonadditivity proof sources found")
+-    return FIXED_SOURCES | sources
+-
+-
+-def current_targets(root: Path) -> dict[str, str]:
+-    configs = {path.relative_to(root).as_posix()
+-               for path in (root / "ComparatorChallenges").glob("*.json")}
+-    require(configs == set(CONFIGS), "Expected the five current Comparator configurations")
++    return FIXED_SOURCES | sources | (REVISION_SOURCES if revision else set())
++
++
++def current_targets(root: Path, configs: tuple = CONFIGS) -> dict[str, str]:
++    expected = set(configs)
++    found_configs = {path.relative_to(root).as_posix()
++                     for path in (root / "ComparatorChallenges").glob("*.json")}
++    require(found_configs == expected, "Unexpected Comparator configuration inventory")
+     targets = {}
+-    for filename in CONFIGS:
++    for filename in configs:
+         config = read_json(root, filename)
+         names = string_list(config.get("theorem_names"), filename + " theorem_names")
+         require(config.get("challenge_module") == PurePosixPath(filename).with_suffix("").as_posix().replace("/", "."),
+@@ -284,7 +295,7 @@
+         for name in names:
+             require(name not in targets, "Duplicate configured theorem: " + name)
+             targets[name] = filename
+-    require(len(targets) == 6, "Expected exactly six configured theorem targets")
++    require(len(targets) == len(configs) + 1, "Unexpected configured theorem target count")
+     return targets
+ 
+ 
+@@ -329,14 +340,139 @@
+         require(command["log"] in logs, "Mechanical command log is not hash-bound")
+ 
+ 
++def check_revision(root: Path, audit: dict, sources: dict, reports: dict) -> None:
++    """Check a new manuscript review and additive root without restamping history.
++
++    Semantic findings are recorded AI review, not a consequence of these hashes.
++    The production proof sources and existing expected statements must stay exact.
++    """
++    parent_path, parent = bound_reference(root, audit.get("parent_audit"), "historical statement audit")
++    require(parent_path == "verification/statement-audit-delta-20261007.json"
++            and parent.get("schema_version") == 2
++            and parent.get("review_kind") == "incremental_ai_source_semantics_review"
++            and parent.get("machine_equivalence_certified") is False,
++            "Unexpected manuscript revision parent")
++    ancestors = set()
++    record, path = parent, parent_path
++    while True:
++        require(path not in ancestors, "Cyclic historical review chain")
++        ancestors.add(path)
++        old_reports = hash_bindings(root, record.get("report_bindings"), "historical report bindings")
++        require(all(reports.get(name) == sha for name, sha in old_reports.items()),
++                "Revision review omitted a historical report binding")
++        _, old_evidence = bound_reference(root, record.get("mechanical_evidence"), "historical mechanical evidence")
++        hash_bindings(root, old_evidence.get("logs"), "historical mechanical logs")
++        if record.get("schema_version") == 1:
++            require(path == AUDIT_PATH and record.get("machine_equivalence_certified") is False,
++                    "Unexpected original historical review")
++            break
++        require(record.get("schema_version") == 2, "Unexpected historical review schema")
++        path, record = bound_reference(root, record.get("parent_audit"), "historical statement audit")
++
++    old_sources = parent.get("source_bindings")
++    require(isinstance(old_sources, dict)
++            and set(sources) == set(old_sources) | REVISION_SOURCES,
++            "Revision source-binding inventory differs")
++    require(audit.get("meaning_carrying_definition_changes") == [],
++            "This revision does not admit meaning-carrying definition changes")
++    mutable = {"paper/nonadditivity.tex", "metadata/results.json", "scripts/check_challenges.py"}
++    for name, sha in old_sources.items():
++        if name not in mutable:
++            require(sources[name] == sha, "Revision changed an existing proof or statement input: " + name)
++    changed = {name for name in sources if sources[name] != old_sources.get(name)}
++    changes = audit.get("changed_sources")
++    require(isinstance(changes, list) and bool(changes), "Missing reviewed revision delta")
++    found = set()
++    for item in changes:
++        require(isinstance(item, dict), "Invalid reviewed revision change")
++        name = item.get("path")
++        require(name in changed and name not in found, "Wrong or duplicate reviewed revision change")
++        found.add(name)
++        require(item.get("before_sha256") == old_sources.get(name)
++                and item.get("after_sha256") == sources[name], "Incorrect revision delta hashes")
++        require(isinstance(item.get("review"), str) and bool(item["review"].strip()),
++                "Missing revision change explanation")
++    require(found == changed, "Reviewed revision delta is incomplete")
++
++    provenance = read_json(root, "paper/arxiv-v2.json")
++    require(provenance.get("arxiv_id") == "2609.18222" and provenance.get("version") == "v2"
++            and provenance.get("source_url") == "https://arxiv.org/src/2609.18222v2"
++            and provenance.get("exact_upstream_bytes") is True
++            and provenance.get("archive_member") == "nonadditivity.tex"
++            and provenance.get("repository_file") == "paper/nonadditivity.tex"
++            and provenance.get("sha256") == sources["paper/nonadditivity.tex"],
++            "Unexpected arXiv v2 source provenance")
++    archive = provenance.get("source_archive")
++    require(isinstance(archive, dict)
++            and archive.get("path") == "verification/manuscript-v2-20261008/source.tar.gz"
++            and archive.get("sha256") == sources[archive["path"]],
++            "Unexpected bound arXiv source archive")
++    with tarfile.open(local_file(root, archive["path"]), "r:gz") as package:
++        members = [item for item in package.getmembers() if item.name == "nonadditivity.tex"]
++        require(len(members) == 1 and members[0].isfile(), "Missing or ambiguous arXiv manuscript member")
++        require(package.extractfile(members[0]).read() == local_file(root, "paper/nonadditivity.tex").read_bytes(),
++                "Repository manuscript differs from the exact arXiv v2 source")
++
++    review_path, review = bound_reference(root, audit.get("source_delta_review"), "source delta review")
++    require(reports.get(review_path) == audit["source_delta_review"]["sha256"]
++            and review.get("review_kind") == "arxiv_v2_and_additive_root_source_review"
++            and review.get("machine_equivalence_certified") is False,
++            "Unexpected manuscript revision review scope")
++    semantic_report = review.get("semantic_report")
++    require(semantic_report in reports and all(entry.get("report") == semantic_report for entry in audit["entries"]),
++            "Revision entries do not point to the bound semantic report")
++    require(review.get("changed_proof_sources") == [], "Revision review has changed production proofs")
++    require(review.get("changed_sources") == changes, "Revision review does not bind the complete reviewed delta")
++    patch = review.get("patch")
++    require(isinstance(patch, dict) and reports.get(patch.get("path")) == patch.get("sha256"),
++            "Revision source patch is not report-bound")
++
++    _, certificate = bound_reference(root, audit.get("source_certificate"), "additive source certificate")
++    require(certificate.get("schema_version") == 2 and certificate.get("status") == "passed",
++            "Expected an additive source certificate")
++    sys.path.insert(0, str(root / "scripts"))
++    from source_certificate import load_source_certificate
++    proof_names = {name for name in sources if name.endswith(".lean") and
++                   (name.startswith("Nonadditivity/") or name in {"Nonadditivity.lean", "All.lean", "Audit.lean"})}
++    load_source_certificate(root, audit["source_certificate"]["path"], proof_names)
++    parent_entries = {entry["declaration"]: entry for entry in parent["entries"]}
++    require(len(parent_entries) == 6, "Incomplete historical root coverage")
++    corrected = audit.get("correspondence_corrections")
++    correction_name = "Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio"
++    require(isinstance(corrected, dict) and set(corrected) == {correction_name},
++            "Expected the explicit root C coverage correction")
++    for entry in audit["entries"]:
++        name = entry["declaration"]
++        if name == ADDED_TARGET:
++            require(entry["config"] == ADDED_CONFIG and entry["verdict"] == "qualified"
++                    and entry["result_ids"] == ["small-large-and-sequence"], "Unexpected additive root review")
++            continue
++        old = parent_entries.get(name)
++        require(isinstance(old, dict), "Revision has an unreviewed added target")
++        for field in ("id", "declaration", "config", "result_ids", "type_sha256", "verdict"):
++            require(entry.get(field) == old.get(field), "Revision changed historical root " + field)
++        require(entry.get("historical_report") == old["report"], "Wrong revision historical report")
++        if name != correction_name:
++            require(entry.get("qualifications") == old.get("qualifications")
++                    and entry.get("source_labels") == old.get("source_labels"),
++                    "Revision changed an unreviewed historical qualification")
++        else:
++            correction = corrected[name]
++            require(correction.get("historical_qualifications") == old.get("qualifications")
++                    and correction.get("current_qualifications") == entry.get("qualifications")
++                    and isinstance(correction.get("reason"), str) and bool(correction["reason"].strip()),
++                    "Incomplete root C correspondence correction")
++
++
+ def load_audit(root: Path = ROOT, audit_path: str | None = None) -> dict:
+     """Return a fresh audit record, preserving its human/AI semantic verdicts."""
+     root = root.resolve()
+     audit = read_json(root, selected_audit_path(root, audit_path))
+     schema = audit.get("schema_version")
+-    require(type(schema) is int and schema in {1, 2},
++    require(type(schema) is int and schema in {1, 2, 3},
+             "Unsupported statement-audit schema")
+-    expected_kind = "independent_ai_source_semantics_review" if schema == 1 else "incremental_ai_source_semantics_review"
++    expected_kind = {1: "independent_ai_source_semantics_review", 2: "incremental_ai_source_semantics_review",
++                     3: "manuscript_revision_and_additive_root_ai_review"}[schema]
+     require(audit.get("review_kind") == expected_kind,
+             "Unexpected statement-review kind")
+     require(audit.get("machine_equivalence_certified") is False,
+@@ -345,10 +481,10 @@
+     require(isinstance(commit, str) and re.fullmatch(r"[0-9a-f]{40}", commit) is not None,
+             "Invalid reviewed source commit")
+     sources = hash_bindings(root, audit.get("source_bindings"), "source bindings")
+-    missing = required_sources(root) - sources.keys()
++    missing = required_sources(root, revision=schema == 3) - sources.keys()
+     require(not missing, "Unbound current source files: " + ", ".join(sorted(missing)))
+     reports = hash_bindings(root, audit.get("report_bindings"), "report bindings")
+-    targets = current_targets(root)
++    targets = current_targets(root, CURRENT_CONFIGS if schema == 3 else CONFIGS)
+ 
+     declarations = read_json(root, "metadata/declarations.json").get("declarations")
+     require(isinstance(declarations, list), "Missing declaration metadata")
+@@ -371,7 +507,7 @@
+     labels = set(re.findall(r"\\label\s*\{([^{}]+)\}", paper))
+ 
+     entries = audit.get("entries")
+-    require(isinstance(entries, list) and len(entries) == 6, "Expected six statement-audit entries")
++    require(isinstance(entries, list) and len(entries) == len(targets), "Unexpected statement-audit entry count")
+     entry_ids, seen = set(), set()
+     for entry in entries:
+         require(isinstance(entry, dict), "Invalid statement-audit entry")
+@@ -386,6 +522,8 @@
+         declaration = by_name.get(name)
+         require(isinstance(declaration, dict) and declaration.get("kind") == "theorem",
+                 "Audit target is not an exported theorem: " + name)
++        if schema == 3:
++            require(entry.get("type_sha256") == declaration.get("type_sha256"), "Revision root type differs: " + name)
+         require(entry.get("config") == targets[name], "Audit target/config mismatch: " + name)
+         report = entry.get("report")
+         local_file(root, report)
+@@ -421,6 +559,8 @@
+     require(seen == set(targets), "Audit does not cover the configured theorem targets")
+     if schema == 2:
+         check_delta(root, audit, sources, reports)
++    elif schema == 3:
++        check_revision(root, audit, sources, reports)
+     check_mechanical(root, audit, sources, targets)
+     return audit
+ 
+@@ -436,8 +576,9 @@
+         return 1
+     counts = {verdict: sum(entry["verdict"] == verdict for entry in audit["entries"])
+               for verdict in sorted(VERDICTS)}
+-    mode = "cleanup delta continuation" if audit["schema_version"] == 2 else "historical review"
+-    print("STATEMENT AUDIT RECORDS FRESH (" + mode + "): five configurations, six targets; "
++    mode = {1: "historical review", 2: "cleanup delta continuation", 3: "arXiv v2 and additive root review"}[audit["schema_version"]]
++    config_count = len({entry["config"] for entry in audit["entries"]})
++    print(f"STATEMENT AUDIT RECORDS FRESH ({mode}): {config_count} configurations, {len(audit['entries'])} targets; "
+           + ", ".join(f"{count} {verdict}" for verdict, count in counts.items())
+           + ". Recorded reviews, not machine-certified semantic equivalence.")
+     return 0
+--- a/verification/kernel_common.py
++++ b/verification/kernel_common.py
+@@ -6,7 +6,7 @@
+ import json
+ import os
+ import re
+-from pathlib import Path
++from pathlib import Path, PurePosixPath
+ import subprocess
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+@@ -15,7 +15,7 @@
+                 "Lean4Checker": "b7398199245524275543dec6113229c9bb4902e5"}
+ REPOSITORY = "https://github.com/leanprover/comparator.git"
+ DEFAULT_CONFIGS = ["ComparatorChallenges/" + name + ".json" for name in (
+-    "A_PrescribedDimensions", "B_OperationalCoding", "C_SmallInformationSeparation", "D_WeylAllUses", "E_InputCost")]
++    "A_PrescribedDimensions", "B_OperationalCoding", "C_SmallInformationSeparation", "D_WeylAllUses", "E_InputCost", "F_TwoUseSeparation")]
+ AXIOMS = {"propext", "Quot.sound", "Classical.choice"}
+ 
+ 
+@@ -33,6 +33,111 @@
+ 
+ def output(arguments, cwd=ROOT):
+     return subprocess.check_output(list(map(str, arguments)), cwd=cwd, text=True).strip()
++
++
++def certificate_artifacts():
++    """Bind the selected source gate and its retained evidence, without executing it.
++
++    The release validator checks the certificate's semantics. Portable checker
++    snapshots also retain the exact bytes on which that gate depends, including
++    the historical Lake file used by the explicitly additive certificate.
++    """
++    files = {}
++
++    def local_file(name):
++        if (not isinstance(name, str) or not name or "\\" in name or ":" in name
++                or PurePosixPath(name).is_absolute()
++                or any(part in {"", ".", ".."} for part in name.split("/"))):
++            raise ValueError("Unsafe source-certificate artifact path: " + str(name))
++        path = ROOT / name
++        if not path.is_file() or not path.resolve().is_relative_to(ROOT.resolve()):
++            raise ValueError("Missing or escaping source-certificate artifact: " + name)
++        return path
++
++    def add(name, expected=None):
++        path = local_file(name)
++        actual = digest(path)
++        if expected is not None and (not isinstance(expected, str)
++                or not re.fullmatch(r"[0-9a-f]{64}", expected) or actual != expected):
++            raise ValueError("Stale or invalid source-certificate artifact hash: " + name)
++        if name in files and files[name] != actual:
++            raise ValueError("Source-certificate artifact changed during snapshot: " + name)
++        files[name] = actual
++        return path
++
++    def unique_object(pairs):
++        result = {}
++        for key, value in pairs:
++            if key in result:
++                raise ValueError("Duplicate source-certificate artifact JSON key: " + key)
++            result[key] = value
++        return result
++
++    def read(path):
++        value = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_object)
++        if not isinstance(value, dict):
++            raise ValueError("Expected source-certificate artifact JSON object: " + str(path))
++        return value
++
++    def reference(value, label):
++        if not isinstance(value, dict) or set(value) != {"path", "sha256"}:
++            raise ValueError("Invalid source-certificate " + label + " reference")
++        if not isinstance(value["sha256"], str) or not re.fullmatch(r"[0-9a-f]{64}", value["sha256"]):
++            raise ValueError("Invalid source-certificate " + label + " hash")
++        return add(value["path"], value["sha256"])
++
++    metadata = read(add("metadata/results.json"))
++    if "verification_current" not in metadata:
++        return files
++    current = metadata["verification_current"]
++    if not isinstance(current, dict):
++        raise ValueError("Invalid current source-certificate selection")
++    if "source_certificate" not in current:
++        return files
++    name = current["source_certificate"]
++    if not isinstance(name, str) or PurePosixPath(name).suffix != ".json":
++        raise ValueError("Invalid current source-certificate selection")
++    certificate_path = add(name)
++    certificate = read(certificate_path)
++    historical_lakefile = None
++    schema = certificate.get("schema_version")
++    if type(schema) is int and schema == 2:
++        historical_lakefile = reference(certificate.get("historical_lakefile"), "historical Lake file")
++        certificate_path = reference(certificate.get("base_certificate"), "base certificate")
++        certificate = read(certificate_path)
++        schema = certificate.get("schema_version")
++    if type(schema) is not int or schema != 1:
++        raise ValueError("Unsupported source-certificate artifact schema")
++
++    summary = read(reference(certificate.get("build_summary"), "build summary"))
++    reference(certificate.get("audit_log"), "audit log")
++    comparison = read(reference(certificate.get("public_type_comparison"), "public-type comparison"))
++    reference(comparison.get("checker"), "public-type checker")
++    if (not isinstance(comparison.get("after_export_sha256"), str)
++            or not re.fullmatch(r"[0-9a-f]{64}", comparison["after_export_sha256"])):
++        raise ValueError("Invalid source-certificate public-type export hash")
++    add(comparison.get("after_export_path"), comparison.get("after_export_sha256"))
++
++    # Proof and challenge sources already have their complete current inventories
++    # in bindings(). Include the measured driver inputs as gate dependencies too.
++    drivers = summary.get("source_hashes_before")
++    if not isinstance(drivers, dict) or not drivers:
++        raise ValueError("Missing source-certificate measured input bindings")
++    proofs = {p.relative_to(ROOT).as_posix() for p in (ROOT / "Nonadditivity").rglob("*.lean")}
++    proofs.update(("Nonadditivity.lean", "Audit.lean", "All.lean"))
++    for driver, expected in drivers.items():
++        if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected):
++            raise ValueError("Invalid source-certificate measured input hash: " + driver)
++        if driver in proofs:
++            continue
++        if driver == "lakefile.toml" and historical_lakefile is not None:
++            if digest(historical_lakefile) != expected:
++                raise ValueError("Historical Lake file differs from source-certificate measured inputs")
++        else:
++            add(driver, expected)
++    if any(digest(local_file(name)) != sha for name, sha in files.items()):
++        raise ValueError("Source-certificate artifacts changed during snapshot")
++    return files
+ 
+ 
+ def bindings():
+@@ -46,11 +151,14 @@
+         "lakefile.toml", "verification/lean/run.sh", "verification/comparator/run.sh",
+         "verification/nanoda/run.sh", "verification/check_reports.py", "build.sh", "check.sh", "lean.sh",
+         "scripts/compiler.py", "scripts/validate_release.py", "scripts/check_declarations.py",
+-        "scripts/check_challenges.py", "requirements-validation.txt")]
++        "scripts/check_challenges.py", "requirements-validation.txt", "scripts/source_certificate.py",
++        "paper/nonadditivity.tex", "paper/arxiv-v2.json", "verification/manuscript-v2-20261008/source.tar.gz")]
+     artifacts += sorted((ROOT / "ComparatorChallenges").glob("*.lean"))
+     artifacts += sorted((ROOT / "ComparatorChallenges").glob("*.json"))
++    artifact_hashes = {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(artifacts)}
++    artifact_hashes.update(certificate_artifacts())
+     return {"proof_source_sha256": {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(sources)},
+-            "artifact_sha256": {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(artifacts)}}
++            "artifact_sha256": dict(sorted(artifact_hashes.items()))}
+ 
+ 
+ def prepare_comparator():
+Binary input verification/manuscript-v2-20261008/source.tar.gz: SHA-256 2f937a5753a1acba2a9526ea4878d6102f5a43a680c225334122fc387c0b271b

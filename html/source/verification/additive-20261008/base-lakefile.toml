@@ -1,0 +1,31 @@
+# Copyright (c) 2026 the Nonadditivity project contributors.
+# All rights reserved. See COPYRIGHT.md for licensing and attribution.
+name = "nonadditivity"
+version = "0.1.0"
+defaultTargets = ["All"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "f156f7abd91ac67adb22bf999e5a71ba22e22e41"
+
+[[lean_lib]]
+name = "Nonadditivity"
+
+[[lean_lib]]
+name = "Audit"
+
+[[lean_lib]]
+name = "All"
+
+# Isolated expected statements. Never imported by All or Audit.
+[[lean_lib]]
+name = "ComparatorChallenges"
+roots = [
+  "ComparatorChallenges.A_PrescribedDimensions",
+  "ComparatorChallenges.B_OperationalCoding",
+  "ComparatorChallenges.C_SmallInformationSeparation",
+  "ComparatorChallenges.D_WeylAllUses",
+  "ComparatorChallenges.E_InputCost"
+]

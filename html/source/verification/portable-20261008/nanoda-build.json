@@ -1,0 +1,15 @@
+{
+  "source": "/Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/run-20261009T025529Z-RIH3px/nanoda-source",
+  "pin": {
+    "repository": "https://github.com/ammkrn/nanoda_lib.git",
+    "commit": "3a2407216ee84a75f9e1aead6803d0578be06ae7",
+    "package_version": "0.4.19",
+    "rust_toolchain": "1.90.0",
+    "rust_commit": "1159e78c4747b02ef996e55082b704c09b970588",
+    "cargo_lock_sha256": "9b921e794ce5ed515eb31db9ada0c2f34df999b6c9b5135ad308a412872e42be",
+    "build_command": "cargo +1.90.0 build --release --locked",
+    "binary": "target/release/nanoda_bin"
+  },
+  "rust_version": "rustc 1.90.0 (1159e78c4 2025-09-14)\nbinary: rustc\ncommit-hash: 1159e78c4747b02ef996e55082b704c09b970588\ncommit-date: 2025-09-14\nhost: aarch64-apple-darwin\nrelease: 1.90.0\nLLVM version: 20.1.8",
+  "binary_sha256": "0801b3dab9a8c7655d7320700a7133829bd5d113b2650c975adac80aa6a1e108"
+}

@@ -198,6 +198,27 @@ class Site:
         self.meta = json.loads(self.read("metadata/results.json"))
         self.results = self.meta["results"]
         self.result_by_id = {x["id"]: x for x in self.results}
+        proof_paths = list((ROOT / "Nonadditivity").glob("*.lean"))
+        proof_paths += [ROOT / name for name in ["Nonadditivity.lean", "Audit.lean", "All.lean"]]
+        self.source_certificate_path = self.meta["verification_current"].get("source_certificate")
+        self.additive_lakefile_provenance = None
+        if self.source_certificate_path is not None:
+            source_integrity = load_source_certificate(
+                ROOT, self.source_certificate_path,
+                {path.relative_to(ROOT).as_posix() for path in proof_paths})
+            certificate = json.loads(self.read(self.source_certificate_path))
+            if self.inputs[self.source_certificate_path] != source_integrity["sha256"]:
+                raise ValueError("Source certificate changed after validation")
+            if (certificate.get("schema_version") == 2 and source_integrity["method"] ==
+                    "recorded_rebuild_and_exact_public_types_with_additive_challenge"):
+                historical = certificate["historical_lakefile"]
+                self.read_bytes(historical["path"])
+                if self.inputs[historical["path"]] != historical["sha256"]:
+                    raise ValueError("Historical Lake configuration changed after validation")
+                self.additive_lakefile_provenance = {
+                    "historical_sha256": historical["sha256"],
+                    "current_sha256": certificate["current_lakefile_sha256"],
+                }
         self.modules: dict[str, dict] = {}
         self.used_by: dict[str, list[str]] = defaultdict(list)
         self.module_results: dict[str, list[dict]] = defaultdict(list)
@@ -226,7 +247,8 @@ class Site:
         self.portable_summary = json.loads(self.read(self.portable_directory + "/run-summary.json"))
         self.statement_audit_path = selected_audit_path()
         self.statement_audit = load_audit(audit_path=self.statement_audit_path)
-        self.statement_delta = self.statement_audit.get("schema_version") == 2
+        self.statement_audit_version = self.statement_audit.get("schema_version")
+        self.statement_delta = self.statement_audit_version in {2, 3}
         self.statement_audits_by_result: dict[str, list[dict]] = defaultdict(list)
         for entry in self.statement_audit["entries"]:
             for result_id in entry["result_ids"]:
@@ -234,12 +256,6 @@ class Site:
         self.statement_audit_evidence = json.loads(self.read(self.statement_audit["mechanical_evidence"]["path"]))
         if self.ci["commit"] != self.meta["verification_current"]["commit"]:
             raise ValueError("Current CI metadata disagrees with the retained verification record")
-        proof_paths = list((ROOT / "Nonadditivity").glob("*.lean"))
-        proof_paths += [ROOT / name for name in ["Nonadditivity.lean", "Audit.lean", "All.lean"]]
-        self.source_certificate_path = self.meta["verification_current"].get("source_certificate")
-        if self.source_certificate_path is not None:
-            load_source_certificate(ROOT, self.source_certificate_path,
-                                    {path.relative_to(ROOT).as_posix() for path in proof_paths})
         for path in sorted(proof_paths):
             rel = path.relative_to(ROOT).as_posix()
             source = self.read(rel)
@@ -268,11 +284,21 @@ class Site:
         if self.source_certificate_path:
             doc_paths += ["verification/elaboration-20261006/README.md",
                           "verification/elaboration-20261006/comparison/ELABORATION_COMPARISON.md"]
+            certificate_readme = str(PurePosixPath(self.source_certificate_path).parent / "README.md")
+            if (ROOT / certificate_readme).is_file():
+                doc_paths.append(certificate_readme)
         for rel in doc_paths:
             self.docs[rel] = self.read(rel)
             self.emit("source/" + rel, self.docs[rel])
         source_paths = ["paper/nonadditivity.tex", "formalization.yaml", "metadata/results.json", "metadata/declarations.json", self.ci_record, self.ci_excerpt, "Audit.lean", "All.lean", "Nonadditivity.lean", "lean-toolchain", "lake-manifest.json", "verification/lean/run.sh", "verification/comparator/run.sh", "requirements-validation.txt", "check.sh", "scripts/verify.sh", "scripts/test_nanoda_check.py", "verification/kernel_common.py", "verification/check_reports.py", "verification/comparator/check_local.py", "verification/comparator/ReplayExports.lean", "verification/nanoda/check_nanoda.py", "verification/nanoda/toolchain.json", "verification/nanoda/run.sh"]
-        for directory in {"verification/portable-20261002", self.portable_directory}:
+        manuscript_provenance = self.meta["manuscript"].get("revision", {}).get("provenance")
+        if manuscript_provenance:
+            provenance = json.loads(self.read(manuscript_provenance))
+            archive_path = provenance["source_archive"]["path"]
+            source_paths += [manuscript_provenance, archive_path]
+            source_paths += [p.relative_to(ROOT).as_posix()
+                             for p in sorted((ROOT / archive_path).parent.glob("*")) if p.is_file()]
+        for directory in {"verification/portable-20261002", "verification/portable-20261007", self.portable_directory}:
             source_paths += [p.relative_to(ROOT).as_posix() for p in sorted((ROOT / directory).glob("*")) if p.is_file()]
         # Historical CI evidence remains downloadable when repository documents
         # retain links to an earlier checked source commit.
@@ -284,22 +310,40 @@ class Site:
                          *self.statement_audit_evidence["logs"], *self.statement_audit_evidence["inputs"]]
         if (ROOT / CURRENT_AUDIT_PATH).is_file():
             source_paths.append(CURRENT_AUDIT_PATH)
-        if self.statement_delta:
-            parent_path = self.statement_audit["parent_audit"]["path"]
+        audit_parent = self.statement_audit.get("parent_audit")
+        audit_ancestors = {self.statement_audit_path}
+        while audit_parent:
+            parent_path = audit_parent["path"]
+            if parent_path in audit_ancestors:
+                raise ValueError("Cyclic historical statement audit references")
+            audit_ancestors.add(parent_path)
             parent = json.loads(self.read(parent_path))
             evidence_path = parent["mechanical_evidence"]["path"]
             evidence = json.loads(self.read(evidence_path))
             source_paths += [parent_path, *parent["report_bindings"], evidence_path,
                              *evidence["logs"], *evidence["inputs"]]
+            audit_parent = parent.get("parent_audit")
         if self.source_certificate_path:
-            certificate = json.loads(self.read(self.source_certificate_path))
             source_paths += [self.source_certificate_path, "scripts/source_certificate.py", "scripts/compare_public_types.py",
-                             *[certificate[key]["path"] for key in ("build_summary", "audit_log", "public_type_comparison")]]
+                             "lakefile.toml"]
+            certificate_path = self.source_certificate_path
+            certificate_ancestors = set()
+            while certificate_path:
+                if certificate_path in certificate_ancestors:
+                    raise ValueError("Cyclic source certificate references")
+                certificate_ancestors.add(certificate_path)
+                certificate = json.loads(self.read(certificate_path))
+                source_paths.append(certificate_path)
+                for key in ("build_summary", "audit_log", "public_type_comparison", "historical_lakefile"):
+                    if key in certificate:
+                        source_paths.append(certificate[key]["path"])
+                source_paths += list(certificate.get("additional_challenge_sha256", {}))
+                certificate_path = certificate.get("base_certificate", {}).get("path")
         for rel in sorted(set(source_paths)):
             # Proof sources and Markdown reports already have exact downloads.
             # Add only missing artifacts, including the small mechanical probe.
             if "source/" + rel not in self.outputs:
-                self.emit("source/" + rel, self.read(rel))
+                self.emit("source/" + rel, self.read_bytes(rel))
         # Track the generator and its own assets in the deterministic manifest.
         for name in ["build.py", "site.css", "site.js", "dependencies.js", "proof-graph.json", "README.md"]:
             rel = "tools/docs-site/" + name
@@ -352,10 +396,13 @@ class Site:
         if {item["id"] for item in self.reader["stages"]} != {str(i) for i in range(1, len(STAGES) + 1)}:
             raise ValueError("Every proof stage needs an explanation")
 
-    def read(self, rel: str) -> str:
+    def read_bytes(self, rel: str) -> bytes:
         data = (ROOT / rel).read_bytes()
         self.inputs[rel] = hashlib.sha256(data).hexdigest()
-        return data.decode("utf-8")
+        return data
+
+    def read(self, rel: str) -> str:
+        return self.read_bytes(rel).decode("utf-8")
 
     def emit(self, rel: str, content: str | bytes) -> None:
         self.outputs[rel] = content.encode("utf-8") if isinstance(content, str) else content
@@ -379,7 +426,11 @@ class Site:
             actual = hashlib.sha256(data).hexdigest()
             self.inputs[rel] = actual
             if actual != expected:
-                raise ValueError("Stale Lean declaration export: " + rel + "; rerun the declaration exporter")
+                additive = self.additive_lakefile_provenance
+                if not (rel == "lakefile.toml" and additive is not None
+                        and expected == additive["historical_sha256"]
+                        and actual == additive["current_sha256"]):
+                    raise ValueError("Stale Lean declaration export: " + rel + "; rerun the declaration exporter")
         for name, record in self.declarations.items():
             if record["file"] != record["module"].replace(".", "/") + ".lean":
                 raise ValueError("Declaration file/module mismatch: " + name)
@@ -550,13 +601,17 @@ class Site:
         if self.statement_delta:
             links += [self.link(self.doc_url(report), "Historical root review", page)
                       for report in sorted(historical_reports)]
-        label = "Historical AI review + cleanup delta" if self.statement_delta else "Independent AI review"
+        label = ("Historical AI reviews + arXiv v2/root addition" if self.statement_audit_version == 3 else
+                 "Historical AI review + cleanup delta" if self.statement_delta else "Independent AI review")
         return '<p class="small"><strong>' + label + ':</strong> ' + ' · '.join(links) + '.</p>'
 
     def statement_review_description(self, page: str) -> str:
-        text = self.link(self.doc_url("docs/STATEMENT_AUDIT.md"), "Independent AI reviews of the six challenge roots", page)
-        text += ' compare the manuscript, Lean statements, and relevant definitions, with qualifications retained.'
-        if self.statement_delta:
+        text = self.link(self.doc_url("docs/STATEMENT_AUDIT.md"), "Historical AI reviews of six challenge roots", page)
+        text += ' compared their recorded manuscript revisions, Lean statements, and relevant definitions, with qualifications retained.'
+        if self.statement_audit_version == 3:
+            text += ' The ' + self.link(self.doc_url(self.statement_audit["method"]["review_report"]), "arXiv v2 and added-root review", page)
+            text += ' examines the unchanged endpoints, revised exploration-mark prose, and the added absolute two-use separation root, retaining the earlier qualifications. It does not repeat a full proof-by-proof manuscript review.'
+        elif self.statement_delta:
             text += ' The ' + self.link(self.doc_url("docs/STATEMENT_AUDIT_DELTA.md"), "cleanup delta review", page)
             text += ' examines the cleanup changes and continues those historical qualifications; it does not repeat the complete historical review.'
         return text + ' These reviews do not machine-certify English–Lean equivalence.'
@@ -645,7 +700,7 @@ class Site:
     def build_overview(self) -> None:
         page = "index.html"
         content = '<div><p class="eyebrow">Quantum communication · mathematics and Lean proofs</p><h1>How much could entanglement help in classical communication?</h1><p class="lead">Entangling the inputs to repeated uses of a noisy quantum channel can improve the transmission of classical messages. This site explains an explicit finite-dimensional construction and its Lean proofs.</p><div class="actions">'
-        content += '<a class="button primary" href="https://arxiv.org/abs/2609.18222">Read the paper</a>' + self.link("dependencies.html", "Proof map", page, "button") + self.link("correspondence.html", "Manuscript-to-Lean map", page, "button") + '</div></div><section id="main-results"><h2>Main results</h2><div class="cards">'
+        content += '<a class="button primary" href="https://arxiv.org/abs/2609.18222v2">Read arXiv v2</a>' + self.link("dependencies.html", "Proof map", page, "button") + self.link("correspondence.html", "Manuscript-to-Lean map", page, "button") + '</div></div><section id="main-results"><h2>Main results</h2><div class="cards">'
         for title, url, text in [
             ("An unbounded two-use advantage", "results/prescribed-dimensions.html", "Two uses of the same channel can have arbitrarily many more bits of Holevo information than twice its single-use value. Entangled inputs produce this absolute gain."),
             ("Tiny single-use information, large capacity", "results/simultaneous-separation.html", "Along one channel family, single-use Holevo information tends to zero while two-use information per use and operational classical capacity grow without bound. The capacity advantage and the relative two-use gain can be arbitrarily large simultaneously."),
@@ -667,13 +722,14 @@ class Site:
         content += '<h2>Get the repository</h2><p>Install Git, <a href="https://github.com/leanprover/elan">elan</a>, Python 3.11+ with <code>venv</code>/<code>pip</code>, and native C/C++ build tools. Nanoda’s pinned-source build also needs <a href="https://rustup.rs/">Rustup</a>. Dependency downloads need network access. Tool versions are pinned.</p>'
         content += command('git clone https://github.com/JWang226/Holevo-Additivity-Gap.git\ncd Holevo-Additivity-Gap')
         content += '<h2>Run checks separately</h2><p>Choose a command below. Each mode prepares its own dependencies and builds the proof modules it needs; no prior <code>all</code> run is required.</p>'
-        for mode, meaning in [("lean", "Rebuild all project sources, audit transitive axioms, validate mappings, and check six local expected types."), ("comparator", "Use pinned Comparator APIs to compare expected types and referenced definitions, enforce the axiom policy, then replay exports in Lean’s kernel."), ("nanoda", "Build the pinned independent Rust kernel, run acceptance/rejection controls, and check the six exported solution theorem roots.")]:
+        root_count = self.portable_summary["theorem_roots"]
+        for mode, meaning in [("lean", f"Rebuild all project sources, audit transitive axioms, validate mappings, and check {root_count} local expected types."), ("comparator", "Use pinned Comparator APIs to compare expected types and referenced definitions, enforce the axiom policy, then replay exports in Lean’s kernel."), ("nanoda", f"Build the pinned independent Rust kernel, run acceptance/rejection controls, and check the {root_count} exported solution theorem roots.")]:
             content += '<h3 id="run-' + mode + '">' + esc({"lean": "Lean", "comparator": "Comparator", "nanoda": "Nanoda"}[mode]) + '</h3>'
             content += command('bash scripts/verify.sh ' + mode + (certificate_option if mode == "lean" else '')) + '<p>' + esc(meaning) + '</p>'
         content += '<p>Lean and Comparator modes do not require Rust. Nanoda mode checks solution proofs; run Comparator as well to compare their expected statements.</p>'
         content += '<h2>Run all checks</h2>' + command('bash scripts/verify.sh all' + certificate_option)
         if self.source_certificate_path:
-            content += '<p>The Lean stage explicitly selects the cleanup ' + self.link("source/" + self.source_certificate_path, "source certificate", page) + '. It still rebuilds all project sources and executes the local mapping and expected-type checks.</p>'
+            content += '<p>The Lean stage explicitly selects the current ' + self.link("source/" + self.source_certificate_path, "source certificate", page) + '. The additive certificate preserves the earlier rebuild/type evidence and binds the added challenge configuration; it does not itself claim fresh proof execution. The command still rebuilds all project sources and executes the local mapping and expected-type checks.</p>'
         content += '<p>No landrun or systemd is required. Success ends with <code>VERIFICATION PASSED: &lt;mode&gt;</code>. Every requested stage must pass; a failure exits nonzero. Fresh logs and source-bound reports are written to <code>.verify-work/run-*</code>. The Lean stage also keeps detailed logs under <code>.verify-work/logs/lean-*</code>.</p>'
         content += '<p>' + self.link(self.doc_url("docs/verify.md"), "Full commands, prerequisites, expected output, and tool pins →", page) + ' · ' + self.link("source/scripts/verify.sh", "Read the wrapper", page) + '</p>'
         summary = self.portable_summary
@@ -688,7 +744,7 @@ class Site:
         content += '<h2>Statement review freshness</h2><p>' + self.statement_review_description(page) + '</p>'
         content += command('python3 verification/check_statement_audit.py')
         content += '<p>This command checks the selected recorded hashes, references, and mechanical provenance. It does not redo the semantic review or execute Lean, Comparator, or Nanoda. The attached mechanical evidence records incremental exact-type applications and axiom checks using existing compiled dependencies.</p><p>' + self.link("source/" + self.statement_audit_path, "Current review manifest", page) + ' · ' + self.link("source/" + self.statement_audit["mechanical_evidence"]["path"], "Mechanical evidence", page) + ' · ' + self.link("source/verification/check_statement_audit.py", "Freshness checker", page) + '</p>'
-        content += '<h2>Trust and scope</h2><p>Comparator and Nanoda run <strong>unsandboxed on trusted local sources</strong>. Comparator mode calls the pinned APIs directly; it does not claim a sandboxed upstream CLI run. Nanoda supplies an independent kernel implementation. Neither check replaces review of the expected statements, challenge imports, or their correspondence to the manuscript.</p><p>The six intentional expected-statement placeholders are excluded from the solution build. Solution proof dependencies permit only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>. The principal endpoints are proved; the full manuscript is not formalized.</p>'
+        content += '<h2>Trust and scope</h2><p>Comparator and Nanoda run <strong>unsandboxed on trusted local sources</strong>. Comparator mode calls the pinned APIs directly; it does not claim a sandboxed upstream CLI run. Nanoda supplies an independent kernel implementation. Neither check replaces review of the expected statements, challenge imports, or their correspondence to the manuscript.</p><p>The ' + str(root_count) + ' intentional expected-statement placeholders are excluded from the solution build. Solution proof dependencies permit only <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>. The principal endpoints are proved; the full manuscript is not formalized.</p>'
         content += '<p>' + self.link(self.doc_url("ComparatorChallenges/README.md"), "Challenge trust assumptions", page) + ' · ' + self.link(self.doc_url("docs/FORMALIZATION_STATUS.md"), "Formalization scope", page) + '</p>'
         self.page(page, "Verify", content, "Verify")
 
@@ -733,7 +789,7 @@ class Site:
         content += '<div class="label-list">' + ''.join('<code>' + esc(x) + '</code>' for x in result["paper"]["labels"]) + '</div>'
         if result["paper"].get("locator"):
             content += '<p>' + esc(result["paper"]["locator"]) + '</p>'
-        content += '<p class="small muted">The included manuscript is the revised source incorporating the two counting repairs. Correspondence entries are reading aids rather than an exhaustive statement-equivalence certificate.</p><p>' + self.link("correspondence.html#" + result["id"], "Manuscript-to-Lean map", page) + ' · ' + self.link("source/paper/nonadditivity.tex", "Revised manuscript source", page) + ' · ' + self.link("source/metadata/results.json", "Correspondence metadata", page) + '</p>'
+        content += '<p class="small muted">The included manuscript is the exact published arXiv v2 source, including its two counting repairs. The revised exploration-mark prose and formal encoding have separate scope qualifications. Correspondence entries are reading aids rather than an exhaustive statement-equivalence certificate.</p><p>' + self.link("correspondence.html#" + result["id"], "Manuscript-to-Lean map", page) + ' · ' + self.link("source/paper/nonadditivity.tex", "Exact arXiv v2 manuscript source", page) + ' · ' + self.link("source/metadata/results.json", "Correspondence metadata", page) + '</p>'
         if result.get("comparator_config"):
             content += '<p class="small">Comparator configuration: ' + self.link("source/" + result["comparator_config"], '<code>' + esc(result["comparator_config"]) + '</code>', page) + '. Portable statement comparison, Lean replay, and Nanoda checking passed for this configuration.</p>'
         content += self.statement_audit_links(result["id"], page)
@@ -772,7 +828,7 @@ class Site:
         theorem_count = sum(ref["role"] == "theorem" for ref in references)
         predicate_count = len(references) - theorem_count
         content = '<section id="manuscript-correspondence"><p class="eyebrow">Manuscript → guide → formal statement</p><h1>Manuscript-to-Lean map</h1><p class="lead">Find a manuscript claim, follow its informal argument, and inspect the Lean declarations that represent it.</p>'
-        content += f'<p>This map covers {len(self.results)} selected claims and proof ingredients. Numbers and source locations refer to the revised manuscript included in this repository, which incorporates the two counting repairs; the arXiv version may differ. <a href="https://arxiv.org/abs/2609.18222">Read the arXiv paper</a> or ' + self.link("manuscript.html", "browse the revised source", page) + '.</p>'
+        content += f'<p>This map covers {len(self.results)} selected claims and proof ingredients. Source locations refer to the exact published arXiv v2 manuscript included in this repository, without local wording changes. <a href="https://arxiv.org/abs/2609.18222v2">Read arXiv v2</a> or ' + self.link("manuscript.html", "browse the exact source", page) + '.</p>'
         content += '<div class="correspondence-summary">' + ''.join('<span><strong>' + str(counts[status]) + '</strong> ' + esc(status.replace('_', ' ')) + '</span>' for status in counts) + '</div>'
         content += f'<p class="small">The {len(references)} mapped declaration references include {theorem_count} theorems and {predicate_count} unproved predicates. The full manuscript is not formalized. Each row states its scope and whether the formalization uses an alternative argument, a specialization, or a corrected proof. Lean checks the formal statements; this reading map does not certify English–Lean equivalence.</p>'
         content += '<p class="small">' + self.statement_review_description(page) + ' Relevant rows link the reports and recorded verdicts.</p>'
@@ -871,9 +927,13 @@ class Site:
 
     def build_manuscript(self) -> None:
         page = "manuscript.html"
-        content = '<p class="eyebrow">Exact revised LaTeX source</p><h1>The included manuscript</h1><p class="lead">Source locations for the manuscript-to-Lean map.</p><p>' + self.link("correspondence.html", "Return to the correspondence map", page) + ' · ' + self.link("source/paper/nonadditivity.tex", "Download the manuscript", page) + ' · <a href="' + REPO + '/blob/main/paper/nonadditivity.tex">View on GitHub</a></p><p class="small">SHA-256: <code>' + esc(self.meta["manuscript"]["sha256"]) + '</code>. These numbered source lines belong to the included revision; they do not assert matching page numbers or anchors in an arXiv version.</p>'
+        content = '<p class="eyebrow">Exact arXiv v2 LaTeX source</p><h1>The included manuscript</h1><p class="lead">Published source locations for the manuscript-to-Lean map.</p><p>' + self.link("correspondence.html", "Return to the correspondence map", page) + ' · ' + self.link("source/paper/nonadditivity.tex", "Download the manuscript", page) + ' · <a href="' + REPO + '/blob/main/paper/nonadditivity.tex">View on GitHub</a></p><p class="small">SHA-256: <code>' + esc(self.meta["manuscript"]["sha256"]) + '</code>. The repository preserves the published arXiv v2 bytes without local wording changes. Line numbers identify the source text, rather than PDF page numbers.</p>'
+        provenance_path = self.meta["manuscript"].get("revision", {}).get("provenance")
+        if provenance_path:
+            provenance = json.loads(self.read(provenance_path))
+            content += '<p>' + self.link("source/" + provenance_path, "Upstream source provenance", page) + ' · ' + self.link("source/" + provenance["source_archive"]["path"], "Original arXiv source archive", page) + '</p>'
         content += '<pre class="source" id="source">' + ''.join('<span class="code-line" id="L' + str(n) + '"><a class="line-number" href="#L' + str(n) + '" aria-label="Line ' + str(n) + '">' + str(n) + '</a><code>' + esc(line) + '</code></span>' for n, line in enumerate(self.manuscript_source.splitlines(), 1)) + '</pre>'
-        self.page(page, "Revised manuscript source", content, "Paper ↔ Lean", True)
+        self.page(page, "Exact arXiv v2 manuscript source", content, "Paper ↔ Lean", True)
 
     def build_modules(self) -> None:
         page = "modules.html"
@@ -1284,7 +1344,7 @@ class Site:
         page = "about.html"
         content = '<p class="eyebrow">Sources and trust</p><h1>About these pages.</h1><p class="lead">A mathematical reader guide connected to this repository’s exact formal sources.</p><p>The explanatory organization follows <a href="https://jwang226.github.io/QMDL/">QMDL</a>: an introduction, concepts, result explanations, a proof route, and links in both directions between mathematics and Lean. The formal source explorer also follows the structure of the <a href="https://tianyipeng.github.io/fermats-last-theorem/">Fermat’s Last Theorem documentation</a>. The project’s explanations, design, and generator are original material. Mathematical notation uses a locally bundled KaTeX 0.19.0 distribution under the MIT license; ' + self.link("assets/katex/LICENSE", "its original license", page) + ' is retained.</p><p>The mathematical chapters, concept entries, all 25 result explanations, and seven proof-stage explanations are handwritten documentation. Every attached Lean declaration is validated against the actual export. The ' + self.link("reader-map.json", "machine-readable explanation map", page) + ' records these reading correspondences and source hashes. It does not assert formal equivalence of the prose and proof terms.</p>'
         content += '<h2>What is shown, and how</h2><table class="about-table"><tbody>'
-        for label, text in [("Result correspondence", "The 25 records and 49 exact declaration references are read from metadata/results.json. Status and scope notes are carried through unchanged."), ("Quoted headers", "A conservative lexical recognizer quotes a unique literal declaration header before its outer :=. It hides comments and strings while locating syntax, then quotes the original source text. Ambiguous syntax falls back to full source."), ("Elaborated declarations", f"All {len(self.declarations):,} project constants are exported from the actual Lean environment into metadata/declarations.json. Individual pages display a readable elaborated type, with universe parameters separately listed, and link to the exact full source module. A shared kernel expression DAG preserves every kernel-relevant argument, universe, binder and name component, while omitting kernel-irrelevant metadata annotations."), ("Source context", "A literal source header does not expand namespace variables, implicit instances, notation, imports, or local settings. Its display is distinguished from the complete exported type. An exact declaration line is linked only when available from source extraction or trustworthy declaration metadata."), ("Import relationships", "Direct imports are read from literal import commands. Reverse links cover all 366 proof modules and three aggregate entry points. These remain distinct from individual constant references."), ("Constant dependencies", "Type and stored-value expressions provide exact direct constant-reference lists. Reverse project links are computed from those lists. The proof overview gives mathematical labels to selected theorems, with each arrow backed by an actual proof/definition-reference path. Intermediate helpers and redundant arrows are omitted; their paths remain inspectable. A detailed view retains direct type and proof/definition references. No minimality or informal-proof equivalence is asserted."), ("Search", f"Search indexes every one of the {len(self.declarations):,} exported project constants, all result names and paper labels, and all source modules. Names flagged by Lean’s internal, internal-detail or private predicates can be included explicitly; these flags do not identify every generated constant."), ("Export freshness", "The generator verifies the exported SHA-256 provenance against every proof source, aggregate entry point, toolchain and dependency manifest before generating pages. A stale source blocks the documentation build. This checks provenance consistency; it does not independently re-execute the exporter or prove metadata integrity."), ("Repository documents", "A small offline Markdown renderer displays committed prose. Exact Markdown files are available when typography or formula syntax needs checking."), ("Verification evidence", "The retained successful GitHub CI run certifies a full project-source rebuild and Lean audit at its recorded commit. Separate portable records certify Comparator API comparison, Lean replay, and independent Nanoda checking for five configurations and six theorem roots. These checks ran unsandboxed; their input hashes are verified when building this site."), ("Offline use", "Open html/index.html directly after cloning, or visit the GitHub Pages site. Search and dependency data are local JavaScript assets, so no server, CDN, telemetry, or network request is required to browse."), ("Licensing", "No blanket open-source license has been selected for project-owned code or the manuscript. Copyright and original third-party attribution are preserved.")]:
+        for label, text in [("Result correspondence", "The 25 records and 49 exact declaration references are read from metadata/results.json. Status and scope notes are carried through unchanged."), ("Quoted headers", "A conservative lexical recognizer quotes a unique literal declaration header before its outer :=. It hides comments and strings while locating syntax, then quotes the original source text. Ambiguous syntax falls back to full source."), ("Elaborated declarations", f"All {len(self.declarations):,} project constants are exported from the actual Lean environment into metadata/declarations.json. Individual pages display a readable elaborated type, with universe parameters separately listed, and link to the exact full source module. A shared kernel expression DAG preserves every kernel-relevant argument, universe, binder and name component, while omitting kernel-irrelevant metadata annotations."), ("Source context", "A literal source header does not expand namespace variables, implicit instances, notation, imports, or local settings. Its display is distinguished from the complete exported type. An exact declaration line is linked only when available from source extraction or trustworthy declaration metadata."), ("Import relationships", "Direct imports are read from literal import commands. Reverse links cover all 366 proof modules and three aggregate entry points. These remain distinct from individual constant references."), ("Constant dependencies", "Type and stored-value expressions provide exact direct constant-reference lists. Reverse project links are computed from those lists. The proof overview gives mathematical labels to selected theorems, with each arrow backed by an actual proof/definition-reference path. Intermediate helpers and redundant arrows are omitted; their paths remain inspectable. A detailed view retains direct type and proof/definition references. No minimality or informal-proof equivalence is asserted."), ("Search", f"Search indexes every one of the {len(self.declarations):,} exported project constants, all result names and paper labels, and all source modules. Names flagged by Lean’s internal, internal-detail or private predicates can be included explicitly; these flags do not identify every generated constant."), ("Export freshness", "The generator verifies the exported SHA-256 provenance against every proof source, aggregate entry point, toolchain and dependency manifest before generating pages. A stale source blocks the documentation build. This checks provenance consistency; it does not independently re-execute the exporter or prove metadata integrity."), ("Repository documents", "A small offline Markdown renderer displays committed prose. Exact Markdown files are available when typography or formula syntax needs checking."), ("Verification evidence", f"The retained successful GitHub CI run records a full project-source rebuild and Lean audit at its historical commit. Selected portable records cover Comparator API comparison, Lean replay, and independent Nanoda checking for {self.portable_summary['challenge_configurations']} configurations and {self.portable_summary['theorem_roots']} theorem roots. These checks ran unsandboxed; their input hashes are verified when building this site. Source-certificate extensions and manuscript reviews retain separate scopes."), ("Offline use", "Open html/index.html directly after cloning, or visit the GitHub Pages site. Search and dependency data are local JavaScript assets, so no server, CDN, telemetry, or network request is required to browse."), ("Licensing", "No blanket open-source license has been selected for project-owned code or the manuscript. Copyright and original third-party attribution are preserved.")]:
             content += '<tr><td>' + esc(label) + '</td><td>' + esc(text) + '</td></tr>'
         content += '</tbody></table><h2>Complete kernel type expressions</h2><p>Every elaborated type is preserved as a shared kernel expression DAG: names, universes, binders and all arguments are retained; kernel-irrelevant metadata annotations are omitted. This canonical JSON is a machine expression representation, distinct from Lean source text. It is stored losslessly as gzip/base64, with byte counts and SHA-256 hashes. The generator stream-checks each payload and validates its node references before publishing a complete <code>.expr.json.gz</code> artifact. Declaration pages show readable Lean types and decode at most a 64,000-character JSON preview on expansion; modern browsers also offer the entire decoded JSON download. Compressed downloads remain available without browser gzip support.</p><h2>Rebuild the documentation</h2><p>Python 3 is the only dependency. From the repository root:</p>' + command('python3 tools/docs-site/build.py\npython3 tools/docs-site/build.py --check')
         content += '<p>The freshness check compares generated bytes and validates every local file link, HTML anchor, search target, and source download. It is a documentation check; proof verification uses the separate commands on the verification page.</p><p>The generator records input hashes, counts, and extraction results in ' + self.link("generation.json", "generation.json", page) + '. Generation is deterministic. Downloadable execution records retain their original timestamps and paths.</p>'

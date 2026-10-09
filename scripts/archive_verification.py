@@ -72,15 +72,18 @@ def main():
         require(controls["status"] == "passed" and len(controls["checks"]) == 13,
                 "Acceptance/rejection controls did not all pass")
         validation = read_json(ROOT / ".lake/release-validation.json")
+        check_reports.check_certificate_invocation(info, validation)
         challenges = read_json(ROOT / ".lake/challenge-checks.json")
+        targets = check_reports.configured_targets()
+        theorem_count = sum(len(names) for names in targets.values())
         require(validation["lean_declaration_check"] == "passed"
                 and validation["unique_mapped_declarations"] == 49
                 and validation["proof_source_sha256"] == snapshot["proof_source_sha256"]
                 and all(validation["metadata_sha256"][key] == value for key, value
                         in snapshot["artifact_sha256"].items() if key in validation["metadata_sha256"]),
                 "Fresh mapped-declaration validation is missing or stale")
-        require(challenges["status"] == "passed" and challenges["theorems_checked"] == 6
-                and challenges["challenge_modules_checked"] == 5,
+        require(challenges["status"] == "passed" and challenges["theorems_checked"] == theorem_count
+                and challenges["challenge_modules_checked"] == len(targets),
                 "Fresh expected statement checks did not all pass")
         directory = ROOT / check_reports.portable_directory()
         require(not directory.exists(), "Preserve existing records; choose a versioned successor")
@@ -101,7 +104,7 @@ def main():
             "platform": platform.platform(), "project_modules_rebuilt": int(builds[0]),
             "audited_project_declarations": int(audits[0][0]),
             "audited_theorem_constants": int(audits[0][1]), "mapped_declarations_checked": 49,
-            "challenge_configurations": 5, "theorem_roots": 6,
+            "challenge_configurations": len(targets), "theorem_roots": theorem_count,
             "permitted_axioms": sorted(common.AXIOMS),
             "dependency_boundary": "Pinned prebuilt Mathlib/dependency cache reused; all project modules rebuilt from source.",
             "command": "bash scripts/verify.sh all --source-certificate " + info["source_certificate"],
