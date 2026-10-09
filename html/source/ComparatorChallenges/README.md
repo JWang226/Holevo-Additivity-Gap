@@ -11,11 +11,16 @@ and the [Comparator configuration interface](https://github.com/leanprover/compa
 The statements and explanations here were written for this project. No
 third-party proof code or README text was copied from those repositories.
 
-The portable workflow checks these five configurations and six theorem roots using
+The portable workflow checks these six configurations and seven theorem roots using
 Comparator’s comparison/axiom APIs and Lean kernel replay. A separate Nanoda
 mode checks the exported solution proofs with an independent Rust kernel.
 See [verification evidence](../verification/README.md) for recorded execution.
 Both modes run unsandboxed on trusted local sources.
+
+The `enable_nanoda: false` field disables the optional Nanoda path in
+Comparator's configuration interface. The portable `nanoda` and `all` modes
+run Nanoda separately on every listed solution root and require that field
+to remain false.
 
 ## Contents
 
@@ -26,13 +31,20 @@ Both modes run unsandboxed on trusted local sources.
 | `C_SmallInformationSeparation.json` | `Nonadditivity.OperationalConsequences` | Arbitrarily small positive one-use information with arbitrarily large operational gain and two-use ratio |
 | `D_WeylAllUses.json` | `Nonadditivity.WeylPowersEntropy` | Exact Weyl-extension Holevo identity at every positive tensor power |
 | `E_InputCost.json` | `Nonadditivity.PrescribedCostCapacity` | One-use information bounds and two-use/operational lower bounds in terms of actual input-qubit cost |
+| `F_TwoUseSeparation.json` | `Nonadditivity.DeterministicConsequences` | Arbitrarily small positive one-use information with arbitrarily large absolute two-use information per use |
 
 Each JSON file lists the exact fully qualified theorem names. There are no
 unfilled definition holes. The repeated definition `inputLogScale` in challenge
 E has the same concrete value as the solution definition.
 
+C does not directly assert the absolute two-use separation `chiTwo / 2 ≥ R`
+in manuscript `cor:separation`. F checks that endpoint through
+`Nonadditivity.DeterministicConsequences.actual_small_large`, strengthened by
+positive one-use information and an arbitrary real `R`. The divergent-sequence
+and capacity assertions are separately proved consequences, outside F's root.
+
 The challenge modules deliberately contain `sorry` for their expected theorem
-statements. These six placeholders are **not proof certificates**. The proof
+statements. These seven placeholders are **not proof certificates**. The proof
 library and `Audit.lean` never import the challenge modules. The configurations
 permit only `propext`, `Quot.sound`, and `Classical.choice`, so a solution whose
 proof depends on `sorryAx` is not permitted.
@@ -42,9 +54,13 @@ proof depends on `sorryAx` is not permitted.
 Each challenge explicitly writes its expected statement and imports selected
 lower-level project modules needed to define it. It does not import its target
 solution module or the target theorem. Those imports include previously proved
-lemmas, not just primitive definitions. For example, C imports the module that
-defines the operational `classicalCapacity` wrapper; E imports the construction
-and logarithmic input-cost infrastructure.
+lemmas, not just primitive definitions. For example, C imports
+`Nonadditivity.OperationalCodingTheorem`, including the theorem checked
+separately by B, because that module also defines the operational
+`classicalCapacity` wrapper. These shared proof dependencies are included in
+the solution exports checked by Lean replay and Nanoda; independent kernel
+checking does not mean disjoint proofs. E imports the construction and
+logarithmic input-cost infrastructure.
 
 Review the challenge's complete import closure, its definitions of channels and
 information quantities, and the Lake configuration as trusted statement material.
@@ -53,7 +69,7 @@ objects or establish that they express the intended natural-language claims.
 The manuscript mapping and proof map support that separate human review.
 
 Comparator mode compares the statements and their definition
-dependencies, reject nonpermitted axioms in the solution proof dependencies,
+dependencies, rejects nonpermitted axioms in the solution proof dependencies,
 and replays the solution through Lean’s kernel. Nanoda mode independently
 checks the solution exports. Local elaboration and `Audit.lean` are separate checks.
 
@@ -85,8 +101,15 @@ Or reproduce the full Lean build, statement comparison, kernel replay, and
 independent kernel check with:
 
 ```sh
-bash scripts/verify.sh all
+bash scripts/verify.sh all \
+  --source-certificate verification/additive-20261008/source-certificate.json
 ```
+
+This explicitly selects the additive extension of the recorded rebuild/type
+certificate for the new challenge of an existing theorem. Without
+`--source-certificate`, the validator retains its historical byte-equality
+gate. The certificate does not replace the fresh proof checks or change
+historical evidence bindings.
 
 No landrun or systemd is required. Every failed stage returns a nonzero exit
 code. Success reports and logs are retained under `.verify-work/run-*`.

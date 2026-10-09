@@ -13,8 +13,8 @@ Usage: bash scripts/verify.sh [all|lean|comparator|nanoda] [--nanoda-bin /absolu
 
   all         Build/audit Lean, compare statements/replay in Lean, then run Nanoda.
   lean        Fetch the locked mathlib cache, build All, and audit proof axioms.
-  comparator  Compare all five expected-statement configurations and replay in Lean.
-  nanoda      Run acceptance/rejection controls and all five Nanoda proof checks.
+  comparator  Compare all six expected-statement configurations and replay in Lean.
+  nanoda      Run acceptance/rejection controls and all seven Nanoda theorem roots.
 
 The default mode is all. Comparator and Nanoda run unsandboxed on trusted sources.
 --source-certificate is optional and valid only for lean/all. It selects recorded

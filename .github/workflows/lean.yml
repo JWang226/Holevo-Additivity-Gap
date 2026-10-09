@@ -27,8 +27,15 @@ jobs:
           python-version: '3.11'
       - name: Install metadata validator dependencies
         run: python -m pip install -r requirements-validation.txt
-      - name: Check release structure and baseline source integrity
-        run: python scripts/validate_release.py --static-only --source-certificate verification/elaboration-20261006/source-certificate.json
+      - name: Run historical and current evidence validation controls
+        run: |
+          python scripts/test_source_certificate.py
+          python scripts/test_statement_audit.py
+          python scripts/test_statement_revision.py
+          python scripts/test_check_reports.py
+          python scripts/test_kernel_bindings.py
+      - name: Check release structure, unchanged declarations, and additive source integrity
+        run: python scripts/validate_release.py --static-only --source-certificate verification/additive-20261008/source-certificate.json
       - name: Install pinned Lean toolchain and dependency cache
         uses: leanprover/lean-action@50fcf42d2e460296f1a34b402e990d1b24f8b596 # v1
         with:
@@ -41,7 +48,7 @@ jobs:
       - name: Compile every proof module and audit transitive axioms
         run: ./check.sh
       - name: Check metadata declarations in the compiled Lean environment
-        run: python scripts/validate_release.py --source-certificate verification/elaboration-20261006/source-certificate.json
+        run: python scripts/validate_release.py --source-certificate verification/additive-20261008/source-certificate.json
       - name: Elaborate challenge statements and check the actual proof types
         run: python scripts/check_challenges.py
       - name: Preserve validation logs
@@ -56,6 +63,7 @@ jobs:
             .lake/release-validation.json
             .lake/challenge-checks.json
             .lake/challenge-checks/*.log
+            .lake/challenge-checks/StatementChecks/
           if-no-files-found: warn
 
 # Comparator/Lean replay and Nanoda are independently reproducible via scripts/verify.sh.

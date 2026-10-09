@@ -192,7 +192,7 @@
       "title": "Reading the Lean statements",
       "page": "guide/reading-lean.html",
       "source": "tools/docs-site/reader/guides/reading-lean.md",
-      "source_sha256": "7fd563ba4117d7f8718fda5442cf05d9522e7efd9944e366bcd2545dbe0cfe65",
+      "source_sha256": "a21b664b38c53d4a7f8a87ea2ae93b411ad2f6b403de73671c69bcfefb575621",
       "declarations": [
         {
           "name": "Nonadditivity.ActualConsequences.FiniteQuantumChannel",
@@ -211,6 +211,12 @@
           "kind": "inductive",
           "module": "Nonadditivity.Channels",
           "url": "declarations/ef64d7e8975d403f83c2f452.html"
+        },
+        {
+          "name": "Nonadditivity.DeterministicConsequences.actual_small_large",
+          "kind": "theorem",
+          "module": "Nonadditivity.DeterministicConsequences",
+          "url": "declarations/5909b31837ccf03a4996e882.html"
         },
         {
           "name": "Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound",

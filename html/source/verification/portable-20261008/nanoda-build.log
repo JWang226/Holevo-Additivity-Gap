@@ -1,0 +1,58 @@
+Cloning into '/Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/run-20261009T025529Z-RIH3px/nanoda-source'...
+HEAD is now at 3a24072 Merge pull request #34 from scottdhughes/fix/pretty-printer-binder-prefix
+info: syncing channel updates for 1.90.0-aarch64-apple-darwin
+
+  1.90.0-aarch64-apple-darwin unchanged - rustc 1.90.0 (1159e78c4 2025-09-14)
+
+info: checking for self-update (current version: 1.29.1)
+Verified source, package, Cargo.lock and Rust pins.
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded serde v1.0.228
+  Downloaded equivalent v1.0.1
+  Downloaded autocfg v1.1.0
+  Downloaded cfg-if v1.0.0
+  Downloaded rustc-hash v1.1.0
+  Downloaded rand_core v0.10.1
+  Downloaded unicode-ident v1.0.12
+  Downloaded serde_derive v1.0.228
+  Downloaded proc-macro2 v1.0.103
+  Downloaded memchr v2.7.6
+  Downloaded num-bigint v0.5.1
+  Downloaded rand v0.10.2
+  Downloaded indexmap v2.13.0
+  Downloaded hashbrown v0.16.1
+  Downloaded getrandom v0.4.3
+  Downloaded serde_json v1.0.145
+  Downloaded serde_core v1.0.228
+  Downloaded ryu v1.0.20
+  Downloaded num-traits v0.2.19
+  Downloaded syn v2.0.111
+  Downloaded chacha20 v0.10.2
+  Downloaded semver v1.0.27
+  Downloaded quote v1.0.35
+  Downloaded num-integer v0.1.47
+  Downloaded itoa v1.0.15
+  Downloaded libc v0.2.180
+   Compiling proc-macro2 v1.0.103
+   Compiling unicode-ident v1.0.12
+   Compiling serde_core v1.0.228
+   Compiling autocfg v1.1.0
+   Compiling serde v1.0.228
+   Compiling serde_json v1.0.145
+   Compiling hashbrown v0.16.1
+   Compiling itoa v1.0.15
+   Compiling memchr v2.7.6
+   Compiling equivalent v1.0.1
+   Compiling ryu v1.0.20
+   Compiling num-traits v0.2.19
+   Compiling semver v1.0.27
+   Compiling indexmap v2.13.0
+   Compiling rustc-hash v1.1.0
+   Compiling quote v1.0.35
+   Compiling num-integer v0.1.47
+   Compiling syn v2.0.111
+   Compiling serde_derive v1.0.228
+   Compiling num-bigint v0.5.1
+   Compiling nanoda_lib v0.4.19 (/Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/run-20261009T025529Z-RIH3px/nanoda-source)
+    Finished `release` profile [optimized] target(s) in 14.73s

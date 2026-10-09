@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "review_kind": "arxiv_v2_and_additive_root_source_review",
+  "machine_equivalence_certified": false,
+  "semantic_report": "docs/STATEMENT_AUDIT_V2.md",
+  "changed_proof_sources": [],
+  "changed_sources": [
+    {
+      "path": "ComparatorChallenges/F_TwoUseSeparation.json",
+      "before_sha256": null,
+      "after_sha256": "48e27089aaa01b8141fd347e6abe4bef88961758c725908f2f5bc269fffad3f3",
+      "review": "Selects existing public theorem actual_small_large with the three permitted standard axioms and separate Nanoda mode."
+    },
+    {
+      "path": "ComparatorChallenges/F_TwoUseSeparation.lean",
+      "before_sha256": null,
+      "after_sha256": "9a4369eb481f119184154652a2ae059eac7c75d2862d0d005f844f5e312c8572",
+      "review": "New explicit expected type, importing ActualConsequences without the solution module; binds actual finite channels and absolute two-use information."
+    },
+    {
+      "path": "formalization.yaml",
+      "before_sha256": null,
+      "after_sha256": "a6b94ef0ad261309282793e241cecd70af244dcaae1f8d52468a47fe3a66ab90",
+      "review": "Adds the existing F theorem and seven-placeholder scope, without changing any production theorem."
+    },
+    {
+      "path": "lakefile.toml",
+      "before_sha256": null,
+      "after_sha256": "13e9607de092b21663e2a56313d80dda18b1c0dd363f402009ffbfe8444d7031",
+      "review": "Only appends the isolated F challenge root, validated against the historical Lake configuration by the additive certificate."
+    },
+    {
+      "path": "metadata/results.json",
+      "before_sha256": "cb0ec7d1998cd13f994eb524e8745fee74195aa14cbed659d7eb51285d06769a",
+      "after_sha256": "bea056faad10a38a5667e263552e1118c5bf9b06a653e74a5e998b4087052c17",
+      "review": "Version-pinned manuscript provenance, F mapping for an existing declaration, expanded root inventory and explicitly selected successor evidence; historical release record retained."
+    },
+    {
+      "path": "paper/arxiv-v2.json",
+      "before_sha256": null,
+      "after_sha256": "051aa31f23eca4cd8c7e00f2b38738bc121efd13417dcf0ebd9d4b17c408e4cf",
+      "review": "Binds exact arXiv version, original source archive and verbatim manuscript member."
+    },
+    {
+      "path": "paper/nonadditivity.tex",
+      "before_sha256": "3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98",
+      "after_sha256": "18c4c60a8494f4421e8e356d75dcee81df93beace7de3bfdc8274b719df68736",
+      "review": "Exact published arXiv v2 source; labeled principal statement blocks retained. Scope and exploration-encoding qualifications reviewed separately."
+    },
+    {
+      "path": "scripts/check_challenges.py",
+      "before_sha256": "81f5b3e45a669ed07f1cf11ac2f61191a0205d3d14401f5183315ec99546a790",
+      "after_sha256": "36563bfcffa684d0438954e265b2ca93b2c921e7695776c884ce907cb5cf74ee",
+      "review": "Adds the explicit application of actual_small_large and seven-root inventory; existing applications and production proofs unchanged."
+    },
+    {
+      "path": "scripts/source_certificate.py",
+      "before_sha256": null,
+      "after_sha256": "72f6603cd42cf4097b99ffcc733127fb9aec11a14480b1983aaebb3a06523c68",
+      "review": "Explicit bounded additive-certificate validation; rejects changed production proofs, original challenges and non-additive Lake edits."
+    },
+    {
+      "path": "verification/check_statement_audit.py",
+      "before_sha256": null,
+      "after_sha256": "fd9a8896102bda4ed094ef6423eaebe51db42e6687f0afa6739c3b5915eafe7e",
+      "review": "Adds a versioned review successor with explicit historical preservation, exact arXiv provenance, unchanged production inputs, F coverage and C correction checks."
+    },
+    {
+      "path": "verification/kernel_common.py",
+      "before_sha256": null,
+      "after_sha256": "5757e21cde78f80532826539900c9ba659087af3251be8ca15e0f21170c6d58f",
+      "review": "Expanded current inventory and binding of manuscript provenance and certificate checker for the fresh portable run."
+    },
+    {
+      "path": "verification/manuscript-v2-20261008/source.tar.gz",
+      "before_sha256": null,
+      "after_sha256": "2f937a5753a1acba2a9526ea4878d6102f5a43a680c225334122fc387c0b271b",
+      "review": "Original downloaded arXiv v2 archive; its manuscript member must equal the repository manuscript byte for byte."
+    }
+  ],
+  "patch": {
+    "path": "verification/statement-audit-20261008/reviewed-input-delta.patch",
+    "sha256": "ae9d36d5dcd1895761c79c2e6021426cce99a7a8720201eda5ad5c34897a5d54"
+  },
+  "scope": "AI review of published manuscript delta and one added expected statement; unchanged historical definitions and qualifications retained, with explicit C coverage correction."
+}

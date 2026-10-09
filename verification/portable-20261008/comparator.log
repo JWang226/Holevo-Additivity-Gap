@@ -1,0 +1,2087 @@
+UNSANDBOXED local diagnostic; Landrun is not run; Nanoda is disabled.
++ git checkout --detach a4f696825c583ed8a5b4060d9a0faa5b882d365b
+HEAD is now at a4f6968 fix: opaque value issue
++ lake build Comparator Lean4Checker lean4export
+✔ [16/19] Built Lean4Checker (435ms)
+✔ [17/19] Built Lean4Checker.Lean (494ms)
+✔ [18/19] Built Lean4Checker.Replay (788ms)
+Build completed successfully (19 jobs).
++ lake build ComparatorChallenges.A_PrescribedDimensions Nonadditivity.HaarPrescribedBound
+✔ [3307/3415] Built Nonadditivity.Scalar (13s)
+✔ [3437/3562] Built Nonadditivity.FreeEmbedding (13s)
+✔ [3438/3569] Built Nonadditivity.FiniteRegularMatrix (15s)
+✔ [3439/3615] Built Nonadditivity.Asymptotics (16s)
+✔ [3472/3642] Built Nonadditivity.Net (21s)
+✔ [3473/3642] Built Nonadditivity.Entropy (21s)
+✔ [3474/3642] Built Nonadditivity.FreeGroupCut (8.4s)
+✔ [3475/3642] Built Nonadditivity.HaarMatchingFibers (9.0s)
+✔ [3476/3642] Built Nonadditivity.Linearization (28s)
+✔ [3477/3642] Built Nonadditivity.Quantitative (29s)
+✔ [3478/3642] Built Nonadditivity.BlockScalars (16s)
+✔ [3479/3642] Built Nonadditivity.StateEnsembles (10s)
+✔ [3480/3642] Built Nonadditivity.QuantitativeNet (16s)
+✔ [3481/3642] Built Nonadditivity.EntropyProducts (15s)
+✔ [3482/3642] Built Nonadditivity.HaarTimeCompositions (22s)
+✔ [3483/3642] Built Nonadditivity.HaarPathProfiles (24s)
+✔ [3484/3643] Built Nonadditivity.Channels (13s)
+✔ [3485/3643] Built Nonadditivity.AdjointPurity (18s)
+✔ [3486/3643] Built Nonadditivity.ConditionalStates (12s)
+✔ [3488/3643] Built Nonadditivity.EntropyMixtures (14s)
+✔ [3489/3643] Built Nonadditivity.HaarMomentConstants (17s)
+✔ [3490/3643] Built Nonadditivity.ConjugateChannel (14s)
+✔ [3491/3643] Built Nonadditivity.HaarPathInvolution (27s)
+✔ [3492/3644] Built Nonadditivity.HaarPathMultiplicity (21s)
+✔ [3493/3645] Built Nonadditivity.Weyl (21s)
+✔ [3494/3645] Built Nonadditivity.ChannelExtensions (19s)
+✔ [3495/3645] Built Nonadditivity.PositiveLinearization (36s)
+✔ [3496/3645] Built Nonadditivity.NoncommutativeCS (37s)
+✔ [3497/3645] Built Nonadditivity.StructuredCostBounds (41s)
+✔ [3498/3645] Built Nonadditivity.QuantumHolevo (29s)
+✔ [3500/3645] Built Nonadditivity.ChannelReindex (31s)
+✔ [3502/3645] Built Nonadditivity.PureChannelEntropy (31s)
+✔ [3503/3645] Built Nonadditivity.HaarTensorConstants (29s)
+✔ [3504/3645] Built Nonadditivity.HaarMomentSlack (30s)
+✔ [3505/3645] Built Nonadditivity.HaarMatchingSingletons (50s)
+✔ [3506/3645] Built Nonadditivity.HaarPathGraph (45s)
+✔ [3507/3645] Built Nonadditivity.FreeModel (63s)
+✔ [3508/3645] Built Nonadditivity.MatrixNormReindex (35s)
+✔ [3509/3645] Built Nonadditivity.ChannelEntropy (34s)
+✔ [3510/3645] Built Nonadditivity.ChannelTensorControl (37s)
+✔ [3511/3645] Built Nonadditivity.WeylTensor (37s)
+✔ [3512/3645] Built Nonadditivity.TensorPowers (28s)
+✔ [3513/3645] Built Nonadditivity.BellOutput (28s)
+✔ [3514/3645] Built Nonadditivity.HaarEncodingSlack (27s)
+✔ [3515/3645] Built Nonadditivity.FiniteRealization (60s)
+✔ [3516/3648] Built Nonadditivity.HaarMatchingCount (41s)
+✔ [3517/3648] Built Nonadditivity.HaarPathChains (39s)
+⚠ [3518/3648] Built Nonadditivity.HaarPathExploration (40s)
+warning: Nonadditivity/HaarPathExploration.lean:56:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_terminal_ne_root`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathExploration.lean:118:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_edge_not_earlier`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3520/3657] Built Nonadditivity.ShiftNorm (54s)
+✔ [3521/3657] Built Nonadditivity.RegularRestriction (39s)
+✔ [3522/3657] Built Nonadditivity.SwitchChannel (29s)
+✔ [3523/3657] Built Nonadditivity.RegularCoefficientEnergy (53s)
+✔ [3527/3661] Built Nonadditivity.BlockBell (42s)
+✔ [3528/3661] Built Nonadditivity.HaarMatchingSharp (41s)
+✔ [3540/3682] Built Nonadditivity.ObservableDimension (50s)
+✔ [3541/3682] Built Nonadditivity.FreeCreation (67s)
+✔ [3542/3698] Built Nonadditivity.HaarPathChainCount (45s)
+✔ [3543/3698] Built Nonadditivity.HaarPathDecomposition (46s)
+✔ [3544/3701] Built Nonadditivity.HaarPathTree (45s)
+✔ [3545/3701] Built Nonadditivity.Conversion (40s)
+✔ [3546/3702] Built Nonadditivity.HaarPermutationSupport (34s)
+✔ [3547/3702] Built Nonadditivity.WeightedMatrixInverse (44s)
+✔ [3548/3704] Built Nonadditivity.MatrixRegularRestriction (53s)
+✔ [3549/3704] Built Nonadditivity.HaarPathChainPartition (47s)
+⚠ [3550/3704] Built Nonadditivity.HaarPathTreeSegment (47s)
+warning: Nonadditivity/HaarPathTreeSegment.lean:60:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_unoriented_injective`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:74:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.edgeAt_eq_unoriented`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:111:5: unused variable `hai`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:131:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.vertexAt_fin`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:137:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.vertexAt_eq`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3551/3704] Built Nonadditivity.HaarPathClasses (33s)
+✔ [3552/3704] Built Nonadditivity.HaarPathExplorationBlocks (40s)
+✔ [3553/3704] Built Nonadditivity.NoncommutativeCSMemory (71s)
+✔ [3554/3704] Built Nonadditivity.CollinsYoun (80s)
+✔ [3555/3704] Built Nonadditivity.BlockConstruction (39s)
+✔ [3556/3704] Built Nonadditivity.HaarPathRuns (40s)
+✔ [3557/3704] Built Nonadditivity.FiniteChannelRealization (35s)
+✔ [3558/3704] Built Nonadditivity.HaarWeingartenInverseSum (34s)
+✔ [3559/3704] Built Nonadditivity.HaarCoefficientBounds (40s)
+✔ [3560/3706] Built Nonadditivity.HaarPathChainProfiles (28s)
+✔ [3561/3706] Built Nonadditivity.HaarPathInternalColors (30s)
+⚠ [3562/3706] Built Nonadditivity.HaarPathFreshRuns (27s)
+warning: Nonadditivity/HaarPathFreshRuns.lean:59:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.prefixSamePattern_extend_firstVisit`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathFreshRuns.lean:113:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidence_at_fresh_vertex_unique`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3563/3707] Built Nonadditivity.HaarPathVertexFibre (27s)
+warning: Nonadditivity/HaarPathVertexFibre.lean:77:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.normalize_samePattern`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathVertexFibre.lean:88:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.labels_apply`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathVertexFibre.lean:99:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.reconstruct_samePattern`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3564/3707] Built Nonadditivity.HaarPathClassData (25s)
+warning: Nonadditivity/HaarPathClassData.lean:33:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.incidenceVertex_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathClassData.lean:38:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.firstVisit_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathClassData.lean:51:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.edgeAt_eq_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3565/3707] Built Nonadditivity.NoncommutativeCSPaths (38s)
+✔ [3566/3707] Built Nonadditivity.RegularDilation (72s)
+✔ [3567/3709] Built Nonadditivity.HaarMarkedCompositions (33s)
+✔ [3568/3709] Built Nonadditivity.FreeBridge (33s)
+✔ [3569/3709] Built Nonadditivity.ComplementaryAdjoint (34s)
+✔ [3570/3711] Built Nonadditivity.HaarPathColorNormalization (24s)
+✔ [3571/3711] Built Nonadditivity.HaarPathCodes (24s)
+✔ [3573/3711] Built Nonadditivity.HaarPathProfileReverse (40s)
+✔ [3574/3711] Built Nonadditivity.HaarCoefficientRows (50s)
+✔ [3575/3712] Built Nonadditivity.Qualitative (18s)
+⚠ [3576/3712] Built Nonadditivity.HaarPathTransport (29s)
+warning: Nonadditivity/HaarPathTransport.lean:23:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.source_incidenceDart`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:28:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.color_incidenceDart`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:33:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidenceDart_flip`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:38:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.dart_eq_iff_source_color_target`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:42:69: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathTransport.lean:44:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidenceDart_mem`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:50:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.exists_incidenceDart`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:86:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.vertexPerm_apply`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:187:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.symm`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3577/3714] Built Nonadditivity.NoncommutativeCSAssignments (38s)
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:27:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.sum_assignment_insert`:
+  [DecidableEq J]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq J] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:91:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_open`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:99:21: This simp argument is unused:
+  variableCount
+
+Hint: Omit it from the simp argument list.
+  simp [coefficient,̵ ̵v̵a̵r̵i̵a̵b̵l̵e̵C̵o̵u̵n̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:101:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_close`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:108:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_middle`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:114:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_singleton`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:121:21: This simp argument is unused:
+  variableCount
+
+Hint: Omit it from the simp argument list.
+  simp [coefficient,̵ ̵v̵a̵r̵i̵a̵b̵l̵e̵C̵o̵u̵n̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:129:58: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_open, Fin.removeNth_insertNth, i̵t̵e̵_̵apply,̵ ̵a̵p̵p̵l̵y̵_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:137:34: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_close, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:144:37: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_diagonal, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:151:37: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_diagonal, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite, map_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3578/3714] Built Nonadditivity.HaarPathVertexNames (23s)
+warning: Nonadditivity/HaarPathVertexNames.lean:30:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarPathVertexNames.lean:24:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.earlier_occurrence`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3579/3714] Built Nonadditivity.PrescribedTest (36s)
+✔ [3580/3714] Built Nonadditivity.HaarTimeCompositionReverse (29s)
+✔ [3581/3714] Built Nonadditivity.HaarModel (30s)
+✔ [3582/3717] Built Nonadditivity.FiniteSetFactorization (50s)
+✔ [3583/3717] Built Nonadditivity.HolevoBits (26s)
+✔ [3584/3717] Built Nonadditivity.HaarPathRecoloring (25s)
+✔ [3585/3717] Built Nonadditivity.CollinsYounTensor (112s)
+✔ [3586/3717] Built Nonadditivity.RegularShiftedDilation (71s)
+✔ [3587/3717] Built Nonadditivity.HaarPathNormalizedFresh (18s)
+✔ [3588/3717] Built Nonadditivity.HaarPathNormalizedTree (19s)
+⚠ [3589/3719] Built Nonadditivity.HaarPathRefined (29s)
+warning: Nonadditivity/HaarPathRefined.lean:23:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.refl`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathRefined.lean:25:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.trans`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathRefined.lean:68:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.coreChainProfile_eq_of_colorList_eq`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3590/3719] Built Nonadditivity.HaarPathMarks (14s)
+✔ [3591/3719] Built Nonadditivity.HaarMomentTail (13s)
+✔ [3592/3719] Built Nonadditivity.HaarMoments (16s)
+✔ [3593/3720] Built Nonadditivity.NoncommutativeCSAssignmentProducts (27s)
+✔ [3594/3720] Built Nonadditivity.PositiveHolevo (23s)
+✔ [3595/3720] Built Nonadditivity.HolevoTensorSuperadditivity (17s)
+⚠ [3596/3720] Built Nonadditivity.HaarPathNormalizedTreeColors (22s)
+warning: Nonadditivity/HaarPathNormalizedTreeColors.lean:43:48: unused variable `hab`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarPathNormalizedTreeColors.lean:43:62: unused variable `hbm`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3597/3720] Built Nonadditivity.HaarRefinedVertexFibre (20s)
+warning: Nonadditivity/HaarRefinedVertexFibre.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarRefinedVertexFibre.range_vertex_eq`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3598/3720] Built Nonadditivity.HaarPathScalarSummation (16s)
+warning: Nonadditivity/HaarPathScalarSummation.lean:69:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathScalarSummation.lean:77:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathScalarSummation.lean:102:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3599/3720] Built Nonadditivity.ProductHaagerupCreation (36s)
+✔ [3600/3720] Built Nonadditivity.HaarPathReconstruction (20s)
+✔ [3601/3720] Built Nonadditivity.HaarNonbacktracking (45s)
+✔ [3602/3720] Built Nonadditivity.HaarMomentExpectation (26s)
+✔ [3603/3723] Built Nonadditivity.ActualConsequences (15s)
+✔ [3604/3723] Built Nonadditivity.HaarAveraging (22s)
+✔ [3605/3724] Built Nonadditivity.HaarFourthMoments (31s)
+✔ [3606/3724] Built Nonadditivity.RegularFubini (59s)
+✔ [3607/3724] Built Nonadditivity.NoncommutativeCSEndpointTrace (31s)
+✔ [3608/3725] Built Nonadditivity.HaarCoreChainMultiplicity (24s)
+✔ [3610/3730] Built Nonadditivity.RegularizedHolevo (23s)
+✔ [3611/3730] Built Nonadditivity.HaarPathReconstructionFresh (25s)
+⚠ [3612/3730] Built Nonadditivity.HaarProfilePermutations (32s)
+warning: Nonadditivity/HaarProfilePermutations.lean:25:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.labelEquiv_map`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_count`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:90:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_first`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:93:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_last`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3613/3730] Built Nonadditivity.HaarColumnMoments (34s)
+✔ [3614/3730] Built Nonadditivity.ProductHaagerupWords (55s)
+✔ [3615/3730] Built Nonadditivity.HaarPathColorRelabel (23s)
+✔ [3616/3730] Built Nonadditivity.CollinsYounProduct (34s)
+✔ [3617/3730] Built Nonadditivity.HolevoRateLimit (23s)
+✔ [3618/3730] Built Nonadditivity.NoncommutativeCSEndpointSkeleton (30s)
+✔ [3619/3730] Built Nonadditivity.HaarPathReconstructionTree (19s)
+✔ [3620/3730] Built Nonadditivity.HaarMixedMoments (19s)
+✔ [3621/3730] Built Nonadditivity.HaarConsequences (18s)
+✔ [3622/3730] Built Nonadditivity.HaarPathCounting (20s)
+⚠ [3623/3730] Built Nonadditivity.NoncommutativeCSSingletons (22s)
+warning: Nonadditivity/NoncommutativeCSSingletons.lean:105:14: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/NoncommutativeCSSingletons.lean:115:14: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3624/3730] Built Nonadditivity.HaarInvariantTensor (20s)
+✔ [3625/3730] Built Nonadditivity.FiniteMomentMatching (31s)
+✔ [3626/3730] Built Nonadditivity.ProductHaagerupHomogeneous (32s)
+✔ [3627/3730] Built Nonadditivity.RegularFactorization (141s)
+✔ [3628/3730] Built Nonadditivity.HaarWeingartenGram (15s)
+⚠ [3629/3730] Built Nonadditivity.HaarPathRefinedCounting (16s)
+warning: Nonadditivity/HaarPathRefinedCounting.lean:54:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.orientation_cases`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3630/3730] Built Nonadditivity.ProductHaagerupBall (14s)
+✔ [3631/3730] Built Nonadditivity.HaarInvariantCommutant (16s)
+✔ [3632/3730] Built Nonadditivity.HaarWordPhase (30s)
+✔ [3633/3730] Built Nonadditivity.NoncommutativeCSSkeletonDecoration (49s)
+✔ [3634/3730] Built Nonadditivity.ProductHaagerupIndex (12s)
+✔ [3635/3730] Built Nonadditivity.HaarWeingartenCycles (14s)
+✔ [3636/3730] Built Nonadditivity.HaarInvariantSpanning (13s)
+✔ [3637/3730] Built Nonadditivity.PolynomialReduction (30s)
+✔ [3638/3730] Built Nonadditivity.HaarWeingartenSymmetry (13s)
+⚠ [3639/3730] Built Nonadditivity.NoncommutativeCSBlocks (17s)
+warning: Nonadditivity/NoncommutativeCSBlocks.lean:127:54: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  simp_all [blocks, blockFactors, List.mapIdx_cons, Nat.add_a̵s̵s̵o̵c̵,̵
+  ̵ ̵ ̵ ̵ ̵ ̵ ̵N̵a̵t̵.̵a̵d̵d̵_̵left_comm, Nat.add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3640/3730] Built Nonadditivity.HaarWeingartenInverse (16s)
+✔ [3641/3730] Built Nonadditivity.ProductHaagerupProduct (21s)
+✔ [3642/3730] Built Nonadditivity.FiniteFreeModel (11s)
+✔ [3643/3730] Built Nonadditivity.HaarWeingartenMomentBound (9.4s)
+✔ [3644/3730] Built Nonadditivity.ProductPolynomialReduction (13s)
+✔ [3645/3730] Built Nonadditivity.PolynomialDilation (9.6s)
+✔ [3646/3730] Built Nonadditivity.HaarEntryBound (11s)
+✔ [3647/3730] Built Nonadditivity.TensorPartitionReduction (11s)
+✔ [3648/3730] Built Nonadditivity.WordBallReduction (12s)
+✔ [3649/3730] Built Nonadditivity.HaarPairEntryBound (7.2s)
+✔ [3650/3730] Built Nonadditivity.StructuredReductionCosts (6.0s)
+✔ [3651/3730] Built Nonadditivity.HaarPathWeights (7.0s)
+✔ [3652/3730] Built Nonadditivity.HaarPathRelabel (9.8s)
+✔ [3653/3730] Built Nonadditivity.HaarPathExpansion (10s)
+✔ [3654/3730] Built Nonadditivity.HaarPathLocalPhase (12s)
+⚠ [3655/3730] Built Nonadditivity.HaarPathBalance (10s)
+warning: Nonadditivity/HaarPathBalance.lean:35:40: This simp argument is unused:
+  visitCount
+
+Hint: Omit it from the simp argument list.
+  simp [v̵i̵s̵i̵t̵C̵o̵u̵n̵t̵,̵hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarPathBalance.lean:63:42: This simp argument is unused:
+  incomingCount
+
+Hint: Omit it from the simp argument list.
+  simp [i̵n̵c̵o̵m̵i̵n̵g̵C̵o̵u̵n̵t̵,̵hjv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3656/3730] Built Nonadditivity.HaarPathWeightTransport (11s)
+warning: Nonadditivity/HaarPathWeightTransport.lean:145:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathWeightTransport.lean:145:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3657/3730] Built Nonadditivity.HaarPathSupport (5.0s)
+warning: Nonadditivity/HaarPathSupport.lean:25:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:26:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:26:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:33:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:34:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:34:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:41:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:42:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:42:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:49:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:50:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:50:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3658/3730] Built Nonadditivity.NetPolynomial (96s)
+✔ [3659/3730] Built Nonadditivity.NetPolynomialSupport (4.4s)
+✔ [3660/3730] Built Nonadditivity.InitialNetReduction (21s)
+✔ [3661/3730] Built Nonadditivity.StructuredFiniteChannel (6.8s)
+✔ [3662/3730] Built Nonadditivity.StructuredLinearization (10s)
+✔ [3663/3730] Built Nonadditivity.StructuredHaarModel (4.1s)
+✔ [3664/3730] Built Nonadditivity.FiniteBlockModel (7.3s)
+✔ [3665/3730] Built Nonadditivity.StructuredHaarConsequences (8.2s)
+✔ [3666/3730] Built Nonadditivity.HaarWordExpansion (9.2s)
+✔ [3667/3730] Built Nonadditivity.HaarFiniteFaithfulness (5.0s)
+✔ [3668/3730] Built Nonadditivity.HaarNonbacktrackingRenewal (10s)
+⚠ [3669/3730] Built Nonadditivity.HaarNonbacktrackingLastReturn (5.2s)
+warning: Nonadditivity/HaarNonbacktrackingLastReturn.lean:67:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.last_return_polynomial_decomposition`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarNonbacktrackingLastReturn.lean:107:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.last_visit_polynomial_decomposition`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3670/3730] Built Nonadditivity.ProductMomentBridge (15s)
+✔ [3671/3730] Built Nonadditivity.HaarNonbacktrackingSupport (5.6s)
+⚠ [3672/3730] Built Nonadditivity.HaarTensorReplacement (10s)
+warning: Nonadditivity/HaarTensorReplacement.lean:44:32: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, mul_one, ← Matrix.mul_kronecker_mul,
+  ̲  ̲ ̲ ̲M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵,̵ ̵Matrix.mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarTensorReplacement.lean:44:48: This simp argument is unused:
+  Matrix.mul_one
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, mul_one, ← Matrix.mul_kronecker_mul,
+  ̲  ̲ ̲ ̲M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵o̵n̵e̵]̵M̲a̲t̲r̲i̲x̲.̲o̲n̲e̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarTensorReplacement.lean:58:48: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, ← Matrix.mul_kronecker_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵o̵n̵e̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵]̵M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲o̲n̲e̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3673/3730] Built Nonadditivity.HaarNonbacktrackingFirstStep (5.7s)
+warning: Nonadditivity/HaarNonbacktrackingFirstStep.lean:47:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.killedPolynomial_sum_source`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3674/3730] Built Nonadditivity.HaarOperatorPolynomial (20s)
+warning: Nonadditivity/HaarOperatorPolynomial.lean:77:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarOperatorPolynomial.regular_vacuum`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3675/3730] Built Nonadditivity.HaarFiniteSymmetry (10s)
+✔ [3676/3730] Built Nonadditivity.HaarMixedWordExpansion (12s)
+✔ [3677/3730] Built Nonadditivity.HaarNonbacktrackingSegmentation (11s)
+✔ [3678/3730] Built Nonadditivity.HaarHybridMoments (17s)
+⚠ [3679/3730] Built Nonadditivity.HaarTensorEvaluation (18s)
+warning: Nonadditivity/HaarTensorEvaluation.lean:93:10: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵M̵a̵t̵r̵i̵x̵.̵k̵r̵o̵n̵e̵c̵k̵e̵r̵_̵a̵p̵p̵l̵y̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3680/3730] Built Nonadditivity.HaarReducedChunks (10s)
+✔ [3681/3730] Built Nonadditivity.HaarNonbacktrackingListSegmentation (10s)
+✔ [3682/3730] Built Nonadditivity.HaarOperatorCoefficient (17s)
+✔ [3683/3730] Built Nonadditivity.HaarIteratedMoments (11s)
+✔ [3684/3730] Built Nonadditivity.HaarOperatorCurry (19s)
+✔ [3685/3730] Built Nonadditivity.HaarOnePairAssembly (9.6s)
+⚠ [3686/3730] Built Nonadditivity.HaarProfileCoefficient (10s)
+warning: Nonadditivity/HaarProfileCoefficient.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfileCoefficient.returningCoefficients_eq_firstStep`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3687/3730] Built Nonadditivity.HaarVacuumFunctional (10s)
+✔ [3688/3730] Built Nonadditivity.HaarIteratedExpectation (14s)
+✔ [3689/3730] Built Nonadditivity.HaarPathCoefficientWords (8.5s)
+⚠ [3690/3730] Built Nonadditivity.HaarProfileOrientation (9.8s)
+warning: Nonadditivity/HaarProfileOrientation.lean:64:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfileCoefficient.orientedCoefficients_eq_firstStep`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3691/3730] Built Nonadditivity.HaarProfilePadding (10s)
+warning: Nonadditivity/HaarProfilePadding.lean:62:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePadding.norm_extend_zero_le`:
+  [Fintype J]
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype J] [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3692/3730] Built Nonadditivity.HaarRecursiveSample (10s)
+warning: Nonadditivity/HaarRecursiveSample.lean:93:35: `MeasureTheory.measureReal_univ_eq_one` has been deprecated: Use `MeasureTheory.probReal_univ` instead
+✔ [3693/3730] Built Nonadditivity.HaarCoreChainLabels (8.4s)
+⚠ [3694/3730] Built Nonadditivity.HaarOperatorPathBridge (10s)
+warning: Nonadditivity/HaarOperatorPathBridge.lean:132:11: unused variable `z`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarOperatorPathBridge.lean:133:12: unused variable `P`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3695/3730] Built Nonadditivity.HaarProfileBlockCoefficients (17s)
+✔ [3696/3730] Built Nonadditivity.HaarCoreChainAddress (12s)
+✔ [3697/3730] Built Nonadditivity.HaarChainMultiplicity (12s)
+⚠ [3698/3730] Built Nonadditivity.HaarCanonicalTransport (17s)
+warning: Nonadditivity/HaarCanonicalTransport.lean:61:79: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  simp [recursiveRepresentation, tensorTupleEquiv,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarCanonicalTransport.lean:76:78: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  simp [StructuredHaarModel.tensorRepresentation,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3699/3730] Built Nonadditivity.HaarCoreChainWords (18s)
+✔ [3700/3730] Built Nonadditivity.HaarOperatorPathSum (19s)
+✔ [3701/3730] Built Nonadditivity.HaarCoreChainReverseAddress (9.3s)
+⚠ [3702/3730] Built Nonadditivity.HaarExpectationFromMoment (11s)
+warning: Nonadditivity/HaarExpectationFromMoment.lean:89:53: This simp argument is unused:
+  Pi.inv_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [ProductPolynomialReduction.generator, P̵i̵.̵i̵n̵v̵_̵a̵p̵p̵l̵y̵,̵ ̵FreeGroup.norm_inv_eq,
+       ̵ ̵apply_ite FreeGroup.norm, FreeGroup.norm_of, FreeGroup.norm_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarExpectationFromMoment.lean:89:67: This simp argument is unused:
+  FreeGroup.norm_inv_eq
+
+Hint: Omit it from the simp argument list.
+  simp only [ProductPolynomialReduction.generator, Pi.inv_apply, F̵r̵e̵e̵G̵r̵o̵u̵p̵.̵n̵o̵r̵m̵_̵i̵n̵v̵_̵e̵q̵,̵apply_ite FreeGroup.norm,
+  ̲  ̲ ̲ ̲FreeGroup.norm_of, FreeGroup.norm_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3703/3730] Built Nonadditivity.HaarProfilePatternBound (18s)
+warning: Nonadditivity/HaarProfilePatternBound.lean:95:45: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3704/3730] Built Nonadditivity.HaarPrescribedDimension (23s)
+✔ [3705/3730] Built Nonadditivity.HaarProfileWordReverse (30s)
+✔ [3706/3730] Built Nonadditivity.HaarRepresentativePositions (25s)
+✔ [3707/3730] Built Nonadditivity.HaarCoreChainEndpoints (30s)
+✔ [3708/3730] Built Nonadditivity.HaarPathClassSums (30s)
+✔ [3709/3730] Built Nonadditivity.HaarPathClassStats (30s)
+✔ [3710/3730] Built Nonadditivity.HaarChainColoring (30s)
+⚠ [3711/3730] Built Nonadditivity.HaarPathWeightBudget (31s)
+warning: Nonadditivity/HaarPathWeightBudget.lean:49:47: unused variable `hs`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3712/3730] Built ComparatorChallenges.A_PrescribedDimensions (12s)
+warning: ComparatorChallenges/A_PrescribedDimensions.lean:13:8: declaration uses `sorry`
+⚠ [3713/3730] Built Nonadditivity.HaarChainColoringPath (12s)
+warning: Nonadditivity/HaarChainColoringPath.lean:26:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.path_vertex`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarChainColoringPath.lean:27:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.path_colors`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3714/3730] Built Nonadditivity.HaarChainReindex (12s)
+✔ [3715/3730] Built Nonadditivity.HaarChainColoringPalettes (12s)
+✔ [3716/3730] Built Nonadditivity.HaarProfileSingletonWeight (13s)
+⚠ [3717/3730] Built Nonadditivity.HaarProfileAssignmentBound (13s)
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:63:12: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:69:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:72:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:75:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:82:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3718/3730] Built Nonadditivity.HaarChainColoringFibre (9.7s)
+warning: Nonadditivity/HaarChainColoringFibre.lean:62:7: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.ext_value`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3719/3730] Built Nonadditivity.HaarProfileDecodedCoefficients (8.5s)
+✔ [3720/3730] Built Nonadditivity.HaarPaletteDecoder (8.6s)
+⚠ [3721/3730] Built Nonadditivity.HaarRefinedWeight (9.8s)
+warning: Nonadditivity/HaarRefinedWeight.lean:31:67: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3722/3730] Built Nonadditivity.HaarProfileCompositionBound (9.5s)
+✔ [3723/3730] Built Nonadditivity.HaarRefinedPaletteFibre (6.3s)
+✔ [3724/3730] Built Nonadditivity.HaarPathClassAssembly (6.9s)
+⚠ [3725/3730] Built Nonadditivity.HaarSkeletonSegmentation (6.3s)
+warning: Nonadditivity/HaarSkeletonSegmentation.lean:45:46: This simp argument is unused:
+  List.append_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [reverseFactors, ih,̵ ̵L̵i̵s̵t̵.̵a̵p̵p̵e̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3726/3730] Built Nonadditivity.HaarRefinedCoefficientFibre (6.8s)
+⚠ [3727/3730] Built Nonadditivity.HaarActualScanWords (6.0s)
+warning: Nonadditivity/HaarActualScanWords.lean:29:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarActualScanWords.scanWords_eq_actual_chunks`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3728/3730] Built Nonadditivity.HaarDecodedCoefficientBound (6.2s)
+warning: Nonadditivity/HaarDecodedCoefficientBound.lean:29:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarDecodedCoefficientBound.blockFactors_segmentedListProduct`:
+  [Fintype I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [3729/3730] Built Nonadditivity.HaarRefinedCoefficientBound (6.4s)
+✔ [3730/3730] Built Nonadditivity.HaarPrescribedBound (4.6s)
+Build completed successfully (3730 jobs).
+Exporting challenge: ComparatorChallenges.A_PrescribedDimensions
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export ComparatorChallenges.A_PrescribedDimensions -- Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
+Exporting solution: Nonadditivity.HaarPrescribedBound
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Nonadditivity.HaarPrescribedBound -- Nonadditivity.HaarPrescribedDimension.exists_prescribed_channel_with_lower_bound propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
++ lake env lean --run /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/verification/comparator/ReplayExports.lean /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/ComparatorChallenges/A_PrescribedDimensions.json /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-7lqehpb8/challenge.export /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-7lqehpb8/solution.export
+UNSANDBOXED diagnostic: parsing exports. Nanoda is disabled.
+Pinned Comparator: statements and referenced constants match.
+Pinned Comparator: solution axiom closure accepted.
+Lean kernel replay accepted. UNSANDBOXED diagnostic only.
+LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/A_PrescribedDimensions.json
++ lake build ComparatorChallenges.B_OperationalCoding Nonadditivity.OperationalCodingTheorem
+✔ [3464/3498] Built Nonadditivity.QuantumCodingSpectral (12s)
+✔ [3465/3498] Built Nonadditivity.QuantumCodingTypicality (12s)
+✔ [3466/3498] Built Nonadditivity.OperationalConverse (12s)
+✔ [3467/3498] Built Nonadditivity.QuantumCodingSampling (12s)
+✔ [3468/3498] Built Nonadditivity.OperationalFlaggedEntropy (12s)
+✔ [3469/3498] Built Nonadditivity.QuantumCodingUnion (13s)
+✔ [3470/3498] Built Nonadditivity.QuantumCodingContinuity (13s)
+✔ [3471/3498] Built Nonadditivity.QuantumCodingTensorSpectrum (13s)
+✔ [3472/3498] Built Nonadditivity.QuantumCodingFamilySpectrum (13s)
+✔ [3473/3498] Built Nonadditivity.QuantumCodingConditionalTypicality (13s)
+✔ [3474/3498] Built Nonadditivity.OperationalReindex (13s)
+✔ [3475/3498] Built Nonadditivity.OperationalCapacity (13s)
+✔ [3476/3498] Built Nonadditivity.QuantumCodingSequential (13s)
+✔ [3477/3498] Built Nonadditivity.OperationalNaimark (13s)
+✔ [3478/3498] Built Nonadditivity.QuantumCodingTraceUnion (16s)
+⚠ [3479/3498] Built ComparatorChallenges.B_OperationalCoding (11s)
+warning: ComparatorChallenges/B_OperationalCoding.lean:16:8: declaration uses `sorry`
+✔ [3480/3498] Built Nonadditivity.QuantumCodingTypicalProjectors (12s)
+✔ [3481/3498] Built Nonadditivity.QuantumCodingChannelWords (12s)
+✔ [3482/3498] Built Nonadditivity.QuantumCodingRates (12s)
+✔ [3483/3498] Built Nonadditivity.QuantumCodingTraceDistance (13s)
+✔ [3484/3498] Built Nonadditivity.OperationalBlockRates (12s)
+✔ [3485/3498] Built Nonadditivity.OperationalBlockingCodes (13s)
+✔ [3486/3498] Built Nonadditivity.QuantumCodingDecoderBound (12s)
+✔ [3487/3498] Built Nonadditivity.QuantumCodingPackingAverages (7.3s)
+✔ [3488/3498] Built Nonadditivity.OperationalBlockingFlatten (7.3s)
+✔ [3489/3498] Built Nonadditivity.OperationalHolevoConverse (8.0s)
+✔ [3490/3498] Built Nonadditivity.QuantumCodingPacking (6.6s)
+✔ [3491/3498] Built Nonadditivity.QuantumCodingGentle (11s)
+✔ [3492/3498] Built Nonadditivity.QuantumCodingEnsembleTypicality (5.2s)
+✔ [3493/3498] Built Nonadditivity.OperationalProjectedCode (4.8s)
+✔ [3494/3498] Built Nonadditivity.OperationalBlocking (5.9s)
+✔ [3495/3498] Built Nonadditivity.QuantumCodingTypicalTests (4.2s)
+✔ [3496/3498] Built Nonadditivity.OperationalWeakConverse (4.7s)
+✔ [3497/3498] Built Nonadditivity.QuantumCodingHSW (3.9s)
+✔ [3498/3498] Built Nonadditivity.OperationalCodingTheorem (3.3s)
+Build completed successfully (3498 jobs).
+Exporting challenge: ComparatorChallenges.B_OperationalCoding
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export ComparatorChallenges.B_OperationalCoding -- Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
+Exporting solution: Nonadditivity.OperationalCodingTheorem
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Nonadditivity.OperationalCodingTheorem -- Nonadditivity.Operational.operationalCapacity_eq_regularizedHolevoSupremum propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
++ lake env lean --run /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/verification/comparator/ReplayExports.lean /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/ComparatorChallenges/B_OperationalCoding.json /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-jn9ey40x/challenge.export /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-jn9ey40x/solution.export
+UNSANDBOXED diagnostic: parsing exports. Nanoda is disabled.
+Pinned Comparator: statements and referenced constants match.
+Pinned Comparator: solution axiom closure accepted.
+Lean kernel replay accepted. UNSANDBOXED diagnostic only.
+LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/B_OperationalCoding.json
++ lake build ComparatorChallenges.C_SmallInformationSeparation Nonadditivity.OperationalConsequences
+⚠ [3555/3598] Replayed Nonadditivity.HaarNonbacktrackingLastReturn
+warning: Nonadditivity/HaarNonbacktrackingLastReturn.lean:67:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.last_return_polynomial_decomposition`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarNonbacktrackingLastReturn.lean:107:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.last_visit_polynomial_decomposition`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3556/3598] Replayed Nonadditivity.HaarOperatorPolynomial
+warning: Nonadditivity/HaarOperatorPolynomial.lean:77:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarOperatorPolynomial.regular_vacuum`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3560/3598] Replayed Nonadditivity.HaarNonbacktrackingFirstStep
+warning: Nonadditivity/HaarNonbacktrackingFirstStep.lean:47:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.killedPolynomial_sum_source`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3561/3598] Replayed Nonadditivity.HaarProfileCoefficient
+warning: Nonadditivity/HaarProfileCoefficient.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfileCoefficient.returningCoefficients_eq_firstStep`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3571/3598] Replayed Nonadditivity.HaarPathExploration
+warning: Nonadditivity/HaarPathExploration.lean:56:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_terminal_ne_root`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathExploration.lean:118:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_edge_not_earlier`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3604/3631] Replayed Nonadditivity.HaarPathClassData
+warning: Nonadditivity/HaarPathClassData.lean:33:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.incidenceVertex_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathClassData.lean:38:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.firstVisit_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathClassData.lean:51:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.edgeAt_eq_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3605/3631] Replayed Nonadditivity.HaarPathTransport
+warning: Nonadditivity/HaarPathTransport.lean:23:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.source_incidenceDart`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:28:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.color_incidenceDart`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:33:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidenceDart_flip`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:38:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.dart_eq_iff_source_color_target`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:42:69: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathTransport.lean:44:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidenceDart_mem`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:50:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.exists_incidenceDart`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:86:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.vertexPerm_apply`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:187:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.symm`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3606/3631] Replayed Nonadditivity.HaarPathRefined
+warning: Nonadditivity/HaarPathRefined.lean:23:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.refl`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathRefined.lean:25:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.trans`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathRefined.lean:68:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.coreChainProfile_eq_of_colorList_eq`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3609/3631] Replayed Nonadditivity.HaarPathVertexFibre
+warning: Nonadditivity/HaarPathVertexFibre.lean:77:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.normalize_samePattern`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathVertexFibre.lean:88:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.labels_apply`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathVertexFibre.lean:99:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.reconstruct_samePattern`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3610/3631] Replayed Nonadditivity.HaarRefinedVertexFibre
+warning: Nonadditivity/HaarRefinedVertexFibre.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarRefinedVertexFibre.range_vertex_eq`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3613/3686] Replayed Nonadditivity.HaarChainColoringPath
+warning: Nonadditivity/HaarChainColoringPath.lean:26:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.path_vertex`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarChainColoringPath.lean:27:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.path_colors`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3614/3686] Replayed Nonadditivity.HaarChainColoringFibre
+warning: Nonadditivity/HaarChainColoringFibre.lean:62:7: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.ext_value`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3619/3686] Replayed Nonadditivity.HaarPathFreshRuns
+warning: Nonadditivity/HaarPathFreshRuns.lean:59:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.prefixSamePattern_extend_firstVisit`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathFreshRuns.lean:113:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidence_at_fresh_vertex_unique`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3621/3686] Replayed Nonadditivity.HaarPathVertexNames
+warning: Nonadditivity/HaarPathVertexNames.lean:30:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarPathVertexNames.lean:24:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.earlier_occurrence`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3630/3686] Replayed Nonadditivity.HaarPathTreeSegment
+warning: Nonadditivity/HaarPathTreeSegment.lean:60:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_unoriented_injective`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:74:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.edgeAt_eq_unoriented`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:111:5: unused variable `hai`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:131:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.vertexAt_fin`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:137:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.vertexAt_eq`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3632/3686] Replayed Nonadditivity.HaarPathNormalizedTreeColors
+warning: Nonadditivity/HaarPathNormalizedTreeColors.lean:43:48: unused variable `hab`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarPathNormalizedTreeColors.lean:43:62: unused variable `hbm`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3635/3686] Replayed Nonadditivity.HaarPathRefinedCounting
+warning: Nonadditivity/HaarPathRefinedCounting.lean:54:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.orientation_cases`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3643/3686] Replayed Nonadditivity.HaarTensorReplacement
+warning: Nonadditivity/HaarTensorReplacement.lean:44:32: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, mul_one, ← Matrix.mul_kronecker_mul,
+  ̲  ̲ ̲ ̲M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵,̵ ̵Matrix.mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarTensorReplacement.lean:44:48: This simp argument is unused:
+  Matrix.mul_one
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, mul_one, ← Matrix.mul_kronecker_mul,
+  ̲  ̲ ̲ ̲M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵o̵n̵e̵]̵M̲a̲t̲r̲i̲x̲.̲o̲n̲e̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarTensorReplacement.lean:58:48: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, ← Matrix.mul_kronecker_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵o̵n̵e̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵]̵M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲o̲n̲e̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3704/3755] Replayed Nonadditivity.HaarOperatorPathBridge
+warning: Nonadditivity/HaarOperatorPathBridge.lean:132:11: unused variable `z`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarOperatorPathBridge.lean:133:12: unused variable `P`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3705/3755] Replayed Nonadditivity.HaarPathBalance
+warning: Nonadditivity/HaarPathBalance.lean:35:40: This simp argument is unused:
+  visitCount
+
+Hint: Omit it from the simp argument list.
+  simp [v̵i̵s̵i̵t̵C̵o̵u̵n̵t̵,̵hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarPathBalance.lean:63:42: This simp argument is unused:
+  incomingCount
+
+Hint: Omit it from the simp argument list.
+  simp [i̵n̵c̵o̵m̵i̵n̵g̵C̵o̵u̵n̵t̵,̵hjv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3707/3755] Replayed Nonadditivity.HaarPathSupport
+warning: Nonadditivity/HaarPathSupport.lean:25:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:26:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:26:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:33:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:34:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:34:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:41:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:42:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:42:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:49:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:50:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:50:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3711/3755] Replayed Nonadditivity.HaarProfileOrientation
+warning: Nonadditivity/HaarProfileOrientation.lean:64:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfileCoefficient.orientedCoefficients_eq_firstStep`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3712/3755] Replayed Nonadditivity.HaarProfilePadding
+warning: Nonadditivity/HaarProfilePadding.lean:62:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePadding.norm_extend_zero_le`:
+  [Fintype J]
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype J] [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3716/3755] Replayed Nonadditivity.NoncommutativeCSAssignments
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:27:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.sum_assignment_insert`:
+  [DecidableEq J]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq J] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:91:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_open`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:99:21: This simp argument is unused:
+  variableCount
+
+Hint: Omit it from the simp argument list.
+  simp [coefficient,̵ ̵v̵a̵r̵i̵a̵b̵l̵e̵C̵o̵u̵n̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:101:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_close`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:108:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_middle`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:114:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_singleton`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:121:21: This simp argument is unused:
+  variableCount
+
+Hint: Omit it from the simp argument list.
+  simp [coefficient,̵ ̵v̵a̵r̵i̵a̵b̵l̵e̵C̵o̵u̵n̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:129:58: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_open, Fin.removeNth_insertNth, i̵t̵e̵_̵apply,̵ ̵a̵p̵p̵l̵y̵_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:137:34: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_close, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:144:37: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_diagonal, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:151:37: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_diagonal, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite, map_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3723/3755] Replayed Nonadditivity.HaarProfilePatternBound
+warning: Nonadditivity/HaarProfilePatternBound.lean:95:45: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3724/3755] Replayed Nonadditivity.NoncommutativeCSSingletons
+warning: Nonadditivity/NoncommutativeCSSingletons.lean:105:14: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/NoncommutativeCSSingletons.lean:115:14: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3727/3755] Replayed Nonadditivity.HaarProfileAssignmentBound
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:63:12: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:69:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:72:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:75:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:82:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3731/3755] Replayed Nonadditivity.NoncommutativeCSBlocks
+warning: Nonadditivity/NoncommutativeCSBlocks.lean:127:54: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  simp_all [blocks, blockFactors, List.mapIdx_cons, Nat.add_a̵s̵s̵o̵c̵,̵
+  ̵ ̵ ̵ ̵ ̵ ̵ ̵N̵a̵t̵.̵a̵d̵d̵_̵left_comm, Nat.add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3733/3755] Replayed Nonadditivity.HaarSkeletonSegmentation
+warning: Nonadditivity/HaarSkeletonSegmentation.lean:45:46: This simp argument is unused:
+  List.append_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [reverseFactors, ih,̵ ̵L̵i̵s̵t̵.̵a̵p̵p̵e̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3736/3780] Replayed Nonadditivity.HaarActualScanWords
+warning: Nonadditivity/HaarActualScanWords.lean:29:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarActualScanWords.scanWords_eq_actual_chunks`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3738/3780] Replayed Nonadditivity.HaarDecodedCoefficientBound
+warning: Nonadditivity/HaarDecodedCoefficientBound.lean:29:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarDecodedCoefficientBound.blockFactors_segmentedListProduct`:
+  [Fintype I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3740/3780] Replayed Nonadditivity.HaarPathScalarSummation
+warning: Nonadditivity/HaarPathScalarSummation.lean:69:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathScalarSummation.lean:77:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathScalarSummation.lean:102:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3742/3780] Replayed Nonadditivity.HaarPathWeightBudget
+warning: Nonadditivity/HaarPathWeightBudget.lean:49:47: unused variable `hs`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3746/3780] Replayed Nonadditivity.HaarProfilePermutations
+warning: Nonadditivity/HaarProfilePermutations.lean:25:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.labelEquiv_map`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_count`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:90:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_first`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:93:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_last`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3749/3780] Replayed Nonadditivity.HaarPathWeightTransport
+warning: Nonadditivity/HaarPathWeightTransport.lean:145:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathWeightTransport.lean:145:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3750/3780] Replayed Nonadditivity.HaarRefinedWeight
+warning: Nonadditivity/HaarRefinedWeight.lean:31:67: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3753/3780] Replayed Nonadditivity.HaarTensorEvaluation
+warning: Nonadditivity/HaarTensorEvaluation.lean:93:10: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵M̵a̵t̵r̵i̵x̵.̵k̵r̵o̵n̵e̵c̵k̵e̵r̵_̵a̵p̵p̵l̵y̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3754/3780] Replayed Nonadditivity.HaarRecursiveSample
+warning: Nonadditivity/HaarRecursiveSample.lean:93:35: `MeasureTheory.measureReal_univ_eq_one` has been deprecated: Use `MeasureTheory.probReal_univ` instead
+⚠ [3755/3780] Replayed Nonadditivity.HaarCanonicalTransport
+warning: Nonadditivity/HaarCanonicalTransport.lean:61:79: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  simp [recursiveRepresentation, tensorTupleEquiv,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarCanonicalTransport.lean:76:78: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  simp [StructuredHaarModel.tensorRepresentation,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3760/3787] Built ComparatorChallenges.C_SmallInformationSeparation (13s)
+warning: ComparatorChallenges/C_SmallInformationSeparation.lean:13:8: declaration uses `sorry`
+⚠ [3762/3787] Replayed Nonadditivity.HaarExpectationFromMoment
+warning: Nonadditivity/HaarExpectationFromMoment.lean:89:53: This simp argument is unused:
+  Pi.inv_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [ProductPolynomialReduction.generator, P̵i̵.̵i̵n̵v̵_̵a̵p̵p̵l̵y̵,̵ ̵FreeGroup.norm_inv_eq,
+       ̵ ̵apply_ite FreeGroup.norm, FreeGroup.norm_of, FreeGroup.norm_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarExpectationFromMoment.lean:89:67: This simp argument is unused:
+  FreeGroup.norm_inv_eq
+
+Hint: Omit it from the simp argument list.
+  simp only [ProductPolynomialReduction.generator, Pi.inv_apply, F̵r̵e̵e̵G̵r̵o̵u̵p̵.̵n̵o̵r̵m̵_̵i̵n̵v̵_̵e̵q̵,̵apply_ite FreeGroup.norm,
+  ̲  ̲ ̲ ̲FreeGroup.norm_of, FreeGroup.norm_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3765/3787] Built Nonadditivity.Dimensions (13s)
+✔ [3766/3787] Built Nonadditivity.CanonicalBlockBell (14s)
+✔ [3767/3787] Built Nonadditivity.EntropyContinuity (15s)
+✔ [3768/3787] Built Nonadditivity.StrictEntropy (15s)
+✔ [3769/3787] Built Nonadditivity.GaussianNormalization (16s)
+✔ [3770/3787] Built Nonadditivity.GeneralBell (16s)
+✔ [3771/3787] Built Nonadditivity.DampedChannel (16s)
+✔ [3772/3787] Built Nonadditivity.WeylPowersIndex (11s)
+✔ [3773/3787] Built Nonadditivity.WeylPowersControl (11s)
+✔ [3774/3787] Built Nonadditivity.DampingNet (9.4s)
+✔ [3775/3787] Built Nonadditivity.HaarPrescribedConsequences (11s)
+✔ [3776/3787] Built Nonadditivity.DampedPositivity (10s)
+✔ [3777/3787] Built Nonadditivity.SpectralDamping (10s)
+✔ [3778/3787] Built Nonadditivity.DampedBellStability (11s)
+✔ [3779/3787] Built Nonadditivity.EntropyStability (4.6s)
+✔ [3780/3787] Built Nonadditivity.DampedRealization (6.3s)
+✔ [3781/3787] Built Nonadditivity.WeylPowersTwirl (9.1s)
+✔ [3782/3787] Built Nonadditivity.WeylPowersChannels (9.0s)
+✔ [3783/3787] Built Nonadditivity.DeterministicQualitative (4.7s)
+✔ [3784/3787] Built Nonadditivity.WeylPowersEntropy (3.8s)
+✔ [3785/3787] Built Nonadditivity.DeterministicConsequences (4.2s)
+✔ [3786/3787] Built Nonadditivity.WeylPowersRegularized (3.9s)
+✔ [3787/3787] Built Nonadditivity.OperationalConsequences (3.9s)
+Build completed successfully (3787 jobs).
+Exporting challenge: ComparatorChallenges.C_SmallInformationSeparation
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export ComparatorChallenges.C_SmallInformationSeparation -- Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
+Exporting solution: Nonadditivity.OperationalConsequences
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Nonadditivity.OperationalConsequences -- Nonadditivity.OperationalConsequences.exists_small_chi_large_capacity_gain_and_two_use_ratio propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
++ lake env lean --run /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/verification/comparator/ReplayExports.lean /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/ComparatorChallenges/C_SmallInformationSeparation.json /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-uo7omfkd/challenge.export /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-uo7omfkd/solution.export
+UNSANDBOXED diagnostic: parsing exports. Nanoda is disabled.
+Pinned Comparator: statements and referenced constants match.
+Pinned Comparator: solution axiom closure accepted.
+Lean kernel replay accepted. UNSANDBOXED diagnostic only.
+LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/C_SmallInformationSeparation.json
++ lake build ComparatorChallenges.D_WeylAllUses Nonadditivity.WeylPowersEntropy
+⚠ [3336/3336] Built ComparatorChallenges.D_WeylAllUses (7.0s)
+warning: ComparatorChallenges/D_WeylAllUses.lean:16:8: declaration uses `sorry`
+Build completed successfully (3336 jobs).
+Exporting challenge: ComparatorChallenges.D_WeylAllUses
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export ComparatorChallenges.D_WeylAllUses -- Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
+Exporting solution: Nonadditivity.WeylPowersEntropy
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Nonadditivity.WeylPowersEntropy -- Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
++ lake env lean --run /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/verification/comparator/ReplayExports.lean /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/ComparatorChallenges/D_WeylAllUses.json /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-63hy679p/challenge.export /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-63hy679p/solution.export
+UNSANDBOXED diagnostic: parsing exports. Nanoda is disabled.
+Pinned Comparator: statements and referenced constants match.
+Pinned Comparator: solution axiom closure accepted.
+Lean kernel replay accepted. UNSANDBOXED diagnostic only.
+LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/D_WeylAllUses.json
++ lake build ComparatorChallenges.E_InputCost Nonadditivity.PrescribedCostCapacity
+⚠ [3507/3742] Replayed Nonadditivity.HaarNonbacktrackingLastReturn
+warning: Nonadditivity/HaarNonbacktrackingLastReturn.lean:67:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.last_return_polynomial_decomposition`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarNonbacktrackingLastReturn.lean:107:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.last_visit_polynomial_decomposition`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3508/3742] Replayed Nonadditivity.HaarOperatorPolynomial
+warning: Nonadditivity/HaarOperatorPolynomial.lean:77:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarOperatorPolynomial.regular_vacuum`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3512/3742] Replayed Nonadditivity.HaarNonbacktrackingFirstStep
+warning: Nonadditivity/HaarNonbacktrackingFirstStep.lean:47:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarNonbacktracking.killedPolynomial_sum_source`:
+  [DecidableEq G]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq G] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3513/3742] Replayed Nonadditivity.HaarProfileCoefficient
+warning: Nonadditivity/HaarProfileCoefficient.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfileCoefficient.returningCoefficients_eq_firstStep`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3523/3742] Replayed Nonadditivity.HaarPathExploration
+warning: Nonadditivity/HaarPathExploration.lean:56:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_terminal_ne_root`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathExploration.lean:118:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_edge_not_earlier`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3556/3742] Replayed Nonadditivity.HaarPathClassData
+warning: Nonadditivity/HaarPathClassData.lean:33:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.incidenceVertex_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathClassData.lean:38:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.firstVisit_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathClassData.lean:51:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.edgeAt_eq_iff`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3557/3742] Replayed Nonadditivity.HaarPathTransport
+warning: Nonadditivity/HaarPathTransport.lean:23:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.source_incidenceDart`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:28:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.color_incidenceDart`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:33:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidenceDart_flip`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:38:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.dart_eq_iff_source_color_target`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:42:69: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathTransport.lean:44:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidenceDart_mem`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:50:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.exists_incidenceDart`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:86:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.vertexPerm_apply`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTransport.lean:187:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.symm`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3558/3742] Replayed Nonadditivity.HaarPathRefined
+warning: Nonadditivity/HaarPathRefined.lean:23:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.refl`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathRefined.lean:25:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.SamePattern.trans`:
+  [Fintype V]
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathRefined.lean:68:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.coreChainProfile_eq_of_colorList_eq`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3563/3742] Replayed Nonadditivity.HaarPathVertexFibre
+warning: Nonadditivity/HaarPathVertexFibre.lean:77:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.normalize_samePattern`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathVertexFibre.lean:88:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.labels_apply`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathVertexFibre.lean:99:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathVertexFibre.reconstruct_samePattern`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3564/3742] Replayed Nonadditivity.HaarRefinedVertexFibre
+warning: Nonadditivity/HaarRefinedVertexFibre.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarRefinedVertexFibre.range_vertex_eq`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3565/3742] Replayed Nonadditivity.HaarChainColoringPath
+warning: Nonadditivity/HaarChainColoringPath.lean:26:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.path_vertex`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarChainColoringPath.lean:27:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.path_colors`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3566/3742] Replayed Nonadditivity.HaarChainColoringFibre
+warning: Nonadditivity/HaarChainColoringFibre.lean:62:7: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.ChainColoring.ext_value`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3571/3742] Replayed Nonadditivity.HaarPathFreshRuns
+warning: Nonadditivity/HaarPathFreshRuns.lean:59:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.prefixSamePattern_extend_firstVisit`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathFreshRuns.lean:113:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.incidence_at_fresh_vertex_unique`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3573/3742] Replayed Nonadditivity.HaarPathVertexNames
+warning: Nonadditivity/HaarPathVertexNames.lean:30:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarPathVertexNames.lean:24:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.earlier_occurrence`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3582/3742] Replayed Nonadditivity.HaarPathTreeSegment
+warning: Nonadditivity/HaarPathTreeSegment.lean:60:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.firstVisit_unoriented_injective`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:74:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.edgeAt_eq_unoriented`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:111:5: unused variable `hai`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:131:8: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.vertexAt_fin`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarPathTreeSegment.lean:137:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathGraph.Path.vertexAt_eq`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3584/3742] Replayed Nonadditivity.HaarPathNormalizedTreeColors
+warning: Nonadditivity/HaarPathNormalizedTreeColors.lean:43:48: unused variable `hab`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarPathNormalizedTreeColors.lean:43:62: unused variable `hbm`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3587/3742] Replayed Nonadditivity.HaarPathRefinedCounting
+warning: Nonadditivity/HaarPathRefinedCounting.lean:54:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarPathClasses.orientation_cases`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3595/3742] Replayed Nonadditivity.HaarTensorReplacement
+warning: Nonadditivity/HaarTensorReplacement.lean:44:32: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, mul_one, ← Matrix.mul_kronecker_mul,
+  ̲  ̲ ̲ ̲M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵,̵ ̵Matrix.mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarTensorReplacement.lean:44:48: This simp argument is unused:
+  Matrix.mul_one
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, mul_one, ← Matrix.mul_kronecker_mul,
+  ̲  ̲ ̲ ̲M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵o̵n̵e̵]̵M̲a̲t̲r̲i̲x̲.̲o̲n̲e̲_̲m̲u̲l̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarTensorReplacement.lean:58:48: This simp argument is unused:
+  Matrix.one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [MonoidAlgebra.single_mul_single, one_mul, ← Matrix.mul_kronecker_mul, M̵a̵t̵r̵i̵x̵.̵m̵u̵l̵_̵o̵n̵e̵,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵m̵u̵l̵]̵M̲a̲t̲r̲i̲x̲.̲m̲u̲l̲_̲o̲n̲e̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3656/3742] Replayed Nonadditivity.HaarOperatorPathBridge
+warning: Nonadditivity/HaarOperatorPathBridge.lean:132:11: unused variable `z`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/HaarOperatorPathBridge.lean:133:12: unused variable `P`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3657/3742] Replayed Nonadditivity.HaarPathBalance
+warning: Nonadditivity/HaarPathBalance.lean:35:40: This simp argument is unused:
+  visitCount
+
+Hint: Omit it from the simp argument list.
+  simp [v̵i̵s̵i̵t̵C̵o̵u̵n̵t̵,̵hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarPathBalance.lean:63:42: This simp argument is unused:
+  incomingCount
+
+Hint: Omit it from the simp argument list.
+  simp [i̵n̵c̵o̵m̵i̵n̵g̵C̵o̵u̵n̵t̵,̵hjv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3659/3742] Replayed Nonadditivity.HaarPathSupport
+warning: Nonadditivity/HaarPathSupport.lean:25:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:26:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:26:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:33:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:34:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:34:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:41:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:42:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:42:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:49:51: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:50:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathSupport.lean:50:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3663/3742] Replayed Nonadditivity.HaarProfileOrientation
+warning: Nonadditivity/HaarProfileOrientation.lean:64:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfileCoefficient.orientedCoefficients_eq_firstStep`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3664/3742] Replayed Nonadditivity.HaarProfilePadding
+warning: Nonadditivity/HaarProfilePadding.lean:62:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePadding.norm_extend_zero_le`:
+  [Fintype J]
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype J] [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3668/3742] Replayed Nonadditivity.NoncommutativeCSAssignments
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:27:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.sum_assignment_insert`:
+  [DecidableEq J]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq J] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:91:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_open`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:99:21: This simp argument is unused:
+  variableCount
+
+Hint: Omit it from the simp argument list.
+  simp [coefficient,̵ ̵v̵a̵r̵i̵a̵b̵l̵e̵C̵o̵u̵n̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:101:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_close`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:108:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_middle`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:114:0: automatically included section variable(s) unused in theorem `Nonadditivity.NoncommutativeCS.AssignmentProgram.assignmentSum_singleton`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:121:21: This simp argument is unused:
+  variableCount
+
+Hint: Omit it from the simp argument list.
+  simp [coefficient,̵ ̵v̵a̵r̵i̵a̵b̵l̵e̵C̵o̵u̵n̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:129:58: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_open, Fin.removeNth_insertNth, i̵t̵e̵_̵apply,̵ ̵a̵p̵p̵l̵y̵_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:137:34: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_close, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:144:37: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_diagonal, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/NoncommutativeCSAssignments.lean:151:37: This simp argument is unused:
+  ite_apply
+
+Hint: Omit it from the simp argument list.
+  simp [Contraction.kernel_diagonal, i̵t̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵apply_ite, map_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3675/3742] Replayed Nonadditivity.HaarProfilePatternBound
+warning: Nonadditivity/HaarProfilePatternBound.lean:95:45: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3676/3742] Replayed Nonadditivity.NoncommutativeCSSingletons
+warning: Nonadditivity/NoncommutativeCSSingletons.lean:105:14: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Nonadditivity/NoncommutativeCSSingletons.lean:115:14: unused variable `q`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3679/3742] Replayed Nonadditivity.HaarProfileAssignmentBound
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:63:12: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:69:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:72:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:75:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Nonadditivity/HaarProfileAssignmentBound.lean:82:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3683/3742] Replayed Nonadditivity.NoncommutativeCSBlocks
+warning: Nonadditivity/NoncommutativeCSBlocks.lean:127:54: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  simp_all [blocks, blockFactors, List.mapIdx_cons, Nat.add_a̵s̵s̵o̵c̵,̵
+  ̵ ̵ ̵ ̵ ̵ ̵ ̵N̵a̵t̵.̵a̵d̵d̵_̵left_comm, Nat.add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3685/3742] Replayed Nonadditivity.HaarSkeletonSegmentation
+warning: Nonadditivity/HaarSkeletonSegmentation.lean:45:46: This simp argument is unused:
+  List.append_assoc
+
+Hint: Omit it from the simp argument list.
+  simp [reverseFactors, ih,̵ ̵L̵i̵s̵t̵.̵a̵p̵p̵e̵n̵d̵_̵a̵s̵s̵o̵c̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3688/3742] Replayed Nonadditivity.HaarActualScanWords
+warning: Nonadditivity/HaarActualScanWords.lean:29:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarActualScanWords.scanWords_eq_actual_chunks`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3690/3742] Replayed Nonadditivity.HaarDecodedCoefficientBound
+warning: Nonadditivity/HaarDecodedCoefficientBound.lean:29:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarDecodedCoefficientBound.blockFactors_segmentedListProduct`:
+  [Fintype I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3692/3742] Replayed Nonadditivity.HaarPathScalarSummation
+warning: Nonadditivity/HaarPathScalarSummation.lean:69:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathScalarSummation.lean:77:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathScalarSummation.lean:102:56: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3694/3742] Replayed Nonadditivity.HaarPathWeightBudget
+warning: Nonadditivity/HaarPathWeightBudget.lean:49:47: unused variable `hs`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3698/3742] Replayed Nonadditivity.HaarProfilePermutations
+warning: Nonadditivity/HaarProfilePermutations.lean:25:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.labelEquiv_map`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:85:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_count`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:90:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_first`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Nonadditivity/HaarProfilePermutations.lean:93:0: automatically included section variable(s) unused in theorem `Nonadditivity.HaarProfilePermutations.coreChainProfile_last`:
+  [Fintype V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3701/3742] Replayed Nonadditivity.HaarPathWeightTransport
+warning: Nonadditivity/HaarPathWeightTransport.lean:145:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Nonadditivity/HaarPathWeightTransport.lean:145:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3702/3742] Replayed Nonadditivity.HaarRefinedWeight
+warning: Nonadditivity/HaarRefinedWeight.lean:31:67: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3705/3742] Replayed Nonadditivity.HaarTensorEvaluation
+warning: Nonadditivity/HaarTensorEvaluation.lean:93:10: This simp argument is unused:
+  Matrix.kronecker_apply
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵M̵a̵t̵r̵i̵x̵.̵k̵r̵o̵n̵e̵c̵k̵e̵r̵_̵a̵p̵p̵l̵y̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3706/3742] Replayed Nonadditivity.HaarRecursiveSample
+warning: Nonadditivity/HaarRecursiveSample.lean:93:35: `MeasureTheory.measureReal_univ_eq_one` has been deprecated: Use `MeasureTheory.probReal_univ` instead
+⚠ [3707/3742] Replayed Nonadditivity.HaarCanonicalTransport
+warning: Nonadditivity/HaarCanonicalTransport.lean:61:79: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  simp [recursiveRepresentation, tensorTupleEquiv,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarCanonicalTransport.lean:76:78: This simp argument is unused:
+  Matrix.one_apply
+
+Hint: Omit it from the simp argument list.
+  simp [StructuredHaarModel.tensorRepresentation,̵ ̵M̵a̵t̵r̵i̵x̵.̵o̵n̵e̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3732/3773] Replayed Nonadditivity.HaarExpectationFromMoment
+warning: Nonadditivity/HaarExpectationFromMoment.lean:89:53: This simp argument is unused:
+  Pi.inv_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [ProductPolynomialReduction.generator, P̵i̵.̵i̵n̵v̵_̵a̵p̵p̵l̵y̵,̵ ̵FreeGroup.norm_inv_eq,
+       ̵ ̵apply_ite FreeGroup.norm, FreeGroup.norm_of, FreeGroup.norm_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Nonadditivity/HaarExpectationFromMoment.lean:89:67: This simp argument is unused:
+  FreeGroup.norm_inv_eq
+
+Hint: Omit it from the simp argument list.
+  simp only [ProductPolynomialReduction.generator, Pi.inv_apply, F̵r̵e̵e̵G̵r̵o̵u̵p̵.̵n̵o̵r̵m̵_̵i̵n̵v̵_̵e̵q̵,̵apply_ite FreeGroup.norm,
+  ̲  ̲ ̲ ̲FreeGroup.norm_of, FreeGroup.norm_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [3766/3773] Built Nonadditivity.HaarPrescribedScaling (7.5s)
+✔ [3767/3773] Built Nonadditivity.PrescribedCostScalars (3.5s)
+✔ [3768/3773] Built Nonadditivity.PrescribedCostDimensions (3.7s)
+✔ [3769/3773] Built Nonadditivity.PrescribedCostLogarithms (3.9s)
+✔ [3770/3773] Built Nonadditivity.PrescribedCostInformation (4.2s)
+⚠ [3771/3773] Built ComparatorChallenges.E_InputCost (3.8s)
+warning: ComparatorChallenges/E_InputCost.lean:16:8: declaration uses `sorry`
+warning: ComparatorChallenges/E_InputCost.lean:23:8: declaration uses `sorry`
+✔ [3772/3773] Built Nonadditivity.PrescribedCostScaling (4.5s)
+✔ [3773/3773] Built Nonadditivity.PrescribedCostCapacity (4.2s)
+Build completed successfully (3773 jobs).
+Exporting challenge: ComparatorChallenges.E_InputCost
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export ComparatorChallenges.E_InputCost -- Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
+Exporting solution: Nonadditivity.PrescribedCostCapacity
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Nonadditivity.PrescribedCostCapacity -- Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
++ lake env lean --run /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/verification/comparator/ReplayExports.lean /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/ComparatorChallenges/E_InputCost.json /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-d7ktf1eg/challenge.export /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-d7ktf1eg/solution.export
+UNSANDBOXED diagnostic: parsing exports. Nanoda is disabled.
+Pinned Comparator: statements and referenced constants match.
+Pinned Comparator: solution axiom closure accepted.
+Lean kernel replay accepted. UNSANDBOXED diagnostic only.
+LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/E_InputCost.json
++ lake build ComparatorChallenges.F_TwoUseSeparation Nonadditivity.DeterministicConsequences
+⚠ [3395/3395] Built ComparatorChallenges.F_TwoUseSeparation (8.1s)
+warning: ComparatorChallenges/F_TwoUseSeparation.lean:13:8: declaration uses `sorry`
+Build completed successfully (3395 jobs).
+Exporting challenge: ComparatorChallenges.F_TwoUseSeparation
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export ComparatorChallenges.F_TwoUseSeparation -- Nonadditivity.DeterministicConsequences.actual_small_large propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
+Exporting solution: Nonadditivity.DeterministicConsequences
++ lake env /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/.verify-work/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export Nonadditivity.DeterministicConsequences -- Nonadditivity.DeterministicConsequences.actual_small_large propext Quot.sound Classical.choice Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList
++ lake env lean --run /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/verification/comparator/ReplayExports.lean /Users/jw/.codex/.chatgpt-projects/g-p-6ab2299d76c081919816db08eadec5a3/nonadditivity-release/ComparatorChallenges/F_TwoUseSeparation.json /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-0pe12xrp/challenge.export /var/folders/n6/g42zb5ns1p72c0_5km1zr0sc0000gn/T/holevo-comparator-0pe12xrp/solution.export
+UNSANDBOXED diagnostic: parsing exports. Nanoda is disabled.
+Pinned Comparator: statements and referenced constants match.
+Pinned Comparator: solution axiom closure accepted.
+Lean kernel replay accepted. UNSANDBOXED diagnostic only.
+LOCAL DIAGNOSTIC PASSED: ComparatorChallenges/F_TwoUseSeparation.json

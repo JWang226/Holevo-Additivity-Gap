@@ -1,0 +1,13 @@
+{
+  "challenge_module": "ComparatorChallenges.F_TwoUseSeparation",
+  "solution_module": "Nonadditivity.DeterministicConsequences",
+  "theorem_names": [
+    "Nonadditivity.DeterministicConsequences.actual_small_large"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

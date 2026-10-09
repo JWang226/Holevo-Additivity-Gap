@@ -1,9 +1,10 @@
 # AI assistance and provenance
 
-The project formalizes *Unbounded Holevo additivity gaps in finite dimensions*,
-whose supplied manuscript identifies Jinzhao Wang as author. The manuscript was
-provided in the working session; this record does not reconstruct its earlier
-authorship or research history.
+The project formalizes principal results of *Unbounded Holevo additivity gaps
+in finite dimensions*, whose manuscript identifies Jinzhao Wang as author.
+The current manuscript is the exact upstream [arXiv v2](https://arxiv.org/abs/2609.18222v2)
+source, with [archived provenance](../paper/arxiv-v2.json). This record does not
+reconstruct its earlier authorship or research history.
 
 OpenAI Codex assisted with developing Lean definitions and proofs, investigating
 failed counting estimates, compiling and auditing the formalization, and
@@ -44,7 +45,7 @@ replace human review of definitions, hypotheses, correspondence, or exposition.
 | Field | Record |
 | --- | --- |
 | Assistant framework | OpenAI Codex |
-| Model attribution in the revised manuscript | GPT-6 Astra, reported by the author |
+| Model attribution in arXiv v2 | GPT-6 Astra, reported by the author |
 | Exact runtime identifiers for the full proof-development history | Not recorded in the retained artifacts |
 | Full prompts and raw model outputs | Not retained in this repository |
 | Total elapsed research time | Not measured; audit timestamps are available |
@@ -55,8 +56,14 @@ replace human review of definitions, hypotheses, correspondence, or exposition.
 | Independent human mathematical review | Not documented in the available record |
 | Other attempted problems or failed experiments outside this project | Not recorded |
 
-The revised manuscript supplies the author's model attribution. Complete
-runtime invocation records are still unavailable. Its verification sentence
-is limited to the principal Lean endpoints and recorded build/audit success;
-Comparator execution remains pending. The missing fields remain explicit so
-that future maintainers can add actual records. No claim of complete compliance with every AGM recommendation is made.
+The exact arXiv v2 manuscript supplies the author's model attribution and uses
+broader verification wording than the repository's checked scope. The full
+manuscript is not formalized. The current suite contains seven principal
+theorem roots; the [v2 statement review](STATEMENT_AUDIT_V2.md) records their
+qualified correspondence, including the difference between the revised
+exploration-mark prose and the formal encoding. The [verification index](../verification/README.md)
+identifies actual executions and their checked inputs; prepared configurations
+alone do not establish successful execution. Complete runtime invocation
+records remain unavailable. The missing fields remain explicit so future
+maintainers can add actual records. No claim of complete compliance with every
+AGM recommendation is made.

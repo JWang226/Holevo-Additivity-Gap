@@ -28,6 +28,7 @@ APPLICATIONS = {
     'Nonadditivity.WeylPowers.positiveTensorPower_weylExtension_holevoBits': ' T n',
     'Nonadditivity.PrescribedCost.growingFamily_chi_input_cost_bounds': '',
     'Nonadditivity.PrescribedCost.growingFamily_two_use_input_cost_lower': '',
+    'Nonadditivity.DeterministicConsequences.actual_small_large': ' hε',
 }
 # E repeats this exact concrete definition instead of importing either target.
 REPEATED_DEFINITION = 'def inputLogScale : ℝ := Real.sqrt (2/Real.log 2)\n'
@@ -95,14 +96,14 @@ def main() -> int:
         'method': 'local_lean_elaboration_and_solution_against_explicit_expected_type',
         'baseline_modules_recompiled': False,
         'comparator_execution': 'not_run', 'nanoda_execution': 'not_run',
-        'intentional_challenge_placeholders': 6, 'checks': [],
+        'intentional_challenge_placeholders': 7, 'checks': [],
     }
     save_report(report)
     seen = set()
     try:
         configs = sorted((ROOT / 'ComparatorChallenges').glob('*.json'))
-        if len(configs) != 5:
-            raise ValueError('Expected exactly five Comparator configurations')
+        if len(configs) != 6:
+            raise ValueError('Expected exactly six Comparator configurations')
         for absolute_config in configs:
             config_path = absolute_config.relative_to(ROOT)
             config = json.loads(absolute_config.read_text(encoding='utf-8'))
@@ -142,7 +143,7 @@ def main() -> int:
             print(f'{stem}: expected statement and solution/type check passed', flush=True)
             save_report(report)
         if seen != set(APPLICATIONS):
-            raise ValueError('Configurations do not cover the six expected theorems')
+            raise ValueError('Configurations do not cover the seven expected theorems')
         report.update(status='passed', challenge_modules_checked=len(report['checks']),
                       theorems_checked=len(seen))
         save_report(report)

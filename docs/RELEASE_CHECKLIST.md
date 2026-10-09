@@ -2,7 +2,21 @@
 
 This repository publishes the completed principal Lean results and their verification evidence. The full manuscript is not formalized. Complete the publication checks below against a frozen release candidate; do not replace an earlier record's source hashes with those of changed sources.
 
-## Publication checks
+## Current arXiv v2 and added-root candidate
+
+The current manuscript preserves the exact upstream arXiv v2 source. The
+current suite contains six configurations and seven theorem roots, including
+the absolute two-use separation root `actual_small_large`. The
+[verification index](../verification/README.md) identifies the selected portable
+record and additive source certificate, and the [v2 statement review](STATEMENT_AUDIT_V2.md)
+records the qualified correspondence. The current full proof execution and
+freshness checks passed, with their original input bindings retained under
+`verification/portable-20261008/`. The separate v2 review includes observed
+seven-root type and axiom checks under `verification/statement-audit-20261008/`.
+Rebuild and check the reader site from these selected records before publication.
+The checklist below records the earlier release.
+
+## Historical v1.0.0 publication checks
 
 - [x] Run `bash scripts/verify.sh all --source-certificate verification/elaboration-20261006/source-certificate.json` successfully on the candidate. Retain its fresh Lean build/audit, Comparator/Lean replay, Nanoda source/build receipt, controls, and complete logs under `verification/portable-20261007`. Record the actual source commit and hashes; challenge compilation alone does not establish Comparator or Nanoda success.
 - [x] Select those portable records explicitly in `metadata/results.json` and run `python3 verification/check_reports.py`. Preserve the October 2 portable evidence and its original bindings.
@@ -39,7 +53,9 @@ review. The [formalization status](FORMALIZATION_STATUS.md) should accompany
 announcements, including its explicit limits.
 
 The default integrity check enforces the historical audited proof-source
-baseline; the explicit certificate selects the completed cleanup evidence.
+baseline. The current explicit additive certificate preserves the completed
+cleanup rebuild/type evidence and binds the added challenge configuration;
+it does not itself record fresh proof execution.
 Future mathematical changes require fresh verification and a reviewed successor
 record with its own source bindings. Keep previous evidence available; new
 source hashes alone do not establish that changed proofs have been checked.

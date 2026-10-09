@@ -1,0 +1,9 @@
+{
+  "started_at_utc": "2026-10-09T02:55:29.534189+00:00",
+  "mode": "all",
+  "sandboxed": false,
+  "nanoda_binary_source": "build_from_recorded_pin",
+  "supplied_nanoda_binary": null,
+  "source_certificate": "verification/additive-20261008/source-certificate.json",
+  "note": "Invocation metadata only; success requires the requested stages to complete."
+}

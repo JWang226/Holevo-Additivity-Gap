@@ -2,10 +2,10 @@
 
 The principal channel construction, quantitative information bounds, operational coding theorem, and listed asymptotic consequences are proved in Lean without unproved analytic or coding premises. **The entire manuscript is not formalized.** Broader Haar-convergence interfaces and some background generalizations remain outside the completed endpoints.
 
-The release contains the author's revised [manuscript source](../paper/nonadditivity.tex). It incorporates both counting repairs, the nonzero-Hilbert-space qualification, and the finite matrix/free-factor coefficient scope documented in [CORRECTIONS.md](CORRECTIONS.md). Its SHA-256 is:
+The release contains the exact published [arXiv:2609.18222v2](https://arxiv.org/abs/2609.18222v2) [manuscript source](../paper/nonadditivity.tex), without local wording changes. [Provenance](../paper/arxiv-v2.json) binds it to the archived upstream source. Its SHA-256 is:
 
 ```text
-3a65f68ea51e3b1dd6f66f1e0d53c9273e3d4abc0522a650c05ccd304b435b98
+18c4c60a8494f4421e8e356d75dcee81df93beace7de3bfdc8274b719df68736
 ```
 
 ## Completed principal results
@@ -58,6 +58,7 @@ Sources: [OperationalCodingTheorem.lean](../Nonadditivity/OperationalCodingTheor
 | Result | Lean source |
 | --- | --- |
 | Independent qualitative construction for every `K ≥ 2`, `n ≥ 1`, `η > 0`, with positive `χ(T) ≤ nlog₂(1+9/K)+η` and exact `χ(T⊗T) ≥ nlog₂(K)/K` | [ExactQualitative.lean](../Nonadditivity/ExactQualitative.lean) |
+| Absolute separation: for every `ε > 0` and real `R`, one finite channel has `0 < χ(T) ≤ ε` and `χ(T⊗T)/2 ≥ R`; root F checks this strengthened existential endpoint | [DeterministicConsequences.lean](../Nonadditivity/DeterministicConsequences.lean), [F challenge](../ComparatorChallenges/F_TwoUseSeparation.lean) |
 | Weyl-extension Holevo identity at every positive tensor power, including entangled inputs; corresponding regularized identity | [WeylPowersEntropy.lean](../Nonadditivity/WeylPowersEntropy.lean), [WeylPowersRegularized.lean](../Nonadditivity/WeylPowersRegularized.lean) |
 | One finite-set factorization with the same scalar and coefficients in every nonzero complete complex Hilbert-space unitary representation, including infinite dimension | [UniversalFactorization.lean](../Nonadditivity/UniversalFactorization.lean) |
 | Actual one-pair Haar moment estimate at the original dimension range `N ≥ 2^32 p^80` | [HaarSharpBound.lean](../Nonadditivity/HaarSharpBound.lean) |
@@ -76,11 +77,21 @@ The following distinctions are preserved in this release:
 - The finite-dimensional part of manuscript lemma `lem:cy`, **“Free and finite-dimensional norm bounds,”** asserts an undamped unitary realization for every `κ > 1` and every sufficiently large integer dimension. That exact broader claim is not supplied by the particular prescribed-dimension theorem or the alternative qualitative construction.
 - The one-pair moment theorem is implemented for actual finite matrices and the remaining free-factor coefficient representations needed by the construction. The revised appendix restricts its claim to these finite-support polynomial coefficients and explicitly excludes arbitrary traced C*-algebras.
 - Some standard background generalizations and illustrative numerical examples are not separate formal endpoints. In particular, this release does not claim a statement-by-statement formalization of the paper.
-- The two counting repairs are proved in Lean and incorporated into the revised manuscript. Correspondence is checked at the listed endpoint scope; the informal and formal coefficient proofs use different internal encodings.
+- The two counting repairs are proved in Lean and included in arXiv v2. Its revised exploration-mark prose describes a run of tree steps and the label of the step ending that run. The formal mark records the old-tree endpoint and the outgoing next-step label, with a proved old-tree/fresh-run reconstruction. Correspondence is checked at the listed endpoint scope; literal equivalence of these proof encodings is not asserted. See [CORRECTIONS.md](CORRECTIONS.md).
+- The upstream abstract and AI paragraph use broad certificate wording. The [v2 review](STATEMENT_AUDIT_V2.md) retains the narrower seven-root coverage: it does not certify all manuscript statements or proofs, the new concurrent-work comparisons, or machine equivalence of prose and Lean.
 
 These are scope limitations, not hidden hypotheses of the completed endpoints. More technical discussion appears in [ANALYTIC_INPUTS.md](ANALYTIC_INPUTS.md), with a theorem map in [PROOF_MAP.md](PROOF_MAP.md).
 
 ## Verification evidence and release organization
+
+The current suite checks six configurations and seven theorem roots, adding F
+for the already proved absolute two-use separation theorem. The
+[selected portable record](../verification/portable-20261008/run-summary.json)
+and [v2 statement-review continuation](../verification/statement-audit-delta-20261008.json)
+retain their own source and execution bindings. The
+[additive source certificate](../verification/additive-20261008/source-certificate.json)
+extends the unchanged cleanup rebuild/type evidence to the new configuration;
+it does not itself claim a new rebuild, Comparator run, or Nanoda run.
 
 The later [GitHub Actions run 36956367986, attempt 1](https://github.com/JWang226/Holevo-Additivity-Gap/actions/runs/36956367986)
 passed on commit `5345459acb1c072cfdc307904973fdca582ce13f` on October 2, 2026.
@@ -91,7 +102,7 @@ cache rather than rebuilding Mathlib from source. See the
 [execution record](../verification/github-actions-5345459.json) for exact steps.
 Comparator and an independent kernel were not run in that historical CI job.
 
-The later [portable macOS run](../verification/README.md#portable-verification)
+The preserved October 7 [portable Linux run](../verification/portable-20261007/run-summary.json)
 rebuilt the same 369 project modules and repeated the full axiom/mapping audit.
 It additionally passed pinned Comparator API comparison and Lean replay for all
 five configurations / six theorem roots, and independent Nanoda checking of
@@ -99,6 +110,10 @@ those six roots. Nanoda was built from the recorded source and Rust pins.
 The acceptance/rejection controls passed. These were unsandboxed local checks;
 sandboxed upstream CLI execution is not claimed. Records identify the exact
 checked sources and helper artifacts by SHA-256.
+The [overall GitHub job](../verification/github-actions-release-all-38b36070.json)
+failed afterward in statement-axiom recording; that failure remains recorded.
+Earlier macOS evidence is preserved separately in the
+[verification history](../verification/README.md#portable-verification).
 
 The following records describe the earlier development audit and organization
 pass; they preserve their original execution status.

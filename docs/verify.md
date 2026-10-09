@@ -4,7 +4,7 @@ All rights reserved. See COPYRIGHT.md for licensing and attribution. -->
 
 The portable workflow follows [QMDL](https://github.com/JWang226/QMDL). It works on macOS and Linux without landrun or systemd.
 
-For this release, Lean and `all` use the explicit current-source certificate shown below. The certificate selects recorded rebuild/type evidence; both commands still rebuild and audit the project sources. Without it, the validator retains the strict historical byte-equality gate. [Cleanup evidence and elaboration reproduction](ELABORATION_CLEANUP.md) explain the certificate's Lean/type-only scope; historical portable reports retain their original bindings.
+For this release, Lean and `all` use the explicit additive source certificate shown below. It extends the recorded cleanup rebuild/type evidence to the new challenge for an existing theorem; both commands still rebuild and audit the project sources. Without it, the validator retains the strict historical byte-equality gate. The [additive certificate notes](../verification/additive-20261008/README.md) and [cleanup reproduction](ELABORATION_CLEANUP.md) distinguish that source-integrity evidence from fresh proof execution. Historical reports retain their original bindings.
 
 ## Prerequisites
 
@@ -30,10 +30,10 @@ Each mode prepares its own dependencies and builds the proof modules it needs. R
 
 ```sh
 bash scripts/verify.sh lean \
-  --source-certificate verification/elaboration-20261006/source-certificate.json
+  --source-certificate verification/additive-20261008/source-certificate.json
 ```
 
-Rebuilds all 369 project modules, audits 9,107 declarations, validates manuscript mappings, and checks six local challenge types. Rust is not required.
+Rebuilds all 369 project modules, audits 9,107 declarations, validates manuscript mappings, and checks seven local challenge types. Rust is not required.
 
 ### Comparator
 
@@ -41,7 +41,7 @@ Rebuilds all 369 project modules, audits 9,107 declarations, validates manuscrip
 bash scripts/verify.sh comparator
 ```
 
-Exports expected statements and actual proofs for all five configurations, compares types and referenced definitions using pinned Comparator, enforces the axiom policy, and replays exports through Lean’s kernel. Rust is not required.
+Exports expected statements and actual proofs for all six configurations, compares types and referenced definitions using pinned Comparator, enforces the axiom policy, and replays exports through Lean’s kernel. Rust is not required.
 
 ### Nanoda
 
@@ -49,16 +49,16 @@ Exports expected statements and actual proofs for all five configurations, compa
 bash scripts/verify.sh nanoda
 ```
 
-Builds pinned Nanoda, runs acceptance/rejection controls, and checks all six solution theorem roots through the independent Rust kernel. Run Comparator as well for comparison with the expected statements.
+Builds pinned Nanoda, runs acceptance/rejection controls, and checks all seven solution theorem roots through the independent Rust kernel. Run Comparator as well for comparison with the expected statements.
 
 ## Run all checks
 
 ```sh
 bash scripts/verify.sh all \
-  --source-certificate verification/elaboration-20261006/source-certificate.json
+  --source-certificate verification/additive-20261008/source-certificate.json
 ```
 
-`all` is also the default when the mode is omitted; the current cleanup sources still need the explicit certificate option. All requested stages must finish successfully before the wrapper prints `VERIFICATION PASSED: all`. Any failed stage returns a nonzero exit code and retains its log. Use `bash scripts/verify.sh --help` for usage.
+`all` is also the default when the mode is omitted; the current sources and added challenge still need the explicit certificate option. All requested stages must finish successfully before the wrapper prints `VERIFICATION PASSED: all`. Any failed stage returns a nonzero exit code and retains its log. Use `bash scripts/verify.sh --help` for usage.
 
 The existing `verification/lean/run.sh`, `verification/comparator/run.sh`, and `verification/nanoda/run.sh` entry points remain available. The latter two delegate to the portable workflow.
 
@@ -73,16 +73,18 @@ Such a run records `caller_supplied` binary provenance. The default builds from 
 ## Expected output and evidence
 
 - Lean completes with `LEAN REPRODUCTION PASSED` and the full axiom audit marker.
-- Comparator prints `LOCAL DIAGNOSTIC PASSED` for each of the five configurations.
+- Comparator prints `LOCAL DIAGNOSTIC PASSED` for each of the six configurations.
 - Nanoda’s controls accept a valid theorem and reject missing targets, non-theorem roots, forbidden axioms, `sorryAx`, and an ill-typed proof. The same control suite exercises Comparator, including mismatched expected statements.
 - Nanoda prints `NANODA PASSED (UNSANDBOXED)` for each configuration.
 - The wrapper ends with `VERIFICATION PASSED: <mode>` only after every requested stage passes.
 
-Fresh logs are saved in `.verify-work/run-<UTC>-<unique suffix>/`. Comparator and Nanoda success reports record the five cases, six theorem names, tool pins, source and artifact hashes, and unsandboxed status. Each run uses fresh report paths; no earlier success report is reused. The Lean stage also retains detailed logs in `.verify-work/logs/lean-*`.
+Fresh logs are saved in `.verify-work/run-<UTC>-<unique suffix>/`. Comparator and Nanoda success reports record the six cases, seven theorem names, tool pins, source and artifact hashes, and unsandboxed status. Each run uses fresh report paths; no earlier success report is reused. The Lean stage also retains detailed logs in `.verify-work/logs/lean-*`.
 
-The [current full-run summary](../verification/portable-20261007/run-summary.json) records successful all-mode proof verification on source commit `38b36070`. The [overall GitHub job record](../verification/github-actions-release-all-38b36070.json) and [verbatim excerpt](../verification/github-actions-release-all-38b36070-excerpt.log) retain the later statement-recorder failure and skipped website step. [Normal Lean CI](../verification/github-actions-release-38b36070.json) also passed on that source commit. The [verification index](../verification/README.md) distinguishes these records from the preserved October 2 evidence and the narrower [cleanup build/type certificate](../verification/elaboration-20261006/README.md).
+The [current full-run summary](../verification/portable-20261008/run-summary.json) records the current suite's proof-verification results and exact checked inputs. The [v2 review](STATEMENT_AUDIT_V2.md) and [selected statement manifest](../verification/statement-audit-delta-20261008.json) cover seven qualified endpoints against the exact arXiv v2 source. They do not formalize the whole manuscript or certify literal equivalence of its revised exploration-mark prose and the formal encoding.
 
-The completed Linux expected-statement applications and root-axiom probes were recovered from the hash-verified job artifact after the recorder rejected universe annotations in printed axiom names. These checks used the same fresh Linux project objects, whose declaration export matched the frozen metadata. No proof commands were rerun. The [recovery provenance](../verification/statement-audit-20261007/recovery.json) binds the original outputs and source commit; it explicitly records that the original recorder driver's argument list was not retained. Source/artifact hashes identify the exact checked inputs, including changes beyond a report's recorded base Git commit.
+The preserved [October 7 full-run summary](../verification/portable-20261007/run-summary.json) records successful all-mode verification of its earlier five-configuration/six-root suite on source commit `38b36070`. The [overall GitHub job record](../verification/github-actions-release-all-38b36070.json) and [verbatim excerpt](../verification/github-actions-release-all-38b36070-excerpt.log) retain the later statement-recorder failure and skipped website step. [Normal Lean CI](../verification/github-actions-release-38b36070.json) also passed on that source commit. The [verification index](../verification/README.md) distinguishes those historical records from current evidence.
+
+The earlier Linux expected-statement applications and six root-axiom probes were recovered from the hash-verified job artifact after the recorder rejected universe annotations in printed axiom names. Those checks used the same fresh Linux project objects, whose declaration export matched the frozen metadata. Recovery reran no proof commands. The [recovery provenance](../verification/statement-audit-20261007/recovery.json) binds those original outputs and source commit; it explicitly records that the original recorder driver's argument list was not retained. Source/artifact hashes identify the exact checked inputs, including changes beyond a report's recorded base Git commit.
 
 Check the retained release records' freshness:
 
@@ -91,13 +93,13 @@ python3 verification/check_reports.py
 python3 verification/check_statement_audit.py
 ```
 
-Both evidence checks pass for the release records. They validate selected
-source, tool and evidence hashes without repeating proof checks or semantic
-review. The [statement-review continuation](STATEMENT_AUDIT_DELTA.md) retains
-six qualified findings and records its incremental exact-type and axiom checks
-separately from the full build, Comparator and Nanoda run. It does not claim a
-complete semantic audit, machine-certified English–Lean equivalence or
-independent human certification.
+These commands validate selected source, tool and evidence hashes without
+repeating proof checks or semantic review. The [v2 continuation](STATEMENT_AUDIT_V2.md)
+records seven qualified findings separately from the full build, Comparator and
+Nanoda run. The [older cleanup continuation](STATEMENT_AUDIT_DELTA.md) remains
+bound to its original manuscript and six roots. Neither review claims a complete
+manuscript audit, machine-certified English–Lean equivalence or independent
+human certification.
 
 ## Tool pins
 
@@ -115,6 +117,6 @@ The full Nanoda pin, including `Cargo.lock` SHA-256, is in [verification/nanoda/
 
 Comparator mode directly invokes the pinned comparison and axiom-checking APIs, followed by Lean kernel replay. Nanoda supplies an independent kernel implementation. Both run **unsandboxed on trusted local sources**. This workflow does not claim execution of the sandboxed upstream Comparator CLI.
 
-Review the challenge import closures, definitions, and expected statements: they include lower-level project lemmas. Challenge files contain six intentional `sorry` placeholders for expected statements; these are excluded from the proof build and are never accepted as solution proofs. Solution axiom closures must contain only `propext`, `Classical.choice`, and `Quot.sound`.
+Review the challenge import closures, definitions, and expected statements: they include lower-level project lemmas. Challenge files contain seven intentional `sorry` placeholders for expected statements; these are excluded from the proof build and are never accepted as solution proofs. Solution axiom closures must contain only `propext`, `Classical.choice`, and `Quot.sound`.
 
 Kernel checking establishes the formal statements. It does not establish the natural-language correspondence or formalize the entire manuscript. See [formalization scope](FORMALIZATION_STATUS.md) and [challenge trust assumptions](../ComparatorChallenges/README.md).

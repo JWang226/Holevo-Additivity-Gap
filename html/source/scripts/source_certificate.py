@@ -10,9 +10,11 @@ from __future__ import annotations
 
 import hashlib
 import json
+from copy import deepcopy
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+import tomllib
 
 BEFORE_COMMIT = "a92c087e85603032cd0ece7b766b1f192b17a69e"
 AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
@@ -23,6 +25,11 @@ DRIVER_FILES = ("build.sh", "lean.sh", "scripts/compiler.py", "lean-toolchain",
 CONFIGS = tuple("ComparatorChallenges/" + name + ".json" for name in (
     "A_PrescribedDimensions", "B_OperationalCoding", "C_SmallInformationSeparation",
     "D_WeylAllUses", "E_InputCost"))
+ADDITIONAL_CONFIG = "ComparatorChallenges/F_TwoUseSeparation.json"
+ADDITIONAL_MODULE = "ComparatorChallenges.F_TwoUseSeparation"
+ADDITIONAL_ROOT = "Nonadditivity.DeterministicConsequences.actual_small_large"
+ADDITIONAL_SOLUTION = "Nonadditivity.DeterministicConsequences"
+ADDITIVE_SCOPE = "recorded_rebuild_and_public_types_with_additive_challenge_configuration"
 
 
 def require(condition: bool, message: str) -> None:
@@ -61,12 +68,14 @@ def read_json(path: Path) -> dict:
     return value
 
 
-def hash_bindings(root: Path, value: object, label: str) -> dict[str, str]:
+def hash_bindings(root: Path, value: object, label: str, *,
+                  historical_lakefile: Path | None = None) -> dict[str, str]:
     require(isinstance(value, dict) and bool(value), "Missing " + label)
     for name, sha256 in value.items():
         require(isinstance(sha256, str) and re.fullmatch(r"[0-9a-f]{64}", sha256),
                 "Invalid " + label + " hash: " + name)
-        require(digest(local_file(root, name)) == sha256, "Stale " + label + ": " + name)
+        path = historical_lakefile if name == "lakefile.toml" and historical_lakefile is not None else local_file(root, name)
+        require(digest(path) == sha256, "Stale " + label + ": " + name)
     return value
 
 
@@ -105,8 +114,9 @@ def check_committed_snapshot(root: Path, commit: str, hashes: dict[str, str]) ->
     require(offset == len(data), "Unexpected trailing Git snapshot data")
 
 
-def load_source_certificate(root: Path, name: str, proof_paths: set[str]) -> dict:
-    """Require full current-source coverage and fresh recorded rebuild/type evidence."""
+def _load_rebuild_certificate(root: Path, name: str, proof_paths: set[str], *,
+                              historical_lakefile: Path | None = None) -> dict:
+    """Validate the immutable rebuild record; only the additive loader supplies an old Lake file."""
     certificate_path = local_file(root, name)
     certificate_sha256 = digest(certificate_path)
     certificate = read_json(certificate_path)
@@ -140,7 +150,8 @@ def load_source_certificate(root: Path, name: str, proof_paths: set[str]) -> dic
             and coverage.get("expected") == coverage.get("measured") == len(proof_paths)
             and all(coverage.get(field) == [] for field in ("missing", "unexpected", "duplicates", "failed")),
             "Measured rebuild lacks complete successful module coverage")
-    measured_inputs = hash_bindings(root, summary.get("source_hashes_before"), "measured source/driver inputs")
+    measured_inputs = hash_bindings(root, summary.get("source_hashes_before"), "measured source/driver inputs",
+                                   historical_lakefile=historical_lakefile)
     require(set(measured_inputs) == proof_paths | set(DRIVER_FILES),
             "Measured source/driver inventory differs from complete proofs plus seven drivers")
     require(summary.get("source_hashes_after") == measured_inputs
@@ -175,7 +186,8 @@ def load_source_certificate(root: Path, name: str, proof_paths: set[str]) -> dic
     reference(root, comparison.get("checker"), "public-type comparison script")
     fresh_export = local_file(root, "metadata/declarations.json")
     require(digest(fresh_export) == comparison.get("after_export_sha256"), "Stale compared declaration export")
-    export_inputs = hash_bindings(root, comparison.get("after_source_sha256"), "compared export inputs")
+    export_inputs = hash_bindings(root, comparison.get("after_source_sha256"), "compared export inputs",
+                                 historical_lakefile=historical_lakefile)
     require(all(export_inputs.get(path) == sha for path, sha in sources.items()),
             "Compared export omits the checked proof sources")
     expected_challenge_paths = set(CONFIGS) | {name.removesuffix(".json") + ".lean" for name in CONFIGS}
@@ -222,3 +234,94 @@ def load_source_certificate(root: Path, name: str, proof_paths: set[str]) -> dic
     require(digest(certificate_path) == certificate_sha256, "Certificate changed during validation")
     return {"method": "full_rebuild_and_exact_public_types", "path": name,
             "sha256": certificate_sha256, "source_commit": commit, "proof_source_sha256": sources}
+
+
+def _load_additive_certificate(root: Path, name: str, proof_paths: set[str], certificate: dict) -> dict:
+    """Allow one new isolated challenge while retaining every recorded proof/type binding.
+
+    The predecessor is validated against its own hash-bound Lake file. This is
+    not a fresh rebuild or expected-statement check. The portable workflow must
+    execute those checks separately against the extended configuration.
+    """
+    certificate_path = local_file(root, name)
+    certificate_sha256 = digest(certificate_path)
+    require(type(certificate.get("schema_version")) is int and certificate["schema_version"] == 2
+            and certificate.get("status") == "passed" and certificate.get("scope") == ADDITIVE_SCOPE,
+            "Unsupported or incomplete additive source certificate")
+    require(set(certificate.get("permitted_transitive_axioms", [])) == AXIOMS,
+            "Unexpected additive certificate axiom policy")
+    for flag in ("new_source_rebuild", "additional_expected_statement_check",
+                 "external_comparator_execution", "independent_kernel_execution"):
+        require(certificate.get(flag) == "not_run", "Additive certificate must not claim new proof execution")
+    base_path, base_sha256 = reference(root, certificate.get("base_certificate"), "base source certificate")
+    require(base_path != certificate_path, "Additive certificate cannot reference itself")
+    base = read_json(base_path)
+    require(type(base.get("schema_version")) is int and base["schema_version"] == 1,
+            "Additive certificate must reference an immutable schema-1 rebuild certificate")
+    old_lakefile, _ = reference(root, certificate.get("historical_lakefile"), "historical Lake configuration")
+    require(old_lakefile != root / "lakefile.toml", "Historical Lake configuration must be a separate retained file")
+    base_result = _load_rebuild_certificate(root, base_path.relative_to(root).as_posix(), proof_paths,
+                                          historical_lakefile=old_lakefile)
+    require(base_result["sha256"] == base_sha256, "Base source certificate changed during additive validation")
+
+    current_lakefile = local_file(root, "lakefile.toml")
+    current_lakefile_sha256 = digest(current_lakefile)
+    require(current_lakefile_sha256 == certificate.get("current_lakefile_sha256"),
+            "Stale additive Lake configuration")
+    old_config = tomllib.loads(old_lakefile.read_text())
+    expected_config = deepcopy(old_config)
+    libraries = expected_config.get("lean_lib", [])
+    challenges = [library for library in libraries if library.get("name") == "ComparatorChallenges"]
+    base_roots = [filename.removesuffix(".json").replace("/", ".") for filename in CONFIGS]
+    require(len(challenges) == 1 and challenges[0].get("roots") == base_roots,
+            "Unexpected historical challenge library roots")
+    challenges[0]["roots"] = base_roots + [ADDITIONAL_MODULE]
+    require(tomllib.loads(current_lakefile.read_text()) == expected_config,
+            "Lake configuration changed beyond appending the isolated F challenge root")
+
+    challenge_paths = {ADDITIONAL_CONFIG, ADDITIONAL_CONFIG.removesuffix(".json") + ".lean"}
+    additional_inputs = hash_bindings(root, certificate.get("additional_challenge_sha256"), "additional challenge inputs")
+    require(set(additional_inputs) == challenge_paths, "Unexpected additive challenge input inventory")
+    actual_configs = {path.relative_to(root).as_posix() for path in (root / "ComparatorChallenges").glob("*.json")}
+    require(actual_configs == set(CONFIGS) | {ADDITIONAL_CONFIG}, "Unexpected additive Comparator configuration inventory")
+    additional = read_json(local_file(root, ADDITIONAL_CONFIG))
+    require(set(additional) == {"challenge_module", "solution_module", "theorem_names", "permitted_axioms", "enable_nanoda"}
+            and additional["challenge_module"] == ADDITIONAL_MODULE
+            and additional["solution_module"] == ADDITIONAL_SOLUTION
+            and additional["theorem_names"] == [ADDITIONAL_ROOT]
+            and isinstance(additional["permitted_axioms"], list)
+            and len(additional["permitted_axioms"]) == 3 and set(additional["permitted_axioms"]) == AXIOMS
+            and additional["enable_nanoda"] is False,
+            "Unexpected additive challenge target, modules, or axiom policy")
+    declarations = read_json(local_file(root, "metadata/declarations.json")).get("declarations")
+    require(isinstance(declarations, list), "Missing unchanged public declaration export")
+    matches = [entry for entry in declarations if isinstance(entry, dict) and entry.get("name") == ADDITIONAL_ROOT]
+    require(len(matches) == 1 and matches[0].get("kind") == "theorem"
+            and matches[0].get("module") == ADDITIONAL_SOLUTION
+            and matches[0].get("file") == ADDITIONAL_SOLUTION.replace(".", "/") + ".lean"
+            and matches[0]["file"] in proof_paths
+            and all(matches[0].get(flag) is False for flag in PUBLIC_FLAGS),
+            "Additional root is not a previously compared public theorem")
+    require(isinstance(matches[0].get("type_sha256"), str)
+            and re.fullmatch(r"[0-9a-f]{64}", matches[0]["type_sha256"])
+            and certificate.get("additional_root") == {key: matches[0][key]
+                                                       for key in ("name", "kind", "module", "file", "type_sha256")},
+            "Additional root identity or type differs from the unchanged public export")
+    require(digest(certificate_path) == certificate_sha256
+            and digest(base_path) == base_sha256 and digest(current_lakefile) == current_lakefile_sha256
+            and all(digest(local_file(root, path)) == sha for path, sha in additional_inputs.items()),
+            "Additive source certificate inputs changed during validation")
+    return {"method": "recorded_rebuild_and_exact_public_types_with_additive_challenge", "path": name,
+            "sha256": certificate_sha256, "source_commit": base_result["source_commit"],
+            "proof_source_sha256": base_result["proof_source_sha256"],
+            "base_certificate": {"path": base_result["path"], "sha256": base_sha256},
+            "additional_root": ADDITIONAL_ROOT, "new_source_rebuild": "not_run",
+            "additional_expected_statement_check": "not_run"}
+
+
+def load_source_certificate(root: Path, name: str, proof_paths: set[str]) -> dict:
+    """Validate the selected rebuild certificate or its explicit additive successor."""
+    certificate = read_json(local_file(root, name))
+    if type(certificate.get("schema_version")) is int and certificate["schema_version"] == 2:
+        return _load_additive_certificate(root, name, proof_paths, certificate)
+    return _load_rebuild_certificate(root, name, proof_paths)

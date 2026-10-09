@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "audit": {
-    "path": "verification/statement-audit-delta-20261007.json",
-    "sha256": "b6cba322673bb0ec5ff161e9601da606140340d52dac4fa9e0144c5b24cf8852"
+    "path": "verification/statement-audit-delta-20261008.json",
+    "sha256": "268906e279d91730a8189641d0ffed3656b73e1eb291382e63b27977ef531b3d"
   },
-  "scope": "Historical independent reviews continued by the current cleanup delta; not machine-certified semantic equivalence."
+  "scope": "Published arXiv v2 and additive F review, retaining qualified historical findings with explicit C coverage correction; not machine-certified semantic equivalence."
 }
